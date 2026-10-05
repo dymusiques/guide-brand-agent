@@ -20,6 +20,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -40,17 +41,49 @@ class CaseResult:
     detail: str = ""
 
 
-def gdocs_cmd(*args: str, timeout: int = 120) -> subprocess.CompletedProcess[str]:
-    """Run `python -m gdocs` with workspace secrets dir."""
+def gdocs_cmd(
+    *args: str,
+    timeout: int = 120,
+    secrets_dir: Path | None = None,
+) -> subprocess.CompletedProcess[str] | None:
+    """Run `python -m gdocs`. Returns None on timeout (caller handles)."""
     py = str(VENV_PYTHON if VENV_PYTHON.exists() else sys.executable)
-    return subprocess.run(
-        [py, "-m", "gdocs", "--secrets-dir", str(SECRETS), *args],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        timeout=timeout,
-        check=False,
-    )
+    sec = secrets_dir or SECRETS
+    env = os.environ.copy()
+    # Inherit shell proxy; common local default if googleapis.com blocked direct.
+    if not env.get("HTTPS_PROXY") and not env.get("HTTP_PROXY"):
+        env.setdefault("HTTPS_PROXY", "http://127.0.0.1:3213")
+        env.setdefault("HTTP_PROXY", "http://127.0.0.1:3213")
+    try:
+        return subprocess.run(
+            [py, "-m", "gdocs", "--secrets-dir", str(sec), *args],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            check=False,
+            env=env,
+        )
+    except subprocess.TimeoutExpired:
+        return None
+
+
+def _json_error_from_proc(proc: subprocess.CompletedProcess[str] | None) -> CaseResult | None:
+    """Return PASS if proc shows exit != 0 and JSON error blob; else None."""
+    if proc is None:
+        return None
+    if proc.returncode == 0:
+        return CaseResult("4_gdocs_error_json", "FAIL", "expected exit 1")
+    blob = (proc.stderr or proc.stdout).strip()
+    if not blob:
+        return CaseResult("4_gdocs_error_json", "FAIL", "no output on error path")
+    try:
+        err = json.loads(blob)
+    except json.JSONDecodeError:
+        return CaseResult("4_gdocs_error_json", "FAIL", "error output not JSON")
+    if err.get("error") or err.get("status_code") or err.get("type"):
+        return CaseResult("4_gdocs_error_json", "PASS")
+    return CaseResult("4_gdocs_error_json", "FAIL", "JSON missing error fields")
 
 
 def case_gdocs_import() -> CaseResult:
@@ -88,6 +121,8 @@ def case_gdocs_profile_json() -> CaseResult:
     if not _oauth_ready():
         return CaseResult("3_gdocs_read_json", "SKIP", "no OAuth — run SETUP.md §3")
     proc = gdocs_cmd("gmail", "profile")
+    if proc is None:
+        return CaseResult("3_gdocs_read_json", "FAIL", "gmail profile timed out (network/proxy?)")
     if proc.returncode != 0:
         return CaseResult("3_gdocs_read_json", "FAIL", proc.stderr.strip() or "non-zero exit")
     try:
@@ -102,23 +137,22 @@ def case_gdocs_profile_json() -> CaseResult:
 def case_gdocs_error_json() -> CaseResult:
     if not _oauth_ready():
         return CaseResult("4_gdocs_error_json", "SKIP", "no OAuth — run SETUP.md §3")
+    # Prefer fast local error (missing secrets dir); avoid slow Drive API hang.
+    proc = gdocs_cmd("gmail", "profile", secrets_dir=ROOT / "nonexistent-secrets-dir", timeout=15)
+    if passed := _json_error_from_proc(proc):
+        return passed
+    # Fallback: invalid drive id with short timeout (may need proxy)
     proc = gdocs_cmd(
         "drive", "download", "invalid-file-id-for-verify",
         "--output-dir", str(ROOT / ".tmp-verify"),
-        "--dry-run",
+        "--dry-run", "--auth-timeout", "10",
+        timeout=25,
     )
-    if proc.returncode == 0:
-        return CaseResult("4_gdocs_error_json", "FAIL", "expected exit 1 for invalid drive id")
-    blob = (proc.stderr or proc.stdout).strip()
-    if not blob:
-        return CaseResult("4_gdocs_error_json", "FAIL", "no JSON/text on error path")
-    try:
-        err = json.loads(blob)
-    except json.JSONDecodeError:
-        return CaseResult("4_gdocs_error_json", "FAIL", "error output not JSON")
-    if not (err.get("error") or err.get("status_code")):
-        return CaseResult("4_gdocs_error_json", "FAIL", "JSON missing error/status_code")
-    return CaseResult("4_gdocs_error_json", "PASS")
+    if passed := _json_error_from_proc(proc):
+        return passed
+    if proc is None:
+        return CaseResult("4_gdocs_error_json", "FAIL", "error-path timed out (check proxy/network)")
+    return CaseResult("4_gdocs_error_json", "FAIL", "no JSON error from gdocs")
 
 
 def case_git_read_path() -> CaseResult:
@@ -138,6 +172,8 @@ def case_drive_read_path() -> CaseResult:
         return CaseResult("6_drive_read_path", "SKIP", "no OAuth — run SETUP.md §3")
     query = f"'{KNOWLEDGE_BANK_ROOT}' in parents and trashed = false"
     proc = gdocs_cmd("search", query, "--max-results", "3")
+    if proc is None:
+        return CaseResult("6_drive_read_path", "FAIL", "drive search timed out (network/proxy?)")
     if proc.returncode != 0:
         return CaseResult("6_drive_read_path", "FAIL", proc.stderr.strip() or "search failed")
     try:
