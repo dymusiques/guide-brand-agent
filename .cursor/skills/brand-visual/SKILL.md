@@ -9,9 +9,23 @@ description: >-
 
 ## 读什么
 
-1. `guide-core/soul.md`
-2. Drive `06-visual/` + Canva Brand Kit（MCP 授权后）
-3. Canva skills：`brand-check`, `edit-design`, `resize-for-social-media`
+1. `guide-core/soul.md` + `rules/USER.md`（视觉规范）
+2. Git `content/visual/`（Brief + Canva 链接，真相源，优先）
+3. Canva Brand Kit（MCP 授权后）
+4. Drive `06-visual/`（仅 Owner 已同步定稿时查阅）
+5. Canva skills：`brand-check`, `edit-design`, `resize-for-social-media`
+
+## 存储默认规则
+
+与 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md) 一致：
+
+1. **草稿** → 写 `content/visual/`（Brief + Canva 设计链接）
+2. **稳定 / 定稿** → git commit（Owner 说「定稿」或段落完成时）
+3. **Drive** → 仅 Owner 说「同步 Drive」→ 写入 `06-visual/`
+4. **Canva** → 成品留在 Canva；Git 只存链接，不占 Drive
+5. **禁止** → 只写 Drive 不 commit；未 commit 就称交班完成
+
+交班前：`bash scripts/verify-handoff.sh`
 
 ## 产出
 
@@ -22,4 +36,5 @@ description: >-
 ## 验收
 
 - [ ] 与 Brand Kit 或 `rules/USER.md` 中的视觉规范一致
-- [ ] 写入 `content/visual/` 或 Canva 链接回写 Drive
+- [ ] 已写入 `content/visual/`（Brief + Canva 链接）且稳定后 commit
+- [ ] （可选）Owner 说「同步 Drive」时已写入 `06-visual/`

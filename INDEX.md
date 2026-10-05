@@ -28,9 +28,10 @@
 1. [AGENTS.md](AGENTS.md)
 2. [integrations/index.md](integrations/index.md) — **按任务查表，禁止全盘搜索**
 3. 命中领域 → 读 `.cursor/skills/<domain>/SKILL.md`
-4. 读 Drive 对应文件夹（MCP 或 gdocs）
-5. 参考 `kernels/templates/` 产出 → `content/` + Drive sync
-6. Hub 共享规则：[danying-apps rules/check](https://github.com/dymusiques/danying-apps/blob/main/rules/check/check.md)
+4. 读 Git `content/<domain>/`（真相源）；Drive 仅 Owner 已同步时查阅
+5. 参考 `kernels/templates/` 产出 → `content/` → 稳定后 commit → （可选）Owner 说「同步 Drive」
+6. 交班前：`bash scripts/verify-handoff.sh`
+7. Hub 共享规则：[danying-apps rules/check](https://github.com/dymusiques/danying-apps/blob/main/rules/check/check.md)
 
 ---
 

@@ -10,8 +10,20 @@ description: >-
 ## 读什么
 
 1. `guide-core/soul.md` + `guide-core/user.md`
-2. Drive `02-personal-ip/`（有 folder ID 时）
-3. `kernels/templates/ip-positioning-brief.template.md`
+2. Git `content/personal-ip/` + `rules/USER.md`（真相源，优先）
+3. Drive `02-personal-ip/`（仅 Owner 已同步定稿时查阅）
+4. `kernels/templates/ip-positioning-brief.template.md`
+
+## 存储默认规则
+
+与 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md) 一致：
+
+1. **草稿** → 写 `content/personal-ip/`
+2. **稳定 / 定稿** → git commit（Owner 说「定稿」或段落完成时）
+3. **Drive** → 仅 Owner 说「同步 Drive」→ 写入 `02-personal-ip/`
+4. **禁止** → 只写 Drive 不 commit；未 commit 就称交班完成
+
+交班前：`bash scripts/verify-handoff.sh`
 
 ## 产出
 
@@ -23,4 +35,5 @@ description: >-
 
 - [ ] 与现有 Danying 品牌不冲突
 - [ ] 可执行（至少 2 周内容方向清晰）
-- [ ] 写入 `content/personal-ip/` 或 Drive sync
+- [ ] 已写入 `content/personal-ip/` 且稳定后 commit
+- [ ] （可选）Owner 说「同步 Drive」时已写入 `02-personal-ip/`

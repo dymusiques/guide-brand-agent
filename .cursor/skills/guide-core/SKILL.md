@@ -42,4 +42,4 @@ description: >-
 ## Generative Kernel 原则
 
 - 复用 `kernels/` 里的参考实现与模板，现场组装，不跑死程序
-- 每个任务结束：可沉淀案例到 `kernels/examples/` 或 Drive `99-examples/`
+- 每个任务结束：可沉淀案例到 `kernels/examples/`（commit）；Drive `99-examples/` 仅 Owner 说「同步 Drive」时
