@@ -8,6 +8,10 @@ This folder is the home for a multi-domain AI agent (personal IP, brand, marketi
 
 Owner 说 **`全部克隆`** → 不在本仓单独 clone → 读 Hub [全部克隆.md](https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md) → 跑 `scripts/clone-all.sh` → 再读本仓 `SETUP.md`。
 
+## 验收 / verify
+
+交付前：读本仓 [`check.md`](check.md)（含 hub [`VERIFY-MAP.md`](https://github.com/dymusiques/danying-apps/blob/main/rules/check/VERIFY-MAP.md) 链接）。**Module 3 课纲 6 test 不在本仓** — 见 VERIFY-MAP 路由表。
+
 ## Every Session
 
 Before doing anything else:
