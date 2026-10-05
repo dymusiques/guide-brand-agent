@@ -1,0 +1,3 @@
+[submodule "vendor/gdocs-skill"]
+	path = vendor/gdocs-skill
+	url = https://github.com/grapeot/gdocs-skill.git

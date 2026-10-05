@@ -1,0 +1,16 @@
+---
+description: Route Guide workspace tasks to guide-core and domain skills
+alwaysApply: true
+---
+
+# Guide Orchestrator
+
+Multi-domain brand agent workspace. On brand/IP/marketing/XHS/visual tasks:
+
+1. Read `AGENTS.md` → `rules/WORKSPACE.md` → `rules/skills/INDEX.md`
+2. Load `.cursor/skills/guide-core/SKILL.md` and route per `routing.md`
+3. Google Docs/Gmail/Calendar → `rules/skills/skill_google_docs.md` (+ local overlay)
+4. Generative templates → `kernels/templates/`
+5. Local drafts → `content/<domain>/`
+
+Do not invent Drive folder IDs; use overlay or search when MCP is authorized.

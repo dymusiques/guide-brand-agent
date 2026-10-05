@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
+
+# gdocs-skill — never commit credentials or private mail cache
+vendor/gdocs-skill/secrets/*
+!vendor/gdocs-skill/secrets/.gitkeep
+vendor/gdocs-skill/data/
+vendor/gdocs-skill/.venv/
+
+# Local skill overlays (paths, aliases — private)
+rules/skills/overlays/*.local.md
