@@ -4,6 +4,10 @@ This folder is the home for a multi-domain AI agent (personal IP, brand, marketi
 
 > **Hub 总入口：** [danying-apps](https://github.com/dymusiques/danying-apps) · 本仓索引：[INDEX.md](INDEX.md)
 
+## 全部克隆（换机 / 新 Agent）
+
+Owner 说 **`全部克隆`** → 不在本仓单独 clone → 读 Hub [全部克隆.md](https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md) → 跑 `scripts/clone-all.sh` → 再读本仓 `SETUP.md`。
+
 ## Every Session
 
 Before doing anything else:

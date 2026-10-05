@@ -1,0 +1,14 @@
+---
+description: Route 全部克隆 to hub playbook — do not ask which repos
+alwaysApply: true
+---
+
+# 全部克隆
+
+If user says **全部克隆** · **换机** · **新电脑** · **新 Agent 接手**:
+
+Execute Hub playbook: https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md
+
+Run clone script from hub: `bash ~/danying-apps/scripts/clone-all.sh`
+
+Then this repo SETUP.md. Agent runs all steps; only OAuth/MCP are Owner manual.

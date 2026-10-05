@@ -33,4 +33,4 @@ Root: `1jLcbbr0WkmEI8mJlsf5R4Y1NtSGEP8_c` — 完整表见 `rules/skills/overlay
 | 打开文件在 `content/xiaohongshu/` | → xiaohongshu |
 | 用户提「听见 Daily」「长笛资讯」 | → danying-tingjian-daily skill + 本仓 IP 分层 |
 | 用户提「Google Doc」「sync markdown」 | → skill_google_docs |
-| 用户说「全部克隆 / 换机」 | → hub [danying-apps 装机.md](https://github.com/dymusiques/danying-apps/blob/main/装机.md) + [新电脑一句话.md](../新电脑一句话.md) |
+| 用户说 **「全部克隆」** / 换机 / 新电脑 | → **Hub [全部克隆.md](https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md)** + `scripts/clone-all.sh`；**禁止**反问 clone 哪些 |
