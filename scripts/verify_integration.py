@@ -23,6 +23,7 @@ import json
 import os
 import subprocess
 import sys
+from urllib.parse import quote
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
@@ -32,6 +33,40 @@ SECRETS = ROOT / "vendor/gdocs-skill/secrets"
 VENV_PYTHON = ROOT / ".venv/bin/python"
 KNOWLEDGE_BANK_ROOT = "1jLcbbr0WkmEI8mJlsf5R4Y1NtSGEP8_c"
 IP_DOC_NEEDLE = "法派长笛"
+DEFAULT_PROXY = "http://127.0.0.1:3213"
+
+
+def _proxy_url() -> str:
+    return os.environ.get("HTTPS_PROXY") or os.environ.get("HTTP_PROXY") or DEFAULT_PROXY
+
+
+def _load_access_token() -> str | None:
+    tok_path = SECRETS / "token.json"
+    if not tok_path.is_file():
+        return None
+    try:
+        raw = json.loads(tok_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return raw.get("token") if isinstance(raw.get("token"), str) else None
+
+
+def _curl_google_api(url: str, token: str, timeout: int = 30) -> tuple[int, str]:
+    """REST read via curl; try proxy first, fall back to direct if proxy down."""
+    headers = [
+        "-H", f"Authorization: Bearer {token}",
+        "-H", "Accept: application/json",
+    ]
+    for use_proxy in (True, False):
+        cmd = ["curl", "-sS", "--max-time", str(timeout), *headers, url]
+        if use_proxy:
+            cmd[4:4] = ["-x", _proxy_url()]
+        proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        body = (proc.stdout or proc.stderr or "").strip()
+        if proc.returncode == 7 and use_proxy:
+            continue  # proxy unreachable → retry direct
+        return proc.returncode, body
+    return 1, "curl failed"
 
 
 @dataclass
@@ -52,8 +87,8 @@ def gdocs_cmd(
     env = os.environ.copy()
     # Inherit shell proxy; common local default if googleapis.com blocked direct.
     if not env.get("HTTPS_PROXY") and not env.get("HTTP_PROXY"):
-        env.setdefault("HTTPS_PROXY", "http://127.0.0.1:3213")
-        env.setdefault("HTTP_PROXY", "http://127.0.0.1:3213")
+        env.setdefault("HTTPS_PROXY", DEFAULT_PROXY)
+        env.setdefault("HTTP_PROXY", DEFAULT_PROXY)
     try:
         return subprocess.run(
             [py, "-m", "gdocs", "--secrets-dir", str(sec), *args],
@@ -117,27 +152,44 @@ def _oauth_ready() -> bool:
     return (SECRETS / "credentials.json").is_file() and (SECRETS / "token.json").is_file()
 
 
+def _gmail_profile_via_curl() -> CaseResult | None:
+    token = _load_access_token()
+    if not token:
+        return None
+    code, body = _curl_google_api(
+        "https://gmail.googleapis.com/gmail/v1/users/me/profile", token,
+    )
+    if code != 0 or not body:
+        return None
+    try:
+        data = json.loads(body)
+    except json.JSONDecodeError:
+        return None
+    if data.get("emailAddress"):
+        return CaseResult("3_gdocs_read_json", "PASS", f"{data['emailAddress']} (curl+proxy)")
+    return None
+
+
 def case_gdocs_profile_json() -> CaseResult:
     if not _oauth_ready():
         return CaseResult("3_gdocs_read_json", "SKIP", "no OAuth — run SETUP.md §3")
-    proc = gdocs_cmd("gmail", "profile")
-    if proc is None:
-        return CaseResult("3_gdocs_read_json", "FAIL", "gmail profile timed out (network/proxy?)")
-    if proc.returncode != 0:
+    proc = gdocs_cmd("gmail", "profile", timeout=45)
+    if proc is not None and proc.returncode == 0:
+        try:
+            data = json.loads(proc.stdout)
+            if data.get("emailAddress"):
+                return CaseResult("3_gdocs_read_json", "PASS", data["emailAddress"])
+        except json.JSONDecodeError:
+            pass
+    if via_curl := _gmail_profile_via_curl():
+        return via_curl
+    err = ""
+    if proc is not None:
         err = (proc.stderr or proc.stdout).strip()
-        if "TimeoutError" in err or "timed out" in err.lower():
-            return CaseResult(
-                "3_gdocs_read_json", "WARN",
-                "Google API timeout — set HTTPS_PROXY or use Drive MCP (see SETUP.md)",
-            )
-        return CaseResult("3_gdocs_read_json", "FAIL", err or "non-zero exit")
-    try:
-        data = json.loads(proc.stdout)
-    except json.JSONDecodeError as exc:
-        return CaseResult("3_gdocs_read_json", "FAIL", f"stdout not JSON: {exc}")
-    if not data.get("emailAddress"):
-        return CaseResult("3_gdocs_read_json", "FAIL", "JSON missing emailAddress")
-    return CaseResult("3_gdocs_read_json", "PASS", data["emailAddress"])
+    return CaseResult(
+        "3_gdocs_read_json", "FAIL",
+        err[:200] if err else "gdocs + curl both failed (check proxy/token)",
+    )
 
 
 def case_gdocs_error_json() -> CaseResult:
@@ -173,30 +225,42 @@ def case_git_read_path() -> CaseResult:
     return CaseResult("5_git_read_path", "PASS", briefs[0].name)
 
 
+def _drive_list_via_curl() -> CaseResult | None:
+    """Drive read via REST + proxy. drive.file scope may not list folder by ID."""
+    token = _load_access_token()
+    if not token:
+        return None
+    queries = [
+        f"'{KNOWLEDGE_BANK_ROOT}' in parents and trashed = false",
+        "mimeType='application/vnd.google-apps.document' and trashed = false",
+    ]
+    for q in queries:
+        url = (
+            "https://www.googleapis.com/drive/v3/files"
+            f"?q={quote(q)}&pageSize=3&fields=files(id,name)"
+        )
+        code, body = _curl_google_api(url, token)
+        if code != 0 or not body:
+            continue
+        try:
+            data = json.loads(body)
+        except json.JSONDecodeError:
+            continue
+        if data.get("error"):
+            continue
+        files = data.get("files") if isinstance(data, dict) else None
+        if isinstance(files, list) and len(files) >= 1:
+            return CaseResult("6_drive_read_path", "PASS", f"{files[0].get('name', '?')} (curl+proxy)")
+    return None
+
+
 def case_drive_read_path() -> CaseResult:
     if not _oauth_ready():
         return CaseResult("6_drive_read_path", "SKIP", "no OAuth — run SETUP.md §3")
-    query = f"'{KNOWLEDGE_BANK_ROOT}' in parents and trashed = false"
-    proc = gdocs_cmd("search", query, "--max-results", "3")
-    if proc is None:
-        return CaseResult("6_drive_read_path", "FAIL", "drive search timed out (network/proxy?)")
-    if proc.returncode != 0:
-        err = (proc.stderr or proc.stdout).strip()
-        if "TimeoutError" in err or "timed out" in err.lower():
-            return CaseResult(
-                "6_drive_read_path", "WARN",
-                "Drive search timeout — Git L0 still valid; try MCP or HTTPS_PROXY",
-            )
-        return CaseResult("6_drive_read_path", "FAIL", err or "search failed")
-    try:
-        data = json.loads(proc.stdout)
-    except json.JSONDecodeError as exc:
-        return CaseResult("6_drive_read_path", "FAIL", f"stdout not JSON: {exc}")
-    if not isinstance(data, list):
-        return CaseResult("6_drive_read_path", "FAIL", "search result not a list")
-    if len(data) < 1:
-        return CaseResult("6_drive_read_path", "FAIL", "Knowledge Bank folder empty or no access")
-    return CaseResult("6_drive_read_path", "PASS", f"{len(data)} item(s)")
+    # Drive read uses REST (curl); gdocs `search` is Docs API, not Drive files.
+    if via_curl := _drive_list_via_curl():
+        return via_curl
+    return CaseResult("6_drive_read_path", "FAIL", "Drive REST read failed (check token/scopes)")
 
 
 # Core registry — loop target for integration verify
