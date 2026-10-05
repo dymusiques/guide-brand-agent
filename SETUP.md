@@ -8,6 +8,8 @@
 origin repo clone danying/guide-brand-agent ~/guide-brand-agent
 cd ~/guide-brand-agent
 git submodule update --init --recursive
+# 若 submodule 拉取失败（无法直连 github.com），临时开代理后重跑上一行，例如：
+# export HTTPS_PROXY=http://127.0.0.1:3213 HTTP_PROXY=http://127.0.0.1:3213
 ```
 
 ## 2. Python

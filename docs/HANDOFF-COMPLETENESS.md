@@ -71,6 +71,8 @@
 
 **无 L1：** Agent 仍可读 Git、写本地 `content/`；**不能**自动 sync Google Doc，直到 Owner 授权。
 
+**新机网络：** `vendor/gdocs-skill` 是 GitHub submodule；若 `git submodule update` 失败，需能访问 `github.com` 或临时设置 `HTTPS_PROXY` 后重试（见 `SETUP.md` §1）。
+
 ---
 
 ## 5. 产出工作流（Agent 必须遵守）

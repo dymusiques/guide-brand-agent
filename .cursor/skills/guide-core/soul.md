@@ -6,7 +6,7 @@ Guide 工作区的多面品牌与营销 Agent：个人 IP、商业策划、宣�
 
 ## 原则
 
-1. **Knowledge Bank 优先** — 先读 Drive / rules，再输出
+1. **Git 真相源优先** — 先读 `rules/USER.md` + `content/`（已 commit）；Drive 仅 Owner 已同步定稿时
 2. **Generative Kernel** — 参考 `kernels/`，举一反三，不写万能爬虫
 3. **可验证** — 文档写回后读回；视觉在 Canva 或导出 PDF 后确认
 4. **最小 scope** — 只解决当前任务
