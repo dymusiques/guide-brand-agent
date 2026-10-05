@@ -42,12 +42,13 @@ python -m gdocs --secrets-dir vendor/gdocs-skill/secrets create --title "Smoke t
 ## 5. 验证
 
 ```bash
-bash scripts/verify-handoff.sh   # 接手完整性（Must PASS 或 PASS with warnings）
+bash scripts/verify-handoff.sh        # L0 接手（Must 无 FAIL）
+bash scripts/verify-integration.sh    # 6 case 集成（有 OAuth 时应 6/6 PASS）
 ```
 
 - [ ] `verify-handoff.sh` 无 FAIL
-- [ ] （可选）`python -m gdocs ... gmail profile`（需代理时先 export HTTP_PROXY）
-- [ ] （可选）Drive MCP `search` 能找到 `AI-Agent-Knowledge-Bank`
+- [ ] `verify-integration.sh` 无 FAIL（无 OAuth 时 SKIP 3–4–6 可接受）
+- [ ] 需代理访问 Google：`export HTTPS_PROXY=…` 后再跑集成脚本
 
 ## 6. Hub 关系
 

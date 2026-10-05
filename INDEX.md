@@ -17,7 +17,8 @@
 | 领域 Skill | [.cursor/skills/](.cursor/skills/) | guide-core + 5 领域 |
 | Kernel 模板 | [kernels/templates/](kernels/templates/) | Generative Kernel |
 | 本地草稿 / Git 定稿 | [content/](content/) | 工作副本；稳定后 commit（见 [docs/HANDOFF-COMPLETENESS.md](docs/HANDOFF-COMPLETENESS.md)） |
-| 接手验证 | `scripts/verify-handoff.sh` | 新 Agent 能否完整接手 |
+| 接手验证 | `scripts/verify-handoff.sh` | L0 新 Agent 能否接手 |
+| 集成验证 | `scripts/verify-integration.sh` | 6 case · gdocs + Git/Drive 读 |
 | Google CLI | [rules/skills/skill_google_docs.md](rules/skills/skill_google_docs.md) | gdocs-skill |
 | Drive 知识库 | `AI-Agent-Knowledge-Bank/`（云端） | folder ID 见 overlay |
 

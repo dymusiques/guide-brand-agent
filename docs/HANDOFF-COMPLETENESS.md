@@ -92,7 +92,7 @@
 
 | 场景 | 读什么 |
 |------|--------|
-| 新机 | Hub `全部克隆.md` → 本仓 `SETUP.md` → **`bash scripts/verify-handoff.sh`** |
+| 新机 | Hub `全部克隆.md` → 本仓 `SETUP.md` → **`verify-handoff.sh`** → **`verify-integration.sh`** |
 | 日常任务 | `integrations/index.md` → 领域 Skill |
 | 交班前 | 本文件 + `verify-handoff.sh` 全绿（WARN 可接受并报告） |
 

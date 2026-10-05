@@ -48,10 +48,15 @@ Before doing anything else:
 
 命中后读对应 skill 文件再执行；INDEX.md 是唯一路由源。
 
+## 接手 / verify
+
+交付前读 [`check.md`](check.md)（含 hub [`VERIFY-MAP.md`](https://github.com/dymusiques/danying-apps/blob/main/rules/check/VERIFY-MAP.md)）。**Module 3 课纲 6 test 不在本仓** — 见 VERIFY-MAP 路由表。
+
 ## Handoff · 接手完整性
 
 - 策略：[docs/HANDOFF-COMPLETENESS.md](docs/HANDOFF-COMPLETENESS.md) — 什么必须在 Git、什么可选进 Drive
-- 验证：`bash scripts/verify-handoff.sh`（全部克隆后 / 交班前 Must 跑）
+- L0：`bash scripts/verify-handoff.sh`（全部克隆后 / 交班前 Must 跑）
+- 集成：`bash scripts/verify-integration.sh`（6 case · gdocs 读/错 + Git/Drive 读）
 - 定稿产出 **commit 进 Git**；Drive 仅 Owner 要求时 sync
 
 ## Safety

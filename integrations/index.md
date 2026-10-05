@@ -9,7 +9,7 @@
 2. 稳定 / 定稿 → **git commit**（新 Agent 接手必需）
 3. 可选 → Drive 同路径文件夹（分享用，不占必须）
 
-交班前运行：`bash scripts/verify-handoff.sh`
+交班前：`bash scripts/verify-handoff.sh` → `bash scripts/verify-integration.sh`（见 [check.md](../check.md)）
 
 ## 领域任务
 

@@ -1,0 +1,24 @@
+name: verify-guide-brand
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install gdocs-skill
+        run: pip install -e vendor/gdocs-skill
+      - name: L0 handoff verify
+        run: bash scripts/verify-handoff.sh
+      - name: Integration verify (skips without OAuth)
+        run: bash scripts/verify-integration.sh
