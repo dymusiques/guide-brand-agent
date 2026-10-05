@@ -1,6 +1,15 @@
 # Integrations · 任务路由表
 
-> **用法：** 用户说任务 → 匹配「意图」列 → 只读对应 Skill + Drive + 本地目录。**禁止**无路由全盘 grep。
+> **用法：** 用户说任务 → 匹配「意图」列 → 只读对应 Skill + **Git `content/`** + 本地目录。**禁止**无路由全盘 grep。  
+> **存储策略：** [docs/HANDOFF-COMPLETENESS.md](../docs/HANDOFF-COMPLETENESS.md) — Git 真相源；Drive 仅 Owner 说「同步 Drive」时写定稿。
+
+## 产出默认流程
+
+1. 草稿 → `content/<domain>/`
+2. 稳定 / 定稿 → **git commit**（新 Agent 接手必需）
+3. 可选 → Drive 同路径文件夹（分享用，不占必须）
+
+交班前运行：`bash scripts/verify-handoff.sh`
 
 ## 领域任务
 

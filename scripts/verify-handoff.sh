@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+# Verify guide-brand-agent is complete enough for a new AI to take over.
+# Policy: docs/HANDOFF-COMPLETENESS.md
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+
+FAIL=0
+WARN=0
+pass() { echo "  OK   $1"; }
+fail() { echo "  FAIL $1"; FAIL=$((FAIL + 1)); }
+warn() { echo "  WARN $1"; WARN=$((WARN + 1)); }
+
+echo "=== Handoff verify: $ROOT ==="
+echo ""
+
+echo "[L0 Git skeleton]"
+for f in \
+  AGENTS.md INDEX.md integrations/index.md \
+  rules/SOUL.md rules/USER.md rules/WORKSPACE.md \
+  .gitmodules docs/HANDOFF-COMPLETENESS.md; do
+  [[ -f "$f" ]] && pass "$f" || fail "missing $f"
+done
+
+[[ -d .cursor/skills/guide-core ]] && pass "guide-core skill" || fail "missing .cursor/skills/guide-core"
+[[ -f vendor/gdocs-skill/pyproject.toml ]] && pass "gdocs-skill submodule" || fail "vendor/gdocs-skill not initialized (git submodule update --init)"
+
+echo ""
+echo "[L0 Brand facts]"
+if [[ -f rules/USER.md ]] && grep -q "一句话定位" rules/USER.md && ! grep -q "待补充" rules/USER.md 2>/dev/null; then
+  if grep -A1 "一句话定位" rules/USER.md | grep -qvE '^\s*[-*]\s*\*\*一句话定位|^\s*$|^\s*#' ; then
+    pass "USER.md has IP positioning"
+  else
+    warn "USER.md 一句话定位可能仍为空"
+  fi
+else
+  # softer check: any content after 一句话定位 line
+  if grep -q "法派长笛\|跨界品牌" rules/USER.md 2>/dev/null; then
+    pass "USER.md has IP content"
+  else
+    fail "USER.md missing IP positioning / audience"
+  fi
+fi
+
+ip_count=$(find content/personal-ip -name '*.md' 2>/dev/null | wc -l | tr -d ' ')
+if [[ "${ip_count:-0}" -ge 1 ]]; then
+  pass "content/personal-ip/ has $ip_count brief(s)"
+else
+  fail "content/personal-ip/ has no .md brief"
+fi
+
+echo ""
+echo "[L1 Local private — not in git]"
+if [[ -f vendor/gdocs-skill/secrets/credentials.json ]]; then
+  pass "credentials.json present"
+else
+  warn "credentials.json missing — gdocs CLI needs OAuth setup"
+fi
+if [[ -f vendor/gdocs-skill/secrets/token.json ]]; then
+  pass "token.json present"
+else
+  warn "token.json missing — first gdocs command will open browser"
+fi
+if [[ -f rules/skills/overlays/gdocs-skill.local.md ]]; then
+  pass "gdocs local overlay present"
+else
+  warn "gdocs-skill.local.md missing — copy from .local.example.md"
+fi
+
+echo ""
+echo "[Environment optional]"
+if [[ -d .venv/bin ]] && .venv/bin/python -c "import gdocs" 2>/dev/null; then
+  pass "venv + gdocs import"
+else
+  warn ".venv or gdocs not installed — run SETUP.md"
+fi
+
+echo ""
+echo "[Git sync reminder]"
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  dirty=$(git status --porcelain 2>/dev/null | grep -v '^?? vendor/gdocs-skill/secrets' | grep -c . || true)
+  if [[ "${dirty:-0}" -gt 0 ]]; then
+    warn "uncommitted changes ($dirty lines) — stable content should be committed for handoff"
+  else
+    pass "working tree clean (excluding secrets)"
+  fi
+  if git remote get-url origin >/dev/null 2>&1 && git remote get-url github >/dev/null 2>&1; then
+    pass "dual remotes origin + github"
+  else
+    warn "missing origin or github remote"
+  fi
+fi
+
+echo ""
+echo "=== Summary ==="
+if [[ "$FAIL" -gt 0 ]]; then
+  echo "RESULT: FAIL ($FAIL blocking, $WARN warnings)"
+  echo "New AI cannot fully take over until L0 items are fixed."
+  echo "See docs/HANDOFF-COMPLETENESS.md"
+  exit 1
+fi
+if [[ "$WARN" -gt 0 ]]; then
+  echo "RESULT: PASS with warnings ($WARN)"
+  echo "New AI can take over; Google OAuth/MCP may need Owner once."
+  exit 0
+fi
+echo "RESULT: PASS — ready for new AI handoff"
+exit 0

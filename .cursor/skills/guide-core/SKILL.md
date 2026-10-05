@@ -29,11 +29,15 @@ description: >-
 
 多领域任务：先读 `guide-core/soul.md`，再并行读各相关领域 Skill，产出统一 Brief。
 
-## Knowledge Bank
+## Knowledge Bank · 存储（少占 Drive）
 
-品牌事实从 Google Drive 读，不编造。路径见 `rules/skills/overlays/gdocs-skill.local.md` 与 `rules/USER.md` 中的 folder ID。
+读 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md)：
 
-尚无 folder ID 时：先产出本地 Markdown 到 `content/`，待 Drive 就绪后 `sync`。
+1. **Git 真相源：** `rules/USER.md` + `content/<domain>/`（稳定后 Must commit）
+2. **Drive 可选：** 仅 Owner 说「同步 Drive」→ 写 Knowledge Bank 定稿文件夹
+3. **禁止：** 只写 Drive 不 commit；只留未 commit 本地就交班
+
+交班前：`bash scripts/verify-handoff.sh`
 
 ## Generative Kernel 原则
 
