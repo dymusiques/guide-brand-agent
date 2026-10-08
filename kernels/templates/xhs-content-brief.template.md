@@ -1,5 +1,15 @@
 # 小红书笔记 Brief
 
+<!-- xhs-classifier -->
+```json
+{
+  "subject": "",
+  "body": ""
+}
+```
+
+> Topic Manager：`body` = 钩子 + 正文要点 + CTA（一段文字，供 Gemini 判定）。与下方人类可读结构保持一致；改稿后同步改 JSON。
+
 ## 标题（≤20 字建议）
 
 ## 封面

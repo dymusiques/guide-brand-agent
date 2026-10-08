@@ -44,7 +44,8 @@ bash scripts/verify-xhs-topic.sh
 
 课纲参考 monorepo / `module3-2-2-gemini` 的 `demo.py` + 6 test 模式；本 kernel 业务规则替换为小红书 IP / 涨粉 / 强链接，技术模式相同。
 
-## 下一步（未在本目录实现）
+## Topic Manager Skill
 
-- `.cursor/skills/xiaohongshu/` 扩展为 **Topic Manager Skill**（选题 → Brief → 自动 verify）
-- P 层指标（1700 → 5000 → 10000 粉丝）不进单元测试，单独跟踪
+- Skill：`.cursor/skills/xiaohongshu/topic-manager.md`（选题 → Brief → `scripts/evaluate-xhs-topic.py`）
+- 产出目录：`content/xiaohongshu/`
+- P 层指标（1700 → 5000 → 10000 粉丝）不进单元测试，在 Brief 内可选记录

@@ -20,5 +20,7 @@
 | IP 定位稿 | `content/personal-ip/` | `02-personal-ip/` |
 | 品牌/商业策划 | `content/business-brand/` | `03-business-brand/` |
 | 营销 Brief | `content/marketing/` | `04-marketing/` |
-| 小红书文案 | `content/xiaohongshu/` | `05-xiaohongshu/` |
+| 小红书文案 / 选题 Brief | `content/xiaohongshu/` | `05-xiaohongshu/` |
+
+小红书 **选题 / Topic Manager**：`.cursor/skills/xiaohongshu/topic-manager.md` → `scripts/evaluate-xhs-topic.py`
 | 视觉 Brief | `content/visual/` | `06-visual/` |

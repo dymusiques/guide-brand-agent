@@ -68,11 +68,15 @@ def _build_gemini_prompt(subject: str, body: str) -> str:
     return (
         f"{rules}\n\n"
         "---\n"
-        "Task: Apply the rules above to the note below.\n"
+        "Task: Apply the rules above to classify the note between NOTE_START and NOTE_END.\n"
+        "Do NOT continue, translate, or summarize the note.\n"
         "Reply with exactly one word on the first line: yes or no.\n"
         "No punctuation, no explanation, no other lines.\n\n"
+        "NOTE_START\n"
         f"Subject (title): {subject}\n"
-        f"Body: {body}"
+        f"Body: {body}\n"
+        "NOTE_END\n\n"
+        "Classification (yes or no only):"
     )
 
 
@@ -87,6 +91,11 @@ def _call_gemini_yes_no(prompt: str) -> str:
             config=types.GenerateContentConfig(
                 temperature=0,
                 max_output_tokens=256,
+                system_instruction=(
+                    "You are a strict binary classifier. "
+                    "Output only yes or no on the first line. "
+                    "Never quote or continue the user's note text."
+                ),
             ),
         )
         try:

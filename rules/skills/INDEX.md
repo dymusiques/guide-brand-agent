@@ -18,7 +18,7 @@
 ### Guide 多面 Agent（本 workspace `.cursor/skills/`）
 
 - ✅ `guide-core` — 总控路由
-- ✅ `personal-ip` / `business-brand` / `marketing-strategy` / `xiaohongshu` / `brand-visual`
+- ✅ `personal-ip` / `business-brand` / `marketing-strategy` / `xiaohongshu`（含 [Topic Manager](../../.cursor/skills/xiaohongshu/topic-manager.md)）/ `brand-visual`
 - ✅ `kernels/templates/` — Generative Kernel 模板
 
 ### Cursor 全局（个人 skills，非本 repo）

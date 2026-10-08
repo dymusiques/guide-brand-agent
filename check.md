@@ -33,7 +33,8 @@
 | **核心 + 6 test** | `bash scripts/verify-xhs-topic.sh` | `is_xhs_growth_aligned` · IP/涨粉/强链接 · 读 `Guide/0/.env` |
 
 Key：`cp .env.example .env` → 填 `GEMINI_API_KEY`（不进 git）。Python 启动时 `load_dotenv()` 读取。  
-说明文档：[kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md)（含步骤审阅、Gemini/API、6 case 表）。
+说明文档：[kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md)（含步骤审阅、Gemini/API、6 case 表）。  
+Topic Manager Skill：`.cursor/skills/xiaohongshu/topic-manager.md` · 单条选题 `python scripts/evaluate-xhs-topic.py --brief …`
 
 ### 本仓不含（见 VERIFY-MAP）
 

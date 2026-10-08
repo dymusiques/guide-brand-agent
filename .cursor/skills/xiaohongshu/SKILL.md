@@ -1,11 +1,19 @@
 ---
 name: xiaohongshu
 description: >-
-  Xiaohongshu content, ads, and growth — notes, hooks, covers, posting strategy.
-  Use for 小红书, 笔记, 种草, 投放, 小红书广告.
+  Xiaohongshu content, ads, growth, and Topic Manager — notes, hooks, topic selection,
+  IP-aligned verify. Use for 小红书, 笔记, 种草, 投放, 选题, Topic Manager, 爆款, 涨粉.
 ---
 
 # Xiaohongshu
+
+## Topic Manager（选题 / IP 对齐）
+
+**选题、Brief、对齐 IP、强链接、涨粉路径** → 必读 **[topic-manager.md](./topic-manager.md)**，并接 Kernel：
+
+- 单条判定：`python scripts/evaluate-xhs-topic.py --brief …`
+- Kernel 6 case：`bash scripts/verify-xhs-topic.sh`
+- 实现与规则：`kernels/xiaohongshu/`
 
 ## 读什么
 
@@ -14,6 +22,7 @@ description: >-
 3. 个人 Skill `danying-tingjian-daily`（栏目规范，若做长笛内容）
 4. Drive `05-xiaohongshu/`（仅 Owner 已同步定稿时查阅）
 5. `kernels/templates/xhs-content-brief.template.md`
+6. **选题管线** → [topic-manager.md](./topic-manager.md)
 
 ## 存储默认规则
 
@@ -34,7 +43,8 @@ description: >-
 
 ## 验收
 
-- [ ] 符合小红书语气与合规
+- [ ] 符合小红书语气与合规（无 Web3/NFT；数字藏品表述 OK）
 - [ ] 与 Danying 品牌一致
+- [ ] Topic Manager：`evaluate-xhs-topic.py` 为 `aligned: true`，或 Owner 书面接受风险
 - [ ] 已写入 `content/xiaohongshu/` 且稳定后 commit
 - [ ] （可选）Owner 说「同步 Drive」时已写入 `05-xiaohongshu/`
