@@ -34,7 +34,8 @@
 
 Key：`cp .env.example .env` → 填 `GEMINI_API_KEY`（不进 git）。Python 启动时 `load_dotenv()` 读取。  
 说明文档：[kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md)（含步骤审阅、Gemini/API、6 case 表）。  
-Topic Manager Skill：`.cursor/skills/xiaohongshu/topic-manager.md` · 单条选题 `python scripts/evaluate-xhs-topic.py --brief …`
+Topic Manager Skill：`.cursor/skills/xiaohongshu/topic-manager.md` · 单条 `python scripts/evaluate-xhs-topic.py --brief …`  
+**内容管线：** [content/xiaohongshu/PIPELINE.md](content/xiaohongshu/PIPELINE.md) · 批量 `bash scripts/verify-xhs-content-dir.sh`
 
 ### 本仓不含（见 VERIFY-MAP）
 

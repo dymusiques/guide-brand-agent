@@ -12,7 +12,8 @@
 - 总控 + 领域 Skills：`.cursor/skills/guide-core/`、`.cursor/skills/{personal-ip,business-brand,marketing-strategy,xiaohongshu,brand-visual}/`
 - CLI / API 路由与 overlay：`rules/skills/`
 - Generative Kernels（模板与案例）：`kernels/templates/`、`kernels/examples/`
-- 小红书 Topic Manager（Gemini 6 case）：`kernels/xiaohongshu/`（README + `docs/`；验收 `scripts/verify-xhs-topic.sh`）
+- 小红书 Topic Manager（Gemini 6 case）：`kernels/xiaohongshu/`（README + `docs/`；kernel `scripts/verify-xhs-topic.sh`）
+- 小红书 Brief 管线：`content/xiaohongshu/PIPELINE.md` · 批量 `scripts/verify-xhs-content-dir.sh`
 
 ### 知识与品牌资产
 - Google Drive Knowledge Bank：`AI-Agent-Knowledge-Bank/`（通过 gdocs 或 Drive MCP；folder ID 在 overlay）

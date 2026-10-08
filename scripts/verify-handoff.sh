@@ -77,6 +77,25 @@ else
 fi
 
 echo ""
+echo "[L0 Xiaohongshu content pipeline]"
+if [[ -f content/xiaohongshu/PIPELINE.md ]]; then
+  pass "content/xiaohongshu/PIPELINE.md"
+else
+  warn "missing content/xiaohongshu/PIPELINE.md"
+fi
+xhs_brief_count=$(find content/xiaohongshu -maxdepth 1 -name '*-brief.md' 2>/dev/null | wc -l | tr -d ' ')
+if [[ "${xhs_brief_count:-0}" -ge 1 ]]; then
+  pass "content/xiaohongshu/ has $xhs_brief_count *-brief.md"
+  if [[ -f .env ]] || [[ -n "${GEMINI_API_KEY:-}" ]]; then
+    warn "before handoff run: bash scripts/verify-xhs-content-dir.sh ($xhs_brief_count brief(s))"
+  else
+    warn "XHS briefs present but no .env — batch verify skipped until GEMINI_API_KEY set"
+  fi
+else
+  warn "content/xiaohongshu/ has no *-brief.md yet"
+fi
+
+echo ""
 echo "[Git sync reminder]"
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   dirty=$(git status --porcelain 2>/dev/null | grep -v '^?? vendor/gdocs-skill/secrets' | grep -c . || true)

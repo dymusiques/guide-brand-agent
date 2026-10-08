@@ -48,7 +48,15 @@ python scripts/evaluate-xhs-topic.py --json-file content/xiaohongshu/<slug>.topi
 - **`aligned: true`** → 可进入定稿流程  
 - **`aligned: false`** → 必须改 subject/body（通常加强 CTA、人群、IP 专业度），**重新 evaluate**，不要口头宣称「已对齐」
 
-### 4. Kernel 回归（交班 / 改 classifier 后）
+### 4. 目录批量 verify（交班 / 多篇 Brief）
+
+```bash
+bash scripts/verify-xhs-content-dir.sh
+```
+
+对 `content/xiaohongshu/*-brief.md` 逐篇 `--brief` evaluate。详见 [content/xiaohongshu/PIPELINE.md](../../../content/xiaohongshu/PIPELINE.md)。
+
+### 5. Kernel 回归（改 classifier 后）
 
 ```bash
 bash scripts/verify-xhs-topic.sh
@@ -56,7 +64,7 @@ bash scripts/verify-xhs-topic.sh
 
 6/6 PASS 才称 kernel 健康；与单条 evaluate 互补（单条测选题，6 case 测分类器）。
 
-### 5. 落盘与 commit
+### 6. 落盘与 commit
 
 | 阶段 | 动作 |
 |------|------|
@@ -66,7 +74,7 @@ bash scripts/verify-xhs-topic.sh
 
 **禁止：** 只写 Drive 不 commit；未 evaluate 就称「可发」。
 
-### 6. 协作路由
+### 7. 协作路由
 
 | 需求 | 转交 |
 |------|------|
