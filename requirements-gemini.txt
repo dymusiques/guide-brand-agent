@@ -1,0 +1,3 @@
+# Xiaohongshu Topic Manager · Gemini classifier (Module 3 pattern)
+google-genai>=1.0.0
+python-dotenv>=1.0.0

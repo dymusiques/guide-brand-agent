@@ -26,6 +26,15 @@
 5. **Git 读** — `content/personal-ip/` 与 `USER.md` 事实一致
 6. **Drive 读** — Knowledge Bank 根文件夹 search 有结果
 
+### 小红书 Topic Manager（6 case · Gemini · Module 3 课纲线）
+
+| 层级 | 脚本 | 检查什么 |
+|------|------|----------|
+| **核心 + 6 test** | `bash scripts/verify-xhs-topic.sh` | `is_xhs_growth_aligned` · IP/涨粉/强链接 · 读 `Guide/0/.env` |
+
+Key：`cp .env.example .env` → 填 `GEMINI_API_KEY`（不进 git）。Python 启动时 `load_dotenv()` 读取。  
+说明文档：[kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md)（含步骤审阅、Gemini/API、6 case 表）。
+
 ### 本仓不含（见 VERIFY-MAP）
 
 - Module 3 课纲 **`is_genai_email` + 6 Python test** → [`module3-2-2-gemini`](https://github.com/dymusiques/module3-2-2-gemini)

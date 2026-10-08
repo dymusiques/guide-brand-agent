@@ -18,7 +18,7 @@
 | 个人 IP、人设、定位、内容支柱 | `.cursor/skills/personal-ip/` | `02-personal-ip/` | `content/personal-ip/` | `kernels/templates/ip-positioning-brief.template.md` |
 | 商业策划、品牌策略、SWOT | `.cursor/skills/business-brand/` | `03-business-brand/` | `content/business-brand/` | `kernels/templates/campaign-plan.template.md` |
 | 宣传、营销、campaign、渠道 | `.cursor/skills/marketing-strategy/` | `04-marketing/` | `content/marketing/` | `kernels/templates/campaign-plan.template.md` |
-| 小红书、笔记、种草、投放 | `.cursor/skills/xiaohongshu/` | `05-xiaohongshu/` | `content/xiaohongshu/` | `kernels/templates/xhs-content-brief.template.md` |
+| 小红书、笔记、种草、投放、**选题对齐 verify** | `.cursor/skills/xiaohongshu/` · Kernel [`kernels/xiaohongshu/README.md`](../kernels/xiaohongshu/README.md) · `bash scripts/verify-xhs-topic.sh` | `05-xiaohongshu/` | `content/xiaohongshu/` | `kernels/templates/xhs-content-brief.template.md` |
 | 视觉、Canva、配色、封面 | `.cursor/skills/brand-visual/` | `06-visual/` | `content/visual/` | — |
 | 多领域 / 未指定 | `.cursor/skills/guide-core/` | 按 routing 选 | 按领域 | — |
 

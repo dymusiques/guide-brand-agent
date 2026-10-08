@@ -20,3 +20,7 @@ vendor/gdocs-skill/.venv/
 
 # Local skill overlays (paths, aliases — private)
 rules/skills/overlays/*.local.md
+
+# Gemini API — never commit
+.env
+.local-config.json

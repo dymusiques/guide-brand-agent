@@ -6,11 +6,13 @@
 
 ### 项目与代码
 - 工作区根目录：`/`（本 repo）
+- 通用 Q&A / 操作问题专用 Agent 工作区：`问题解决/`（单独开 Folder；聊天与品牌产线分开）
 - Python 虚拟环境：`.venv/`（工作区级，已安装 vendored skills）
 - 第三方 public skill repos（只读，可 `git pull` 更新）：`vendor/<repo-name>/`
 - 总控 + 领域 Skills：`.cursor/skills/guide-core/`、`.cursor/skills/{personal-ip,business-brand,marketing-strategy,xiaohongshu,brand-visual}/`
 - CLI / API 路由与 overlay：`rules/skills/`
 - Generative Kernels（模板与案例）：`kernels/templates/`、`kernels/examples/`
+- 小红书 Topic Manager（Gemini 6 case）：`kernels/xiaohongshu/`（README + `docs/`；验收 `scripts/verify-xhs-topic.sh`）
 
 ### 知识与品牌资产
 - Google Drive Knowledge Bank：`AI-Agent-Knowledge-Bank/`（通过 gdocs 或 Drive MCP；folder ID 在 overlay）

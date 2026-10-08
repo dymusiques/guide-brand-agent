@@ -16,6 +16,7 @@
 | 人格 / Owner | [rules/SOUL.md](rules/SOUL.md) · [rules/USER.md](rules/USER.md) | L3 约束 |
 | 领域 Skill | [.cursor/skills/](.cursor/skills/) | guide-core + 5 领域 |
 | Kernel 模板 | [kernels/templates/](kernels/templates/) | Generative Kernel |
+| 小红书 Topic Kernel | [kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md) | Gemini 选题对齐 · 6 case verify |
 | 本地草稿 / Git 定稿 | [content/](content/) | 工作副本；稳定后 commit（见 [docs/HANDOFF-COMPLETENESS.md](docs/HANDOFF-COMPLETENESS.md)） |
 | 接手验证 | `scripts/verify-handoff.sh` | L0 新 Agent 能否接手 |
 | 集成验证 | `scripts/verify-integration.sh` | 6 case · gdocs + Git/Drive 读 |
