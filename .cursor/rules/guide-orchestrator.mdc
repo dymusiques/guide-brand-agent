@@ -5,12 +5,14 @@ alwaysApply: true
 
 # Guide Orchestrator
 
-Multi-domain brand agent workspace. On brand/IP/marketing/XHS/visual tasks:
+Multi-domain brand agent workspace (**danying-brand-agent**). On brand/IP/marketing/XHS/visual tasks:
 
-1. Read `AGENTS.md` → `rules/WORKSPACE.md` → `rules/skills/INDEX.md`
-2. Load `.cursor/skills/guide-core/SKILL.md` and route per `routing.md`
-3. Google Docs/Gmail/Calendar → `rules/skills/skill_google_docs.md` (+ local overlay)
-4. Generative templates → `kernels/templates/`
-5. Local drafts → `content/<domain>/`
+0. **Work request from Owner** → auto **00 Manager**: `agents/00-manager/AUTO-WORKFLOW.md` (see `danying-manager-auto.mdc`)
+1. Read `AGENTS.md` → `rules/WORKSPACE.md` → `integrations/index.md`
+2. Agents index → `agents/README.md` · integration → `integration/IMPORTANT.md`
+3. Load `.cursor/skills/guide-core/SKILL.md` and route per `routing.md`
+4. Google Docs/Gmail/Calendar → `rules/skills/skill_google_docs.md` (+ local overlay)
+5. Generative templates → `kernels/templates/`
+6. Local drafts → `content/<domain>/`
 
 Do not invent Drive folder IDs; use overlay or search when MCP is authorized.

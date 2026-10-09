@@ -16,3 +16,5 @@
 | `09-data-analytics/` | 小红书数据 → 下一选题 |
 
 总览：[docs/DANYING-BRAND-AGENT-INTEGRATION.md](../docs/DANYING-BRAND-AGENT-INTEGRATION.md)
+
+**Owner 给目标 → 自动 00 Manager：** [00-manager/AUTO-WORKFLOW.md](00-manager/AUTO-WORKFLOW.md)（`.cursor/rules/danying-manager-auto.mdc`）

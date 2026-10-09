@@ -1,7 +1,7 @@
 # Data Analytics 集成 Prompt
 
-1. 读 `DATA-NEEDS.md`；缺字段则向 Owner 列清单，**不编造** 阅读/转化。
-2. 输入：CSV/表 + `integration/IMPORTANT.md` + IP Brief。
-3. 输出：简短复盘（哪类题 DM/收藏更好）+ **3 个下一选题方向**（仅 subject + 一句理由，**无** full Brief）。
-4. 把方向交给 **04-xhs-topic-manager** 写 Brief → `evaluate --brief` → Manager 验 PASS。
+1. 读 `DATA-NEEDS.md`；Owner 导出 CSV → `content/analytics/inbox/` → `bash scripts/analytics-fetch.sh`。
+2. 跑 `bash scripts/analytics-pipeline.sh`（试跑加 `--demo`）；读 `content/analytics/derived/next-topics-*.md` + `summary-*.json`。
+3. 结合 `integration/IMPORTANT.md` + IP Brief 写 **简短复盘**；**不编造** 未导入的平台数据。
+4. 将 **3 条 subject 建议** 交给 **04-xhs-topic-manager** 写 Brief → `evaluate --brief` → Manager `manager-workflow-verify.sh`。
 5. **禁止** 用历史数据反改 kernel 6 case；若需改规则 → 05-kernel + Owner。

@@ -22,6 +22,16 @@ Before doing anything else:
 4. Read `rules/WORKSPACE.md` — file paths; check before glob/grep
 5. Read `rules/skills/INDEX.md` — CLI skills (gdocs, etc.)
 
+## Owner 给目标任务时（自动 00 Manager · 无需口令）
+
+**不用粘贴启动口令。** Owner 一旦给出要写/要做/选题/Brief/定稿等目标：
+
+1. 读 [`agents/00-manager/AUTO-WORKFLOW.md`](agents/00-manager/AUTO-WORKFLOW.md) 并按指挥链执行  
+2. 读 [`integration/IMPORTANT.md`](integration/IMPORTANT.md)  
+3. 验收：`bash scripts/manager-workflow-verify.sh`（有 Brief 时传入路径）
+
+规则：`.cursor/rules/danying-manager-auto.mdc`（`alwaysApply: true`）
+
 ## File Routing
 
 **找文件时，先查 `rules/WORKSPACE.md`，再搜索。** 发现新目录未被收录时，顺手更新 WORKSPACE.md。
@@ -43,7 +53,7 @@ Before doing anything else:
 **多面品牌 Agent 总控** → `.cursor/skills/guide-core/SKILL.md`  
 触发词：个人IP、品牌策划、营销、小红书、视觉（未指定单一工具时先走总控）
 
-**Project 0 总集成** → [docs/DANYING-BRAND-AGENT-INTEGRATION.md](docs/DANYING-BRAND-AGENT-INTEGRATION.md) · Manager Loop · `bash scripts/verify-manager-integration.sh`
+**danying-brand-agent 总集成** → [agents/README.md](agents/README.md) · [AUTO-WORKFLOW](agents/00-manager/AUTO-WORKFLOW.md) · `bash scripts/manager-workflow-verify.sh`
 
 **小红书 Topic Manager（选题 + Gemini 对齐）** → `agents/04-xhs-topic-manager/` · `.cursor/skills/xiaohongshu/topic-manager.md`  
 触发词：选题、Topic Manager、笔记 Brief · `--brief content/xiaohongshu/…`

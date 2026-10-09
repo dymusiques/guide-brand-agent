@@ -39,6 +39,12 @@ flowchart LR
 
 Cursor 仍从 `.cursor/skills/` 加载 Skill；各 Skill 已指向此处 **canonical** 集成说明。
 
+## Owner 给目标 → 自动 00 Manager（无需口令）
+
+- 规则：`.cursor/rules/danying-manager-auto.mdc`（`alwaysApply: true`）
+- 流程：`agents/00-manager/AUTO-WORKFLOW.md`
+- 验收：`bash scripts/manager-workflow-verify.sh`（定稿前加 Brief 路径）
+
 ## 集成验收（Manager 层 6 test · 不调新算法）
 
 ```bash

@@ -36,7 +36,9 @@ Key：`cp .env.example .env` → 填 `GEMINI_API_KEY`（不进 git）。Python �
 说明文档：[kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md)（含步骤审阅、Gemini/API、6 case 表）。  
 Topic Manager Skill：`.cursor/skills/xiaohongshu/topic-manager.md` · 单条 `python scripts/evaluate-xhs-topic.py --brief …`  
 **内容管线：** [content/xiaohongshu/PIPELINE.md](content/xiaohongshu/PIPELINE.md) · 批量 `bash scripts/verify-xhs-content-dir.sh`  
-**Manager 集成 6 case：** `bash scripts/verify-manager-integration.sh` · [docs/DANYING-BRAND-AGENT-INTEGRATION.md](docs/DANYING-BRAND-AGENT-INTEGRATION.md)
+**Manager 集成 6 case：** `bash scripts/verify-manager-integration.sh`  
+**Manager 自动工作流：** [agents/00-manager/AUTO-WORKFLOW.md](agents/00-manager/AUTO-WORKFLOW.md) · `bash scripts/manager-workflow-verify.sh [brief.md]`  
+**Analytics 09 pipeline：** `bash scripts/analytics-pipeline.sh` · [content/analytics/README.md](content/analytics/README.md)
 
 ### 本仓不含（见 VERIFY-MAP）
 

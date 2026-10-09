@@ -24,3 +24,11 @@ rules/skills/overlays/*.local.md
 # Gemini API — never commit
 .env
 .local-config.json
+
+# Analytics exports (keep *.example.csv in git)
+content/analytics/xiaohongshu/notes.csv
+content/analytics/instagram/posts.csv
+content/analytics/youtube/videos.csv
+content/analytics/inbox/done/
+content/analytics/derived/summary-*.json
+content/analytics/derived/next-topics-*.md

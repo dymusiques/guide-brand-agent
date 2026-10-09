@@ -1,37 +1,72 @@
-# 数据分析 Agent · 你需要提供什么
+# 数据分析 Agent · 多平台数据规范
 
-有了下列数据，才能 **客观** 比较笔记好坏，并给 **下一选题** 建议（仍须 Topic Manager + `evaluate --brief`）。
+## 统一仓库
 
-## 建议每条笔记一行（CSV / Sheet / Markdown 表）
+`content/analytics/` — 见 [README](../../../content/analytics/README.md)
+
+| 平台 | 规范文件 | Canonical CSV |
+|------|----------|-----------------|
+| 小红书 | 本节 below | `xiaohongshu/notes.csv` |
+| Instagram | 本节 below | `instagram/posts.csv` |
+| YouTube | 本节 below | `youtube/videos.csv` |
+
+示例（可提交 Git）：`*.example.csv`  
+真实导出（含隐私）：`notes.csv` / `posts.csv` / `videos.csv`（建议 gitignore，仅本地）
+
+---
+
+## 小红书 · 每笔记一行
 
 | 字段 | 说明 |
 |------|------|
-| `note_id` 或链接 | 小红书笔记 URL / 后台 ID |
+| `note_id` | 链接或 ID |
 | `publish_date` | 发布日期 |
-| `title` | 标题（对应 Brief `subject`） |
-| `pillar` | 支柱 1/2/3 或标签（艺术专业 / 跨界品牌 / AI×数字藏品） |
-| `impressions` | 曝光（若后台有） |
-| `views` | 阅读 |
-| `likes` | 赞 |
-| `collects` | 收藏 |
-| `comments` | 评论 |
-| `shares` | 分享（若有） |
-| `follows_from_note` | 来自该笔记的粉丝增量（若有） |
-| `dm_count` | 私信数（**强链接核心**，可手工记） |
-| `dm_keywords` | 私信关键词统计（合作 / 案例 / 共建 / 评估） |
-| `aligned_at_publish` | 发布时 evaluate 是否 true（可选） |
-| `brief_path` | Git 中 Brief 路径 |
+| `title` | 标题 |
+| `pillar` | 艺术专业 / 跨界品牌 / AI×数字藏品 |
+| `impressions`, `views`, `likes`, `collects`, `comments`, `shares` | 后台指标 |
+| `follows_from_note` | 涨粉（若有） |
+| `dm_count`, `dm_keywords` | **强链接核心** |
+| `aligned_at_publish`, `brief_path` | 可选 |
 
-## 汇总层（每周 / 每月）
+## Instagram · 每帖一行
 
-- 粉丝总数、净增（与 1700→5000 目标对照）
-- 哪类 **pillar** / **CTA 关键词** 带来 DM 更多
-- 哪类标题点击高但 DM 低（vanity vs 强链接）
+| 字段 | 说明 |
+|------|------|
+| `post_id`, `publish_date`, `title` | 必填 |
+| `caption_snippet` | 可选摘要 |
+| `pillar` | 与 IP 支柱对齐 |
+| `impressions`, `reach`, `likes`, `comments`, `saves`, `shares` | 指标 |
+| `follows_from_post`, `dm_count`, `dm_keywords` | 强链接 |
+| `brief_path` | 可选 |
 
-## 存储建议（Git）
+## YouTube · 每视频一行
 
-`content/xiaohongshu/analytics/YYYY-MM-notes.csv`（不含隐私私信正文，只含计数）
+| 字段 | 说明 |
+|------|------|
+| `video_id`, `publish_date`, `title`, `pillar` | 必填 |
+| `views`, `watch_time_hours`, `likes`, `comments`, `shares` | 指标 |
+| `subscribers_gained` | 订阅增量 |
+| `dm_or_email_inquiries`, `inquiry_keywords` | 强链接近似 |
+| `brief_path` | 可选 |
+
+---
+
+## Pipeline（自动读 → 算分 → 下一题清单）
+
+```bash
+bash scripts/analytics-pipeline.sh          # 需已 import CSV
+bash scripts/analytics-pipeline.sh --demo   # 用 example 数据试跑
+```
+
+产出：
+
+- `content/analytics/derived/summary-YYYY-MM-DD.json`
+- `content/analytics/derived/next-topics-YYYY-MM-DD.md` → 交 **04 Topic Manager**
 
 ## 没有数据时
 
-Analytics Agent **只能** 给基于 IP 的 **假设选题**，必须标注「未验证」；**不能** 声称某题阅读/转化一定高。
+只输出「未验证」假设题；**禁止** 声称阅读/转化一定高。
+
+## 与 IP 其他 Agent
+
+- **01**：支柱定义 · **04**：Brief + `evaluate` · **00 Manager**：派活与 PASS
