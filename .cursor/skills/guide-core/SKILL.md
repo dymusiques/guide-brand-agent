@@ -11,7 +11,7 @@ description: >-
 
 ## 启动顺序
 
-**Canonical 集成：** [docs/DANYING-BRAND-AGENT-INTEGRATION.md](../../../docs/DANYING-BRAND-AGENT-INTEGRATION.md) · [00-manager INTEGRATION-PROMPT](../../../agents/00-manager/INTEGRATION-PROMPT.md)
+**Canonical 集成：** [agents/README.md](../../../agents/README.md) · [docs/DANYING-BRAND-AGENT-INTEGRATION.md](../../../docs/DANYING-BRAND-AGENT-INTEGRATION.md) · [00-manager INTEGRATION-PROMPT](../../../agents/00-manager/INTEGRATION-PROMPT.md)
 
 1. `soul.md` — 品牌人格与边界
 2. `user.md` — Owner 背景（张丹瀛 / Danying）
