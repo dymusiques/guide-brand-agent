@@ -121,8 +121,15 @@ def is_xhs_growth_aligned(content: dict) -> bool:
     - **Personal IP:** French-school flute lineage × cross-disciplinary brand strategy;
       classical art, AI innovation, digital collectibles (数字藏品). Do not require
       Web3 or NFT wording; those terms must not appear in drafts.
-    - **Audience fit:** brands, artists, music-education (students/parents), or
-      AI / digital-collectible innovators.
+    - **Audience fit:** brands (any industry — cross-industry collaboration is
+      open; not limited to one vertical), artists, music-education
+      (students/parents), or AI / digital-collectible innovators.
+    - **Industry positioning:** Do **not** treat home furnishing / 家居 / 建材 as
+      the Owner's primary niche. Notes that frame the Owner as a 家居 / 建材
+      focused account → **no**, unless the body clearly speaks to **general**
+      cross-brand strategy with no 主攻家居 implication. Past case
+      「富森美×长笛×摄影」may appear only as a brief historical example, not as
+      the default topic angle or repeated industry hook.
     - **Strong link potential:** consultation, collaboration, deep trust, or DM —
       not empty virality or giveaway-only engagement.
     - **Growth intent:** supports growing ~1700 followers toward 5000 then 10000

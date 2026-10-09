@@ -18,7 +18,7 @@
 ### 1. 读上下文
 
 1. `guide-core/soul.md`、`guide-core/user.md`
-2. `rules/USER.md`、`content/personal-ip/`（最新 IP 定稿）
+2. `rules/USER.md`、`content/personal-ip/`（最新 IP 定稿，含 **「品牌合作范围」**：跨行业 open，非家居主攻）
 3. Git `content/xiaohongshu/`（已有 Brief，避免重复选题）
 4. 若做长笛栏目 → 个人 Skill `danying-tingjian-daily`（与听见 Daily 协同时在 Brief 注明）
 
