@@ -1,4 +1,4 @@
-# INDEX · Guide Brand Agent
+# INDEX · danying-brand-agent
 
 > **Hub 总入口：** [danying-apps](https://origin.cursor.com/danying/danying-apps) → `apps/guide-brand-agent/`  
 > **换机：** [新电脑一句话.md](新电脑一句话.md) → 本文 → [integrations/index.md](integrations/index.md)
@@ -17,7 +17,7 @@
 | 领域 Skill | [.cursor/skills/](.cursor/skills/) | guide-core + 5 领域 |
 | Kernel 模板 | [kernels/templates/](kernels/templates/) | Generative Kernel |
 | 小红书 Topic Kernel | [kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md) | Gemini 选题对齐 · 6 case verify |
-| 本地草稿 / Git 定稿 | [content/](content/) | 工作副本；稳定后 commit（见 [docs/HANDOFF-COMPLETENESS.md](docs/HANDOFF-COMPLETENESS.md)） |
+| **Agent 集成 + 内容** | [agents/](agents/) · [docs/DANYING-BRAND-AGENT-INTEGRATION.md](docs/DANYING-BRAND-AGENT-INTEGRATION.md) · [content/](content/) | Manager Loop · Git 定稿 |
 | 接手验证 | `scripts/verify-handoff.sh` | L0 新 Agent 能否接手 |
 | 集成验证 | `scripts/verify-integration.sh` | 6 case · gdocs + Git/Drive 读 |
 | Google CLI | [rules/skills/skill_google_docs.md](rules/skills/skill_google_docs.md) | gdocs-skill |

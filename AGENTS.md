@@ -43,8 +43,10 @@ Before doing anything else:
 **多面品牌 Agent 总控** → `.cursor/skills/guide-core/SKILL.md`  
 触发词：个人IP、品牌策划、营销、小红书、视觉（未指定单一工具时先走总控）
 
-**小红书 Topic Manager（选题 + Gemini 对齐）** → `.cursor/skills/xiaohongshu/topic-manager.md`  
-触发词：选题、Topic Manager、笔记 Brief、涨粉、强链接 · 单条 `scripts/evaluate-xhs-topic.py`
+**Project 0 总集成** → [docs/DANYING-BRAND-AGENT-INTEGRATION.md](docs/DANYING-BRAND-AGENT-INTEGRATION.md) · Manager Loop · `bash scripts/verify-manager-integration.sh`
+
+**小红书 Topic Manager（选题 + Gemini 对齐）** → `agents/04-xhs-topic-manager/` · `.cursor/skills/xiaohongshu/topic-manager.md`  
+触发词：选题、Topic Manager、笔记 Brief · `--brief content/xiaohongshu/…`
 
 **Google Docs / Gmail / Calendar CLI** → `rules/skills/skill_google_docs.md`  
 触发词："Google Doc"、"publish to Docs"、"sync markdown"、"Gmail"、"Calendar event"
