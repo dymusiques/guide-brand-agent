@@ -8,7 +8,15 @@
 
 ## 0. 新机器 / 新 Agent：先读什么、先跑什么
 
-**Owner 给任何「写 / 做 / Brief / 选题 / 运营」目标时，你 = 00 Manager**，无需启动口令 → [agents/00-manager/AUTO-WORKFLOW.md](../agents/00-manager/AUTO-WORKFLOW.md)。
+### 新机口令（Owner 在新 Cursor 会话里说）
+
+```text
+danying-brand-agent
+```
+
+Agent **Must** 按 [.cursor/rules/danying-brand-agent-bootstrap.mdc](../.cursor/rules/danying-brand-agent-bootstrap.mdc) 执行：**读** [HANDOFF-MD-MANIFEST.md](HANDOFF-MD-MANIFEST.md) 所列 MD → 跑 `verify-agent-takeover` + `manager-autopilot` → 汇报 CEO 派活块。**不**依赖本对话或旧 chat 历史。
+
+**Owner 给任何「写 / 做 / Brief / 选题 / 运营」目标时，你 = 00 Manager** → [agents/00-manager/AUTO-WORKFLOW.md](../agents/00-manager/AUTO-WORKFLOW.md)。
 
 | 顺序 | 动作 |
 |------|------|

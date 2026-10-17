@@ -30,7 +30,8 @@ for needle in \
   "discovery-01-irreplaceability" \
   "VERIFY-TIERS" \
   "仅 Owner" \
-  "verify-agent-takeover.sh"; do
+  "verify-agent-takeover.sh" \
+  "danying-brand-agent"; do
   if grep -q "$needle" "$DOC"; then
     pass "section marker: $needle"
   else
@@ -40,6 +41,8 @@ done
 
 for path in \
   agents/00-manager/AUTO-WORKFLOW.md \
+  docs/HANDOFF-MD-MANIFEST.md \
+  .cursor/rules/danying-brand-agent-bootstrap.mdc \
   integration/goals/registry.json \
   content/marketing/2026-10-brand-discovery-phase.md \
   content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md \

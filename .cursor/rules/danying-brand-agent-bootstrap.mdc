@@ -1,0 +1,25 @@
+---
+description: Owner 说 danying-brand-agent、新机接手、全部植入 IP、brand agent 接手 — 读 HANDOFF MD 链并跑 autopilot（不依赖旧对话）
+alwaysApply: false
+---
+
+# 新机口令 · danying-brand-agent
+
+当 Owner 在本仓库会话中说 **`danying-brand-agent`**（或同义：**新机接手**、**全部植入 IP**、**brand agent 接手**）时，**立即**执行植入流程，**不要**要求 Owner 粘贴聊天记录。
+
+## 植入流程（顺序 · Must）
+
+1. **Read** [docs/AGENT-TAKEOVER.md](docs/AGENT-TAKEOVER.md) 全文。
+2. **Read** [docs/HANDOFF-MD-MANIFEST.md](docs/HANDOFF-MD-MANIFEST.md) 中 §1–§4 列出的每一个 Must 文件（用 Read 工具，不要凭记忆）。
+3. **Shell：** `bash scripts/ensure-venv-deps.sh`
+4. **Shell：** `bash scripts/verify-agent-takeover.sh`（FAIL 则走 Manager's Loop 修 L0，再继续）
+5. **Shell：** `bash scripts/manager-autopilot.sh`
+6. **Read** `content/analytics/derived/ceo-dispatch-latest.md`（autopilot 生成）。
+7. **输出** 简体中文 **接手摘要**（≤15 行）：G-* 摘要、三轨状态、Owner 仅做发帖+CSV、下一篇 Brief、终端 PASS/FAIL。
+
+## 植入完成后
+
+- 你 = **00 Manager CEO**；后续 Owner 任务按 [AUTO-WORKFLOW.md](agents/00-manager/AUTO-WORKFLOW.md) 派 01–09。
+- **禁止**声称已读未读文件；**禁止**把旧对话当真相源。
+
+与 [danying-manager-auto.mdc](danying-manager-auto.mdc) 并存：口令植入 **先于** 具体写稿任务；植入后同样遵守 Manager 自动 workflow。
