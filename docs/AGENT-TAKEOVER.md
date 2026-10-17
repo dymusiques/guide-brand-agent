@@ -42,6 +42,18 @@
 
 IP 一句话：[content/personal-ip/ip-positioning-brief-2026-10-05.md](../content/personal-ip/ip-positioning-brief-2026-10-05.md)
 
+### 1.1 Owner 架构三要求（本对话 · 已写入 Git）
+
+| # | 要求 | 实现方式 | 文档 / 命令 |
+|---|------|----------|-------------|
+| **1** | **总 CEO** | Cursor 会话内 **00 Manager** 解析 Owner 目标、派活、汇总；规则自动生效 | [AUTO-WORKFLOW.md](../agents/00-manager/AUTO-WORKFLOW.md) · `.cursor/rules/danying-manager-auto.mdc` |
+| **2** | **Workflow 可自动跑** | 一条命令串 Goal 验收 → 仪表盘 → 09 → CEO 派活块（**不含** App 发帖 / CSV 导入） | [AUTOPILOT.md](AUTOPILOT.md) · `bash scripts/manager-autopilot.sh` |
+| **3** | **每步有 Manager，检细步再交 CEO** | **01–09** 各角色 = 部门 Manager；每步读 `INTEGRATION-PROMPT.md` → 产出 → **verify/evaluate PASS** → 00 读 dashboard / derived / 终端 Summary 再派下一步 | [agents/README.md](../agents/README.md) · `integration/agents/a*.py`（**10×6 glue**）· `scripts/agent-shells/*.sh` · kernel **6 case**（05/02/03） |
+
+**反馈回 CEO 的三条总线：** ① 终端 `RESULT: PASS/FAIL` ② `content/analytics/derived/manager-dashboard-*.md` ③ `ceo-dispatch-latest.md`（09→04 半自动派活）。监督环：[DANYING-BRAND-AGENT-INTEGRATION.md](DANYING-BRAND-AGENT-INTEGRATION.md) · Manager's Loop。
+
+**刻意不做：** 多进程后台 CEO、自动发帖、自动爬小红书数据（Owner → inbox CSV）。
+
 ---
 
 ## 2. 三轨分工（① 数据 · ② 商业触达 · ③ 机制）
@@ -147,9 +159,9 @@ flowchart TB
 - [x] SWOT 商业品牌稿 + 02/03 strategic evaluate 路径
 - [x] VERIFY-TIERS / AUTOPILOT 文档化 Gemini 与 M4 分工
 - [ ] **Owner 运营：** 发帖 #1–#4、发布状态、CSV、快检判断
-- [ ] **可选交班：** `git commit` 定稿（新机若无 commit 则缺 L0 同步）、Release verify-all
+- [x] **Git 交班：** `62f5d83` 已 commit + push `main`（origin + github）；新机 **clone 即可** 拿到本文与机制
 
-> **换机警告：** 若本文件与机制改动 **尚未 push/commit**，新机器 clone **看不到** 最新内容 → Owner 交班前须 commit + push，或拷贝整个工作目录。
+> **L1 私有：** 新机器须自行恢复 `.env`（Gemini）、`vendor/gdocs-skill/secrets/`（OAuth），见 [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md)。
 
 ---
 
@@ -178,6 +190,8 @@ bash scripts/verify-agent-matrix.sh    # 若 verify-all 内矩阵偶发 FAIL，�
 | 验收总表 | [check.md](../check.md) |
 | 03→04 术语 | [MARKETING-TO-XHS-GLOSSARY.md](MARKETING-TO-XHS-GLOSSARY.md) |
 | 15 天 Automation 草稿 | [content/marketing/automation/CURSOR-AUTOMATION-15D.md](../content/marketing/automation/CURSOR-AUTOMATION-15D.md) |
+| 集成总览 + Manager's Loop | [DANYING-BRAND-AGENT-INTEGRATION.md](DANYING-BRAND-AGENT-INTEGRATION.md) |
+| Brand IP 边界红线 | [integration/IMPORTANT.md](../integration/IMPORTANT.md) |
 
 ---
 

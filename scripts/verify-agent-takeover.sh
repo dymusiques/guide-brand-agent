@@ -21,6 +21,9 @@ pass "docs/AGENT-TAKEOVER.md exists"
 
 for needle in \
   "三轨" \
+  "Owner 架构三要求" \
+  "总 CEO" \
+  "反馈回 CEO" \
   "G-STRONG-LINK" \
   "manager-autopilot.sh" \
   "ceo-dispatch-latest.md" \
