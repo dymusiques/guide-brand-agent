@@ -18,7 +18,7 @@ jobs:
           python-version: "3.12"
       - name: Install gdocs-skill
         run: pip install -e vendor/gdocs-skill
-      - name: L0 handoff verify
-        run: bash scripts/verify-handoff.sh
-      - name: Integration verify (skips without OAuth)
-        run: bash scripts/verify-integration.sh
+      - name: Full integration build — CI tier (00 Manager capstone)
+        run: VERIFY_TIER=ci bash scripts/verify-all.sh
+        env:
+          VERIFY_SKIP_INTEGRATION_MATRIX: "1"

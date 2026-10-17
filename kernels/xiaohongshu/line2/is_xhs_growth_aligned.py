@@ -124,12 +124,15 @@ def is_xhs_growth_aligned(content: dict) -> bool:
     - **Audience fit:** brands (any industry — cross-industry collaboration is
       open; not limited to one vertical), artists, music-education
       (students/parents), or AI / digital-collectible innovators.
-    - **Industry positioning:** Do **not** treat home furnishing / 家居 / 建材 as
-      the Owner's primary niche. Notes that frame the Owner as a 家居 / 建材
-      focused account → **no**, unless the body clearly speaks to **general**
-      cross-brand strategy with no 主攻家居 implication. Past case
-      「富森美×长笛×摄影」may appear only as a brief historical example, not as
-      the default topic angle or repeated industry hook.
+    - **Industry positioning (no single-vertical lock-in):** The Owner is **open**
+      to collaborating with **any** product category or industry. Answer **no**
+      when the note frames the Owner as primarily a **single-vertical account**
+      (e.g. 家居博主 / 母婴号 / 美妆主攻 — home furnishing was one real-world
+      mis-label example; the rule applies **equally to all verticals**). A **one-off**
+      brand collab in any industry can be **yes** if the body centers cross-brand
+      art/strategy and strong-link CTA, not 「I mainly serve this one industry」.
+      Past case 「富森美×长笛×摄影」may appear only as a brief historical example,
+      not as the default series hook or repeated industry tag.
     - **Strong link potential:** consultation, collaboration, deep trust, or DM —
       not empty virality or giveaway-only engagement.
     - **Growth intent:** supports growing ~1700 followers toward 5000 then 10000

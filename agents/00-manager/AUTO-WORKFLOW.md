@@ -14,7 +14,7 @@
 | 步 | Agent | 做什么 | 验收 |
 |----|-------|--------|------|
 | 0 | **00 Manager** | 解析 Owner 目标，写 3 行计划（受众、支柱、CTA 类型） | 计划与 `content/personal-ip/` 不冲突 |
-| 1 | **01 personal-ip** | 若涉及战略/行业边界，核对「品牌合作范围」 | 非家居主攻、跨行业 open |
+| 1 | **01 personal-ip** | 战略/行业边界：「品牌合作范围」 | 全品类可合作、不单品类绑定 |
 | 2 | **04 xhs-topic-manager** | 写 `content/xiaohongshu/YYYY-MM-DD-<slug>-brief.md` + classifier JSON | 模板见 `kernels/templates/xhs-content-brief.template.md` |
 | 3 | **04 + 核心** | `python scripts/evaluate-xhs-topic.py --brief <file>` | `aligned: true`，exit 0 |
 | 4 | **06 pipeline** | `bash scripts/verify-xhs-content-dir.sh` | 全 Brief PASS |
@@ -27,15 +27,19 @@
 
 **03 / 02：** campaign 级或商业计划时，在步 2 前或并行读 INTEGRATION-PROMPT，产出进 `content/marketing/` 或 `content/business-brand/`。
 
-## 一键验收（Manager 在步 3–4 后必跑）
+## 一键验收
 
-```bash
-# 健康检查（无 Brief）
-bash scripts/manager-workflow-verify.sh
+| 场景 | 命令 |
+|------|------|
+| **全自动 CEO 链（发帖/CSV 除外）** | `bash scripts/manager-autopilot.sh` · [docs/AUTOPILOT.md](../../docs/AUTOPILOT.md) |
+| **CEO 仪表盘（00 总览）** | `bash scripts/manager-dashboard.sh` |
+| **09→04 派活块** | `content/analytics/derived/ceo-dispatch-latest.md`（pipeline 后自动刷新） |
+| **Goal 按 G-* 验收 M4** | `bash scripts/verify-goals.sh` |
+| **全仓集成构建（交班 / 大改后）** | `bash scripts/verify-all.sh` |
+| 单 Agent 6 case | `bash scripts/verify-agent-matrix.sh --agent 04` |
+| Manager 步 3–4（Brief 定稿） | `bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md` |
 
-# 单条 Brief 定稿前
-bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md
-```
+Goal 注册表：`integration/GOALS-REGISTRY.md`
 
 ## 派活记录（Manager 每轮必输出）
 

@@ -13,8 +13,13 @@ BRIEF="${1:-}"
 echo "=== Manager workflow verify ==="
 echo ""
 
-bash scripts/verify-manager-integration.sh
-echo ""
+if [[ "${VERIFY_SKIP_INTEGRATION_MATRIX:-0}" != "1" ]]; then
+  bash scripts/verify-manager-integration.sh
+  echo ""
+else
+  echo "(VERIFY_SKIP_INTEGRATION_MATRIX=1 — skipped duplicate agent matrix)"
+  echo ""
+fi
 
 if [[ -n "$BRIEF" ]]; then
   if [[ ! -f "$BRIEF" ]]; then

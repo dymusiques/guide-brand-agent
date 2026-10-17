@@ -14,7 +14,8 @@
 
 | 层级 | 脚本 | 检查什么 | 终端 |
 |------|------|----------|------|
-| **接手** | `bash scripts/verify-handoff.sh` | Git 骨架、IP Brief、OAuth 文件是否存在 | PASS / WARN / FAIL |
+| **接手** | `bash scripts/verify-handoff.sh` | Git 骨架、IP Brief、OAuth、`AGENT-TAKEOVER.md` | PASS / WARN / FAIL |
+| **接手文档** | `bash scripts/verify-agent-takeover.sh` | 新 Agent 指挥手册锚点 + 关键路径 | PASS / FAIL |
 | **集成** | `bash scripts/verify-integration.sh` | 6 case：gdocs 读/错 JSON、Git 读、Drive 搜 | PASS / SKIP / FAIL |
 
 ### 集成 6 case（`scripts/verify_integration.py`）
@@ -36,7 +37,16 @@ Key：`cp .env.example .env` → 填 `GEMINI_API_KEY`（不进 git）。Python �
 说明文档：[kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md)（含步骤审阅、Gemini/API、6 case 表）。  
 Topic Manager Skill：`.cursor/skills/xiaohongshu/topic-manager.md` · 单条 `python scripts/evaluate-xhs-topic.py --brief …`  
 **内容管线：** [content/xiaohongshu/PIPELINE.md](content/xiaohongshu/PIPELINE.md) · 批量 `bash scripts/verify-xhs-content-dir.sh`  
-**Manager 集成 6 case：** `bash scripts/verify-manager-integration.sh`  
+**Goal Registry（6 case）：** `python integration/tests/test_goals_registry.py` · [integration/GOALS-REGISTRY.md](integration/GOALS-REGISTRY.md)  
+**Agent 矩阵（10×6 glue）：** `bash scripts/verify-agent-matrix.sh` · `--agent 04` 单模块  
+**Manager 集成（兼容）：** `bash scripts/verify-manager-integration.sh` (= goals + 全矩阵)  
+**CEO 仪表盘（00 总览）：** `bash scripts/manager-dashboard.sh` → `content/analytics/derived/manager-dashboard-*.md`  
+**全自动编排（Owner 仅发帖+CSV）：** [docs/AUTOPILOT.md](docs/AUTOPILOT.md) · `bash scripts/manager-autopilot.sh`  
+**M4 Goal 按 G-* verify：** `bash scripts/verify-goals.sh` · `integration/goals/verify_hooks.json`  
+**交班一页纸 M5：** [docs/HANDOFF-SOP.md](docs/HANDOFF-SOP.md)  
+**全仓集成构建：** [docs/VERIFY-TIERS.md](docs/VERIFY-TIERS.md) · `VERIFY_TIER=release bash scripts/verify-all.sh` · CI=`VERIFY_TIER=ci`  
+**02 商业品牌：** `bash scripts/verify-business-brand.sh` · `python scripts/evaluate-business-brand.py --file …`  
+**03 营销 Campaign：** `bash scripts/verify-marketing-campaign.sh` · `python scripts/evaluate-marketing-campaign.py --file …`  
 **Manager 自动工作流：** [agents/00-manager/AUTO-WORKFLOW.md](agents/00-manager/AUTO-WORKFLOW.md) · `bash scripts/manager-workflow-verify.sh [brief.md]`  
 **Analytics 09 pipeline：** `bash scripts/analytics-pipeline.sh` · [content/analytics/README.md](content/analytics/README.md)
 

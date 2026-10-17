@@ -69,6 +69,7 @@ Before doing anything else:
 
 ## Handoff · 接手完整性
 
+- **新 Agent 必读：** [docs/AGENT-TAKEOVER.md](docs/AGENT-TAKEOVER.md)（当前状态 + 三轨 + 验收命令）
 - 策略：[docs/HANDOFF-COMPLETENESS.md](docs/HANDOFF-COMPLETENESS.md) — 什么必须在 Git、什么可选进 Drive
 - L0：`bash scripts/verify-handoff.sh`（全部克隆后 / 交班前 Must 跑）
 - 集成：`bash scripts/verify-integration.sh`（6 case · gdocs 读/错 + Git/Drive 读）

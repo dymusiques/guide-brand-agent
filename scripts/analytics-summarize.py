@@ -172,6 +172,14 @@ def main() -> int:
     md_path = derived / f"next-topics-{today}.md"
     md_path.write_text("\n".join(md_lines), encoding="utf-8")
 
+    import subprocess
+
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts/ceo-dispatch-refresh.py")],
+        cwd=ROOT,
+        check=False,
+    )
+
     print(json.dumps({"summary_json": str(json_path.relative_to(ROOT)), "next_topics_md": str(md_path.relative_to(ROOT))}, ensure_ascii=False))
     return 0 if scored else 1
 

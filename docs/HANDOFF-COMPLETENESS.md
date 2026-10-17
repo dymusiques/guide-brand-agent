@@ -1,7 +1,9 @@
 # 接手完整性 · Handoff Completeness
 
 > **目标：** 尽量少占 Google Drive，同时让 **全新 AI clone 后能完整接手、顺利运行**。  
-> **验证：** 运行 `bash scripts/verify-handoff.sh`（Agent 在交班前 / 全部克隆后 Must 跑）。
+> **验证：** 运行 `bash scripts/verify-handoff.sh`（Agent 在交班前 / 全部克隆后 Must 跑）。  
+> **新 Agent 指挥手册（Must）：** [AGENT-TAKEOVER.md](AGENT-TAKEOVER.md)  
+> **一页纸 SOP（M5）：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · 全自动链 [AUTOPILOT.md](AUTOPILOT.md)
 
 ---
 

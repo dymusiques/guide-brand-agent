@@ -6,7 +6,7 @@
 
 - **强链接** 客户：品牌（**跨行业 open**）、艺术家、教育、AI×数字藏品创新者 —— 非 vanity 流量。
 - **质量涨粉：** 约 1700 → 5000 → 10000（小红书为主渠道之一）。
-- **不是家居号：** 不主攻家居/建材；富森美类案例仅历史一笔，不作系列默认。
+- **不单品类绑定：** 不排斥任何品类合作；但 **不得** 把账号绑成某一商品/行业的主攻号（家居/建材仅是曾误绑示例；**对所有垂直同样适用**）。富森美类案例仅历史一笔，不作系列默认。
 
 ## 黑盒核心（勿在集成层改规则）
 
@@ -17,6 +17,7 @@
 
 - 单条：`python scripts/evaluate-xhs-topic.py --brief content/xiaohongshu/<file>.md`
 - 批量：`bash scripts/verify-xhs-content-dir.sh`
+- 全仓集成构建：`bash scripts/verify-all.sh` · 目标表 `integration/GOALS-REGISTRY.md`
 - IP 真相：`content/personal-ip/ip-positioning-brief-2026-10-05.md`
 
 ## 红线

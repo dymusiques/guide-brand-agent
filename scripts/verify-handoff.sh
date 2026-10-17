@@ -19,7 +19,7 @@ echo "[L0 Git skeleton]"
 for f in \
   AGENTS.md INDEX.md integrations/index.md \
   rules/SOUL.md rules/USER.md rules/WORKSPACE.md \
-  .gitmodules docs/HANDOFF-COMPLETENESS.md; do
+  .gitmodules docs/HANDOFF-COMPLETENESS.md docs/AGENT-TAKEOVER.md; do
   [[ -f "$f" ]] && pass "$f" || fail "missing $f"
 done
 
@@ -93,6 +93,14 @@ if [[ "${xhs_brief_count:-0}" -ge 1 ]]; then
   fi
 else
   warn "content/xiaohongshu/ has no *-brief.md yet"
+fi
+
+echo ""
+echo "[L0 Agent takeover verify]"
+if bash scripts/verify-agent-takeover.sh >/dev/null 2>&1; then
+  pass "verify-agent-takeover.sh"
+else
+  fail "verify-agent-takeover.sh — fix docs/AGENT-TAKEOVER.md"
 fi
 
 echo ""

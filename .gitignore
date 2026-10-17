@@ -32,3 +32,6 @@ content/analytics/youtube/videos.csv
 content/analytics/inbox/done/
 content/analytics/derived/summary-*.json
 content/analytics/derived/next-topics-*.md
+content/analytics/derived/manager-dashboard-*.md
+content/analytics/derived/ceo-dispatch-latest.md
+content/analytics/derived/.manager-dashboard-state.json

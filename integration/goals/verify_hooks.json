@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "hooks": {
+    "G-STRONG-LINK": {
+      "checks": [
+        {"type": "file_contains", "path": "integration/IMPORTANT.md", "needles": ["强链接"]},
+        {"type": "file_contains", "path": "content/marketing/2026-10-brand-discovery-phase.md", "needles": ["CTA"]}
+      ]
+    },
+    "G-QUALITY-GROWTH": {
+      "checks": [
+        {"type": "file_contains", "path": "integration/goals/registry.json", "needles": ["1700", "5000", "10000"]}
+      ]
+    },
+    "G-NOT-SINGLE-VERTICAL-LOCK": {
+      "checks": [
+        {"type": "file_contains", "path": "content/personal-ip/ip-positioning-brief-2026-10-05.md", "needles": ["不单品类绑定"]}
+      ]
+    },
+    "G-CROSS-INDUSTRY": {
+      "checks": [
+        {"type": "file_contains", "path": "content/personal-ip/ip-positioning-brief-2026-10-05.md", "needles": ["跨行业"]}
+      ]
+    },
+    "G-BRIEF-ALIGNED-GATE": {
+      "checks": [
+        {"type": "discovery_briefs_aligned"}
+      ]
+    },
+    "G-ANALYTICS-EVIDENCE": {
+      "checks": [
+        {"type": "script", "cmd": "bash scripts/analytics-pipeline.sh --demo", "allow_fail_if": "no_inbox_ok"}
+      ]
+    },
+    "G-PLATFORM-SYNC": {
+      "checks": [
+        {"type": "script", "cmd": "bash scripts/verify-integration.sh"}
+      ]
+    },
+    "G-BRAND-VISUAL": {
+      "checks": [
+        {"type": "file_exists", "path": "content/visual/README.md"},
+        {"type": "file_exists", "path": ".cursor/skills/brand-visual/SKILL.md"}
+      ]
+    },
+    "G-MARKETING-CAMPAIGN": {
+      "checks": [
+        {"type": "file_exists", "path": "content/marketing/2026-10-brand-discovery-phase.md"},
+        {
+          "type": "script",
+          "cmd": ".venv/bin/python scripts/lint-strategic-doc.py --kind marketing --file content/marketing/2026-10-brand-discovery-phase.md"
+        },
+        {
+          "type": "script",
+          "cmd": ".venv/bin/python scripts/evaluate-marketing-campaign.py --file content/marketing/2026-10-brand-discovery-phase.md",
+          "skip_without_gemini": true
+        }
+      ]
+    },
+    "G-BUSINESS-BRAND": {
+      "checks": [
+        {"type": "file_exists", "path": "content/business-brand/2026-10-17-brand-positioning-swot.md"},
+        {
+          "type": "script",
+          "cmd": ".venv/bin/python scripts/lint-strategic-doc.py --kind business_brand --file content/business-brand/2026-10-17-brand-positioning-swot.md"
+        },
+        {
+          "type": "script",
+          "cmd": ".venv/bin/python scripts/evaluate-business-brand.py --file content/business-brand/2026-10-17-brand-positioning-swot.md",
+          "skip_without_gemini": true
+        }
+      ]
+    }
+  }
+}

@@ -18,3 +18,5 @@
 总览：[docs/DANYING-BRAND-AGENT-INTEGRATION.md](../docs/DANYING-BRAND-AGENT-INTEGRATION.md)
 
 **Owner 给目标 → 自动 00 Manager：** [00-manager/AUTO-WORKFLOW.md](00-manager/AUTO-WORKFLOW.md)（`.cursor/rules/danying-manager-auto.mdc`）
+
+**全仓集成构建：** `bash scripts/verify-all.sh` · 每 Agent 6 case：`bash scripts/verify-agent-matrix.sh --agent 04` · 目标表：[integration/GOALS-REGISTRY.md](../integration/GOALS-REGISTRY.md)

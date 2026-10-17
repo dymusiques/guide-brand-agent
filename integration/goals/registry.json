@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "owner_goals": [
+    {
+      "id": "G-STRONG-LINK",
+      "title": "强链接客户（非 vanity 流量）",
+      "success_criteria": "内容含可执行 CTA（私信/合作/评估等），对齐跨行业品牌与艺术家",
+      "agents": ["00-manager", "01-personal-ip", "04-xhs-topic-manager", "05-xhs-kernel"],
+      "verify": "evaluate-xhs-topic --brief; classifier 6 case 正例含 CTA",
+      "kpi_automated": false
+    },
+    {
+      "id": "G-QUALITY-GROWTH",
+      "title": "小红书质量涨粉路径",
+      "success_criteria": "里程碑 1700→5000→10000  documented；由 Owner/09 用 CSV 验证，不写入 classifier 硬断言",
+      "agents": ["09-data-analytics", "04-xhs-topic-manager"],
+      "milestones": [1700, 5000, 10000],
+      "kpi_automated": false
+    },
+    {
+      "id": "G-NOT-SINGLE-VERTICAL-LOCK",
+      "title": "不单品类绑定（全品类可合作）",
+      "success_criteria": "IP Brief 与 IMPORTANT：不排斥任何合作；禁止账号被框成任一垂直的主攻号；家居仅为误绑示例",
+      "agents": ["01-personal-ip", "02-business-brand", "03-marketing-strategy", "04-xhs-topic-manager", "05-xhs-kernel"],
+      "legacy_goal_id": "G-NOT-HOME-DECOR",
+      "kpi_automated": false
+    },
+    {
+      "id": "G-CROSS-INDUSTRY",
+      "title": "品牌合作跨行业 open",
+      "success_criteria": "IP Brief 含品牌合作范围；Brief 可对齐 evaluate",
+      "agents": ["01-personal-ip", "02-business-brand", "04-xhs-topic-manager"],
+      "kpi_automated": false
+    },
+    {
+      "id": "G-BRIEF-ALIGNED-GATE",
+      "title": "Brief 定稿 gate",
+      "success_criteria": "aligned:true 才 commit / Drive",
+      "agents": ["00-manager", "04-xhs-topic-manager", "06-xhs-content-pipeline"],
+      "kpi_automated": true
+    },
+    {
+      "id": "G-ANALYTICS-EVIDENCE",
+      "title": "数据驱动下一选题",
+      "success_criteria": "有 CSV 才写 derived；无数据不编造",
+      "agents": ["09-data-analytics", "00-manager"],
+      "kpi_automated": true
+    },
+    {
+      "id": "G-PLATFORM-SYNC",
+      "title": "平台读写路径可靠",
+      "success_criteria": "gdocs/Drive/Git 读路径 6 case PASS 或 SKIP（无 OAuth）",
+      "agents": ["08-platform-integration"],
+      "kpi_automated": true
+    },
+    {
+      "id": "G-BRAND-VISUAL",
+      "title": "视觉与品牌 kit 一致",
+      "success_criteria": "封面块进 Brief；Canva skill 可用",
+      "agents": ["07-brand-visual"],
+      "kpi_automated": false
+    },
+    {
+      "id": "G-MARKETING-CAMPAIGN",
+      "title": "营销与 campaign  Brief",
+      "success_criteria": "产出在 content/marketing/；lint + evaluate-marketing-campaign aligned",
+      "agents": ["03-marketing-strategy"],
+      "verify": "M4: bash scripts/verify-goals.sh (G-MARKETING-CAMPAIGN hooks); kernel 6: bash scripts/verify-marketing-campaign.sh",
+      "kpi_automated": true
+    },
+    {
+      "id": "G-BUSINESS-BRAND",
+      "title": "商业品牌策划产出",
+      "success_criteria": "产出在 content/business-brand/；lint + evaluate-business-brand aligned",
+      "agents": ["02-business-brand"],
+      "verify": "M4: bash scripts/verify-goals.sh (G-BUSINESS-BRAND hooks); kernel 6: bash scripts/verify-business-brand.sh",
+      "kpi_automated": true
+    }
+  ]
+}
