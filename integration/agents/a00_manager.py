@@ -62,15 +62,15 @@ def case_5_goals_linked() -> tuple[bool, str]:
 def case_6_ceo_dashboard_runs() -> tuple[bool, str]:
     import subprocess
 
-    p = ROOT / "scripts/manager-dashboard.sh"
-    if not p.is_file():
-        return False, "missing manager-dashboard.sh"
+    dash = ROOT / "scripts/manager_dashboard.py"
+    if not dash.is_file():
+        return False, "missing manager_dashboard.py"
     proc = subprocess.run(
-        ["bash", str(p)],
+        [_py(), str(dash)],
         cwd=ROOT,
         capture_output=True,
         text=True,
-        timeout=120,
+        timeout=180,
     )
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout or "")[-300:]

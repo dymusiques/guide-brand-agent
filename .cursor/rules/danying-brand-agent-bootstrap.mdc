@@ -12,8 +12,8 @@ alwaysApply: false
 1. **Read** [docs/AGENT-TAKEOVER.md](docs/AGENT-TAKEOVER.md) 全文。
 2. **Read** [docs/HANDOFF-MD-MANIFEST.md](docs/HANDOFF-MD-MANIFEST.md) 中 §1–§4 列出的每一个 Must 文件（用 Read 工具，不要凭记忆）。
 3. **Shell：** `bash scripts/ensure-venv-deps.sh`
-4. **Shell：** `bash scripts/verify-agent-takeover.sh`（FAIL 则走 Manager's Loop 修 L0，再继续）
-5. **Shell：** `bash scripts/manager-autopilot.sh`
+4. **Shell：** `bash scripts/verify-handoff-program.sh`（或至少 `verify-agent-takeover.sh`；FAIL → Manager's Loop）
+5. 若已跑全量 program，可跳过重复 autopilot；否则 **Shell：** `bash scripts/manager-autopilot.sh`
 6. **Read** `content/analytics/derived/ceo-dispatch-latest.md`（autopilot 生成）。
 7. **输出** 简体中文 **接手摘要**（≤15 行）：G-* 摘要、三轨状态、Owner 仅做发帖+CSV、下一篇 Brief、终端 PASS/FAIL。
 

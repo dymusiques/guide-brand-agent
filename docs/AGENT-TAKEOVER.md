@@ -175,14 +175,21 @@ flowchart TB
 
 ## 5. 验收命令（新 Agent Must 跑）
 
+**一条命令（推荐 · 含 MD 锚点 + 10×6 + M4 + Gemini 6 + autopilot）：**
+
 ```bash
-bash scripts/verify-agent-takeover.sh   # 本文 + 关键路径
+bash scripts/verify-handoff-program.sh
+```
+
+**分项：**
+
+```bash
+bash scripts/verify-agent-takeover.sh   # 本文 + MANIFEST + 口令规则
 bash scripts/verify-handoff.sh
 bash scripts/manager-autopilot.sh
 bash scripts/verify-manager-integration.sh
-# 有 GEMINI_API_KEY / .env：
+# 交班 capstone：
 VERIFY_TIER=release bash scripts/verify-all.sh
-bash scripts/verify-agent-matrix.sh    # 若 verify-all 内矩阵偶发 FAIL，单独再跑应 PASS
 ```
 
 **2026-10-17 实测摘要：** goals 10/10、matrix 60/60、autopilot PASS、CI verify-all PASS；Release 下 05/02/03 Gemini 6 均 PASS；verify-all 嵌套跑时矩阵步曾偶发 FAIL，单独 matrix 重跑 PASS。

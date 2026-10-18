@@ -16,6 +16,7 @@
 |------|------|----------|------|
 | **接手** | `bash scripts/verify-handoff.sh` | Git 骨架、IP Brief、OAuth、`AGENT-TAKEOVER.md` | PASS / WARN / FAIL |
 | **接手文档** | `bash scripts/verify-agent-takeover.sh` | 新 Agent 指挥手册锚点 + 关键路径 | PASS / FAIL |
+| **接手全量** | `bash scripts/verify-handoff-program.sh` | MD + CEO + 10×6 + M4 + Gemini 6 + autopilot | PASS / FAIL |
 | **集成** | `bash scripts/verify-integration.sh` | 6 case：gdocs 读/错 JSON、Git 读、Drive 搜 | PASS / SKIP / FAIL |
 
 ### 集成 6 case（`scripts/verify_integration.py`）

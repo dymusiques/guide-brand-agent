@@ -63,3 +63,22 @@ bash scripts/manager-autopilot.sh
 ## 不读旧对话
 
 Chat 历史 **不在** Git；真相源仅为上表 **L0 路径** + derived 刷新结果。
+
+## 7 · MD 与代码分工（防混乱）
+
+| 疑问 | 唯一答案 |
+|------|----------|
+| 谁是指挥官？ | **00 Manager = CEO**（会话内一个 Agent 扮演；不是第二个 bot） |
+| 01–09 是什么？ | **部门 Manager**；每步读 `agents/<nn>-*/INTEGRATION-PROMPT.md`，不是 9 个独立进程 |
+| 6 test 在哪？ | **05/02/03** 的 `verify-*-topic/campaign/business-brand.sh`（Gemini）；**10×6** 是 `integration/agents/a*.py` **胶水**，在 `verify-agent-matrix.sh` |
+| 成功目标在哪？ | `integration/goals/registry.json` + M4 `verify-goals.sh` |
+| 函数壳是什么？ | `scripts/agent-shells/<nn>-*.sh` — 集成入口，**不是** kernel 算法 |
+| 自动 workflow？ | `manager-autopilot.sh`（**不**发帖、**不**拉 CSV） |
+| 读 MD 够吗？ | MD = **知识与指挥**；**能力**靠 clone 后跑脚本验收 → `bash scripts/verify-handoff-program.sh` |
+| 与旧对话冲突？ | **以 Git L0 为准**；旧 chat 仅历史，不得覆盖 IMPORTANT / IP Brief |
+
+**新机全量验收（Owner 或 Agent Must 跑一次）：**
+
+```bash
+bash scripts/verify-handoff-program.sh
+```

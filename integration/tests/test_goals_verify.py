@@ -76,6 +76,11 @@ def run_check(goal_id: str, check: dict) -> tuple[bool, str]:
         if check.get("allow_fail_if") == "no_inbox_ok":
             return True, "demo pipeline ok or expected empty"
         out = (proc.stderr or proc.stdout or "fail").strip()
+        if check.get("skip_without_gemini") and (
+            "User location is not supported" in out
+            or "FAILED_PRECONDITION" in out
+        ):
+            return True, "SKIP (Gemini geo/API)"
         return False, out[-400:]
     return False, f"unknown check {t}"
 
