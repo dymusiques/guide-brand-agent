@@ -36,6 +36,10 @@
 - 人即品牌：张丹瀛本人即产品，非单一栏目或单次活动
 - 古典艺术的「不可替代性」× 可商业协作 × 可沉淀为数字藏品
 
+## KPI / CAPSTONE playbook
+
+战略层 Pitch、Publish、Product 生态与 CAPSTONE 工作稿：[2026-10-18-key-person-of-influence-capstone-playbook.md](./2026-10-18-key-person-of-influence-capstone-playbook.md)
+
 ## 英文对照（Instagram 等）
 
 French-school flute lineage × cross-disciplinary brand strategist — helping brands, artists, educators, and AI innovators translate irreplaceable classical artistry into language that can be collaborated on, shared, and extended through digital collectibles and digitization.

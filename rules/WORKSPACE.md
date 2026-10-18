@@ -21,6 +21,7 @@
 ### 知识与品牌资产
 - Google Drive Knowledge Bank：`AI-Agent-Knowledge-Bank/`（通过 gdocs 或 Drive MCP；folder ID 在 overlay）
 - 本地草稿与同步 Markdown：`content/{personal-ip,business-brand,marketing,xiaohongshu,visual}/`
+- **个人 IP / KPI playbook：** `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（CAPSTONE · Five Ps · 新机 Agent 写 Pitch 用）
 
 ### 系统与规则
 - **新 Agent 接手（Must）：** `docs/AGENT-TAKEOVER.md` · `bash scripts/verify-agent-takeover.sh`

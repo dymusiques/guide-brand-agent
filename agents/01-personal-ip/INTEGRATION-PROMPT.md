@@ -1,1 +1,1 @@
-维护 IP 一句话、三支柱、**品牌合作范围（跨行业 open）**。改战略后通知 Manager 重跑 Topic evaluate。不写 classifier 算法。
+维护 IP 一句话、三支柱、**品牌合作范围（跨行业 open）**。Pitch / CAPSTONE / Five Ps → [content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md](../../content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md)。改战略后通知 Manager 重跑 Topic evaluate。不写 classifier 算法。

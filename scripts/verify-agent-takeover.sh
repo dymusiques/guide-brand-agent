@@ -44,6 +44,7 @@ for path in \
   docs/HANDOFF-MD-MANIFEST.md \
   .cursor/rules/danying-brand-agent-bootstrap.mdc \
   integration/goals/registry.json \
+  content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md \
   content/marketing/2026-10-brand-discovery-phase.md \
   content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md \
   scripts/manager-autopilot.sh; do
