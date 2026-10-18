@@ -9,10 +9,12 @@ description: >-
 
 ## 读什么
 
-1. `guide-core/soul.md` + `guide-core/user.md`
-2. Git `content/personal-ip/` + `rules/USER.md`（真相源，优先）
-3. Drive `02-personal-ip/`（仅 Owner 已同步定稿时查阅）
-4. `kernels/templates/ip-positioning-brief.template.md`
+1. `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（KPI · CAPSTONE · Pitch/Publish/Product）
+2. `content/personal-ip/ip-positioning-brief-2026-10-05.md` + `rules/USER.md`
+3. `guide-core/soul.md` + `guide-core/user.md`
+4. Git `content/personal-ip/` 其余定稿（真相源，优先）
+5. Drive `02-personal-ip/`（仅 Owner 已同步定稿时查阅）
+6. `kernels/templates/ip-positioning-brief.template.md`
 
 ## 存储默认规则
 

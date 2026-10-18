@@ -14,8 +14,10 @@
 | 步 | Agent | 做什么 | 验收 |
 |----|-------|--------|------|
 | 0 | **00 Manager** | 解析 Owner 目标，写 3 行计划（受众、支柱、CTA 类型） | 计划与 `content/personal-ip/` 不冲突 |
-| 1 | **01 personal-ip** | 战略/行业边界：「品牌合作范围」 | 全品类可合作、不单品类绑定 |
-| 2 | **04 xhs-topic-manager** | 写 `content/xiaohongshu/YYYY-MM-DD-<slug>-brief.md` + classifier JSON | 模板见 `kernels/templates/xhs-content-brief.template.md` |
+| **0b** | **01 personal-ip**（Pitch 层） | 凡 **对外 Pitch / 简介 / 合作开场 / 新栏目定位** → 先读 [KPI·CAPSTONE playbook](../../content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md) §3.2–3.3，再改 Brief 或触达稿 | 与 [ip-positioning-brief](../../content/personal-ip/ip-positioning-brief-2026-10-05.md) 一致；**先观点后产品** |
+| 1 | **01 personal-ip** | 战略/行业边界：「品牌合作范围」· Five Ps 与 7-11-4 节奏（playbook §1、§4） | 全品类可合作、不单品类绑定 |
+| 1b | **03 / 02**（若 campaign / SWOT） | 触达计划 / 商业文档：Problem→Opportunity 对齐 CAPSTONE；Product 生态勿越级推销（playbook §6） | `evaluate-marketing-campaign` / `evaluate-business-brand` |
+| 2 | **04 xhs-topic-manager** | 写 Brief：钩子=**Problem**，正文=**Solution+Why**，CTA=**Next Step**，语气=**Essence**（playbook §3 + 模板） | 模板见 `kernels/templates/xhs-content-brief.template.md` |
 | 3 | **04 + 核心** | `python scripts/evaluate-xhs-topic.py --brief <file>` | `aligned: true`，exit 0 |
 | 4 | **06 pipeline** | `bash scripts/verify-xhs-content-dir.sh` | 全 Brief PASS |
 | 5 | **00 Manager** | Owner 未反对则 **git commit** 定稿；**禁止**未 aligned commit | `git status` clean |
@@ -25,7 +27,16 @@
 
 **05 xhs-kernel：** 仅当改 `kernels/xiaohongshu/line2/` 或 classifier 规则时介入 → 必跑 `bash scripts/verify-xhs-topic.sh`（Gemini 6）。
 
-**03 / 02：** campaign 级或商业计划时，在步 2 前或并行读 INTEGRATION-PROMPT，产出进 `content/marketing/` 或 `content/business-brand/`。
+**KPI playbook 路由（个人 IP 建立）：**
+
+| Owner 意图 | 走哪步 | 主要文档 |
+|------------|--------|----------|
+| 我是谁 / 怎么介绍 / 30 秒 Pitch | **0b** | playbook §3.2–3.3 |
+| 内容节奏 / 信任 / 别过早产品化 | **1** + 认知期 | playbook §4 · [OPERATING-PLAN](../../content/marketing/discovery-phase-OPERATING-PLAN.md) |
+| 小红书单篇 | **2→3** | Brief CAPSTONE 映射 |
+| 合作方态度 / 跨品牌 | **1** + **8** 可选 | playbook §8 · IMPORTANT |
+
+**03 / 02：** campaign 级或商业计划 → **步 1b**（在步 2 前），产出进 `content/marketing/` 或 `content/business-brand/`。
 
 ## 一键验收
 

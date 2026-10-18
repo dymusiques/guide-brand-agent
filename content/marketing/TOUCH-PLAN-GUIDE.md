@@ -16,6 +16,8 @@
 4. **最小 CTA** — 私信「合作/品牌」→ 15 分钟了解；禁止纯点赞抽奖  
 5. **IP** — 跨行业 open · 不单品类绑定 · 04 Brief + evaluate  
 
+**Pitch 战略层（先观点后产品）：** [personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md](../personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md) — 00 工作流 **步 0b / 1 / 1b** 在读触达稿前对齐 CAPSTONE。
+
 ## 04 Brief 与 evaluate（人话）
 
 见 [docs/MARKETING-TO-XHS-GLOSSARY.md](../docs/MARKETING-TO-XHS-GLOSSARY.md)
