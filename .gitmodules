@@ -13,3 +13,6 @@
 [submodule "vendor/process-launcher"]
 	path = vendor/process-launcher
 	url = https://github.com/grapeot/process-launcher.git
+[submodule "vendor/ai-agent-cli-skill"]
+	path = vendor/ai-agent-cli-skill
+	url = https://github.com/grapeot/ai-agent-cli-skill.git

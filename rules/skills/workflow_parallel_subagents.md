@@ -19,7 +19,7 @@
 | `functions.task` + `subagent_type` | Cursor **`Task`** 工具；`subagent_type` 以当前会话 schema 为准（如 `explore`、`generalPurpose`、`bugbot` 等） |
 | OpenCode agent 注册表 | **无**；不编造 `subagent_type` |
 | `multi_tool_use.parallel` | 同一轮 **并行发起多个 Task**（独立 tool call） |
-| Antigravity / OpenCode append | 本仓 **不默认**；独立 review 可用 [review-bugbot](https://cursor.com) 或单次 Task reviewer |
+| Antigravity / OpenCode / headless Cursor | 读 [skill_ai_agent_cli.md](./skill_ai_agent_cli.md) + vendor focused skill；IDE 内 review 优先 Task / Bugbot |
 | 并行落盘目录 | 默认 `tmp/parallel/<session_slug>/`（gitignored，见 overlay） |
 
 **与 00 Manager 的关系：** 01–09 是 **单会话内顺序扮演 + verify**，不是后台 subagent。并行 Task **只**用于读/调研/review 等 **可隔离** 工作；**不**并行改同一 Brief 或同一 `content/` 定稿文件。

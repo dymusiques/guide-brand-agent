@@ -22,6 +22,7 @@
 - Google Drive Knowledge Bank：`AI-Agent-Knowledge-Bank/`（通过 gdocs 或 Drive MCP；folder ID 在 overlay）
 - 本地草稿与同步 Markdown：`content/{personal-ip,business-brand,marketing,xiaohongshu,visual}/`
 - 并行 Subagent 中间工件（gitignored）：`tmp/parallel/<session_slug>/` · skill [workflow_parallel_subagents.md](./skills/workflow_parallel_subagents.md)
+- Headless CLI scratch（gitignored）：`tmp/ai-agent-cli/<job_id>/` · skill [skill_ai_agent_cli.md](./skills/skill_ai_agent_cli.md)
 - **个人 IP / KPI playbook：** `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（CAPSTONE · Five Ps · 新机 Agent 写 Pitch 用）
 
 ### 系统与规则
@@ -41,8 +42,9 @@
 | docx-skill | `vendor/docx-skill/` | `rules/skills/skill_docx.md` | `git submodule update --remote vendor/docx-skill` |
 | pptx.skill | `vendor/pptx.skill/` | `rules/skills/skill_pptx.md` | `git submodule update --remote vendor/pptx.skill` |
 | process-launcher | `vendor/process-launcher/` | `rules/skills/skill_process_launcher.md` | `git submodule update --remote vendor/process-launcher` |
+| ai-agent-cli-skill | `vendor/ai-agent-cli-skill/` | `rules/skills/skill_ai_agent_cli.md` | `git submodule update --remote vendor/ai-agent-cli-skill` |
 
-**本仓采纳边界：** [integration/process-launcher-adoption.md](../integration/process-launcher-adoption.md) · 扩展接口 [integration/EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md) · 预留 job 模板 `integration/templates/process-launcher-reserved-jobs.example.yaml` · 私有配方 `rules/skills/overlays/process-launcher.local.md`（example 可 commit）
+**本仓采纳边界：** [integration/process-launcher-adoption.md](../integration/process-launcher-adoption.md) · [integration/ai-agent-cli-adoption.md](../integration/ai-agent-cli-adoption.md) · 扩展接口 [integration/EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md) · 预留 job 模板 `integration/templates/process-launcher-reserved-jobs.example.yaml` · 私有 overlay `*.local.md`（example 可 commit）
 
 **暂缓（1-A～4-A）：** voice-lora、image-generation、presentation_skill、design_skill、kit-skill、circle-post-skill、imessage_skill、opus-video-audio-skill、tts-clone-skill、lizheng-video-production 等 — 视频号/额外渠道定调后再 `git submodule add`。
 

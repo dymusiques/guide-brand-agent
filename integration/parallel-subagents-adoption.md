@@ -24,7 +24,7 @@
 | file-first 交接 + 语言继承 | ✅ |
 | OpenCode `functions.task` JSON 示例 | ❌ 改为 Cursor Task 表 |
 | `workflow_astra_coordinator` 续跑细节 | ❌ 不 vendor；Cursor 完成通知以产品为准 |
-| Antigravity CLI 路由 | ❌ 可选 Bugbot / 单次 Task |
+| Antigravity / 其他 CLI harness | ✅ [ai-agent-cli-adoption.md](./ai-agent-cli-adoption.md) · headless 时用 vendor focused skill |
 | 与 00 Manager 分工 | ✅ 本文 + AUTO-WORKFLOW 脚注 |
 
 ## 推荐组合（认知期 / 多任务）

@@ -22,6 +22,7 @@ pip install -e vendor/writing-skill
 pip install -e vendor/docx-skill
 pip install -e 'vendor/pptx.skill[dev]'
 pip install -e 'vendor/process-launcher[dev]'   # Python ≥3.12 · 可选 API 见 integration/process-launcher-adoption.md
+# ai-agent-cli-skill：仅 Markdown submodule，无 pip；headless 见 integration/ai-agent-cli-adoption.md
 ```
 
 ## 3. OAuth（一次性 · 不进 git）

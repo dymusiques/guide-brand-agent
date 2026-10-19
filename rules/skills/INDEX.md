@@ -20,6 +20,7 @@
 - ✅ **DOCX / PPTX** — [skill_docx.md](./skill_docx.md) · [skill_pptx.md](./skill_pptx.md)（办公稿；封面仍 Canva）
 - ✅ **Process Launcher** — [skill_process_launcher.md](./skill_process_launcher.md) → `vendor/process-launcher/`（本仓边界 [process-launcher-adoption.md](../../integration/process-launcher-adoption.md)）
 - ✅ **并行 Subagent 工作流** — [workflow_parallel_subagents.md](./workflow_parallel_subagents.md)（边界 [parallel-subagents-adoption.md](../../integration/parallel-subagents-adoption.md)）
+- ✅ **AI Agent CLI（headless 路由）** — [skill_ai_agent_cli.md](./skill_ai_agent_cli.md) → `vendor/ai-agent-cli-skill/`（边界 [ai-agent-cli-adoption.md](../../integration/ai-agent-cli-adoption.md)）
 - ✅ **Rules 框架** — SOUL / USER / WORKSPACE / AGENTS
 
 ### Tier 3 · 暂缓（Owner 2026-10 · 全选 A）
@@ -47,6 +48,7 @@
 - [DOCX（Word 表单/inspect）](./skill_docx.md) ✅ — `vendor/docx-skill`；触发词："DOCX"、"Word 表单"
 - [PPTX（读改/渲染）](./skill_pptx.md) ✅ — `vendor/pptx.skill`；触发词："pptx"、"slide"（Brief 封面 → brand-visual）
 - [Process Launcher（本机延时/周期/进程 API）](./skill_process_launcher.md) ✅ — `vendor/process-launcher`；触发词："定时任务"、"延时执行"、"process launcher"、`POST /run`（**不**替代 manager-autopilot）
+- [AI Agent CLI（Claude/Codex/Cursor/agy 等 headless）](./skill_ai_agent_cli.md) ✅ — `vendor/ai-agent-cli-skill`；触发词：`cursor agent -p`、headless、file-response（**不**替代 IDE 内 00 Manager）
 
 ### Workflow（长文 · 非 XHS Brief）
 

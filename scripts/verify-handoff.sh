@@ -32,6 +32,9 @@ done
 [[ -f integration/templates/process-launcher-reserved-jobs.example.yaml ]] && pass "launcher reserved jobs template" || fail "missing integration/templates/process-launcher-reserved-jobs.example.yaml"
 [[ -f rules/skills/workflow_parallel_subagents.md ]] && pass "workflow_parallel_subagents skill" || fail "missing rules/skills/workflow_parallel_subagents.md"
 [[ -f integration/parallel-subagents-adoption.md ]] && pass "parallel-subagents adoption doc" || fail "missing integration/parallel-subagents-adoption.md"
+[[ -f vendor/ai-agent-cli-skill/skills/skill_ai_agent_cli.md ]] && pass "ai-agent-cli-skill submodule" || fail "vendor/ai-agent-cli-skill not initialized (git submodule update --init)"
+[[ -f rules/skills/skill_ai_agent_cli.md ]] && pass "skill_ai_agent_cli router" || fail "missing rules/skills/skill_ai_agent_cli.md"
+[[ -f integration/ai-agent-cli-adoption.md ]] && pass "ai-agent-cli adoption doc" || fail "missing integration/ai-agent-cli-adoption.md"
 
 echo ""
 echo "[L0 Brand facts]"

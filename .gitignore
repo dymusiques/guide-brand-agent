@@ -24,6 +24,9 @@ rules/skills/overlays/*.local.md
 # Parallel subagent scratch (workflow_parallel_subagents)
 tmp/parallel/
 
+# Headless CLI agent jobs (ai-agent-cli file-response)
+tmp/ai-agent-cli/
+
 # Gemini API — never commit
 .env
 .local-config.json
