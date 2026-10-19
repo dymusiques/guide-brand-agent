@@ -10,6 +10,30 @@ Kernel (6 case) → Topic Manager Skill → 单篇 Brief 闭环 ✅
 → brand-visual（封面）→ 可选 Drive → P 层 KPI 复盘
 ```
 
+## 三阶段与状态（摘录 · 分阶段工作法）
+
+本管线对齐 **采集 → 本地处理 → Owner 确认发布**（参考 [grapeot staged approach](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md)，本仓不装全文）。
+
+| Stage | 本管线在做什么 | 对应状态 / 动作 |
+|-------|----------------|-----------------|
+| **1 · 采集** | 选题、调研、CSV/证据落盘 `content/`、`content/analytics/` inbox | 材料进 Git 或 Brief 引用；**不**代 Owner 在小红书发帖 |
+| **2 · 本地处理** | 写/改 Brief + classifier JSON；跑 `evaluate` | `draft` → `verified`（`aligned: true`）；可重复改稿 + evaluate |
+| **3 · 确认与发布** | Owner 审阅定稿、实际上线、填 `## 发布状态` | `verified` + **git commit** → **定稿**；封面 / Drive **仅 Owner 明确要求** |
+
+**Dry Run（发布侧）：** Agent **不**代替 Owner 点击发布、不代发私信 mass、不 sync Drive，除非 Owner 当轮明确授权。批量改 Brief / 跑 verify 前确认路径：`content/xiaohongshu/*-brief.md` only。
+
+## 时间敏感表述（摘录 · temporal）
+
+Brief 或听见类内容若出现 **具体日期、档期、「最新/刚发布」、产品或模型版本号**，Agent **不得**仅凭记忆断言；应检索或标注待 Owner 确认（详见 [check.md](../../check.md)）。
+
+| 情况 | 做法 |
+|------|------|
+| 活动/演出/展览日期 | 核对官方来源或 Owner 提供的链接；写不进 Brief 则改模糊表述或留 `[待核实]` |
+| 「最新专辑/政策/平台规则」 | Web 检索或 Owner 确认；避免 cutoff 幻觉 |
+| 技术名（如 Gemini 模型 ID） | 以本仓脚本/env 实际使用的名为准；与 kernel evaluate 一致 |
+
+资讯栏目（听见 Daily）固定产出时，可再装 standalone [temporal skill](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md)；认知期品牌 Brief **以上表为准即可**。
+
 ## 文件约定
 
 | 项 | 规则 |
@@ -75,4 +99,5 @@ bash scripts/verify-xhs-content-dir.sh
 
 - Skill：[.cursor/skills/xiaohongshu/topic-manager.md](../../.cursor/skills/xiaohongshu/topic-manager.md)  
 - Kernel：[kernels/xiaohongshu/README.md](../../kernels/xiaohongshu/README.md)  
-- 路由：[integrations/index.md](../../integrations/index.md)
+- 路由：[integrations/index.md](../../integrations/index.md)  
+- Meta（改脚本/集成）：[rules/skills/bestpractice_ai_programming_mindset.md](../../rules/skills/bestpractice_ai_programming_mindset.md)
