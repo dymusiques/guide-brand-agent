@@ -127,7 +127,7 @@ LLM 的端到端处理可能比显式规则更 robust。这是从"程序思维"�
 ## 注意事项
 
 - **生产力陷阱**：为节省微小 Token 成本而牺牲开发者心智带宽和 Flow 状态，属于过早优化
-- **物理锚点**：时间敏感事实需核对（本仓见 [check.md](../../check.md)、[`docs/VERIFY-TIERS.md`](../../docs/VERIFY-TIERS.md)；上游 [`bestpractice_temporal_info_verification.md`](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md) 未安装）
+- **物理锚点**：时间敏感事实需核对（[bestpractice_temporal_info_verification.md](./bestpractice_temporal_info_verification.md) · [check.md](../../check.md) · [`docs/VERIFY-TIERS.md`](../../docs/VERIFY-TIERS.md)）
 - **上下文腐烂**：定期反思和固化方法论，避免上下文在 session 间丢失 — 新机读 [docs/AGENT-TAKEOVER.md](../../docs/AGENT-TAKEOVER.md)
 
 ---

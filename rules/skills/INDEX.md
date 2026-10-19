@@ -15,6 +15,7 @@
 - ✅ **Google Workspace CLI** — `vendor/gdocs-skill` + `rules/skills/skill_google_docs.md`
 - ✅ **Skill 写作 Meta** — [bestpractice_skill_writing.md](./bestpractice_skill_writing.md)（上游 [context-infrastructure](https://github.com/grapeot/context-infrastructure) standalone MD）
 - ✅ **AI 编程方法论** — [bestpractice_ai_programming_mindset.md](./bestpractice_ai_programming_mindset.md)（verify / scripts / 反馈环）
+- ✅ **时间敏感验证** — [bestpractice_temporal_info_verification.md](./bestpractice_temporal_info_verification.md)（听见 / 日期 / 版本号）
 - ✅ **Rules 框架** — SOUL / USER / WORKSPACE / AGENTS
 
 ### Guide 多面 Agent（本 workspace `.cursor/skills/`）
@@ -40,12 +41,23 @@
 
 - [Skill 写作指南（Meta-Skill）](./bestpractice_skill_writing.md) ✅ — 创建或重写 skill、INTEGRATION-PROMPT、vendor 单 root 路由；触发词："写 skill"、"重写 skill"、"skill 验收"、"添加 skill"
 - [AI 编程核心方法论](./bestpractice_ai_programming_mindset.md) ✅ — 70% 问题、成功标准、verify 反馈环；触发词："改脚本"、"verify"、"集成"、"autopilot"、"evaluate"
+- [时间敏感信息验证](./bestpractice_temporal_info_verification.md) ✅ — 日期、版本、「最新」、听见 Daily；触发词："听见"、"资讯日期"、"模型版本"、"待核实"
 
 ---
 
 ## 如何添加 Skill
 
 创建或重写 `rules/skills/` 或 `.cursor/skills/` 下的能力说明前，先读 [`bestpractice_skill_writing.md`](./bestpractice_skill_writing.md)。写完后在本 INDEX 对应分类添加入口，并视需要更新 `rules/WORKSPACE.md` 与 `integrations/index.md`。
+
+**注册表纪律（摘录 · [skill registry lifecycle](https://github.com/grapeot/skills/blob/master/skills/skill_registry_lifecycle.md)，本仓不装全文）：**
+
+- **INDEX 是路由，不是第二份 skill 正文** — 能力以 **一个 canonical 文件或 vendor root** 为准；勿把 public repo 全文复制进 INDEX。
+- **Public repo** — 只暴露 **一个 root** 到 INDEX；私有路径/alias 进 `overlays/*.local.md`，不 commit。
+- **增/改** — 先查 INDEX 是否已有同类；优先 **改已有** 而非平行新建。
+- **删** — 同步去掉 INDEX、AGENTS 速查、`WORKSPACE` 中的入口，避免死链。
+- **推广门槛** — 无验收标准、无边界、含私钥/私路径的草稿 **不进** INDEX。
+
+**独立产品仓脚手架：** 不在本仓安装 `project_scaffold`；新开 App/产品 repo 时读 [context-infrastructure · project_scaffold](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/project_scaffold.md)。
 
 ---
 

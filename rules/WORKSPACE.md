@@ -13,7 +13,7 @@
 - Python 虚拟环境：`.venv/`（工作区级，已安装 vendored skills）
 - 第三方 public skill repos（只读，可 `git pull` 更新）：`vendor/<repo-name>/`
 - 总控 + 领域 Skills：`.cursor/skills/guide-core/`、`.cursor/skills/{personal-ip,business-brand,marketing-strategy,xiaohongshu,brand-visual}/`
-- CLI / API 路由与 overlay：`rules/skills/`（Meta：[skill 写作](./skills/bestpractice_skill_writing.md) · [AI 编程方法论](./skills/bestpractice_ai_programming_mindset.md)）
+- CLI / API 路由与 overlay：`rules/skills/`（Meta：[skill 写作](./skills/bestpractice_skill_writing.md) · [AI 编程](./skills/bestpractice_ai_programming_mindset.md) · [temporal](./skills/bestpractice_temporal_info_verification.md)）
 - Generative Kernels（模板与案例）：`kernels/templates/`、`kernels/examples/`
 - 小红书 Topic Manager（Gemini 6 case）：`kernels/xiaohongshu/`（README + `docs/`；kernel `scripts/verify-xhs-topic.sh`）
 - 小红书 Brief 管线：`content/xiaohongshu/PIPELINE.md` · 批量 `scripts/verify-xhs-content-dir.sh`

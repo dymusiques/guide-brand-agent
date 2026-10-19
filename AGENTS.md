@@ -49,7 +49,8 @@ Before doing anything else:
 
 **需要执行某项任务** → 先查 INDEX，读对应 skill 再动手  
 **想添加新能力** → 先读 [`rules/skills/bestpractice_skill_writing.md`](rules/skills/bestpractice_skill_writing.md)，再更新 [`rules/skills/INDEX.md`](rules/skills/INDEX.md)  
-**改 scripts / verify / 集成构建** → 先读 [`rules/skills/bestpractice_ai_programming_mindset.md`](rules/skills/bestpractice_ai_programming_mindset.md)
+**改 scripts / verify / 集成构建** → 先读 [`rules/skills/bestpractice_ai_programming_mindset.md`](rules/skills/bestpractice_ai_programming_mindset.md)  
+**听见 Daily / 资讯日期 / 版本号 / 「最新」表述** → 先读 [`rules/skills/bestpractice_temporal_info_verification.md`](rules/skills/bestpractice_temporal_info_verification.md)（Brief 速查仍见 [`content/xiaohongshu/PIPELINE.md`](content/xiaohongshu/PIPELINE.md)）
 
 ### 常用 Skill 速查（以 INDEX.md 为准）
 

@@ -32,7 +32,7 @@ Brief 或听见类内容若出现 **具体日期、档期、「最新/刚发布�
 | 「最新专辑/政策/平台规则」 | Web 检索或 Owner 确认；避免 cutoff 幻觉 |
 | 技术名（如 Gemini 模型 ID） | 以本仓脚本/env 实际使用的名为准；与 kernel evaluate 一致 |
 
-资讯栏目（听见 Daily）固定产出时，可再装 standalone [temporal skill](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_temporal_info_verification.md)；认知期品牌 Brief **以上表为准即可**。
+听见 Daily / 强资讯验证见 [rules/skills/bestpractice_temporal_info_verification.md](../../rules/skills/bestpractice_temporal_info_verification.md)；认知期品牌 Brief **以上表 + 该 skill 边界为准**。
 
 ## 文件约定
 
