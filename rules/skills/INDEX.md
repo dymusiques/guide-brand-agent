@@ -14,6 +14,7 @@
 
 - ✅ **Google Workspace CLI** — `vendor/gdocs-skill` + `rules/skills/skill_google_docs.md`
 - ✅ **Skill 写作 Meta** — [bestpractice_skill_writing.md](./bestpractice_skill_writing.md)（上游 [context-infrastructure](https://github.com/grapeot/context-infrastructure) standalone MD）
+- ✅ **AI 编程方法论** — [bestpractice_ai_programming_mindset.md](./bestpractice_ai_programming_mindset.md)（verify / scripts / 反馈环）
 - ✅ **Rules 框架** — SOUL / USER / WORKSPACE / AGENTS
 
 ### Guide 多面 Agent（本 workspace `.cursor/skills/`）
@@ -38,6 +39,7 @@
 ### BestPractice（最佳实践 / Meta）
 
 - [Skill 写作指南（Meta-Skill）](./bestpractice_skill_writing.md) ✅ — 创建或重写 skill、INTEGRATION-PROMPT、vendor 单 root 路由；触发词："写 skill"、"重写 skill"、"skill 验收"、"添加 skill"
+- [AI 编程核心方法论](./bestpractice_ai_programming_mindset.md) ✅ — 70% 问题、成功标准、verify 反馈环；触发词："改脚本"、"verify"、"集成"、"autopilot"、"evaluate"
 
 ---
 
