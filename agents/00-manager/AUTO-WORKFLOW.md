@@ -64,7 +64,7 @@ Goal 注册表：`integration/GOALS-REGISTRY.md`
 
 ## 并行 Subagent（Task · 可选）
 
-**不替代上表步序。** 宽口径调研、竞品搜证、大仓 `explore`、独立 review → [workflow_parallel_subagents.md](../../rules/skills/workflow_parallel_subagents.md) + [parallel-subagents-adoption.md](../../integration/parallel-subagents-adoption.md)。Brief 写稿与 `evaluate` 仍 **步 2→3 顺序**；并行产出只进 `tmp/parallel/`，由 04 **单线程** 合并进 Brief。
+**不替代上表步序。** 宽口径调研 → [workflow_parallel_subagents.md](../../rules/skills/workflow_parallel_subagents.md)；**结构化深度 survey（claim/Tier/fact_check）** → [workflow_deep_research_survey.md](../../rules/skills/workflow_deep_research_survey.md)。Brief 写稿与 `evaluate` 仍 **步 2→3 顺序**；scratch 在 `tmp/parallel/` 或 `tmp/survey/`，由 04 **单线程** 写 Brief。
 
 ## 红线
 

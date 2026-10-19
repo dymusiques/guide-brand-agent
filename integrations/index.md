@@ -35,6 +35,7 @@
 | Canva 设计 | MCP `plugin-canva-canva` | Cursor Settings → MCP 授权 |
 | 听见 Daily 日更 | `~/.cursor/skills/danying-tingjian-daily/` | 独立 app 仓，非本仓业务代码 |
 | 并行 Task 调研 / explore / 独立 review | `rules/skills/workflow_parallel_subagents.md` | 中间件 `tmp/parallel/` · 定稿仍 00 Manager 链 · [parallel-subagents-adoption.md](../integration/parallel-subagents-adoption.md) |
+| 深度调研 Survey（结构化 Phase 1–4） | `rules/skills/workflow_deep_research_survey.md` | scratch `tmp/survey/` · 报告 `content/marketing/research/` · [deep-research-survey-adoption.md](../integration/deep-research-survey-adoption.md) |
 | Headless 调 Claude/Codex/Cursor/agy 等 CLI | `rules/skills/skill_ai_agent_cli.md` | Markdown vendor · scratch `tmp/ai-agent-cli/` · [ai-agent-cli-adoption.md](../integration/ai-agent-cli-adoption.md) |
 
 ## Drive Knowledge Bank（folder ID）

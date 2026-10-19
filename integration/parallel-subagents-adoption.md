@@ -29,7 +29,7 @@
 
 ## 推荐组合（认知期 / 多任务）
 
-1. **选题前：** 并行 Task 调研（竞品叙事、社区反馈、官方 claim）→ 落盘 `tmp/parallel/<slug>/` → **04 单线程** 写 Brief。
+1. **选题前：** 轻量并行 Task → `tmp/parallel/<slug>/`；**需 Tier/claim/fact_check 时** 走 [workflow_deep_research_survey.md](../rules/skills/workflow_deep_research_survey.md) → `tmp/survey/<slug>/` + 可选 `content/marketing/research/` → **04** 写 Brief。
 2. **定稿前：** 顺序 `evaluate-xhs-topic.py`；FAIL 走 Manager's Loop，**不**并行多个 writer 改 JSON。
 3. **改 scripts/集成：** 可 `explore` 并行查调用链；**合并后** 一人改 + `verify-all`。
 4. **交班前：** `manager-autopilot.sh` 仍 **单入口**；不与 Task 并行抢 CEO 逻辑。

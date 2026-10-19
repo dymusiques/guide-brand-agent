@@ -94,6 +94,7 @@ bash scripts/manager-autopilot.sh    # 若动 CEO 链
 |------|----------------|-------------------|-----------------|------------------|
 | 00 Manager 链 | `agents/00-manager/AUTO-WORKFLOW.md` | `integration/IMPORTANT.md` | — | 加步、改派活模板 |
 | 并行 Task | `workflow_parallel_subagents.md` | `parallel-subagents-adoption.md` | `overlays/workflow-parallel-subagents.local.md` | 加可并行场景一行 |
+| 深度调研 Survey | `workflow_deep_research_survey.md` | `deep-research-survey-adoption.md` | `overlays/workflow-deep-research-survey.local.md` · `tmp/survey/` | 新选题尽调 → 再 04 Brief |
 | Process Launcher | `skill_process_launcher.md` | `process-launcher-adoption.md` | `launcher.yaml` + `process-launcher.local.md` + `templates/process-launcher-reserved-jobs.example.yaml` | `enabled: true` 某 periodic |
 | AI Agent CLI | `skill_ai_agent_cli.md` | `ai-agent-cli-adoption.md` | `overlays/ai-agent-cli.local.md` · `tmp/ai-agent-cli/` | 加包装脚本 / 读 `cursor_cli.md` |
 | gdocs | `skill_google_docs.md` | overlay 示例 | `gdocs-skill.local.md` · secrets | Drive 同步定稿 |

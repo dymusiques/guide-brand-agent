@@ -51,7 +51,8 @@ Before doing anything else:
 **想添加新能力** → 先读 [`rules/skills/bestpractice_skill_writing.md`](rules/skills/bestpractice_skill_writing.md)，再更新 [`rules/skills/INDEX.md`](rules/skills/INDEX.md)  
 **改 scripts / verify / 集成构建** → 先读 [`rules/skills/bestpractice_ai_programming_mindset.md`](rules/skills/bestpractice_ai_programming_mindset.md)  
 **听见 Daily / 资讯日期 / 版本号 / 「最新」表述** → 先读 [`rules/skills/bestpractice_temporal_info_verification.md`](rules/skills/bestpractice_temporal_info_verification.md)（Brief 速查仍见 [`content/xiaohongshu/PIPELINE.md`](content/xiaohongshu/PIPELINE.md)）  
-**并行调研 / explore / 独立 review（非 Brief 并行写）** → [`rules/skills/workflow_parallel_subagents.md`](rules/skills/workflow_parallel_subagents.md) · [`integration/parallel-subagents-adoption.md`](integration/parallel-subagents-adoption.md)
+**并行调研 / explore / 独立 review（非 Brief 并行写）** → [`rules/skills/workflow_parallel_subagents.md`](rules/skills/workflow_parallel_subagents.md) · [`integration/parallel-subagents-adoption.md`](integration/parallel-subagents-adoption.md)  
+**深度调研（claim · Tier · survey 报告）** → [`rules/skills/workflow_deep_research_survey.md`](rules/skills/workflow_deep_research_survey.md) · [`integration/deep-research-survey-adoption.md`](integration/deep-research-survey-adoption.md)
 
 ### 常用 Skill 速查（以 INDEX.md 为准）
 

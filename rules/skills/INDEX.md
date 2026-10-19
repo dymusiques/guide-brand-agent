@@ -20,6 +20,7 @@
 - ✅ **DOCX / PPTX** — [skill_docx.md](./skill_docx.md) · [skill_pptx.md](./skill_pptx.md)（办公稿；封面仍 Canva）
 - ✅ **Process Launcher** — [skill_process_launcher.md](./skill_process_launcher.md) → `vendor/process-launcher/`（本仓边界 [process-launcher-adoption.md](../../integration/process-launcher-adoption.md)）
 - ✅ **并行 Subagent 工作流** — [workflow_parallel_subagents.md](./workflow_parallel_subagents.md)（边界 [parallel-subagents-adoption.md](../../integration/parallel-subagents-adoption.md)）
+- ✅ **深度调研 Survey** — [workflow_deep_research_survey.md](./workflow_deep_research_survey.md)（边界 [deep-research-survey-adoption.md](../../integration/deep-research-survey-adoption.md)）
 - ✅ **AI Agent CLI（headless 路由）** — [skill_ai_agent_cli.md](./skill_ai_agent_cli.md) → `vendor/ai-agent-cli-skill/`（边界 [ai-agent-cli-adoption.md](../../integration/ai-agent-cli-adoption.md)）
 - ✅ **Rules 框架** — SOUL / USER / WORKSPACE / AGENTS
 
@@ -54,6 +55,7 @@
 
 - [Writing（internal / external）](./skill_writing.md) ✅ — `vendor/writing-skill/skills/writing_workflows.md`；触发词："深度稿"、"memo"、"prose lint"（**非** Brief / Pitch）
 - [并行 Subagent（调研 / explore / 独立 review）](./workflow_parallel_subagents.md) ✅ — 触发词："并行调研"、"多 agent 搜"、"explore 并行"（**不**替代 00 Manager Brief 步序）
+- [深度调研 Survey（Tier 验证 · claim · fact_check）](./workflow_deep_research_survey.md) ✅ — 触发词："深度调研"、"竞品 survey"、"尽调"；scratch `tmp/survey/` · 报告 `content/marketing/research/`
 
 ### BestPractice（最佳实践 / Meta）
 

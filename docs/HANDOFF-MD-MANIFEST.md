@@ -54,6 +54,7 @@
 | 27 | [../integration/EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md)（加 vendor/定时/Goal 时 **先查** 接哪里） |
 | 28 | [../integration/parallel-subagents-adoption.md](../integration/parallel-subagents-adoption.md)（Task 并行 vs 00 Manager 步序 · 防混） |
 | 29 | [../integration/ai-agent-cli-adoption.md](../integration/ai-agent-cli-adoption.md)（headless CLI vs IDE · file-response） |
+| 30 | [../integration/deep-research-survey-adoption.md](../integration/deep-research-survey-adoption.md)（深度调研 vs Brief 步序） |
 
 ## 6 · 终端（Must · 植入后跑）
 

@@ -27,6 +27,9 @@ tmp/parallel/
 # Headless CLI agent jobs (ai-agent-cli file-response)
 tmp/ai-agent-cli/
 
+# Deep research survey scratch (workflow_deep_research_survey)
+tmp/survey/
+
 # Gemini API — never commit
 .env
 .local-config.json

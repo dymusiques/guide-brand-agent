@@ -35,6 +35,8 @@ done
 [[ -f vendor/ai-agent-cli-skill/skills/skill_ai_agent_cli.md ]] && pass "ai-agent-cli-skill submodule" || fail "vendor/ai-agent-cli-skill not initialized (git submodule update --init)"
 [[ -f rules/skills/skill_ai_agent_cli.md ]] && pass "skill_ai_agent_cli router" || fail "missing rules/skills/skill_ai_agent_cli.md"
 [[ -f integration/ai-agent-cli-adoption.md ]] && pass "ai-agent-cli adoption doc" || fail "missing integration/ai-agent-cli-adoption.md"
+[[ -f rules/skills/workflow_deep_research_survey.md ]] && pass "workflow_deep_research_survey skill" || fail "missing rules/skills/workflow_deep_research_survey.md"
+[[ -f integration/deep-research-survey-adoption.md ]] && pass "deep-research-survey adoption doc" || fail "missing integration/deep-research-survey-adoption.md"
 
 echo ""
 echo "[L0 Brand facts]"
