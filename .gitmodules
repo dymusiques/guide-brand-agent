@@ -10,3 +10,6 @@
 [submodule "vendor/pptx.skill"]
 	path = vendor/pptx.skill
 	url = https://github.com/grapeot/pptx.skill
+[submodule "vendor/process-launcher"]
+	path = vendor/process-launcher
+	url = https://github.com/grapeot/process-launcher.git

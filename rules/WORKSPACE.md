@@ -39,6 +39,9 @@
 | writing-skill | `vendor/writing-skill/` | `rules/skills/skill_writing.md` | `git submodule update --remote vendor/writing-skill` |
 | docx-skill | `vendor/docx-skill/` | `rules/skills/skill_docx.md` | `git submodule update --remote vendor/docx-skill` |
 | pptx.skill | `vendor/pptx.skill/` | `rules/skills/skill_pptx.md` | `git submodule update --remote vendor/pptx.skill` |
+| process-launcher | `vendor/process-launcher/` | `rules/skills/skill_process_launcher.md` | `git submodule update --remote vendor/process-launcher` |
+
+**本仓采纳边界：** [integration/process-launcher-adoption.md](../integration/process-launcher-adoption.md) · 扩展接口 [integration/EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md) · 预留 job 模板 `integration/templates/process-launcher-reserved-jobs.example.yaml` · 私有配方 `rules/skills/overlays/process-launcher.local.md`（example 可 commit）
 
 **暂缓（1-A～4-A）：** voice-lora、image-generation、presentation_skill、design_skill、kit-skill、circle-post-skill、imessage_skill、opus-video-audio-skill、tts-clone-skill、lizheng-video-production 等 — 视频号/额外渠道定调后再 `git submodule add`。
 

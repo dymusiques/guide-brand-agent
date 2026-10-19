@@ -66,7 +66,8 @@ Before doing anything else:
 触发词："Google Doc"、"publish to Docs"、"sync markdown"、"Gmail"、"Calendar event"
 
 **长文 / memo（非小红书 Brief）** → `rules/skills/skill_writing.md`  
-**Word / PPTX 办公稿** → `rules/skills/skill_docx.md` · `rules/skills/skill_pptx.md`（小红书封面仍 **brand-visual / Canva**）
+**Word / PPTX 办公稿** → `rules/skills/skill_docx.md` · `rules/skills/skill_pptx.md`（小红书封面仍 **brand-visual / Canva**）  
+**本机定时/后台进程 API** → `rules/skills/skill_process_launcher.md`（先读 `integration/process-launcher-adoption.md`；**不**替代 manager-autopilot）
 
 命中后读对应 skill 文件再执行；INDEX.md 是唯一路由源。
 

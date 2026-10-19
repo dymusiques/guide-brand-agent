@@ -25,6 +25,11 @@ done
 
 [[ -d .cursor/skills/guide-core ]] && pass "guide-core skill" || fail "missing .cursor/skills/guide-core"
 [[ -f vendor/gdocs-skill/pyproject.toml ]] && pass "gdocs-skill submodule" || fail "vendor/gdocs-skill not initialized (git submodule update --init)"
+[[ -f vendor/process-launcher/pyproject.toml ]] && pass "process-launcher submodule" || fail "vendor/process-launcher not initialized (git submodule update --init)"
+[[ -f rules/skills/skill_process_launcher.md ]] && pass "skill_process_launcher router" || fail "missing rules/skills/skill_process_launcher.md"
+[[ -f integration/process-launcher-adoption.md ]] && pass "process-launcher adoption doc" || fail "missing integration/process-launcher-adoption.md"
+[[ -f integration/EXTENSION-POINTS.md ]] && pass "EXTENSION-POINTS.md" || fail "missing integration/EXTENSION-POINTS.md"
+[[ -f integration/templates/process-launcher-reserved-jobs.example.yaml ]] && pass "launcher reserved jobs template" || fail "missing integration/templates/process-launcher-reserved-jobs.example.yaml"
 
 echo ""
 echo "[L0 Brand facts]"

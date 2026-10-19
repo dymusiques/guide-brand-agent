@@ -25,6 +25,11 @@
 - 未 `aligned: true` → 不 sync Drive；不只 Drive 不 commit。
 - 集成层 **不写算法层 prompt**；失败时先区分：集成路径 / Brief 内容 / kernel。
 
+## 扩展与预留（架构）
+
+- **默认运行：** Cursor + 00 Manager + 按需 autopilot；Process Launcher **工具箱、非常驻**（见 [process-launcher-adoption.md](./process-launcher-adoption.md) §0）。
+- **以后加能力：** 先查 [EXTENSION-POINTS.md](./EXTENSION-POINTS.md) 接接口，再改 vendor/router/overlay；禁止平行第二 CEO 或第二派活文件。
+
 ## Dry Run（破坏性 / 发布侧 · 摘录）
 
 小红书 Brief 三阶段与状态见 [content/xiaohongshu/PIPELINE.md](../content/xiaohongshu/PIPELINE.md)。以下为 **全仓** 集成层在动线上环境前的检查（参考 [grapeot staged approach](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md)，本仓不装 standalone MD）。

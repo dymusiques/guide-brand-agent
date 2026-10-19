@@ -1,0 +1,42 @@
+# 复制片段到 vendor/process-launcher/config/launcher.yaml
+# 默认 enabled: false — Owner 显式改 true 才生效。路径请改为本机 workspace 绝对路径。
+#
+# 接口说明：integration/EXTENSION-POINTS.md · 边界：integration/process-launcher-adoption.md
+
+periodic_jobs:
+  dba_autopilot_morning:
+    label: dba_autopilot_morning
+    enabled: false
+    command: ["bash", "scripts/manager-autopilot.sh"]
+    cwd: /path/to/danying-brand-agent
+    schedule:
+      type: daily
+      time: "09:00"
+      timezone: Asia/Shanghai
+    overlap_policy: skip
+    misfire_policy: skip
+    timeout: 600
+
+  dba_analytics_after_csv:
+    label: dba_analytics_after_csv
+    enabled: false
+    command: ["bash", "scripts/analytics-pipeline.sh"]
+    cwd: /path/to/danying-brand-agent
+    schedule:
+      type: daily
+      time: "22:00"
+      timezone: Asia/Shanghai
+    overlap_policy: skip
+    misfire_policy: skip
+    timeout: 900
+
+# services: 常开守护 — 未来 TCC/Playwright 网关等再填；勿留 enabled 语义，用 YAML 存在即声明
+# 示例（保持注释，启用时去掉 # 并改路径）：
+# services:
+#   dba_playwright_gateway:
+#     label: dba_playwright_gateway
+#     command: ["/path/to/your/wrapper.sh"]
+#     cwd: /path/to/danying-brand-agent
+#     restart_delay: 10
+#     max_restarts: 3
+#     restart_window: 300

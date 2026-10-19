@@ -18,6 +18,7 @@
 - ✅ **时间敏感验证** — [bestpractice_temporal_info_verification.md](./bestpractice_temporal_info_verification.md)（听见 / 日期 / 版本号）
 - ✅ **长文写作** — [skill_writing.md](./skill_writing.md) → `vendor/writing-skill/`（**非** 小红书 Brief）
 - ✅ **DOCX / PPTX** — [skill_docx.md](./skill_docx.md) · [skill_pptx.md](./skill_pptx.md)（办公稿；封面仍 Canva）
+- ✅ **Process Launcher** — [skill_process_launcher.md](./skill_process_launcher.md) → `vendor/process-launcher/`（本仓边界 [process-launcher-adoption.md](../../integration/process-launcher-adoption.md)）
 - ✅ **Rules 框架** — SOUL / USER / WORKSPACE / AGENTS
 
 ### Tier 3 · 暂缓（Owner 2026-10 · 全选 A）
@@ -44,6 +45,7 @@
 - [Google Workspace（Docs / Gmail / Calendar）](./skill_google_docs.md) ✅ — CLI `python -m gdocs`；触发词："Google Doc"、"sync markdown"、"Gmail"、"Calendar"、"Drive download"
 - [DOCX（Word 表单/inspect）](./skill_docx.md) ✅ — `vendor/docx-skill`；触发词："DOCX"、"Word 表单"
 - [PPTX（读改/渲染）](./skill_pptx.md) ✅ — `vendor/pptx.skill`；触发词："pptx"、"slide"（Brief 封面 → brand-visual）
+- [Process Launcher（本机延时/周期/进程 API）](./skill_process_launcher.md) ✅ — `vendor/process-launcher`；触发词："定时任务"、"延时执行"、"process launcher"、`POST /run`（**不**替代 manager-autopilot）
 
 ### Workflow（长文 · 非 XHS Brief）
 

@@ -30,6 +30,7 @@
 | 长文 / memo / prose lint（**非** XHS Brief） | `rules/skills/skill_writing.md` | `pip install -e vendor/writing-skill` |
 | Word DOCX inspect/填表 | `rules/skills/skill_docx.md` | `pip install -e vendor/docx-skill` |
 | PPTX 读改/渲染 | `rules/skills/skill_pptx.md` | `pip install -e vendor/pptx.skill` · LibreOffice 可选 |
+| 本机延时/周期任务、进程日志 API | `rules/skills/skill_process_launcher.md` | `pip install -e vendor/process-launcher` · 边界 [process-launcher-adoption.md](../integration/process-launcher-adoption.md) · launcher **Owner GUI 终端启动** |
 | Drive 读写（Cursor MCP） | MCP `plugin-google-drive-google-drive` | Cursor Settings → MCP 授权 |
 | Canva 设计 | MCP `plugin-canva-canva` | Cursor Settings → MCP 授权 |
 | 听见 Daily 日更 | `~/.cursor/skills/danying-tingjian-daily/` | 独立 app 仓，非本仓业务代码 |
