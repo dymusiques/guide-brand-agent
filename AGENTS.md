@@ -48,7 +48,7 @@ Before doing anything else:
 4. Cursor MCP / 系统工具
 
 **需要执行某项任务** → 先查 INDEX，读对应 skill 再动手  
-**想添加新能力** → 参考现有格式，更新 INDEX.md
+**想添加新能力** → 先读 [`rules/skills/bestpractice_skill_writing.md`](rules/skills/bestpractice_skill_writing.md)，再更新 [`rules/skills/INDEX.md`](rules/skills/INDEX.md)
 
 ### 常用 Skill 速查（以 INDEX.md 为准）
 
