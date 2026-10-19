@@ -35,7 +35,12 @@
 
 | Repo | 路径 | Root skill | 更新 |
 |------|------|------------|------|
-| gdocs-skill | `vendor/gdocs-skill/` | `rules/skills/skill_google_docs.md` | `cd vendor/gdocs-skill && git pull` |
+| gdocs-skill | `vendor/gdocs-skill/` | `rules/skills/skill_google_docs.md` | `git submodule update --remote vendor/gdocs-skill` |
+| writing-skill | `vendor/writing-skill/` | `rules/skills/skill_writing.md` | `git submodule update --remote vendor/writing-skill` |
+| docx-skill | `vendor/docx-skill/` | `rules/skills/skill_docx.md` | `git submodule update --remote vendor/docx-skill` |
+| pptx.skill | `vendor/pptx.skill/` | `rules/skills/skill_pptx.md` | `git submodule update --remote vendor/pptx.skill` |
+
+**暂缓（1-A～4-A）：** voice-lora、image-generation、presentation_skill、design_skill、kit-skill、circle-post-skill、imessage_skill、opus-video-audio-skill、tts-clone-skill、lizheng-video-production 等 — 视频号/额外渠道定调后再 `git submodule add`。
 
 ## Python 环境
 

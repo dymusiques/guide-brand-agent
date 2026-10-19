@@ -27,6 +27,9 @@
 | 意图 | 入口 | 配置 |
 |------|------|------|
 | Google Doc / Gmail / Calendar / Drive 下载 | `rules/skills/skill_google_docs.md` | overlay · `vendor/gdocs-skill/secrets/` |
+| 长文 / memo / prose lint（**非** XHS Brief） | `rules/skills/skill_writing.md` | `pip install -e vendor/writing-skill` |
+| Word DOCX inspect/填表 | `rules/skills/skill_docx.md` | `pip install -e vendor/docx-skill` |
+| PPTX 读改/渲染 | `rules/skills/skill_pptx.md` | `pip install -e vendor/pptx.skill` · LibreOffice 可选 |
 | Drive 读写（Cursor MCP） | MCP `plugin-google-drive-google-drive` | Cursor Settings → MCP 授权 |
 | Canva 设计 | MCP `plugin-canva-canva` | Cursor Settings → MCP 授权 |
 | 听见 Daily 日更 | `~/.cursor/skills/danying-tingjian-daily/` | 独立 app 仓，非本仓业务代码 |

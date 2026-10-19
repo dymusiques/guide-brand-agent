@@ -18,6 +18,9 @@ git submodule update --init --recursive
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e vendor/gdocs-skill
+pip install -e vendor/writing-skill
+pip install -e vendor/docx-skill
+pip install -e 'vendor/pptx.skill[dev]'
 ```
 
 ## 3. OAuth（一次性 · 不进 git）

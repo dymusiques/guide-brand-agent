@@ -1,3 +1,12 @@
 [submodule "vendor/gdocs-skill"]
 	path = vendor/gdocs-skill
 	url = https://github.com/grapeot/gdocs-skill.git
+[submodule "vendor/writing-skill"]
+	path = vendor/writing-skill
+	url = https://github.com/grapeot/writing-skill
+[submodule "vendor/docx-skill"]
+	path = vendor/docx-skill
+	url = https://github.com/grapeot/docx-skill
+[submodule "vendor/pptx.skill"]
+	path = vendor/pptx.skill
+	url = https://github.com/grapeot/pptx.skill

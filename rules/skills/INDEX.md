@@ -16,7 +16,13 @@
 - ✅ **Skill 写作 Meta** — [bestpractice_skill_writing.md](./bestpractice_skill_writing.md)（上游 [context-infrastructure](https://github.com/grapeot/context-infrastructure) standalone MD）
 - ✅ **AI 编程方法论** — [bestpractice_ai_programming_mindset.md](./bestpractice_ai_programming_mindset.md)（verify / scripts / 反馈环）
 - ✅ **时间敏感验证** — [bestpractice_temporal_info_verification.md](./bestpractice_temporal_info_verification.md)（听见 / 日期 / 版本号）
+- ✅ **长文写作** — [skill_writing.md](./skill_writing.md) → `vendor/writing-skill/`（**非** 小红书 Brief）
+- ✅ **DOCX / PPTX** — [skill_docx.md](./skill_docx.md) · [skill_pptx.md](./skill_pptx.md)（办公稿；封面仍 Canva）
 - ✅ **Rules 框架** — SOUL / USER / WORKSPACE / AGENTS
+
+### Tier 3 · 暂缓（Owner 2026-10 · 全选 A）
+
+未 vendor：voice-lora、image-generation、presentation_skill、design_skill、kit/circle/imessage、opus-video/tts/lizheng 等。视频号/Newsletter 定调后再装；见 [WORKSPACE.md](../WORKSPACE.md) Public Skill 表。
 
 ### Guide 多面 Agent（本 workspace `.cursor/skills/`）
 
@@ -36,6 +42,12 @@
 ### API Guide（API 指南）
 
 - [Google Workspace（Docs / Gmail / Calendar）](./skill_google_docs.md) ✅ — CLI `python -m gdocs`；触发词："Google Doc"、"sync markdown"、"Gmail"、"Calendar"、"Drive download"
+- [DOCX（Word 表单/inspect）](./skill_docx.md) ✅ — `vendor/docx-skill`；触发词："DOCX"、"Word 表单"
+- [PPTX（读改/渲染）](./skill_pptx.md) ✅ — `vendor/pptx.skill`；触发词："pptx"、"slide"（Brief 封面 → brand-visual）
+
+### Workflow（长文 · 非 XHS Brief）
+
+- [Writing（internal / external）](./skill_writing.md) ✅ — `vendor/writing-skill/skills/writing_workflows.md`；触发词："深度稿"、"memo"、"prose lint"（**非** Brief / Pitch）
 
 ### BestPractice（最佳实践 / Meta）
 
