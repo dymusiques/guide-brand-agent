@@ -34,6 +34,7 @@
 | Drive 读写（Cursor MCP） | MCP `plugin-google-drive-google-drive` | Cursor Settings → MCP 授权 |
 | Canva 设计 | MCP `plugin-canva-canva` | Cursor Settings → MCP 授权 |
 | 听见 Daily 日更 | `~/.cursor/skills/danying-tingjian-daily/` | 独立 app 仓，非本仓业务代码 |
+| 并行 Task 调研 / explore / 独立 review | `rules/skills/workflow_parallel_subagents.md` | 中间件 `tmp/parallel/` · 定稿仍 00 Manager 链 · [parallel-subagents-adoption.md](../integration/parallel-subagents-adoption.md) |
 
 ## Drive Knowledge Bank（folder ID）
 

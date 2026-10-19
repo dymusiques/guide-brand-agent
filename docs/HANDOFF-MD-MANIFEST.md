@@ -52,6 +52,7 @@
 | 25 | [../check.md](../check.md) |
 | 26 | [../integration/process-launcher-adoption.md](../integration/process-launcher-adoption.md)（Launcher 工具箱策略 · 默认非常驻） |
 | 27 | [../integration/EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md)（加 vendor/定时/Goal 时 **先查** 接哪里） |
+| 28 | [../integration/parallel-subagents-adoption.md](../integration/parallel-subagents-adoption.md)（Task 并行 vs 00 Manager 步序 · 防混） |
 
 ## 6 · 终端（Must · 植入后跑）
 
@@ -79,6 +80,7 @@ Chat 历史 **不在** Git；真相源仅为上表 **L0 路径** + derived 刷�
 | 自动 workflow？ | `manager-autopilot.sh`（**不**发帖、**不**拉 CSV） |
 | Process Launcher？ | **工具箱** · 默认不启服务 · 见 adoption §0 · **不是** CEO |
 | 以后要加定时/TCC/新 skill？ | [EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md) |
+| 01–09  vs 并行 Task？ | 01–09 = 顺序指挥链；并行只用于调研/review → [parallel-subagents-adoption.md](../integration/parallel-subagents-adoption.md) |
 | 读 MD 够吗？ | MD = **知识与指挥**；**能力**靠 clone 后跑脚本验收 → `bash scripts/verify-handoff-program.sh` |
 | 与旧对话冲突？ | **以 Git L0 为准**；旧 chat 仅历史，不得覆盖 IMPORTANT / IP Brief |
 

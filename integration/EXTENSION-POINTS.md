@@ -12,6 +12,7 @@ Owner 目标 / 红线     → integration/goals/registry.json · IMPORTANT.md ·
 对外工具能力         → vendor/<repo>/ + rules/skills/skill_*.md（唯一 discovery 入口）
 本机调度 / TCC 桥    → vendor/process-launcher/ + overlay + launcher.yaml（可选）
 私有路径与配方       → rules/skills/overlays/*.local.md · gitignored
+并行调研中间工件     → tmp/parallel/<session_slug>/ · gitignored（见 workflow-parallel-subagents overlay）
 ```
 
 **原则：** 新能力优先 **接在已有层**；只有跨层时才新增 `integration/*.md` 说明 + INDEX/WORKSPACE 一行路由。

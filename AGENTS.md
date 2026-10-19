@@ -50,7 +50,8 @@ Before doing anything else:
 **需要执行某项任务** → 先查 INDEX，读对应 skill 再动手  
 **想添加新能力** → 先读 [`rules/skills/bestpractice_skill_writing.md`](rules/skills/bestpractice_skill_writing.md)，再更新 [`rules/skills/INDEX.md`](rules/skills/INDEX.md)  
 **改 scripts / verify / 集成构建** → 先读 [`rules/skills/bestpractice_ai_programming_mindset.md`](rules/skills/bestpractice_ai_programming_mindset.md)  
-**听见 Daily / 资讯日期 / 版本号 / 「最新」表述** → 先读 [`rules/skills/bestpractice_temporal_info_verification.md`](rules/skills/bestpractice_temporal_info_verification.md)（Brief 速查仍见 [`content/xiaohongshu/PIPELINE.md`](content/xiaohongshu/PIPELINE.md)）
+**听见 Daily / 资讯日期 / 版本号 / 「最新」表述** → 先读 [`rules/skills/bestpractice_temporal_info_verification.md`](rules/skills/bestpractice_temporal_info_verification.md)（Brief 速查仍见 [`content/xiaohongshu/PIPELINE.md`](content/xiaohongshu/PIPELINE.md)）  
+**并行调研 / explore / 独立 review（非 Brief 并行写）** → [`rules/skills/workflow_parallel_subagents.md`](rules/skills/workflow_parallel_subagents.md) · [`integration/parallel-subagents-adoption.md`](integration/parallel-subagents-adoption.md)
 
 ### 常用 Skill 速查（以 INDEX.md 为准）
 
@@ -67,7 +68,8 @@ Before doing anything else:
 
 **长文 / memo（非小红书 Brief）** → `rules/skills/skill_writing.md`  
 **Word / PPTX 办公稿** → `rules/skills/skill_docx.md` · `rules/skills/skill_pptx.md`（小红书封面仍 **brand-visual / Canva**）  
-**本机定时/后台进程 API** → `rules/skills/skill_process_launcher.md`（先读 `integration/process-launcher-adoption.md`；**不**替代 manager-autopilot）
+**本机定时/后台进程 API** → `rules/skills/skill_process_launcher.md`（先读 `integration/process-launcher-adoption.md`；**不**替代 manager-autopilot）  
+**并行 Task 工作流** → `rules/skills/workflow_parallel_subagents.md`（**不**替代 00 Manager 步序）
 
 命中后读对应 skill 文件再执行；INDEX.md 是唯一路由源。
 

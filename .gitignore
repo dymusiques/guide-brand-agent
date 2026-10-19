@@ -21,6 +21,9 @@ vendor/gdocs-skill/.venv/
 # Local skill overlays (paths, aliases — private)
 rules/skills/overlays/*.local.md
 
+# Parallel subagent scratch (workflow_parallel_subagents)
+tmp/parallel/
+
 # Gemini API — never commit
 .env
 .local-config.json

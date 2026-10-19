@@ -30,6 +30,8 @@ done
 [[ -f integration/process-launcher-adoption.md ]] && pass "process-launcher adoption doc" || fail "missing integration/process-launcher-adoption.md"
 [[ -f integration/EXTENSION-POINTS.md ]] && pass "EXTENSION-POINTS.md" || fail "missing integration/EXTENSION-POINTS.md"
 [[ -f integration/templates/process-launcher-reserved-jobs.example.yaml ]] && pass "launcher reserved jobs template" || fail "missing integration/templates/process-launcher-reserved-jobs.example.yaml"
+[[ -f rules/skills/workflow_parallel_subagents.md ]] && pass "workflow_parallel_subagents skill" || fail "missing rules/skills/workflow_parallel_subagents.md"
+[[ -f integration/parallel-subagents-adoption.md ]] && pass "parallel-subagents adoption doc" || fail "missing integration/parallel-subagents-adoption.md"
 
 echo ""
 echo "[L0 Brand facts]"
