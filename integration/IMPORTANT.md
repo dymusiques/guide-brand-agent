@@ -24,3 +24,18 @@
 
 - 未 `aligned: true` → 不 sync Drive；不只 Drive 不 commit。
 - 集成层 **不写算法层 prompt**；失败时先区分：集成路径 / Brief 内容 / kernel。
+
+## Dry Run（破坏性 / 发布侧 · 摘录）
+
+小红书 Brief 三阶段与状态见 [content/xiaohongshu/PIPELINE.md](../content/xiaohongshu/PIPELINE.md)。以下为 **全仓** 集成层在动线上环境前的检查（参考 [grapeot staged approach](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md)，本仓不装 standalone MD）。
+
+**默认禁止（除非 Owner 当轮明确授权）：** 代发小红书/私信 mass、Gmail 发送、Drive 覆盖定稿、删库/硬重置、对 `main` 的 force 操作。
+
+**破坏性操作前必过：**
+
+- [ ] **范围**：影响哪些路径/记录（列清单，避免 `git add .` 盲加）
+- [ ] **内容**：变更 diff 或命令语义与 Owner 意图一致
+- [ ] **可回滚**：Git 可 revert；secrets 不在 commit 内
+- [ ] **环境**：脚本/verify 在本地 repo 跑通；非 Owner 生产账号上的不可逆写
+
+**常见映射：** CSV → `content/analytics/inbox/` 只读归档后再 pipeline（见 analytics README）；Brief 发布仅 Owner；`gdocs` 写操作先 overlay 路径再 CLI。

@@ -1,6 +1,6 @@
 # 全自动 CEO 编排 · Autopilot
 
-**设计原则：** 会话内仍由 **00 Manager** 扮演 CEO；本脚本把 **可机器化的链** 串成一条命令。**不** 多进程、**不** 代发帖、**不** 爬小红书 API。
+**设计原则：** 会话内仍由 **00 Manager** 扮演 CEO；本脚本把 **可机器化的链** 串成一条命令。**不** 多进程、**不** 代发帖、**不** 爬小红书 API。破坏性/写操作前见 [integration/IMPORTANT.md](../integration/IMPORTANT.md#dry-run破坏性--发布侧--摘录)（`AUTOPILOT_FULL=1` 跑 release verify 前尤其适用）。
 
 ## Owner 仅做两件事
 

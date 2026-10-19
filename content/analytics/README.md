@@ -12,6 +12,14 @@
 | `youtube/` | YouTube 视频级 CSV |
 | `derived/` | Pipeline 输出：`next-topics-*.md` / `summary-*.json` |
 
+## 三阶段（摘录 · 与 staged 对齐）
+
+| Stage | 本仓动作 | 边界 |
+|-------|----------|------|
+| **1 · 采集** | Owner 后台导出 → 放入 `inbox/` → `analytics-fetch.sh` 归档 | 只读平台导出；**不**自动爬取私信/账号 |
+| **2 · 本地处理** | `analytics-pipeline.sh` → `derived/` 报告与 `next-topics` | AI/脚本只在 Git 内算分；**不**改 Brief 正文、不发帖 |
+| **3 · 确认** | Owner 看 `derived/`；09→04 派活；是否写新 Brief 由 Manager/Owner 定 | 选题建议 **非** 自动发布 |
+
 ## Pipeline（读 → 算分 → 下一题清单）
 
 ```bash
@@ -23,6 +31,8 @@ bash scripts/analytics-pipeline.sh
 ```
 
 产出交给 **09 → 04 Topic Manager**（见 `agents/09-data-analytics/INTEGRATION-PROMPT.md`）。
+
+集成层 Dry Run 清单：[integration/IMPORTANT.md](../../integration/IMPORTANT.md#dry-run破坏性--发布侧--摘录)
 
 ## API 说明
 

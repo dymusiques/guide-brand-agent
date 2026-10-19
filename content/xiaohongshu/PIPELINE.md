@@ -20,7 +20,7 @@ Kernel (6 case) → Topic Manager Skill → 单篇 Brief 闭环 ✅
 | **2 · 本地处理** | 写/改 Brief + classifier JSON；跑 `evaluate` | `draft` → `verified`（`aligned: true`）；可重复改稿 + evaluate |
 | **3 · 确认与发布** | Owner 审阅定稿、实际上线、填 `## 发布状态` | `verified` + **git commit** → **定稿**；封面 / Drive **仅 Owner 明确要求** |
 
-**Dry Run（发布侧）：** Agent **不**代替 Owner 点击发布、不代发私信 mass、不 sync Drive，除非 Owner 当轮明确授权。批量改 Brief / 跑 verify 前确认路径：`content/xiaohongshu/*-brief.md` only。
+**Dry Run（发布侧）：** Agent **不**代替 Owner 点击发布、不代发私信 mass、不 sync Drive，除非 Owner 当轮明确授权。批量改 Brief / 跑 verify 前确认路径：`content/xiaohongshu/*-brief.md` only。全仓破坏性检查清单见 [integration/IMPORTANT.md](../../integration/IMPORTANT.md#dry-run破坏性--发布侧--摘录)。
 
 ## 时间敏感表述（摘录 · temporal）
 
