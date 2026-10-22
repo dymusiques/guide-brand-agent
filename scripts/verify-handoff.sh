@@ -37,6 +37,10 @@ done
 [[ -f integration/ai-agent-cli-adoption.md ]] && pass "ai-agent-cli adoption doc" || fail "missing integration/ai-agent-cli-adoption.md"
 [[ -f rules/skills/workflow_deep_research_survey.md ]] && pass "workflow_deep_research_survey skill" || fail "missing rules/skills/workflow_deep_research_survey.md"
 [[ -f integration/deep-research-survey-adoption.md ]] && pass "deep-research-survey adoption doc" || fail "missing integration/deep-research-survey-adoption.md"
+[[ -f integration/ip-content-skills-adoption.md ]] && pass "ip-content-skills adoption doc" || fail "missing integration/ip-content-skills-adoption.md"
+[[ -f vendor/semantic-search-skill/skills/skill_semantic_search.md ]] && pass "semantic-search-skill submodule" || fail "vendor/semantic-search-skill not initialized"
+[[ -f vendor/bilibili-upload-skill/skills/bilibili-upload/SKILL.md ]] && pass "bilibili-upload-skill submodule" || fail "vendor/bilibili-upload-skill not initialized"
+[[ -f rules/skills/skill_bilibili_upload.md ]] && pass "skill_bilibili_upload router" || fail "missing rules/skills/skill_bilibili_upload.md"
 
 echo ""
 echo "[L0 Brand facts]"

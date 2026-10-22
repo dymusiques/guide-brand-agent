@@ -102,6 +102,8 @@ bash scripts/manager-autopilot.sh    # 若动 CEO 链
 | docx / pptx | `skill_docx.md` / `skill_pptx.md` | vendor + pptx overlay | `pptx-skill.local.md` | 办公稿；LibreOffice 本机 |
 | temporal / AI 编程 meta | `bestpractice_*.md` | PIPELINE 摘录 | — | 资讯/Brief 日期规则 |
 | 领域 Agent | `.cursor/skills/*` | `agents/<nn>-*/INTEGRATION-PROMPT.md` | — | 栏目/渠道扩展 |
-| Tier 3 暂缓 | `INDEX.md` · `WORKSPACE.md` | — | — | 视频号/voice 等 submodule add |
+| B 站 + Insta360 | `skill_bilibili_upload.md` | [bilibili-inst360-channel-adoption.md](./bilibili-inst360-channel-adoption.md) | `bilibili-upload.local.md` | dry-run fill → Owner 投稿 |
+| IP 内容工具链（13 repo） | `rules/skills/skill_*.md` | [ip-content-skills-adoption.md](./ip-content-skills-adoption.md) | 各 `*.local.md` | **触发条件** §1 · 非 Brief |
+| Tier 3 暂缓 | `INDEX.md` · `WORKSPACE.md` | — | — | kit / image-gen 等未 vendor |
 
 **纪律：** 下一阶段 **优先改上表 MD/overlay/YAML**；只有新域才 `git submodule add` + 一个新 router + 一行 adoption + INDEX。

@@ -17,17 +17,20 @@
 - Generative Kernels（模板与案例）：`kernels/templates/`、`kernels/examples/`
 - 小红书 Topic Manager（Gemini 6 case）：`kernels/xiaohongshu/`（README + `docs/`；kernel `scripts/verify-xhs-topic.sh`）
 - 小红书 Brief 管线：`content/xiaohongshu/PIPELINE.md` · 批量 `scripts/verify-xhs-content-dir.sh`
+- 小红书视频迭代 / 声音：`content/xiaohongshu/XHS-VIDEO-ITERATION.md` · `VOICE-ANCHOR.md` · `scripts/verify-xhs-voice-qa.sh`
+- CV Git 源：`content/personal-ip/cv-source-2026-09-15.md`
 
 ### 知识与品牌资产
 - Google Drive Knowledge Bank：`AI-Agent-Knowledge-Bank/`（通过 gdocs 或 Drive MCP；folder ID 在 overlay）
 - 本地草稿与同步 Markdown：`content/{personal-ip,business-brand,marketing,xiaohongshu,visual}/`
 - 并行 Subagent 中间工件（gitignored）：`tmp/parallel/<session_slug>/` · skill [workflow_parallel_subagents.md](./skills/workflow_parallel_subagents.md)
 - 深度调研 scratch（gitignored）：`tmp/survey/<session_slug>/` · 定稿报告 [content/marketing/research/](../content/marketing/research/) · [workflow_deep_research_survey.md](./skills/workflow_deep_research_survey.md)
+- 小红书平台 PDF（gitignore）：`content/marketing/research/raw/*.pdf` · Agent 读 [xhs-platform-research-index.md](../content/marketing/research/xhs-platform-research-index.md)
 - Headless CLI scratch（gitignored）：`tmp/ai-agent-cli/<job_id>/` · skill [skill_ai_agent_cli.md](./skills/skill_ai_agent_cli.md)
 - **个人 IP / KPI playbook：** `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（CAPSTONE · Five Ps · 新机 Agent 写 Pitch 用）
 
 ### 系统与规则
-- **新 Agent 接手（Must）：** `docs/AGENT-TAKEOVER.md` · `bash scripts/verify-agent-takeover.sh`
+- **新 Agent 接手（Must）：** `docs/AGENT-TAKEOVER.md` · `docs/WORKFLOW-CEO-ARCHITECTURE.md` · `docs/workflow-mindmap.html` · `docs/XHS-DATA-LAYER.md` · `bash scripts/verify-agent-takeover.sh`
 - 本仓索引：`INDEX.md`
 - 任务路由：`integrations/index.md`
 - Agent 入口：`AGENTS.md`
@@ -45,9 +48,29 @@
 | process-launcher | `vendor/process-launcher/` | `rules/skills/skill_process_launcher.md` | `git submodule update --remote vendor/process-launcher` |
 | ai-agent-cli-skill | `vendor/ai-agent-cli-skill/` | `rules/skills/skill_ai_agent_cli.md` | `git submodule update --remote vendor/ai-agent-cli-skill` |
 
-**本仓采纳边界：** [integration/process-launcher-adoption.md](../integration/process-launcher-adoption.md) · [integration/ai-agent-cli-adoption.md](../integration/ai-agent-cli-adoption.md) · 扩展接口 [integration/EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md) · 预留 job 模板 `integration/templates/process-launcher-reserved-jobs.example.yaml` · 私有 overlay `*.local.md`（example 可 commit）
+**IP 内容工具链（已 vendor · 默认不启 CLI · 触发见 adoption）：** [integration/ip-content-skills-adoption.md](../integration/ip-content-skills-adoption.md)
 
-**暂缓（1-A～4-A）：** voice-lora、image-generation、presentation_skill、design_skill、kit-skill、circle-post-skill、imessage_skill、opus-video-audio-skill、tts-clone-skill、lizheng-video-production 等 — 视频号/额外渠道定调后再 `git submodule add`。
+| Repo | 路径 | Router |
+|------|------|--------|
+| semantic-search-skill | `vendor/semantic-search-skill/` | `skill_semantic_search.md` |
+| voice-lora | `vendor/voice-lora/` | `skill_voice_lora.md` |
+| bilibili-upload-skill | `vendor/bilibili-upload-skill/` | `skill_bilibili_upload.md` |
+| asr-skill | `vendor/asr-skill/` | `skill_asr.md` |
+| online-media-skill | `vendor/online-media-skill/` | `skill_online_media.md` |
+| voice-memos-skill | `vendor/voice-memos-skill/` | `skill_voice_memos.md` |
+| intake-skill | `vendor/intake-skill/` | `skill_intake.md` |
+| ai_session_export | `vendor/ai_session_export/` | `skill_ai_session_export.md` |
+| vlog-skill | `vendor/vlog-skill/` | `skill_vlog.md` |
+| opus-video-audio-skill | `vendor/opus-video-audio-skill/` | `skill_opus_video_audio.md` |
+| playwright-test-skill | `vendor/playwright-test-skill/` | `skill_playwright_test.md` |
+| typefully-twitter-skill | `vendor/typefully-twitter-skill/` | `skill_typefully_twitter.md` |
+| dataforseo-skill | `vendor/dataforseo-skill/` | `skill_dataforseo.md` |
+
+- B 站 / Insta360 流程：[integration/bilibili-inst360-channel-adoption.md](../integration/bilibili-inst360-channel-adoption.md) · 成片/素材 `content/video/` · 文案 `content/bilibili/`
+
+**本仓采纳边界：** [integration/process-launcher-adoption.md](../integration/process-launcher-adoption.md) · [integration/ai-agent-cli-adoption.md](../integration/ai-agent-cli-adoption.md) · [integration/ip-content-skills-adoption.md](../integration/ip-content-skills-adoption.md) · 扩展接口 [integration/EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md) · 预留 job 模板 `integration/templates/process-launcher-reserved-jobs.example.yaml` · 私有 overlay `*.local.md`（example 可 commit）
+
+**仍暂缓（未 vendor）：** image-generation、presentation_skill、design_skill、kit-skill、circle-post-skill、imessage_skill、tts-clone-skill、lizheng-video-production 等 — 按需再装。
 
 ## Python 环境
 

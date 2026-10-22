@@ -17,16 +17,18 @@
 - ✅ **AI 编程方法论** — [bestpractice_ai_programming_mindset.md](./bestpractice_ai_programming_mindset.md)（verify / scripts / 反馈环）
 - ✅ **时间敏感验证** — [bestpractice_temporal_info_verification.md](./bestpractice_temporal_info_verification.md)（听见 / 日期 / 版本号）
 - ✅ **长文写作** — [skill_writing.md](./skill_writing.md) → `vendor/writing-skill/`（**非** 小红书 Brief）
+- ✅ **鸭哥口吻 / 去 AI 腔** — [skill_yage_voice.md](./skill_yage_voice.md) · `.cursor/skills/yage-voice/`（**非** Brief/evaluate 正文）
 - ✅ **DOCX / PPTX** — [skill_docx.md](./skill_docx.md) · [skill_pptx.md](./skill_pptx.md)（办公稿；封面仍 Canva）
 - ✅ **Process Launcher** — [skill_process_launcher.md](./skill_process_launcher.md) → `vendor/process-launcher/`（本仓边界 [process-launcher-adoption.md](../../integration/process-launcher-adoption.md)）
 - ✅ **并行 Subagent 工作流** — [workflow_parallel_subagents.md](./workflow_parallel_subagents.md)（边界 [parallel-subagents-adoption.md](../../integration/parallel-subagents-adoption.md)）
 - ✅ **深度调研 Survey** — [workflow_deep_research_survey.md](./workflow_deep_research_survey.md)（边界 [deep-research-survey-adoption.md](../../integration/deep-research-survey-adoption.md)）
 - ✅ **AI Agent CLI（headless 路由）** — [skill_ai_agent_cli.md](./skill_ai_agent_cli.md) → `vendor/ai-agent-cli-skill/`（边界 [ai-agent-cli-adoption.md](../../integration/ai-agent-cli-adoption.md)）
+- ✅ **IP 内容工具链（grapeot · 已 vendor · 触发条件）** — [ip-content-skills-adoption.md](../../integration/ip-content-skills-adoption.md) · semantic-search · voice-lora · bilibili · asr · online-media · voice-memos · intake · ai_session_export · vlog · opus-video-audio · playwright-test · typefully · dataforseo（各 [skill_*.md](./) router）
 - ✅ **Rules 框架** — SOUL / USER / WORKSPACE / AGENTS
 
-### Tier 3 · 暂缓（Owner 2026-10 · 全选 A）
+### Tier 3 · 暂缓（未 vendor）
 
-未 vendor：voice-lora、image-generation、presentation_skill、design_skill、kit/circle/imessage、opus-video/tts/lizheng 等。视频号/Newsletter 定调后再装；见 [WORKSPACE.md](../WORKSPACE.md) Public Skill 表。
+image-generation、presentation_skill、design_skill、kit/circle/imessage、tts-clone、lizheng 等。见 [WORKSPACE.md](../WORKSPACE.md)。
 
 ### Guide 多面 Agent（本 workspace `.cursor/skills/`）
 
@@ -50,10 +52,13 @@
 - [PPTX（读改/渲染）](./skill_pptx.md) ✅ — `vendor/pptx.skill`；触发词："pptx"、"slide"（Brief 封面 → brand-visual）
 - [Process Launcher（本机延时/周期/进程 API）](./skill_process_launcher.md) ✅ — `vendor/process-launcher`；触发词："定时任务"、"延时执行"、"process launcher"、`POST /run`（**不**替代 manager-autopilot）
 - [AI Agent CLI（Claude/Codex/Cursor/agy 等 headless）](./skill_ai_agent_cli.md) ✅ — `vendor/ai-agent-cli-skill`；触发词：`cursor agent -p`、headless、file-response（**不**替代 IDE 内 00 Manager）
+- [IP 内容工具链总表](../../integration/ip-content-skills-adoption.md) ✅ — 触发条件 · 非 Brief 边界
+- [Semantic Search](./skill_semantic_search.md) · [voice-lora](./skill_voice_lora.md) · [B 站 upload](./skill_bilibili_upload.md) · [ASR](./skill_asr.md) · [Online Media](./skill_online_media.md) · [Voice Memos](./skill_voice_memos.md) · [Intake](./skill_intake.md) · [Session Export](./skill_ai_session_export.md) · [vlog](./skill_vlog.md) · [opus-video](./skill_opus_video_audio.md) · [Playwright test](./skill_playwright_test.md) · [Typefully](./skill_typefully_twitter.md) · [DataForSEO](./skill_dataforseo.md) ✅
 
 ### Workflow（长文 · 非 XHS Brief）
 
 - [Writing（internal / external）](./skill_writing.md) ✅ — `vendor/writing-skill/skills/writing_workflows.md`；触发词："深度稿"、"memo"、"prose lint"（**非** Brief / Pitch）
+- [鸭哥口吻 / 去 AI 腔](./skill_yage_voice.md) ✅ — 触发词："鸭哥口吻"、"去 AI 腔"、"yage voice"（Owner 对话 / 说明；**非** XHS Brief）
 - [并行 Subagent（调研 / explore / 独立 review）](./workflow_parallel_subagents.md) ✅ — 触发词："并行调研"、"多 agent 搜"、"explore 并行"（**不**替代 00 Manager Brief 步序）
 - [深度调研 Survey（Tier 验证 · claim · fact_check）](./workflow_deep_research_survey.md) ✅ — 触发词："深度调研"、"竞品 survey"、"尽调"；scratch `tmp/survey/` · 报告 `content/marketing/research/`
 

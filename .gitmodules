@@ -16,3 +16,42 @@
 [submodule "vendor/ai-agent-cli-skill"]
 	path = vendor/ai-agent-cli-skill
 	url = https://github.com/grapeot/ai-agent-cli-skill.git
+[submodule "vendor/semantic-search-skill"]
+	path = vendor/semantic-search-skill
+	url = https://github.com/grapeot/semantic-search-skill.git
+[submodule "vendor/voice-lora"]
+	path = vendor/voice-lora
+	url = https://github.com/grapeot/voice-lora.git
+[submodule "vendor/bilibili-upload-skill"]
+	path = vendor/bilibili-upload-skill
+	url = https://github.com/grapeot/bilibili-upload-skill.git
+[submodule "vendor/asr-skill"]
+	path = vendor/asr-skill
+	url = https://github.com/grapeot/asr-skill.git
+[submodule "vendor/online-media-skill"]
+	path = vendor/online-media-skill
+	url = https://github.com/grapeot/online-media-skill.git
+[submodule "vendor/voice-memos-skill"]
+	path = vendor/voice-memos-skill
+	url = https://github.com/grapeot/voice-memos-skill.git
+[submodule "vendor/intake-skill"]
+	path = vendor/intake-skill
+	url = https://github.com/grapeot/intake-skill.git
+[submodule "vendor/ai_session_export"]
+	path = vendor/ai_session_export
+	url = https://github.com/grapeot/ai_session_export.git
+[submodule "vendor/vlog-skill"]
+	path = vendor/vlog-skill
+	url = https://github.com/grapeot/vlog-skill.git
+[submodule "vendor/opus-video-audio-skill"]
+	path = vendor/opus-video-audio-skill
+	url = https://github.com/grapeot/opus-video-audio-skill.git
+[submodule "vendor/playwright-test-skill"]
+	path = vendor/playwright-test-skill
+	url = https://github.com/grapeot/playwright-test-skill.git
+[submodule "vendor/typefully-twitter-skill"]
+	path = vendor/typefully-twitter-skill
+	url = https://github.com/grapeot/typefully-twitter-skill.git
+[submodule "vendor/dataforseo-skill"]
+	path = vendor/dataforseo-skill
+	url = https://github.com/grapeot/dataforseo-skill.git

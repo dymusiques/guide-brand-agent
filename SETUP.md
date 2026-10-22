@@ -23,6 +23,23 @@ pip install -e vendor/docx-skill
 pip install -e 'vendor/pptx.skill[dev]'
 pip install -e 'vendor/process-launcher[dev]'   # Python ≥3.12 · 可选 API 见 integration/process-launcher-adoption.md
 # ai-agent-cli-skill：仅 Markdown submodule，无 pip；headless 见 integration/ai-agent-cli-adoption.md
+
+# IP 内容工具链（Owner 2026-10-22 已纳入 SETUP · 触发条件见 integration/ip-content-skills-adoption.md）：
+pip install -e vendor/semantic-search-skill
+pip install -e vendor/voice-lora
+pip install -e vendor/bilibili-upload-skill
+pip install -e vendor/asr-skill
+pip install -e vendor/online-media-skill
+pip install -e vendor/voice-memos-skill
+pip install -e vendor/intake-skill
+pip install -e vendor/ai_session_export
+pip install -e vendor/vlog-skill
+pip install -e vendor/playwright-test-skill
+pip install -e vendor/typefully-twitter-skill
+pip install -e vendor/dataforseo-skill
+playwright install chromium   # bilibili-upload / pw-test 需要
+# ASR / intake 转写：按需 pip install -e 'vendor/asr-skill[...]' / 'vendor/intake-skill[qwen-asr]'（MLX · 见 vendor README）
+# opus-video-audio-skill：无 pyproject · 脚本仓，用时读 vendor skill
 ```
 
 ## 3. OAuth（一次性 · 不进 git）
