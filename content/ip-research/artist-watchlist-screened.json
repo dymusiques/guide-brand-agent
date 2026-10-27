@@ -1,0 +1,225 @@
+{
+  "framework": "DB+PLD+APO+CTD",
+  "screened_at": "2026-10-27",
+  "owner_direction_ref": "content/personal-ip/ip-positioning-brief-2026-10-05.md",
+  "artists": [
+    {
+      "slug": "drew-forde-thatviolakid",
+      "name": "Drew Alexander Forde · ThatViolaKid",
+      "urls": [
+        "https://thatviolakid.com/about",
+        "https://christianhowes.com/2021/05/06/creative-strings-podcast-ep-43-drew-alexander-forde/"
+      ],
+      "priority_tier": "P1",
+      "borrow_score_composite": 73,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 95.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。艺术专业表演向，与法派专业锚点同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 63.0,
+          "rationale": "拆解度待 URL 深读。"
+        },
+        "audience_persona_overlap": {
+          "score": 68.0,
+          "rationale": "品牌/商业受众与 Owner B 端重叠。"
+        },
+        "core_topic_density": {
+          "score": 60.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "tudou-man-aigc",
+      "name": "土豆人 · tudou_man（林晨）",
+      "urls": [
+        "https://www.digitaling.com/articles/942108.html",
+        "https://www.digitaling.com/articles/1320234.html"
+      ],
+      "priority_tier": "P2",
+      "borrow_score_composite": 70,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 68.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 77.0,
+          "rationale": "小红书可观测，利于像素级拆封面/标签/栏目。"
+        },
+        "audience_persona_overlap": {
+          "score": 80.0,
+          "rationale": "受众阶段接近 Owner 小红书认知期。品牌/商业受众与 Owner B 端重叠。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "grace-xhs-visual-ip",
+      "name": "画画的小福象（小红书 · 品牌/IP 视觉）",
+      "urls": [
+        "https://www.xiaohongshu.com/user/profile/5657b233b8ce1a4fa16e6d0f"
+      ],
+      "priority_tier": "P2",
+      "borrow_score_composite": 66,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 68.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 72.0,
+          "rationale": "小红书可观测，利于像素级拆封面/标签/栏目。"
+        },
+        "audience_persona_overlap": {
+          "score": 70.0,
+          "rationale": "受众阶段接近 Owner 小红书认知期。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "erlich-illustrator",
+      "name": "儿力力 · 白日梦小姐 IP",
+      "urls": [
+        "https://www.99ys.com/exhibit/2025/03/05/11/72048.html"
+      ],
+      "priority_tier": "P2",
+      "borrow_score_composite": 62,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 68.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 50.0,
+          "rationale": "拆解度待 URL 深读。"
+        },
+        "audience_persona_overlap": {
+          "score": 60.0,
+          "rationale": "品牌/商业受众与 Owner B 端重叠。"
+        },
+        "core_topic_density": {
+          "score": 68.0,
+          "rationale": "单一 IP 形象，核心题密度高。"
+        }
+      }
+    },
+    {
+      "slug": "lang-lang-piano-ip",
+      "name": "Lang Lang · 郎朗",
+      "urls": [
+        "https://langlang.com/"
+      ],
+      "priority_tier": "P2",
+      "borrow_score_composite": 58,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 83.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。艺术专业表演向，与法派专业锚点同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 35.0,
+          "rationale": "名人/机构尺度，像素模板难直接迁移到 Owner 阶段。"
+        },
+        "audience_persona_overlap": {
+          "score": 58.0,
+          "rationale": "教育链叙事有重叠。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "hauser-cellist",
+      "name": "HAUSER（Stjepan Hauser）",
+      "urls": [
+        "https://groovemedia.org/work/hauser"
+      ],
+      "priority_tier": "P3",
+      "borrow_score_composite": 54,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 65.0,
+          "rationale": "艺术专业表演向，与法派专业锚点同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 58.0,
+          "rationale": "短视频分轨可拆节点模板。"
+        },
+        "audience_persona_overlap": {
+          "score": 38.0,
+          "rationale": "偏 C 端 fame，与强链接 B 端重叠有限，需筛 vanity。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "fuzzy-hug-digital-ip",
+      "name": "Fuzzy hug（独立数字艺术 IP）",
+      "urls": [
+        "https://www.adquan.com/article/343094"
+      ],
+      "priority_tier": "P3",
+      "borrow_score_composite": 50,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 58.0,
+          "rationale": "非真人 IP，方向仅 campaign 结构可参考。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 50.0,
+          "rationale": "拆解度待 URL 深读。"
+        },
+        "audience_persona_overlap": {
+          "score": 50.0,
+          "rationale": "受众重叠待复核。"
+        },
+        "core_topic_density": {
+          "score": 40.0,
+          "rationale": "偏单次 campaign，核心题易稀释。"
+        }
+      }
+    },
+    {
+      "slug": "lincoln-center-digital",
+      "name": "Lincoln Center / 机构级艺术传播（非个人，学内容结构）",
+      "urls": [
+        "https://www.lincolncenter.org/"
+      ],
+      "priority_tier": "P3",
+      "borrow_score_composite": 37,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 25.0,
+          "rationale": "机构传播非个人 IP 方向，与「人即品牌」错位。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 35.0,
+          "rationale": "名人/机构尺度，像素模板难直接迁移到 Owner 阶段。"
+        },
+        "audience_persona_overlap": {
+          "score": 58.0,
+          "rationale": "教育链叙事有重叠。"
+        },
+        "core_topic_density": {
+          "score": 30.0,
+          "rationale": "机构多栏目并行，非个人核心题密度模型。"
+        }
+      }
+    }
+  ]
+}

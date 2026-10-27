@@ -25,10 +25,15 @@
 ## 新 Agent clone 后 Must
 
 ```bash
+git submodule update --init --recursive
 bash scripts/ensure-venv-deps.sh
+bash scripts/verify-handoff.sh
 bash scripts/manager-autopilot.sh
+python scripts/screen-artist-watchlist.py
 VERIFY_TIER=release bash scripts/verify-all.sh   # 有 key 时
 ```
+
+**Artist 对标 · 新机/full：** [SOP-ARTIST-BENCHMARK-AND-HANDOFF.md](SOP-ARTIST-BENCHMARK-AND-HANDOFF.md)（**勿**对 artist 用 SWOT；用 DB/PLD/APO/CTD）。
 
 ## 认知期节奏
 

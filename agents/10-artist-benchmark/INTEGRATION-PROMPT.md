@@ -6,7 +6,7 @@
 
 1. **Baseline：** Owner IP Brief + `artist-benchmark-gold-rubric.md` → `reference/gold.md`
 2. **对标：** 读 `content/ip-research/artist-watchlist.json`（Owner 可填 **urls/真名**）
-3. **产出：** 借鉴分 · 为何 evaluate · 对齐点 · **完整时间线** · worth_borrowing / avoid
+3. **产出：** **benchmark_metrics（DB/PLD/APO/CTD）** · 借鉴分 · 为何 evaluate · 对齐点 · **完整时间线** · worth_borrowing / avoid
 4. **6 Test：** `kernels/daily-gm/tests/test_artist_benchmark_6.py`（schema）
 5. **Challenge：** `challenge-log.md`（vanity/编造 timeline）
 6. **Evaluator：** `metrics.jsonl` + `GM-REPORT.md`

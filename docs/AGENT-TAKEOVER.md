@@ -31,6 +31,8 @@ Agent **Must** 按 [.cursor/rules/danying-brand-agent-bootstrap.mdc](../.cursor/
 
 **Hub 换机全克隆：** Owner 说「全部克隆」→ [danying-apps 全部克隆.md](https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md) → 本仓 `SETUP.md`。
 
+**Artist 对标：** [SOP-ARTIST-BENCHMARK-AND-HANDOFF.md](SOP-ARTIST-BENCHMARK-AND-HANDOFF.md) · **watchlist 用 DB/PLD/APO/CTD，不用 SWOT** · SWOT 仅 02 商业稿。
+
 ---
 
 ## 1. Owner 成功目标（G-* · 指挥时不丢）

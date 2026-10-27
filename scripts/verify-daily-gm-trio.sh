@@ -10,6 +10,7 @@ else PY="python3"; fi
 STAMP="${VERIFY_FUSED_DATE:-$(date +%Y-%m-%d)}"
 echo "=== verify daily-gm-trio (L1 10+11+12) · $STAMP ==="
 
+"$PY" kernels/daily-gm/tests/test_benchmark_framework.py
 VERIFY_FUSED_DATE="$STAMP" bash scripts/verify-agent-fused.sh --agent all-daily --with-artifacts
 
 echo "PASS: verify-daily-gm-trio"

@@ -49,6 +49,15 @@
 | 17–20 | `content/xiaohongshu/2026-10-17-discovery-0{1,2,3,4}-*-brief.md` |
 | 21 | [../content/xiaohongshu/PIPELINE.md](../content/xiaohongshu/PIPELINE.md) |
 
+## 4b · Artist 对标 · GM10（Must · 不用 SWOT）
+
+| # | 路径 |
+|---|------|
+| 21a | [SOP-ARTIST-BENCHMARK-AND-HANDOFF.md](SOP-ARTIST-BENCHMARK-AND-HANDOFF.md) |
+| 21b | [BENCHMARK-FRAMEWORK-ARTIST.md](BENCHMARK-FRAMEWORK-ARTIST.md) · [DAILY-GM-TRIO-SOP.md](DAILY-GM-TRIO-SOP.md) |
+| 21c | [OWNER-ARTIST-CATALOG-ON-OPEN.md](OWNER-ARTIST-CATALOG-ON-OPEN.md) · [../content/ip-research/README.md](../content/ip-research/README.md) |
+| 21d | [VERIFY-AGENT-FUSED.md](VERIFY-AGENT-FUSED.md) |
+
 ## 5 · 路由与验收（Should）
 
 | # | 路径 |

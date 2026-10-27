@@ -36,6 +36,8 @@ def main() -> int:
                 "slug": slug,
                 "artist_slug": data.get("artist_slug"),
                 "borrow_score": data.get("borrow_score"),
+                "benchmark_metrics": data.get("benchmark_metrics"),
+                "priority_tier": data.get("priority_tier"),
                 "why_evaluate": data.get("why_evaluate"),
                 "alignment_points": data.get("alignment_points"),
                 "timeline_len": len(data.get("timeline") or []),

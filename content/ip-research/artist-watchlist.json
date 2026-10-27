@@ -16,20 +16,27 @@
         "https://thatviolakid.com/about",
         "https://christianhowes.com/2021/05/06/creative-strings-podcast-ep-43-drew-alexander-forde/"
       ],
-      "notes": "可借鉴：可检索艺名、古典+流行并列、Fortune500 品牌共创仍保持演奏者身份"
-    },
-    {
-      "slug": "hauser-cellist",
-      "name": "HAUSER（Stjepan Hauser）",
-      "domain": "音乐表演 × 短视频/国际社媒放大",
-      "search_queries": [
-        "HAUSER cellist Instagram TikTok strategy",
-        "HAUSER Shorts channel growth"
-      ],
-      "urls": [
-        "https://groovemedia.org/work/hauser"
-      ],
-      "notes": "可借鉴：平台分轨、Shorts、巡演/专辑节点；慎学 pure vanity 涨粉无 B2B"
+      "notes": "可借鉴：可检索艺名、古典+流行并列、Fortune500 品牌共创仍保持演奏者身份",
+      "priority_tier": "P1",
+      "last_screened_composite": 73,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 95.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。艺术专业表演向，与法派专业锚点同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 63.0,
+          "rationale": "拆解度待 URL 深读。"
+        },
+        "audience_persona_overlap": {
+          "score": 68.0,
+          "rationale": "品牌/商业受众与 Owner B 端重叠。"
+        },
+        "core_topic_density": {
+          "score": 60.0,
+          "rationale": "题密度待复核。"
+        }
+      }
     },
     {
       "slug": "tudou-man-aigc",
@@ -43,33 +50,27 @@
         "https://www.digitaling.com/articles/942108.html",
         "https://www.digitaling.com/articles/1320234.html"
       ],
-      "notes": "可借鉴：概念假设式品牌结合、东方元素×全球品牌、线下装置/展览延展；对齐 Owner AI×艺术叙事"
-    },
-    {
-      "slug": "erlich-illustrator",
-      "name": "儿力力 · 白日梦小姐 IP",
-      "domain": "插画/IP × 情绪治愈 × 展览+品牌（纯视觉艺术）",
-      "search_queries": [
-        "儿力力 白日梦小姐 小红书 IP 合作",
-        "儿力力 柔软的种子 展览"
-      ],
-      "urls": [
-        "https://www.99ys.com/exhibit/2025/03/05/11/72048.html"
-      ],
-      "notes": "可借鉴：单一 IP 形象、小红书/微博情感共鸣、Marc Jacobs 等联名；认知期「名片式」情绪"
-    },
-    {
-      "slug": "fuzzy-hug-digital-ip",
-      "name": "Fuzzy hug（独立数字艺术 IP）",
-      "domain": "数字角色 IP × 快消/美妆跨界（非真人艺术家，学 IP 商业化）",
-      "search_queries": [
-        "Fuzzy hug 潘婷 3分钟 跨界",
-        "Fuzzy hug IP 合作"
-      ],
-      "urls": [
-        "https://www.adquan.com/article/343094"
-      ],
-      "notes": "可借鉴：小 IP 撬大声量、CG+实景落地；勿绑单品类；偏 campaign 案例层"
+      "notes": "可借鉴：概念假设式品牌结合、东方元素×全球品牌、线下装置/展览延展；对齐 Owner AI×艺术叙事",
+      "priority_tier": "P2",
+      "last_screened_composite": 70,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 68.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 77.0,
+          "rationale": "小红书可观测，利于像素级拆封面/标签/栏目。"
+        },
+        "audience_persona_overlap": {
+          "score": 80.0,
+          "rationale": "受众阶段接近 Owner 小红书认知期。品牌/商业受众与 Owner B 端重叠。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
     },
     {
       "slug": "grace-xhs-visual-ip",
@@ -82,7 +83,60 @@
       "urls": [
         "https://www.xiaohongshu.com/user/profile/5657b233b8ce1a4fa16e6d0f"
       ],
-      "notes": "可借鉴：小红书人设标签、AI+国风商业插画、自有文创 IP 线；粉丝量级更接近 Owner 阶段"
+      "notes": "可借鉴：小红书人设标签、AI+国风商业插画、自有文创 IP 线；粉丝量级更接近 Owner 阶段",
+      "priority_tier": "P2",
+      "last_screened_composite": 66,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 68.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 72.0,
+          "rationale": "小红书可观测，利于像素级拆封面/标签/栏目。"
+        },
+        "audience_persona_overlap": {
+          "score": 70.0,
+          "rationale": "受众阶段接近 Owner 小红书认知期。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "erlich-illustrator",
+      "name": "儿力力 · 白日梦小姐 IP",
+      "domain": "插画/IP × 情绪治愈 × 展览+品牌（纯视觉艺术）",
+      "search_queries": [
+        "儿力力 白日梦小姐 小红书 IP 合作",
+        "儿力力 柔软的种子 展览"
+      ],
+      "urls": [
+        "https://www.99ys.com/exhibit/2025/03/05/11/72048.html"
+      ],
+      "notes": "可借鉴：单一 IP 形象、小红书/微博情感共鸣、Marc Jacobs 等联名；认知期「名片式」情绪",
+      "priority_tier": "P2",
+      "last_screened_composite": 62,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 68.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 50.0,
+          "rationale": "拆解度待 URL 深读。"
+        },
+        "audience_persona_overlap": {
+          "score": 60.0,
+          "rationale": "品牌/商业受众与 Owner B 端重叠。"
+        },
+        "core_topic_density": {
+          "score": 68.0,
+          "rationale": "单一 IP 形象，核心题密度高。"
+        }
+      }
     },
     {
       "slug": "lang-lang-piano-ip",
@@ -95,7 +149,93 @@
       "urls": [
         "https://langlang.com/"
       ],
-      "notes": "可借鉴：教育链叙事、古典破圈事件；勿照搬 celebrity 尺度，取「古典+可合作语言」"
+      "notes": "可借鉴：教育链叙事、古典破圈事件；勿照搬 celebrity 尺度，取「古典+可合作语言」",
+      "priority_tier": "P2",
+      "last_screened_composite": 58,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 83.0,
+          "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。艺术专业表演向，与法派专业锚点同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 35.0,
+          "rationale": "名人/机构尺度，像素模板难直接迁移到 Owner 阶段。"
+        },
+        "audience_persona_overlap": {
+          "score": 58.0,
+          "rationale": "教育链叙事有重叠。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "hauser-cellist",
+      "name": "HAUSER（Stjepan Hauser）",
+      "domain": "音乐表演 × 短视频/国际社媒放大",
+      "search_queries": [
+        "HAUSER cellist Instagram TikTok strategy",
+        "HAUSER Shorts channel growth"
+      ],
+      "urls": [
+        "https://groovemedia.org/work/hauser"
+      ],
+      "notes": "可借鉴：平台分轨、Shorts、巡演/专辑节点；慎学 pure vanity 涨粉无 B2B",
+      "priority_tier": "P3",
+      "last_screened_composite": 54,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 65.0,
+          "rationale": "艺术专业表演向，与法派专业锚点同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 58.0,
+          "rationale": "短视频分轨可拆节点模板。"
+        },
+        "audience_persona_overlap": {
+          "score": 38.0,
+          "rationale": "偏 C 端 fame，与强链接 B 端重叠有限，需筛 vanity。"
+        },
+        "core_topic_density": {
+          "score": 50.0,
+          "rationale": "题密度待复核。"
+        }
+      }
+    },
+    {
+      "slug": "fuzzy-hug-digital-ip",
+      "name": "Fuzzy hug（独立数字艺术 IP）",
+      "domain": "数字角色 IP × 快消/美妆跨界（非真人艺术家，学 IP 商业化）",
+      "search_queries": [
+        "Fuzzy hug 潘婷 3分钟 跨界",
+        "Fuzzy hug IP 合作"
+      ],
+      "urls": [
+        "https://www.adquan.com/article/343094"
+      ],
+      "notes": "可借鉴：小 IP 撬大声量、CG+实景落地；勿绑单品类；偏 campaign 案例层",
+      "priority_tier": "P3",
+      "last_screened_composite": 50,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 58.0,
+          "rationale": "非真人 IP，方向仅 campaign 结构可参考。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 50.0,
+          "rationale": "拆解度待 URL 深读。"
+        },
+        "audience_persona_overlap": {
+          "score": 50.0,
+          "rationale": "受众重叠待复核。"
+        },
+        "core_topic_density": {
+          "score": 40.0,
+          "rationale": "偏单次 campaign，核心题易稀释。"
+        }
+      }
     },
     {
       "slug": "lincoln-center-digital",
@@ -108,7 +248,29 @@
       "urls": [
         "https://www.lincolncenter.org/"
       ],
-      "notes": "机构非人 IP；仅借鉴：节目单+幕后+教育分层，勿让 Owner 账号像场馆号"
+      "notes": "机构非人 IP；仅借鉴：节目单+幕后+教育分层，勿让 Owner 账号像场馆号",
+      "priority_tier": "P3",
+      "last_screened_composite": 37,
+      "last_screened_metrics": {
+        "directional_benchmarking": {
+          "score": 25.0,
+          "rationale": "机构传播非个人 IP 方向，与「人即品牌」错位。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 35.0,
+          "rationale": "名人/机构尺度，像素模板难直接迁移到 Owner 阶段。"
+        },
+        "audience_persona_overlap": {
+          "score": 58.0,
+          "rationale": "教育链叙事有重叠。"
+        },
+        "core_topic_density": {
+          "score": 30.0,
+          "rationale": "机构多栏目并行，非个人核心题密度模型。"
+        }
+      }
     }
-  ]
+  ],
+  "screening_framework": "DB+PLD+APO+CTD",
+  "last_screened_at": "2026-10-27"
 }

@@ -1,12 +1,31 @@
 {
-  "updated_at": "2026-10-27T08:06:19.635206+00:00",
+  "updated_at": "2026-10-27T09:09:28.920440+00:00",
   "count": 1,
   "entries": [
     {
       "date": "2026-10-27",
       "slug": "crossover-classical-creator",
       "artist_slug": "crossover-classical-creator",
-      "borrow_score": 78,
+      "borrow_score": 62,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 75,
+          "rationale": "合成模型与 Owner 法派×跨界方向文本对齐，但非真人路径，Directional 仅作 rubric。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 40,
+          "rationale": "无真实账号与 URL，无法做 Pixel-Level 拆解，不可作 PLD 对标。"
+        },
+        "audience_persona_overlap": {
+          "score": 35,
+          "rationale": "无真实受众数据，APO 不可用于决策，仅内部 schema 占位。"
+        },
+        "core_topic_density": {
+          "score": 70,
+          "rationale": "模型文本题密度高，但属于虚构合成，CTD 不得外推为真人。"
+        }
+      },
+      "priority_tier": "P3",
       "why_evaluate": "该对标案例展示了古典音乐家从传统学术/乐团体系走向跨界品牌策划与个人IP数字化运作的完整路径。评估其经验有助于Owner验证‘法派长笛专业根基 × 跨行业商业体验设计’在小红书及多平台传播中的落地可行性，并明确‘不绑定单品类’与‘强链接变现’的商业边界。",
       "alignment_points": [
         "艺术根基与跨界策划双轮驱动：以法派长笛/古典乐专业高度作为不可替代的信任锚点，同时具备商业场景翻译与品牌策划能力。",

@@ -1,8 +1,17 @@
-"""Schema validation for GM10 artist benchmark JSON (6-test L1)."""
+"""Schema validation for GM10 artist benchmark JSON (6-test L1 + 4-metric framework)."""
 
 from __future__ import annotations
 
-REQUIRED_TOP = ("artist_slug", "borrow_score", "why_evaluate", "alignment_points", "timeline")
+from benchmark_framework import METRIC_IDS, validate_benchmark_metrics
+
+REQUIRED_TOP = (
+    "artist_slug",
+    "borrow_score",
+    "why_evaluate",
+    "alignment_points",
+    "timeline",
+    "benchmark_metrics",
+)
 TIMELINE_KEYS = ("phase", "year_or_era", "what_happened")
 
 
@@ -36,4 +45,5 @@ def validate_payload(data: dict) -> list[str]:
     why = data.get("why_evaluate")
     if why is not None and len(str(why).strip()) < 40:
         errs.append("why_evaluate too short")
+    errs.extend(validate_benchmark_metrics(data.get("benchmark_metrics")))
     return errs

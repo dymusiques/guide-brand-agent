@@ -22,13 +22,15 @@
 
 ---
 
-## 二、Artist 对标 · 待你裁决（catalog 全量 · 1 条）
+## 二、Artist 对标 · 待你裁决（catalog · 四指标 DB/PLD/APO/CTD · 非 SWOT）
 
-审阅后回复：**适合 / 不适合 + 一句原因**。Agent 写入 `artist-intel-review-state.json`。
+审阅后回复：**适合 / 不适合 + 一句原因**。Agent 写入 `artist-intel-review-state.json`。  
+**全 watchlist 筛查表：** [artist-watchlist-screened.md](./artist-watchlist-screened.md) · SOP：[docs/SOP-ARTIST-BENCHMARK-AND-HANDOFF.md](../../docs/SOP-ARTIST-BENCHMARK-AND-HANDOFF.md)
 
-| 日期 | slug / 名称 | 借鉴分 | 为何 evaluate（摘要） | 可对齐点（压缩） | sources_note |
-|------|-------------|--------|------------------------|------------------|--------------|
-| 2026-10-27 | **crossover-classical-creator**（占位合成对标，非 watchlist 真人） | **78** | 古典学术→跨界品牌/IP 数字化路径，对照你「法派 × 跨行业策划 × 强链接」 | 专业锚点+跨界策划；不绑单品类；日更策展+周更深度+数字探索 | **Tier: Inferred / 综合推演** — 非某一位 watchlist 真人 |
+| 日期 | slug | composite | DB/PLD/APO/CTD | 说明 |
+|------|------|-----------|----------------|------|
+| 2026-10-27 | crossover-classical-creator（占位） | 62 | 75/40/35/70 | **非真人** · 建议裁决 **不适合** 作对标 |
+| — | **ThatViolaKid**（P1 · 未进 catalog 直至 GM10 跑日） | **73** | 95/63/68/60 | 见 screened 表 · **当前 P1 优先深读** |
 
 **细节（值得借鉴 / 避开）：**
 

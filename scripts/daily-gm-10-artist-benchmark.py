@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "kernels" / "xiaohongshu"))
 sys.path.insert(0, str(ROOT / "kernels" / "daily-gm"))
 
 from artist_benchmark_schema import validate_payload  # noqa: E402
+from benchmark_framework import composite_borrow_score, metrics_prompt_block  # noqa: E402
 from config.gemini_config import get_api_key, get_model  # noqa: E402
 from google import genai  # noqa: E402
 from google.genai import types  # noqa: E402
@@ -49,13 +50,17 @@ Public URLs (if any): {urls}
 Search hints: {queries}
 
 Return ONLY one JSON object with keys:
-artist_slug, borrow_score (0-100), why_evaluate (>=2 sentences Chinese),
+artist_slug, borrow_score (0-100, should align with weighted benchmark_metrics),
+why_evaluate (>=2 sentences Chinese, cite DB/PLD/APO/CTD),
 alignment_points (array >=3 strings Chinese),
 timeline (array >=3 objects with phase, year_or_era, what_happened),
 worth_borrowing (array bullets), avoid (array bullets),
-sources_note (tier: say if inferred vs URL-backed; no fabricated deals).
+sources_note (tier: say if inferred vs URL-backed; no fabricated deals),
+benchmark_metrics (object, each metric: score 0-100 + rationale Chinese >=20 chars).
 
-Use public knowledge; if uncertain, lower score and say in sources_note."""
+{metrics_prompt_block()}
+
+Use public knowledge; if uncertain, lower scores and say in sources_note."""
     resp = client.models.generate_content(
         model=model,
         contents=prompt,
@@ -88,6 +93,11 @@ def main() -> int:
         print(f"FAIL GM10 gemini: {e}")
         return 1
 
+    bm = payload.get("benchmark_metrics")
+    if isinstance(bm, dict):
+        calc = composite_borrow_score(bm)
+        if abs(calc - int(payload.get("borrow_score") or 0)) > 8:
+            payload["borrow_score"] = calc
     errs = validate_payload(payload)
     v0 = base / "versions/v0-benchmark.json"
     v0.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
