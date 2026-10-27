@@ -1,0 +1,14 @@
+{
+  "agent": "00-manager",
+  "slug": "owner-policy-redteam-fixed",
+  "intakes": [
+    {
+      "id": "20261027T062451Z-text",
+      "path": "content/evolution/00-manager/owner-policy-redteam-fixed/intake/20261027T062451Z-text.md",
+      "at": "20261027T062451Z",
+      "note": "2026-10-27",
+      "source": "--text"
+    }
+  ],
+  "versions": []
+}

@@ -1,20 +1,16 @@
 # 交班 SOP · 一页纸（M5）
 
-> **新 Agent 必读全文：** [AGENT-TAKEOVER.md](AGENT-TAKEOVER.md)（程序状态 + 三轨 + verify）  
-> 详细：`docs/HANDOFF-COMPLETENESS.md` · 本页 = **换机 / 新 Agent / 大改后** 最小步骤。
+> **新 Agent 主 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · 思维导图：[workflow-handoff-mindmap.html](workflow-handoff-mindmap.html)  
+> 程序状态全文：[AGENT-TAKEOVER.md](AGENT-TAKEOVER.md) · 本页 = **交班最小步骤**。
 
 ## Owner 只做两件事（系统不能替代）
 
 1. **各平台发帖**（小红书 / IG 等）  
 2. **导出 CSV →** `content/analytics/inbox/`（暂无 API 自动拉数）
 
-## 全自动编排（其余）
+## 机器层（Owner setup 后 · 其余）
 
-```bash
-bash scripts/manager-autopilot.sh
-```
-
-可选全量质检：`AUTOPILOT_FULL=1 bash scripts/manager-autopilot.sh`（含 CI 档 verify-all）
+见 [BACKGROUND-GOAL-EVOLUTION.md](BACKGROUND-GOAL-EVOLUTION.md)（**每日 09:00** cycle）。Debug 单次：`bash scripts/manager-autopilot.sh`
 
 ## 交班前 Must（约 15 分钟）
 

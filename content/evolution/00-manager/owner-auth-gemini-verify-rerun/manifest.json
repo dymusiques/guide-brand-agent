@@ -1,0 +1,14 @@
+{
+  "agent": "00-manager",
+  "slug": "owner-auth-gemini-verify-rerun",
+  "intakes": [
+    {
+      "id": "20261027T062551Z-text",
+      "path": "content/evolution/00-manager/owner-auth-gemini-verify-rerun/intake/20261027T062551Z-text.md",
+      "at": "20261027T062551Z",
+      "note": "2026-10-27",
+      "source": "--text"
+    }
+  ],
+  "versions": []
+}

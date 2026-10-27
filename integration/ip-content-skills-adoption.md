@@ -70,21 +70,36 @@
 
 ```bash
 git submodule update --init --recursive
-# 按需（见各 vendor README / SETUP.md §2 optional）：
-# pip install -e vendor/semantic-search-skill
-# pip install -e vendor/bilibili-upload-skill
-# …
+source .venv/bin/activate   # 或: source scripts/ensure-workspace-venv.sh
+# SETUP.md §2 全量 pip + playwright install chromium
+# ASR / intake 转写权重（MLX）仍按需：pip install -e 'vendor/intake-skill[qwen-asr]'（见 vendor asr README）
 ```
 
-**验收（装完 submodule 后）：**
+**验收（装完 submodule / 换机 pip 后 · Agent Must）：**
 
 ```bash
 bash scripts/verify-handoff.sh
-# 首次 bilibili：dry-run only，见 integration/bilibili-inst360-channel-adoption.md
+bash scripts/verify-ip-skills-env.sh
 ```
 
 ---
 
-## 5. Discovery 入口
+## 5. Agent 执行纪律（防错乱 · Must）
+
+| 误区 | 正确做法 |
+|------|----------|
+| 在系统 shell 直接跑 `voice-lora` / `bili-upload` | 先 `source scripts/ensure-workspace-venv.sh` 或用 `$ROOT/.venv/bin/voice-lora` |
+| `pw-test --help` 报 CDP 连接失败 = 装坏了 | **上游无 `--help`**；看用法：`pw-test`（无参数，stderr 出 USAGE）或读 [skill_playwright_test.md](../rules/skills/skill_playwright_test.md) |
+| bilibili / pw-test 不先开 Chrome | 可见 Chrome + CDP（bilibili skill 自带 profile 流程）；见 bilibili adoption |
+| 以为 ASR/intake 已能转写 | 仅 pip 主包 **不够**；转写需 **MLX 可选依赖**（verify 会 WARN） |
+| 以为 opus 有 CLI | **无 pyproject**；触发时读 `vendor/opus-video-audio-skill/skills/procedural-video-frames/SKILL.md` |
+| 写小红书 Brief 先跑一圈 IP CLI | **默认禁止**；仅 §1 触发 + Owner 意图命中才开 CLI |
+| `pytest-asyncio` 版本被 online-media 拉低 | **不影响** `verify-handoff` / Manager；仅跑 vendor 内 pytest 时才关心 |
+
+**Cursor：** `.vscode/settings.json` 已设 `python.terminal.activateEnvironment: true` — **在本 repo 开的新终端** 应自动进 `.venv`；Agent 用非交互 `bash -c` 时必须显式 `source scripts/ensure-workspace-venv.sh`。
+
+---
+
+## 6. Discovery 入口
 
 每个 repo **一个** router：`rules/skills/skill_<name>.md` → vendor root skill（见 [WORKSPACE.md](../rules/WORKSPACE.md) 表）。

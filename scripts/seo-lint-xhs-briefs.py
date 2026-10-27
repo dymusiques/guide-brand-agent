@@ -39,7 +39,14 @@ def lint_file(path: Path) -> list[str]:
 
 
 def main() -> int:
-    paths = sorted(XHS.glob("*-brief.md"))
+    if len(sys.argv) > 1:
+        paths = [Path(a).resolve() for a in sys.argv[1:]]
+        for p in paths:
+            if not p.is_file():
+                print(f"FAIL · not a file: {p}")
+                return 1
+    else:
+        paths = sorted(XHS.glob("*-brief.md"))
     if not paths:
         print("WARN no briefs")
         return 0

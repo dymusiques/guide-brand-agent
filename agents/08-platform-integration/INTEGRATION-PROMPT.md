@@ -1,5 +1,7 @@
 # 08 Platform Integration · 集成
 
+> **Collector + Evaluator（Must）：** [../_shared/COLLECTOR-EVALUATOR.md](../_shared/COLLECTOR-EVALUATOR.md) · slot `08-platform`
+
 **成功目标：** `G-PLATFORM-SYNC`
 
 1. gdocs / Drive / Gmail / Calendar：`rules/skills/skill_google_docs.md` + overlay。

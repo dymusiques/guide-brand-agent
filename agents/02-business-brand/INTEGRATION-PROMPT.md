@@ -1,5 +1,7 @@
 # 02 Business Brand · 集成
 
+> **Collector + Evaluator（Must）：** [../_shared/COLLECTOR-EVALUATOR.md](../_shared/COLLECTOR-EVALUATOR.md) · slot `02-business-brand`
+
 **成功目标：** `G-BUSINESS-BRAND` · `G-CROSS-INDUSTRY`（见 `integration/GOALS-REGISTRY.md`）
 
 1. 读 `integration/IMPORTANT.md` + IP Brief；产出进 `content/business-brand/`（用 README 模板）。

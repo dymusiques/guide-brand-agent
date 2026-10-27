@@ -1,0 +1,14 @@
+{
+  "agent": "00-manager",
+  "slug": "ip-adversarial-drill-2026-10-27",
+  "intakes": [
+    {
+      "id": "20261027T052608Z-text",
+      "path": "content/evolution/00-manager/ip-adversarial-drill-2026-10-27/intake/20261027T052608Z-text.md",
+      "at": "20261027T052608Z",
+      "note": "full drill mobilization",
+      "source": "--text"
+    }
+  ],
+  "versions": []
+}

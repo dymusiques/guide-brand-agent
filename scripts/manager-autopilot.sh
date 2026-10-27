@@ -43,8 +43,16 @@ if [[ -d "$INBOX" ]]; then
   if [[ ${#csvs[@]} -gt 0 ]]; then HAS_CSV=true; fi
 fi
 
+NOTES_CSV="$ROOT/content/analytics/xiaohongshu/notes.csv"
+HAS_WAREHOUSE=false
+if [[ -f "$NOTES_CSV" ]] && [[ $(wc -l < "$NOTES_CSV" | tr -d ' ') -gt 1 ]]; then
+  HAS_WAREHOUSE=true
+fi
+
 if $HAS_CSV; then
   step "09 · Analytics pipeline (inbox CSV)" bash scripts/analytics-pipeline.sh || FAIL=$((FAIL + 1))
+elif $HAS_WAREHOUSE; then
+  step "09 · Analytics pipeline (warehouse notes.csv)" bash scripts/analytics-pipeline.sh || FAIL=$((FAIL + 1))
 else
   echo "-------- 09 · Analytics (no inbox CSV) --------"
   echo ">>> SKIP live pipeline — Owner: drop CSV in content/analytics/inbox/"

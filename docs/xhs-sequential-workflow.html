@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小红书怎么出稿 · 顺序图（人话版）</title>
+  <!-- layout-version: 2026-10-23-owner-readable -->
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --border: #3d4f66;
+      --text: #eef2f7;
+      --muted: #9eb0c4;
+      --accent: #4da3ff;
+      --you: #e3b341;
+      --agent: #3fb950;
+      --check: #f778ba;
+      --opt: #8b949e;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--text);
+      font-family: "PingFang SC", "Helvetica Neue", system-ui, sans-serif;
+      font-size: 16px; line-height: 1.5; }
+    .page { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
+    header { text-align: center; margin-bottom: 28px; }
+    header h1 { font-size: 1.35rem; font-weight: 700; margin: 0 0 10px; }
+    header .oneliner {
+      font-size: 1.05rem; color: var(--you); font-weight: 600;
+      padding: 12px 16px; background: rgba(227,179,65,.12); border-radius: 12px;
+      border: 1px solid rgba(227,179,65,.35);
+    }
+    header p.sub { margin: 12px 0 0; font-size: 0.9rem; color: var(--muted); }
+    .toggle-row { display: flex; justify-content: center; gap: 8px; margin: 16px 0 24px; }
+    .toggle-row button {
+      font: inherit; font-size: 0.85rem; padding: 8px 14px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer;
+    }
+    .toggle-row button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .arrow-down {
+      text-align: center; color: var(--accent); font-size: 1.5rem; line-height: 1;
+      margin: 4px 0; user-select: none;
+    }
+    .step {
+      background: var(--card); border: 2px solid var(--border); border-radius: 16px;
+      padding: 16px 18px; cursor: pointer; transition: border-color .15s, box-shadow .15s;
+    }
+    .step:hover { border-color: var(--accent); }
+    .step.open { border-color: var(--you); box-shadow: 0 0 0 1px rgba(227,179,65,.25); }
+    .step-head { display: flex; gap: 14px; align-items: flex-start; }
+    .num {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px;
+      background: var(--accent); color: #fff; font-weight: 800; font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step.you .num { background: var(--you); color: #1a1200; }
+    .step.check .num { background: var(--check); }
+    .step.opt { border-style: dashed; opacity: .92; }
+    .step.opt .num { background: var(--opt); }
+    .step-title { font-size: 1.12rem; font-weight: 700; margin: 0 0 6px; }
+    .step-line { margin: 0; font-size: 0.95rem; color: var(--muted); }
+    .step-line strong { color: var(--text); font-weight: 600; }
+    .step-line.you-do strong { color: var(--you); }
+    .tech { display: none; margin-top: 10px; font-size: 0.78rem; color: #6e8499;
+      font-family: ui-monospace, monospace; }
+    body.show-tech .tech { display: block; }
+    .detail {
+      display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border);
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .step.open .detail { display: block; }
+    .detail ul { margin: 8px 0 0; padding-left: 1.2rem; }
+    .detail li { margin: 4px 0; }
+    .branch {
+      margin: 8px 0 8px 24px; padding: 12px 14px; border-left: 4px solid #8957e5;
+      background: rgba(137,87,229,.08); border-radius: 0 12px 12px 0;
+    }
+    .branch .step-title { font-size: 1rem; }
+    aside.box {
+      margin-top: 32px; padding: 18px; border-radius: 16px;
+      border: 1px solid var(--border); background: rgba(26,35,50,.6);
+    }
+    aside.box h2 { font-size: 1rem; margin: 0 0 10px; color: var(--agent); }
+    aside.box p { margin: 0 0 8px; font-size: 0.9rem; color: var(--muted); }
+    aside.box.wrong { border-color: #da3633; }
+    aside.box.wrong h2 { color: #ff7b72; }
+    table.simple { width: 100%; font-size: 0.85rem; border-collapse: collapse; margin-top: 10px; }
+    table.simple th, table.simple td { border: 1px solid var(--border); padding: 8px; text-align: left; }
+    table.simple th { color: var(--muted); font-weight: 600; }
+    footer.hint { text-align: center; margin-top: 24px; font-size: 0.8rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>写一篇小红书 · 谁先谁后？</h1>
+      <p class="oneliner">你说要写什么 → Agent 读资料、写稿、自检 → 你看稿、录片、在 App 里发</p>
+      <p class="sub">不用记「0a / 04 / Vendor」——下面按<strong>时间顺序</strong>从上往下读即可。点任意一步可看补充说明。</p>
+    </header>
+
+    <div class="toggle-row">
+      <button type="button" id="btn-simple" class="on">简洁（推荐）</button>
+      <button type="button" id="btn-tech">显示工程师代号</button>
+    </div>
+
+    <!-- 背景：数据 -->
+    <div class="step" data-step="bg" style="border-color:#3ddbd9">
+      <div class="step-head">
+        <div class="num" style="background:#1a6b6b;font-size:.85rem">数据</div>
+        <div>
+          <p class="step-title">背景：你的笔记数据放在仓库里</p>
+          <p class="step-line"><strong>Agent 维护</strong> Excel 导入后的阅读/互动数、选题建议（不是写稿那一步）。</p>
+          <p class="step-line you-do"><strong>你要做的：</strong>偶尔导出新表格给 Agent；平时可不管。</p>
+          <p class="tech">代号：09 data-analytics · DATA-MANIFEST · ceo-dispatch</p>
+        </div>
+      </div>
+      <div class="detail">
+        <ul>
+          <li>写稿前 Agent 会读这些数据，避免瞎编阅读量，并对照哪类标题有效。</li>
+          <li>这和「Google Doc / 外部长文工具」不是一回事。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓ 然后开始一篇新稿</div>
+
+    <div class="step you" data-step="1">
+      <div class="step-head">
+        <div class="num">1</div>
+        <div>
+          <p class="step-title">你：说出目标</p>
+          <p class="step-line you-do"><strong>你要做的：</strong>在 Cursor 里说清楚，例如「写 pivot B 口播」「改标题」「做视频备选」。</p>
+          <p class="step-line"><strong>Agent：</strong>自动当「总调度」，列简短计划，决定要不要走视频分支。</p>
+          <p class="tech">代号：Owner → 00 Manager</p>
+        </div>
+      </div>
+      <div class="detail"><ul><li>不需要粘贴启动口令。</li><li>Agent 不会替你在小红书 App 里点发布。</li></ul></div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <div class="step" data-step="2">
+      <div class="step-head">
+        <div class="num">2</div>
+        <div>
+          <p class="step-title">Agent：写之前先「补课」（不产出正文）</p>
+          <p class="step-line"><strong>Agent 在读：</strong>你的历史笔记表现、IP 红线、平台研究摘要、你的声音样本（像不像你说话）。</p>
+          <p class="step-line you-do"><strong>你要做的：</strong>一般不用动；除非 Agent 问你确认事实。</p>
+          <p class="tech">代号：0a Intake 栈（≠ Vendor 工具箱）</p>
+        </div>
+      </div>
+      <div class="detail"><ul><li>这一步容易误会成「又一个写手」——其实是开写前的阅读清单。</li></ul></div>
+    </div>
+
+    <div class="branch">
+      <div class="step opt" data-step="2b">
+        <div class="step-head">
+          <div class="num">2+</div>
+          <div>
+            <p class="step-title">只有「要录视频」才走：多版口播让你选</p>
+            <p class="step-line"><strong>Agent：</strong>先给几版 Round1 钩子/口播。</p>
+            <p class="step-line you-do"><strong>你要做的：</strong>点选更像你的那一版，再继续定稿。</p>
+            <p class="tech">代号：步 2a · XHS-VIDEO-ITERATION</p>
+          </div>
+        </div>
+        <div class="detail"><ul><li>纯图文、只改标题时可跳过。</li></ul></div>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <div class="step" data-step="3" style="border-color: var(--agent); border-width: 3px;">
+      <div class="step-head">
+        <div class="num" style="background: var(--agent);">3</div>
+        <div>
+          <p class="step-title">Agent：写小红书文案（真正动笔）</p>
+          <p class="step-line"><strong>产出：</strong>标题、口播/正文、标签建议，落在仓库 <code style="font-size:.85em">content/xiaohongshu/</code> 里给你看。</p>
+          <p class="step-line you-do"><strong>你要做的：</strong>等稿出来；有意见直接说改哪句。</p>
+          <p class="tech">代号：04 xhs-topic-manager · packages / Brief</p>
+        </div>
+      </div>
+      <div class="detail">
+        <ul>
+          <li><strong>不是</strong> Google Doc 里写，也<strong>不是</strong>下面「外部长文 writing 工具」——那是写 memo/深度稿用的。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <div class="step check" data-step="4">
+      <div class="step-head">
+        <div class="num">4</div>
+        <div>
+          <p class="step-title">Agent：质检（去 AI 腔、对齐 IP）</p>
+          <p class="step-line"><strong>Agent：</strong>用脚本检查这篇是否「对齐」；不过就改稿再查。</p>
+          <p class="step-line you-do"><strong>你要做的：</strong>仍不用操作；未通过时 Agent 会继续改。</p>
+          <p class="tech">代号：evaluate-xhs-topic · 05 kernel 规则</p>
+        </div>
+      </div>
+      <div class="detail"><ul><li>通过前不能叫「定稿」，也不会默认同步 Drive。</li></ul></div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <div class="step" data-step="5">
+      <div class="step-head">
+        <div class="num">5</div>
+        <div>
+          <p class="step-title">Agent：存档进 Git（定稿备份）</p>
+          <p class="step-line"><strong>Agent：</strong>你认可后，把版本存进仓库，方便换机、交接。</p>
+          <p class="tech">代号：00 Manager · git commit</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <div class="step you" data-step="6">
+      <div class="step-head">
+        <div class="num">6</div>
+        <div>
+          <p class="step-title">你：审阅、录片、在小红书 App 发布</p>
+          <p class="step-line you-do"><strong>你要做的：</strong>按稿口播/拍摄；App 里填标题和 tag；发帖后可选回填数据。</p>
+          <p class="step-line"><strong>Agent 不做：</strong>代点击发布、代发私信。</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="arrow-down" style="margin-top:20px;color:var(--muted);font-size:.9rem">—— 以下为「说了才做」，不在上面 1→6 必走 ——</p>
+
+    <div class="step opt" data-step="o1">
+      <div class="step-head">
+        <div class="num">?</div>
+        <div>
+          <p class="step-title">可选：做封面</p>
+          <p class="step-line you-do"><strong>触发：</strong>你说「要封面」→ Canva / 视觉规范。</p>
+          <p class="tech">07 brand-visual</p>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down" style="font-size:1rem;color:var(--muted)">或</div>
+    <div class="step opt" data-step="o2">
+      <div class="step-head">
+        <div class="num">?</div>
+        <div>
+          <p class="step-title">可选：同步到 Google Drive</p>
+          <p class="step-line you-do"><strong>触发：</strong>你说「同步 Drive」——不是写稿入口。</p>
+          <p class="tech">08 gdocs · Vendor</p>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down" style="font-size:1rem;color:var(--muted)">或</div>
+    <div class="step opt" data-step="o3">
+      <div class="step-head">
+        <div class="num">?</div>
+        <div>
+          <p class="step-title">可选：发帖后更新数据、下一篇选题</p>
+          <p class="step-line"><strong>Agent：</strong>跑数据管线 → 下一篇建议。</p>
+          <p class="tech">09 pipeline · next-topics</p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="box wrong">
+      <h2>容易混：两个都叫「writing」</h2>
+      <p><strong>写小红书</strong> = 上面第 3 步（04）。<strong>外部长文工具 writing</strong> = 写 memo/深度稿，<strong>不参与</strong>小红书 Brief。</p>
+      <table class="simple">
+        <tr><th>你开口说什么</th><th>走哪条</th></tr>
+        <tr><td>写笔记 / 口播 / Brief / 改标题</td><td>第 2→3→4 步</td></tr>
+        <tr><td>写外部长文 / 内部 memo</td><td>Vendor writing（与小红书主链分开）</td></tr>
+      </table>
+    </aside>
+
+    <aside class="box">
+      <h2>和「生态圆图」怎么对应？</h2>
+      <p>圆图是<strong>全仓库角色一览</strong>（谁存在）；本页是<strong>你写一篇笔记时的时间顺序</strong>。日常只需记住本页 1→6。</p>
+      <p><a href="agent-ecosystem-map.html" style="color:var(--accent)">仍要看角色关系 → 打开生态图 v4</a></p>
+    </aside>
+
+    <footer class="hint">v2 人话版 · 点步骤展开详情 · 工程师代号可开关</footer>
+  </div>
+
+  <script>
+    document.querySelectorAll(".step").forEach((el) => {
+      el.addEventListener("click", () => {
+        const was = el.classList.contains("open");
+        document.querySelectorAll(".step.open").forEach((s) => s.classList.remove("open"));
+        if (!was) el.classList.add("open");
+      });
+    });
+    const body = document.body;
+    const btnSimple = document.getElementById("btn-simple");
+    const btnTech = document.getElementById("btn-tech");
+    btnTech.addEventListener("click", () => {
+      body.classList.add("show-tech");
+      btnTech.classList.add("on");
+      btnSimple.classList.remove("on");
+    });
+    btnSimple.addEventListener("click", () => {
+      body.classList.remove("show-tech");
+      btnSimple.classList.add("on");
+      btnTech.classList.remove("on");
+    });
+  </script>
+</body>
+</html>

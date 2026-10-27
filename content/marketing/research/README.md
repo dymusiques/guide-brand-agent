@@ -5,3 +5,18 @@ Survey workflow 定稿位置（非小红书 Brief）。流程见 [workflow_deep_
 - 中间工件：`tmp/survey/<session_slug>/`（gitignored）
 - 命名：`<topic>_survey_YYYYMMDD.md`
 - 服务 Brief 时：04 读报告后再写 `content/xiaohongshu/*-brief.md` 并 evaluate
+
+## 小红书 · 平台研究（2026-10-20 · Owner PDF 已落盘）
+
+**总入口：** [xhs-platform-research-index.md](./xhs-platform-research-index.md)
+
+| 文件 | 用途 |
+|------|------|
+| [xhs-platform-2026-will-momentum.md](./xhs-platform-2026-will-momentum.md) | WILL 2026 摘要 |
+| [xhs-momentum-2026-agent-brief.md](./xhs-momentum-2026-agent-brief.md) | Momentum 2026 摘录 |
+| [xhs-search-trends-2024-agent-brief.md](./xhs-search-trends-2024-agent-brief.md) | 10 大搜索趋势 |
+| [xhs-foundation-slides-01-02.md](./xhs-foundation-slides-01-02.md) | 01/02 课件 Agent 版 |
+| [xhs-content-structure-2025-notes.md](./xhs-content-structure-2025-notes.md) | 爆款结构 + 数据对齐 |
+| [xhs-drive-catalog-2026-10-20.md](./xhs-drive-catalog-2026-10-20.md) | Drive 全库索引 |
+| [raw/README.md](./raw/README.md) | 本地 PDF 清单 |
+| [../xiaohongshu/platform-notes-2026.md](../xiaohongshu/platform-notes-2026.md) | 04 一页约束 |

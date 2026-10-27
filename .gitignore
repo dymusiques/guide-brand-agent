@@ -30,6 +30,10 @@ tmp/ai-agent-cli/
 # Deep research survey scratch (workflow_deep_research_survey)
 tmp/survey/
 
+# Large Drive PDFs (extracted MD is committed)
+content/marketing/research/raw/*.pdf
+content/marketing/research/raw/*.txt
+
 # Gemini API — never commit
 .env
 .local-config.json
@@ -38,7 +42,10 @@ tmp/survey/
 content/analytics/xiaohongshu/notes.csv
 content/analytics/instagram/posts.csv
 content/analytics/youtube/videos.csv
+content/analytics/raw/
+content/analytics/xiaohongshu/detail-json/
 content/analytics/inbox/done/
+content/analytics/inbox/*.csv
 content/analytics/derived/summary-*.json
 content/analytics/derived/next-topics-*.md
 content/analytics/derived/manager-dashboard-*.md

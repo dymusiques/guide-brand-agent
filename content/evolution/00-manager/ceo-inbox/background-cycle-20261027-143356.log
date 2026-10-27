@@ -1,0 +1,94 @@
+=== background-goal-evolution-cycle · 20261027-143356 ===
+PASS: verify-collector-evaluator
+PASS: verify-collector-evaluator
+RESULT: PASS xhs-content-intake stack
+PASS: verify-xhs-content-intake
+=== Goal verify hooks (M4) ===
+
+  PASS · G-STRONG-LINK (markers ok; markers ok)
+  PASS · G-QUALITY-GROWTH (markers ok)
+  PASS · G-NOT-SINGLE-VERTICAL-LOCK (markers ok)
+  PASS · G-CROSS-INDUSTRY (markers ok)
+  PASS · G-BRIEF-ALIGNED-GATE (4 briefs aligned)
+  PASS · G-ANALYTICS-EVIDENCE (script PASS)
+  FAIL · G-PLATFORM-SYNC — nse_type=code&client_id=370087365576-8he7pgeg4508d6mg04k55s57sd4rgd4v.apps.googleusercontent.com&red
+  OK   4_gdocs_error_json
+  OK   5_git_read_path — 2026-10-18-danying-capstone-pitch-draft.md
+  FAIL 6_drive_read_path — Drive REST read failed (check token/scopes)
+
+=== Summary ===
+cases: 4 passed, 0 warned, 0 skipped, 2 failed (of 6)
+RESULT: FAIL — fix integration / OAuth / network (see SETUP.md)
+  PASS · G-BRAND-VISUAL (ok; ok)
+  PASS · G-MARKETING-CAMPAIGN (ok; script PASS; script PASS)
+  PASS · G-BUSINESS-BRAND (ok; script PASS; script PASS)
+
+=== Summary ===
+cases: 9 passed, 1 failed
+RESULT: FAIL — goals verify
+FAIL: verify-goals M4
+=== Analytics pipeline ===
+
+inbox empty — export CSV from 小红书/Instagram/YouTube 后台 into:
+  /Users/danying/Desktop/danying-brand-agent/content/analytics/inbox
+Naming hint: xiaohongshu-*.csv | instagram-*.csv | youtube-*.csv
+
+content/analytics/derived/ceo-dispatch-latest.md
+{"summary_json": "content/analytics/derived/summary-2026-10-27.json", "next_topics_md": "content/analytics/derived/next-topics-2026-10-27.md"}
+
+RESULT: PASS — next-topics written under content/analytics/derived/
+Manager: 派 09 读 derived/next-topics-*.md → 04 写 Brief → evaluate --brief
+PASS: analytics-pipeline
+content/analytics/derived/ceo-dispatch-latest.md
+PASS: ceo-dispatch-refresh
+# 00 Manager · CEO 仪表盘
+
+生成时间: 2026-10-27 14:34
+
+## 认知期深度 Brief（discovery 队列）
+
+| # | 文件 | evaluate | 发布 | 发布日期 |
+|---|------|----------|------|----------|
+| 1 | `2026-10-17-discovery-01-irreplaceability-brief.md` | ✅ aligned | 待发 | — |
+| 2 | `2026-10-17-discovery-02-narrative-not-ads-brief.md` | ✅ aligned | 待发 | — |
+| 3 | `2026-10-17-discovery-03-professional-trust-brief.md` | ✅ aligned | 待发 | — |
+| 4 | `2026-10-17-discovery-04-open-close-brief.md` | ✅ aligned | 待发 | — |
+
+## 15 天快检
+
+尚未记录首发「发布日期」→ 发 Brief #1 后在 md 里填 ## 发布状态（见模板）
+
+## 数据 · 09
+
+- inbox CSV 文件数: **0** → 建议导出进 `content/analytics/inbox/`
+- 最新 next-topics: `next-topics-2026-10-27.md`
+- 最新 summary: `summary-2026-10-27.json`
+
+## 战略文档
+
+- 触达计划: `content/marketing/2026-10-brand-discovery-phase.md`
+- SWOT: `content/business-brand/2026-10-17-brand-positioning-swot.md`
+- 队列: `content/marketing/discovery-phase-note-queue.md`
+
+## Goal Registry（摘要）
+
+G-STRONG-LINK, G-QUALITY-GROWTH, G-NOT-SINGLE-VERTICAL-LOCK, G-CROSS-INDUSTRY, G-BRIEF-ALIGNED-GATE, G-ANALYTICS-EVIDENCE, G-PLATFORM-SYNC, G-BRAND-VISUAL, G-MARKETING-CAMPAIGN, G-BUSINESS-BRAND
+
+## 集成构建
+
+- 上次 verify-all: **release** · 2026-10-17 12:51 · PASS
+
+## 建议下一步（00 派活）
+
+- Owner 发布 `2026-10-17-discovery-01-irreplaceability-brief.md`（见 PUBLISH-AND-DATA-CHECKLIST.md）
+- 导出小红书 CSV → inbox → `bash scripts/analytics-pipeline.sh`
+
+---
+刷新: `bash scripts/manager-dashboard.sh`
+
+（已写入 content/analytics/derived/manager-dashboard-2026-10-27.md）
+PASS: manager-dashboard
+Wrote /Users/danying/Desktop/danying-brand-agent/content/analytics/derived/evolution-rollups-latest.md
+PASS: evolution-rollups-all
+PASS: seo-lint
+RESULT: FAIL (1)

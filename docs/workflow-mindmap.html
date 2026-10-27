@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小红书出稿 · 思维导图</title>
+  <!-- layout-version: 2026-10-23-scroll-column -->
+  <style>
+    * { box-sizing: border-box; }
+    html { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+    body {
+      margin: 0; background: #0d1117;
+      font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      color: #e6edf3; overflow-x: hidden;
+    }
+    .top-bar {
+      position: sticky; top: 0; z-index: 5;
+      background: #1f6feb; color: #fff; text-align: center;
+      padding: 8px 12px; font-size: 13px; font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,.35);
+    }
+    .top-bar small { display: block; font-weight: 400; opacity: .9; margin-top: 2px; font-size: 11px; }
+    .page { max-width: 520px; margin: 0 auto; padding: 20px 16px 120px; }
+    h1 { text-align: center; font-size: 1.2rem; margin: 0 0 6px; }
+    .sub { text-align: center; color: #8b949e; font-size: 13px; margin: 0 0 20px; }
+    .flow { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; }
+    .arrow {
+      color: #58a6ff; font-size: 28px; line-height: 1; padding: 6px 0;
+      user-select: none; font-weight: 700;
+    }
+    .arrow.opt { color: #8b949e; font-size: 22px; }
+    .arrow .lbl { display: block; font-size: 11px; color: #8b949e; font-weight: 500; margin-bottom: 2px; }
+    .card {
+      width: 100%; max-width: 400px; border-radius: 16px; padding: 14px 16px 14px 56px;
+      position: relative; cursor: pointer; border: 2px solid #30363d;
+      transition: border-color .15s, transform .1s;
+    }
+    .card:hover { border-color: #58a6ff; }
+    .card.selected { border-color: #ffe066; box-shadow: 0 0 0 1px rgba(255,224,102,.3); }
+    .card .num {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; color: #fff;
+    }
+    .card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+    .card p { margin: 0; font-size: 0.88rem; color: rgba(255,255,255,.82); line-height: 1.4; }
+    .card.you { background: #3d2e00; }
+    .card.you .num { background: #9e6a03; }
+    .card.agent { background: #1a3d2a; }
+    .card.agent .num { background: #238636; }
+    .card.agent.key { border-color: #3fb950; border-width: 3px; background: #1a4028; }
+    .card.check { background: #3d1a1a; }
+    .card.check .num { background: #da3633; }
+    .card.save { background: #1a2a4a; }
+    .card.save .num { background: #1f6feb; }
+    .card.data { background: #1a3333; max-width: 340px; }
+    .card.data .num { background: #1a6b6b; font-size: .75rem; }
+    .card.branch { background: #2a1f4a; border-style: dashed; max-width: 340px; margin-left: 24px; align-self: flex-end; }
+    .card.branch .num { background: #8957e5; font-size: .8rem; }
+    .card.opt { background: #21262d; max-width: 360px; opacity: .95; }
+    .card.opt .num { background: #484f58; font-size: .85rem; }
+    .card.vendor { background: #21262d; border-color: #f85149; border-style: dashed; max-width: 340px; }
+    .card.vendor .num { background: #484f58; color: #ff7b72; font-size: .7rem; }
+    .section-title {
+      width: 100%; text-align: center; color: #8b949e; font-size: 12px;
+      margin: 16px 0 8px; letter-spacing: .05em;
+    }
+    .opt-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; margin-top: 8px; }
+    .opt-row .card { max-width: 150px; padding: 12px; text-align: center; padding-left: 12px; }
+    .opt-row .card .num { position: static; transform: none; margin: 0 auto 6px; }
+    .opt-row .card h3 { font-size: .9rem; }
+    .opt-row .card p { font-size: .75rem; }
+    #detail {
+      margin-top: 24px; padding: 16px 18px; border-radius: 12px;
+      background: #21262d; border: 1px solid #30363d;
+      font-size: 15px; line-height: 1.55;
+    }
+    #detail h2 { margin: 0 0 8px; font-size: 1.05rem; color: #79c0ff; }
+    #detail p { margin: 0 0 8px; color: #c9d1d9; }
+    #detail .you { color: #f0c14a; font-weight: 600; }
+    .tech-toggle {
+      display: block; width: 100%; max-width: 400px; margin: 16px auto 0;
+      padding: 10px 16px; border: 1px solid #30363d; background: #21262d; color: #8b949e;
+      border-radius: 8px; cursor: pointer; font: inherit; font-size: 13px;
+    }
+    .tech-only { display: none; margin-top: 8px; font-size: 12px; color: #6e7681; }
+    body.show-tech .tech-only { display: block; }
+    #editor-banner {
+      display: none; background: #9e6a03; color: #fff; padding: 10px; text-align: center; font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <p id="editor-banner">你在看源码。终端运行：bash scripts/open-workflow-mindmap.sh</p>
+  <div class="top-bar">
+    可上下滚动查看全部步骤
+    <small>点每一步方块 · 下方有说明</small>
+  </div>
+  <div class="page">
+    <h1>写一篇小红书 · 顺序思维导图</h1>
+    <p class="sub">从上往下读 · 蓝色 ↓ = 必做 · 虚线框 = 可选</p>
+
+    <div class="flow" id="flow">
+      <div class="card data" data-id="data" role="button" tabindex="0">
+        <span class="num">数据</span>
+        <h3>背景：账号笔记数据</h3>
+        <p>Agent 维护；写稿前会读，不编造阅读量</p>
+      </div>
+
+      <div class="arrow"><span class="lbl">开始一篇新稿</span>↓</div>
+
+      <div class="card you" data-id="s1" role="button" tabindex="0">
+        <span class="num">1</span>
+        <h3>你说：要写什么</h3>
+        <p>在 Cursor 里讲清目标（哪篇、改标题、视频备选…）</p>
+      </div>
+      <div class="arrow">↓</div>
+
+      <div class="card agent" data-id="s2" role="button" tabindex="0">
+        <span class="num">2</span>
+        <h3>Agent 先读资料</h3>
+        <p>读数据、IP 红线、声音样本 — 这一步还不写正文</p>
+      </div>
+
+      <div class="arrow opt"><span class="lbl">仅录视频时</span>↓</div>
+      <div class="card branch" data-id="s2v" role="button" tabindex="0">
+        <span class="num">2+</span>
+        <h3>多版口播，你点选一版</h3>
+        <p>纯改标题可跳过此步</p>
+      </div>
+      <div class="arrow opt">↩ 回到主链 ↓</div>
+
+      <div class="card agent key" data-id="s3" role="button" tabindex="0">
+        <span class="num">3</span>
+        <h3>Agent 写小红书文案 ★</h3>
+        <p>标题 · 口播 · 正文 · 标签 — 唯一主写作步骤</p>
+      </div>
+      <div class="arrow">↓</div>
+
+      <div class="card check" data-id="s4" role="button" tabindex="0">
+        <span class="num">4</span>
+        <h3>Agent 质检、改到过关</h3>
+        <p>像不像你 · 去 AI 腔</p>
+      </div>
+      <div class="arrow">↓</div>
+
+      <div class="card save" data-id="s5" role="button" tabindex="0">
+        <span class="num">5</span>
+        <h3>定稿存档</h3>
+        <p>你认可后写入仓库备份</p>
+      </div>
+      <div class="arrow">↓</div>
+
+      <div class="card you" data-id="s6" role="button" tabindex="0">
+        <span class="num">6</span>
+        <h3>你：录片 · 在 App 发布</h3>
+        <p>Agent 不代点发布</p>
+      </div>
+
+      <p class="section-title">— 以下说了才做 —</p>
+      <div class="opt-row">
+        <div class="card opt" data-id="o1" role="button" tabindex="0">
+          <span class="num">?</span>
+          <h3>封面</h3>
+          <p>Canva</p>
+        </div>
+        <div class="card opt" data-id="o2" role="button" tabindex="0">
+          <span class="num">?</span>
+          <h3>Drive</h3>
+          <p>同步</p>
+        </div>
+        <div class="card opt" data-id="o3" role="button" tabindex="0">
+          <span class="num">?</span>
+          <h3>下一篇</h3>
+          <p>发帖后</p>
+        </div>
+      </div>
+
+      <p class="section-title">— 不在主链上 —</p>
+      <div class="card vendor" data-id="vendor" role="button" tabindex="0">
+        <span class="num">外</span>
+        <h3>外部长文 writing 工具</h3>
+        <p>写 memo / 深度稿；不参与小红书 Brief</p>
+      </div>
+    </div>
+
+    <div id="detail"></div>
+    <button type="button" class="tech-toggle" id="tech-btn">显示工程师代号（可选）</button>
+  </div>
+
+  <script>
+(function () {
+  var DETAIL = {
+    data: { title: "账号数据（背景）", body: "Agent 整理你导出的 Excel 笔记表现与选题建议。写稿前读取，避免编造数据。", you: "偶尔导出新表格；平时可不管。", tech: "09 · 0a Intake 读栈" },
+    s1: { title: "第 1 步 · 你说目标", body: "总调度听懂任务并排简短计划。", you: "在对话里说清楚即可。", tech: "00 Manager" },
+    s2: { title: "第 2 步 · 先读再写", body: "读历史表现、IP 红线、平台研究、你的说话风格。不出正文。", you: "一般不用操作。", tech: "0a Intake" },
+    s2v: { title: "第 2+ 步 · 视频（可选）", body: "多版口播/钩子，你选最像自己的。", you: "点选一版；不录视频可跳过。", tech: "步 2a" },
+    s3: { title: "第 3 步 · 写小红书文案 ★", body: "标题、口播、正文、标签，成稿给你审。", you: "看稿、提修改。", tech: "04 Topic Manager" },
+    s4: { title: "第 4 步 · 质检", body: "自动检查 IP 对齐与 AI 腔；不过就改稿。", you: "不用操作。", tech: "evaluate" },
+    s5: { title: "第 5 步 · 定稿", body: "认可后版本存进 Git。", you: "确认定稿或最后改一版。", tech: "00 · commit" },
+    s6: { title: "第 6 步 · 你发布", body: "按稿录制，App 里发帖。", you: "发帖；可选回填数据。", tech: "Owner" },
+    o1: { title: "可选 · 封面", body: "Canva / 视觉规范。", you: "说「要封面」。", tech: "07" },
+    o2: { title: "可选 · Drive", body: "定稿后同步，不是写稿入口。", you: "说「同步 Drive」。", tech: "08 gdocs" },
+    o3: { title: "可选 · 下一篇", body: "更新数据后给选题建议。", you: "导数据或让 Agent 跑管线。", tech: "09 pipeline" },
+    vendor: { title: "外部长文 writing", body: "与第 3 步不是同一条路；不写小红书 Brief。", you: "只有外部长文才用。", tech: "Vendor writing-skill" }
+  };
+  var detailEl = document.getElementById("detail");
+  var techBtn = document.getElementById("tech-btn");
+  function show(id) {
+    var d = DETAIL[id];
+    if (!d) return;
+    document.querySelectorAll(".card.selected").forEach(function (c) { c.classList.remove("selected"); });
+    var card = document.querySelector('.card[data-id="' + id + '"]');
+    if (card) { card.classList.add("selected"); card.scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+    detailEl.innerHTML = "<h2>" + d.title + "</h2><p>" + d.body + "</p><p><span class=\"you\">你要做的：</span> " + d.you + "</p><p class=\"tech-only\">工程师代号：" + d.tech + "</p>";
+  }
+  document.querySelectorAll(".card[data-id]").forEach(function (card) {
+    card.addEventListener("click", function () { show(card.getAttribute("data-id")); });
+    card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(card.getAttribute("data-id")); } });
+  });
+  techBtn.addEventListener("click", function () {
+    document.body.classList.toggle("show-tech");
+    techBtn.textContent = document.body.classList.contains("show-tech") ? "隐藏工程师代号" : "显示工程师代号（可选）";
+  });
+  show("s3");
+  if (document.contentType && document.contentType.indexOf("html") === -1) {
+    document.getElementById("editor-banner").style.display = "block";
+  }
+})();
+  </script>
+</body>
+</html>

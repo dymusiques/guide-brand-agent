@@ -25,8 +25,9 @@
 | `pillar` | 艺术专业 / 跨界品牌 / AI×数字藏品 |
 | `impressions`, `views`, `likes`, `collects`, `comments`, `shares` | 后台指标 |
 | `follows_from_note` | 涨粉（若有） |
-| `dm_count`, `dm_keywords` | **强链接核心** |
-| `aligned_at_publish`, `brief_path` | 可选 |
+| `dm_count`, `dm_keywords` | **强链接核心** · 认知期 `dm_count` = **品牌向**私信（聊聊/合作/品牌），**不含**约课；约课写在 `dm_keywords`（如 `约课×3`）· 见 [signal-baseline](../../content/marketing/discovery-phase-signal-baseline.md) |
+| `aligned_at_publish`, `brief_path` | 可选 · 无 Brief 的已发笔记 → `content/xiaohongshu/published-notes-index.md` |
+| `cover_ctr_pct`, `avg_watch_sec`, `completion_rate_pct`, `exit_2s_rate_pct`, `detail_source` | 单篇「数据明细表」合并（有则填） |
 
 ## Instagram · 每帖一行
 

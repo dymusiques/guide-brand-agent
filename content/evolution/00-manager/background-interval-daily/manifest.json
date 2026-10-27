@@ -1,0 +1,14 @@
+{
+  "agent": "00-manager",
+  "slug": "background-interval-daily",
+  "intakes": [
+    {
+      "id": "20261027T063657Z-text",
+      "path": "content/evolution/00-manager/background-interval-daily/intake/20261027T063657Z-text.md",
+      "at": "20261027T063657Z",
+      "note": "2026-10-27",
+      "source": "--text"
+    }
+  ],
+  "versions": []
+}

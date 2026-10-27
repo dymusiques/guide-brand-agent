@@ -7,6 +7,16 @@
 
 `Analyze Failures` → `Manual Analysis` → `Propose Prompt Change`（只改集成/Brief/Skill，**不改** kernel 除非 05 专项）→ `Observe Score` → `Re-run Evaluation`
 
+## CEO 自动纠错 · Owner 门控（Must · 2026-10-27）
+
+**默认不让 Owner 逐条 verify。** 见 [docs/CEO-AUTO-QA-LOOP.md](../../docs/CEO-AUTO-QA-LOOP.md)。
+
+1. **GM** 产出后自跑本部门 evaluate/verify，再交 **GM-REPORT**。  
+2. **CEO** 跑 `bash scripts/manager-ceo-owner-gate.sh --brief …`（视频加 `--voice`；进化加 `--evolution`）。  
+3. **FAIL** → 写 **CEO-REROUTE** → 同会话扮演 GM 出 v(N+1) → 再 gate（默认最多 **3** 轮），**勿**把 FAIL 稿交给 Owner 验。  
+4. **PASS** → 用 **OWNER-HANDOFF** 模板交 Owner（仅 gold/发布/裁决类确认）。  
+5. 派活记录须含 **Owner Gate：PASS/FAIL · 打回轮次 n/3 · 交 Owner：是/否**。
+
 ## 标准指挥链（单会话内顺序执行）
 
 每一步：**读** `agents/<nn>-*/INTEGRATION-PROMPT.md` → **产出** → **终端验收** → 再下一步。
@@ -14,11 +24,16 @@
 | 步 | Agent | 做什么 | 验收 |
 |----|-------|--------|------|
 | 0 | **00 Manager** | 解析 Owner 目标，写 3 行计划（受众、支柱、CTA 类型） | 计划与 `content/personal-ip/` 不冲突 |
+| **0a** | **09 + 04 数据栈** | 凡产出 **文案/标题/视频/选题** → 先读 [XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)（Excel + PDF 研究叠加） | `bash scripts/verify-xhs-content-intake.sh` PASS |
+| **0c** | **Collector（全 Agent）** | Owner 新资料 → `collector-intake.py` 落盘；写 **v0** 前读该 slug 全部 `intake/` + [COLLECTOR-EVALUATOR.md](../_shared/COLLECTOR-EVALUATOR.md) | `bash scripts/verify-collector-evaluator.sh`（交班可选） |
+| **2a** | **04 视频迭代** | Owner 要 **视频备选/像本人** → [XHS-VIDEO-ITERATION.md](../../content/xiaohongshu/XHS-VIDEO-ITERATION.md) · Round1→点选→Round2；**默认轨1** | `bash scripts/verify-xhs-voice-qa.sh <round1.md>` PASS |
 | **0b** | **01 personal-ip**（Pitch 层） | 凡 **对外 Pitch / 简介 / 合作开场 / 新栏目定位** → 先读 [KPI·CAPSTONE playbook](../../content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md) §3.2–3.3，再改 Brief 或触达稿 | 与 [ip-positioning-brief](../../content/personal-ip/ip-positioning-brief-2026-10-05.md) 一致；**先观点后产品** |
 | 1 | **01 personal-ip** | 战略/行业边界：「品牌合作范围」· Five Ps 与 7-11-4 节奏（playbook §1、§4） | 全品类可合作、不单品类绑定 |
 | 1b | **03 / 02**（若 campaign / SWOT） | 触达计划 / 商业文档：Problem→Opportunity 对齐 CAPSTONE；Product 生态勿越级推销（playbook §6） | `evaluate-marketing-campaign` / `evaluate-business-brand` |
-| 2 | **04 xhs-topic-manager** | 写 Brief：钩子=**Problem**，正文=**Solution+Why**，CTA=**Next Step**，语气=**Essence**（playbook §3 + 模板） | 模板见 `kernels/templates/xhs-content-brief.template.md` |
+| **1c** | **红队（Owner 已固定）** | **每篇 Brief 动笔前**：04+CEO 内部 **2 条** 攻击（从 [X1–X12](../../content/personal-ip/2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md#2--高挑战错误库本轮新增--含外部调研) 或 [红队 §D](../../content/personal-ip/2026-10-27-ip-adversarial-red-team.md#d-分-agent-红队攻击每个-agent动起来干什么) 抽最相关）→ 驳/改方向 → 落盘 `content/xiaohongshu/redteam/<slug>-pre.md` | Owner **不参与**；见 [BRIEF-REDTEAM-PRE.md](../../content/xiaohongshu/BRIEF-REDTEAM-PRE.md) |
+| 2 | **04 xhs-topic-manager** | 视频 **先走步 2a**；**红队 1c 后** Brief/成稿走 Intake + [CONTENT-DELIVERY-FOR-OWNER.md](../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md) | 视频 Round1=L2；Brief=evaluate |
 | 3 | **04 + 核心** | `python scripts/evaluate-xhs-topic.py --brief <file>` | `aligned: true`，exit 0 |
+| **3b** | **Evolution Evaluator** | 有 `reference/gold.md` 时：`evaluate-edit-distance.py` 记 vN；`evolution-metrics-summary.py` 看均值 | metrics.jsonl 追加成功 |
 | 4 | **06 pipeline** | `bash scripts/verify-xhs-content-dir.sh` | 全 Brief PASS |
 | 5 | **00 Manager** | Owner 未反对则 **git commit** 定稿；**禁止**未 aligned commit | `git status` clean |
 | 6 | **07 brand-visual** | Owner 要封面时：Brief 封面块 → Canva / visual skill | 可选 |
@@ -42,13 +57,15 @@
 
 | 场景 | 命令 |
 |------|------|
-| **全自动 CEO 链（发帖/CSV 除外）** | `bash scripts/manager-autopilot.sh` · [docs/AUTOPILOT.md](../../docs/AUTOPILOT.md) |
+| **后台目标链（Owner setup 一次）** | [docs/BACKGROUND-GOAL-EVOLUTION.md](../../docs/BACKGROUND-GOAL-EVOLUTION.md) · `setup-background-goal-evolution.sh` |
+| **Autopilot 单次（Debug）** | `bash scripts/manager-autopilot.sh` · [docs/AUTOPILOT.md](../../docs/AUTOPILOT.md) |
 | **CEO 仪表盘（00 总览）** | `bash scripts/manager-dashboard.sh` |
 | **09→04 派活块** | `content/analytics/derived/ceo-dispatch-latest.md`（pipeline 后自动刷新） |
 | **Goal 按 G-* 验收 M4** | `bash scripts/verify-goals.sh` |
 | **全仓集成构建（交班 / 大改后）** | `bash scripts/verify-all.sh` |
 | 单 Agent 6 case | `bash scripts/verify-agent-matrix.sh --agent 04` |
 | Manager 步 3–4（Brief 定稿） | `bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md` |
+| **交 Owner 前（CEO Gate）** | `bash scripts/manager-ceo-owner-gate.sh --brief content/xiaohongshu/<file>.md` |
 
 Goal 注册表：`integration/GOALS-REGISTRY.md`
 

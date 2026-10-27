@@ -1,7 +1,8 @@
 # 新 Agent 接手 · 当前程序状态与指挥手册
 
-> **更新：** 2026-10-17（对齐 Owner 成功目标 · 认知期 · CEO/Manager workflow 闭环）  
+> **更新：** 2026-10-20（小红书 23 篇数据层 · DATA-MANIFEST · CEO 架构图）  
 > **验证：** `bash scripts/verify-handoff.sh`（含本文件检查）· `bash scripts/verify-agent-takeover.sh`  
+> **接手 SOP（2026-10-27）：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html)  
 > **一页纸：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · **存储策略：** [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md)
 
 ---
@@ -25,6 +26,7 @@ Agent **Must** 按 [.cursor/rules/danying-brand-agent-bootstrap.mdc](../.cursor/
 | 3 | `bash scripts/ensure-venv-deps.sh` |
 | 4 | `bash scripts/manager-autopilot.sh` |
 | 5 | 读 `content/analytics/derived/ceo-dispatch-latest.md` 与当日 `manager-dashboard-*.md` |
+| 5b | 有小红书数据时：[XHS-DATA-LAYER.md](XHS-DATA-LAYER.md) · [DATA-MANIFEST.json](../content/analytics/xiaohongshu/DATA-MANIFEST.json) · 思维导图 [workflow-mindmap.html](workflow-mindmap.html) |
 | 6 | 有 Gemini key：`VERIFY_TIER=release bash scripts/verify-all.sh`（交班）；日常 CI 档见 [VERIFY-TIERS.md](VERIFY-TIERS.md) |
 
 **Hub 换机全克隆：** Owner 说「全部克隆」→ [danying-apps 全部克隆.md](https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md) → 本仓 `SETUP.md`。
@@ -70,7 +72,7 @@ IP 一句话：[content/personal-ip/ip-positioning-brief-2026-10-05.md](../conte
 
 | 轨 | Agent/仓库状态（2026-10-17） | **仅 Owner** |
 |----|------------------------------|--------------|
-| **① 数据** | inbox 路径、fetch、pipeline、demo、derived、CEO 派活块 **就绪** | **CSV →** `content/analytics/inbox/`（当前 **0** 个 CSV） |
+| **① 数据** | **23 篇** notes + 链接 + 单篇明细已入库；见 [XHS-DATA-LAYER.md](XHS-DATA-LAYER.md) · `DATA-MANIFEST.json` | **新导出** → inbox；**raw/** 换机需拷贝或重导；**私信**手填 |
 | **② 商业/触达** | 认知期主文档、运营计划、队列、SWOT、**4 篇 discovery Brief 均已 aligned** | **小红书发帖**、Brief **`## 发布状态`**、15 天/4 篇快检（好/中/差）、Campaign 对外名称三选一（文档保留） |
 | **③ 机制** | Goal/M4、10×6 矩阵、autopilot、仪表盘、seo-lint、CI workflow、agents+shells **就绪** | **无阻塞**；可选：git commit 定稿、Cursor 15 天 Automation、Release verify 交班跑法 |
 

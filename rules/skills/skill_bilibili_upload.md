@@ -9,6 +9,8 @@
 触发词："B 站投稿"、"bili-upload"、"哔哩哔哩 fill"。
 
 ```bash
+source scripts/ensure-workspace-venv.sh
 pip install -e vendor/bilibili-upload-skill   # 首次
-# 首次只 dry-run fill；完整 execute 需 Owner 在场
+playwright install chromium                  # 首次 · verify-ip-skills-env 会查
+# 首次只 dry-run fill；完整 execute 需 Owner 在场 · 可见 Chrome + Owner 扫码
 ```

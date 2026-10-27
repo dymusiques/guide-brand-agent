@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-27",
+  "rollup_present": true,
+  "briefs_missing_redteam_pre": [
+    "content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md",
+    "content/xiaohongshu/2026-10-17-discovery-02-narrative-not-ads-brief.md",
+    "content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md",
+    "content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md",
+    "content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md"
+  ],
+  "challenge_pass": false
+}

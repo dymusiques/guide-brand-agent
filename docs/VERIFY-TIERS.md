@@ -29,3 +29,12 @@ Module 3 课纲里的 **Gemini 6 case** = 各 kernel 下 `test_*_aligned.py` / `
 | **4 · M4 + manager-autopilot** | `verify-goals.sh` → `test_goals_verify.py` 按 `verify_hooks.json` 验 **G-\***（交付物标记、discovery Brief、lint、单文件 `evaluate-*` 等）；[AUTOPILOT.md](AUTOPILOT.md) 日常链 **必跑 M4** | ❌ **不**调用 `verify-xhs-topic.sh` / `verify-business-brand.sh` / `verify-marketing-campaign.sh` 整包 6 case；无 key 时 `skip_without_gemini` 的 evaluate 可 SKIP。`AUTOPILOT_FULL=1` 仅附加 **CI 档** verify-all（仍不烧 Gemini 6） |
 
 **何时跑哪条：** 改 `kernels/xiaohongshu/line2/` 或 XHS classifier → `verify-xhs-topic.sh`；改 `kernels/strategic_docs/` → 02/03 部门脚本；换机 / 交班 / 发版 → `VERIFY_TIER=release bash scripts/verify-all.sh`；日常 autopilot → `manager-autopilot.sh`（M4 即可）。
+
+## 小红书声音 · L2（无 Gemini）
+
+| 层 | 命令 | 何时 |
+|----|------|------|
+| **L2 视频/声音 QA** | `bash scripts/verify-xhs-voice-qa.sh content/xiaohongshu/*video-round1*.md` | Round 1 落盘后 · 改 VOICE-ANCHOR / 04 禁词表后 |
+| **L1 IP evaluate** | `evaluate-xhs-topic.py --brief` | Brief 定稿 · 轨 2 认知期 |
+
+L2 **不替代** L1；视频 Round 1 **只要求 L2 PASS**。

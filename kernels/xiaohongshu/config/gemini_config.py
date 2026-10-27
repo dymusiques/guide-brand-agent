@@ -55,8 +55,73 @@ def load_local_config(root: Path) -> dict:
     return {}
 
 
+def _detect_local_proxy() -> str | None:
+    """Same default as scripts/verify_integration.py — only if port is open."""
+    import socket
+
+    host, port = "127.0.0.1", 3213
+    try:
+        with socket.create_connection((host, port), timeout=0.4):
+            return f"http://{host}:{port}"
+    except OSError:
+        return None
+
+
+def _proxy_reachable(proxy: str, timeout_s: float = 0.4) -> bool:
+    """True if http(s) proxy host:port accepts a TCP connection."""
+    import socket
+    from urllib.parse import urlparse
+
+    parsed = urlparse(proxy if "://" in proxy else f"http://{proxy}")
+    host = parsed.hostname or "127.0.0.1"
+    port = parsed.port or (443 if parsed.scheme == "https" else 80)
+    try:
+        with socket.create_connection((host, port), timeout=timeout_s):
+            return True
+    except OSError:
+        return False
+
+
+def configure_gemini_network() -> None:
+    """Pick a reachable proxy, else direct (Owner global VPN).
+
+    Owner 常见：全局 VPN + .env 里写了 3213 但本地代理未开。
+    旧行为：仍走 3213 → Connection refused。
+    现行为：3213 不通则 **不** 设 HTTP(S)_PROXY，走系统网络（VPN 在则直连 Gemini）。
+    """
+    root = load_dotenv_for_project()
+    config = load_local_config(root)
+    candidates: list[str] = []
+    for raw in (
+        os.environ.get("GEMINI_HTTP_PROXY"),
+        config.get("gemini_http_proxy"),
+        os.environ.get("HTTPS_PROXY"),
+        os.environ.get("HTTP_PROXY"),
+        _detect_local_proxy(),
+    ):
+        if raw and raw not in candidates:
+            candidates.append(str(raw).strip())
+
+    proxy: str | None = None
+    for cand in candidates:
+        if _proxy_reachable(cand):
+            proxy = cand
+            break
+
+    if proxy:
+        os.environ.setdefault("HTTPS_PROXY", proxy)
+        os.environ.setdefault("HTTP_PROXY", proxy)
+    else:
+        # Avoid stale .env forcing httpx at a dead local port
+        for key in ("HTTP_PROXY", "HTTPS_PROXY", "http_proxy", "https_proxy"):
+            val = os.environ.get(key, "")
+            if val and "127.0.0.1" in val and not _proxy_reachable(val):
+                os.environ.pop(key, None)
+
+
 def get_api_key() -> str:
     root = load_dotenv_for_project()
+    configure_gemini_network()
     config = load_local_config(root)
     key = config.get("gemini_api_key") or os.environ.get("GEMINI_API_KEY")
     if not key or key == "REPLACE_WITH_YOUR_KEY":
@@ -69,6 +134,7 @@ def get_api_key() -> str:
 
 def get_model() -> str:
     root = load_dotenv_for_project()
+    configure_gemini_network()
     config = load_local_config(root)
     return (
         config.get("gemini_model")

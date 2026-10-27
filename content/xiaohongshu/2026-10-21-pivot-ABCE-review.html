@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>改频系列 A · B · C · E · Owner 审阅</title>
+  <style>
+    :root {
+      --bg: #0f0f12;
+      --card: #1a1a22;
+      --text: #e8e6e3;
+      --muted: #9a9690;
+      --accent-a: #c45c4a;
+      --accent-b: #4a7c9c;
+      --accent-c: #6b8f71;
+      --accent-e: #9c7c4a;
+      --border: #2e2e38;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+    header {
+      padding: 2rem 1.5rem 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    header h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 0.5rem; }
+    header p { color: var(--muted); margin: 0; font-size: 0.9rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1rem 1.5rem 3rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .card:hover { transform: translateY(-2px); border-color: #555; }
+    .card .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+    .card-a .badge { background: var(--accent-a); color: #fff; }
+    .card-b .badge { background: var(--accent-b); color: #fff; }
+    .card-c .badge { background: var(--accent-c); color: #fff; }
+    .card-e .badge { background: var(--accent-e); color: #fff; }
+    .card h2 { font-size: 1rem; margin: 0 0 0.5rem; }
+    .card .sub { font-size: 0.85rem; color: var(--muted); }
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      z-index: 100;
+      padding: 1rem;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    .modal {
+      background: #14141a;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 640px;
+      width: 100%;
+      margin: 2rem auto 3rem;
+      padding: 0;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+    .modal-head {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: #14141a;
+      border-radius: 16px 16px 0 0;
+      z-index: 1;
+    }
+    .modal-head h2 { margin: 0; font-size: 1.15rem; }
+    .modal-head .close {
+      background: #2a2a34;
+      border: none;
+      color: var(--text);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .modal-head .close:hover { background: #3a3a48; }
+    .modal-body { padding: 1.25rem 1.5rem 1.75rem; font-size: 0.95rem; }
+    .modal-body section { margin-bottom: 1.35rem; }
+    .modal-body h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+      font-weight: 600;
+    }
+    .modal-body .theme { font-size: 1.05rem; color: #f0ebe4; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 500; }
+    .star { color: #e8b84a; }
+    .script {
+      background: #0c0c10;
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      white-space: pre-wrap;
+      font-size: 0.92rem;
+      line-height: 1.75;
+      border: 1px solid var(--border);
+    }
+    .tags { color: #7eb8da; font-size: 0.88rem; word-break: break-all; }
+    .warn {
+      background: #2a2418;
+      border: 1px solid #5c4a2a;
+      color: #e8d4a8;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    ul.ext { margin: 0; padding-left: 1.2rem; color: var(--muted); font-size: 0.88rem; }
+    ul.ext li { margin-bottom: 0.35rem; }
+    kbd { font-family: inherit; background: #2a2a34; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>改频系列 · A / B / C / E</h1>
+    <p>来源：<code>2026-10-21-pivot-triple-A-B-C-packages.md</code> · 点击卡片弹出全文 · <kbd>Esc</kbd> 关闭</p>
+    <p style="margin-top:0.5rem">连发建议：A → B → C → E（间隔 3–5 天）· 选题 D 不拍</p>
+  </header>
+
+  <div class="grid">
+    <div class="card card-a" data-id="a" role="button" tabindex="0">
+      <span class="badge">篇 A</span>
+      <h2>法国大师课 · 准备与教养</h2>
+      <p class="sub">推荐标题 A1 · 封面「请下台」</p>
+    </div>
+    <div class="card card-b" data-id="b" role="button" tabindex="0">
+      <span class="badge">篇 B</span>
+      <h2>上台紧张？四条跟学生说</h2>
+      <p class="sub">推荐 B1 · 150%功夫 / 别接气场</p>
+    </div>
+    <div class="card card-c" data-id="c" role="button" tabindex="0">
+      <span class="badge">篇 C</span>
+      <h2>AI 聪明了，我更要想清楚</h2>
+      <p class="sub">C1 · v1 简版（待补 Cursor 故事 → v2）</p>
+    </div>
+    <div class="card card-e" data-id="e" role="button" tabindex="0">
+      <span class="badge">篇 E</span>
+      <h2>巴黎→成都 · 少聊纯技巧</h2>
+      <p class="sub">E1/E1b · v2 审美+文化+Loic</p>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" id="modal">
+      <div class="modal-head">
+        <h2 id="modal-title"></h2>
+        <button type="button" class="close" id="close-btn" aria-label="关闭">×</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    const PACKAGES = {
+      a: {
+        title: "篇 A · 法国大师课 · 准备与教养",
+        theme: "上大师课不是「去见个明星」——谱面与态度是契约；教养会在公开场合放大成所有人都能看见的尴尬。",
+        titles: [
+          ["A1 ★", "法国大师课，她被打断请下台", "13"],
+          ["A2", "公开课打哈欠，教授当场怒了", "13"],
+          ["A3", "带着错谱上大师课？☝️", "11"]
+        ],
+        covers: ["请下台", "当面打哈欠"],
+        script: `上条说到欧洲夏令营、大师发火——今天想接着分享一段我在法国上的课，跟准备和教养有关，我觉得特别值得现在的家长听一听。
+
+在法国，很多大师课是公开课，全开放，谁都可以去听不同老师的课。有一次轮到一位亚洲小姑娘上台——具体哪个国家就不提了。她迟到了，大家等了一会儿。到了她的时间上去演奏，结果是：谱子没准备好，曲子也吹得磕磕巴巴、满篇错音。
+
+在法国这套体制里，跟教授上大师课，谱子不准备好，首先在态度上就不对。大家都是有备而来的，基本谱面错误不该出现——教授不负责给你一行行纠错，带着错来，本身就被视为对老师极大的不尊重。台下还有很多人在等自己的课时。
+
+教授非常不高兴，演奏到一半直接请她下去，说：「你这个状态我没法给你讲。」
+
+小姑娘坐到台下之后，教授借这件事跟全场讲规矩，希望大家别再来第二次。结果教授正在讲的时候，她正对着教授，手都没捂一下嘴，当面打了一个大哈欠。
+
+教授当时就说：全世界各地来的孩子，准备得都非常好，只有你一个是这种态度。他确实已经很有名了，那天印象特别深——他直接对她讲：这是非常不尊重人、非常没有教养的行为。你是什么意思？表示你根本没耐心听我说话吗？你就是这样被教育出来的吗？
+
+全场都在看，我们在下面听着，尴尬到脚趾抠地。
+
+我想分两点说，不是要挂谁，而是给家长和学音乐的孩子：
+
+第一，课堂准备。大师课在你按下第一个音之前就开始了——迟到、错谱、指望老师现场帮你改，在这套文化里等于还没上课就结束。准备不是「练了几小时」而已，是谱面正确、能上台、尊重别人的时间。走专业这条路，准备就是名片。
+
+第二，教养。教养不是「对熟人客气」，是在压力、丢脸、被当众说破的时候，你怎么对待还在说话的人。捂一下嘴、看一下眼神，很小的动作，代表的是：你有没有把「在场的其他人」当回事。这个姑娘也许有她的压力，但公开场合的行为会被放大——以后 audition、合作、职场，都是同一套逻辑：别人不会只记住你吹得怎样，也会记住你怎么做人。
+
+我不说「法国就对、别处就错」。我只说：当你选择进这种开放、高标准的课堂，就要按它的规矩来；能力可以练，教养是从小长在你身上的——进了社会，它放大的倍数只会更大。
+
+如果你也在带孩子走音乐、或自己在准备大师课、比赛，可以先收藏；有具体场景想聊，私信「聊聊」。`,
+        tags: "#法派长笛 #大师课 #音乐教育 #家长必读 #孩子教养 #留学音乐 #长笛 #古典音乐 #音乐生 #成长",
+        ext: ["A-续1 大师课前一天准备谱面", "A-续2 教授不负责纠错 vs 国内", "A-续3 迟到/候场对比", "A-续4 被叫停后家长怎么说"]
+      },
+      b: {
+        title: "篇 B · 上台紧张？我跟学生这么说",
+        theme: "不紧张里也许有天赋——但面对竞争，更相信 150%～200% 准备 + 预演 + 屏蔽气场 + 前几秒抓回注意力；紧张往往说明台下还不够。",
+        titles: [
+          ["B1 ★", "上台紧张？我跟学生这么说", "12"],
+          ["B2", "不紧张是天赋，但还得练☝️", "12"],
+          ["B3", "熟到能控制怎么错，才算熟", "13"]
+        ],
+        covers: ["150%功夫", "别接气场"],
+        script: `上条我讲过在后台候场，看见有人上台前吃药——很多人私信：你是不是天生就不紧张？
+
+这个问题我想说得诚实一点：不紧张，也许真是一种天赋，或者一种本能。我认——有些人站在台上，思考方式、那一瞬间的状态，就是更正向。大家习惯把紧张定义成负面的，这也没什么不能说的。
+
+但我跟学生说过另一句：如果你上台紧张，很多时候说明你在台下下的功夫还不够。尤其是同专业竞争——求职、考试、audition——有几件事我觉得比「劝你别紧张」有用得多。
+
+第一，下足一百五、甚至两百 percent 的功夫。不是「特别熟」三个字就完了。要熟到什么地步？熟到连怎么错、错多少、错成什么样，你自己都能控制和左右——那才叫非常熟。
+
+第二，提前预演。上台之前，在心里把会发生的事过一遍：台下坐着谁、什么场地。有时我们确实不知道 audition 在哪，但在力所能及范围内要去熟悉——能去学校走一走、看一下场子，在脑子里把环境建起来；允许的话，台上吹两声；不行就看厅多大、多少人，想象自己从后台走上来是什么状态、希望呈现什么样、中间可能出什么状况。练整首或整场的时候，别只在琴房——要感觉自己已经在音乐厅里，从登台到结束整条线走一遍。
+
+第三，屏蔽外界气场。我问过好几位老师，为什么他们上台总是特别自信。有人说：「我什么都不想，真的什么都不想。」还有人说：「我觉得旁边没人，整个屋子就只有我一个人。」学艺术的人通常很敏感，整个房间的气场都收得到——有时 jury 特别冷，连续三四个冷脸，你一进厅可能直接被压垮。以我的经验：千万不要去接收、去感受那个气场。别理它，专注吹，把平时预演的东西拿出来就好。
+
+第四，快速集中注意力。刚上台前几秒，谁都会有一下不适应——这时候自我调节、把注意力拉回来的能力特别关键。能不能比别人更快抓回来、瞬间集中？不管几千人的场子，还是小会议室、评判场，别人盯着你看、评你的时候，你得有能力把精神拉回眼前这一件事，而不是陷在周围的磁场和情绪里。
+
+这些能力非常重要。我觉得，学长笛、学艺术，甚至学体育，最后带给你的，其实都是这些。
+
+如果你也在备考、候场，或家长在看孩子紧不紧张，可以先收藏；有具体场次想聊，私信「聊聊」。`,
+        tags: "#长笛 #音乐生 #艺考 #候场 #心理 #法派长笛 #古典音乐 #家长必读 #audition #成长",
+        ext: ["B-续1 四条单拆 + audition 场地故事", "B-续2 熟到能控制怎么错 · 练法", "B-续3 与 A 准备崩盘交叉", "B-续4 考场吃药续 · 准备 vs 侥幸"]
+      },
+      c: {
+        title: "篇 C · AI 聪明了，我更要想清楚",
+        theme: "兴趣班报太多学不精，和 AI 只用成「问一句」是同一种浅；工具越聪明，越要提问、指方向、像乐高迭代——不是翻译器或随手问豆包。",
+        v1: true,
+        titles: [
+          ["C1 ★", "AI 聪明了，我更要想清楚☝️", "13"],
+          ["C2", "像搭乐高，不像问豆包", "10"],
+          ["C3", "越学 AI，越不想浅用", "10"]
+        ],
+        covers: ["别浅用", "像搭乐高"],
+        script: `上条我说，别给孩子同时塞四五个兴趣班——最近我在学 AI，越学越有一个感觉，想跟家长分享。
+
+大家问：AI 都能写了，还练长笛干什么？
+
+我的答案不是「必须练长笛」。是：还要不要练「学精一门」这件事。
+
+AI 可以帮你生成、帮你提速，但什么叫好、什么叫到位、什么叫你真正驾驭了——这个标准，仍然要靠你在一件具体的事上磨出来。长笛只是例子：声音连你自己都听不下去，谈不上抒发；换到别的事也一样——浅尝辄止，AI 用得再熟，你也只是在点按钮。
+
+学精的过程，练的是怎么学、怎么判断、怎么忍受重复。这些不会因为模型换代就作废；教育体系会变，加分方式会变，思考方式不会。
+
+所以不是反 AI，是：别用 AI 当跳过「深度」的借口。你可以用 AI 查资料、辅助练习计划，但时间要押上去。
+
+认同的可以先收藏；你在带孩子选兴趣班或选专业，私信「聊聊」。`,
+        tags: "#AI时代 #音乐教育 #家长必读 #长笛 #深度学习 #兴趣班 #法派长笛 #成长 #古典音乐 #思考",
+        ext: ["C-续1 提问/方向（见 owner-plan-pivot-C）", "C-续2 乐高迭代 + Cursor 项目", "C-续3 兴趣班平行", "v2 待 Owner 补 1 个项目小故事"]
+      },
+      e: {
+        title: "篇 E · 从巴黎到成都 · 我为什么少聊纯技巧（v2）",
+        theme: "很多问题最后是审美（常识+文化）；十年出国回国、审美要慢；AI 浅层与学音乐只追「术」相通；钢琴家长与 Loic《自由射手》——vibrato 为曲子服务，不为证明自己。",
+        titles: [
+          ["E1 ★", "vibrato 不只是 vibrato☝️", "16"],
+          ["E1b ★", "学琴问题，最后是审美☝️", "13"],
+          ["E2", "尊重曲子，还是你的 ego？", "12"],
+          ["E3", "从巴黎到成都，少聊炫技", "11"]
+        ],
+        covers: ["为曲子服务", "审美要慢"],
+        script: `有老粉问：以前那些 ✅ 技巧帖呢？我在成都也在教课、也在吹，只是这个频道，我想少聊「纯演奏技巧」，多聊判断和审美。
+
+我老提 vibrato（颤音），不是要做教程。很多演奏上的问题，延伸到最后，其实都是审美问题——它既是常识，更是文化；绝不是三言两语、单靠技巧、单靠「术」就能补上的。
+
+古典音乐这条路，我出国、后来回国，中间大概十年。再回来时，体感是：圈里对古典音乐的认知，并没有变好。大众审美受经济、社会各种因素影响；我们总想把一切都加快，审美偏偏是一件要慢下来的事。你可以引导，没办法替别人整套建构——审美是一种体验、一个体系，是漫长时间和大环境一起塑出来的。
+
+所以我一直觉得：国内的大环境，对「把古典音乐学深」并不友好。学基础技巧当然可以；但在审美上，我们有时从根上就矮一截——这话不好听。和 AI 也一样：很多人不愿承认差距。人家产品上市五六年、十年，真实用户反馈堆在那里；我们还在用豆包不停做 AI 动画，很少问真正有价值的问题。AI 只是把原本就偏浅的使用，变得更快、更显眼——这和学音乐只追「术」、不追审美，底层是通的。
+
+说回 vibrato。有些地方的文化，特别爱炫——掌握了这个技巧就高人一等。我有个学生，爸爸是学钢琴的。孩子跟我讲：爸爸会评我 vibrato 怎么处理，还问——钢琴能做的颤音，长笛上要怎么做「同样的东西」？
+
+我会把问题倒过来：关键不是长笛怎么颤，而是——钢琴在没法像管乐那样颤的情况下，怎么把不同时期、不同作曲家要表达的内容完整交出来？学音乐，眼界不能锁在自己乐器里。
+
+我之前跟 Loic Schneider 上课吹《自由射手》。主题出来以后，后面有一段比较慢的，我们就聊：这里到底加不加 vibrato。他很明确——你加的任何 vibrato，都必须为当下的这首曲子、这个作品服务；不是为了炫耀，不是为了证明「我会这个技巧」而硬加进去。
+
+vibrato 从来就不该是一个「为了证明自己而去证明」的东西。
+
+后台、课上，我听到的往往是最基本的常识缺；而常识缺久了，最后都落在审美上。有些曲子，真的需要那么大的声音吗？你到底在尊重曲子，还是在喂 ego？很多作品写作的年代、乐器的状态，本来就不是那种又挤又响的逻辑。
+
+我知道：很多人可能就喜欢那种声音——没办法。这个频道，是讲给认同的人听的；不认同的，也可以不看。
+
+如果你也在带孩子学音乐，或想知道为什么我改发这种内容，可以先收藏；想聊审美或上课，私信「聊聊」。`,
+        tags: "#法派长笛 #vibrato #音乐审美 #长笛 #古典音乐 #音乐教育 #成都 #演奏 #常识 #思考",
+        ext: ["E-续5 十年回国·审美要慢（若口播剪短）", "E-续1 backstage 常识 2 例", "E-续2 vibrato 两耳对比（短）", "E-续3 与 A 谱面 vs 审美"]
+      }
+    };
+
+    function renderTable(rows) {
+      return `<table><thead><tr><th>选项</th><th>标题</th><th>字</th></tr></thead><tbody>${
+        rows.map(r => `<tr><td>${r[0].includes("★") ? `<span class="star">${r[0]}</span>` : r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")
+      }</tbody></table>`;
+    }
+
+    function openModal(id) {
+      const p = PACKAGES[id];
+      if (!p) return;
+      document.getElementById("modal-title").textContent = p.title;
+      let html = "";
+      if (p.v1) html += `<div class="warn">⚠ 篇 C 为 v1 简版；补 Cursor 项目小事后可升级 v2（乐高/豆包/提问线）。</div>`;
+      html += `<section><h3>主题</h3><p class="theme">${p.theme}</p></section>`;
+      html += `<section><h3>标题备选</h3>${renderTable(p.titles)}</section>`;
+      html += `<section><h3>封面字</h3><p>主：<strong>${p.covers[0]}</strong> · 备：<strong>${p.covers[1]}</strong></p></section>`;
+      html += `<section><h3>口播稿</h3><div class="script">${p.script.replace(/</g, "&lt;")}</div></section>`;
+      html += `<section><h3>标签</h3><p class="tags">${p.tags}</p></section>`;
+      html += `<section><h3>可延伸</h3><ul class="ext">${p.ext.map(e => `<li>${e}</li>`).join("")}</ul></section>`;
+      document.getElementById("modal-body").innerHTML = html;
+      const ov = document.getElementById("overlay");
+      ov.classList.add("open");
+      ov.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      const ov = document.getElementById("overlay");
+      ov.classList.remove("open");
+      ov.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".card").forEach(el => {
+      el.addEventListener("click", () => openModal(el.dataset.id));
+      el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(el.dataset.id); } });
+    });
+    document.getElementById("close-btn").addEventListener("click", closeModal);
+    document.getElementById("overlay").addEventListener("click", e => { if (e.target.id === "overlay") closeModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+  </script>
+</body>
+</html>

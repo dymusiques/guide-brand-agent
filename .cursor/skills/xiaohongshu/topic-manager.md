@@ -17,6 +17,7 @@
 
 ### 1. 读上下文
 
+0. **`docs/XHS-CONTENT-INTAKE-STACK.md`**（Owner Excel 23 篇 + PDF 平台研究 **叠加**）→ **`content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md`**
 1. `guide-core/soul.md`、`guide-core/user.md`
 2. `rules/USER.md`、`content/personal-ip/`（**「品牌合作范围」**：跨行业 open、不单品类绑定、全品类可合作）
 3. Git `content/xiaohongshu/`（已有 Brief，避免重复选题）

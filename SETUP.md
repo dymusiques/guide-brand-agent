@@ -40,6 +40,8 @@ pip install -e vendor/dataforseo-skill
 playwright install chromium   # bilibili-upload / pw-test 需要
 # ASR / intake 转写：按需 pip install -e 'vendor/asr-skill[...]' / 'vendor/intake-skill[qwen-asr]'（MLX · 见 vendor README）
 # opus-video-audio-skill：无 pyproject · 脚本仓，用时读 vendor skill
+
+bash scripts/verify-ip-skills-env.sh   # Agent：换机/装完 pip 必跑 · 防 CLI/PATH/CDP 误读
 ```
 
 ## 3. OAuth（一次性 · 不进 git）
@@ -72,6 +74,16 @@ bash scripts/verify-integration.sh    # 6 case 集成（有 OAuth 时应 6/6 PAS
 - [ ] `verify-integration.sh` 无 FAIL（无 OAuth 时 SKIP 3–4–6 可接受）
 - [ ] 需代理访问 Google：`export HTTPS_PROXY=…` 后再跑集成脚本
 
-## 6. Hub 关系
+## 6. 后台目标链（Owner · 一次 · 服务 G-* + evolution）
+
+```bash
+bash scripts/setup-background-goal-evolution.sh
+# 随后在 Terminal.app：
+cd vendor/process-launcher && ../../.venv/bin/process-launcher start --config config/dba-brand-agent.yaml
+```
+
+见 [docs/BACKGROUND-GOAL-EVOLUTION.md](docs/BACKGROUND-GOAL-EVOLUTION.md)（**每天 09:00 一轮**）。改频率见 [integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md](integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md)。**不必**日常手动 autopilot。
+
+## 7. Hub 关系
 
 总索引不在本仓 → [danying-apps INDEX](https://github.com/dymusiques/danying-apps/blob/main/INDEX.md)

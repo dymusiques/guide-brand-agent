@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workflow · MD · Verify · 接手思维导图</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #0d1117; color: #e6edf3; font-family: "PingFang SC", system-ui, sans-serif; }
+    .bar { position: sticky; top: 0; z-index: 10; background: #1f6feb; color: #fff; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
+    .bar button { background: #fff; color: #1f6feb; border: 0; padding: 8px 14px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+    .bar a { color: #fff; font-size: 13px; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 16px 16px 100px; }
+    h1 { text-align: center; font-size: 1.25rem; }
+    .hint { text-align: center; color: #8b949e; font-size: 13px; margin-bottom: 20px; }
+    .hub { text-align: center; margin: 20px 0; }
+    .hub span { display: inline-block; background: #238636; color: #fff; padding: 14px 28px; border-radius: 999px; font-weight: 800; border: 3px solid #3fb950; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 16px; }
+    .col-title { grid-column: 1 / -1; color: #79c0ff; font-size: 14px; font-weight: 700; margin: 12px 0 4px; border-bottom: 1px solid #30363d; padding-bottom: 6px; }
+    .node {
+      background: #21262d; border: 2px solid #30363d; border-radius: 12px; padding: 12px 14px;
+      cursor: pointer; transition: border-color .15s;
+    }
+    .node:hover, .node.on { border-color: #58a6ff; }
+    .node h3 { margin: 0 0 6px; font-size: 0.95rem; }
+    .node p { margin: 0; font-size: 0.8rem; color: #8b949e; line-height: 1.35; }
+    .node .tag { font-size: 10px; display: inline-block; background: #30363d; padding: 2px 6px; border-radius: 4px; margin-top: 6px; }
+    .node.owner { border-color: #9e6a03; }
+    .node.machine { border-color: #1a6b6b; }
+    .node.verify { border-color: #da3633; }
+    .node.md { border-color: #8957e5; }
+    #panel {
+      position: sticky; bottom: 0; background: #161b22; border-top: 2px solid #30363d;
+      padding: 14px 18px; max-height: 42vh; overflow-y: auto; font-size: 14px; line-height: 1.5;
+    }
+    #panel h2 { margin: 0 0 8px; font-size: 1rem; color: #79c0ff; }
+    #panel code { background: #21262d; padding: 2px 6px; border-radius: 4px; font-size: 12px; word-break: break-all; }
+    #panel ul { margin: 8px 0; padding-left: 18px; }
+    .checklist { background: #21262d; border-radius: 12px; padding: 16px; margin-top: 24px; }
+    .checklist h2 { font-size: 1rem; color: #ffe066; }
+    .checklist label { display: block; margin: 8px 0; font-size: 13px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <button type="button" id="btn-popup">在新窗口打开（弹窗）</button>
+    <a href="NEW-AGENT-WORKFLOW-SOP.md">接手 SOP（MD）</a>
+    <a href="workflow-mindmap.html">单篇小红书链</a>
+  </div>
+  <div class="wrap">
+    <h1>全仓 Workflow · MD 清单 · Verify 思维导图</h1>
+    <p class="hint">点方块 → 下方详情（路径 + 验收命令）· 与 Owner 对齐后勾选底部清单 · SOP：<code>docs/NEW-AGENT-WORKFLOW-SOP.md</code></p>
+
+    <div class="hub"><span>00 CEO · 总 Manager</span></div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="checklist">
+      <h2>双方确认清单（无问题后勾选 · 写入 SOP 交班）</h2>
+      <label><input type="checkbox" /> Owner：日常只发帖 + CSV inbox；不说 verify 口令</label>
+      <label><input type="checkbox" /> Agent：Brief 前固定红队 2 条（<code>BRIEF-REDTEAM-PRE.md</code>）</label>
+      <label><input type="checkbox" /> Agent：交 Owner 前 <code>manager-ceo-owner-gate.sh</code></label>
+      <label><input type="checkbox" /> 后台：每天 09:00 cycle（Launcher 已用 <code>.venv/bin/process-launcher</code> 启动）</label>
+      <label><input type="checkbox" /> MD 读序：<code>HANDOFF-MD-MANIFEST.md</code> + 本页紫色节点</label>
+      <label><input type="checkbox" /> 新 Agent 跑通：<code>verify-agent-takeover.sh</code> + <code>verify-handoff.sh</code></label>
+    </div>
+  </div>
+  <div id="panel"><h2>点击上方节点</h2><p>显示 MD 路径与 verify 命令。</p></div>
+
+  <script>
+(function () {
+  var NODES = [
+    { id: "owner", col: "Owner 边界", cls: "owner", title: "Owner 只做两件事", desc: "发帖 · CSV→inbox", md: ["docs/OWNER-INPUT-PRINCIPLES.md", "integration/IMPORTANT.md"], verify: [], note: "口语输入；不公式化 prompt" },
+    { id: "bg", col: "机器层（后台）", cls: "machine", title: "每日 09:00 cycle", desc: "baseline · Evaluator rollup · G-*", md: ["docs/BACKGROUND-GOAL-EVOLUTION.md", "integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md"], verify: ["bash scripts/setup-background-goal-evolution.sh", "../../.venv/bin/process-launcher start --config config/dba-brand-agent.yaml"], note: "改频率必须先问 Owner" },
+    { id: "ceo", col: "CEO 指挥链", cls: "", title: "AUTO-WORKFLOW 步序", desc: "派 GM · Gate · 不打回 Owner 验", md: ["agents/00-manager/AUTO-WORKFLOW.md", "docs/CEO-AUTO-QA-LOOP.md", "docs/IP-MANAGEMENT-HIERARCHY.md"], verify: ["bash scripts/manager-ceo-owner-gate.sh --integration-only"], note: "有 Brief 时加 --brief" },
+    { id: "1c", col: "CEO 指挥链", cls: "", title: "步 1c · 红队 2 条/篇", desc: "写 Brief 前 Must", md: ["content/xiaohongshu/BRIEF-REDTEAM-PRE.md", "content/personal-ip/2026-10-27-ip-adversarial-red-team.md"], verify: ["content/xiaohongshu/redteam/<slug>-pre.md 存在"], note: "Owner 已固定要" },
+    { id: "0a", col: "CEO 指挥链", cls: "", title: "步 0a · Intake 读栈", desc: "写稿/标题/视频前", md: ["docs/XHS-CONTENT-INTAKE-STACK.md"], verify: ["bash scripts/verify-xhs-content-intake.sh"], note: "" },
+    { id: "04", col: "部门 GM", cls: "", title: "04 小红书 GM", desc: "Brief · 2a 视频 · evolution", md: ["agents/04-xhs-topic-manager/INTEGRATION-PROMPT.md", "content/xiaohongshu/PIPELINE.md", "content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md"], verify: ["python scripts/evaluate-xhs-topic.py --brief …", "bash scripts/manager-ceo-owner-gate.sh --brief …"], note: "" },
+    { id: "coll", col: "Collector + Evaluator", cls: "machine", title: "intake → v0 → gold → metrics", desc: "全 Agent Must", md: ["agents/_shared/COLLECTOR-EVALUATOR.md", "docs/COLLECTOR-EVALUATOR-PIPELINE.md"], verify: ["bash scripts/verify-collector-evaluator.sh", "bash scripts/evolution-rollups-all.sh"], note: "content/evolution/<slot>/<slug>/" },
+    { id: "01", col: "部门 GM", cls: "", title: "01 IP GM", desc: "Pitch · 红线 · CAPSTONE", md: ["content/personal-ip/ip-positioning-brief-2026-10-05.md", "content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md"], verify: [], note: "步 0b / 1" },
+    { id: "09", col: "部门 GM", cls: "", title: "09 数据 GM", desc: "pipeline · dispatch", md: ["agents/09-data-analytics/DATA-NEEDS.md"], verify: ["bash scripts/analytics-pipeline.sh"], note: "ceo-dispatch-latest.md" },
+    { id: "05", col: "部门 GM · Verify", cls: "verify", title: "05 质检 · 6 case", desc: "kernel Gemini", md: ["kernels/xiaohongshu/line2/"], verify: ["bash scripts/verify-xhs-topic.sh"], note: "daily cycle 内 DEEP=1" },
+    { id: "g", col: "Verify · Goals", cls: "verify", title: "G-* · M4", desc: "registry.json", md: ["integration/GOALS-REGISTRY.md", "integration/goals/registry.json"], verify: ["bash scripts/verify-goals.sh"], note: "" },
+    { id: "handoff", col: "新 Agent 接手", cls: "md", title: "接手读序", desc: "HANDOFF-MD-MANIFEST", md: ["docs/HANDOFF-MD-MANIFEST.md", "docs/AGENT-TAKEOVER.md", "docs/NEW-AGENT-WORKFLOW-SOP.md"], verify: ["bash scripts/verify-agent-takeover.sh", "bash scripts/verify-handoff.sh"], note: "口令 danying-brand-agent" },
+    { id: "net", col: "环境", cls: "machine", title: "Gemini 网络", desc: "VPN · 3213 智能回退", md: ["docs/GEMINI-NETWORK-AUTO.md"], verify: [], note: "" },
+    { id: "red", col: "对抗 / 训练", cls: "", title: "红队 · FULL-DRILL", desc: "可选 stress", md: ["content/personal-ip/2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md"], verify: [], note: "口语：FULL-DRILL / 红队 §F" },
+    { id: "ws", col: "路由", cls: "md", title: "WORKSPACE · INDEX", desc: "找文件先查", md: ["rules/WORKSPACE.md", "integrations/index.md", "AGENTS.md"], verify: [], note: "" },
+    { id: "tier", col: "Verify · Goals", cls: "verify", title: "VERIFY-TIERS", desc: "CI vs Release", md: ["docs/VERIFY-TIERS.md", "check.md"], verify: ["VERIFY_TIER=release bash scripts/verify-all.sh"], note: "交班" }
+  ];
+
+  var grid = document.getElementById("grid");
+  var panel = document.getElementById("panel");
+  var lastCol = "";
+  NODES.forEach(function (n) {
+    if (n.col !== lastCol) {
+      var t = document.createElement("div");
+      t.className = "col-title";
+      t.textContent = n.col;
+      grid.appendChild(t);
+      lastCol = n.col;
+    }
+    var el = document.createElement("div");
+    el.className = "node " + (n.cls || "");
+    el.innerHTML = "<h3>" + n.title + "</h3><p>" + n.desc + "</p><span class=\"tag\">" + n.col + "</span>";
+    el.addEventListener("click", function () {
+      document.querySelectorAll(".node.on").forEach(function (x) { x.classList.remove("on"); });
+      el.classList.add("on");
+      var html = "<h2>" + n.title + "</h2>";
+      if (n.note) html += "<p><strong>备注：</strong>" + n.note + "</p>";
+      if (n.md.length) {
+        html += "<p><strong>MD：</strong></p><ul>";
+        n.md.forEach(function (p) { html += "<li><code>" + p + "</code></li>"; });
+        html += "</ul>";
+      }
+      if (n.verify.length) {
+        html += "<p><strong>Verify：</strong></p><ul>";
+        n.verify.forEach(function (c) { html += "<li><code>" + c + "</code></li>"; });
+        html += "</ul>";
+      }
+      panel.innerHTML = html;
+    });
+    grid.appendChild(el);
+  });
+
+  document.getElementById("btn-popup").addEventListener("click", function () {
+    var u = location.href.split("?")[0] + "?popup=1";
+    window.open(u, "dba-handoff-mindmap", "width=980,height=900,scrollbars=yes");
+  });
+  if (location.search.indexOf("open=1") !== -1) {
+    setTimeout(function () {
+      document.getElementById("btn-popup").click();
+    }, 400);
+  }
+})();
+  </script>
+</body>
+</html>

@@ -13,6 +13,8 @@
 | 4 | [AUTOPILOT.md](AUTOPILOT.md) |
 | 5 | [DANYING-BRAND-AGENT-INTEGRATION.md](DANYING-BRAND-AGENT-INTEGRATION.md) |
 | 6 | [HANDOFF-SOP.md](HANDOFF-SOP.md) |
+| 6b | [WORKFLOW-CEO-ARCHITECTURE.md](WORKFLOW-CEO-ARCHITECTURE.md) · [workflow-mindmap.html](workflow-mindmap.html) · **[workflow-handoff-mindmap.html](workflow-handoff-mindmap.html)** · **[NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md)** |
+| 6c | [XHS-DATA-LAYER.md](XHS-DATA-LAYER.md) · [XHS-CONTENT-INTAKE-STACK.md](XHS-CONTENT-INTAKE-STACK.md) · `DATA-MANIFEST.json` |
 
 ## 2 · Owner / IP / 红线（Must）
 
@@ -34,6 +36,11 @@
 | 14 | [../content/marketing/discovery-phase-note-queue.md](../content/marketing/discovery-phase-note-queue.md) |
 | 15 | [../content/business-brand/2026-10-17-brand-positioning-swot.md](../content/business-brand/2026-10-17-brand-positioning-swot.md) |
 | 16 | [../content/xiaohongshu/PUBLISH-AND-DATA-CHECKLIST.md](../content/xiaohongshu/PUBLISH-AND-DATA-CHECKLIST.md) |
+| 16b | [../content/xiaohongshu/2026-10-20-publish-ready-queue.md](../content/xiaohongshu/2026-10-20-publish-ready-queue.md) |
+| 16c | [../content/analytics/derived/xhs-data-strategy-2026-10-20.md](../content/analytics/derived/xhs-data-strategy-2026-10-20.md) |
+| 16d | [XHS-CONTENT-INTAKE-STACK.md](XHS-CONTENT-INTAKE-STACK.md) · [../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md](../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md) · [platform-notes-2026.md](../content/xiaohongshu/platform-notes-2026.md) |
+| 16e | [../content/xiaohongshu/XHS-VIDEO-ITERATION.md](../content/xiaohongshu/XHS-VIDEO-ITERATION.md) · [VOICE-ANCHOR.md](../content/xiaohongshu/VOICE-ANCHOR.md) · [../integration/xhs-video-iteration-adoption.md](../integration/xhs-video-iteration-adoption.md) |
+| 16f | [../content/personal-ip/cv-source-2026-09-15.md](../content/personal-ip/cv-source-2026-09-15.md) |
 
 ## 4 · 小红书 Brief 队列（Must · 当前 4+1）
 
@@ -61,10 +68,13 @@
 ```bash
 bash scripts/ensure-venv-deps.sh
 bash scripts/verify-agent-takeover.sh
-bash scripts/manager-autopilot.sh
+bash scripts/verify-handoff.sh
+bash scripts/open-workflow-handoff-mindmap.sh   # 与 Owner 过 MD+Verify 思维导图
 ```
 
-然后读生成文件：`content/analytics/derived/ceo-dispatch-latest.md`（若不存在则 autopilot 已创建）。
+读：[NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · `ceo-inbox/agent-work-queue.md` · `derived/ceo-dispatch-latest.md` · `derived/evolution-rollups-latest.md`  
+
+后台（Owner 已 setup）：[BACKGROUND-GOAL-EVOLUTION.md](BACKGROUND-GOAL-EVOLUTION.md) — **不必**日常 `manager-autopilot.sh`。
 
 ## 不读旧对话
 
@@ -79,7 +89,7 @@ Chat 历史 **不在** Git；真相源仅为上表 **L0 路径** + derived 刷�
 | 6 test 在哪？ | **05/02/03** 的 `verify-*-topic/campaign/business-brand.sh`（Gemini）；**10×6** 是 `integration/agents/a*.py` **胶水**，在 `verify-agent-matrix.sh` |
 | 成功目标在哪？ | `integration/goals/registry.json` + M4 `verify-goals.sh` |
 | 函数壳是什么？ | `scripts/agent-shells/<nn>-*.sh` — 集成入口，**不是** kernel 算法 |
-| 自动 workflow？ | `manager-autopilot.sh`（**不**发帖、**不**拉 CSV） |
+| 自动 workflow？ | **后台** `background-goal-evolution-cycle.sh`（每日 09:00）· Debug 单次 `manager-autopilot.sh` |
 | Process Launcher？ | **工具箱** · 默认不启服务 · 见 adoption §0 · **不是** CEO |
 | 以后要加定时/TCC/新 skill？ | [EXTENSION-POINTS.md](../integration/EXTENSION-POINTS.md) |
 | 01–09  vs 并行 Task？ | 01–09 = 顺序指挥链；并行只用于调研/review → [parallel-subagents-adoption.md](../integration/parallel-subagents-adoption.md) |

@@ -46,6 +46,11 @@ OPTIONAL_COLUMNS: dict[str, list[str]] = {
         "dm_keywords",
         "aligned_at_publish",
         "brief_path",
+        "cover_ctr_pct",
+        "avg_watch_sec",
+        "completion_rate_pct",
+        "exit_2s_rate_pct",
+        "detail_source",
     ],
     "instagram": [
         "caption_snippet",
@@ -70,3 +75,26 @@ CANONICAL_FILES = {
     "instagram": "posts.csv",
     "youtube": "videos.csv",
 }
+
+XHS_CSV_FIELDNAMES = [
+    "note_id",
+    "publish_date",
+    "title",
+    "pillar",
+    "impressions",
+    "views",
+    "likes",
+    "collects",
+    "comments",
+    "shares",
+    "follows_from_note",
+    "dm_count",
+    "dm_keywords",
+    "aligned_at_publish",
+    "brief_path",
+    "cover_ctr_pct",
+    "avg_watch_sec",
+    "completion_rate_pct",
+    "exit_2s_rate_pct",
+    "detail_source",
+]

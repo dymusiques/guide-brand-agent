@@ -41,6 +41,15 @@ done
 [[ -f vendor/semantic-search-skill/skills/skill_semantic_search.md ]] && pass "semantic-search-skill submodule" || fail "vendor/semantic-search-skill not initialized"
 [[ -f vendor/bilibili-upload-skill/skills/bilibili-upload/SKILL.md ]] && pass "bilibili-upload-skill submodule" || fail "vendor/bilibili-upload-skill not initialized"
 [[ -f rules/skills/skill_bilibili_upload.md ]] && pass "skill_bilibili_upload router" || fail "missing rules/skills/skill_bilibili_upload.md"
+[[ -f scripts/verify-ip-skills-env.sh ]] && pass "verify-ip-skills-env.sh" || fail "missing scripts/verify-ip-skills-env.sh"
+if [[ -x scripts/verify-ip-skills-env.sh ]] || [[ -f scripts/verify-ip-skills-env.sh ]]; then
+  if bash scripts/verify-ip-skills-env.sh >/tmp/verify-ip-skills-env.out 2>&1; then
+    pass "verify-ip-skills-env.sh (see WARN for optional MLX/opus)"
+  else
+    warn "verify-ip-skills-env.sh failed — run manually after SETUP.md §2 pip"
+    tail -5 /tmp/verify-ip-skills-env.out 2>/dev/null || true
+  fi
+fi
 
 echo ""
 echo "[L0 Brand facts]"

@@ -10,6 +10,13 @@ Kernel (6 case) → Topic Manager Skill → 单篇 Brief 闭环 ✅
 → brand-visual（封面）→ 可选 Drive → P 层 KPI 复盘
 ```
 
+## Owner 数据叠加栈（写 Brief / 视频 / 标题前 · Must）
+
+**先读：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)（Excel 笔记数据 + PDF 研究 MD + IP + 认知期）。  
+**交付：** [CONTENT-DELIVERY-FOR-OWNER.md](./CONTENT-DELIVERY-FOR-OWNER.md) — Agent 写稿 → **Owner 确认** → App 发布。  
+**Brief 前红队（Owner 固定 · 2 条/篇）：** [BRIEF-REDTEAM-PRE.md](./BRIEF-REDTEAM-PRE.md) → `redteam/<slug>-pre.md`，**再**写 `*-brief.md`。  
+**验收：** `bash scripts/verify-xhs-content-intake.sh`
+
 ## 三阶段与状态（摘录 · 分阶段工作法）
 
 本管线对齐 **采集 → 本地处理 → Owner 确认发布**（参考 [grapeot staged approach](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_staged_approach.md)，本仓不装全文）。

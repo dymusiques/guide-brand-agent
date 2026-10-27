@@ -8,3 +8,8 @@
 3. **Adoption:** [ip-content-skills-adoption.md](../../integration/ip-content-skills-adoption.md)
 
 触发词："AI 味检测"、"voice-lora"、"去 AI 腔"（Brief 仍禁 rewrite）。
+
+```bash
+source scripts/ensure-workspace-venv.sh
+voice-lora score path/to.md --paragraphs 3
+```

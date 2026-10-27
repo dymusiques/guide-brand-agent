@@ -1,0 +1,69 @@
+{
+  "as_of": "2026-10-21",
+  "anchor_count": 5,
+  "transcripts": "voice-anchor-transcripts-2026-10-21.md",
+  "note": "first_80_chars = spoken opening; Owner title-only notes, no App description.",
+  "anchors": [
+    {
+      "title": "我让长笛泰斗当场发火了",
+      "publish_date": "2026-08-16",
+      "note_url": "https://www.xiaohongshu.com/explore/6a81ab660000000005022595?xsec_token=AB6Nu3ImZdHmzZZx1vu02ND601ujRs5fANpH3mypRRefU=&xsec_source=pc_user",
+      "follows_from_note": 282.0,
+      "collects": 212.0,
+      "cover_ctr_pct": "15.1",
+      "completion_rate_pct": "12.4",
+      "first_80_chars": "懂得对大师祛魅，要建立自己的审美。那我跟大家分享一个我的真实经历。之前我还是学生的时候，有一年暑假，我在欧洲报了两个长笛夏令营，第一站是意大利，第二站是法",
+      "caption_status": "owner_transcript",
+      "caption_source": "owner_chat_2026-10-21"
+    },
+    {
+      "title": "原来考场也有剧本儿",
+      "publish_date": "2026-08-21",
+      "note_url": "https://www.xiaohongshu.com/explore/6a8810170000000025002290?xsec_token=ABoRbuZKTaEp1qpT5gsoRW5vaJzc3mDxISe9g4Wowao30=&xsec_source=pc_user",
+      "follows_from_note": 210.0,
+      "collects": 80.0,
+      "cover_ctr_pct": "11.8",
+      "completion_rate_pct": "7.5",
+      "first_80_chars": "前两天刷视频，看到有一个老师讨论孩子上台吃药的问题。刚好我自己有一个亲身经历，想跟大家分享一下，也聊聊我对这件事的看法。当时在国外留学，有一次我在后台候场",
+      "caption_status": "owner_transcript",
+      "caption_source": "owner_chat_2026-10-21",
+      "agent_note": "Title 考场/剧本; spoken arc = 上台吃药 + 天赋多维"
+    },
+    {
+      "title": "做自媒体被嘲讽后，我的回复",
+      "publish_date": "2026-08-23",
+      "note_url": "https://www.xiaohongshu.com/explore/6a8a8117000000003301802c?xsec_token=AB1Pka-I4zWpbe2LnfmkcU-5arF-H-4OpB1ISW5UyCSAc=&xsec_source=pc_user",
+      "follows_from_note": 185.0,
+      "collects": 79.0,
+      "cover_ctr_pct": "14.6",
+      "completion_rate_pct": "1.8",
+      "first_80_chars": "我真的没想到上一个对大师祛魅的视频能得到这么多的关注，有这么多的观众，特别感谢广大的网友！我在留言区里收到了一条留言。我相信这位朋友我不认识你，你可能对我也不太",
+      "caption_status": "owner_transcript",
+      "caption_source": "owner_chat_2026-10-21"
+    },
+    {
+      "title": "尊重大师，但不把判断权交给他",
+      "publish_date": "2026-08-18",
+      "note_url": "https://www.xiaohongshu.com/explore/6a83eb4500000000280339bd?xsec_token=AB6GZOXadX4Cq_URE_wto_zKY48pbnBadWIxoLhY_2XRo=&xsec_source=pc_user",
+      "follows_from_note": 16.0,
+      "collects": 62.0,
+      "cover_ctr_pct": "11.1",
+      "completion_rate_pct": "8.4",
+      "first_80_chars": "这种成熟的教育其实应该是专业式、契约式的，而不是那种“封建式”的，非得提供很多情绪价值不可。我始终觉得教育行业本质上就是一个服务行业。我以前上大学的时候就有",
+      "caption_status": "owner_transcript",
+      "caption_source": "owner_chat_2026-10-21"
+    },
+    {
+      "title": "用深度替代选择☝️",
+      "publish_date": "2026-10-06",
+      "note_url": "https://www.xiaohongshu.com/explore/6ac515eb00000000020280ff?xsec_token=AB8id-4aGwTHLbRNUE5xWCbftEvAcvoTX8TkmXLITuRJk=&xsec_source=pc_user",
+      "follows_from_note": 0.0,
+      "collects": 2.0,
+      "cover_ctr_pct": "7.3",
+      "completion_rate_pct": "19.0",
+      "first_80_chars": "好长时间没更视频了。这段时间我一直在学一些 AI 相关的课程，但越学，有时也会引发一些自己教学方面的思考。今天想跟大家分享一个我自己的观点。很多家长会一下子给孩",
+      "caption_status": "owner_transcript",
+      "caption_source": "owner_chat_2026-10-21"
+    }
+  ]
+}

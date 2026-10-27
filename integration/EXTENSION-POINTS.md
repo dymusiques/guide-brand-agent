@@ -1,6 +1,6 @@
 # 扩展接口 · 预留能力（不改 kernel）
 
-> **当前运行策略（Owner 2026-10）：** **Cursor + 00 Manager + 按需 `manager-autopilot`**；Process Launcher / ai-agent-cli **已 vendor、默认不启服务/不 headless**。  
+> **当前运行策略（Owner 2026-10-27）：** **Cursor + 00 Manager** + **后台 goal-evolution loop**（`setup-background-goal-evolution.sh` 一次）；`manager-autopilot.sh` 仅 Debug/交班单次。  
 > 本文定义 **以后加能力时改哪里**，避免新 Agent 另起炉灶或破坏接手链。
 
 ## 0. 现在最好的选择（唯一默认栈 · 下一阶段前不变）

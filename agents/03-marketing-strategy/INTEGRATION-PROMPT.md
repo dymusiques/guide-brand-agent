@@ -1,5 +1,7 @@
 # 03 Marketing Strategy · 集成
 
+> **Collector + Evaluator（Must）：** [../_shared/COLLECTOR-EVALUATOR.md](../_shared/COLLECTOR-EVALUATOR.md) · slot `03-marketing`
+
 **成功目标：** `G-MARKETING-CAMPAIGN` · `G-STRONG-LINK`
 
 1. Campaign / 渠道 Brief → `content/marketing/`（README 模板）。

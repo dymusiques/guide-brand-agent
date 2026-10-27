@@ -1,0 +1,14 @@
+{
+  "agent": "10-artist-intel",
+  "slug": "watchlist-curated",
+  "intakes": [
+    {
+      "id": "20261027T080024Z-h-artist-watchlist-j",
+      "path": "content/evolution/10-artist-intel/watchlist-curated/intake/20261027T080024Z-h-artist-watchlist-j.md",
+      "at": "20261027T080024Z",
+      "note": "Owner委托Agent维护艺术对标名单",
+      "source": "/Users/danying/Desktop/danying-brand-agent/content/ip-research/artist-watchlist.json"
+    }
+  ],
+  "versions": []
+}

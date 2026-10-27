@@ -133,6 +133,7 @@ def main() -> int:
             {
                 "platform": p,
                 "title": r.get("title"),
+                "note_id": r.get("note_id") or r.get("post_id") or r.get("video_id"),
                 "pillar": r.get("pillar"),
                 "score": s,
             }
@@ -166,6 +167,17 @@ def main() -> int:
         if s.get("reference_title"):
             md_lines.append(f"   - 参考标题：{s['reference_title']}")
         md_lines.append("")
+    md_lines.extend(["", "## Top 笔记（含链接）", ""])
+    for i, item in enumerate(summary["top_by_score"], 1):
+        link = item.get("note_id") or ""
+        if link.startswith("http"):
+            md_lines.append(f"{i}. [{item.get('title')}]({link}) · {item.get('pillar')} · score {item['score']:.1f}")
+        else:
+            md_lines.append(
+                f"{i}. **{item.get('title')}** · {item.get('pillar')} · score {item['score']:.1f}"
+                + (f" · id `{link}`" if link else "")
+            )
+    md_lines.append("")
     md_lines.append("---")
     md_lines.append("由 `scripts/analytics-summarize.py` 生成 → Manager 派 04 写 Brief → `evaluate --brief`")
 

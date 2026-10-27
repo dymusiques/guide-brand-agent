@@ -9,5 +9,7 @@
 触发词："转写"、"ASR"、"视频转文稿"。
 
 ```bash
+source scripts/ensure-workspace-venv.sh
 pip install -e vendor/asr-skill   # 首次 · macOS 26+ / MLX 见 vendor README
+# 转写权重未装时 verify-ip-skills-env 会 WARN — 按需装 vendor 文档中的 MLX 依赖
 ```

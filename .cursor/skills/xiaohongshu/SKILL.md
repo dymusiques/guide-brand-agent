@@ -18,11 +18,12 @@ description: >-
 ## 读什么
 
 1. `guide-core/soul.md`（品牌名与语气）
-2. Git `content/xiaohongshu/`（真相源，优先）
-3. 个人 Skill `danying-tingjian-daily`（栏目规范，若做长笛内容）
-4. Drive `05-xiaohongshu/`（仅 Owner 已同步定稿时查阅）
-5. `kernels/templates/xhs-content-brief.template.md`
-6. **选题管线** → [topic-manager.md](./topic-manager.md)
+2. **Owner 数据叠加栈（写 Brief/视频/标题前 Must）** → [XHS-CONTENT-INTAKE-STACK.md](../../../docs/XHS-CONTENT-INTAKE-STACK.md) · [CONTENT-DELIVERY-FOR-OWNER.md](../../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md)
+3. Git `content/xiaohongshu/`（真相源，优先）
+4. 个人 Skill `danying-tingjian-daily`（栏目规范，若做长笛内容）
+5. Drive `05-xiaohongshu/`（仅 Owner 已同步定稿时查阅）
+6. `kernels/templates/xhs-content-brief.template.md`
+7. **选题管线** → [topic-manager.md](./topic-manager.md)
 
 ## 存储默认规则
 

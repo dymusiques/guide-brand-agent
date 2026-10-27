@@ -6,8 +6,8 @@
 
 | 项 | 选择 |
 |----|------|
-| 主路径 | **Cursor + 00 Manager**；需要时 **`bash scripts/manager-autopilot.sh`** |
-| Process Launcher | **工具箱已安装**（submodule + pip + 路由）；**默认不** `start` 常驻 |
+| 主路径 | **Cursor + 00 Manager**；**机器层** → `bash scripts/setup-background-goal-evolution.sh` 一次 + Launcher 常驻（见 [BACKGROUND-GOAL-EVOLUTION.md](../docs/BACKGROUND-GOAL-EVOLUTION.md)） |
+| Process Launcher | setup 后 **`dba-brand-agent.yaml`** 跑 goal-evolution loop；**不**替代 CEO 写稿 |
 | 预留 | 定时 autopilot / analytics / TCC 任务 → [templates/process-launcher-reserved-jobs.example.yaml](./templates/process-launcher-reserved-jobs.example.yaml)（`enabled: false`） |
 | 以后加能力改哪 | [EXTENSION-POINTS.md](./EXTENSION-POINTS.md) |
 

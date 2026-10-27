@@ -1,0 +1,14 @@
+{
+  "agent": "00-manager",
+  "slug": "background-goal-evolution",
+  "intakes": [
+    {
+      "id": "20261027T063445Z-text",
+      "path": "content/evolution/00-manager/background-goal-evolution/intake/20261027T063445Z-text.md",
+      "at": "20261027T063445Z",
+      "note": "2026-10-27",
+      "source": "--text"
+    }
+  ],
+  "versions": []
+}

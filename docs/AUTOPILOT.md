@@ -1,15 +1,17 @@
-# 全自动 CEO 编排 · Autopilot
+# Autopilot 脚本（Debug / 交班单次）
 
-**设计原则：** 会话内仍由 **00 Manager** 扮演 CEO；本脚本把 **可机器化的链** 串成一条命令。**不** 多进程、**不** 代发帖、**不** 爬小红书 API。破坏性/写操作前见 [integration/IMPORTANT.md](../integration/IMPORTANT.md#dry-run破坏性--发布侧--摘录)（`AUTOPILOT_FULL=1` 跑 release verify 前尤其适用）。
+**Owner 主路径：** 后台常驻链见 **[BACKGROUND-GOAL-EVOLUTION.md](./BACKGROUND-GOAL-EVOLUTION.md)** — `bash scripts/setup-background-goal-evolution.sh`（一次）+ Process Launcher。**不必** 日常手动跑本脚本。
 
-## Owner 仅做两件事
+**设计原则：** 会话内 **00 Manager** 写稿/红队/Gate；本脚本 = 与 `background-goal-evolution-cycle.sh` **同逻辑的离线单次跑**。
+
+## Owner 日常仅两件事
 
 | 环节 | 说明 |
 |------|------|
 | **发帖** | 各平台后台发布；回填 Brief `## 发布状态` |
-| **数据** | 导出 CSV → `content/analytics/inbox/` |
+| **数据** | 导出 CSV → `content/analytics/inbox/`（后台 cycle 会自动 pipeline） |
 
-## 一条命令（其余全自动）
+## 维护者 / Debug 单次
 
 ```bash
 bash scripts/manager-autopilot.sh

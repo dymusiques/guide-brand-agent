@@ -24,6 +24,8 @@ Before doing anything else:
 4. Read `rules/WORKSPACE.md` — file paths; check before glob/grep
 5. Read `rules/skills/INDEX.md` — CLI skills (gdocs, etc.)
 
+**IP 内容工具链 CLI（bili-upload、voice-lora、ASR…）：** 默认 **不跑**；触发见 [integration/ip-content-skills-adoption.md](integration/ip-content-skills-adoption.md)。真要执行前先 `source scripts/ensure-workspace-venv.sh`，装/换机后 `bash scripts/verify-ip-skills-env.sh`。
+
 ## Owner 给目标任务时（自动 00 Manager · 无需口令）
 
 **不用粘贴启动口令。** Owner 一旦给出要写/要做/选题/Brief/定稿等目标：

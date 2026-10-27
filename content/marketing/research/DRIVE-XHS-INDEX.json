@@ -1,0 +1,34 @@
+{
+  "generated": "2026-10-20",
+  "searchQuery": "title contains 小红书",
+  "tierA": [
+    {"name": "《Momentum 2026》小红书商业年度特刊.pdf", "fileId": "12e2I54uSpzW-RvJ2ExKLUUyytDJmTBKv", "localImport": "content/marketing/research/raw/momentum-2026.pdf"},
+    {"name": "小红书2026WILL商业大会_导读.pdf", "fileId": "1oUrr7SKiji2KyArqgpqtNL-8fmji0UPR", "md": "xhs-platform-2026-will-momentum.md"},
+    {"name": "小红书2026WILL商业大会_原文（附视频下载链接）.pdf", "fileId": "1udV4Wmv2QVXtdkeNnFlu7MeGXerpURmm", "md": "xhs-platform-2026-will-momentum.md"},
+    {"name": "（已压缩）2026小红书WILL商业大会PPT合集203页.pdf", "fileId": "17LM-rnVxDLPJBa8Er1CBTsjY2HeJcZln"},
+    {"name": "01认识小红书的社区生态.pdf", "fileId": "1QR0bvFFFa7MTgJahwE4AQ8BuF1-1homd"},
+    {"name": "02小红书的独特营销逻辑.pdf", "fileId": "12geVYlFcoguhnWzZuQnHfHjMtroKidXV"},
+    {"name": "小红书10大搜索趋势洞察报告2024.pdf", "fileId": "1CY8cZRG-YAZBidPeeOSWFJgC0Q5t78LZ", "md": "xhs-drive-excerpts-methodology.md"},
+    {"name": "小红书20大生活方式人群白皮书2024.pdf", "fileId": "1Ix_TH2CZgMIBcRy9dOonpP5_lYyqW54h"},
+    {"name": "小红书种草营销方法论2024.pdf", "fileId": "1pAncTVPRLDSJlKIDR_HHBkj2sLKWSZlm"},
+    {"name": "小红书平台营销通案2024.pdf", "fileId": "1OY4C8wUmwecXWTJO9EDnQCJ-9zVzpY3h"},
+    {"name": "小红书搜索推广白皮书2024.pdf", "fileId": "1OTJfnvv4sG7rrfNrfmK6SZ52y8VeCvrt"},
+    {"name": "小红书-2025红薯种草地优质创作者计划 .pdf", "fileId": "1Z4FPjTe6L_k_eRFGemt-lxkY9rDIFxWO"},
+    {"name": "2025小红书爆品突围战：笔记实战指南与案例拆解.pdf", "fileId": "1Cr-B7ypKPbUg-tRTldun6kO0efqVJaGJ"},
+    {"name": "2025小红书爆款拆解黄金公式.pdf", "fileId": "1xXDTVxPIROgNkhmF-0eoCreuxzegSdp4"},
+    {"name": "2025小红书教育营销答案之书.pdf", "fileId": "1ItRQwIC5wzt44AfkxrMtAXYZN884Hc2H"},
+    {"name": "2026小红书文旅兴趣出游种草指南暨招商方案.pdf", "fileId": "1pqijK6AaX5t-x3bj3rstRiZ8cmkhy4tS"}
+  ],
+  "tierB": [
+    {"name": "02小红书搜索推广投放策略.pdf", "fileId": "1ztU9L21Gy0vwmv4cLPAxTYB6s7t3AvWO"},
+    {"name": "09小红书聚光营销投放指南扩大生意规模.pdf", "fileId": "1rg4Jxd77p_Qqq1gYj5zsBj05JJyjgQwI"},
+    {"name": "15小红书聚光平台营销玩法.pdf", "fileId": "1DSE5cj7RKah905gasU6B-KWPt2nfTDOd"},
+    {"name": "08小红书私信通好生意聊出来.pdf", "fileId": "1Q9VaYAwHBBEe5hMQu2UNYDWq8U7oukz4"},
+    {"name": "03 04 小红书企业号客资经营始发站.pdf", "fileId": "1ruqMvCQ78fnWpzcIdO4-qFQMX4jjLAxs"},
+    {"name": "06 小红书员工号(KOS)人感式互动全链路服务客户.pdf", "fileId": "1OIdaIzfaMcdASE1kAANE7gjy13oYs6d-"},
+    {"name": "14小小红书客资营销数据复盘实战指南.pdf", "fileId": "191XFb7XgN_ZD2rQFbBmtXFsfbvnZ6U49"},
+    {"name": "小红书营销投放全攻略.pdf", "fileId": "1TmTex8gkqSTwoV3JF-2OZpM2GUucF4ZJ"},
+    {"name": "2025「生命力」种草数据洞察报告（小红书平台）.pdf", "fileId": "1WJvBm5zNI5XgAaR4khn2ACdR8bjRTgzl"}
+  ],
+  "note": "Tier C: 100+ industry decks; see xhs-drive-catalog-2026-10-20.md."
+}

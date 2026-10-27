@@ -1,5 +1,7 @@
 # 07 Brand Visual · 集成
 
+> **Collector + Evaluator（Must）：** [../_shared/COLLECTOR-EVALUATOR.md](../_shared/COLLECTOR-EVALUATOR.md) · slot `07-visual`
+
 **成功目标：** `G-BRAND-VISUAL`
 
 1. 从 XHS Brief 封面块或 Owner 需求 → `content/visual/` · Canva（`.cursor/skills/brand-visual/`）。

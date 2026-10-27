@@ -4,7 +4,7 @@
 
 | 平台 | Owner 动作 | 归档 |
 |------|------------|------|
-| 小红书 | 创作者后台导出笔记数据 → CSV | `inbox/xiaohongshu-*.csv` → `analytics-fetch.sh` |
+| 小红书 | 创作者后台「笔记列表明细表」xlsx | 归档 raw → **`xhs_note_links.py scaffold`** 维护 `note-links.csv` → **`xhs_convert_notes_detail.py`**（合并真实 `note_id`）→ `analytics-fetch.sh` |
 | Instagram | Insights 导出 / 第三方表格 | `inbox/instagram-*.csv` |
 | YouTube | Studio 导出 / Analytics 表格 | `inbox/youtube-*.csv` |
 

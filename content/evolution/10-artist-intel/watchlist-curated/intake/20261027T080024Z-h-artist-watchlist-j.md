@@ -1,0 +1,116 @@
+<!-- collector-intake id=20261027T080024Z-h-artist-watchlist-j source=/Users/danying/Desktop/danying-brand-agent/content/ip-research/artist-watchlist.json -->
+
+{
+  "owner_baseline_ref": "content/personal-ip/ip-positioning-brief-2026-10-05.md",
+  "rotation": "one_artist_per_day",
+  "scope_note": "艺术类 IP 对标（不限单一乐器/画种）· Owner 2026-10-27 委托 Agent 维护 · GM10 优先读 urls",
+  "tier_note": "公开报道/官网为主；GM10 须在 sources_note 标注推断 vs 可核查来源",
+  "artists": [
+    {
+      "slug": "drew-forde-thatviolakid",
+      "name": "Drew Alexander Forde · ThatViolaKid",
+      "domain": "古典演奏 × 社交媒体 IP × 品牌合作（弦乐，非长笛专对标）",
+      "search_queries": [
+        "ThatViolaKid personal brand classical Instagram",
+        "Drew Forde wholesoul hip-hop string quartet"
+      ],
+      "urls": [
+        "https://thatviolakid.com/about",
+        "https://christianhowes.com/2021/05/06/creative-strings-podcast-ep-43-drew-alexander-forde/"
+      ],
+      "notes": "可借鉴：可检索艺名、古典+流行并列、Fortune500 品牌共创仍保持演奏者身份"
+    },
+    {
+      "slug": "hauser-cellist",
+      "name": "HAUSER（Stjepan Hauser）",
+      "domain": "古典演奏 × 短视频/国际社媒放大（大提琴）",
+      "search_queries": [
+        "HAUSER cellist Instagram TikTok strategy",
+        "HAUSER Shorts channel growth"
+      ],
+      "urls": [
+        "https://groovemedia.org/work/hauser"
+      ],
+      "notes": "可借鉴：平台分轨、Shorts、巡演/专辑节点；慎学 pure vanity 涨粉无 B2B"
+    },
+    {
+      "slug": "tudou-man-aigc",
+      "name": "土豆人 · tudou_man（林晨）",
+      "domain": "视觉/AIGC × 小红书 IP × 奢侈/潮流品牌共创",
+      "search_queries": [
+        "土豆人 AIGC 艺术家 小红书 品牌",
+        "tudou_man UGG 雅诗兰黛 合作"
+      ],
+      "urls": [
+        "https://www.digitaling.com/articles/942108.html",
+        "https://www.digitaling.com/articles/1320234.html"
+      ],
+      "notes": "可借鉴：概念假设式品牌结合、东方元素×全球品牌、线下装置/展览延展；对齐 Owner AI×艺术叙事"
+    },
+    {
+      "slug": "erlich-illustrator",
+      "name": "儿力力 · 白日梦小姐 IP",
+      "domain": "插画/IP × 情绪治愈 × 展览+品牌（纯视觉艺术）",
+      "search_queries": [
+        "儿力力 白日梦小姐 小红书 IP 合作",
+        "儿力力 柔软的种子 展览"
+      ],
+      "urls": [
+        "https://www.99ys.com/exhibit/2025/03/05/11/72048.html"
+      ],
+      "notes": "可借鉴：单一 IP 形象、小红书/微博情感共鸣、Marc Jacobs 等联名；认知期「名片式」情绪"
+    },
+    {
+      "slug": "fuzzy-hug-digital-ip",
+      "name": "Fuzzy hug（独立数字艺术 IP）",
+      "domain": "数字角色 IP × 快消/美妆跨界（非真人艺术家，学 IP 商业化）",
+      "search_queries": [
+        "Fuzzy hug 潘婷 3分钟 跨界",
+        "Fuzzy hug IP 合作"
+      ],
+      "urls": [
+        "https://www.adquan.com/article/343094"
+      ],
+      "notes": "可借鉴：小 IP 撬大声量、CG+实景落地；勿绑单品类；偏 campaign 案例层"
+    },
+    {
+      "slug": "grace-xhs-visual-ip",
+      "name": "画画的小福象（小红书 · 品牌/IP 视觉）",
+      "domain": "绘画 × AIGC 审美 × 文创 IP（福福家族）",
+      "search_queries": [
+        "画画的小福象 小红书 IP 设计师",
+        "福福家族 文创"
+      ],
+      "urls": [
+        "https://www.xiaohongshu.com/user/profile/5657b233b8ce1a4fa16e6d0f"
+      ],
+      "notes": "可借鉴：小红书人设标签、AI+国风商业插画、自有文创 IP 线；粉丝量级更接近 Owner 阶段"
+    },
+    {
+      "slug": "lang-lang-piano-ip",
+      "name": "Lang Lang · 郎朗",
+      "domain": "古典钢琴 × 全球名人 IP × 教育/公益/商业（高知名度参照）",
+      "search_queries": [
+        "Lang Lang personal brand education foundation",
+        "郎朗 小红书 古典音乐 普及"
+      ],
+      "urls": [
+        "https://langlang.com/"
+      ],
+      "notes": "可借鉴：教育链叙事、古典破圈事件；勿照搬 celebrity 尺度，取「古典+可合作语言」"
+    },
+    {
+      "slug": "lincoln-center-digital",
+      "name": "Lincoln Center / 机构级艺术传播（非个人，学内容结构）",
+      "domain": "表演艺术机构 × 数字内容矩阵",
+      "search_queries": [
+        "Lincoln Center social media strategy classical",
+        "performing arts institution digital audience"
+      ],
+      "urls": [
+        "https://www.lincolncenter.org/"
+      ],
+      "notes": "机构非人 IP；仅借鉴：节目单+幕后+教育分层，勿让 Owner 账号像场馆号"
+    }
+  ]
+}

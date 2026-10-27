@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent 生态图 v4 · danying-brand-agent</title>
+  <!-- layout-version: 2026-10-22-v4 主图 SVG + 工具箱 HTML 分离 -->
+  <style>
+    html, body { margin: 0; height: 100%; background: #0d1117; font-family: "PingFang SC", system-ui, sans-serif; overflow: hidden; }
+    #hint {
+      position: fixed; top: 10px; left: 50%; transform: translateX(-50%);
+      color: #8b949e; font-size: 12px; z-index: 2; text-align: center; pointer-events: none;
+    }
+    #hint a { color: #58a6ff; pointer-events: auto; }
+    #stage {
+      position: fixed; inset: 0; left: 168px; right: 0; bottom: 0; top: 28px;
+      overflow: auto;
+    }
+    svg#main { display: block; width: 100%; max-width: 960px; height: auto; min-height: 720px; margin: 0 auto; }
+    #tool-shelf {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+      max-width: 920px; margin: 0 auto; padding: 16px 12px 32px;
+      border-top: 1px solid #30363d; background: rgba(22,27,34,0.6);
+    }
+    #tool-shelf h3 {
+      width: 100%; text-align: center; margin: 0 0 8px; font-size: 12px;
+      color: #8b949e; font-weight: 600; letter-spacing: 0.04em;
+    }
+    .tool-chip {
+      flex: 1 1 200px; max-width: 280px; padding: 14px 16px; border-radius: 12px;
+      border: 2px solid #30363d; background: #21262d; color: #e6edf3; cursor: pointer;
+      font-family: inherit; text-align: left;
+    }
+    .tool-chip:hover { border-color: #58a6ff; }
+    .tool-chip.selected { border-color: #ffe066; background: #1c2128; }
+    .tool-chip strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .tool-chip span { font-size: 12px; color: #8b949e; }
+    .ring-guide {
+      fill: none;
+      stroke: rgba(255,255,255,0.08);
+      stroke-width: 1;
+      pointer-events: none;
+    }
+    .ring-label {
+      fill: #6e7681;
+      font-size: 11px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .spoke { stroke: rgba(255,255,255,0.28); stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+    .spoke-flow { stroke: #58a6ff; stroke-dasharray: 6 5; opacity: 0.7; }
+    .spoke-data { stroke: #3ddbd9; }
+    .spoke-tool { stroke: #8b949e; stroke-dasharray: 4 4; opacity: 0.6; }
+    .spoke-owner { stroke: #f0c14a; stroke-width: 2.5; }
+    .node-hit { cursor: pointer; }
+    .node-hit .disc { pointer-events: none; }
+    .node-hit .lbl, .node-hit .lbl-sm { pointer-events: none; }
+    .node-hit .hit-target { fill: rgba(255,255,255,0.001); cursor: pointer; }
+    .node-hit:hover .disc, .node-hit.selected .disc { stroke: #fff; stroke-width: 3; }
+    .node-hit.selected .disc { stroke: #ffe066; }
+    .node-hit .disc { filter: none; }
+    .lbl { fill: #fff; font-size: 12px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
+    .lbl-sm { fill: rgba(255,255,255,0.85); font-size: 9px; font-weight: 400; text-anchor: middle; dominant-baseline: middle; }
+    #dock {
+      position: fixed; top: 28px; left: 0; bottom: 0; width: 160px; z-index: 5;
+      display: flex; flex-direction: column; gap: 0.35rem;
+      padding: 0.5rem 0.45rem;
+      background: rgba(13,17,23,.96);
+      border-right: 1px solid #30363d;
+      overflow-y: auto;
+      pointer-events: auto;
+    }
+    #dock .dock-group {
+      font-size: 0.62rem; color: #6e7681; text-transform: uppercase;
+      letter-spacing: 0.04em; margin: 0.35rem 0 0.15rem;
+    }
+    #dock button {
+      border: 1px solid #30363d; background: #21262d; color: #e6edf3;
+      font-size: 0.68rem; padding: 0.32rem 0.45rem; border-radius: 6px; cursor: pointer;
+      font-family: inherit; text-align: left; width: 100%;
+    }
+    #dock button:hover { border-color: #58a6ff; }
+    #dock button.active { background: #1f6feb; border-color: #79c0ff; }
+    #panel {
+      position: fixed; top: 0; right: 0; width: min(440px, 94vw); height: 100%;
+      background: rgba(22, 27, 34, 0.98); border-left: 1px solid #30363d;
+      box-shadow: -8px 0 32px rgba(0,0,0,.5); z-index: 10;
+      transform: translateX(100%); transition: transform 0.26s ease;
+      overflow-y: auto; padding: 1.2rem 1.3rem 2rem; box-sizing: border-box;
+    }
+    #panel.open { transform: translateX(0); }
+    #panel h2 { margin: 0 2rem 0.4rem 0; font-size: 1.2rem; color: #e6edf3; }
+    #panel .meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.65rem; }
+    #panel .badge, #panel .clarity {
+      font-size: 0.68rem; padding: 0.12rem 0.45rem; border-radius: 999px; background: #21262d; color: #8b949e;
+    }
+    #panel .clarity-green { color: #7ee787; border: 1px solid #238636; }
+    #panel .clarity-yellow { color: #f0c14a; border: 1px solid #9e6a03; }
+    #panel .clarity-orange { color: #ffa657; border: 1px solid #bd561d; }
+    #panel .lead { color: #c9d1d9; font-size: 0.88rem; line-height: 1.55; margin: 0 0 0.85rem; }
+    #panel h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #8b949e; margin: 0.85rem 0 0.35rem; }
+    #panel ul { margin: 0; padding-left: 1.1rem; color: #c9d1d9; font-size: 0.82rem; line-height: 1.48; }
+    #panel li { margin: 0.28rem 0; }
+    #panel .path { font-family: ui-monospace, monospace; font-size: 0.74rem; background: #0d1117; padding: 0.1rem 0.3rem; border-radius: 4px; color: #79c0ff; word-break: break-all; }
+    #panel .cmd { display: block; margin-top: 0.3rem; padding: 0.45rem 0.6rem; background: #0d1117; border-radius: 6px; font-size: 0.72rem; color: #7ee787; white-space: pre-wrap; font-family: ui-monospace, monospace; }
+    #close { position: absolute; top: 0.85rem; right: 0.85rem; width: 34px; height: 34px; border: none; border-radius: 8px; background: #21262d; color: #e6edf3; font-size: 1.2rem; cursor: pointer; }
+    #backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 9; opacity: 0; pointer-events: none; transition: opacity 0.26s; }
+    #backdrop.open { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+<body>
+  <p id="hint">v4：<strong>Vendor×6 / IP×13 不在圆图里</strong>，见主图下方三个方框 · 左侧也可点 · 标题含 v4 即新版</p>
+  <nav id="dock" aria-label="节点"></nav>
+  <div id="backdrop"></div>
+  <aside id="panel" aria-hidden="true">
+    <button type="button" id="close" title="关闭">×</button>
+    <div id="panel-body"></div>
+  </aside>
+  <div id="stage">
+    <svg id="map" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="tool-shelf" aria-label="Layer 3 工具箱"></div>
+  </div>
+  <script>
+(function () {
+  const DETAIL = {
+    ceo: {
+      title: "00 · Manager（CEO）",
+      badge: "Layer 1 · 指挥",
+      clarity: "green",
+      clarityLabel: "🟢 清晰 · 单一 CEO",
+      lead: "Owner 给目标任务时自动激活。按 AUTO-WORKFLOW 顺序派 01–09，汇总 PASS/FAIL；失败走 Manager's Loop（只改 Brief/Skill/集成，不动 kernel 除非 05）。",
+      sections: [
+        { h: "能力点", items: ["解析目标 · 3 行计划", "步 0a/2a/0b 路由", "派活记录模板", "可选 autopilot / dashboard"] },
+        { h: "文档", items: ["agents/00-manager/AUTO-WORKFLOW.md", "integration/IMPORTANT.md"] },
+        { h: "命令", cmd: "bash scripts/manager-autopilot.sh\nbash scripts/manager-dashboard.sh" },
+      ],
+    },
+    owner: {
+      title: "Owner",
+      badge: "Layer 0",
+      clarity: "green",
+      clarityLabel: "🟢 清晰 · 人机分界",
+      lead: "审阅定稿、App 发帖、回填链接与数据；不替代 Agent 写稿与 verify。",
+      sections: [
+        { h: "能力边界", items: ["小红书 / B 站最终点击发布", "选题与敏感句裁量", "CSV/xlsx 导入（可选）", "OAuth / MCP 授权"] },
+        { h: "当前主队列（内容）", items: ["pivot A→B→C→E packages（2026-10-21）", "非旧 5-topic workflow test"] },
+      ],
+    },
+    a01: {
+      title: "01 · personal-ip",
+      badge: "战略 · IP",
+      clarity: "yellow",
+      clarityLabel: "🟡 与 0b/1 步交叉",
+      lead: "人设、Five Ps、CAPSTONE playbook、合作边界；Pitch/简介走步 0b。",
+      sections: [
+        { h: "能力点", items: ["IP 定位与 pillars", "30 秒 Pitch / 合作开场", "全品类可合作、不单品类绑定", "cv-source / positioning brief"] },
+        { h: "产出", items: ["content/personal-ip/"] },
+        { h: "文档", items: ["agents/01-personal-ip/INTEGRATION-PROMPT.md", "2026-10-18-key-person-of-influence-capstone-playbook.md"] },
+      ],
+    },
+    a02: {
+      title: "02 · business-brand",
+      badge: "商业品牌",
+      clarity: "green",
+      clarityLabel: "🟢 清晰 · 按需",
+      lead: "SWOT、品牌策略、商业文档；campaign 级目标时步 1b 介入。",
+      sections: [
+        { h: "能力点", items: ["竞品与定位 framing", "Problem→Opportunity", "evaluate-business-brand"] },
+        { h: "产出", items: ["content/business-brand/"] },
+      ],
+    },
+    a03: {
+      title: "03 · marketing-strategy",
+      badge: "营销",
+      clarity: "green",
+      clarityLabel: "🟢 清晰 · 按需",
+      lead: "认知期计划、渠道、campaign；与 discovery OPERATING-PLAN 对齐。",
+      sections: [
+        { h: "能力点", items: ["discovery phase 节奏", "campaign brief", "research / survey 定稿目录"] },
+        { h: "产出", items: ["content/marketing/"] },
+      ],
+    },
+    a04: {
+      title: "04 · xhs-topic-manager",
+      badge: "内容 · 成稿",
+      clarity: "yellow",
+      clarityLabel: "🟡 视频迭代 + Brief 双线",
+      lead: "选题、Brief、packages、Round1–3 视频钩子；跑 evaluate 得 aligned。",
+      sections: [
+        { h: "能力点", items: ["Brief / 成稿", "视频 Round1 多方向（3–5）", "L2 禁 consultant 腔", "Intake stack 叠加 Excel+PDF"] },
+        { h: "Must 读", items: ["XHS-VIDEO-ITERATION.md", "VOICE-ANCHOR.md", "CONTENT-DELIVERY-FOR-OWNER.md", "XHS-CONTENT-INTAKE-STACK.md"] },
+        { h: "验收", cmd: "bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md\nbash scripts/verify-xhs-voice-qa.sh <round1.md>" },
+      ],
+    },
+    flow2a: {
+      title: "步 2a · 视频迭代",
+      badge: "流程 · 非独立 Agent",
+      clarity: "yellow",
+      clarityLabel: "🟡 步号在 2 之前",
+      lead: "Owner 要「像本人/多备选」时：Round1→Owner 点选→Round2/3；默认轨1（口播故事）。",
+      sections: [
+        { h: "能力点", items: ["Round1 钩子 3–5 条", "声音锚定 transcripts", "轨2 仅 Owner 点名", "packages 非 consultant 测试稿"] },
+        { h: "文档", items: ["content/xiaohongshu/XHS-VIDEO-ITERATION.md", "integration/xhs-video-iteration-adoption.md"] },
+      ],
+    },
+    a05: {
+      title: "05 · xhs-kernel",
+      badge: "Classifier · 黑盒",
+      clarity: "green",
+      clarityLabel: "🟢 清晰 · 边界硬",
+      lead: "Gemini aligned 内核；集成层不改 docstring，只 evaluate。",
+      sections: [
+        { h: "能力点", items: ["line2 classifier", "6 case verify", "改 kernel 才介入"] },
+        { h: "验收", cmd: "bash scripts/verify-xhs-topic.sh" },
+      ],
+    },
+    a06: {
+      title: "06 · xhs-content-pipeline",
+      badge: "批量管线",
+      clarity: "green",
+      clarityLabel: "🟢 清晰",
+      lead: "Brief 目录级 verify，与 04 evaluate 互补。",
+      sections: [
+        { h: "能力点", items: ["content/xiaohongshu/*-brief.md 批量", "PIPELINE 三阶段"] },
+        { h: "验收", cmd: "bash scripts/verify-xhs-content-dir.sh" },
+      ],
+    },
+    a07: {
+      title: "07 · brand-visual",
+      badge: "视觉 · 可选",
+      clarity: "green",
+      clarityLabel: "🟢 清晰 · 步 6",
+      lead: "Canva、封面、brand-visual skill；Brief 封面块。",
+      sections: [
+        { h: "能力点", items: [".cursor/skills/brand-visual/", "Canva MCP", "XHS 3:4 / B站双封面规划"] },
+        { h: "产出", items: ["content/visual/"] },
+      ],
+    },
+    a08: {
+      title: "08 · platform-integration",
+      badge: "gdocs / Drive",
+      clarity: "green",
+      clarityLabel: "🟢 清晰 · Owner 触发",
+      lead: "Google Docs/Gmail/Drive CLI；仅 Owner 说同步时。",
+      sections: [
+        { h: "能力点", items: ["skill_google_docs.md", "verify-integration.sh", "MCP Drive 并存"] },
+      ],
+    },
+    a09: {
+      title: "09 · data-analytics",
+      badge: "数据轨 · 维护侧",
+      clarity: "yellow",
+      clarityLabel: "🟡 文件多 · 有索引",
+      lead: "把 Excel/CSV 转成 notes.csv、snapshot、derived；**维护** DATA-MANIFEST.json（与 0a 读的是同一文件）。",
+      sections: [
+        { h: "MANIFEST 是什么", items: ["content/analytics/xiaohongshu/DATA-MANIFEST.json", "23 篇笔记索引 + 路径 + 刷新命令 · 不是第二份清单"] },
+        { h: "能力点", items: ["analytics-pipeline", "ceo-dispatch-latest.md", "派活 04 下一 Brief"] },
+        { h: "文档", items: ["docs/XHS-DATA-LAYER.md", "agents/09-data-analytics/DATA-NEEDS.md"] },
+        { h: "命令", cmd: "bash scripts/analytics-pipeline.sh" },
+      ],
+    },
+    flow0a: {
+      title: "步 0a · 内容 Intake 栈",
+      badge: "写稿前 · 读 Git/JSON/MD",
+      clarity: "yellow",
+      clarityLabel: "🟡 路径多 · 非 Vendor",
+      lead: "写标题/选题/脚本前：按栈读 Excel 快照 + PDF 摘录 + DATA-MANIFEST.json。**不**等于安装 gdocs/writing；多数用仓内 MD/JSON 即可。",
+      sections: [
+        { h: "能力点", items: ["读 DATA-MANIFEST.json（索引 23 篇）", "notes-snapshot · strategy MD · platform-research-index", "verify-xhs-content-intake"] },
+        { h: "与 09 关系", items: ["09 跑 pipeline **更新**数据；0a **读**最新 derived/MANIFEST 再写稿"] },
+        { h: "文档", items: ["docs/XHS-CONTENT-INTAKE-STACK.md"] },
+      ],
+    },
+    verify: {
+      title: "验收 hub",
+      badge: "PASS/FAIL",
+      clarity: "yellow",
+      clarityLabel: "🟡 多脚本 · 分场景",
+      lead: "不同任务跑不同 verify；不是每轮全跑。",
+      sections: [
+        { h: "接手", cmd: "bash scripts/verify-handoff.sh" },
+        { h: "Brief 定稿", cmd: "bash scripts/manager-workflow-verify.sh <brief>.md" },
+        { h: "IP 工具 env", cmd: "bash scripts/verify-ip-skills-env.sh" },
+        { h: "索引", items: ["check.md", "docs/VERIFY-TIERS.md"] },
+      ],
+    },
+    l3core: {
+      title: "工具箱 · 核心 Vendor（≠ 0a Intake）",
+      badge: "EXTENSION-POINTS Layer 3",
+      clarity: "green",
+      clarityLabel: "🟢 可选 CLI",
+      lead: "gdocs/writing/docx 等 **按需**调用；**不是**写小红书 Brief 的默认路径。0a 读的是 Git 里 MANIFEST/MD，不要求先开 gdocs。",
+      sections: [
+        { h: "何时用", items: ["Owner 说「同步 Drive / 读 Google Doc」→ gdocs", "外部长文 memo → writing（**非 Brief**）", "08 步可选平台同步"] },
+        { h: "与 0a 不重叠", items: ["0a = 读 content/analytics + research MD", "Vendor = 可选把定稿推到 Drive 或办公格式"] },
+        { h: "路由", items: ["integration/EXTENSION-POINTS.md §0", "rules/skills/INDEX.md"] },
+      ],
+    },
+    l3ip: {
+      title: "Layer 3 · IP 内容工具链",
+      badge: "13 submodule · 触发才用",
+      clarity: "orange",
+      clarityLabel: "🟠 易误以为全要跑",
+      lead: "semantic-search、voice-lora、bilibili、ASR、intake… 已 vendor；默认不写 Brief 时不启 CLI。",
+      sections: [
+        { h: "纪律", items: ["integration/ip-content-skills-adoption.md §1 触发", "source scripts/ensure-workspace-venv.sh", "Brief 禁止 voice-lora-rewrite"] },
+        { h: "代表能力", items: ["B 站 fill 至投稿前", "Voice Memos → owner-source", "anchor≥10 再批量 ASR"] },
+      ],
+    },
+    audit: {
+      title: "清晰度审计",
+      badge: "元 · 是否凌乱",
+      clarity: "yellow",
+      clarityLabel: "🟡 文档层 · 非运行时",
+      lead: "逐步评级：架构不碎，凌乱感来自并行队列 + 视频层 + 工具箱扩容。",
+      sections: [
+        { h: "结论摘要", items: ["CEO 单一：否混乱", "主路径写 XHS：清晰", "混 pivot 与旧 discovery：轻度", "13 IP CLI：中度（已有触发表）"] },
+        { h: "全文", items: ["docs/SYSTEM-CLARITY-AUDIT.md"] },
+      ],
+    },
+  };
+
+  const LAYOUT_VERSION = "2026-10-22-v4";
+  const CX = 0;
+  const CY = 30;
+  const R_CEO = 48;
+  /** v3 网格：主环与 Layer3 工具箱 y≥360 分离；节点间距 ≥120px */
+  const nodes = [
+    { id: "owner", x: 0, y: -340, color: "#f0c14a", lines: ["Owner", "审阅·发帖"], cls: "spoke spoke-owner", sub: false, tier: "main" },
+    { id: "flow0a", x: -240, y: -280, color: "#1f6feb", lines: ["0a Intake", "Excel+PDF"], cls: "spoke-flow", sub: true, tier: "main" },
+    { id: "verify", x: 240, y: -280, color: "#7ee787", lines: ["verify", "handoff"], cls: "spoke-flow", sub: true, tier: "main" },
+    { id: "a09", x: -400, y: -140, color: "#3ddbd9", lines: ["09 数据", "pipeline"], cls: "spoke spoke-data", sub: false, tier: "main" },
+    { id: "a07", x: 400, y: -140, color: "#d2a8ff", lines: ["07 视觉", "Canva"], cls: "spoke", sub: false, tier: "main" },
+    { id: "a03", x: -420, y: 60, color: "#bc8cff", lines: ["03 营销", "discovery"], cls: "spoke", sub: false, tier: "main" },
+    { id: "a08", x: -240, y: 100, color: "#d2a8ff", lines: ["08 平台", "gdocs"], cls: "spoke", sub: false, tier: "main" },
+    { id: "a04", x: 240, y: 100, color: "#9be564", lines: ["04 小红书", "Brief"], cls: "spoke", sub: false, tier: "main" },
+    { id: "flow2a", x: 420, y: 60, color: "#9be564", lines: ["2a 视频", "Round1-3"], cls: "spoke-flow", sub: true, tier: "main" },
+    { id: "a02", x: -320, y: 260, color: "#bc8cff", lines: ["02 品牌", "SWOT"], cls: "spoke", sub: false, tier: "main" },
+    { id: "a01", x: -160, y: 300, color: "#bc8cff", lines: ["01 IP", "CAPSTONE"], cls: "spoke", sub: false, tier: "main" },
+    { id: "a06", x: 160, y: 300, color: "#ff7b72", lines: ["06 批量", "verify"], cls: "spoke", sub: false, tier: "main" },
+    { id: "a05", x: 320, y: 260, color: "#ff7b72", lines: ["05 kernel", "aligned"], cls: "spoke", sub: false, tier: "main" },
+  ];
+
+  const TOOL_CHIPS = [
+    { id: "l3core", title: "Vendor ×6", sub: "gdocs · writing · launcher…" },
+    { id: "l3ip", title: "IP 工具 ×13", sub: "bilibili · ASR · 触发才用" },
+    { id: "audit", title: "清晰度审计", sub: "是否凌乱 · 审计表" },
+  ];
+
+  const DOCK_GROUPS = [
+    { label: "核心", ids: ["ceo", "owner"] },
+    { label: "内容", ids: ["a04", "flow2a", "flow0a", "a05", "a06"] },
+    { label: "战略", ids: ["a01", "a02", "a03"] },
+    { label: "数据·平台", ids: ["a09", "a07", "a08", "verify"] },
+    { label: "工具箱", ids: ["l3core", "l3ip", "audit"] },
+  ];
+
+  const panel = document.getElementById("panel");
+  const panelBody = document.getElementById("panel-body");
+  const backdrop = document.getElementById("backdrop");
+  const dock = document.getElementById("dock");
+  const svg = document.getElementById("map");
+  let selectedG = null;
+  let activeId = null;
+
+  function renderPanel(id) {
+    const d = DETAIL[id];
+    if (!d) return;
+    activeId = id;
+    dock.querySelectorAll("button").forEach((b) => b.classList.toggle("active", b.dataset.id === id));
+    const cl = d.clarity === "green" ? "clarity-green" : d.clarity === "orange" ? "clarity-orange" : "clarity-yellow";
+    let html = `<div class="meta"><span class="badge">${d.badge}</span><span class="clarity ${cl}">${d.clarityLabel}</span></div>`;
+    html += `<h2>${d.title}</h2><p class="lead">${d.lead}</p>`;
+    (d.sections || []).forEach((s) => {
+      html += `<h3>${s.h}</h3>`;
+      if (s.cmd) html += `<code class="cmd">${s.cmd}</code>`;
+      if (s.items) {
+        html += "<ul>" + s.items.map((it) =>
+          `<li>${it.includes("/") || it.includes("bash") || it.includes(".md") ? `<span class="path">${it}</span>` : it}</li>`
+        ).join("") + "</ul>";
+      }
+    });
+    panelBody.innerHTML = html;
+    panel.classList.add("open");
+    backdrop.classList.add("open");
+  }
+
+  function closePanel() {
+    panel.classList.remove("open");
+    backdrop.classList.remove("open");
+    if (selectedG) selectedG.classList.remove("selected");
+    selectedG = null;
+    activeId = null;
+    dock.querySelectorAll("button").forEach((b) => b.classList.remove("active"));
+  }
+  document.getElementById("close").onclick = closePanel;
+  backdrop.onclick = closePanel;
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePanel(); });
+
+  function selectNode(g, id) {
+    if (selectedG) selectedG.classList.remove("selected");
+    selectedG = g;
+    if (g) g.classList.add("selected");
+    document.querySelectorAll(".tool-chip").forEach((el) => {
+      el.classList.toggle("selected", el.dataset.id === id);
+    });
+    dock.querySelectorAll("button").forEach((b) => b.classList.toggle("active", b.dataset.id === id));
+    renderPanel(id);
+  }
+
+  function bindNode(g, id) {
+    g.classList.add("node-hit");
+    const hit = g.querySelector(".hit-target");
+    const fn = (e) => { e.preventDefault(); e.stopPropagation(); selectNode(g, id); };
+    (hit || g).addEventListener("click", fn);
+  }
+
+  const vbW = 960;
+  const vbH = 720;
+  const vbY = -380;
+  svg.setAttribute("viewBox", `${-vbW/2} ${vbY} ${vbW} ${vbH}`);
+  svg.setAttribute("data-layout-version", LAYOUT_VERSION);
+
+  const mainNodes = nodes.filter((n) => n.tier !== "tool");
+
+  const cg = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  cg.setAttribute("data-node-id", "ceo");
+  cg.setAttribute("transform", `translate(${CX},${CY})`);
+  const cc = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  cc.setAttribute("class", "disc");
+  cc.setAttribute("r", String(R_CEO));
+  cc.setAttribute("fill", "#1f6feb");
+  cc.setAttribute("stroke", "#79c0ff");
+  cc.setAttribute("stroke-width", "3");
+  cg.appendChild(cc);
+  [["00", -8], ["Manager", 8], ["CEO", 22]].forEach(([txt, y]) => {
+    const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    t.setAttribute("class", txt === "00" ? "lbl" : "lbl-sm");
+    t.setAttribute("y", y);
+    t.textContent = txt;
+    cg.appendChild(t);
+  });
+  const hitC = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  hitC.setAttribute("class", "hit-target");
+  hitC.setAttribute("r", String(R_CEO + 10));
+  cg.appendChild(hitC);
+  bindNode(cg, "ceo");
+  svg.appendChild(cg);
+
+  mainNodes.forEach((n) => {
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("class", n.cls);
+    line.setAttribute("x1", String(CX));
+    line.setAttribute("y1", String(CY));
+    line.setAttribute("x2", String(n.x));
+    line.setAttribute("y2", String(n.y));
+    svg.appendChild(line);
+
+    const nr = n.sub ? 34 : 46;
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("transform", `translate(${n.x},${n.y})`);
+    g.setAttribute("data-node-id", n.id);
+    const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    c.setAttribute("class", "disc");
+    c.setAttribute("r", String(nr));
+    c.setAttribute("fill", n.color);
+    c.setAttribute("stroke", "#fff");
+    c.setAttribute("stroke-width", n.sub ? "2" : "3");
+    g.appendChild(c);
+    const labelY = nr + 16;
+    n.lines.forEach((ln, i) => {
+      const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      t.setAttribute("class", i === 0 ? "lbl" : "lbl-sm");
+      t.setAttribute("y", labelY + i * 12);
+      t.textContent = ln;
+      g.appendChild(t);
+    });
+    const hit = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    hit.setAttribute("class", "hit-target");
+    hit.setAttribute("r", String(nr + 8));
+    g.appendChild(hit);
+    bindNode(g, n.id);
+    svg.appendChild(g);
+  });
+
+  const shelf = document.getElementById("tool-shelf");
+  const shelfTitle = document.createElement("h3");
+  shelfTitle.textContent = "Layer 3 · 工具箱（与 CEO 圆图分离 · 不会叠在蓝圈上）";
+  shelf.appendChild(shelfTitle);
+  TOOL_CHIPS.forEach((t) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "tool-chip";
+    btn.dataset.id = t.id;
+    btn.innerHTML = `<strong>${t.title}</strong><span>${t.sub}</span>`;
+    btn.onclick = () => selectNode(null, t.id);
+    shelf.appendChild(btn);
+  });
+
+  function addDockBtn(id) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.dataset.id = id;
+    btn.textContent = DETAIL[id].title.replace(" · ", " ").slice(0, 18);
+    btn.onclick = () => {
+      const g = svg.querySelector(`[data-node-id="${id}"]`);
+      selectNode(g, id);
+    };
+    dock.appendChild(btn);
+  }
+  DOCK_GROUPS.forEach((grp) => {
+    const h = document.createElement("div");
+    h.className = "dock-group";
+    h.textContent = grp.label;
+    dock.appendChild(h);
+    grp.ids.forEach((id) => { if (DETAIL[id]) addDockBtn(id); });
+  });
+})();
+  </script>
+</body>
+</html>
