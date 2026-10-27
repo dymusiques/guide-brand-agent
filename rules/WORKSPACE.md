@@ -7,7 +7,7 @@
 ### 项目与代码
 - 工作区根目录：`/`（本 repo = **danying-brand-agent**，建议路径 `~/Desktop/danying-brand-agent`）
 - **Agent 总目录：** `agents/`（00-manager … 09-data-analytics）· `integration/`（含 `goals/registry.json`）· `content/` 品牌/IP 定稿
-- **集成构建：** `scripts/verify-all.sh` · `scripts/verify-agent-matrix.sh` · `scripts/agent-shells/`
+- **集成构建：** `scripts/verify-all.sh` · `scripts/verify-agent-matrix.sh` · `scripts/verify-agent-fused.sh` · `scripts/agent-shells/`
 - **多平台数据仓库：** `content/analytics/` · `scripts/analytics-pipeline.sh`
 - 通用 Q&A / 操作问题专用 Agent 工作区：`问题解决/`（单独开 Folder；聊天与品牌产线分开）
 - Python 虚拟环境：`.venv/`（工作区级，已安装 vendored skills）

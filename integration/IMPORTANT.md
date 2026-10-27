@@ -20,6 +20,24 @@
 - 全仓集成构建：`bash scripts/verify-all.sh` · 目标表 `integration/GOALS-REGISTRY.md`
 - IP 真相：`content/personal-ip/ip-positioning-brief-2026-10-05.md`
 
+## 后台目标链（Owner · setup 一次）
+
+- 机器层：`bash scripts/setup-background-goal-evolution.sh` → Process Launcher 常驻 · [docs/BACKGROUND-GOAL-EVOLUTION.md](../docs/BACKGROUND-GOAL-EVOLUTION.md)  
+- 验收 / evolution rollup / dispatch / `agent-work-queue` **自动**；Cursor CEO 读队列写稿；**不** 要求 Owner 每次说 verify。
+
+## Owner 打开对话 · Artist 对标审阅（Must · 不每日提示）
+
+- GM10 **每天**更新分析；合并目录 `content/ip-research/artist-intel-catalog.md`  
+- Owner **打开对话**时若有未审条目 → Agent **一次性列全**待裁决清单 · 见 [docs/OWNER-ARTIST-CATALOG-ON-OPEN.md](../docs/OWNER-ARTIST-CATALOG-ON-OPEN.md)
+
+## Owner 怎么说话（Must · 零公式）
+
+- **最简单、最直接即可**（口语、碎片、多意图）；系统 **内化** 为 intake + 派活 + 内部提示词，**不要** 要求 Owner 按 Skill/Brief/verify 口令说话。见 [docs/OWNER-INPUT-PRINCIPLES.md](../docs/OWNER-INPUT-PRINCIPLES.md)。
+
+## CEO 交 Owner 前（Must · 内部 Gate，不抬高 Owner 门槛）
+
+- **Agent 自验，默认不让 Owner 逐条跑 verify。** Gate = 内部质检（aligned 等），仅 Agent 跑 `manager-ceo-owner-gate.sh`；FAIL 打回 GM，同会话改稿（默认 ≤3 轮）。见 [docs/CEO-AUTO-QA-LOOP.md](../docs/CEO-AUTO-QA-LOOP.md)。
+
 ## 红线
 
 - 未 `aligned: true` → 不 sync Drive；不只 Drive 不 commit。

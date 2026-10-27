@@ -1,0 +1,22 @@
+{
+  "updated_at": "2026-10-27T08:06:19.635206+00:00",
+  "count": 1,
+  "entries": [
+    {
+      "date": "2026-10-27",
+      "slug": "crossover-classical-creator",
+      "artist_slug": "crossover-classical-creator",
+      "borrow_score": 78,
+      "why_evaluate": "该对标案例展示了古典音乐家从传统学术/乐团体系走向跨界品牌策划与个人IP数字化运作的完整路径。评估其经验有助于Owner验证‘法派长笛专业根基 × 跨行业商业体验设计’在小红书及多平台传播中的落地可行性，并明确‘不绑定单品类’与‘强链接变现’的商业边界。",
+      "alignment_points": [
+        "艺术根基与跨界策划双轮驱动：以法派长笛/古典乐专业高度作为不可替代的信任锚点，同时具备商业场景翻译与品牌策划能力。",
+        "跨行业开放合作模式：商业联名聚焦于‘品牌 × 艺术 × 沉浸式体验’通用策划逻辑，未将IP死板绑定于特定单一品类（如家居或美妆）。",
+        "分层内容与数字化探索：兼顾面向大众的高质感艺术日常策展（如‘听见 Daily’）与面向商业客户/学术群体的深度案例拆解，并逐步探索AI与数字资产沉淀。"
+      ],
+      "timeline_len": 3,
+      "sources_note": "Tier: Inferred / Public Knowledge Synthesis. 本评估基于古典跨界创作者公域运作模型与小红书古典乐IP通用路径推演；无私密合同或未经证实之财务数据。",
+      "path": "content/evolution/10-artist-intel/2026-10-27/crossover-classical-creator/versions/v0-benchmark.json",
+      "owner_verdict": null
+    }
+  ]
+}

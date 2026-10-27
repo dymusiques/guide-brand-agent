@@ -1,0 +1,99 @@
+# Owner Daily Brief · 2026-10-27
+> CEO 汇总 GM10/11/09 · 内部已跑 verify/challenge
+## Artist 对标（GM10）
+### crossover-classical-creator
+- **借鉴分：** 78
+- **为何这样 evaluate：** 该对标案例展示了古典音乐家从传统学术/乐团体系走向跨界品牌策划与个人IP数字化运作的完整路径。评估其经验有助于Owner验证‘法派长笛专业根基 × 跨行业商业体验设计’在小红书及多平台传播中的落地可行性，并明确‘不绑定单品类’与‘强链接变现’的商业边界。
+- **可对齐点：** 艺术根基与跨界策划双轮驱动：以法派长笛/古典乐专业高度作为不可替代的信任锚点，同时具备商业场景翻译与品牌策划能力。 · 跨行业开放合作模式：商业联名聚焦于‘品牌 × 艺术 × 沉浸式体验’通用策划逻辑，未将IP死板绑定于特定单一品类（如家居或美妆）。 · 分层内容与数字化探索：兼顾面向大众的高质感艺术日常策展（如‘听见 Daily’）与面向商业客户/学术群体的深度案例拆解，并逐步探索AI与数字资产沉淀。
+- **时间线：**
+  - 2016-2019 · 小白/蓄力期 — 深耕法派长笛传统演绎与教学体系，在学术与音乐厅场景积累专业声誉，开始尝试零星跨界音乐会与线下艺术美学沙龙。
+  - 2020-2023 · 关键转折期 — 进驻小红书等社交平台，将乐器演奏升级为‘视觉美学 × 品牌叙事’，成功执行多个跨行业（如空间、奢品、文化展览）联名策划案例，实现从演奏者到策展人IP的跃升。
+  - 2024-至今 · 现状/熟化期 — 搭建‘一人公司’运营模式，形成日更美学策展与周更深度商业/教学拆解的内容矩阵，并引入AI与数字藏品工具实现IP资产数字化沉淀。
+- **值得借鉴：**
+  - 把古典音乐演奏的‘听觉不可替代性’转化为可落地的‘品牌空间体验’与‘视觉化艺术语言’。
+  - 采用‘人即品牌’的通用策划框架，在具体案例层展现跨行业履约能力，人设层保持高质感古典艺术家独立性。
+  - 搭建日更（轻量感官策展）与周更（深度商业/法派教学拆解）分层内容链条，高效兼顾B端品牌主与C端音乐学习者。
+- **sources_note：** Tier: Inferred / Public Knowledge Synthesis. 本评估基于古典跨界创作者公域运作模型与小红书古典乐IP通用路径推演；无私密合同或未经证实之财务数据。
+
+## IP 自检（GM11）
+- Brief 缺 redteam-pre：5 篇
+  - `content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md`
+  - `content/xiaohongshu/2026-10-17-discovery-02-narrative-not-ads-brief.md`
+  - `content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md`
+  - `content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md`
+  - `content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md`
+
+## 今日派活建议（09→04）
+# CEO 派活块 · 00 Manager → 04 Topic Manager
+
+生成日：**2026-10-27** · `scripts/ceo-dispatch-refresh.py`
+
+## Owner 边界（本块不代做）
+
+- **发帖**：小红书 / 其他平台由 Owner 操作
+- **数据**：CSV 放入 `content/analytics/inbox/`
+
+## 当前执行优先级
+
+1. **定稿 / 视觉 / 发帖**：`content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md`
+   - 标题：小红书笔记 Brief · 认知期 #1 不可替代性
+   - 发帖后回填 Brief `## 发布状态`
+
+2. **04 下一 Brief**：见下方「数据选题」或 `discovery-phase-note-queue.md`
+
+## 数据选题（09 → 04）
+
+来源：`content/analytics/derived/next-topics-2026-10-27.md`
+
+# 下一选题建议 · 2026-10-27
+
+数据行数：**3**（小红书 / Instagram / YouTube 合并）
+
+## 支柱 Strong-link 得分合计
+
+- **跨界品牌**：552.0
+- **听见Daily**：141.0
+- **艺术专业**：68.8
+
+## 建议交给 04 Topic Manager（3 条）
+
+1. **跨界品牌：把强链接做成下一篇主线**
+   - 理由：过去内容在「跨界品牌」Strong-link 得分最高，建议延续同一支柱并强化私信 CTA。
+   - 参考平台：xiaohongshu · 数据验证：True
+   - 参考标题：品牌讲故事为什么需要艺术
+
+2. **艺术 IP 数字化：别从 NFT 讲起**
+   - 理由：支柱 3 + 数据侧 DM/咨询偏高时，优先 AI×数字藏品共创向（跨行业品牌 open）。
+   - 参考平台：instagram · 数据验证：True
+   - 参考标题：Danying HEAR Daily flute tip
+
+3. **跨行业品牌活动的叙事节奏**
+   - 理由：若观看高但 DM 低，改做「叙事结构」而非晒活动清单，筛品牌合作私信。
+   - 参考平台：youtube · 数据验证：True
+   - 参考标题：Flute masterclass excerpt
+
+
+## Top 笔记（含链接）
+
+1. [品牌讲故事为什么需要艺术](https://example/xhs/1) · 跨界品牌 · score 552.0
+2. [Danying HEAR Daily flute tip](https://instagram.com/p/example) · 听见Daily · score 141.0
+3. **Flute masterclass excerpt** · 艺术专业 · score 68.8 · id `dQw4example`
+
+---
+由 `scripts/analytics-summarize.py` 生成 → Manager 派 04 写 Brief → `evaluate --brief`
+
+## 派活口令（粘贴给 Agent / 04）
+
+```
+读 agents/00-manager/AUTO-WORKFLOW.md；
+若 Owner 未指定 Brief：优先处理 ceo-dispatch-latest 中「当前执行优先级」；
+写/改 Brief 后：bash scripts/manager-workflow-verify.sh content/xiaohongshu/<brief>.md
+```
+
+---
+队列参考：`content/marketing/discovery-phase-note-queue.md`
+
+## 请你（仅决策）
+
+- [ ] 今日 Artist 对标是否采纳进选题
+- [ ] 是否指定写一篇 Brief / 发哪篇

@@ -5,14 +5,16 @@ alwaysApply: true
 
 # 00 Manager 自动接手 · danying-brand-agent
 
-Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、笔记、IP、品牌、营销、视觉、定稿、campaign、涨粉、强链接、aligned、verify 等）时：
+Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、笔记、IP、品牌、营销、视觉、定稿、campaign、涨粉、强链接等；**口语/碎片即可，勿要求公式化 prompt**）时：
 
 1. **不要**等启动口令；**立即**读 [`agents/00-manager/AUTO-WORKFLOW.md`](agents/00-manager/AUTO-WORKFLOW.md) 并按指挥链执行。
 2. 读 [`integration/IMPORTANT.md`](integration/IMPORTANT.md)；集成层 **不写** kernel 算法。
 3. 每步派活前读对应 [`agents/<nn>-*/INTEGRATION-PROMPT.md`](agents/README.md)；单会话内 **顺序扮演** 各 Agent 职责（不必要 Owner 开多个 chat）。
-4. 有 Brief 后必跑：`bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md`；改 kernel 后加 `bash scripts/verify-xhs-topic.sh`。
-5. 每轮输出 **Manager 派活记录**（见 AUTO-WORKFLOW 模板）：目标、当前步、终端 PASS/FAIL、下一步。
-6. 失败走 **Manager's Loop**；只改 Brief/Skill/集成 prompt，除非明确改 classifier（05）。
+4. 有 Brief 后必跑：`bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md`；**交 Owner 前**必跑 `bash scripts/manager-ceo-owner-gate.sh --brief content/xiaohongshu/<file>.md`（见 `docs/CEO-AUTO-QA-LOOP.md`）；改 kernel 后加 `bash scripts/verify-xhs-topic.sh`。
+5. 每轮输出 **Manager 派活记录**（见 AUTO-WORKFLOW 模板）：目标、当前步、终端 PASS/FAIL、**Owner Gate PASS/FAIL · 打回轮次**、下一步。
+6. 失败走 **Manager's Loop** 或 **CEO→GM REROUTE**（同会话自动改稿再 gate，默认最多 3 轮）；**勿**让 Owner 逐条 verify；只改 Brief/Skill/集成 prompt，除非明确改 classifier（05）。
+7. **交给 Owner 的任何交付物**须 **内部 gate** 已通过；仅需 Owner **确认** gold/发布/裁决时再来问。Gate/提示词/Evaluator **内化**，见 `docs/OWNER-INPUT-PRINCIPLES.md`。
+8. **会话开头**：读 `content/ip-research/artist-intel-catalog.json` + review-state；有未审 artist 条目 → **一次性列全**待审清单（**不**每日主动打扰）· `docs/OWNER-ARTIST-CATALOG-ON-OPEN.md`。
 
 **纯解释、不用交付文件** 的请求：直接回答，不强制跑 verify。
 
