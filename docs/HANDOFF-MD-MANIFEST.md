@@ -33,6 +33,7 @@
 | 8 | [../rules/USER.md](../rules/USER.md) |
 | 9 | [../content/personal-ip/ip-positioning-brief-2026-10-05.md](../content/personal-ip/ip-positioning-brief-2026-10-05.md) |
 | 9b | [../content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md](../content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md)（KPI / CAPSTONE · Pitch 必对齐） |
+| 9c | [../content/personal-ip/reference/INDEX.md](../content/personal-ip/reference/INDEX.md)（Owner CAPSTONE 截图 + KPI PDF · **按任务读**，勿与 Brief 混淆） |
 | 10 | [../integration/IMPORTANT.md](../integration/IMPORTANT.md) |
 | 11 | [../integration/GOALS-REGISTRY.md](../integration/GOALS-REGISTRY.md) |
 

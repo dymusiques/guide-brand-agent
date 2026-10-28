@@ -40,6 +40,8 @@
 
 战略层 Pitch、Publish、Product 生态与 CAPSTONE 工作稿：[2026-10-18-key-person-of-influence-capstone-playbook.md](./2026-10-18-key-person-of-influence-capstone-playbook.md)
 
+Owner 参考原件（**何时读 / 何时不读**）：[reference/INDEX.md](./reference/INDEX.md) · CAPSTONE 截图 · KPI PDF
+
 ## 英文对照（Instagram 等）
 
 French-school flute lineage × cross-disciplinary brand strategist — helping brands, artists, educators, and AI innovators translate irreplaceable classical artistry into language that can be collaborated on, shared, and extended through digital collectibles and digitization.

@@ -28,6 +28,7 @@
 - 小红书平台 PDF（gitignore）：`content/marketing/research/raw/*.pdf` · Agent 读 [xhs-platform-research-index.md](../content/marketing/research/xhs-platform-research-index.md)
 - Headless CLI scratch（gitignored）：`tmp/ai-agent-cli/<job_id>/` · skill [skill_ai_agent_cli.md](./skills/skill_ai_agent_cli.md)
 - **个人 IP / KPI playbook：** `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（CAPSTONE · Five Ps · 新机 Agent 写 Pitch 用）
+- **个人 IP · Owner 参考原件（PDF/截图 · 索引）：** `content/personal-ip/reference/INDEX.md` · `reference/capstone-ai-builders/` · `reference/kpi-source/`（**非** Brief 正文；见 INDEX「何时 Must 读」）
 
 ### 系统与规则
 - **新 Agent 接手（Must）：** `docs/AGENT-TAKEOVER.md` · `docs/WORKFLOW-CEO-ARCHITECTURE.md` · `docs/workflow-mindmap.html` · `docs/XHS-DATA-LAYER.md` · `bash scripts/verify-agent-takeover.sh`

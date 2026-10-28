@@ -2,7 +2,7 @@
 
 > **给 Agent：** 01 personal-ip、03 营销、04 选题、00 Manager 写 Pitch / 定位 / 对外介绍时 **Must 对齐** 本文。  
 > **真相源并列：** [ip-positioning-brief-2026-10-05.md](./ip-positioning-brief-2026-10-05.md) · [integration/IMPORTANT.md](../../integration/IMPORTANT.md) · 认知期 [2026-10-brand-discovery-phase.md](../marketing/2026-10-brand-discovery-phase.md)  
-> **来源：** Owner 口述整理 · 蔡蔡《Key Person of Influence 方法论笔记》（Daniel Priestley；Owner 本地 PDF，**未进 Git**，正文已提炼进本文）· CAPSTONE 适配示例（AI Builders 截图，**结构参考**，非本 IP 正文）
+> **来源：** Owner 口述整理 · 蔡蔡《Key Person of Influence 方法论笔记》（Daniel Priestley；正文已提炼进本文）· CAPSTONE 适配示例见 [reference/capstone-ai-builders/](./reference/capstone-ai-builders/)（**结构参考**，非本 IP 正文）· KPI 笔记 PDF 见 [reference/kpi-source/](./reference/kpi-source/) · 索引 [reference/INDEX.md](./reference/INDEX.md)
 
 ---
 
@@ -64,6 +64,8 @@
 | **E** | **Essence** | 希望对方如何记住你、离开时的 **感觉** |
 
 ### 3.1 参考示例 · AI Builders（截图 · 仅学结构）
+
+**原件：** [reference/capstone-ai-builders/capstone-ai-builders-adaptation-2026-08-25.png](./reference/capstone-ai-builders/capstone-ai-builders-adaptation-2026-08-25.png)
 
 | 模块 | 示例内容（非 Danying IP） |
 |------|---------------------------|

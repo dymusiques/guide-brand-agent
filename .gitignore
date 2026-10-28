@@ -12,6 +12,10 @@ build/
 # OS
 .DS_Store
 
+# Accidental drops at repo root — use content/personal-ip/reference/
+/*.pdf
+/CleanShot*.png
+
 # gdocs-skill — never commit credentials or private mail cache
 vendor/gdocs-skill/secrets/*
 !vendor/gdocs-skill/secrets/.gitkeep
