@@ -1,0 +1,59 @@
+{
+  "brief": "content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md",
+  "timestamp": "2026-10-27T17:41:12",
+  "adversarial_challenge": {
+    "path": "content/xiaohongshu/challenge/2026-10-17-discovery-01-irreplaceability-challenge.md",
+    "pass": true,
+    "errors": []
+  },
+  "redteam_pre": {
+    "path": "content/xiaohongshu/redteam/2026-10-17-discovery-01-irreplaceability-pre.md",
+    "pass": true
+  },
+  "l1_six_on_this_brief": [
+    {
+      "id": "L1-1",
+      "kernel_ref": "正例 — IP + 人群 + 强链接 CTA",
+      "pass": true,
+      "detail": "subject/body 须含 IP/品牌命题 + 强链接 CTA 词"
+    },
+    {
+      "id": "L1-2",
+      "kernel_ref": "正例 — 专业+教育/咨询链接",
+      "pass": true,
+      "detail": "专业信任信号 + CTA"
+    },
+    {
+      "id": "L1-3",
+      "kernel_ref": "负例 — 与 IP/涨粉/筛客无关",
+      "pass": true,
+      "detail": "不得主导为团建/无关话题"
+    },
+    {
+      "id": "L1-4",
+      "kernel_ref": "歧义 — 标题弱时正文须承载 IP",
+      "pass": true,
+      "detail": "title_generic=False, body_on_ip=True"
+    },
+    {
+      "id": "L1-5",
+      "kernel_ref": "歧义 — 标题相关、正文须有链接价值",
+      "pass": true,
+      "detail": "防标题党+空正文"
+    },
+    {
+      "id": "L1-6",
+      "kernel_ref": "边界 — 空白/过短内容",
+      "pass": true,
+      "detail": "subject_len=18, body_len=236"
+    }
+  ],
+  "gemini_evaluate": {
+    "subject": "品牌活动里，什么是「站得住」的艺术？",
+    "body": "艺术常被当成活动布景——好看、可拍照、三秒划走；用户记住的是滤镜，不是品牌。真正「站得住」的艺术，来自可被听、被感受的专业训练：法派长笛体系里的句读与呼吸，对应空间里的节奏与信任，而不是多一块装饰。叙事而非硬广：让人愿意停下来的，往往不是 slogans，而是一个可被听见的判断。我跨行业 open，不把账号绑成某一品类博主；把古典艺术里不可替代的判断，翻译成你们场景里能用的体验结构。若你在区分「装饰性环节」和「能建立专业信任的艺术」，先收藏；有具体场景再私信「聊聊」。",
+    "aligned": true,
+    "_exit": 0
+  },
+  "kernel_six_regression": null,
+  "overall_pass": true
+}

@@ -1,8 +1,9 @@
 # 新 Agent 接手 · 当前程序状态与指挥手册
 
-> **更新：** 2026-10-20（小红书 23 篇数据层 · DATA-MANIFEST · CEO 架构图）  
+> **更新：** 2026-10-28（CEO/GM 三支柱 · 双图 · 双轮迭代 · 一句话触发 · 接手 JSON）  
 > **验证：** `bash scripts/verify-handoff.sh`（含本文件检查）· `bash scripts/verify-agent-takeover.sh`  
-> **接手 SOP（2026-10-27）：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html)  
+> **CEO/GM 接手包（Must）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)  
+> **接手 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html)  
 > **一页纸：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · **存储策略：** [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md)
 
 ---
@@ -15,8 +16,9 @@
 danying-brand-agent
 ```
 
-Agent **Must** 按 [.cursor/rules/danying-brand-agent-bootstrap.mdc](../.cursor/rules/danying-brand-agent-bootstrap.mdc) 执行：**读** [HANDOFF-MD-MANIFEST.md](HANDOFF-MD-MANIFEST.md) 所列 MD → 跑 `verify-agent-takeover` + `manager-autopilot` → 汇报 CEO 派活块。**不**依赖本对话或旧 chat 历史。
+Agent **Must** 按 [.cursor/rules/danying-brand-agent-bootstrap.mdc](../.cursor/rules/danying-brand-agent-bootstrap.mdc) 执行：**读** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) + [HANDOFF-MD-MANIFEST.md](HANDOFF-MD-MANIFEST.md) → 跑 `verify-agent-takeover` + `manager-autopilot` → 汇报 CEO 派活块。**不**依赖本对话或旧 chat 历史。
 
+**Owner 一句话：** 「**请 CEO 开始工作**」→ [CEO-OWNER-ONE-LINE-TRIGGERS.md](CEO-OWNER-ONE-LINE-TRIGGERS.md)（不必贴 bash）。  
 **Owner 给任何「写 / 做 / Brief / 选题 / 运营」目标时，你 = 00 Manager** → [agents/00-manager/AUTO-WORKFLOW.md](../agents/00-manager/AUTO-WORKFLOW.md)。
 
 | 顺序 | 动作 |

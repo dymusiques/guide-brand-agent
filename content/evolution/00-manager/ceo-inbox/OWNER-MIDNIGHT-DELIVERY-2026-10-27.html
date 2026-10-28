@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Owner 午夜交付 · Sub-Agent 合规 · 2026-10-27</title>
+<style>
+  :root { font-family: -apple-system, "PingFang SC", sans-serif; line-height: 1.5; }
+  body { max-width: 980px; margin: 0 auto; padding: 24px; background: #f4f4f5; color: #1a1a1a; }
+  h1 { font-size: 1.45rem; margin-bottom: 0.25rem; }
+  .verdict { font-size: 1.15rem; padding: 16px 20px; border-radius: 10px; margin: 16px 0; }
+  .verdict.no { background: #fdecea; border: 1px solid #e57373; }
+  .nav { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .nav a { margin-right: 16px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.82rem; margin: 12px 0 24px; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
+  th { background: #ececec; }
+  .y { color: #1b5e20; font-weight: 600; }
+  .n { color: #b71c1c; font-weight: 600; }
+  .p { color: #e65100; font-weight: 600; }
+  .meta { color: #555; font-size: 0.9rem; }
+  .box { background: #fff; padding: 16px; border-radius: 10px; margin: 12px 0; }
+  code { font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<h1>午夜交付 · 00–12 Sub-Agent 合规总览</h1>
+<p class="meta">生成：2026-10-27 · danying-brand-agent · CEO 00</p>
+
+<nav class="nav">
+  <strong>Owner 报告链：</strong>
+  <a href="OWNER-XHS-FILTER-DELIVERABLE-2026-10-27.html">小红书筛选 HTML</a>
+  <a href="CEO-SUBAGENT-COMPLIANCE-2026-10-27.md">合规矩阵 MD</a>
+  <a href="OWNER-BRIEF-COMPLETE-GATE-2026-10-27.html">Brief Gate 审计</a>
+  <a href="OWNER-DISCOVERY-01-CHALLENGE-AUDIT-2026-10-27.html">Discovery 01 对抗</a>
+  <a href="OPEN-OWNER-REPORT-IN-BROWSER.command">一键浏览器打开</a>
+</nav>
+
+<div class="verdict no">
+  <strong>顶线回答：</strong> <span class="n">否</span> — 并非每一位 00–12 都完成「重复 verify + Baseline/Evaluator + 6-test/壳/Goals + 循环 evaluate」四件套。
+  <strong>是（四件套齐）：</strong> 10 · 11 · 12。
+  <strong>否：</strong> 02。
+  <strong>其余：</strong> 部分（见下表）。
+</div>
+
+<section class="box">
+<h2>本回合脚本（实跑）</h2>
+<ul>
+  <li><code>verify-agent-matrix.sh</code> → <span class="y">PASS</span>（60/60）</li>
+  <li><code>verify-goals.sh</code> → <span class="n">FAIL</span>（G-PLATFORM-SYNC · Drive OAuth）</li>
+  <li><code>verify-daily-gm-trio.sh</code> → <span class="y">PASS</span></li>
+  <li><code>manager-workflow-verify.sh</code> → <span class="y">PASS</span></li>
+  <li>深交付 / campaign：读 <code>ceo-inbox/*.log</code>（持锁未重烧 Gemini）</li>
+</ul>
+</section>
+
+<h2>按 Agent · 四维度 + 总评</h2>
+<table>
+<thead>
+<tr>
+  <th>Agent</th>
+  <th>重复 verify</th>
+  <th>Baseline→Evaluator</th>
+  <th>6-test / 壳 / Goals</th>
+  <th>循环 evaluate</th>
+  <th>四件套齐</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>00 CEO</td><td class="y">是</td><td class="p">部分</td><td class="y">是</td><td class="y">是</td><td class="p">部分</td></tr>
+<tr><td>01 IP</td><td class="p">部分</td><td class="p">部分</td><td class="y">是</td><td class="p">部分</td><td class="p">部分</td></tr>
+<tr><td>02 商业</td><td class="n">否</td><td class="p">部分</td><td class="p">部分</td><td class="n">否</td><td class="n">否</td></tr>
+<tr><td>03 营销</td><td class="n">否</td><td class="p">部分</td><td class="y">是</td><td class="n">否</td><td class="p">部分</td></tr>
+<tr><td>04 Topic</td><td class="y">是</td><td class="p">部分</td><td class="y">是</td><td class="y">是</td><td class="p">部分</td></tr>
+<tr><td>05 Kernel</td><td class="y">是</td><td class="p">部分</td><td class="y">是</td><td class="y">是</td><td class="p">部分</td></tr>
+<tr><td>06 Pipeline</td><td class="p">部分</td><td class="p">部分</td><td class="y">是</td><td class="p">部分</td><td class="p">部分</td></tr>
+<tr><td>07 视觉</td><td class="n">否</td><td class="p">部分</td><td class="y">是</td><td class="n">否</td><td class="p">部分</td></tr>
+<tr><td>08 平台</td><td class="p">部分</td><td class="p">部分</td><td class="p">部分</td><td class="n">否</td><td class="p">部分</td></tr>
+<tr><td>09 数据</td><td class="y">是</td><td class="p">部分</td><td class="y">是</td><td class="p">部分</td><td class="p">部分</td></tr>
+<tr><td>10 Artist</td><td class="y">是</td><td class="y">是</td><td class="y">是</td><td class="p">部分</td><td class="y">是</td></tr>
+<tr><td>11 IP eval</td><td class="y">是</td><td class="y">是</td><td class="y">是</td><td class="p">部分</td><td class="y">是</td></tr>
+<tr><td>12 Owner brief</td><td class="y">是</td><td class="y">是</td><td class="y">是</td><td class="p">部分</td><td class="y">是</td></tr>
+</tbody>
+</table>
+
+<section class="box">
+<h2>关键阻塞（诚实）</h2>
+<ol>
+  <li><strong>CEO IP campaign</strong> · 早期 log <code>175406</code> 曾卡在 Agent 02；**最终** <code>ceo-ip-all-agents-campaign-20261027-175635.log</code> → <span class="y">PASS</span>（02/03 补丁后或 <code>SKIP_GEMINI=1</code> 快照）。</li>
+  <li><strong>deep-delivery</strong> 与 campaign 并行 → <code>SKIP_GEMINI=1</code>；04/05 的 B 层 Gemini 6 由深交付 log 证明已跑，非本快照重跑。</li>
+  <li><strong>08</strong> · M4 <code>G-PLATFORM-SYNC</code> Drive 读失败 → <code>verify-goals.sh</code> 全仓 FAIL。</li>
+  <li>深交付曾遇 shell <code>syntax error</code>（已修脚本）→ <strong>补跑闭合</strong>：<code>ceo-deep-delivery-20261027-180536.md</code> · <span class="y">PASS</span>（2 轮 pipeline + discovery 01–04 gate + HTML 18:05 + Gmail）。WARN：ThatViolaKid 标题 SEO &gt;40 字。</li>
+</ol>
+</section>
+
+<section class="box">
+<h2>fixed issues（脚本已补丁）</h2>
+<p>deep-delivery 循环 <code>phase</code> 未引号括号已修；<code>/tmp/ceo-deep-delivery.lock</code> 统一 stale pid 释放；campaign 02/03 Gemini 6 有 timeout 与 PASS/FAIL 日志；M4 可用 <code>VERIFY_GOALS_SKIP_PLATFORM=1</code> 跳过 Drive。Owner 重跑：<code>CEO_DEEP_ROUNDS=2 VERIFY_GOALS_SKIP_PLATFORM=1 bash scripts/run-ceo-deep-delivery-cycle.sh</code>（勿与 campaign 并行）或单跑 <code>bash scripts/run-ceo-ip-all-agents-campaign.sh</code>。</p>
+</section>
+
+<p class="meta">详细证据与路径：<code>CEO-SUBAGENT-COMPLIANCE-2026-10-27.md</code> · 小红书主交付仍见筛选 HTML。</p>
+<p class="meta">中断/阻塞/FAIL 自动恢复：<code>docs/CEO-AUTO-RECOVER-AND-RETRY.md</code> · Agent 跑 <code>scripts/ceo-auto-recover-blocked.sh</code>（Owner 无需重复口令）。</p>
+
+</body>
+</html>

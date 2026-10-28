@@ -1,0 +1,31 @@
+# ceo-xhs-ip-filter-batch · 2026-10-27T17:54:37.101956
+
+=== screen-artist-watchlist ===
+PASS: wrote content/ip-research/artist-watchlist-screened.json (8 artists)
+PASS: updated content/ip-research/artist-watchlist.json priority_tier + sort
+
+
+exit=0
+
+=== analytics-demo ===
+=== Analytics pipeline ===
+
+(demo) seeding from *.example.csv
+inbox empty — export CSV from 小红书/Instagram/YouTube 后台 into:
+  /Users/danying/Desktop/danying-brand-agent/content/analytics/inbox
+Naming hint: xiaohongshu-*.csv | instagram-*.csv | youtube-*.csv
+
+content/analytics/derived/ceo-dispatch-latest.md
+{"summary_json": "content/analytics/derived/summary-2026-10-27.json", "next_topics_md": "content/analytics/derived/next-topics-2026-10-27.md"}
+
+RESULT: PASS — next-topics written under content/analytics/derived/
+Manager: 派 09 读 derived/next-topics-*.md → 04 写 Brief → evaluate --brief
+
+
+exit=0
+
+=== ceo-dispatch ===
+content/analytics/derived/ceo-dispatch-latest.md
+
+
+exit=0

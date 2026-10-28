@@ -1,0 +1,54 @@
+{
+  "brief": "content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md",
+  "timestamp": "2026-10-27T17:35:42",
+  "redteam_pre": {
+    "path": "content/xiaohongshu/redteam/2026-10-17-discovery-04-open-close-pre.md",
+    "pass": true
+  },
+  "l1_six_on_this_brief": [
+    {
+      "id": "L1-1",
+      "kernel_ref": "正例 — IP + 人群 + 强链接 CTA",
+      "pass": true,
+      "detail": "subject/body 须含 IP/品牌命题 + 强链接 CTA 词"
+    },
+    {
+      "id": "L1-2",
+      "kernel_ref": "正例 — 专业+教育/咨询链接",
+      "pass": true,
+      "detail": "专业信任信号 + CTA"
+    },
+    {
+      "id": "L1-3",
+      "kernel_ref": "负例 — 与 IP/涨粉/筛客无关",
+      "pass": true,
+      "detail": "不得主导为团建/无关话题"
+    },
+    {
+      "id": "L1-4",
+      "kernel_ref": "歧义 — 标题弱时正文须承载 IP",
+      "pass": true,
+      "detail": "title_generic=False, body_on_ip=True"
+    },
+    {
+      "id": "L1-5",
+      "kernel_ref": "歧义 — 标题相关、正文须有链接价值",
+      "pass": true,
+      "detail": "防标题党+空正文"
+    },
+    {
+      "id": "L1-6",
+      "kernel_ref": "边界 — 空白/过短内容",
+      "pass": true,
+      "detail": "subject_len=17, body_len=287"
+    }
+  ],
+  "gemini_evaluate": {
+    "subject": "跨行业品牌找艺术合作，先对齐三件事",
+    "body": "认知期我收到不少品牌私信前的共同问题：你们做哪一行？能不能只服务我们这个行业？——我想用一篇把边界说清。第一，我跨行业 open：消费、文化、科技、奢侈品等都可以聊，不排斥任何品类，但我不做「某一垂直主攻号」。第二，合作前要对齐的是：你要的 moment 是什么、谁能决策、希望观众留下什么（信任/记忆/行动），而不是先问报价。第三，适合先来聊的是：需要艺术叙事、跨界体验或专业背书的活动/发布/联名——不是纯曝光或纯抽奖。若你代表品牌方，认同叙事而非硬广、也认同专业信任比装饰重要，欢迎私信「合作」说明场景；若还在了解阶段，私信「品牌」即可，我会用一句话帮你判断是否同频。",
+    "aligned": true,
+    "_exit": 0
+  },
+  "kernel_six_regression": null,
+  "overall_pass": true
+}

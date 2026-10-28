@@ -63,6 +63,8 @@ fi
 
 step "CEO dispatch block (09→04)" "$PY" scripts/ceo-dispatch-refresh.py || FAIL=$((FAIL + 1))
 
+step "XHS briefs auto gate (redteam+L1×6+evaluate)" bash scripts/manager-xhs-briefs-auto-pipeline.sh || FAIL=$((FAIL + 1))
+
 if [[ "${AUTOPILOT_FULL:-0}" == "1" ]]; then
   step "verify-all (CI tier)" env VERIFY_TIER=ci bash scripts/verify-all.sh || FAIL=$((FAIL + 1))
 else

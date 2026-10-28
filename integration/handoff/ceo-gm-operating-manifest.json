@@ -1,0 +1,157 @@
+{
+  "version": "2026-10-28",
+  "north_star": "打造 Danying 个人 IP（长笛 / 教育 / 咨询 · Discovery + Artist + 听见 Daily 同一叙事轴）",
+  "owner_one_line_triggers": {
+    "doc": "docs/CEO-OWNER-ONE-LINE-TRIGGERS.md",
+    "phrases": [
+      "请 CEO 开始工作",
+      "CEO 开始",
+      "CEO 干活",
+      "danying-brand-agent"
+    ],
+    "agent_must": [
+      "bash scripts/ceo-auto-recover-blocked.sh",
+      "read latest ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*.md",
+      "execute next action without asking Owner to run evaluate/challenge",
+      "emit Manager 派活记录: Owner Gate PASS|FAIL · 打回 n/3 · 交 Owner 是|否"
+    ],
+    "optional_terminal": "bash scripts/ceo-start-work.sh"
+  },
+  "frameworks": {
+    "gm_three_pillars": {
+      "doc": "docs/MANAGER-THREE-PILLARS.md",
+      "pillars": [
+        "observability: AI outputs reasoning → logs/challenge/verify-logs",
+        "measurable_benchmark: L1×6, kernel 6, verify-agent-fused, SEO lint; no CSV → 未验证",
+        "coach_to_sop: INTEGRATION-PROMPT, evolution, .mdc rules; 2nd same FAIL →固化 prompt/SOP"
+      ]
+    },
+    "gm_five_step_loop": {
+      "doc": "docs/MANAGER-EVAL-IMPROVEMENT-LOOP.md",
+      "image": "docs/assets/manager-eval-improvement-loop.png",
+      "steps": [
+        "Manual Analysis",
+        "Propose Prompt Change",
+        "Observe Score",
+        "Re-run Evaluation",
+        "Analyze Failures"
+      ],
+      "also_in": "agents/00-manager/AUTO-WORKFLOW.md Manager's Loop"
+    },
+    "ceo_senior_loop": {
+      "doc": "docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md",
+      "image": "docs/assets/ceo-senior-manager-improvement-loop.png",
+      "steps": [
+        "Consult SOP",
+        "Propose Prompt Change",
+        "Observe Score",
+        "Re-run Evaluation",
+        "Analyze Failures"
+      ],
+      "actor_on_arrows": "AI executes; CEO orchestrates dispatch/gate/reroute"
+    },
+    "ceo_double_iteration": {
+      "doc": "agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md",
+      "sequential_rule": "iteration 1 → analyze (ITERATION-LOG) → iteration 2 based on iter-1 analysis; NOT parallel",
+      "scripts": {
+        "phase_1": "bash scripts/manager-ceo-double-iteration.sh --brief <path> --phase 1",
+        "phase_2": "bash scripts/manager-ceo-double-iteration.sh --brief <path> --phase 2",
+        "log_validator": "python scripts/verify-ceo-iteration-log.py"
+      },
+      "not_the_same_as": [
+        "manager-ceo-auto-gate-loop.sh default CEO_GATE_MAX_ROUNDS=3 (rerun without prompt change between rounds)",
+        "CEO_DEEP_ROUNDS=2 in run-ceo-deep-delivery-cycle.sh (second pass verification, not prompt iteration)"
+      ]
+    },
+    "owner_five_principles": {
+      "doc": "docs/CEO-MANAGER-OPERATING-STANDARDS.md",
+      "companion": "docs/CEO-MANAGER-OPERATING-PRINCIPLES.md"
+    }
+  },
+  "sops": [
+    {
+      "path": "agents/00-manager/AUTO-WORKFLOW.md",
+      "role": "00 CEO",
+      "summary": "自动接手 · 指挥链 · auto-gate Must"
+    },
+    {
+      "path": "agents/00-manager/CEO-DISPATCH-SOP.md",
+      "role": "00 CEO",
+      "summary": "派活模板 · dispatch md · campaign/deep 命令"
+    },
+    {
+      "path": "agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md",
+      "role": "00 CEO",
+      "summary": "consult SOP · 双轮串行 Brief/prompt 改进"
+    },
+    {
+      "path": "docs/CEO-OWNER-ONE-LINE-TRIGGERS.md",
+      "role": "Owner",
+      "summary": "一句话启动 CEO，不必贴 bash"
+    },
+    {
+      "path": "docs/CEO-AUTO-RECOVER-AND-RETRY.md",
+      "role": "00 CEO",
+      "summary": "中断/FAIL 自动 recover"
+    },
+    {
+      "path": "docs/BRIEF-AUTO-GATE-PIPELINE.md",
+      "role": "04 GM + CEO",
+      "summary": "redteam + adversarial + complete gate"
+    },
+    {
+      "path": "docs/CEO-OWNER-DEADLINE-DELIVERY.md",
+      "role": "00 CEO",
+      "summary": "截止深交付 deep-delivery cycle"
+    },
+    {
+      "path": "docs/HANDOFF-CEO-GM-SOP-PACK.md",
+      "role": "新 Agent / 新机",
+      "summary": "本包总览 · 读序 · 确认清单"
+    }
+  ],
+  "automation_scripts": [
+    {
+      "path": "scripts/ceo-auto-recover-blocked.sh",
+      "when": "blocked/FAIL/stale lock; also first step of CEO 开始工作"
+    },
+    {
+      "path": "scripts/ceo-start-work.sh",
+      "when": "Owner terminal status only"
+    },
+    {
+      "path": "scripts/run-ceo-ip-all-agents-campaign.sh",
+      "when": "01-12 全员 verify campaign"
+    },
+    {
+      "path": "scripts/run-ceo-deep-delivery-cycle.sh",
+      "when": "Owner deadline deep delivery"
+    },
+    {
+      "path": "scripts/manager-ceo-auto-gate-loop.sh",
+      "when": "single brief gate; use --max-rounds 1 inside double-iteration"
+    },
+    {
+      "path": "scripts/manager-ceo-double-iteration.sh",
+      "when": "CEO senior loop on one brief"
+    },
+    {
+      "path": "scripts/manager-xhs-briefs-auto-pipeline.sh",
+      "when": "all briefs unattended pipeline"
+    },
+    {
+      "path": "scripts/verify-handoff.sh",
+      "when": "clone / 交班 L0"
+    }
+  ],
+  "cursor_rules_always_apply": [
+    ".cursor/rules/danying-manager-auto.mdc",
+    ".cursor/rules/guide-orchestrator.mdc"
+  ],
+  "handoff_read_order": "docs/HANDOFF-MD-MANIFEST.md",
+  "verify_after_clone": [
+    "bash scripts/verify-handoff.sh",
+    "bash scripts/verify-integration.sh",
+    "bash scripts/manager-autopilot.sh"
+  ]
+}

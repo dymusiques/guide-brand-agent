@@ -1,15 +1,16 @@
-# Agent work queue · auto · 20261027-143356
+# Agent work queue · auto · 20261028-090000
 
-## Brief hygiene
-- MISSING redteam-pre: `/Users/danying/Desktop/danying-brand-agent/content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md` → run step 1c before edit
-- MISSING redteam-pre: `/Users/danying/Desktop/danying-brand-agent/content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md` → run step 1c before edit
-- MISSING redteam-pre: `/Users/danying/Desktop/danying-brand-agent/content/xiaohongshu/2026-10-17-discovery-02-narrative-not-ads-brief.md` → run step 1c before edit
-- MISSING redteam-pre: `/Users/danying/Desktop/danying-brand-agent/content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md` → run step 1c before edit
-- MISSING redteam-pre: `/Users/danying/Desktop/danying-brand-agent/content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md` → run step 1c before edit
+## Brief hygiene (auto ensure-redteam + complete gate in cycle)
+- pipeline: `bash scripts/manager-xhs-briefs-auto-pipeline.sh`
 
 ## Evolution slugs (metrics present)
 - `content/evolution/00-manager/ip-adversarial-drill-2026-10-27/metrics.jsonl`
 - `content/evolution/_selftest-verify/metrics.jsonl`
+- `content/evolution/10-artist-intel/2026-10-27/lang-lang-piano-ip/metrics.jsonl`
+- `content/evolution/10-artist-intel/2026-10-27/crossover-classical-creator/metrics.jsonl`
+- `content/evolution/10-artist-intel/2026-10-28/hauser-cellist/metrics.jsonl`
+- `content/evolution/11-ip-daily-eval/2026-10-27/metrics.jsonl`
+- `content/evolution/11-ip-daily-eval/2026-10-28/metrics.jsonl`
 
 ## Last cycle log
-`content/evolution/00-manager/ceo-inbox/background-cycle-20261027-143356.log`
+`content/evolution/00-manager/ceo-inbox/background-cycle-20261028-090000.log`

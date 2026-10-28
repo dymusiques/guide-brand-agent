@@ -7,14 +7,25 @@ alwaysApply: true
 
 Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、笔记、IP、品牌、营销、视觉、定稿、campaign、涨粉、强链接等；**口语/碎片即可，勿要求公式化 prompt**）时：
 
+**Owner 一句话 CEO（不必贴 bash）：** 「**请 CEO 开始工作**」「CEO 开始」「CEO 干活」等 → **Must** 按 [`docs/CEO-OWNER-ONE-LINE-TRIGGERS.md`](docs/CEO-OWNER-ONE-LINE-TRIGGERS.md)：`ceo-auto-recover-blocked.sh` → 读最新 dispatch / 未完成双轮状态 → 自动执行下一项（campaign · 双轮 Brief · 深交付 · 刷新 HTML）→ 输出 Manager 派活记录；**勿**问 Owner「要不要跑脚本」。双轮 Brief 见 [`CEO-DOUBLE-ITERATION-SOP.md`](agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md)。
+
 1. **不要**等启动口令；**立即**读 [`agents/00-manager/AUTO-WORKFLOW.md`](agents/00-manager/AUTO-WORKFLOW.md) 并按指挥链执行。
 2. 读 [`integration/IMPORTANT.md`](integration/IMPORTANT.md)；集成层 **不写** kernel 算法。
 3. 每步派活前读对应 [`agents/<nn>-*/INTEGRATION-PROMPT.md`](agents/README.md)；单会话内 **顺序扮演** 各 Agent 职责（不必要 Owner 开多个 chat）。
-4. 有 Brief 后必跑：`bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md`；**交 Owner 前**必跑 `bash scripts/manager-ceo-owner-gate.sh --brief content/xiaohongshu/<file>.md`（见 `docs/CEO-AUTO-QA-LOOP.md`）；改 kernel 后加 `bash scripts/verify-xhs-topic.sh`。
-5. 每轮输出 **Manager 派活记录**（见 AUTO-WORKFLOW 模板）：目标、当前步、终端 PASS/FAIL、**Owner Gate PASS/FAIL · 打回轮次**、下一步。
-6. 失败走 **Manager's Loop** 或 **CEO→GM REROUTE**（同会话自动改稿再 gate，默认最多 3 轮）；**勿**让 Owner 逐条 verify；只改 Brief/Skill/集成 prompt，除非明确改 classifier（05）。
-7. **交给 Owner 的任何交付物**须 **内部 gate** 已通过；仅需 Owner **确认** gold/发布/裁决时再来问。Gate/提示词/Evaluator **内化**，见 `docs/OWNER-INPUT-PRINCIPLES.md`。
-8. **会话开头**：读 `content/ip-research/artist-intel-catalog.json` + review-state；有未审 artist 条目 → **一次性列全**待审清单（**不**每日主动打扰）· `docs/OWNER-ARTIST-CATALOG-ON-OPEN.md`。
+4. **禁止等 Owner 说 evaluate / challenge。** CEO 派活或改 Brief 后 **Must 自动**（见 `docs/BRIEF-AUTO-GATE-PIPELINE.md` · `agents/_shared/BRIEF-ADVERSARIAL-CHALLENGE.md`）：
+   - 全仓：`bash scripts/manager-xhs-briefs-auto-pipeline.sh`（含 **重对抗** `run-xhs-brief-adversarial-challenge.py`）
+   - 单篇：`manager-ceo-auto-gate-loop.sh --brief …`（内嵌 redteam + **adversarial** + complete）
+   - 各 **04/01/09/11** GM：读对应 challenge 节；FAIL **同会话改稿**，勿问 Owner「要不要跑对抗」
+5. 每轮输出 **Manager 派活记录**：**Owner Gate PASS/FAIL · 打回轮次 n/3 · 交 Owner：是/否**。
+6. Gate FAIL → **同会话自动**读 `CEO-REROUTE.md` 改稿 → 再跑 auto-gate-loop（≤3 轮）；**勿**把 FAIL 稿或「请你 evaluate」交给 Owner。
+7. **交给 Owner 的任何交付物**须 auto-gate **PASS**；仅 gold/发布/裁决/3 轮仍 FAIL 升级才问 Owner。
+8. redteam-pre：无文件时 **`ensure-redteam-pre.py` 自动补**；04 改 Brief 时应细化内容，不能只剩 AUTO  stub 长期不更新。
+9. **会话开头**：读 `content/ip-research/artist-intel-catalog.json` + review-state；有未审 artist 条目 → **一次性列全**待审清单（**不**每日主动打扰）· `docs/OWNER-ARTIST-CATALOG-ON-OPEN.md`。
+
+**Owner 给截止交付（如今晚 12 点 / 深筛 / 交 HTML）：** Must 跑 `bash scripts/run-ceo-deep-delivery-cycle.sh`（多轮 pipeline + gate + adversarial 刷新），**禁止**只跑 `ceo-xhs-ip-filter-batch.py` 一轮应付。见 `docs/CEO-OWNER-DEADLINE-DELIVERY.md`。  
+**IP 截止且须 01–12 全员派活：** 先落盘 `content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27.md`（或当日同名），再跑 `bash scripts/run-ceo-ip-all-agents-campaign.sh`；与 deep-delivery **并行**时用 `/tmp/ceo-deep-delivery.lock` 或进程检测 **SKIP_GEMINI**，勿重复 heavy Gemini。
+
+**CEO / deep-delivery / campaign 中断 · 阻塞 · FAIL · 跑错：** **Must 自动** `bash scripts/ceo-auto-recover-blocked.sh` → 读 `ceo-inbox/ceo-auto-recover-latest.md` → 按需 nohup 重跑 deep-delivery / campaign（**勿问 Owner 要不要重跑**）。原则见 `docs/CEO-AUTO-RECOVER-AND-RETRY.md`。
 
 **纯解释、不用交付文件** 的请求：直接回答，不强制跑 verify。
 

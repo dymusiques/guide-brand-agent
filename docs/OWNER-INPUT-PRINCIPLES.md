@@ -34,6 +34,10 @@
 **Gate = 内部质检门**：Agent 在交给你看之前，用脚本检查（例如小红书 aligned、声音 QA、Brief 规范）。  
 **标准可以内部越收越严**；**你的使用门槛不变** — 你不跑 gate、不需要懂 gate 这个词。
 
+**「待 Gate」** 只表示批量脚本当时未重跑 Gate，不等于「永远不能发」；以 Brief 内 `Verify log` 的 **aligned: true** 与 HTML 报告说明为准。
+
+**报告怎么给你看：** 汇总类交付用 **HTML**（可点开、可弹出全文），不用 MD 当主交付。见 [CONTENT-DELIVERY-FOR-OWNER.md](../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md)。
+
 详见 [CEO-AUTO-QA-LOOP.md](./CEO-AUTO-QA-LOOP.md)（面向 Agent；Owner 可跳过细节）。
 
 ---

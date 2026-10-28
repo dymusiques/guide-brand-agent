@@ -1,4 +1,4 @@
-# 小红书笔记 Brief · 对标学习 · ThatViolaKid（Drew Forde）
+# 小红书笔记 Brief · 对标 ThatViolaKid
 
 <!-- xhs-classifier -->
 ```json

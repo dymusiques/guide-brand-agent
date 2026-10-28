@@ -1,0 +1,59 @@
+{
+  "brief": "content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md",
+  "timestamp": "2026-10-27T18:32:27",
+  "adversarial_challenge": {
+    "path": "content/xiaohongshu/challenge/2026-10-08-brand-art-narrative-challenge.md",
+    "pass": true,
+    "errors": []
+  },
+  "redteam_pre": {
+    "path": "content/xiaohongshu/redteam/2026-10-08-brand-art-narrative-pre.md",
+    "pass": true
+  },
+  "l1_six_on_this_brief": [
+    {
+      "id": "L1-1",
+      "kernel_ref": "正例 — IP + 人群 + 强链接 CTA",
+      "pass": true,
+      "detail": "subject/body 须含 IP/品牌命题 + 强链接 CTA 词"
+    },
+    {
+      "id": "L1-2",
+      "kernel_ref": "正例 — 专业+教育/咨询链接",
+      "pass": true,
+      "detail": "专业信任信号 + CTA"
+    },
+    {
+      "id": "L1-3",
+      "kernel_ref": "负例 — 与 IP/涨粉/筛客无关",
+      "pass": true,
+      "detail": "不得主导为团建/无关话题"
+    },
+    {
+      "id": "L1-4",
+      "kernel_ref": "歧义 — 标题弱时正文须承载 IP",
+      "pass": true,
+      "detail": "title_generic=False, body_on_ip=True"
+    },
+    {
+      "id": "L1-5",
+      "kernel_ref": "歧义 — 标题相关、正文须有链接价值",
+      "pass": true,
+      "detail": "防标题党+空正文"
+    },
+    {
+      "id": "L1-6",
+      "kernel_ref": "边界 — 空白/过短内容",
+      "pass": true,
+      "detail": "subject_len=14, body_len=188"
+    }
+  ],
+  "gemini_evaluate": {
+    "subject": "品牌讲故事，为什么需要艺术？",
+    "body": "硬广越砸越贵，用户却三秒划走——缺的不是预算，是一段能被感受、被记住的艺术叙事。我是法派长笛背景出身的跨界品牌策划人，在巴黎高师体系里练出来的句读与呼吸，会转化成活动里的空间节奏与体验设计。面向品牌主理人、艺术家与文化 IP 负责人：若你在做高端发布、艺术联名或想把体验沉淀为数字藏品叙事，我可以帮你把「艺术×商业」落成可执行的方案。请私信「合作」，预约 20 分钟需求对齐。",
+    "aligned": true,
+    "_exit": 0
+  },
+  "kernel_six_regression": null,
+  "overall_pass": true
+}

@@ -13,10 +13,19 @@
 - `kernels/xiaohongshu/line2/is_xhs_growth_aligned.py`
 - 验收：`bash scripts/verify-xhs-topic.sh`（**6 Gemini case**）
 
+## CEO / Manager 运营（Owner 五原则 · 派活 SOP）
+
+- [CEO-MANAGER-OPERATING-STANDARDS.md](../docs/CEO-MANAGER-OPERATING-STANDARDS.md)（原则详述）· [CEO-MANAGER-OPERATING-PRINCIPLES.md](../docs/CEO-MANAGER-OPERATING-PRINCIPLES.md)（脚本映射 · 晚间 8 步）· [MANAGER-EVAL-IMPROVEMENT-LOOP.md](../docs/MANAGER-EVAL-IMPROVEMENT-LOOP.md)（Owner 五 step 环 ↔ 01–12）· [CEO-DISPATCH-SOP.md](../agents/00-manager/CEO-DISPATCH-SOP.md) — 晚间战役示例 `ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*-evening.md`
+
+- **主框架（Owner 三支柱 · 每个 GM 真正在做的事）：** 可观察性 · 可衡量基准 · 教练→SOP 资产 → [MANAGER-THREE-PILLARS.md](../docs/MANAGER-THREE-PILLARS.md)
+- **CEO 环（第二张图 · 两轮串行迭代 ·「consult SOP」入口）：** [CEO-DOUBLE-ITERATION-SOP.md](../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md) · [CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md](../docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md)
+
 ## 集成调用（胶水）
 
-- 单条：`python scripts/evaluate-xhs-topic.py --brief content/xiaohongshu/<file>.md`
-- 批量：`bash scripts/verify-xhs-content-dir.sh`
+- **自动（Must · 无人值守）：** [BRIEF-AUTO-GATE-PIPELINE.md](../docs/BRIEF-AUTO-GATE-PIPELINE.md) · [BRIEF-ADVERSARIAL-CHALLENGE.md](../agents/_shared/BRIEF-ADVERSARIAL-CHALLENGE.md)  
+  `manager-xhs-briefs-auto-pipeline.sh`（含 **`run-xhs-brief-adversarial-challenge.py`** 重对抗）· 单篇 `manager-ceo-auto-gate-loop.sh`
+- 单条 evaluate（仅改稿循环）：`python scripts/evaluate-xhs-topic.py --brief …`
+- 批量：`bash scripts/verify-xhs-content-dir.sh`（默认 complete 管线）
 - 全仓集成构建：`bash scripts/verify-all.sh` · 目标表 `integration/GOALS-REGISTRY.md`
 - IP 真相：`content/personal-ip/ip-positioning-brief-2026-10-05.md`
 
@@ -36,7 +45,11 @@
 
 ## CEO 交 Owner 前（Must · 内部 Gate，不抬高 Owner 门槛）
 
-- **Agent 自验，默认不让 Owner 逐条跑 verify。** Gate = 内部质检（aligned 等），仅 Agent 跑 `manager-ceo-owner-gate.sh`；FAIL 打回 GM，同会话改稿（默认 ≤3 轮）。见 [docs/CEO-AUTO-QA-LOOP.md](../docs/CEO-AUTO-QA-LOOP.md)。
+- **Agent 自验，默认不让 Owner 逐条跑 verify。** **禁止等 Owner 回复才 evaluate**；后台/autopilot/改 Brief 后自动跑 `manager-xhs-briefs-auto-pipeline.sh` 或 `manager-ceo-auto-gate-loop.sh`；FAIL 写 CEO-REROUTE 并同会话改稿（≤3 轮）。见 [CEO-AUTO-QA-LOOP.md](../docs/CEO-AUTO-QA-LOOP.md) · [BRIEF-AUTO-GATE-PIPELINE.md](../docs/BRIEF-AUTO-GATE-PIPELINE.md)。
+
+## CEO 深交付 / campaign 中断恢复（Must · 无人值守）
+
+- deep-delivery、campaign、锁 `/tmp/ceo-deep-delivery.lock`、log **FAIL / 未完成 / 重复 pid** → **先** `bash scripts/ceo-auto-recover-blocked.sh`，再按需重跑 `run-ceo-deep-delivery-cycle.sh` 或 `run-ceo-ip-all-agents-campaign.sh`；**勿让 Owner 重复下口令**。见 [CEO-AUTO-RECOVER-AND-RETRY.md](../docs/CEO-AUTO-RECOVER-AND-RETRY.md) · `ceo-inbox/ceo-auto-recover-latest.md`。
 
 ## 红线
 

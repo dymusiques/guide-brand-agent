@@ -36,6 +36,12 @@ PY=".venv/bin/python"
 # --- Standards (faithful to verify map) ---
 run "verify-collector-evaluator" bash scripts/verify-collector-evaluator.sh
 run "verify-xhs-content-intake" bash scripts/verify-xhs-content-intake.sh
+run "ensure-redteam-pre all" "$PY" scripts/ensure-redteam-pre.py --all
+if [[ -f .env ]] || [[ -n "${GEMINI_API_KEY:-}" ]]; then
+  run "xhs-briefs-auto-pipeline" bash scripts/manager-xhs-briefs-auto-pipeline.sh
+else
+  skip "xhs-briefs-auto-pipeline (no GEMINI_API_KEY)"
+fi
 run "verify-goals M4" bash scripts/verify-goals.sh
 
 # Gemini 6 case: daily depth only (expensive)
@@ -73,12 +79,13 @@ QUEUE="$INBOX/agent-work-queue.md"
 {
   echo "# Agent work queue · auto · $STAMP"
   echo ""
-  echo "## Brief hygiene"
+  echo "## Brief hygiene (auto ensure-redteam + complete gate in cycle)"
+  echo "- pipeline: \`bash scripts/manager-xhs-briefs-auto-pipeline.sh\`"
   while IFS= read -r brief; do
     base=$(basename "$brief" -brief.md)
     pre="$ROOT/content/xiaohongshu/redteam/${base}-pre.md"
     if [[ ! -f "$pre" ]]; then
-      echo "- MISSING redteam-pre: \`$brief\` → run step 1c before edit"
+      echo "- STILL MISSING redteam-pre: \`$brief\` (ensure-redteam should have run)"
     fi
   done < <(find "$ROOT/content/xiaohongshu" -maxdepth 1 -name '*-brief.md' 2>/dev/null | sort)
 

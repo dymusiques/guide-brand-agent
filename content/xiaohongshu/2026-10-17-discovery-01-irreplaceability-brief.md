@@ -4,7 +4,7 @@
 ```json
 {
   "subject": "品牌活动里，什么是「站得住」的艺术？",
-  "body": "艺术常被当成活动布景——好看、可拍照、三秒划走；用户记住的是滤镜，不是品牌。真正「站得住」的艺术，来自可被听、被感受的专业训练：法派长笛体系里的句读与呼吸，对应空间里的节奏与信任，而不是多一块装饰。叙事而非硬广：让人愿意停下来的，往往不是 slogans，而是一个可被听见的判断。我跨行业 open，不把账号绑成某一品类博主；把古典艺术里不可替代的判断，翻译成你们场景里能用的体验结构。若你在区分「装饰性环节」和「能建立专业信任的艺术」，先收藏；有具体场景再私信「聊聊」。"
+  "body": "你一定见过这一幕：快闪现场人人举手机拍装置，音乐响起，手机慢慢放下。艺术常被当成活动布景——好看、可拍照、三秒划走；用户记住的是滤镜，不是品牌。真正「站得住」的艺术，来自可被听、被感受的专业训练：法派长笛体系里的句读与呼吸，对应空间里的节奏与信任，而不是多一块装饰。叙事而非硬广：让人愿意停下来的，往往不是 slogans，而是一个可被听见的判断。我跨行业 open，不把账号绑成某一品类博主；把古典艺术里不可替代的判断，翻译成你们场景里能用的体验结构。若你在区分「装饰性环节」和「能建立专业信任的艺术」，先收藏；有具体场景再私信「聊聊」。"
 }
 ```
 
@@ -17,11 +17,12 @@
 ## 封面
 
 - 主视觉: 长笛细节 / 演奏姿态局部，克制光影（非卖场、非家居场景）
-- 文案 overlay: 「不可替代的，不是装饰」
+- 文案 overlay: 「不可替代的，不是装饰」（**文字海报**，避免空镜卖场感；v1.1）
 - 尺寸: 3:4
 
 ## 钩子（前 2 行）
 
+你一定见过这一幕：快闪现场人人举手机拍装置，音乐响起，手机慢慢放下。  
 艺术常被当成活动布景——好看、可拍照、三秒划走。  
 用户记住的是滤镜，不是品牌；缺的是 **站得住的专业**。
 
@@ -34,7 +35,7 @@
 
 ## 标签
 
-#品牌策划 #艺术跨界 #法派长笛 #跨界品牌 #专业信任
+#品牌策划 #艺术跨界 #法派长笛 #跨界品牌 #专业信任 #品牌活动 #快闪活动 #品牌叙事 #艺术营销 #长笛
 
 ## CTA（轻 · 不违和）
 
@@ -57,3 +58,7 @@
 ## Verify log
 
 - `2026-10-17` · v1 · `evaluate-xhs-topic.py --brief` → **`aligned: true`**
+- `2026-10-27` · `evaluate-xhs-topic.py --brief` → **`aligned: true`**（复查）
+- `2026-10-27` · **challenge 复查** · redteam-pre 补录 + 外部对标 · Owner HTML：`content/evolution/00-manager/ceo-inbox/OWNER-DISCOVERY-01-CHALLENGE-AUDIT-2026-10-27.html` · **发前建议 v1.1**（moment + 10 标签）
+- `2026-10-27` · **`evaluate-xhs-brief-complete.py`** → redteam + L1×6 + evaluate + kernel 6 · **PASS** · log：`content/xiaohongshu/verify-logs/2026-10-17-discovery-01-irreplaceability-complete-20261027-173149.json` · CEO Gate PASS
+- `2026-10-27` · **v1.1 已改稿**（campaign 晚间 · 04 工作项）：开头加匿名 moment 1 句 + 标签补满 10 个 + 封面定为文字海报；已 auto-gate-loop 第 1/3 轮 PASS（redteam + adversarial + L1×6 + evaluate aligned + kernel 6）· `manager-ceo-owner-gate.sh` PASS · log：`content/xiaohongshu/verify-logs/2026-10-17-discovery-01-irreplaceability-complete-20261027-183045.json`

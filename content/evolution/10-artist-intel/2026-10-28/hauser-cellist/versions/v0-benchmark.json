@@ -1,0 +1,56 @@
+{
+  "artist_slug": "hauser-cellist",
+  "borrow_score": 54,
+  "why_evaluate": "评估 HAUSER（Stjepan Hauser）旨在分析古典器乐演奏者如何利用现代短视频与社交媒体进行全球化视觉放大。在 DB（战略方向）与 PLD（像素级拆解）上，其场景化视觉钩子与巡演节点排期具有一定借鉴意义；但从 APO（受众重叠）与 CTD（核心题密度）来看，其极度偏向 C 端泛娱乐流量（Vanity Reach），缺乏 B2B 品牌策划与 AI/数字资产沉淀，需谨慎甄别使用。",
+  "alignment_points": [
+    "古典顶尖器乐演奏功底与现代短视频视觉语汇的无缝结合",
+    "利用特定空间与户外自然场景营造沉浸式古典音乐视觉氛围",
+    "围绕巡演节点与专辑发行的模块化短视频高频发布策略"
+  ],
+  "timeline": [
+    {
+      "phase": "2Cellos 爆红期",
+      "year_or_era": "2011-2018",
+      "what_happened": "以 2Cellos 组合身份通过 YouTube 翻奏流行摇滚大发异彩，建立古典大提琴×现代流行的短视频传播基础。"
+    },
+    {
+      "phase": "个人 IP 全面爆发",
+      "year_or_era": "2019-2022",
+      "what_happened": "开启 HAUSER 个人品牌运营，推出《Classic》系列并拍摄《Alone, Together》等风景演奏视听大片，社媒粉丝突破千万。"
+    },
+    {
+      "phase": "全球短视频矩阵与巡演高频变现",
+      "year_or_era": "2022-至今",
+      "what_happened": "深化 Instagram Reels 与 TikTok 短视频矩阵，以高视觉冲击力的情感表演短视频直接赋能全球个人巡演售票。"
+    }
+  ],
+  "worth_borrowing": [
+    "“前3秒视觉+听觉双重钩子”：将法派长笛高光片段置于具视觉冲击力的自然/建筑场景中",
+    "节点化发布节奏：结合听见 Daily 或线下音乐会节点，制作高强度发酵的短视频片段矩阵",
+    "情感化表演表达：将古典演奏技巧转化为大众可直观感知的视觉张力与情绪价值"
+  ],
+  "avoid": [
+    "过度依赖泛 C 端流量与偶像化人设，导致高价值 B2B 品牌决策者与专业教育受众流失",
+    "缺少方法论与商业策划案拆解，形成缺乏高客单 B2B 商业履约能力的纯 Vanity 流量",
+    "忽视艺术 IP 的数字化沉淀（如 AI/数字藏品），完全依赖线下巡演与社媒流量的打赏赞助"
+  ],
+  "sources_note": "基于 Groovemedia 行业案例拆解及 HAUSER 公开社媒（Instagram/TikTok/YouTube）运营数据分析，不涉及未经公开的合同或未证实收入数据。",
+  "benchmark_metrics": {
+    "directional_benchmarking": {
+      "score": 62.0,
+      "rationale": "HAUSER 成功将古典器乐表演引入现代短视频语境，与 Owner 的古典专业放大逻辑同向，但缺乏 B2B 品牌策划与 AI 数字化的战略维度。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 65.0,
+      "rationale": "其场景化演奏短视频的封面选择、高潮前置钩子及巡演排期节奏均可进行像素级拆解并迁移至长笛短视频创作中。"
+    },
+    "audience_persona_overlap": {
+      "score": 38.0,
+      "rationale": "受众高度集中于追求大众娱乐与浪漫氛围的 C 端粉丝，与 Owner 核心关注的品牌决策者、教育链家长及 AI 创新者重叠度较低。"
+    },
+    "core_topic_density": {
+      "score": 48.0,
+      "rationale": "选题极度聚焦于大提琴翻奏与戏剧化表演，完全缺乏跨行业品牌策划案、法派教学体系及数字藏品等深度叙事内容。"
+    }
+  }
+}

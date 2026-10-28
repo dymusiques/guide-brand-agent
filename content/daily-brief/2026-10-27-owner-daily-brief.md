@@ -2,7 +2,7 @@
 > CEO 汇总 GM10/11/09 · 内部已跑 verify/challenge
 ## Artist 对标（GM10）
 ### crossover-classical-creator
-- **借鉴分：** 78
+- **借鉴分：** 62
 - **为何这样 evaluate：** 该对标案例展示了古典音乐家从传统学术/乐团体系走向跨界品牌策划与个人IP数字化运作的完整路径。评估其经验有助于Owner验证‘法派长笛专业根基 × 跨行业商业体验设计’在小红书及多平台传播中的落地可行性，并明确‘不绑定单品类’与‘强链接变现’的商业边界。
 - **可对齐点：** 艺术根基与跨界策划双轮驱动：以法派长笛/古典乐专业高度作为不可替代的信任锚点，同时具备商业场景翻译与品牌策划能力。 · 跨行业开放合作模式：商业联名聚焦于‘品牌 × 艺术 × 沉浸式体验’通用策划逻辑，未将IP死板绑定于特定单一品类（如家居或美妆）。 · 分层内容与数字化探索：兼顾面向大众的高质感艺术日常策展（如‘听见 Daily’）与面向商业客户/学术群体的深度案例拆解，并逐步探索AI与数字资产沉淀。
 - **时间线：**
@@ -14,14 +14,22 @@
   - 采用‘人即品牌’的通用策划框架，在具体案例层展现跨行业履约能力，人设层保持高质感古典艺术家独立性。
   - 搭建日更（轻量感官策展）与周更（深度商业/法派教学拆解）分层内容链条，高效兼顾B端品牌主与C端音乐学习者。
 - **sources_note：** Tier: Inferred / Public Knowledge Synthesis. 本评估基于古典跨界创作者公域运作模型与小红书古典乐IP通用路径推演；无私密合同或未经证实之财务数据。
+### lang-lang-piano-ip
+- **借鉴分：** 56.5
+- **为何这样 evaluate：** 评估郎朗（Lang Lang）作为全球顶尖古典音乐名人IP在破圈传播、教育基金会与高端品牌跨界合作方面的标杆意义。通过 DB/PLD/APO/CTD 四维拆解发现，其古典音乐大众化与多行业联名方向具有极高借鉴价值，但其内容高度依赖巨星效应，难以像素级复刻其选题排期与钩子。
+- **可对齐点：** 古典音乐破圈与大众化表达：成功将高雅古典乐翻译为大众与品牌皆能理解的通用符号语言。 · 教育链条深耕与公益基建：通过郎朗国际音乐基金会与钢琴教程，形成完善的琴童与家长端教育生态。 · 跨界商业品牌合作：涵盖奢品、消费品及文化地产等多行业联名，践行不绑定单一品类的强链接逻辑。
+- **时间线：**
+  - 1999-2008 · 成名与全球巡演 — 芝加哥交响乐团世纪明星音乐会一举成名，开启全球顶级乐团巡演与奥运会开幕式等超级破圈舞台。
+  - 2008-2018 · 基金会与教育布局 — 成立 Lang Lang International Music Foundation，推出钢琴教材，搭建全球琴童与音乐教育体系。
+  - 2019至今 · 跨界破圈与商业化 — 入驻小红书/抖音等平台，参与综艺与商业大牌联名，深化迪士尼等艺术 IP 与古典乐融合跨界项目。
+- **值得借鉴：**
+  - 教育链叙事框架：将专业技术体系转化为面向家长与学生的普及性教程与启发式互动内容。
+  - 古典乐×大众超级IP再创作：如 Disney Book 专辑，将经典流行/影视 IP 用顶级古典技巧重新演绎的跨界策展逻辑。
+  - 品牌联名的高质感呈现：在商业合作中始终保持音乐主业的表演质感与专业权威度。
+- **sources_note：** 基于公开信息（官方网站 langlang.com、小红书官方账号及公开商业报道）进行评估。无捏造商业合同，评级为 P2 级知名度参照标杆。
 
 ## IP 自检（GM11）
-- Brief 缺 redteam-pre：5 篇
-  - `content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md`
-  - `content/xiaohongshu/2026-10-17-discovery-02-narrative-not-ads-brief.md`
-  - `content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md`
-  - `content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md`
-  - `content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md`
+- Brief 缺 redteam-pre：0 篇
 
 ## 今日派活建议（09→04）
 # CEO 派活块 · 00 Manager → 04 Topic Manager
@@ -87,7 +95,6 @@
 ```
 读 agents/00-manager/AUTO-WORKFLOW.md；
 若 Owner 未指定 Brief：优先处理 ceo-dispatch-latest 中「当前执行优先级」；
-写/改 Brief 后：bash scripts/manager-workflow-verify.sh content/xiaohongshu/<brief>.md
 ```
 
 ---

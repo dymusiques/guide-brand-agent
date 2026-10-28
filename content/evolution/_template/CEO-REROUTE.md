@@ -9,9 +9,17 @@
 - 命令：
 - 终端 excerpt：（粘贴关键 FAIL 行）
 
+## Prompt Change 提案（GM/AI 必填 · 改稿前填写）
+
+- 改什么：（文件路径 + 段落）
+- 一句 diff：
+- 依据（Gate / verify-logs）：
+- 预期哪条 gate 变绿：
+- 风险：
+
 ## GM Must 做
 
-1. 读上表失败原因 + 当前 `versions/vN.md`
+1. 读上表失败原因 + 完成 **提案** + 当前 `versions/vN.md`
 2. 出 **v(N+1)**（或 Brief 补丁），**禁止**把同一 FAIL 稿再标「请 Owner 验证」
 3. 重跑：
 

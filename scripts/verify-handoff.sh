@@ -15,6 +15,20 @@ warn() { echo "  WARN $1"; WARN=$((WARN + 1)); }
 echo "=== Handoff verify: $ROOT ==="
 echo ""
 
+echo "[CEO/GM operating pack]"
+for f in \
+  docs/HANDOFF-CEO-GM-SOP-PACK.md \
+  integration/handoff/ceo-gm-operating-manifest.json \
+  docs/MANAGER-THREE-PILLARS.md \
+  docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md \
+  agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md \
+  docs/CEO-OWNER-ONE-LINE-TRIGGERS.md \
+  scripts/manager-ceo-double-iteration.sh \
+  scripts/verify-ceo-iteration-log.py; do
+  [[ -f "$f" ]] && pass "$f" || fail "missing $f"
+done
+
+echo ""
 echo "[L0 Git skeleton]"
 for f in \
   AGENTS.md INDEX.md integrations/index.md \

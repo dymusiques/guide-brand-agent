@@ -1,0 +1,49 @@
+
+######## verify-agent-fused · agent 10 · date=2026-10-27 ########
+=== GM10 artist benchmark 6 cases ===
+
+  PASS · 正例 · 完整 JSON
+  PASS · 负例 · 缺 timeline
+  PASS · 负例 · 缺 benchmark_metrics
+  PASS · 负例 · 分超界
+  PASS · 负例 · 对齐点不足
+  PASS · 边界 · 分 0
+
+=== Summary ===
+6 passed, 0 failed
+>>> fused C L1 six-case: PASS
+>>> fused C artifacts+hygiene: PASS
+
+######## verify-agent-fused · agent 11 · date=2026-10-27 ########
+=== GM11 IP daily eval 6 cases ===
+
+  PASS · 正例 · 完整 eval
+  PASS · 负例 · 缺 date
+  PASS · 负例 · missing 非 list
+  PASS · 边界 · challenge_pass false
+  PASS · 负例 · rollup 未 present
+  PASS · challenge · 两条 X trap
+  PASS · gold sanity
+
+=== Summary ===
+7 passed, 0 failed
+>>> fused C L1 six-case: PASS
+>>> fused C artifacts+hygiene: PASS
+
+######## verify-agent-fused · agent 12 · date=2026-10-27 ########
+=== GM12 owner daily brief 6 cases ===
+
+  PASS · 正例 · 完整结构
+  PASS · 负例 · 缺 Artist
+  PASS · 负例 · 无决策勾
+  PASS · 负例 · 逼 Owner 跑 verify
+  PASS · 边界 · Artist 占位段
+  PASS · gold rubric
+
+=== Summary ===
+6 passed, 0 failed
+>>> fused C L1 six-case: PASS
+>>> fused C artifacts+hygiene: PASS
+
+=== verify-agent-fused summary (agent=all-daily SKIP_GEMINI=1) ===
+RESULT: PASS

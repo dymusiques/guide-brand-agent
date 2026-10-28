@@ -61,9 +61,11 @@ Brief 或听见类内容若出现 **具体日期、档期、「最新/刚发布�
 ## 单篇流程（必会）
 
 1. 复制模板 → 填 Brief + **同步改 classifier JSON**  
-2. 单条验收：  
-   `python scripts/evaluate-xhs-topic.py --brief content/xiaohongshu/<file>.md`  
-3. **`aligned: true`** → 更新 Verify log → **git commit**  
+2. **交 Owner 前完整验收（Must）：**  
+   `.venv/bin/python scripts/evaluate-xhs-brief-complete.py --brief content/xiaohongshu/<file>.md`  
+   （redteam-pre + 本篇 L1×6 + Gemini evaluate + kernel 6 回归）  
+3. 或仅改稿循环：`python scripts/evaluate-xhs-topic.py --brief …`  
+4. **`aligned: true` + complete PASS** → 更新 Verify log → **git commit**  
 4. 封面需求 → `.cursor/skills/brand-visual/`  
 5. **仅** Owner 说「同步 Drive」→ `05-xiaohongshu/`（overlay folder ID）
 

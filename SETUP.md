@@ -61,7 +61,7 @@ python -m gdocs --secrets-dir vendor/gdocs-skill/secrets create --title "Smoke t
 ## 4. Cursor
 
 - Open Folder → 新终端自动激活 `.venv`（`.vscode/settings.json`）
-- Settings → MCP：授权 **Google Drive**、**Canva**
+- **Customize → MCPs**（侧边栏「自定义」）：安装并 Connect **Google Drive**、**Gmail**、**Google Calendar**、**Canva**（2026 起 MCP 不在 `Cmd+,` Settings 里；找不到时用 `Cmd+Shift+P` → **Open Customize** 或 **Open MCP Settings**）
 
 ## 5. 验证
 

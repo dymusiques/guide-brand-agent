@@ -65,13 +65,15 @@ elif [[ -n "$BRIEF" ]]; then
     echo "FAIL: Brief not found: $BRIEF" | tee -a "$LOG"
     failures+=("brief-missing")
   else
-    run_check "manager-workflow-verify" bash scripts/manager-workflow-verify.sh "$BRIEF"
     PY=""
     if [[ -x .venv/bin/python ]]; then PY=".venv/bin/python"
     elif command -v python3 >/dev/null 2>&1; then PY="python3"
     fi
     if [[ -n "$PY" ]]; then
+      run_check "auto-gate-loop" bash scripts/manager-ceo-auto-gate-loop.sh --brief "$BRIEF"
       run_check "seo-lint-brief" "$PY" scripts/seo-lint-xhs-briefs.py "$BRIEF"
+    else
+      run_check "manager-workflow-verify" bash scripts/manager-workflow-verify.sh "$BRIEF"
     fi
   fi
 else

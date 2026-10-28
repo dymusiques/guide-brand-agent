@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Owner 交付 · 小红书筛选 · 2026-10-27</title>
+<style>
+  :root { font-family: -apple-system, "PingFang SC", sans-serif; line-height: 1.5; }
+  body { max-width: 960px; margin: 0 auto; padding: 24px; background: #fafafa; color: #1a1a1a; }
+  h1 { font-size: 1.5rem; }
+  .glossary { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 16px 0; }
+  .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card button { margin-top: 8px; padding: 8px 12px; cursor: pointer; background: #111; color: #fff; border: none; border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; }
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 100; overflow: auto; }
+  .modal.open { display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; }
+  .modal-inner { background: #fff; max-width: 720px; width: 100%; padding: 24px; border-radius: 12px; position: relative; }
+  .close { position: absolute; right: 12px; top: 8px; font-size: 28px; border: none; background: none; cursor: pointer; }
+  .box { background: #f6f6f6; padding: 12px; border-radius: 6px; max-height: 40vh; overflow: auto; font-size: 0.9rem; }
+  .brief { max-height: 50vh; }
+  a { color: #0645ad; }
+  .open-hint { background: #fff3cd; border: 1px solid #ffc107; padding: 12px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<h1>Owner 交付 · CEO 小红书资料筛选 · 2026-10-27</h1>
+<p class="open-hint">若在 <strong>Cursor 里打开只看到代码</strong>：请用 Finder 双击本文件，或双击同目录
+<code>OPEN-OWNER-REPORT-IN-BROWSER.command</code>。网页打开后，Discovery 点按钮可弹出全文。</p>
+
+<section class="glossary">
+<h2>名词说明</h2>
+<p><strong>Gate（Owner Gate）</strong>：内部质检，不是让你跑的命令。Agent 在交给你之前用
+<code>manager-ceo-owner-gate.sh</code> + Brief 的 <code>evaluate-xhs-topic</code>（05 分类器）检查是否
+<code>aligned: true</code>、redteam-pre 是否齐全。<strong>「待 Gate」</strong> = 当时批量脚本未重跑 Gate，不代表内容一定不合格；Discovery 01 在 Brief 里已有
+<code>aligned: true</code> 记录（2026-10-17）。</p>
+<p><strong>优先级（本报告）</strong>：按<strong>认知期发帖顺序 + 数据策略</strong>，不是 evaluate 退出码排序。
+<strong>#1 Discovery 01</strong> = 不可替代性（首推）；02 叙事；03 专业信任；04 轻收口（#1–3 发后再发）。</p>
+<p><strong>Discovery 01 是什么？</strong> 文件
+<code>2026-10-17-discovery-01-irreplaceability-brief.md</code>，标题「品牌活动里，什么是「站得住」的艺术？」，认知期深度队列第一篇。</p>
+</section>
+
+<h2>Discovery 01–04 · 点击弹出</h2>
+<div class="cards">
+
+<article class="card">
+  <h3>认知期 #1 · 不可替代性</h3>
+  <p><strong>Discovery 01</strong> · 推荐：首推发表</p>
+  <p class="title">标题：品牌活动里，什么是「站得住」的艺术？</p>
+  <button onclick="openModal('modal-d01')">弹出全文 · Brief + 正文</button>
+</article>
+<article class="card">
+  <h3>认知期 #2 · 叙事而非硬广</h3>
+  <p><strong>Discovery 02</strong> · 推荐：队列 #2</p>
+  <p class="title">标题：用户三秒划走，缺的是叙事不是预算</p>
+  <button onclick="openModal('modal-d02')">弹出全文 · Brief + 正文</button>
+</article>
+<article class="card">
+  <h3>认知期 #3 · 专业信任</h3>
+  <p><strong>Discovery 03</strong> · 推荐：队列 #3</p>
+  <p class="title">标题：品牌合作里，「专业信任」从哪来？</p>
+  <button onclick="openModal('modal-d03')">弹出全文 · Brief + 正文</button>
+</article>
+<article class="card">
+  <h3>认知期 #4 · 轻收口</h3>
+  <p><strong>Discovery 04</strong> · 推荐：队列 #4</p>
+  <p class="title">标题：跨行业品牌找艺术合作，先对齐三件事</p>
+  <button onclick="openModal('modal-d04')">弹出全文 · Brief + 正文</button>
+</article>
+</div>
+
+<h2>Artist 四指标（DB / PLD / APO / CTD）</h2>
+<p>Excel/CSV：<a href="../../../../ip-research/artist-watchlist-four-metrics.xlsx">content/ip-research/artist-watchlist-four-metrics.xlsx</a>（用 Excel 或 Numbers 打开）</p>
+<table>
+<thead><tr><th>Tier</th><th>Artist</th><th>Composite</th><th>DB</th><th>PLD</th><th>APO</th><th>CTD</th><th>URLs</th></tr></thead>
+<tbody><tr>
+          <td>P1</td>
+          <td>Drew Alexander Forde · ThatViolaKid</td>
+          <td>73</td>
+          <td>95.0</td>
+          <td>63.0</td>
+          <td>68.0</td>
+          <td>60.0</td>
+          <td>https://thatviolakid.com/about · https://christianhowes.com/2021/05/06/creative-strings-podcast-ep-43-drew-alexander-forde/</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>土豆人 · tudou_man（林晨）</td>
+          <td>70</td>
+          <td>68.0</td>
+          <td>77.0</td>
+          <td>80.0</td>
+          <td>50.0</td>
+          <td>https://www.digitaling.com/articles/942108.html · https://www.digitaling.com/articles/1320234.html</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>画画的小福象（小红书 · 品牌/IP 视觉）</td>
+          <td>66</td>
+          <td>68.0</td>
+          <td>72.0</td>
+          <td>70.0</td>
+          <td>50.0</td>
+          <td>https://www.xiaohongshu.com/user/profile/5657b233b8ce1a4fa16e6d0f</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>儿力力 · 白日梦小姐 IP</td>
+          <td>62</td>
+          <td>68.0</td>
+          <td>50.0</td>
+          <td>60.0</td>
+          <td>68.0</td>
+          <td>https://www.99ys.com/exhibit/2025/03/05/11/72048.html</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>Lang Lang · 郎朗</td>
+          <td>58</td>
+          <td>83.0</td>
+          <td>35.0</td>
+          <td>58.0</td>
+          <td>50.0</td>
+          <td>https://langlang.com/</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>HAUSER（Stjepan Hauser）</td>
+          <td>54</td>
+          <td>65.0</td>
+          <td>58.0</td>
+          <td>38.0</td>
+          <td>50.0</td>
+          <td>https://groovemedia.org/work/hauser</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>Fuzzy hug（独立数字艺术 IP）</td>
+          <td>50</td>
+          <td>58.0</td>
+          <td>50.0</td>
+          <td>50.0</td>
+          <td>40.0</td>
+          <td>https://www.adquan.com/article/343094</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>Lincoln Center / 机构级艺术传播（非个人，学内容结构）</td>
+          <td>37</td>
+          <td>25.0</td>
+          <td>35.0</td>
+          <td>58.0</td>
+          <td>30.0</td>
+          <td>https://www.lincolncenter.org/</td>
+        </tr></tbody>
+</table>
+
+<p style="margin-top:32px;color:#666;font-size:0.85rem">danying-brand-agent · HTML Owner 报告 · 以后 CEO 交付以 HTML 为准</p>
+
+<div id="modal-d01" class="modal" onclick="if(event.target===this)closeModal('modal-d01')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d01')">×</button>
+    <h2>认知期 #1 · 不可替代性</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-01-irreplaceability-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">- **Brief：** `2026-10-17-discovery-01-irreplaceability-brief.md`<br>
+- **标题：** 品牌活动里，什么是「站得住」的艺术？<br>
+<br>
+### 正文（复制到小红书）<br>
+<br>
+你一定见过这一幕：快闪现场人人举手机拍装置，音乐响起，手机慢慢放下。  <br>
+艺术常被当成活动布景——好看、可拍照、三秒划走。  <br>
+用户记住的是滤镜，不是品牌；缺的是 **站得住的专业**。<br>
+<br>
+很多品牌把艺术理解成「多一个好看环节」：  <br>
+舞台边上加一段演奏、空间里挂几幅画、物料里塞几个「高级感」关键词。  <br>
+问题是——用户 **停不住**，也 **记不住你**。<br>
+<br>
+真正「站得住」的艺术，来自可被听、被感受的专业训练。  <br>
+法派长笛体系里的 **句读与呼吸**，对应的是空间里的 **节奏与信任**，不是多一块装饰。<br>
+<br>
+**叙事而非硬广：** 硬广买曝光；艺术叙事买的是 **被感受的 moment**——  <br>
+让人愿意停下来的，往往不是 slogans，而是 **一个可被听见的判断**。<br>
+<br>
+**专业信任：** 跨界策划若只有人设口号，没有可验证的训练，很难撑住 B2B 对话。  <br>
+我跨行业 open，**不** 把自己绑成某一品类博主；  <br>
+是把古典艺术里 **不可替代的判断**，翻译成你们场景里能用的体验结构。<br>
+<br>
+若你也在区分「装饰性环节」和「能建立专业信任的艺术」——  <br>
+可以先 **收藏**；有具体发布/活动/联名场景，再私信 **「聊聊」**，我们看是否同频。  <br>
+（高意向也可私信 **「合作/品牌」**，一句即可。）<br>
+<br>
+### 标签<br>
+<br>
+#品牌策划 #艺术跨界 #法派长笛 #跨界品牌 #专业信任 #品牌活动 #快闪活动 #品牌叙事 #艺术营销 #长笛</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #1 不可替代性<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;品牌活动里，什么是「站得住」的艺术？&quot;,<br>
+  &quot;body&quot;: &quot;你一定见过这一幕：快闪现场人人举手机拍装置，音乐响起，手机慢慢放下。艺术常被当成活动布景——好看、可拍照、三秒划走；用户记住的是滤镜，不是品牌。真正「站得住」的艺术，来自可被听、被感受的专业训练：法派长笛体系里的句读与呼吸，对应空间里的节奏与信任，而不是多一块装饰。叙事而非硬广：让人愿意停下来的，往往不是 slogans，而是一个可被听见的判断。我跨行业 open，不把账号绑成某一品类博主；把古典艺术里不可替代的判断，翻译成你们场景里能用的体验结构。若你在区分「装饰性环节」和「能建立专业信任的艺术」，先收藏；有具体场景再私信「聊聊」。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 触达计划 · 队列 #1 · 主轴：不可替代性 + 叙事而非硬广 + 专业信任（本篇偏不可替代性）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+品牌活动里，什么是「站得住」的艺术？<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 长笛细节 / 演奏姿态局部，克制光影（非卖场、非家居场景）<br>
+- 文案 overlay: 「不可替代的，不是装饰」（**文字海报**，避免空镜卖场感；v1.1）<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+你一定见过这一幕：快闪现场人人举手机拍装置，音乐响起，手机慢慢放下。  <br>
+艺术常被当成活动布景——好看、可拍照、三秒划走。  <br>
+用户记住的是滤镜，不是品牌；缺的是 **站得住的专业**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **不可替代性：** 「装饰性艺术」vs「能建立信任的专业 moment」——差别在用户停不停  <br>
+2. **叙事而非硬广：** 硬广买曝光；艺术叙事买 **被感受的句读**（法派体系 → 空间/体验节奏，一句方法论）  <br>
+3. **专业信任：** 人即品牌——跨界策划来自可验证的训练，不是人设口号  <br>
+4. **边界：** 跨行业 open；案例可跨垂直，**不** 将账号绑成某一商品品类主攻号  <br>
+<br>
+## 标签<br>
+<br>
+#品牌策划 #艺术跨界 #法派长笛 #跨界品牌 #专业信任 #品牌活动 #快闪活动 #品牌叙事 #艺术营销 #长笛<br>
+<br>
+## CTA（轻 · 不违和）<br>
+<br>
+- 同频再聊：**收藏** 本篇；有具体场景再私信 **「聊聊」**（非报价、非体验季推销）  <br>
+- 高意向仍可用 **「合作/品牌」**，仅放在结尾一句，不进标题  <br>
+<br>
+## 与品牌<br>
+<br>
+- 栏目: 认知期深度 #1 · [discovery-phase-note-queue.md](../marketing/discovery-phase-note-queue.md)  <br>
+- 语气: 价值判断优先；克制、可对话  <br>
+- 触达: [2026-10-brand-discovery-phase.md](../marketing/2026-10-brand-discovery-phase.md)<br>
+- 数据校准: [xhs-data-strategy-2026-10-20.md](../analytics/derived/xhs-data-strategy-2026-10-20.md) · 直发正文 [2026-10-20-publish-ready-queue.md](./2026-10-20-publish-ready-queue.md)<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · v1 · `evaluate-xhs-topic.py --brief` → **`aligned: true`**<br>
+- `2026-10-27` · `evaluate-xhs-topic.py --brief` → **`aligned: true`**（复查）<br>
+- `2026-10-27` · **challenge 复查** · redteam-pre 补录 + 外部对标 · Owner HTML：`content/evolution/00-manager/ceo-inbox/OWNER-DISCOVERY-01-CHALLENGE-AUDIT-2026-10-27.html` · **发前建议 v1.1**（moment + 10 标签）<br>
+- `2026-10-27` · **`evaluate-xhs-brief-complete.py`** → redteam + L1×6 + evaluate + kernel 6 · **PASS** · log：`content/xiaohongshu/verify-logs/2026-10-17-discovery-01-irreplaceability-complete-20261027-173149.json` · CEO Gate PASS<br>
+- `2026-10-27` · **v1.1 已改稿**（campaign 晚间 · 04 工作项）：开头加匿名 moment 1 句 + 标签补满 10 个 + 封面定为文字海报；已 auto-gate-loop 第 1/3 轮 PASS（redteam + adversarial + L1×6 + evaluate aligned + kernel 6）· `manager-ceo-owner-gate.sh` PASS · log：`content/xiaohongshu/verify-logs/2026-10-17-discovery-01-irreplaceability-complete-20261027-183045.json`<br>
+</div>
+  </div>
+</div>
+<div id="modal-d02" class="modal" onclick="if(event.target===this)closeModal('modal-d02')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d02')">×</button>
+    <h2>认知期 #2 · 叙事而非硬广</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-02-narrative-not-ads-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">- **Brief：** `2026-10-17-discovery-02-narrative-not-ads-brief.md`<br>
+- **标题：** 用户三秒划走，缺的是叙事不是预算<br>
+<br>
+### 正文（复制到小红书）<br>
+<br>
+曝光越来越多，停留越来越短——  <br>
+问题常常不是预算，而是 **用户在第 3 秒有没有理由留下**。<br>
+<br>
+品牌常把问题理解成「曝光不够」：硬广更响、素材更满，  <br>
+用户却在三秒内划走。  <br>
+被看见一次，不等于被记住一次。<br>
+<br>
+真正让人停下来的，往往是一个 **可被感受的 moment**：  <br>
+有节奏、有呼吸、有专业带来的信任感——  <br>
+不是多一句 slogan，而是 **结构上的「停」**。<br>
+<br>
+我从法派长笛的句读训练里借来的，是「让人愿意停」的结构；  <br>
+同样可以用在发布、快闪、跨界体验里，**不限某一行业**。<br>
+<br>
+**叙事而非硬广**，不是少做营销，  <br>
+是把预算从「被看见一次」改成 **「被记住一次」**。<br>
+<br>
+面向各行业品牌市场与文化合作岗位：  <br>
+若你在纠结活动很贵但用户不留存，可以先 **收藏** 这篇结构；  <br>
+有具体场景再私信 **「聊聊」**，我们对齐是否同频。<br>
+<br>
+### 标签<br>
+<br>
+#品牌策划 #内容营销 #艺术跨界 #法派长笛 #品牌叙事</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #2 叙事而非硬广<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;用户三秒划走，缺的是叙事不是预算&quot;,<br>
+  &quot;body&quot;: &quot;品牌常把问题理解成「曝光不够」——于是硬广更响、素材更满，用户却在三秒内划走。真正让人停下来的，往往不是 slogans，而是一个可被感受的 moment：有节奏、有呼吸、有专业带来的信任感。叙事而非硬广：不是少做营销，而是把预算从「被看见一次」改成「被记住一次」。我从法派长笛的句读训练里借来的，是「让人愿意停」的结构——同样可以用在发布、快闪、跨界体验里，不限某一行业。面向各行业品牌市场与文化合作岗位：若你在纠结活动很贵但用户不留存，可以先收藏这篇结构；有具体场景再私信「聊聊」，我们对齐是否同频。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 队列 #2 · 主轴：**叙事而非硬广**（#1 已讲「站得住」；本篇专讲「硬广 vs moment」）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+用户三秒划走，缺的是叙事不是预算<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 对比感——左侧杂乱的 slogan 字块（虚焦），右侧单一演奏/空间线条（清晰）<br>
+- 文案 overlay: 「叙事 ≠ 更多硬广」<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+曝光越来越多，停留越来越短——  <br>
+问题常常不是预算，而是 **用户在第 3 秒有没有理由留下**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **现象：** 硬广买「看见」；叙事买 **moment**（一个可被感受的片段）  <br>
+2. **方法一笔：** 句读/呼吸/节奏 → 活动体验里的「停下来的点」（不展开案例名）  <br>
+3. **边界：** 跨行业 open；**不** 绑定单一品类账号人设  <br>
+4. **与 #1 衔接：** #1 讲「站得住」；本篇讲 **为什么硬广堆不满信任**<br>
+<br>
+## 标签<br>
+<br>
+#品牌策划 #内容营销 #艺术跨界 #法派长笛 #品牌叙事<br>
+<br>
+## CTA<br>
+<br>
+收藏本篇；有发布/活动场景再私信 **「聊聊」**。高意向可用 **「合作」** 放末句。<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+&gt; CEO 仪表盘读此块：`bash scripts/manager-dashboard.sh`<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · `evaluate --brief` → **aligned: true**<br>
+</div>
+  </div>
+</div>
+<div id="modal-d03" class="modal" onclick="if(event.target===this)closeModal('modal-d03')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d03')">×</button>
+    <h2>认知期 #3 · 专业信任</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-03-professional-trust-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">- **Brief：** `2026-10-17-discovery-03-professional-trust-brief.md`<br>
+- **标题：** 品牌合作里，「专业信任」从哪来？<br>
+<br>
+### 正文（复制到小红书）<br>
+<br>
+很多跨界活动失败，不是因为艺术不够贵，  <br>
+而是观众感受不到：**这段艺术是站得住的**——  <br>
+专业信任在一开始就没有建立。<br>
+<br>
+品牌活动里常有一种误会：  <br>
+海报上最容易写的是 **名字**；最难建立的是 **信任**。  <br>
+用户划过去，记住的仍是滤镜，不是判断。<br>
+<br>
+**专业信任** 来自可验证的训练与标准：  <br>
+法派长笛体系对我而言，不只是演奏技巧，  <br>
+而是 **如何呼吸、如何句读、如何在空间里留下可信的节奏**。  <br>
+人即品牌：买的不是装饰性面孔，  <br>
+而是 **在关键 moment 能负责审美与叙事的人**。<br>
+<br>
+我跨行业 open，**不** 绑定家居/母婴/美妆等任何单一垂直；  <br>
+提供的是可协作的判断，不是某品类博主身份。<br>
+<br>
+若你在找「能负责艺术专业度」的跨界伙伴，  <br>
+可以先 **收藏**；愿意对齐期待再私信 **「品牌」** 或 **「聊聊」**。<br>
+<br>
+### 标签<br>
+<br>
+#品牌策划 #艺术跨界 #法派长笛 #专业信任 #跨界体验</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #3 专业信任<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;品牌合作里，「专业信任」从哪来？&quot;,<br>
+  &quot;body&quot;: &quot;很多跨界活动失败，不是因为艺术不够贵，而是观众感受不到「这个人/这段艺术是站得住的」——专业信任在一开始就没有建立。法派长笛体系对我而言，不只是演奏技巧，而是一套可验证的训练与判断：如何呼吸、如何句读、如何在空间里留下可信的节奏。人即品牌：品牌方买的不是一张装饰性面孔，而是一个能在关键 moment 负责审美与叙事的人。面向跨行业品牌主理人与文化合作者——不限定家居/母婴/美妆等任何单一垂直；我提供的是可协作的判断，不是某品类博主身份。若你在找「能负责艺术专业度」的跨界伙伴，可以先收藏；愿意对齐期待再私信「品牌」或「聊聊」。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 队列 #3 · 主轴：**专业信任**（师承与判断，非口号）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+品牌合作里，「专业信任」从哪来？<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 练习/谱面/乐器细节 + 专注神情（学术感，非网红摆拍）<br>
+- 文案 overlay: 「信任来自可验证的专业」<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+跨界活动里，艺术有时很贵——  <br>
+但用户不买「贵」，买 **「信不信得过」**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **专业信任 vs 装饰：** 观众如何感知「站得住」  <br>
+2. **法派体系一句：** 训练 → 判断 → 体验设计（不堆履历）  <br>
+3. **人即品牌：** 决策链短、责任清晰  <br>
+4. **边界：** 跨行业；案例层可提行业，人设层不绑垂直  <br>
+<br>
+## 标签<br>
+<br>
+#法派长笛 #跨界品牌 #品牌合作 #专业主义 #艺术商业<br>
+<br>
+## CTA<br>
+<br>
+收藏；私信 **「品牌」** 或 **「聊聊」**（末句，非标题推销）。<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · `evaluate --brief` → **aligned: true**<br>
+</div>
+  </div>
+</div>
+<div id="modal-d04" class="modal" onclick="if(event.target===this)closeModal('modal-d04')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d04')">×</button>
+    <h2>认知期 #4 · 轻收口</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-04-open-close-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">认知期我收到不少品牌私信前的共同问题：你们做哪一行？能不能只服务我们这个行业？——我想用一篇把边界说清。第一，我跨行业 open：消费、文化、科技、奢侈品等都可以聊，不排斥任何品类，但我不做「某一垂直主攻号」。第二，合作前要对齐的是：你要的 moment 是什么、谁能决策、希望观众留下什么（信任/记忆/行动），而不是先问报价。第三，适合先来聊的是：需要艺术叙事、跨界体验或专业背书的活动/发布/联名——不是纯曝光或纯抽奖。若你代表品牌方，认同叙事而非硬广、也认同专业信任比装饰重要，欢迎私信「合作」说明场景；若还在了解阶段，私信「品牌」即可，我会用一句话帮你判断是否同频。</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #4 轻收口 · 跨行业 open<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;跨行业品牌找艺术合作，先对齐三件事&quot;,<br>
+  &quot;body&quot;: &quot;认知期我收到不少品牌私信前的共同问题：你们做哪一行？能不能只服务我们这个行业？——我想用一篇把边界说清。第一，我跨行业 open：消费、文化、科技、奢侈品等都可以聊，不排斥任何品类，但我不做「某一垂直主攻号」。第二，合作前要对齐的是：你要的 moment 是什么、谁能决策、希望观众留下什么（信任/记忆/行动），而不是先问报价。第三，适合先来聊的是：需要艺术叙事、跨界体验或专业背书的活动/发布/联名——不是纯曝光或纯抽奖。若你代表品牌方，认同叙事而非硬广、也认同专业信任比装饰重要，欢迎私信「合作」说明场景；若还在了解阶段，私信「品牌」即可，我会用一句话帮你判断是否同频。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 队列 #4 · **轻收口**：谁适合聊、跨行业 open、不单品类绑定（系列小结，非体验季推销）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+跨行业品牌找艺术合作，先对齐三件事<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 简洁文字海报风——三行对齐清单（设计克制）<br>
+- 文案 overlay: 「跨行业 open · 不绑单品类」<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+品牌找艺术合作，最常问的其实不是价格——  <br>
+是 **「你到底是谁、适不适合我们这个行业」**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **跨行业 open + 不单品类绑定**（全品类可合作；不做 XX 主攻号）  <br>
+2. **合作前先对齐的三件事**（moment / 决策 / 留存）  <br>
+3. **适合 / 不太适合** 各一句（筛客，非歧视行业）  <br>
+4. **系列回扣：** 不可替代 · 叙事 · 信任 → 为何值得聊  <br>
+<br>
+## 标签<br>
+<br>
+#品牌合作 #跨界策划 #法派长笛 #品牌主理人 #艺术商业<br>
+<br>
+## CTA<br>
+<br>
+品牌方：私信 **「合作」** + 一句场景；了解阶段：**「品牌」**。本篇可 **置顶** 配合认知期。<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · `evaluate --brief` → **aligned: true**<br>
+</div>
+  </div>
+</div>
+<script>
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id)); });
+</script>
+</body>
+</html>

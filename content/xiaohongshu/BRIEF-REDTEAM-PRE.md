@@ -1,5 +1,9 @@
 # Brief 前红队 · 2 条/篇（Owner 固定 · 2026-10-27）
 
+> **给 Owner 一句话：`redteam-pre` 是什么？**  
+> 写 Brief **之前**，Agent 内部用 [X1–X12 错误库](../personal-ip/2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md) 挑 **2 条最相关攻击**（如：像硬广、像教学号、同质化），写清 **怎么改方向**；落盘 `redteam/<日期-slug>-pre.md`。  
+> **你不用看红队稿**；完整交稿前 Agent 必须 **每篇都有这个文件**，并跑 `evaluate-xhs-brief-complete.py`（6 项 L1 + Gemini evaluate）。
+
 > **Owner 确认：** **要固定** — 每篇小红书 Brief **动笔前**，Agent **内部** 做红队 2 条；Owner 无需选 X 编号、无需审红队稿。
 
 ## 谁做

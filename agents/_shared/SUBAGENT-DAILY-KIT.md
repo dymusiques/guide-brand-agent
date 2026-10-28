@@ -9,7 +9,7 @@
 |----|------|------|
 | 1 | **Baseline** | `reference/gold.md` 或 rubric · Owner IP Brief 摘要 intake |
 | 2 | **6 Test** | `bash scripts/verify-agent-fused.sh --agent NN --with-artifacts`（trio 日更后由 `verify-daily-gm-trio.sh` 一次跑 10+11+12） |
-| 3 | **Challenge** | `CEO-REROUTE.md` 或 `challenge-log.md`（对抗 2 条+） |
+| 3 | **Challenge** | 小红书 Brief：`run-xhs-brief-adversarial-challenge.py` → `challenge/<slug>-challenge.md`；日更 GM：`challenge-log.md` / `CEO-REROUTE.md` · [BRIEF-ADVERSARIAL-CHALLENGE.md](./BRIEF-ADVERSARIAL-CHALLENGE.md) |
 | 4 | **Evaluator** | 结构化评分 + `metrics.jsonl` · 可选编辑距离 |
 
 ## 路径

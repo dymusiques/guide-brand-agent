@@ -6,8 +6,8 @@
 
 1. **Baseline：** North Star / IP gold
 2. **Intake：** `evolution-rollups-latest.md` + Brief  hygiene
-3. **Challenge：** 每日 2 条 X 坑（见 FULL-DRILL X1–X12）
-4. **Evaluator：** 缺 redteam-pre 清单 · `metrics.jsonl`
+3. **Challenge：** 每日 2 条 X 坑（FULL-DRILL X1–X12）+ 检查 `content/xiaohongshu/challenge/*-challenge.md` 是否齐全（缺则 CEO 链应已跑 `run-xhs-brief-adversarial-challenge.py --all`）
+4. **Evaluator：** 缺 redteam-pre / 缺 challenge · `metrics.jsonl` · 见 [BRIEF-ADVERSARIAL-CHALLENGE.md](../_shared/BRIEF-ADVERSARIAL-CHALLENGE.md)
 5. **Self-check：** `verify-collector-evaluator.sh`
 
 ```bash

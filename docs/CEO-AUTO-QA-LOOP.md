@@ -42,7 +42,10 @@ Owner 目标 + 资料
 
 ```bash
 bash scripts/manager-ceo-owner-gate.sh --brief content/xiaohongshu/<file>.md
+# 内嵌 manager-ceo-auto-gate-loop.sh（redteam + L1×6 + evaluate + kernel 6 · ≤3 轮）
 ```
+
+**无人值守全仓 Brief：** `bash scripts/manager-xhs-briefs-auto-pipeline.sh` — 见 [BRIEF-AUTO-GATE-PIPELINE.md](./BRIEF-AUTO-GATE-PIPELINE.md)
 
 **可选叠加：**
 

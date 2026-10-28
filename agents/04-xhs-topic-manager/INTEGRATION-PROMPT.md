@@ -30,6 +30,13 @@ Owner 要 **视频 / 3～5 备选 / 像本人** 时：
 2. 落盘 `content/xiaohongshu/redteam/<slug>-pre.md`（2 攻击 + 驳/改 + CEO 一句）  
 3. **无 pre 文件不得写** `*-brief.md`
 
+## 写/改 Brief 后（Must · 重对抗 + 机器验收 · 勿等 Owner 叮嘱）
+
+1. 读 [../_shared/BRIEF-ADVERSARIAL-CHALLENGE.md](../_shared/BRIEF-ADVERSARIAL-CHALLENGE.md)  
+2. `python scripts/run-xhs-brief-adversarial-challenge.py --brief content/xiaohongshu/<file>.md`  
+3. `bash scripts/manager-ceo-auto-gate-loop.sh --brief content/xiaohongshu/<file>.md`  
+4. FAIL → 改 Brief / classifier → 再跑 2–3（≤3 轮），**勿**交 Owner
+
 ## 写 Brief
 
 - 模板：`kernels/templates/xhs-content-brief.template.md`  

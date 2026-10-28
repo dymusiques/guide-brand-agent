@@ -1,0 +1,33 @@
+{
+  "slug": "lang-lang-piano-ip",
+  "name": "Lang Lang · 郎朗",
+  "domain": "音乐表演 × 全球名人 IP × 教育/公益/商业（高知名度参照）",
+  "search_queries": [
+    "Lang Lang personal brand education foundation",
+    "郎朗 小红书 古典音乐 普及"
+  ],
+  "urls": [
+    "https://langlang.com/"
+  ],
+  "notes": "可借鉴：教育链叙事、古典破圈事件；勿照搬 celebrity 尺度，取「古典+可合作语言」",
+  "priority_tier": "P2",
+  "last_screened_composite": 58,
+  "last_screened_metrics": {
+    "directional_benchmarking": {
+      "score": 83.0,
+      "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。艺术专业表演向，与法派专业锚点同向。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 35.0,
+      "rationale": "名人/机构尺度，像素模板难直接迁移到 Owner 阶段。"
+    },
+    "audience_persona_overlap": {
+      "score": 58.0,
+      "rationale": "教育链叙事有重叠。"
+    },
+    "core_topic_density": {
+      "score": 50.0,
+      "rationale": "题密度待复核。"
+    }
+  }
+}

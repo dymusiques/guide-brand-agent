@@ -3,6 +3,10 @@
 > **何时生效：** Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、IP、小红书、品牌、定稿、campaign、涨粉、强链接等）时，Agent **默认就是 00 Manager**，不要等粘贴口令。  
 > **纯问答**（解释概念、历史对话回顾、不用交付文件）可不跑全流程，但仍遵守 `integration/IMPORTANT.md` 红线。
 
+> **运营标准（Owner 五原则）：** [docs/CEO-MANAGER-OPERATING-STANDARDS.md](../../docs/CEO-MANAGER-OPERATING-STANDARDS.md) · 派活模板 [CEO-DISPATCH-SOP.md](CEO-DISPATCH-SOP.md)  
+> **每个 GM 的主框架（Owner 三支柱）：** [docs/MANAGER-THREE-PILLARS.md](../../docs/MANAGER-THREE-PILLARS.md)  
+> **CEO / Senior Manager 环（Owner 第二张图 · 两轮串行迭代）：** [docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md](../../docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md) · 「consult SOP」入口 [CEO-DOUBLE-ITERATION-SOP.md](CEO-DOUBLE-ITERATION-SOP.md)
+
 ## Manager's Loop（失败时）
 
 `Analyze Failures` → `Manual Analysis` → `Propose Prompt Change`（只改集成/Brief/Skill，**不改** kernel 除非 05 专项）→ `Observe Score` → `Re-run Evaluation`
@@ -17,6 +21,8 @@
 4. **PASS** → 用 **OWNER-HANDOFF** 模板交 Owner（仅 gold/发布/裁决类确认）。  
 5. 派活记录须含 **Owner Gate：PASS/FAIL · 打回轮次 n/3 · 交 Owner：是/否**。
 
+**运营五原则**（清晰委派 · 可衡量评估 · 数据驱动改进 · 教练式引导 · 洞见沉淀为团队资产）及晚间派活套路 → [docs/CEO-MANAGER-OPERATING-PRINCIPLES.md](../../docs/CEO-MANAGER-OPERATING-PRINCIPLES.md)。
+
 ## 标准指挥链（单会话内顺序执行）
 
 每一步：**读** `agents/<nn>-*/INTEGRATION-PROMPT.md` → **产出** → **终端验收** → 再下一步。
@@ -30,9 +36,9 @@
 | **0b** | **01 personal-ip**（Pitch 层） | 凡 **对外 Pitch / 简介 / 合作开场 / 新栏目定位** → 先读 [KPI·CAPSTONE playbook](../../content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md) §3.2–3.3，再改 Brief 或触达稿 | 与 [ip-positioning-brief](../../content/personal-ip/ip-positioning-brief-2026-10-05.md) 一致；**先观点后产品** |
 | 1 | **01 personal-ip** | 战略/行业边界：「品牌合作范围」· Five Ps 与 7-11-4 节奏（playbook §1、§4） | 全品类可合作、不单品类绑定 |
 | 1b | **03 / 02**（若 campaign / SWOT） | 触达计划 / 商业文档：Problem→Opportunity 对齐 CAPSTONE；Product 生态勿越级推销（playbook §6） | `evaluate-marketing-campaign` / `evaluate-business-brand` |
-| **1c** | **红队（Owner 已固定）** | **每篇 Brief 动笔前**：04+CEO 内部 **2 条** 攻击（从 [X1–X12](../../content/personal-ip/2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md#2--高挑战错误库本轮新增--含外部调研) 或 [红队 §D](../../content/personal-ip/2026-10-27-ip-adversarial-red-team.md#d-分-agent-红队攻击每个-agent动起来干什么) 抽最相关）→ 驳/改方向 → 落盘 `content/xiaohongshu/redteam/<slug>-pre.md` | Owner **不参与**；见 [BRIEF-REDTEAM-PRE.md](../../content/xiaohongshu/BRIEF-REDTEAM-PRE.md) |
-| 2 | **04 xhs-topic-manager** | 视频 **先走步 2a**；**红队 1c 后** Brief/成稿走 Intake + [CONTENT-DELIVERY-FOR-OWNER.md](../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md) | 视频 Round1=L2；Brief=evaluate |
-| 3 | **04 + 核心** | `python scripts/evaluate-xhs-topic.py --brief <file>` | `aligned: true`，exit 0 |
+| **1c** | **红队（Owner 已固定）** | 落盘 `redteam/<slug>-pre.md`；**无则** `python scripts/ensure-redteam-pre.py --brief …` **自动补** | [BRIEF-REDTEAM-PRE.md](../../content/xiaohongshu/BRIEF-REDTEAM-PRE.md) |
+| 2 | **04 xhs-topic-manager** | Intake + [CONTENT-DELIVERY-FOR-OWNER.md](../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md) | 视频 Round1=L2 |
+| 3 | **04 + 05 · 自动验收** | **`run-xhs-brief-adversarial-challenge.py`** → **`manager-ceo-auto-gate-loop.sh --brief <file>`**（redteam + **重对抗** + L1×6 + evaluate + kernel 6 · ≤3 轮） | [BRIEF-ADVERSARIAL-CHALLENGE.md](../_shared/BRIEF-ADVERSARIAL-CHALLENGE.md) · **禁止等 Owner 叮嘱** |
 | **3b** | **Evolution Evaluator** | 有 `reference/gold.md` 时：`evaluate-edit-distance.py` 记 vN；`evolution-metrics-summary.py` 看均值 | metrics.jsonl 追加成功 |
 | 4 | **06 pipeline** | `bash scripts/verify-xhs-content-dir.sh` | 全 Brief PASS |
 | 5 | **00 Manager** | Owner 未反对则 **git commit** 定稿；**禁止**未 aligned commit | `git status` clean |
@@ -64,8 +70,9 @@
 | **Goal 按 G-* 验收 M4** | `bash scripts/verify-goals.sh` |
 | **全仓集成构建（交班 / 大改后）** | `bash scripts/verify-all.sh` |
 | 单 Agent 6 case | `bash scripts/verify-agent-matrix.sh --agent 04` |
+| 全仓 Brief 自动验收 | `bash scripts/manager-xhs-briefs-auto-pipeline.sh` |
 | Manager 步 3–4（Brief 定稿） | `bash scripts/manager-workflow-verify.sh content/xiaohongshu/<file>.md` |
-| **交 Owner 前（CEO Gate）** | `bash scripts/manager-ceo-owner-gate.sh --brief content/xiaohongshu/<file>.md` |
+| **交 Owner 前（CEO Gate）** | `bash scripts/manager-ceo-owner-gate.sh --brief …`（内嵌 auto-gate-loop） |
 
 Goal 注册表：`integration/GOALS-REGISTRY.md`
 

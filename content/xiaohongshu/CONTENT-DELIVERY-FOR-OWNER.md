@@ -2,6 +2,21 @@
 
 > **数据叠加栈：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)
 
+## Owner 报告格式（Must · 2026-10-27）
+
+- **交给 Owner 的汇总/筛选/CEO 交付**：默认 **单文件 HTML**（浏览器双击可开；Discovery 等用 **弹出层** 展示全文）。
+- **Markdown（`.md`）**：Agent 协作、Git 版本、Brief 源稿；**不**作为 Owner 主阅读格式（除非 Owner 点名要 MD）。
+- **表格类数据**（如 Artist DB/PLD/APO/CTD）：**`.xlsx`**（附 `.csv` 可选）；HTML 内嵌预览 + 链到 Excel。
+- **生成：** CEO 筛选批跑后执行 `python scripts/build-owner-xhs-report-html.py`（`ceo-xhs-ip-filter-batch.py` 已自动调用）。
+- **交 Owner 前 · 单篇 Brief 必跑（Must）：**  
+  `.venv/bin/python scripts/evaluate-xhs-brief-complete.py --brief content/xiaohongshu/<file>.md`  
+  = **redteam-pre 存在** + **本篇 6 项 L1 对照** + **Gemini evaluate（aligned）** + **kernel 6 case 回归**（同一次命令）。
+- **路径惯例：** `content/evolution/00-manager/ceo-inbox/OWNER-*-DELIVERABLE-<date>.html`
+- **怎么打开才是网页：** 在 **Cursor 里点 `.html` 只会看到源代码**（正常）。请任选其一：
+  - Finder 里 **双击** 该 `.html`（或右键 → 打开方式 → Safari / Chrome）
+  - 双击同目录 **`OPEN-OWNER-REPORT-IN-BROWSER.command`**
+  - 终端：`open content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-<date>.html`
+
 ## 流程
 
 ```text

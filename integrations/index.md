@@ -31,8 +31,9 @@
 | Word DOCX inspect/填表 | `rules/skills/skill_docx.md` | `pip install -e vendor/docx-skill` |
 | PPTX 读改/渲染 | `rules/skills/skill_pptx.md` | `pip install -e vendor/pptx.skill` · LibreOffice 可选 |
 | 本机延时/周期任务、进程日志 API | `rules/skills/skill_process_launcher.md` | `pip install -e vendor/process-launcher` · 边界 [process-launcher-adoption.md](../integration/process-launcher-adoption.md) · launcher **Owner GUI 终端启动** |
-| Drive 读写（Cursor MCP） | MCP `plugin-google-drive-google-drive` | Cursor Settings → MCP 授权 |
-| Canva 设计 | MCP `plugin-canva-canva` | Cursor Settings → MCP 授权 |
+| Drive 读写（Cursor MCP） | MCP `plugin-google-drive-google-drive` | Cursor **Customize → MCPs** Connect（或 `Cmd+Shift+P` → Open Customize） |
+| Gmail / Calendar（Cursor MCP） | `plugin-gmail-gmail` · `plugin-google-calendar-google-calendar` | 同上，各插件单独 OAuth |
+| Canva 设计 | MCP `plugin-canva-canva` | Cursor **Customize → MCPs** Connect |
 | 听见 Daily 日更 | `~/.cursor/skills/danying-tingjian-daily/` | 独立 app 仓，非本仓业务代码 |
 | 并行 Task 调研 / explore / 独立 review | `rules/skills/workflow_parallel_subagents.md` | 中间件 `tmp/parallel/` · 定稿仍 00 Manager 链 · [parallel-subagents-adoption.md](../integration/parallel-subagents-adoption.md) |
 | 深度调研 Survey（结构化 Phase 1–4） | `rules/skills/workflow_deep_research_survey.md` | scratch `tmp/survey/` · 报告 `content/marketing/research/` · [deep-research-survey-adoption.md](../integration/deep-research-survey-adoption.md) |

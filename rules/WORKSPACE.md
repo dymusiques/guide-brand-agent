@@ -31,6 +31,13 @@
 
 ### 系统与规则
 - **新 Agent 接手（Must）：** `docs/AGENT-TAKEOVER.md` · `docs/WORKFLOW-CEO-ARCHITECTURE.md` · `docs/workflow-mindmap.html` · `docs/XHS-DATA-LAYER.md` · `bash scripts/verify-agent-takeover.sh`
+- **Manager 三支柱（主框架 · 每个 GM 真正在做的事：可观察性 / 可衡量基准 / 教练→SOP 资产）：** `docs/MANAGER-THREE-PILLARS.md`
+- **CEO/Manager 运营标准（Owner 五原则）：** `docs/CEO-MANAGER-OPERATING-STANDARDS.md` · 派活模板 `agents/00-manager/CEO-DISPATCH-SOP.md`
+- **Manager 评估改进环（Owner 图 ↔ 01–12 对照）：** `docs/MANAGER-EVAL-IMPROVEMENT-LOOP.md` · 图 `docs/assets/manager-eval-improvement-loop.png`
+- **CEO / Senior Manager 改进环（Owner 第二张图 · Consult SOP→…→Analyze · 两轮串行迭代审计）：** `docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md` · 图 `docs/assets/ceo-senior-manager-improvement-loop.png` · 落地 SOP `agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md` · **命令** `bash scripts/manager-ceo-double-iteration.sh --brief … --phase 1|2`
+- **Owner 一句话启动 CEO（不必贴 bash）：** `docs/CEO-OWNER-ONE-LINE-TRIGGERS.md` · 可选 `bash scripts/ceo-start-work.sh`
+- **新 Agent / 新机 · CEO+GM 接手包（总览 + JSON 索引）：** `docs/HANDOFF-CEO-GM-SOP-PACK.md` · `integration/handoff/ceo-gm-operating-manifest.json`
+- **CEO/Manager 运营五原则 SOP：** `docs/CEO-MANAGER-OPERATING-PRINCIPLES.md`
 - 本仓索引：`INDEX.md`
 - 任务路由：`integrations/index.md`
 - Agent 入口：`AGENTS.md`

@@ -1,5 +1,6 @@
 # 交班 SOP · 一页纸（M5）
 
+> **CEO/GM 接手包（2026-10-28）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON `integration/handoff/ceo-gm-operating-manifest.json`  
 > **新 Agent 主 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · 思维导图：[workflow-handoff-mindmap.html](workflow-handoff-mindmap.html)  
 > 程序状态全文：[AGENT-TAKEOVER.md](AGENT-TAKEOVER.md) · 本页 = **交班最小步骤**。
 

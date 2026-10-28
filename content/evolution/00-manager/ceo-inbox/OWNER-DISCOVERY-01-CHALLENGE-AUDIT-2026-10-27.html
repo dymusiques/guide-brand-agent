@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Discovery 01 · Challenge 复查 · 2026-10-27</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", sans-serif; max-width: 820px; margin: 0 auto; padding: 24px; line-height: 1.55; background: #fafafa; }
+  h1 { font-size: 1.35rem; }
+  .warn { background: #fdecea; border-left: 4px solid #c62828; padding: 12px 16px; margin: 16px 0; }
+  .ok { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 12px 16px; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.9rem; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+  th { background: #eee; }
+  .open-hint { background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 0.9rem; }
+  details { background: #fff; padding: 12px; margin: 8px 0; border-radius: 8px; }
+  a { color: #0645ad; }
+</style>
+</head>
+<body>
+<p class="open-hint">请用 <strong>浏览器</strong> 打开（Finder 双击本文件，或双击 <code>OPEN-OWNER-REPORT-IN-BROWSER.command</code>）。Cursor 里只会显示代码。</p>
+
+<h1>Discovery 01 复查<br/><small>「品牌活动里，什么是站得住的艺术？」</small></h1>
+
+<div class="warn">
+<strong>直接回答你的问题：</strong> 给到你全文 Brief/正文时，<strong>做过 evaluate</strong>（2026-10-17 与 2026-10-27 均为 <code>aligned: true</code>），CEO Gate 对本篇也 <strong>PASS</strong> 过。<br/>
+<strong>没有</strong> 按你要求做过：类似选题/低点击对标、大 V 同质检索、动笔前 redteam-pre、以及「把 6 项 test 当成本篇筛子」——这些 <strong>之前没有落实</strong>；本页是补做的 challenge 复查。
+</div>
+
+<h2>1. evaluate / Gate / 6 test 分别是什么</h2>
+<table>
+<tr><th>项目</th><th>本篇是否跑过</th><th>说明</th></tr>
+<tr><td><code>evaluate-xhs-topic.py --brief</code></td><td>✅</td><td>单篇分类器：IP、CTA、是否跑题 → aligned</td></tr>
+<tr><td><code>manager-ceo-owner-gate.sh</code></td><td>✅</td><td>含 workflow verify + seo-lint；见 gate-latest.md</td></tr>
+<tr><td>redteam-pre（2 条/篇）</td><td>❌→已补录</td><td><a href="../../../../xiaohongshu/redteam/2026-10-17-discovery-01-irreplaceability-pre.md">redteam 文件</a></td></tr>
+<tr><td>6 case · verify-xhs-topic.sh</td><td>⚠️ 非本篇</td><td>测的是 <strong>分类器内核</strong> 六条固定用例，不是每篇 Brief 自动跑六遍</td></tr>
+<tr><td>类似文 + 低点击 + 大 V 对标</td><td>❌→本页</td><td>Owner 定义的 challenge；此前无落盘</td></tr>
+</table>
+
+<h2>2. 类似内容 · 大 V / 机构（外部检索摘要）</h2>
+<table>
+<tr><th>账号/来源</th><th>粉丝量级</th><th>与本篇关系</th></tr>
+<tr><td><a href="https://www.xiaohongshu.com/user/profile/5e65912a0000000001004b5f">活动加油站</a></td><td>1 万+</td><td>品牌活动案例拆解，命题接近；靠 <strong>具体品牌+视觉</strong> 拿互动</td></tr>
+<tr><td><a href="https://www.xiaohongshu.com/user/profile/5e5271dc000000000100bd50">SAGE HOUSE</a></td><td>1 千+</td><td>艺术×品牌机构号，赛道饱和；你需强调 <strong>人即品牌+可验证训练</strong></td></tr>
+<tr><td><a href="https://www.xiaohongshu.com/user/profile/62555003000000000d0335c5">Somexing Artistic.</a></td><td>机构</td><td>奢侈品×艺术家共创；强案例视频，本篇缺 <strong>一层可指认合作</strong></td></tr>
+<tr><td>行业稿（春日追花等）</td><td>平台级</td><td>正当化「美+打卡+装置」；你反装饰需补 <strong>专业 moment 也可被感受/可拍</strong></td></tr>
+</table>
+<p><strong>「类似但点击一般」的形态：</strong> 只有 #品牌策划 #艺术跨界 的短观点、无 moment、无封面判断句 → 易落入你账号数据里「纯观点/低互动」梯队（见 xhs-data-strategy）。</p>
+
+<h2>3. 与品牌基调 · 不融合点</h2>
+<table>
+<tr><th>问题</th><th>类型</th></tr>
+<tr><td>缺 <strong>具体 story moment</strong>（数据策略要求前 3 行有 moment）</td><td>显性 · 影响完播</td></tr>
+<tr><td>标签仅 5 个，规范要 10 个</td><td>显性 · 规范</td></tr>
+<tr><td>首屏「法派长笛」易误读为教学号</td><td>潜在 · 人设</td></tr>
+<tr><td>B2B 口吻 vs 平台先推泛粉 → 品牌私信少</td><td>潜在 · 受众</td></tr>
+<tr><td>无匿名案例锚点 → 像机构 opinion 文</td><td>隐蔽 · 信任</td></tr>
+<tr><td>反装饰 vs 封面若仍美图空镜 → 双标感</td><td>隐蔽 · 视觉</td></tr>
+<tr><td><code>aligned:true</code> 不检验竞品差异化</td><td>隐蔽 · 勿过度信任 evaluate</td></tr>
+</table>
+
+<h2>4. 建议 v1.1（待你确认是否改稿）</h2>
+<ol>
+<li>加 1 句匿名场景（约 30 字）：发布会/快闪里「先举手机后放下听」类 moment。</li>
+<li>标签补满 10 个；人设层不绑单品类。</li>
+<li>封面用 Brief 的「不可替代的，不是装饰」文字海报，避免空镜卖场感。</li>
+</ol>
+
+<div class="ok">
+<strong>下一步（你一句话即可）：</strong> 「按 v1.1 改 Discovery 01 并再 Gate」→ Agent 改 publish-ready 队列 + Brief，重跑 evaluate + challenge，再给你 HTML。
+</div>
+
+<p style="color:#666;font-size:0.85rem">源 MD：content/xiaohongshu/challenge/2026-10-27-discovery-01-challenge-audit.md</p>
+</body>
+</html>

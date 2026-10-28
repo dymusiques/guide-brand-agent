@@ -1,7 +1,7 @@
 # IP 研究 · Artist 对标 watchlist
 
 - **维护者：** Agent（GM10）· Owner 不必手填  
-- **配置：** [artist-watchlist.json](./artist-watchlist.json) · 筛查结果 [artist-watchlist-screened.md](./artist-watchlist-screened.md)
+- **配置：** [artist-watchlist.json](./artist-watchlist.json) · 筛查 [artist-watchlist-screened.md](./artist-watchlist-screened.md) · **全员详表** [2026-10-27-watchlist-four-metrics-full.md](./2026-10-27-watchlist-four-metrics-full.md)
 - **四指标（替代 SWOT）：** [docs/BENCHMARK-FRAMEWORK-ARTIST.md](../../docs/BENCHMARK-FRAMEWORK-ARTIST.md) · `python scripts/screen-artist-watchlist.py`  
 - **日更脚本：** `python scripts/daily-gm-10-artist-benchmark.py`  
 - **产出：** `content/daily-brief/<date>-owner-daily-brief.md` § Artist 对标

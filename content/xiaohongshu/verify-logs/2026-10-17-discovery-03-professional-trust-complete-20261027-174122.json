@@ -1,0 +1,59 @@
+{
+  "brief": "content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md",
+  "timestamp": "2026-10-27T17:41:19",
+  "adversarial_challenge": {
+    "path": "content/xiaohongshu/challenge/2026-10-17-discovery-03-professional-trust-challenge.md",
+    "pass": true,
+    "errors": []
+  },
+  "redteam_pre": {
+    "path": "content/xiaohongshu/redteam/2026-10-17-discovery-03-professional-trust-pre.md",
+    "pass": true
+  },
+  "l1_six_on_this_brief": [
+    {
+      "id": "L1-1",
+      "kernel_ref": "正例 — IP + 人群 + 强链接 CTA",
+      "pass": true,
+      "detail": "subject/body 须含 IP/品牌命题 + 强链接 CTA 词"
+    },
+    {
+      "id": "L1-2",
+      "kernel_ref": "正例 — 专业+教育/咨询链接",
+      "pass": true,
+      "detail": "专业信任信号 + CTA"
+    },
+    {
+      "id": "L1-3",
+      "kernel_ref": "负例 — 与 IP/涨粉/筛客无关",
+      "pass": true,
+      "detail": "不得主导为团建/无关话题"
+    },
+    {
+      "id": "L1-4",
+      "kernel_ref": "歧义 — 标题弱时正文须承载 IP",
+      "pass": true,
+      "detail": "title_generic=False, body_on_ip=True"
+    },
+    {
+      "id": "L1-5",
+      "kernel_ref": "歧义 — 标题相关、正文须有链接价值",
+      "pass": true,
+      "detail": "防标题党+空正文"
+    },
+    {
+      "id": "L1-6",
+      "kernel_ref": "边界 — 空白/过短内容",
+      "pass": true,
+      "detail": "subject_len=16, body_len=265"
+    }
+  ],
+  "gemini_evaluate": {
+    "subject": "品牌合作里，「专业信任」从哪来？",
+    "body": "很多跨界活动失败，不是因为艺术不够贵，而是观众感受不到「这个人/这段艺术是站得住的」——专业信任在一开始就没有建立。法派长笛体系对我而言，不只是演奏技巧，而是一套可验证的训练与判断：如何呼吸、如何句读、如何在空间里留下可信的节奏。人即品牌：品牌方买的不是一张装饰性面孔，而是一个能在关键 moment 负责审美与叙事的人。面向跨行业品牌主理人与文化合作者——不限定家居/母婴/美妆等任何单一垂直；我提供的是可协作的判断，不是某品类博主身份。若你在找「能负责艺术专业度」的跨界伙伴，可以先收藏；愿意对齐期待再私信「品牌」或「聊聊」。",
+    "aligned": true,
+    "_exit": 0
+  },
+  "kernel_six_regression": null,
+  "overall_pass": true
+}

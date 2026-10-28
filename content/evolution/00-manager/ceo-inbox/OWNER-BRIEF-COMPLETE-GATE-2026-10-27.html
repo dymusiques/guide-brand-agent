@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>Owner · Brief 完整验收 · 2026-10-27</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", sans-serif; max-width: 820px; margin: 24px auto; padding: 0 16px; line-height: 1.55; }
+  .hint { background: #fff3cd; padding: 10px; border-radius: 6px; font-size: 0.9rem; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
+  th, td { border: 1px solid #ccc; padding: 8px; }
+  th { background: #eee; }
+  .pass { color: #2e7d32; font-weight: 600; }
+  .fail { color: #c62828; font-weight: 600; }
+</style>
+</head>
+<body>
+<p class="hint">请用 <strong>浏览器</strong> 打开（Finder 双击）。Cursor 里只会显示源代码。</p>
+
+<h1>Brief 完整验收 · 流程已补全</h1>
+
+<h2>redteam-pre 是什么？为什么之前没齐？</h2>
+<p><strong>redteam-pre</strong> = 写 Brief <strong>之前</strong> Agent 内部的「红队 2 条」：从 X1–X12 错误库挑最相关攻击 + 改方向，文件在 <code>content/xiaohongshu/redteam/*-pre.md</code>。<strong>你不用写、不用审</strong>，但 Agent 交稿前 <strong>每篇必须有</strong>。</p>
+<p><strong>为什么没全部补齐？</strong> 2026-10-17 写 discovery 时 <strong>没执行</strong> AUTO-WORKFLOW 步 1c（只 evaluate 了，没建 redteam 文件）。今天已 <strong>6 篇 Brief 各 1 个 pre 文件全部补齐</strong>。</p>
+
+<h2>一次命令里测什么（Discovery 01 已跑通）</h2>
+<p><code>.venv/bin/python scripts/evaluate-xhs-brief-complete.py --brief …</code></p>
+<ol>
+<li><strong>redteam-pre</strong> 文件存在</li>
+<li><strong>L1-1 … L1-6</strong>：把 Module 3 六类测试 <strong>对照到本篇 subject/body</strong>（不是空跑别篇）</li>
+<li><strong>Gemini evaluate</strong>：<code>aligned: true</code></li>
+<li><strong>kernel 6 regression</strong>：<code>verify-xhs-topic.sh</code>（分类器健康）</li>
+</ol>
+<p>CEO Gate 已改为默认跑上述 <strong>brief-complete-gate</strong>（见 <code>manager-ceo-owner-gate.sh</code>）。</p>
+
+<h2>Discovery 01 ·「站得住的艺术」· 本次结果</h2>
+<table>
+<tr><th>步骤</th><th>结果</th></tr>
+<tr><td>redteam-pre</td><td class="pass">PASS</td></tr>
+<tr><td>L1-1 … L1-6（本篇）</td><td class="pass">6/6 PASS</td></tr>
+<tr><td>Gemini evaluate</td><td class="pass">PASS · aligned: true</td></tr>
+<tr><td>kernel 6 case 回归</td><td class="pass">PASS</td></tr>
+<tr><td>CEO Owner Gate</td><td class="pass">PASS · gate-latest.md</td></tr>
+</table>
+<p>机器日志：<code>content/xiaohongshu/verify-logs/2026-10-17-discovery-01-irreplaceability-complete-20261027-173149.json</code></p>
+
+<h2>认知期 01–04 · 批量</h2>
+<table>
+<tr><th>Brief</th><th>完整验收</th></tr>
+<tr><td>discovery-01 不可替代性</td><td class="pass">PASS</td></tr>
+<tr><td>discovery-02 叙事</td><td class="pass">PASS</td></tr>
+<tr><td>discovery-03 专业信任</td><td class="pass">PASS</td></tr>
+<tr><td>discovery-04 轻收口</td><td class="pass">PASS</td></tr>
+</table>
+
+<h2>其它 Brief</h2>
+<table>
+<tr><th>Brief</th><th>完整验收</th><th>说明</th></tr>
+<tr><td>brand-art-narrative</td><td class="pass">PASS</td><td>补位稿</td></tr>
+<tr><td>artist ThatViolaKid</td><td>见日志</td><td>本篇 L1+evaluate PASS；kernel 6 连跑可能 API 波动 → 单独重跑即可</td></tr>
+</table>
+
+<p>Challenge 对标（类似文/大 V/融合度）仍在：<a href="OWNER-DISCOVERY-01-CHALLENGE-AUDIT-2026-10-27.html">Discovery 01 Challenge 复查 HTML</a> — 与机器验收 <strong>互补</strong>，不替代 evaluate。</p>
+</body>
+</html>

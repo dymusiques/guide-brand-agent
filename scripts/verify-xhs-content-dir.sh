@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
-# Evaluate all content/xiaohongshu/*-brief.md files (Topic Manager pipeline batch verify).
+# Batch verify all *-brief.md — default: full auto pipeline (redteam + L1×6 + evaluate + kernel 6).
+# Legacy evaluate-only: XHS_VERIFY_MODE=evaluate-only bash scripts/verify-xhs-content-dir.sh
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+
+if [[ "${XHS_VERIFY_MODE:-complete}" != "evaluate-only" ]]; then
+  exec bash scripts/manager-xhs-briefs-auto-pipeline.sh
+fi
+
 CONTENT_DIR="$ROOT/content/xiaohongshu"
 
-echo "=== Xiaohongshu content dir verify (*-brief.md) ==="
+echo "=== Xiaohongshu content dir verify (evaluate-only legacy) ==="
 echo ""
 
 if [[ ! -d "$CONTENT_DIR" ]]; then
@@ -35,10 +41,6 @@ briefs=("$CONTENT_DIR"/*-brief.md)
 shopt -u nullglob
 
 if [[ ${#briefs[@]} -eq 0 ]]; then
-  echo "  No *-brief.md files in content/xiaohongshu/"
-  echo ""
-  echo "=== Summary ==="
-  echo "briefs: 0 (nothing to verify)"
   echo "RESULT: PASS — empty content dir"
   exit 0
 fi
@@ -59,20 +61,14 @@ for brief in "${briefs[@]}"; do
   elif [[ "$ec" -eq 1 ]]; then
     echo "$name: Failed (not aligned)"
     failed=$((failed + 1))
-    echo "$out" | tail -5 | sed 's/^/  /'
   else
     echo "$name: Failed (error exit $ec)"
     errors=$((errors + 1))
-    echo "$out" | tail -8 | sed 's/^/  /'
   fi
 done
 
-total=${#briefs[@]}
-echo ""
-echo "=== Summary ==="
-echo "briefs: $passed aligned, $failed not aligned, $errors errors (of $total)"
 if [[ "$failed" -gt 0 ]] || [[ "$errors" -gt 0 ]]; then
-  echo "RESULT: FAIL — fix classifier JSON or copy, then re-run"
+  echo "RESULT: FAIL"
   exit 1
 fi
 echo "RESULT: PASS — all briefs aligned"

@@ -1,7 +1,15 @@
 # 接手 MD 清单 · 新机「植入」读序
 
-> Owner 在新会话说 **`danying-brand-agent`** → Agent 按本清单 **Read 文件**（不依赖旧对话）。  
-> 总入口：[AGENT-TAKEOVER.md](AGENT-TAKEOVER.md) · 规则：`.cursor/rules/danying-brand-agent-bootstrap.mdc`
+> Owner 在新会话说 **`danying-brand-agent`** 或 **`请 CEO 开始工作`** → Agent 按本清单 **Read 文件**（不依赖旧对话）。  
+> 总入口：[AGENT-TAKEOVER.md](AGENT-TAKEOVER.md) · **CEO/GM 接手包：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON [../integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json) · 规则：`.cursor/rules/danying-brand-agent-bootstrap.mdc`
+
+## 0 · CEO/GM 体系（2026-10-28 · 先读）
+
+| # | 路径 |
+|---|------|
+| 0a | **[HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md)** |
+| 0b | [CEO-OWNER-ONE-LINE-TRIGGERS.md](CEO-OWNER-ONE-LINE-TRIGGERS.md) |
+| 0c | [../integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json) |
 
 ## 1 · 指挥与架构（Must）
 
@@ -10,6 +18,7 @@
 | 1 | [AGENT-TAKEOVER.md](AGENT-TAKEOVER.md) |
 | 2 | [../AGENTS.md](../AGENTS.md) |
 | 3 | [../agents/00-manager/AUTO-WORKFLOW.md](../agents/00-manager/AUTO-WORKFLOW.md) |
+| 3b | **[MANAGER-THREE-PILLARS.md](MANAGER-THREE-PILLARS.md)**（Owner 三支柱主框架）· [CEO-MANAGER-OPERATING-STANDARDS.md](CEO-MANAGER-OPERATING-STANDARDS.md) · [CEO-MANAGER-OPERATING-PRINCIPLES.md](CEO-MANAGER-OPERATING-PRINCIPLES.md) · [MANAGER-EVAL-IMPROVEMENT-LOOP.md](MANAGER-EVAL-IMPROVEMENT-LOOP.md) · **[CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md](CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md)**（第二张图 · CEO 环）· **[../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md](../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md)** · [../agents/00-manager/CEO-DISPATCH-SOP.md](../agents/00-manager/CEO-DISPATCH-SOP.md) |
 | 4 | [AUTOPILOT.md](AUTOPILOT.md) |
 | 5 | [DANYING-BRAND-AGENT-INTEGRATION.md](DANYING-BRAND-AGENT-INTEGRATION.md) |
 | 6 | [HANDOFF-SOP.md](HANDOFF-SOP.md) |

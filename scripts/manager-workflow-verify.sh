@@ -30,9 +30,9 @@ if [[ -n "$BRIEF" ]]; then
   if [[ -x .venv/bin/python ]]; then PY=".venv/bin/python"
   elif command -v python3 >/dev/null 2>&1; then PY="python3"
   else echo "RESULT: FAIL — no python"; exit 1; fi
-  echo "=== Single Brief evaluate ==="
-  if ! "$PY" scripts/evaluate-xhs-topic.py --brief "$BRIEF"; then
-    echo "RESULT: FAIL — evaluate not aligned or error"
+  echo "=== Single Brief auto gate (redteam + L1×6 + evaluate + kernel) ==="
+  if ! bash scripts/manager-ceo-auto-gate-loop.sh --brief "$BRIEF"; then
+    echo "RESULT: FAIL — auto gate loop; see CEO-REROUTE (Owner not involved)"
     exit 1
   fi
   echo ""
