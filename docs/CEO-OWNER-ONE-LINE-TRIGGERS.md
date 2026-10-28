@@ -8,6 +8,7 @@
 
 | 你说（示例） | CEO 应做什么 |
 |--------------|--------------|
+| **danying-brand-agent** / **新机接手** / **完全克隆到本机** | Hub `clone-all.sh`（若换机）→ **`bash scripts/new-machine-bootstrap.sh`**（自动写 daily 09:00 后台配置 · 不必记 `setup-background-goal-evolution.sh`）→ 读 HANDOFF 包 → 接手摘要 |
 | **请 CEO 开始工作** / **CEO 开始** / **CEO 干活** | ① `ceo-auto-recover-blocked.sh` ② 读最新 `ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*.md` ③ 看有无未完成双轮（`ITERATION-LOG` / `.ceo-double-iteration-state.json`）④ 按 dispatch 或队列执行下一项（campaign / 双轮 Brief / 深交付 / 刷新 HTML）⑤ 输出 Manager 派活记录 |
 | **consult SOP，对 Discovery 02 双轮** | 读 `CEO-DOUBLE-ITERATION-SOP.md` → `manager-ceo-double-iteration.sh --phase 1` → 改稿填 log → `--phase 2` |
 | **今晚截止 / 深交付 / 交 HTML** | `run-ceo-deep-delivery-cycle.sh`（见 `CEO-OWNER-DEADLINE-DELIVERY.md`） |

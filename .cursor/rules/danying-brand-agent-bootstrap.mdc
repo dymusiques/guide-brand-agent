@@ -5,17 +5,16 @@ alwaysApply: false
 
 # 新机口令 · danying-brand-agent
 
-当 Owner 在本仓库会话中说 **`danying-brand-agent`**（或同义：**新机接手**、**全部植入 IP**、**brand agent 接手**）时，**立即**执行植入流程，**不要**要求 Owner 粘贴聊天记录。
+当 Owner 在本仓库会话中说 **`danying-brand-agent`**（或同义：**新机接手**、**全部植入 IP**、**brand agent 接手**、**完全克隆到本机**）时，**立即**执行植入流程，**不要**要求 Owner 粘贴聊天记录。
+
+**Hub 全仓克隆：** Owner 说 **`完全克隆`**（换机）→ 先 Hub [全部克隆.md](https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md) · `bash ~/danying-apps/scripts/clone-all.sh` · 读本仓 [SETUP.md](SETUP.md) · 再跑 **`bash scripts/new-machine-bootstrap.sh`**（含 background goal-evolution 配置，**不必**手打 setup 脚本名）。
 
 ## 植入流程（顺序 · Must）
 
-1. **Read** [docs/AGENT-TAKEOVER.md](docs/AGENT-TAKEOVER.md) 全文。
-2. **Read** [docs/HANDOFF-MD-MANIFEST.md](docs/HANDOFF-MD-MANIFEST.md) 中 §1–§4 列出的每一个 Must 文件（用 Read 工具，不要凭记忆）。
-3. **Shell：** `bash scripts/ensure-venv-deps.sh`
-4. **Shell：** `bash scripts/verify-handoff-program.sh`（或至少 `verify-agent-takeover.sh`；FAIL → Manager's Loop）
-5. 若已跑全量 program，可跳过重复 autopilot；否则 **Shell：** `bash scripts/manager-autopilot.sh`
-6. **Read** `content/analytics/derived/ceo-dispatch-latest.md`（autopilot 生成）。
-7. **输出** 简体中文 **接手摘要**（≤15 行）：G-* 摘要、三轨状态、Owner 仅做发帖+CSV、下一篇 Brief、终端 PASS/FAIL。
+1. **Shell（一键）：** `bash scripts/new-machine-bootstrap.sh`（venv · submodule · **ensure-background-goal-evolution** · verify-handoff · verify-agent-takeover · manager-autopilot）
+2. **Read** [docs/HANDOFF-CEO-GM-SOP-PACK.md](docs/HANDOFF-CEO-GM-SOP-PACK.md) · [docs/AGENT-TAKEOVER.md](docs/AGENT-TAKEOVER.md) · [docs/HANDOFF-MD-MANIFEST.md](docs/HANDOFF-MD-MANIFEST.md) §0–§4（Must 文件用 Read，不要凭记忆）
+3. **Read** `content/analytics/derived/ceo-dispatch-latest.md`（autopilot 生成）
+4. **输出** 简体中文 **接手摘要**（≤15 行）：G-* · 三轨 · Owner 仅发帖+CSV · process-launcher 是否需 Owner 在 Terminal 点一次 start · 下一篇 Brief · PASS/FAIL
 
 ## 植入完成后
 

@@ -74,15 +74,23 @@ bash scripts/verify-integration.sh    # 6 case 集成（有 OAuth 时应 6/6 PAS
 - [ ] `verify-integration.sh` 无 FAIL（无 OAuth 时 SKIP 3–4–6 可接受）
 - [ ] 需代理访问 Google：`export HTTPS_PROXY=…` 后再跑集成脚本
 
-## 6. 后台目标链（Owner · 一次 · 服务 G-* + evolution）
+## 6. 后台目标链（新机 · 自动写入配置）
+
+**新机 / 新 Agent：** 跑 **`bash scripts/new-machine-bootstrap.sh`**（已含 `ensure-background-goal-evolution.sh`，**不必**单独记 setup 脚本名）。
+
+仅补写 launcher 配置时：
 
 ```bash
-bash scripts/setup-background-goal-evolution.sh
-# 随后在 Terminal.app：
+bash scripts/ensure-background-goal-evolution.sh
+```
+
+**第一次在 Terminal.app 启动 daily 09:00 调度（Owner 或 Agent 提示下做一次）：**
+
+```bash
 cd vendor/process-launcher && ../../.venv/bin/process-launcher start --config config/dba-brand-agent.yaml
 ```
 
-见 [docs/BACKGROUND-GOAL-EVOLUTION.md](docs/BACKGROUND-GOAL-EVOLUTION.md)（**每天 09:00 一轮**）。改频率见 [integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md](integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md)。**不必**日常手动 autopilot。
+见 [docs/BACKGROUND-GOAL-EVOLUTION.md](docs/BACKGROUND-GOAL-EVOLUTION.md)。改频率见 [integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md](integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md)。
 
 ## 7. Hub 关系
 

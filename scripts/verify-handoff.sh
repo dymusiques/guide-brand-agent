@@ -24,9 +24,17 @@ for f in \
   agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md \
   docs/CEO-OWNER-ONE-LINE-TRIGGERS.md \
   scripts/manager-ceo-double-iteration.sh \
-  scripts/verify-ceo-iteration-log.py; do
+  scripts/verify-ceo-iteration-log.py \
+  scripts/new-machine-bootstrap.sh \
+  scripts/ensure-background-goal-evolution.sh; do
   [[ -f "$f" ]] && pass "$f" || fail "missing $f"
 done
+
+if [[ -f vendor/process-launcher/config/dba-brand-agent.yaml ]]; then
+  pass "dba-brand-agent.yaml (background launcher config)"
+else
+  warn "missing dba-brand-agent.yaml — run: bash scripts/ensure-background-goal-evolution.sh"
+fi
 
 echo ""
 echo "[L0 Git skeleton]"

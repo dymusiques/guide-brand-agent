@@ -11,4 +11,4 @@ Execute Hub playbook: https://github.com/dymusiques/danying-apps/blob/main/全�
 
 Run clone script from hub: `bash ~/danying-apps/scripts/clone-all.sh`
 
-Then this repo SETUP.md. Agent runs all steps; only OAuth/MCP are Owner manual.
+Then this repo SETUP.md §1–5, then **`bash scripts/new-machine-bootstrap.sh`** (writes daily background config + verify + autopilot). Only OAuth/MCP and first `process-launcher start` may need Owner in Terminal.

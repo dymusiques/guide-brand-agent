@@ -7,8 +7,13 @@
       "请 CEO 开始工作",
       "CEO 开始",
       "CEO 干活",
-      "danying-brand-agent"
+      "danying-brand-agent",
+      "新机接手",
+      "完全克隆",
+      "完全克隆到本机"
     ],
+    "new_machine_bootstrap": "bash scripts/new-machine-bootstrap.sh",
+    "background_goal_evolution_ensure": "bash scripts/ensure-background-goal-evolution.sh",
     "agent_must": [
       "bash scripts/ceo-auto-recover-blocked.sh",
       "read latest ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*.md",

@@ -28,6 +28,8 @@ run_optional() {
   echo ""
 }
 
+run_optional "ensure background goal-evolution yaml" bash scripts/ensure-background-goal-evolution.sh
+
 step "M4 · Goal verify" bash scripts/verify-goals.sh || FAIL=$((FAIL + 1))
 
 step "CEO dashboard" bash scripts/manager-dashboard.sh || FAIL=$((FAIL + 1))

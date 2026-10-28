@@ -74,13 +74,15 @@
 4. [MANAGER-THREE-PILLARS.md](./MANAGER-THREE-PILLARS.md) → [CEO-DOUBLE-ITERATION-SOP.md](../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md)  
 5. `integration/handoff/ceo-gm-operating-manifest.json`（路由用）
 
-**命令：**
+**一键（推荐 · 含 background 09:00 配置）：**
 
 ```bash
-bash scripts/ensure-venv-deps.sh
-bash scripts/verify-handoff.sh
-bash scripts/manager-autopilot.sh
+bash scripts/new-machine-bootstrap.sh
 ```
+
+或分步：`ensure-venv-deps.sh` · `verify-handoff.sh` · `manager-autopilot.sh`（autopilot 内会自动 `ensure-background-goal-evolution.sh`）。
+
+**仍须 Owner 本机一次（若 daily 后台要跑）：** Terminal 里 `process-launcher start --config config/dba-brand-agent.yaml`（bootstrap 结束会提示是否已在 :7997 监听）。
 
 有 OAuth：`bash scripts/verify-integration.sh` · `VERIFY_GOALS_SKIP_PLATFORM=0 bash scripts/verify-goals.sh`
 
