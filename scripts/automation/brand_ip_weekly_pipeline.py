@@ -19,9 +19,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-RAG_SCRIPTS = Path(
-    "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts"
-)
+RAG_SCRIPTS = ROOT / "integration/openwebui-rag/scripts"
 
 
 def run(cmd: list[str], *, cwd: Path | None = None) -> None:

@@ -10,8 +10,8 @@ import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-RAG_SCRIPTS = Path("/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts")
+ROOT = Path(__file__).resolve().parent.parent
+RAG_SCRIPTS = ROOT / "integration/openwebui-rag/scripts"
 sys.path.insert(0, str(RAG_SCRIPTS))
 
 from openwebui_sync_lib import OpenWebUIClient, cfg, load_env  # noqa: E402

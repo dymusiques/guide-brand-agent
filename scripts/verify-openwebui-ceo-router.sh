@@ -15,7 +15,7 @@ check test -x "$ROOT/scripts/run-openwebui-router-pipeline.sh"
 check test -f "$ROOT/scripts/sync-openwebui-pipe-valves.py"
 check test -d "$ROOT/integration/handoff/openwebui-jobs"
 
-ENV="/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts/brand-drive-sync.env"
+ENV="$ROOT/integration/openwebui-rag/scripts/brand-drive-sync.env"
 if [[ -f "$ENV" ]]; then
   check grep -q OPENWEBUI_API_KEY "$ENV"
   if grep -qE '^GEMINI_API_KEY=' "$ENV" 2>/dev/null; then

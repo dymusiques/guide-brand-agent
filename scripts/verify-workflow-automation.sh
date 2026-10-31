@@ -69,7 +69,12 @@ for s in \
   .cursor/rules/xhs-copy-quality.mdc \
   .cursor/skills/xiaohongshu/xhs-copy-self-check.md \
   scripts/xhs-copy-grep-banned.sh \
-  scripts/xhs_copy_grep_banned.py; do
+  scripts/xhs_copy_grep_banned.py \
+  integration/openwebui-rag/README.md \
+  integration/openwebui-rag/scripts/openwebui_rag_paths.py \
+  integration/openwebui-rag/scripts/sync_all_brand_rag_to_openwebui.py \
+  integration/openwebui-rag/scripts/verify_openwebui_knowledge_status.py \
+  integration/openwebui-rag/scripts/brand-drive-sync.env.example; do
   [[ -f "$ROOT/$s" ]] && pass "$s" || fail "missing $s"
 done
 

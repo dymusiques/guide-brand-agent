@@ -16,9 +16,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_MIRROR = Path(
-    "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/brand-knowledge-mirror/_rag/cursor-brand-corpus"
-)
+def _default_mirror() -> Path:
+    import sys
+
+    sys.path.insert(0, str(ROOT / "integration/openwebui-rag/scripts"))
+    from openwebui_rag_paths import rag_subdir
+
+    return rag_subdir("cursor-brand-corpus")
 HANDOFF = ROOT / "integration/handoff/openwebui-context-reorg-latest.json"
 
 SKIP_DIRS = {
@@ -184,14 +188,15 @@ def apply_repo(path: Path, fm: str, l1: str, raw: str) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mirror", type=Path, default=DEFAULT_MIRROR)
+    ap.add_argument("--mirror", type=Path, default=None)
     ap.add_argument("--apply-repo", action="store_true", help="Rewrite MD in repo with L1 shell + L2 body")
     ap.add_argument("--max-bytes", type=int, default=1_500_000, help="Skip L2 export above this size")
     args = ap.parse_args()
+    mirror = args.mirror or _default_mirror()
 
-    l0_dir = args.mirror / "l0"
-    l1_dir = args.mirror / "l1"
-    l2_dir = args.mirror / "l2"
+    l0_dir = mirror / "l0"
+    l1_dir = mirror / "l1"
+    l2_dir = mirror / "l2"
     for d in (l0_dir, l1_dir, l2_dir):
         d.mkdir(parents=True, exist_ok=True)
 
@@ -233,14 +238,14 @@ def main() -> int:
             apply_repo(path, fm, l1, raw)
             applied += 1
 
-    (args.mirror / "MASTER-L0-INDEX.md").write_text("\n".join(l0_lines) + "\n", encoding="utf-8")
-    (l1_dir / "MASTER-L0-INDEX.md").write_text((args.mirror / "MASTER-L0-INDEX.md").read_text(encoding="utf-8"), encoding="utf-8")
+    (mirror / "MASTER-L0-INDEX.md").write_text("\n".join(l0_lines) + "\n", encoding="utf-8")
+    (l1_dir / "MASTER-L0-INDEX.md").write_text((mirror / "MASTER-L0-INDEX.md").read_text(encoding="utf-8"), encoding="utf-8")
 
     handoff = {
         "version": "2026-10-30",
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "repo": str(ROOT),
-        "mirror": str(args.mirror),
+        "mirror": str(mirror),
         "git_note": "Open WebUI sync reads local mirror + working tree; git push 非必须，但未 commit 的改动仅在本机。",
         "knowledge_collections": {
             "workflow-automation-pack": "可自动化 workflow · manifest L0–L4 · gate/CEO 命令",
@@ -290,16 +295,16 @@ def main() -> int:
             ],
         },
         "sync_commands": [
-            "python3 LLM-Ollama/RAG/RAG/scripts/fix_openwebui_rag_ollama_url.py",
-            "python3 LLM-Ollama/RAG/RAG/scripts/sync_cursor_brand_corpus_to_openwebui.py",
-            "python3 LLM-Ollama/RAG/RAG/scripts/sync_agent_prompt_pack_to_openwebui.py",
+            "python3 integration/openwebui-rag/scripts/fix_openwebui_rag_ollama_url.py",
+            "python3 integration/openwebui-rag/scripts/sync_cursor_brand_corpus_to_openwebui.py",
+            "python3 integration/openwebui-rag/scripts/sync_agent_prompt_pack_to_openwebui.py",
         ],
     }
     HANDOFF.parent.mkdir(parents=True, exist_ok=True)
     HANDOFF.write_text(json.dumps(handoff, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"SCAN {len(files)} md")
-    print(f"EXPORT {len(entries)} → {args.mirror}")
+    print(f"EXPORT {len(entries)} → {mirror}")
     print(f"APPLY_REPO {applied}")
     print(f"HANDOFF {HANDOFF}")
     return 0

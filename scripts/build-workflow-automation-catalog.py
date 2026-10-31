@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -12,9 +13,10 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "integration/handoff/workflow-automation-manifest.json"
 OUT_JSON = ROOT / "integration/handoff/workflow-automation-catalog-l1.json"
 OUT_MD = ROOT / "docs/WORKFLOW-AUTOMATION-L1-INDEX.md"
-MIRROR = Path(
-    "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/brand-knowledge-mirror/_rag/workflow-automation-pack"
-)
+sys.path.insert(0, str(ROOT / "integration/openwebui-rag/scripts"))
+from openwebui_rag_paths import rag_subdir  # noqa: E402
+
+MIRROR = rag_subdir("workflow-automation-pack")
 
 
 def scan_scripts() -> list[dict]:

@@ -61,3 +61,7 @@ content/xiaohongshu/verify-logs/
 
 # Unattended CEO / gate run logs
 content/evolution/**/*.log
+
+# Open WebUI sync secrets + local mirror (optional)
+integration/openwebui-rag/scripts/brand-drive-sync.env
+var/brand-knowledge-mirror/

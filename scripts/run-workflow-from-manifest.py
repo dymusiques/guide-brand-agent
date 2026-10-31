@@ -104,7 +104,7 @@ def main() -> int:
     if args.context_reorg:
         run_shell("bash scripts/run-context-reorg-pipeline.sh", dry_run=args.dry_run)
         run_shell("python3 scripts/build-workflow-automation-catalog.py", dry_run=args.dry_run)
-        rag = "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts/sync_workflow_automation_pack_to_openwebui.py"
+        rag = ROOT / "integration/openwebui-rag/scripts/sync_workflow_automation_pack_to_openwebui.py"
         run_shell(f"python3 {rag}", dry_run=args.dry_run)
         return 0
 

@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ENV_FILE = Path(
     os.environ.get(
         "BRAND_DRIVE_SYNC_ENV",
-        "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts/brand-drive-sync.env",
+        str(Path(__file__).resolve().parent.parent / "integration/openwebui-rag/scripts/brand-drive-sync.env"),
     )
 )
 

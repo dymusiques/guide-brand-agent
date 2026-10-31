@@ -8,7 +8,7 @@ cd "$ROOT"
 INTAKE="${INTAKE:-content/personal-ip/intake/2026-10-29-ngv-flute-curation-theme.md}"
 GOAL="${GOAL:-Personal IP：基于 intake，产出 LinkedIn 系列深度口播分节大纲（NGV×MSO 动线策展 vs 门口四重奏）；须结合 brand-ip-knowledge 事实}"
 REPORT="$ROOT/content/evolution/00-manager/ceo-inbox/CEO-FULL-STACK-TEST-$(date +%Y-%m-%d).md"
-ENV_OWUI="/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts/brand-drive-sync.env"
+ENV_OWUI="$ROOT/integration/openwebui-rag/scripts/brand-drive-sync.env"
 FAIL=0
 
 log() { echo ">>> $*"; }

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-RAG_SCRIPTS="/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts"
+RAG_SCRIPTS="$ROOT/integration/openwebui-rag/scripts"
 LOCAL_FIX="$ROOT/scripts/fix-openwebui-local-models.py"
 WBR_COURSE="/Users/danying/Desktop/未命名/WBR/WBR/scripts/fix-openwebui-wbr-sqlite.py"
 FAIL=0

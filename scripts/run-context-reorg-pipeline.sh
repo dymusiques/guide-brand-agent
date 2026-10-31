@@ -2,7 +2,7 @@
 # Full pipeline: L0/L1/L2 export → Open WebUI Knowledge → HTML handback to Owner.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-RAG="/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts"
+RAG="$ROOT/integration/openwebui-rag/scripts"
 
 python3 "$ROOT/scripts/reorganize-brand-corpus-l012.py" --apply-repo
 python3 "$RAG/fix_openwebui_rag_ollama_url.py"
