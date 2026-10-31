@@ -52,19 +52,31 @@
 <body>
 <div class="topbar">
   <button type="button" id="btn-popup">在新窗口打开</button>
-  <a id="link-md" href="#">打开选中节点 MD（本机）</a>
-  <span style="font-size:13px">仓：/Users/danying/Desktop/danying-brand-agent</span>
+  <a id="link-md" href="#">打开选中节点 MD</a>
+  <a href="https://github.com/dymusiques/guide-brand-agent/blob/main/docs/SHARE-FOR-LIU-TEACHER.md" target="_blank" rel="noopener">分享给刘老师 · 导读</a>
+  <a href="https://dymusiques.github.io/guide-brand-agent/owner-stack-openwebui-mindmap.html" target="_blank" rel="noopener">GitHub Pages 分享链接</a>
+  <a href="https://github.com/dymusiques/guide-brand-agent/blob/main/" target="_blank" rel="noopener">打开 GitHub 仓库</a>
+  <span style="font-size:13px">本地仓：/Users/danying/Desktop/danying-brand-agent</span>
 </div>
 <div class="wrap">
 <h1>Brand Agent · 克隆 / Cursor / Open WebUI 总流程</h1>
-<p>生成：2026-11-01 01:29 · handoff <code>integration/handoff/openwebui-context-reorg-latest.json</code></p>
+<p>生成：2026-11-01 01:31 · handoff <code>integration/handoff/openwebui-context-reorg-latest.json</code></p>
+
+<div class="card" style="border-left:4px solid #1f6feb">
+  <strong>分享给刘老师（GitHub · 勿用 file://）</strong>
+  <ul style="margin:0.5rem 0 0;padding-left:1.2rem;font-size:14px">
+    <li>交互导图：<a href="https://dymusiques.github.io/guide-brand-agent/owner-stack-openwebui-mindmap.html">https://dymusiques.github.io/guide-brand-agent/owner-stack-openwebui-mindmap.html</a></li>
+    <li>导读 MD：<a href="https://github.com/dymusiques/guide-brand-agent/blob/main/docs/SHARE-FOR-LIU-TEACHER.md">docs/SHARE-FOR-LIU-TEACHER.md</a></li>
+    <li>仓库首页：<a href="https://github.com/dymusiques/guide-brand-agent/blob/main">github.com/dymusiques/guide-brand-agent</a></li>
+  </ul>
+</div>
 
 <div class="card">
   <strong>双推核对</strong> <span class="badge ok">双推与本地 HEAD 一致</span><br/>
-  HEAD <code>de5443b3374f</code> ·
-  github/main <code>de5443b3374f</code> ·
-  origin/main <code>de5443b3374f</code>
-  <ul><li><code>content/evolution/00-manager/ceo-inbox/CONTEXT-REORG-PIPELINE-LATEST.html</code></li><li><code>docs/owner-stack-openwebui-mindmap.html</code></li><li><code>integration/handoff/openwebui-jobs/.gitkeep</code></li><li><code>scripts/build-context-reorg-pipeline-html.py</code></li><li><code>scripts/verify-context-reorg-html.sh</code></li></ul>
+  HEAD <code>0084c5119fa3</code> ·
+  github/main <code>0084c5119fa3</code> ·
+  origin/main <code>0084c5119fa3</code>
+  <ul><li><code>integration/handoff/openwebui-jobs/.gitkeep</code></li><li><code>scripts/build-context-reorg-pipeline-html.py</code></li></ul>
   <p style="font-size:13px;color:#57606a;margin-bottom:0">
     <strong>结论：</strong>Git 双推 = 新 Agent 与换机的「文档真相源」；
     Open WebUI = 本机 Docker + 磁盘镜像 + sync 脚本，<em>不会</em>因为你 push 就自动更新 Knowledge。
@@ -132,6 +144,7 @@ python3 scripts/run-workflow-from-manifest.py --phrase &quot;CEO 开始执行&qu
 <script>
 (function() {
   var REPO = "/Users/danying/Desktop/danying-brand-agent";
+  var GITHUB_BLOB = "https://github.com/dymusiques/guide-brand-agent/blob/main/";
   var NODES = [{"id": "clone-hub", "col": "Git · 克隆 · 双推", "title": "全部克隆（新电脑整包）", "desc": "Hub 脚本拉齐 danying-apps + 本仓", "role": "换机时第一次：不在本仓单独 git clone，走 Hub 全部克隆.md", "md": ["新电脑一句话.md", "https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md"], "cmd": ["全部克隆", "bash ~/danying-apps/scripts/clone-all.sh"]}, {"id": "clone-repo", "col": "Git · 克隆 · 双推", "title": "唯一工作仓 danying-brand-agent", "desc": "Cursor 只开这一文件夹", "role": "代码与 MD 的「定稿真相源」；写稿、脚本、规则、handoff 都在 Git", "md": ["新电脑一句话.md", "docs/AGENT-TAKEOVER.md", "SETUP.md"], "cmd": ["danying-brand-agent", "bash scripts/new-machine-bootstrap.sh"]}, {"id": "dual-push", "col": "Git · 克隆 · 双推", "title": "双推 github + origin", "desc": "GitHub 与 Cursor Origin 同一 main", "role": "备份、换机、新 Agent 从云端拉同一套 MD；Open WebUI 不自动读远程，需本机 sync", "md": ["docs/HANDOFF-COMPLETENESS.md"], "cmd": ["git push github main", "git push origin main"]}, {"id": "new-agent", "col": "Git · 克隆 · 双推", "title": "新 Agent 一键接手", "desc": "口令 + verify，不依赖旧 chat", "role": "读 HANDOFF 链 → autopilot；规则 danying-manager-auto 自动当 00 CEO", "md": ["docs/HANDOFF-MD-MANIFEST.md", "docs/NEW-AGENT-WORKFLOW-SOP.md", "docs/workflow-handoff-mindmap.html"], "cmd": ["bash scripts/verify-handoff.sh", "bash scripts/verify-agent-takeover.sh"]}, {"id": "cursor-ceo", "col": "Cursor · CEO", "title": "00 Manager / CEO 执行面", "desc": "写、改、验、交 HTML", "role": "Owner 给目标 → ceo-full-execution → gate/evolution → Owner 交付页", "md": ["agents/00-manager/AUTO-WORKFLOW.md", "docs/CEO-FULL-EXECUTION-MANDATE.md"], "cmd": ["bash scripts/ceo-full-execution-pipeline.sh --goal \"…\""]}, {"id": "ceo-six-case", "col": "CEO · 测评链", "title": "六项 6-case + GM 胶水", "desc": "integration/agents a01–a09 + kernel", "role": "CEO 函数壳：各部门 Manager 集成测试矩阵；见 CEO-SIX-CASE 文档与 ceo-six-case-battery.sh", "md": ["docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md", "integration/handoff/ceo-full-execution-cycle.json"], "cmd": ["bash scripts/ceo-six-case-battery.sh", "bash scripts/ceo-six-case-battery.sh --brief <path>"]}, {"id": "ceo-triple", "col": "CEO · 测评链", "title": "Triple eval + baseline 距离", "desc": "多轮 evaluate · 拉近 gold", "role": "ceo-triple-eval-baseline-loop：每轮 gate + analyze-brief-evolution-gap（READY/NEEDS_WORK）+ baseline/gold 距离", "md": ["docs/MANAGER-EVAL-IMPROVEMENT-LOOP.md", "docs/BRIEF-AUTO-GATE-PIPELINE.md"], "cmd": ["bash scripts/ceo-triple-eval-baseline-loop.sh --brief <path>"]}, {"id": "ceo-stress", "col": "CEO · 测评链", "title": "Double stress 压测", "desc": "clever-advocate ×2 等", "role": "ceo-double-stress：在 READY 前加压；长稿 verify-xhs-clever-advocate", "md": ["docs/OWNER-LONGFORM-CLEVER-ADVOCATE.md"], "cmd": ["bash scripts/ceo-double-stress.sh --brief <path>"]}, {"id": "ceo-evolution", "col": "CEO · 测评链", "title": "Evolution gap · 成功目标 G-*", "desc": "测距 → 改稿 → 再 evaluate", "role": "analyze-brief-evolution-gap.py 输出 EVOLUTION-GAP-latest.md；G-* 注册表在 integration/goals/registry.json", "md": ["integration/GOALS-REGISTRY.md", "docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md"], "cmd": ["python3 scripts/analyze-brief-evolution-gap.py --brief <path>", "bash scripts/manager-brief-evolution-until-gap.sh --brief <path>"]}, {"id": "ceo-autopilot", "col": "CEO · 测评链", "title": "run_ceo_xhs_autopilot / manifest", "desc": "对抗 · HTML · roster", "role": "CEO 交付闭环：run_ceo_xhs_autopilot.py + CEO-RUN-MANIFEST-latest.json + Owner HTML", "md": ["docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md", "docs/OWNER-CHAT-DELIVERY-FORMAT.md"], "cmd": ["python3 scripts/run_ceo_xhs_autopilot.py", "bash scripts/manager-ceo-xhs-owner-delivery.sh"]}, {"id": "wf-auto", "col": "自动 Workflow", "title": "workflow-automation-manifest", "desc": "L0_BOOT → L4 · 勿问 Owner", "role": "改 Brief / CEO 派活后自动 gate+evolution；manifest 在 integration/handoff/", "md": ["docs/WORKFLOW-AUTOMATION-MATRIX.md", "integration/handoff/workflow-automation-manifest.json"], "cmd": ["python3 scripts/run-workflow-from-manifest.py --phrase \"CEO 开始执行\" --goal \"…\""]}, {"id": "wf-dispatch", "col": "自动 Workflow", "title": "派活 · dispatch · autopilot", "desc": "09→04 · ceo-dispatch", "role": "manager-autopilot / dashboard；ceo-dispatch-latest.md；09 数据 GM 半自动派 04", "md": ["docs/AUTOPILOT.md", "agents/09-data-analytics/DATA-NEEDS.md"], "cmd": ["bash scripts/manager-autopilot.sh", "bash scripts/manager-dashboard.sh"]}, {"id": "cursor-refine", "col": "Cursor · CEO", "title": "Cursor 做「提炼 / 定稿」", "desc": "改 MD、跑 verify、commit", "role": "老师说的「用 Cursor 提炼」= 在这里改仓库正文 + 脚本验收；适合结构化定稿与进化", "md": ["docs/PROMPT-CONTEXT-STANDARD.md", "docs/OWNER-LONGFORM-DE-AI-VOICE.md"], "cmd": ["bash scripts/manager-workflow-verify.sh <brief>"]}, {"id": "owui-role", "col": "Open WebUI", "title": "Open WebUI 干什么", "desc": "本机 RAG + Pipe 长文，不是 Git 浏览器", "role": "读 Knowledge 四包：问 SOP、问 corpus、问 workflow 命令、问 Drive 背书；长文可出 outbox 给 Cursor", "md": ["docs/OPENWEBUI-CEO-ROUTER.md", "integration/openwebui-rag/README.md"], "cmd": ["python3 integration/openwebui-rag/scripts/verify_openwebui_knowledge_status.py"]}, {"id": "kb-corpus", "col": "Open WebUI", "title": "Knowledge · cursor-brand-corpus", "desc": "本仓 MD 的 L0/L1/L2 镜像", "role": "Open WebUI 侧「读你品牌仓上下文」；由 reorganize 导出 + sync 脚本灌入", "md": ["docs/CONTEXT-WINDOW-AND-DATA-ROUTING.md"], "cmd": ["python3 scripts/reorganize-brand-corpus-l012.py", "python3 integration/openwebui-rag/scripts/sync_cursor_brand_corpus_to_openwebui.py"]}, {"id": "kb-drive", "col": "Open WebUI", "title": "Knowledge · brand-ip-knowledge", "desc": "Google Drive 资料库镜像", "role": "你说的「Drive 后续资料库」主要在这包；与 Git 仓分离，靠 Drive sync 进 RAG", "md": ["docs/OPENWEBUI-CEO-ROUTER.md"], "cmd": ["python3 integration/openwebui-rag/scripts/sync_brand_drive_to_openwebui.py"]}, {"id": "kb-prompt", "col": "Open WebUI", "title": "Knowledge · agent-prompt-pack", "desc": "INTEGRATION-PROMPT / 路由短答", "role": "新 Agent 在 WebUI 里问「04 小红书 GM 怎么接」", "md": ["docs/PROMPT-CONTEXT-STANDARD.md"], "cmd": ["bash scripts/export-agent-prompt-pack.sh", "python3 integration/openwebui-rag/scripts/sync_agent_prompt_pack_to_openwebui.py"]}, {"id": "kb-wf", "col": "Open WebUI", "title": "Knowledge · workflow-automation-pack", "desc": "L0–L4 可跑命令清单", "role": "问「CEO 开始执行跑什么」→ manifest 层", "md": ["docs/WORKFLOW-AUTOMATION-MATRIX.md"], "cmd": ["python3 scripts/run-workflow-from-manifest.py --list-layers"]}, {"id": "mirror", "col": "镜像 · L012", "title": "brand-knowledge-mirror", "desc": "本机 _rag 目录（非 Git 远程）", "role": "reorganize 写出 L0/L1/L2；Open WebUI sync 读磁盘；路径见 openwebui_rag_paths.py", "md": ["integration/openwebui-rag/scripts/openwebui_rag_paths.py"], "cmd": ["export BRAND_KNOWLEDGE_MIRROR=…（可选）"]}, {"id": "pipeline", "col": "镜像 · L012", "title": "run-context-reorg-pipeline", "desc": "导出 → 四包 sync → 本 HTML", "role": "全链路刷新；含 --apply-repo 会大批量改 MD，日常可只跑 verify/sync", "md": ["scripts/run-context-reorg-pipeline.sh"], "cmd": ["bash scripts/run-context-reorg-pipeline.sh"]}, {"id": "router", "col": "Open WebUI ↔ Cursor", "title": "CEO Router（步 −1）", "desc": "RAG/Pipe → outbox / intake", "role": "Cursor 派长文或 intake 时走 Open WebUI，结果回 handoff/outbox", "md": ["docs/OPENWEBUI-CEO-ROUTER.md"], "cmd": ["bash scripts/run-openwebui-router-pipeline.sh --goal \"…\""]}, {"id": "deploy", "col": "Open WebUI ↔ Cursor", "title": "deploy-learning-stack", "desc": "Ollama URL · Knowledge 基线", "role": "Docker Open WebUI + embedding 修复 + 栈验收", "md": ["scripts/deploy-learning-stack.sh"], "cmd": ["bash scripts/deploy-learning-stack.sh"]}];
   var grid = document.getElementById("mindmap-grid");
   var panel = document.getElementById("panel");
@@ -141,7 +154,10 @@ python3 scripts/run-workflow-from-manifest.py --phrase &quot;CEO 开始执行&qu
 
   function fileUrl(rel) {
     if (!rel || rel.indexOf("http") === 0) return rel;
-    return "file://" + REPO + "/" + rel;
+    if (location.protocol === "file:") {
+      return "file://" + REPO + "/" + rel;
+    }
+    return GITHUB_BLOB + rel.split("/").map(function(seg) { return encodeURIComponent(seg); }).join("/");
   }
 
   NODES.forEach(function(n) {
