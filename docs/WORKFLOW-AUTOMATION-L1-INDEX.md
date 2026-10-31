@@ -1,6 +1,6 @@
 # Workflow 自动化 · L1 索引（机器 + 人）
 
-> 生成 UTC：`2026-10-30T08:01:46.438459+00:00` · JSON：`integration/handoff/workflow-automation-catalog-l1.json`
+> 生成 UTC：`2026-10-31T16:11:07.929653+00:00` · JSON：`integration/handoff/workflow-automation-catalog-l1.json`
 
 ## 一键执行
 

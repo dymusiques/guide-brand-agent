@@ -1,6 +1,6 @@
 {
   "version": "2026-10-30",
-  "generated_utc": "2026-10-30T08:01:46.438459+00:00",
+  "generated_utc": "2026-10-31T16:11:07.929653+00:00",
   "source_manifest": "integration/handoff/workflow-automation-manifest.json",
   "run_layer": "python3 scripts/run-workflow-from-manifest.py --layer <ID> [--goal \"...\"] [--brief path]",
   "run_owner_phrase": "python3 scripts/run-workflow-from-manifest.py --phrase \"CEO 开始执行\" [--goal \"...\"]",
@@ -179,7 +179,7 @@
       "Discovery series narrative split from workflow test brief"
     ]
   },
-  "script_inventory_count": 135,
+  "script_inventory_count": 137,
   "script_inventory_sample": [
     {
       "path": "scripts/agent-shells/00-manager.sh",

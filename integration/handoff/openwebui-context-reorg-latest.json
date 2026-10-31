@@ -1,6 +1,6 @@
 {
   "version": "2026-10-30",
-  "generated_utc": "2026-10-30T08:02:02.608653+00:00",
+  "generated_utc": "2026-10-31T16:11:07.853629+00:00",
   "repo": "/Users/danying/Desktop/danying-brand-agent",
   "mirror": "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/brand-knowledge-mirror/_rag/cursor-brand-corpus",
   "git_note": "Open WebUI sync reads local mirror + working tree; git push 非必须，但未 commit 的改动仅在本机。",
@@ -28,8 +28,8 @@
     "export": "bash scripts/export-workflow-automation-pack.sh"
   },
   "counts": {
-    "md_scanned": 414,
-    "exported_l012": 414,
+    "md_scanned": 432,
+    "exported_l012": 432,
     "skipped_oversize": 0,
     "repo_rewritten": 0
   },
@@ -85,13 +85,19 @@
     {
       "path": ".cursor/skills/xiaohongshu/SKILL.md",
       "title": "Xiaohongshu",
-      "sha16": "02d26d977a065462",
+      "sha16": "45a9496770597be7",
       "owui": "rag_l2"
     },
     {
       "path": ".cursor/skills/xiaohongshu/topic-manager.md",
       "title": "Xiaohongshu Topic Manager（选题 IP Manager）",
       "sha16": "332373395ce04f5a",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/xiaohongshu/xhs-copy-self-check.md",
+      "title": "小红书短文案 · 文风自查清单",
+      "sha16": "5175eb282dfdb8f8",
       "owui": "rag_l2"
     },
     {
@@ -103,7 +109,7 @@
     {
       "path": "AGENTS.md",
       "title": "AGENTS.md — Guide Brand Agent",
-      "sha16": "f84b33ea70cde832",
+      "sha16": "e1a4a50324ce8602",
       "owui": "rag_l2"
     },
     {
@@ -266,12 +272,6 @@
       "path": "agents/10-artist-benchmark/INTEGRATION-PROMPT.md",
       "title": "10 · Artist Benchmark GM · 日更 Sub-Agent",
       "sha16": "2959923cc9b2908d",
-      "owui": "rag_l1"
-    },
-    {
-      "path": "agents/11-ip-daily-evaluator/INTEGRATION-PROMPT.md",
-      "title": "11 · IP Daily Evaluator GM · 日更 Sub-Agent",
-      "sha16": "3b22f85822deddb9",
       "owui": "rag_l1"
     }
   ],
