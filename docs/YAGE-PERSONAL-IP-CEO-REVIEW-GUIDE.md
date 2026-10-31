@@ -1,8 +1,8 @@
 # 鸭哥 · Personal IP 与 CEO 体系 · GitHub 导读
 
 > **仓库根目录：** [github.com/dymusiques/guide-brand-agent](https://github.com/dymusiques/guide-brand-agent)  
-> **说明：** 本仓当前为 **Private**。鸭哥需被添加为 **Collaborator** 后，下文所有 `blob/main/…` 链接才可点击；未授权时会显示 404（不是文件不存在）。  
-> **公开备用入口（无需登录）：** [Gist · 摘要 + 思维导图](https://gist.github.com/dymusiques/1efd20ba040828b8e9def78de9e56672) · [htmlpreview · 总流程导图](https://htmlpreview.github.io/?https://gist.githubusercontent.com/dymusiques/1efd20ba040828b8e9def78de9e56672/raw/owner-stack-openwebui-mindmap.html)
+> **说明：** 本仓已为 **Public**，下文 `blob/main/…` 链接可直接打开（无需 Collaborator）。  
+> **备用入口：** [Gist · 摘要 + 思维导图](https://gist.github.com/dymusiques/1efd20ba040828b8e9def78de9e56672) · [htmlpreview · 总流程导图](https://htmlpreview.github.io/?https://raw.githubusercontent.com/dymusiques/guide-brand-agent/main/docs/owner-stack-openwebui-mindmap.html)
 
 ---
 
