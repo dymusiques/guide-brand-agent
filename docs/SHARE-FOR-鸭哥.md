@@ -1,8 +1,11 @@
 # 分享给鸭哥 · Brand Agent 总览（GitHub 可读）
 
-> **仓库：** [github.com/dymusiques/guide-brand-agent](https://github.com/dymusiques/guide-brand-agent)  
-> **交互思维导图（浏览器）：** [htmlpreview · 总流程思维导图](https://htmlpreview.github.io/?https://raw.githubusercontent.com/dymusiques/guide-brand-agent/main/docs/owner-stack-openwebui-mindmap.html)  
-> **说明：** 点页面里任意方块 → **底部黑色栏**出现工序说明；MD 链接跳到 GitHub 对应文件（无需本机 `file://`）。
+> **鸭哥主文档（Personal IP + CEO 派活 · 全 GitHub 链接）：** [YAGE-PERSONAL-IP-CEO-REVIEW-GUIDE.md](https://github.com/dymusiques/guide-brand-agent/blob/main/docs/YAGE-PERSONAL-IP-CEO-REVIEW-GUIDE.md)  
+> **重要：** 主仓库 `guide-brand-agent` 当前为 **Private**。未登录 GitHub 或无权限的人会看到 **404**（不是文件丢了）。  
+> **给鸭哥的公开链接（无需登录）：** [Gist · 本导读](https://gist.github.com/dymusiques/1efd20ba040828b8e9def78de9e56672)  
+> **私有仓（仅已授权账号）：** [github.com/dymusiques/guide-brand-agent](https://github.com/dymusiques/guide-brand-agent)  
+> **交互思维导图：** [htmlpreview · 导图](https://htmlpreview.github.io/?https://gist.githubusercontent.com/dymusiques/1efd20ba040828b8e9def78de9e56672/raw/owner-stack-openwebui-mindmap.html)（或 Gist 页里点 `owner-stack-openwebui-mindmap.html` → Raw）。  
+> **说明：** 点导图方块 → **底部黑色栏**出现工序说明。
 
 ---
 
