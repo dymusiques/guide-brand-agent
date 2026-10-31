@@ -74,7 +74,11 @@ for s in \
   integration/openwebui-rag/scripts/openwebui_rag_paths.py \
   integration/openwebui-rag/scripts/sync_all_brand_rag_to_openwebui.py \
   integration/openwebui-rag/scripts/verify_openwebui_knowledge_status.py \
-  integration/openwebui-rag/scripts/brand-drive-sync.env.example; do
+  integration/openwebui-rag/scripts/brand-drive-sync.env.example \
+  scripts/build-context-reorg-pipeline-html.py \
+  scripts/verify-context-reorg-html.sh \
+  content/evolution/00-manager/ceo-inbox/CONTEXT-REORG-PIPELINE-LATEST.html \
+  docs/owner-stack-openwebui-mindmap.html; do
   [[ -f "$ROOT/$s" ]] && pass "$s" || fail "missing $s"
 done
 

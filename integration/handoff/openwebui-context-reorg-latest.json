@@ -311,8 +311,10 @@
     ]
   },
   "sync_commands": [
-    "python3 LLM-Ollama/RAG/RAG/scripts/fix_openwebui_rag_ollama_url.py",
-    "python3 LLM-Ollama/RAG/RAG/scripts/sync_cursor_brand_corpus_to_openwebui.py",
-    "python3 LLM-Ollama/RAG/RAG/scripts/sync_agent_prompt_pack_to_openwebui.py"
-  ]
+    "python3 integration/openwebui-rag/scripts/fix_openwebui_rag_ollama_url.py",
+    "python3 integration/openwebui-rag/scripts/sync_cursor_brand_corpus_to_openwebui.py",
+    "python3 integration/openwebui-rag/scripts/sync_agent_prompt_pack_to_openwebui.py",
+    "python3 integration/openwebui-rag/scripts/sync_all_brand_rag_to_openwebui.py"
+  ],
+  "rag_scripts_dir": "integration/openwebui-rag/scripts"
 }

@@ -3,125 +3,199 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>上下文重组 · Open WebUI ↔ Cursor</title>
+<title>Brand Agent · Open WebUI ↔ Cursor · 思维导图</title>
 <style>
-  :root { font-family: system-ui, sans-serif; line-height: 1.5; color: #1a1a1a; }
-  body { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
-  h1 { font-size: 1.6rem; }
-  h2 { margin-top: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 0.3rem; }
-  .card { background: #f6f8fa; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
-  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
-  th, td { border: 1px solid #ddd; padding: 0.4rem 0.6rem; text-align: left; }
+  :root { font-family: "PingFang SC", system-ui, sans-serif; line-height: 1.5; color: #1a1a1a; }
+  body { margin: 0; background: #f0f2f5; }
+  .topbar {
+    position: sticky; top: 0; z-index: 20; background: #1f6feb; color: #fff;
+    padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  }
+  .topbar button { background: #fff; color: #1f6feb; border: 0; padding: 8px 14px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+  .topbar a { color: #fff; font-size: 13px; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 16px 16px 220px; }
+  h1 { font-size: 1.35rem; margin: 0 0 8px; }
+  h2 { margin-top: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; font-size: 1.1rem; }
+  .card { background: #fff; border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+  .badge.ok { background: #dafbe1; color: #116329; }
+  .badge.warn { background: #fff8c5; color: #7d4e00; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+  th, td { border: 1px solid #ddd; padding: 0.35rem 0.5rem; text-align: left; }
   th { background: #eee; }
-  code { font-size: 0.88em; }
-  pre { background: #222; color: #eee; padding: 1rem; overflow-x: auto; border-radius: 6px; }
-  .mermaid { background: #fff; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; }
+  code { font-size: 0.85em; word-break: break-all; }
+  pre { background: #222; color: #eee; padding: 1rem; overflow-x: auto; border-radius: 6px; font-size: 12px; }
+  .hub { text-align: center; margin: 12px 0; }
+  .hub span { display: inline-block; background: #238636; color: #fff; padding: 12px 24px; border-radius: 999px; font-weight: 800; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .col-title { grid-column: 1 / -1; color: #0969da; font-weight: 700; font-size: 13px; margin-top: 8px; }
+  .node {
+    background: #fff; border: 2px solid #d0d7de; border-radius: 10px; padding: 10px 12px;
+    cursor: pointer; min-height: 72px;
+  }
+  .node:hover, .node.on { border-color: #1f6feb; box-shadow: 0 0 0 2px rgba(31,111,235,.25); }
+  .node h3 { margin: 0 0 4px; font-size: 0.92rem; }
+  .node p { margin: 0; font-size: 0.78rem; color: #57606a; }
+  #panel {
+    position: fixed; left: 0; right: 0; bottom: 0; max-height: 38vh; overflow-y: auto;
+    background: #161b22; color: #e6edf3; padding: 14px 18px; border-top: 3px solid #1f6feb;
+    font-size: 14px;
+  }
+  #panel h2 { margin: 0 0 8px; color: #79c0ff; border: 0; font-size: 1.05rem; }
+  #panel a { color: #58a6ff; }
+  .flow-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 12px 0; }
+  .flow-box { background: #ddf4ff; border: 1px solid #54aeff; border-radius: 8px; padding: 8px 12px; font-size: 12px; max-width: 140px; text-align: center; }
+  .flow-arrow { align-self: center; color: #656d76; }
 </style>
 </head>
 <body>
-<h1>Brand Agent · 上下文重组链路</h1>
-<p>生成时间：2026-10-30 16:02 · handoff：<code>integration/handoff/openwebui-context-reorg-latest.json</code></p>
+<div class="topbar">
+  <button type="button" id="btn-popup">在新窗口打开</button>
+  <a id="link-md" href="#">打开选中节点 MD（本机）</a>
+  <span style="font-size:13px">仓：/Users/danying/Desktop/danying-brand-agent</span>
+</div>
+<div class="wrap">
+<h1>Brand Agent · 克隆 / Cursor / Open WebUI 总流程</h1>
+<p>生成：2026-11-01 01:26 · handoff <code>integration/handoff/openwebui-context-reorg-latest.json</code></p>
 
 <div class="card">
-<strong>Git / 双推说明：</strong> Open WebUI 同步读<strong>本机</strong> <code>reorganize-brand-corpus-l012.py</code> 导出的镜像，
-不读 GitHub/Origin 远程。未 commit 的 MD 也会进 Knowledge；双推只为备份与换机，<em>不是</em>喂库前置条件。
+  <strong>双推核对</strong> <span class="badge ok">双推与本地 HEAD 一致</span><br/>
+  HEAD <code>2feb7928fac3</code> ·
+  github/main <code>2feb7928fac3</code> ·
+  origin/main <code>2feb7928fac3</code>
+  <ul><li><code>integration/handoff/openwebui-context-reorg-latest.json</code></li><li><code>integration/handoff/openwebui-jobs/.gitkeep</code></li><li><code>scripts/build-context-reorg-pipeline-html.py</code></li><li><code>新电脑一句话.md</code></li></ul>
+  <p style="font-size:13px;color:#57606a;margin-bottom:0">
+    <strong>结论：</strong>Git 双推 = 新 Agent 与换机的「文档真相源」；
+    Open WebUI = 本机 Docker + 磁盘镜像 + sync 脚本，<em>不会</em>因为你 push 就自动更新 Knowledge。
+  </p>
 </div>
 
-<h2>1. Infrastructure</h2>
+<h2>简化主链（一眼）</h2>
+<div class="card">
+<div class="flow-row">
+  <div class="flow-box">Owner 口令<br/>全部克隆 / danying-brand-agent</div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-box">Git 仓<br/>写 MD · 脚本 · verify</div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-box">L012 镜像<br/>reorganize</div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-box">sync 脚本<br/>integration/openwebui-rag</div>
+  <span class="flow-arrow">→</span>
+  <div class="flow-box">Open WebUI<br/>4× Knowledge</div>
+  <span class="flow-arrow">↔</span>
+  <div class="flow-box">Cursor CEO<br/>定稿 · gate · HTML</div>
+</div>
+</div>
+
+<h2 id="owner-latest">可点击思维导图（点节点 → 下方详情）</h2>
+<p style="font-size:13px;color:#57606a">每个方块 = 一道工序；含「干什么 / 读哪些 MD / 跑什么命令」。</p>
+<div class="hub"><span>你在这里 · 总控</span></div>
+<div class="grid" id="mindmap-grid"></div>
+
+<h2>Infrastructure</h2>
 <ul>
 <li>Open WebUI：http://localhost:3000</li>
 <li>Embedding：ollama bge-m3 @ host.docker.internal:11434</li>
 <li>Pipes：yage_cot, yage_long_context</li>
-<li>Tools：yage_sqlite</li>
-<li>Deploy： <code>bash scripts/deploy-learning-stack.sh</code></li>
+<li>Deploy：<code>bash scripts/deploy-learning-stack.sh</code></li>
 </ul>
 
-<h2>2. 数据流（Mermaid）</h2>
-<div class="mermaid">
-flowchart LR
-  subgraph Cursor
-    MD[danying-brand-agent MD]
-    REORG[reorganize-brand-corpus-l012.py]
-    HAND[handoff JSON]
-    CEO[CEO verify / gate / HTML]
-  end
-  subgraph Mirror
-    L0[L0 index]
-    L1[L1 任务壳]
-    L2[L2 正文]
-  end
-  subgraph OpenWebUI
-    KB1[cursor-brand-corpus]
-    KB2[agent-prompt-pack]
-    KB3[brand-ip-knowledge]
-    KB4[workflow-automation-pack]
-    RAG[RAG + Pipe 长文]
-  end
-  WF[run-workflow-from-manifest.py]
-  MD --> REORG
-  REORG --> L0 & L1 & L2
-  L1 --> KB1
-  REORG --> HAND
-  HAND --> CEO
-  KB1 & KB2 & KB3 & KB4 --> RAG
-  RAG -.->|outbox / intake 路径| CEO
-  HAND --> WF
-  WF --> CEO
-</div>
-
-<h2>3. Knowledge 集合</h2>
+<h2>Knowledge 四包</h2>
 <table><tr><th>集合</th><th>用途</th></tr><tr><td><code>workflow-automation-pack</code></td><td>可自动化 workflow · manifest L0–L4 · gate/CEO 命令</td></tr><tr><td><code>agent-prompt-pack</code></td><td>SOP / INTEGRATION 路由（短）</td></tr><tr><td><code>cursor-brand-corpus</code></td><td>本仓全部 MD 的 L0/L1/L2（上下文编排）</td></tr><tr><td><code>brand-ip-knowledge</code></td><td>Google Drive 背书库（与 Cursor 仓分离）</td></tr></table>
-<p>聊天标签：# workflow-automation-pack · # agent-prompt-pack · # cursor-brand-corpus · # brand-ip-knowledge</p>
+<p>标签：# workflow-automation-pack · # agent-prompt-pack · # cursor-brand-corpus · # brand-ip-knowledge</p>
 
-<h2>4. 三层上下文（L0 / L1 / L2）</h2>
-<table>
-<tr><th>层</th><th>内容</th><th>谁读</th></tr>
-<tr><td>L0</td><td>路径 + 路由一行</td><td>索引 / RAG 定位</td></tr>
-<tr><td>L1</td><td>Goal + 验收 + 章节锚点（≤~400 字）</td><td>Cursor 顶栏 · Open WebUI 任务</td></tr>
-<tr><td>L2</td><td>正文全文</td><td>Open WebUI RAG · intake</td></tr>
-</table>
-<p>本次导出：<strong>414</strong> 文件 · 仓内重写：<strong>0</strong></p>
+<h2>L0 / L1 / L2</h2>
+<p>导出约 <strong>432</strong> 文件 · mirror（handoff）：<code>/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/brand-knowledge-mirror/_rag/cursor-brand-corpus</code></p>
 
-<h2>5. Agent / GM / CEO / 六项 test</h2>
-<p>六项 6-case 文档：<code>docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md</code></p>
-<ul>
-<li>00 Manager / CEO：指挥链 · triple-eval · double-stress · Owner HTML</li>
-<li>01–12 GM：各部门 INTEGRATION-PROMPT（已进 agent-prompt-pack）</li>
-<li>Evaluation：scripts/ceo-triple-eval-baseline-loop.sh, scripts/ceo-double-stress.sh, scripts/evaluate-xhs-brief-complete.py</li>
-</ul>
+<h2>Sync 命令（仓内路径）</h2>
+<pre>python3 integration/openwebui-rag/scripts/fix_openwebui_rag_ollama_url.py
+python3 integration/openwebui-rag/scripts/sync_cursor_brand_corpus_to_openwebui.py
+python3 integration/openwebui-rag/scripts/sync_agent_prompt_pack_to_openwebui.py
+python3 integration/openwebui-rag/scripts/sync_all_brand_rag_to_openwebui.py</pre>
 
-<h2>6. 函数与胶水</h2>
-<pre>python3 LLM-Ollama/RAG/RAG/scripts/fix_openwebui_rag_ollama_url.py
-python3 LLM-Ollama/RAG/RAG/scripts/sync_cursor_brand_corpus_to_openwebui.py
-python3 LLM-Ollama/RAG/RAG/scripts/sync_agent_prompt_pack_to_openwebui.py</pre>
-<ul>
-<li><code>scripts/route-openwebui-for-goal.py</code> — Cursor 路由长文</li>
-<li><code>scripts/run-openwebui-router-pipeline.sh</code> — Pipe + intake</li>
-<li><code>scripts/openwebui-pipe-to-outbox.py</code> — 回写 outbox 给 Cursor</li>
-<li><code>scripts/deploy-learning-stack.sh</code> — 栈部署</li>
-</ul>
-
-<h2>7. Cursor 回喂（Must read）</h2>
-<ol>
-<li><code>integration/handoff/openwebui-context-reorg-latest.json</code></li>
-<li><code>integration/handoff/cursor-openwebui-task-routing.json</code></li>
-<li><code>docs/PROMPT-CONTEXT-STANDARD.md</code></li>
-</ol>
-
-<h2>8. 可自动化 Workflow（L0_BOOT → L4）</h2>
-<p>机器目录：<code>integration/handoff/workflow-automation-catalog-l1.json</code> · 
-脚本数：<strong>135</strong></p>
+<h2>Workflow L0–L4</h2>
+<table><tr><th>layer</th><th>名称</th><th>主命令</th></tr><tr><td><code>L0_BOOT</code></td><td>Clone / new machine / new Agent</td><td><code></code></td></tr><tr><td><code>L1_BACKGROUND</code></td><td>Daily machine cycle (no Owner utterance)</td><td><code>scripts/background-goal-evolution-cycle.sh</code></td></tr><tr><td><code>L2_CEO_START</code></td><td>Owner says work</td><td><code>bash scripts/ceo-full-execution-pipeline.sh --goal &quot;&lt;owner goal&gt;&quot;</code></td></tr><tr><td><code>L3_BRIEF_GATE</code></td><td>Brief quality gate + evolution until READY</td><td><code></code></td></tr><tr><td><code>L4_CAMPAIGN</code></td><td>01-12 campaign / deep delivery</td><td><code>bash scripts/run-ceo-deep-delivery-cycle.sh</code></td></tr></table>
 <pre>python3 scripts/run-workflow-from-manifest.py --layer &lt;ID&gt; [--goal &quot;...&quot;] [--brief path]
 python3 scripts/run-workflow-from-manifest.py --phrase &quot;CEO 开始执行&quot; [--goal &quot;...&quot;]</pre>
-<table><tr><th>layer</th><th>名称</th><th>主命令</th></tr><tr><td><code>L0_BOOT</code></td><td>Clone / new machine / new Agent</td><td><code></code></td></tr><tr><td><code>L1_BACKGROUND</code></td><td>Daily machine cycle (no Owner utterance)</td><td><code>scripts/background-goal-evolution-cycle.sh</code></td></tr><tr><td><code>L2_CEO_START</code></td><td>Owner says work</td><td><code>bash scripts/ceo-full-execution-pipeline.sh --goal &quot;&lt;owner goal&gt;&quot;</code></td></tr><tr><td><code>L3_BRIEF_GATE</code></td><td>Brief quality gate + evolution until READY</td><td><code></code></td></tr><tr><td><code>L4_CAMPAIGN</code></td><td>01-12 campaign / deep delivery</td><td><code>bash scripts/run-ceo-deep-delivery-cycle.sh</code></td></tr></table>
-<p>Open WebUI：<code># workflow-automation-pack</code> · Cursor：<code>python3 scripts/run-workflow-from-manifest.py --list-layers</code></p>
 
-<h2>9. 路径样例（L1 路由）</h2>
-<table><tr><th>repo_path</th><th>OWUI</th></tr><tr><td><code>.cursor/skills/brand-visual/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/business-brand/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/routing.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/soul.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/user.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/marketing-strategy/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/personal-ip/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/xiaohongshu/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/xiaohongshu/topic-manager.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/yage-voice/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>AGENTS.md</code></td><td>rag_l2</td></tr></table>
+<h2>路径样例</h2>
+<table><tr><th>repo_path</th><th>OWUI</th></tr><tr><td><code>.cursor/skills/brand-visual/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/business-brand/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/routing.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/soul.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/user.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/marketing-strategy/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/personal-ip/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/xiaohongshu/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/xiaohongshu/topic-manager.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/xiaohongshu/xhs-copy-self-check.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/yage-voice/SKILL.md</code></td><td>rag_l2</td></tr></table>
 
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+<h2>CEO / Eval</h2>
+<p><code>docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md</code></p>
+<p>scripts/ceo-triple-eval-baseline-loop.sh, scripts/ceo-double-stress.sh, scripts/evaluate-xhs-brief-complete.py</p>
+</div>
+
+<div id="panel"><h2>点击上方任意节点</h2><p>显示工序含义、MD 与命令。</p></div>
+
+<script>
+(function() {
+  var REPO = "/Users/danying/Desktop/danying-brand-agent";
+  var NODES = [{"id": "clone-hub", "col": "Git · 克隆 · 双推", "title": "全部克隆（新电脑整包）", "desc": "Hub 脚本拉齐 danying-apps + 本仓", "role": "换机时第一次：不在本仓单独 git clone，走 Hub 全部克隆.md", "md": ["新电脑一句话.md", "https://github.com/dymusiques/danying-apps/blob/main/全部克隆.md"], "cmd": ["全部克隆", "bash ~/danying-apps/scripts/clone-all.sh"]}, {"id": "clone-repo", "col": "Git · 克隆 · 双推", "title": "唯一工作仓 danying-brand-agent", "desc": "Cursor 只开这一文件夹", "role": "代码与 MD 的「定稿真相源」；写稿、脚本、规则、handoff 都在 Git", "md": ["新电脑一句话.md", "docs/AGENT-TAKEOVER.md", "SETUP.md"], "cmd": ["danying-brand-agent", "bash scripts/new-machine-bootstrap.sh"]}, {"id": "dual-push", "col": "Git · 克隆 · 双推", "title": "双推 github + origin", "desc": "GitHub 与 Cursor Origin 同一 main", "role": "备份、换机、新 Agent 从云端拉同一套 MD；Open WebUI 不自动读远程，需本机 sync", "md": ["docs/HANDOFF-COMPLETENESS.md"], "cmd": ["git push github main", "git push origin main"]}, {"id": "new-agent", "col": "Git · 克隆 · 双推", "title": "新 Agent 一键接手", "desc": "口令 + verify，不依赖旧 chat", "role": "读 HANDOFF 链 → autopilot；规则 danying-manager-auto 自动当 00 CEO", "md": ["docs/HANDOFF-MD-MANIFEST.md", "docs/NEW-AGENT-WORKFLOW-SOP.md", "docs/workflow-handoff-mindmap.html"], "cmd": ["bash scripts/verify-handoff.sh", "bash scripts/verify-agent-takeover.sh"]}, {"id": "cursor-ceo", "col": "Cursor · CEO", "title": "00 Manager / CEO 执行面", "desc": "写、改、验、交 HTML", "role": "Owner 给目标 → ceo-full-execution → gate/evolution → Owner 交付页", "md": ["agents/00-manager/AUTO-WORKFLOW.md", "docs/CEO-FULL-EXECUTION-MANDATE.md"], "cmd": ["bash scripts/ceo-full-execution-pipeline.sh --goal \"…\""]}, {"id": "cursor-refine", "col": "Cursor · CEO", "title": "Cursor 做「提炼 / 定稿」", "desc": "改 MD、跑 verify、commit", "role": "老师说的「用 Cursor 提炼」= 在这里改仓库正文 + 脚本验收；适合结构化定稿与进化", "md": ["docs/PROMPT-CONTEXT-STANDARD.md", "docs/OWNER-LONGFORM-DE-AI-VOICE.md"], "cmd": ["bash scripts/manager-workflow-verify.sh <brief>"]}, {"id": "owui-role", "col": "Open WebUI", "title": "Open WebUI 干什么", "desc": "本机 RAG + Pipe 长文，不是 Git 浏览器", "role": "读 Knowledge 四包：问 SOP、问 corpus、问 workflow 命令、问 Drive 背书；长文可出 outbox 给 Cursor", "md": ["docs/OPENWEBUI-CEO-ROUTER.md", "integration/openwebui-rag/README.md"], "cmd": ["python3 integration/openwebui-rag/scripts/verify_openwebui_knowledge_status.py"]}, {"id": "kb-corpus", "col": "Open WebUI", "title": "Knowledge · cursor-brand-corpus", "desc": "本仓 MD 的 L0/L1/L2 镜像", "role": "Open WebUI 侧「读你品牌仓上下文」；由 reorganize 导出 + sync 脚本灌入", "md": ["docs/CONTEXT-WINDOW-AND-DATA-ROUTING.md"], "cmd": ["python3 scripts/reorganize-brand-corpus-l012.py", "python3 integration/openwebui-rag/scripts/sync_cursor_brand_corpus_to_openwebui.py"]}, {"id": "kb-drive", "col": "Open WebUI", "title": "Knowledge · brand-ip-knowledge", "desc": "Google Drive 资料库镜像", "role": "你说的「Drive 后续资料库」主要在这包；与 Git 仓分离，靠 Drive sync 进 RAG", "md": ["docs/OPENWEBUI-CEO-ROUTER.md"], "cmd": ["python3 integration/openwebui-rag/scripts/sync_brand_drive_to_openwebui.py"]}, {"id": "kb-prompt", "col": "Open WebUI", "title": "Knowledge · agent-prompt-pack", "desc": "INTEGRATION-PROMPT / 路由短答", "role": "新 Agent 在 WebUI 里问「04 小红书 GM 怎么接」", "md": ["docs/PROMPT-CONTEXT-STANDARD.md"], "cmd": ["bash scripts/export-agent-prompt-pack.sh", "python3 integration/openwebui-rag/scripts/sync_agent_prompt_pack_to_openwebui.py"]}, {"id": "kb-wf", "col": "Open WebUI", "title": "Knowledge · workflow-automation-pack", "desc": "L0–L4 可跑命令清单", "role": "问「CEO 开始执行跑什么」→ manifest 层", "md": ["docs/WORKFLOW-AUTOMATION-MATRIX.md"], "cmd": ["python3 scripts/run-workflow-from-manifest.py --list-layers"]}, {"id": "mirror", "col": "镜像 · L012", "title": "brand-knowledge-mirror", "desc": "本机 _rag 目录（非 Git 远程）", "role": "reorganize 写出 L0/L1/L2；Open WebUI sync 读磁盘；路径见 openwebui_rag_paths.py", "md": ["integration/openwebui-rag/scripts/openwebui_rag_paths.py"], "cmd": ["export BRAND_KNOWLEDGE_MIRROR=…（可选）"]}, {"id": "pipeline", "col": "镜像 · L012", "title": "run-context-reorg-pipeline", "desc": "导出 → 四包 sync → 本 HTML", "role": "全链路刷新；含 --apply-repo 会大批量改 MD，日常可只跑 verify/sync", "md": ["scripts/run-context-reorg-pipeline.sh"], "cmd": ["bash scripts/run-context-reorg-pipeline.sh"]}, {"id": "router", "col": "Open WebUI ↔ Cursor", "title": "CEO Router（步 −1）", "desc": "RAG/Pipe → outbox / intake", "role": "Cursor 派长文或 intake 时走 Open WebUI，结果回 handoff/outbox", "md": ["docs/OPENWEBUI-CEO-ROUTER.md"], "cmd": ["bash scripts/run-openwebui-router-pipeline.sh --goal \"…\""]}, {"id": "deploy", "col": "Open WebUI ↔ Cursor", "title": "deploy-learning-stack", "desc": "Ollama URL · Knowledge 基线", "role": "Docker Open WebUI + embedding 修复 + 栈验收", "md": ["scripts/deploy-learning-stack.sh"], "cmd": ["bash scripts/deploy-learning-stack.sh"]}];
+  var grid = document.getElementById("mindmap-grid");
+  var panel = document.getElementById("panel");
+  var linkMd = document.getElementById("link-md");
+  var lastCol = "";
+  var selected = null;
+
+  function fileUrl(rel) {
+    if (!rel || rel.indexOf("http") === 0) return rel;
+    return "file://" + REPO + "/" + rel;
+  }
+
+  NODES.forEach(function(n) {
+    if (n.col !== lastCol) {
+      var t = document.createElement("div");
+      t.className = "col-title";
+      t.textContent = n.col;
+      grid.appendChild(t);
+      lastCol = n.col;
+    }
+    var el = document.createElement("div");
+    el.className = "node";
+    el.innerHTML = "<h3>" + n.title + "</h3><p>" + n.desc + "</p>";
+    el.addEventListener("click", function() {
+      document.querySelectorAll(".node.on").forEach(function(x) { x.classList.remove("on"); });
+      el.classList.add("on");
+      selected = n;
+      var h = "<h2>" + n.title + "</h2>";
+      h += "<p><strong>这道工序是什么：</strong>" + (n.role || "") + "</p>";
+      if (n.md && n.md.length) {
+        h += "<p><strong>相关 MD / 链接：</strong></p><ul>";
+        n.md.forEach(function(p) {
+          if (p.indexOf("http") === 0) {
+            h += "<li><a href="" + p + "" target="_blank" rel="noopener">" + p + "</a></li>";
+          } else {
+            h += "<li><a href="" + fileUrl(p) + ""><code>" + p + "</code></a></li>";
+          }
+        });
+        h += "</ul>";
+      }
+      if (n.cmd && n.cmd.length) {
+        h += "<p><strong>命令 / 口令：</strong></p><ul>";
+        n.cmd.forEach(function(c) { h += "<li><code>" + c + "</code></li>"; });
+        h += "</ul>";
+      }
+      panel.innerHTML = h;
+      var firstLocal = (n.md || []).find(function(p) { return p && p.indexOf("http") !== 0; });
+      if (firstLocal) {
+        linkMd.href = fileUrl(firstLocal);
+        linkMd.style.display = "";
+      } else {
+        linkMd.style.display = "none";
+      }
+      location.hash = "node-" + n.id;
+    });
+    grid.appendChild(el);
+  });
+
+  document.getElementById("btn-popup").addEventListener("click", function() {
+    window.open(location.href.split("#")[0] + "?popup=1#owner-latest", "dba-context-mindmap", "width=1024,height=900,scrollbars=yes");
+  });
+  if (location.search.indexOf("popup=1") !== -1 || location.search.indexOf("open=1") !== -1) {
+    setTimeout(function() { document.getElementById("btn-popup").click(); }, 300);
+  }
+})();
 </script>
 </body>
 </html>
