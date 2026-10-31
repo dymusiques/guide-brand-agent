@@ -47,6 +47,22 @@ content_sha256: "a68c5cbf7e8a35ee"
 6. Drive `05-xiaohongshu/`（仅 Owner 已同步定稿时查阅）
 7. `kernels/templates/xhs-content-brief.template.md`
 8. **选题管线** → [topic-manager.md](./topic-manager.md)
+9. **定稿前文风自查（仅小红书短文案）** → [xhs-copy-self-check.md](./xhs-copy-self-check.md) · 规则 `.cursor/rules/xhs-copy-quality.mdc`
+
+## 定稿前文风（自动化 · 无需 Owner 口令）
+
+- 修改 `content/xiaohongshu/*.md` 时，**`xhs-copy-quality.mdc`** 自动生效。  
+- Agent **定稿前 Must** 跑 `bash scripts/xhs-copy-grep-banned.sh <稿>.md` 并对照 **`xhs-copy-self-check.md`**，回复中报告 `xhs-copy-grep-banned: PASS` 或已改项。
+
+## 不要混淆
+
+| 工具 / 文档 | 何时用 |
+|-------------|--------|
+| **`xhs-copy-self-check.md`** | 笔记成稿后：去 AI 腔、翻译腔（短文案） |
+| **`kernels/xiaohongshu/` + `verify-xhs-topic.sh`** | 选题对齐 IP / 涨粉 / 强链接 |
+| **grapeot/writing-skill · `external-prose-lint`** | **不用**于小红书；仅对外**长文** |
+
+**推荐顺序：** 写稿 → Topic Manager（若要 aligned）→ **`xhs-copy-grep-banned.sh`** → **本清单** → commit。
 
 ## 存储默认规则
 
@@ -69,6 +85,7 @@ content_sha256: "a68c5cbf7e8a35ee"
 
 - [ ] 符合小红书语气与合规（无 Web3/NFT；数字藏品表述 OK）
 - [ ] 与 Danying 品牌一致
+- [ ] **`xhs-copy-grep-banned.sh` PASS** + 已对照 `xhs-copy-self-check.md` 硬项
 - [ ] Topic Manager：`evaluate-xhs-topic.py` 为 `aligned: true`，或 Owner 书面接受风险
 - [ ] 已写入 `content/xiaohongshu/` 且稳定后 commit
 - [ ] （可选）Owner 说「同步 Drive」时已写入 `05-xiaohongshu/`

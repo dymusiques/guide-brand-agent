@@ -1,0 +1,46 @@
+---
+description: >-
+  Auto quality gate for Xiaohongshu copy — banned-word script + self-check
+  before calling a note 定稿. No extra Owner trigger phrase required.
+globs: content/xiaohongshu/**
+alwaysApply: false
+---
+
+# 小红书文案 · 自动定稿门禁
+
+当 **创建或实质修改** `content/xiaohongshu/` 下任一 Markdown（含标题/正文/CTA/标签稿）时，**默认执行本规则**。Owner **不必**说「xhs-copy-self-check」「@ 自查清单」等口令。
+
+## 禁止混淆
+
+- **本规则** = 短文案文风 + §11 禁词脚本  
+- **不是** grapeot `external-prose-lint` / 对外长文 lint  
+- **不是** Topic Manager（`kernels/xiaohongshu/` · `verify-xhs-topic.sh`）— 选题对齐另跑，不替代文风
+
+## Agent 必须自动做的（定稿前）
+
+对**每一篇**本轮改动过的 `.md` 文件，按顺序：
+
+1. **禁词扫描（终端，Must）**  
+   ```bash
+   bash scripts/xhs-copy-grep-banned.sh content/xiaohongshu/<该文件>.md
+   ```  
+   - 若 **FAIL**：根据输出改稿，**重跑至 PASS**（或 Owner 明确书面例外）。  
+   - 禁止在未 PASS 时称「定稿 / 可发布 / 已完成」。
+
+2. **清单硬项（Must）**  
+   读 `.cursor/skills/xiaohongshu/xhs-copy-self-check.md`，处理 **§1–§11 硬项**（脚本只覆盖 §11 词表；破折号、不是而是、元评论等须人工对照清单改）。
+
+3. **（若本篇走选题对齐）Topic Manager**  
+   在文风 PASS 前后均可，但 **aligned 与文风是两件事**；需要时跑 `evaluate` / `verify-xhs-topic.sh`，不跳过 Owner 已约定的 kernel 流程。
+
+4. **汇报**  
+   交付时 **主动写一行**：`xhs-copy-grep-banned: PASS` + 硬项已对照清单（无需 Owner 追问）。
+
+## 定稿与 Git
+
+- 通过上述门禁后，写入/更新 `content/xiaohongshu/`，Owner 说定稿或段落稳定时 **git commit**。  
+- 仍遵守 `integrations/index.md` 与 xiaohongshu `SKILL.md` 存储规则。
+
+## 仅讨论、未写文件时
+
+若只在对话里口播文案、**尚未**落盘到 `content/xiaohongshu/`：在输出中 **按同一清单 mentally 自检**；一旦 **写入该目录**，Must 跑脚本。

@@ -15,4 +15,6 @@ Multi-domain brand agent workspace (**danying-brand-agent**). On brand/IP/market
 5. Generative templates → `kernels/templates/`
 6. Local drafts → `content/<domain>/`
 
+**小红书 (`content/xiaohongshu/` 或 笔记/种草任务)：** 定稿前 **自动** 执行 `.cursor/rules/xhs-copy-quality.mdc`（`xhs-copy-grep-banned.sh` + `xhs-copy-self-check.md`）。Owner 无需额外触发口令。
+
 Do not invent Drive folder IDs; use overlay or search when MCP is authorized.

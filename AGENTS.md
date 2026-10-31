@@ -103,6 +103,8 @@ Before doing anything else:
 **小红书 Topic Manager（选题 + Gemini 对齐）** → `agents/04-xhs-topic-manager/` · `.cursor/skills/xiaohongshu/topic-manager.md`  
 触发词：选题、Topic Manager、笔记 Brief · `--brief content/xiaohongshu/…`
 
+**小红书定稿文风（自动，无需口令）** → `.cursor/rules/xhs-copy-quality.mdc` · [`xhs-copy-self-check.md`](.cursor/skills/xiaohongshu/xhs-copy-self-check.md) · `bash scripts/xhs-copy-grep-banned.sh`
+
 **Google Docs / Gmail / Calendar CLI** → `rules/skills/skill_google_docs.md`  
 触发词："Google Doc"、"publish to Docs"、"sync markdown"、"Gmail"、"Calendar event"
 

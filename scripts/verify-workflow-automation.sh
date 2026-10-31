@@ -65,7 +65,11 @@ for s in \
   scripts/build-workflow-automation-catalog.py \
   scripts/run-workflow-from-manifest.py \
   scripts/export-workflow-automation-pack.sh \
-  scripts/run-context-reorg-pipeline.sh; do
+  scripts/run-context-reorg-pipeline.sh \
+  .cursor/rules/xhs-copy-quality.mdc \
+  .cursor/skills/xiaohongshu/xhs-copy-self-check.md \
+  scripts/xhs-copy-grep-banned.sh \
+  scripts/xhs_copy_grep_banned.py; do
   [[ -f "$ROOT/$s" ]] && pass "$s" || fail "missing $s"
 done
 
