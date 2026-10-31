@@ -1,3 +1,29 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/overlays/ai-agent-cli.local.example.md"
+goal: "ai-agent-cli · Local Overlay (example)"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "3cf7c765edf853c2"
+---
+
+# ai-agent-cli · Local Overlay (example)
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 复制为 `ai-agent-cli.local.md`（gitignored）。**勿** commit 含任务正文或 token 的 prompt/result。
+- **Path:** `rules/skills/overlays/ai-agent-cli.local.example.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **包装脚本占位（将来 launcher 可调）**: `scripts/` 下新增 `run-cursor-agent-job.sh` 时：读 overlay 路径、写 prompt、跑 `cursor agent -p "Read … prompt.m…
+- **红线**: - Brief 定稿仍走 `content/` + evaluate，**不**用 CLI stdout 代替 aligned。
+
+
+---
+
+## L2 正文
+
 # ai-agent-cli · Local Overlay (example)
 
 复制为 `ai-agent-cli.local.md`（gitignored）。**勿** commit 含任务正文或 token 的 prompt/result。

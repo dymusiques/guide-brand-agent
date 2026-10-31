@@ -1,3 +1,33 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/BRIEF-REDTEAM-PRE.md"
+goal: "Brief 前红队 · 2 条/篇（Owner 固定 · 2026-10-27）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "6f88ba45fd00cf69"
+---
+
+# Brief 前红队 · 2 条/篇（Owner 固定 · 2026-10-27）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **给 Owner 一句话：`redteam-pre` 是什么？**  
+> 写 Brief **之前**，Agent 内部用 [X1–X12 错误库](../personal-ip/2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md) 挑 **2 条最相关攻击**（如：像硬广、像教学号、同质化），写清 **怎么
+- **Path:** `content/xiaohongshu/BRIEF-REDTEAM-PRE.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **谁做**: | 角色 | 动作 |
+- **菜单**: - **X1–X12：** [2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md §2](../personal-ip/2026-10-27-ip-adver…
+- **前置（Must · 2026-10-28）**: - 先完成 [BRIEF-PITFALLS-RESEARCH-SOP.md](./BRIEF-PITFALLS-RESEARCH-SOP.md) → `research/<slug>-pitfalls…
+- **落盘（Must）**: 路径：`content/xiaohongshu/redteam/<YYYY-MM-DD-slug>-pre.md`
+- **指挥链位置**: [AUTO-WORKFLOW.md](../../agents/00-manager/AUTO-WORKFLOW.md) **步 1c** → 步 2 写 Brief → 步 3 evaluate →…
+
+
+---
+
+## L2 正文
+
 # Brief 前红队 · 2 条/篇（Owner 固定 · 2026-10-27）
 
 > **给 Owner 一句话：`redteam-pre` 是什么？**  
@@ -20,6 +50,11 @@
 - **§D 分岗表：** [2026-10-27-ip-adversarial-red-team.md §D](../personal-ip/2026-10-27-ip-adversarial-red-team.md#d-分-agent-红队攻击每个-agent动起来干什么)
 
 **选条原则：** 与 **本篇选题/受众/CTA** 最相关；至少 1 条偏 **L2–L3**（非纯禁词）。
+
+## 前置（Must · 2026-10-28）
+
+- 先完成 [BRIEF-PITFALLS-RESEARCH-SOP.md](./BRIEF-PITFALLS-RESEARCH-SOP.md) → `research/<slug>-pitfalls.md`  
+- 总纲：[OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](../../docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md)
 
 ## 落盘（Must）
 

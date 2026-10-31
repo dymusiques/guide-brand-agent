@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "slug": "系列深度口播大纲",
+  "route": "PIPE_COT",
+  "platform": "personal_ip",
+  "goal": "系列深度口播大纲",
+  "brief_path": null,
+  "outbox_md": "/Users/danying/Desktop/Open WebUI Personal IP/outbox/系列深度口播大纲.md",
+  "status": "dry_run",
+  "updated_at": "2026-10-29T09:46:46Z"
+}

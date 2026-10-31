@@ -30,8 +30,13 @@ exec > >(tee -a "$LOG") 2>&1
 
 echo "=== manager-ceo-auto-gate-loop · $BRIEF · max=$MAX ==="
 
+brief_hash() {
+  if command -v md5 >/dev/null 2>&1; then md5 -q "$BRIEF"
+  else md5sum "$BRIEF" | awk '{print $1}'; fi
+}
 round=1
 while [[ "$round" -le "$MAX" ]]; do
+  HASH_BEFORE="$(brief_hash)"
   echo "--- round $round/$MAX ---"
   "$PY" scripts/ensure-redteam-pre.py --brief "$BRIEF"
   "$PY" scripts/run-xhs-brief-adversarial-challenge.py --brief "$BRIEF" || true
@@ -51,8 +56,17 @@ while [[ "$round" -le "$MAX" ]]; do
 
   LATEST_LOG="$(ls -t "$ROOT/content/xiaohongshu/verify-logs/"* 2>/dev/null | head -1 || true)"
   "$PY" scripts/ceo-auto-fix-brief.py --brief "$BRIEF" --round "$round" ${LATEST_LOG:+--report-json "$LATEST_LOG"}
+  "$PY" scripts/ceo-action-needed-refresh.py >/dev/null 2>&1 || true
+
+  HASH_AFTER="$(brief_hash)"
+  if [[ "$HASH_BEFORE" == "$HASH_AFTER" && "${CEO_GATE_BRUTE_FORCE:-0}" != "1" ]]; then
+    echo "RESULT: FAIL auto-gate-loop round=$round — Brief unchanged; AGENT_MUST_EDIT (exit 42)"
+    echo "Read: content/evolution/00-manager/ceo-inbox/ceo-action-needed.md"
+    exit 42
+  fi
   round=$((round + 1))
 done
 
+"$PY" scripts/ceo-action-needed-refresh.py >/dev/null 2>&1 || true
 echo "RESULT: FAIL auto-gate-loop after $MAX rounds — see CEO-REROUTE; do NOT hand Owner unverified brief"
 exit 1

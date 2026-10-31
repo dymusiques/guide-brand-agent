@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "slug": "e2e-workflow-test-基于-personal-ip-intake-kpi-publ",
+  "route": "HYBRID",
+  "platform": "personal_ip",
+  "goal": "E2E workflow test：基于 personal-ip intake（KPI Publish×法派长笛跨界），产出 LinkedIn 系列深度口播分节大纲；须结合 brand-ip-knowledge 事实，长文结构化输出",
+  "brief_path": null,
+  "intake_path": "/Users/danying/Desktop/danying-brand-agent/content/personal-ip/intake/2026-10-29-e2e-kpi-longform-source.md",
+  "outbox_md": "/Users/danying/Desktop/Open WebUI Personal IP/outbox/e2e-workflow-test-基于-personal-ip-intake-kpi-publ.md",
+  "status": "failed",
+  "updated_at": "2026-10-29T11:09:00Z",
+  "rag_prefetch": true,
+  "error": "POST /api/chat/completions -> HTTP 400: {\"detail\":\"Upstream error from Ionstream: litellm.InternalServerError: The model is repeating the same chunk = Okay.\\n\\nOkay.\\n\\nOkay.\\n\\n.\"}"
+}

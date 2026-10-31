@@ -1,3 +1,39 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/workflow_deep_research_survey.md"
+goal: "深度调研工作流"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "b942ff993827a3b9"
+---
+
+# 深度调研工作流
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 1. **激励感知验证**：厂商叙事提取 claim，独立 Tier 3–4 验证。  
+2. **交叉验证**：多 Task overlap ≥50%（与 parallel skill 一致）。  
+3. **可追溯**：URL + 原文摘录。  
+4. **逐步聚焦**：扫描 → claim 表 → 分维度深入。  
+5. **单一主交付 + 可复用工件
+- **Path:** `rules/skills/workflow_deep_research_survey.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **上游：** [grapeot/context-infrastructure · workflow_deep_research_survey.md](https://gi…
+- **章节锚点**: - **元数据**: - **类型**: Workflow
+- **核心原则**: 1. **激励感知验证**：厂商叙事提取 claim，独立 Tier 3–4 验证。
+- **信息源层级（Tier 1–4）**: 保留上游表格与「证据可信度递增」段（态度 < migration < post-mortem < commit）。写进 Brief 的 fact **至少** Tier 3–4 或标注 `[待核实]`…
+- **工作流程（摘要）**
+- **Search Manifest**: `tmp/survey/<session_slug>/search_manifest.md` 含产出索引表、各 Task 状态、覆盖评估（格式见上游）。
+- **URL 与陷阱**: 保留上游「URL 留存规范」「常见陷阱」表。专门搜 criticism / negative review 防 vendor 汇总。
+- **与 00 Manager**: Owner 目标若仅为 **一篇认知期 Brief** 且材料已够：可 **简化** Phase 1–2（单会话搜索 + 可选 2 路 Task），不必全套 brainstorm。
+
+
+---
+
+## L2 正文
+
 # 深度调研工作流
 
 > **上游：** [grapeot/context-infrastructure · workflow_deep_research_survey.md](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_deep_research_survey.md)（standalone 拷贝，已做 Cursor / 本仓裁剪。）  

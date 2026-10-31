@@ -1,20 +1,38 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/XHS-VIDEO-ITERATION.md"
+goal: "小红书 · 视频选题迭代（流程真相源）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "8a7320cc29b17cd6"
+---
+
+# 小红书 · 视频选题迭代（流程真相源）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** | 层 | 命令 | 含义 |
+|----|------|------|
+| **L0** | `bash scripts/verify-xhs-content-intake.sh` | 数据栈文件在 |
+| **L2 声音 QA** | `bash scripts/verify-xhs-voice-qa.sh [round1.md]` | 流程文件 + 禁
+- **Path:** `content/xiaohongshu/XHS-VIDEO-ITERATION.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **能力边界在流程里定义：** 本文件 + [VOICE-ANCHOR.md](./VOICE-ANCHOR.md) + [OWNER-CONTENT-SPEC.md](.…
+- **章节锚点**: - **三轮协议**
+- **验收（分层）**: | 层 | 命令 | 含义 |
+
+
+---
+
+## L2 正文
+
 # 小红书 · 视频选题迭代（流程真相源）
 
 > **能力边界在流程里定义：** 本文件 + [VOICE-ANCHOR.md](./VOICE-ANCHOR.md) + [OWNER-CONTENT-SPEC.md](./OWNER-CONTENT-SPEC.md)  
 > **00 Manager 步 2（视频/标题）Must 读本文件** · Intake 栈 #9：[XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)
 
----
-
-## 双轨（勿混）
-
-| 轨 | 默认 | 产出 |
-|----|------|------|
-| **轨 1 · 人/笛/故事** | **视频 Round 1–2 默认** | 像已发爆款标题（泰斗/考场/嘲讽） |
-| **轨 2 · 认知期品牌** | Owner 说「品牌向」 | discovery Brief · evaluate · 收藏+聊聊 |
-
-**禁止：** 未过 Round 1 点选就交轨 2 长正文或 discovery 体「装饰型艺术/站得住 moment」堆砌。
-
----
 
 ## 三轮协议
 
@@ -43,18 +61,6 @@ Agent 交付：**口播/描述区正文 + 分镜表 + 10 tag** · 仍 **待 Owne
 
 **Brief 定稿（轨 2 或 Owner 要求 aligned）：** 再跑 `evaluate-xhs-topic.py`（L1）。
 
----
-
-## 数据与 Drive（写 Round 1 前）
-
-| # | 读什么 |
-|---|--------|
-| 1 | [voice-anchor-sources.json](./voice-anchor-sources.json) · [VOICE-ANCHOR.md](./VOICE-ANCHOR.md) |
-| 2 | [xhs-data-strategy-2026-10-20.md](../analytics/derived/xhs-data-strategy-2026-10-20.md) |
-| 3 | [cv-source-2026-09-15.md](../personal-ip/cv-source-2026-09-15.md) |
-| 4 | 平台 MD（WILL/Momentum）· **校准结构，不盖过轨 1 语气** |
-
----
 
 ## 声音锚定（标题-only 笔记）
 

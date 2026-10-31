@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/deep-research-survey-adoption.md"
+goal: "深度调研 Survey · 本仓采纳说明"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "cc811e31c34af384"
+---
+
+# 深度调研 Survey · 本仓采纳说明
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Discovery：** [rules/skills/workflow_deep_research_survey.md](../rules/skills/workflow_deep_research_survey.md)
+- **Path:** `integration/deep-research-survey-adoption.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **对你现在有没有用？**: | 情况 | 建议 |
+- **路径映射**: | 用途 | 路径 | Git |
+- **组合顺序（推荐）**: 1. Owner/Manager 定调研问题 → Phase 1–3（+3.3/3.5 视任务）
+- **扩展口子**: | 下一阶段改动 | 接哪里 |
+- **验收**: - `rules/skills/workflow_deep_research_survey.md`
+
+
+---
+
+## L2 正文
+
 # 深度调研 Survey · 本仓采纳说明
 
 > **Discovery：** [rules/skills/workflow_deep_research_survey.md](../rules/skills/workflow_deep_research_survey.md)

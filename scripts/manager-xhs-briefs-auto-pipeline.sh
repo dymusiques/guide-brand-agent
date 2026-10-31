@@ -51,7 +51,9 @@ fi
 "$PY" scripts/seo-lint-xhs-briefs.py || true
 
 if [[ "$FAIL" -gt 0 ]]; then
+  "$PY" scripts/ceo-action-needed-refresh.py || true
   echo "RESULT: FAIL ($FAIL brief(s)) — Cursor CEO should GM-loop; Owner not asked"
+  echo "Read: content/evolution/00-manager/ceo-inbox/ceo-action-needed.md"
   exit 1
 fi
 echo "RESULT: PASS — all briefs complete gate"

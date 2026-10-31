@@ -116,7 +116,7 @@ fi
   echo "- log: \`content/evolution/00-manager/ceo-inbox/gate-$STAMP.log\`"
   echo ""
   if ((${#failures[@]} == 0)); then
-    echo "**RESULT: PASS** — OK to present Owner handoff (see OWNER-HANDOFF template)."
+    echo "**RESULT: PASS** — CEO flow closed (routine: Owner notify HTML only; see OWNER-DELIVERY-NOTIFY-DEFAULT.md)."
   else
     echo "**RESULT: FAIL** — CEO must CEO-REROUTE to GM; do **not** ask Owner to verify."
     echo ""
@@ -136,6 +136,9 @@ if ((${#failures[@]} > 0)); then
   exit 1
 fi
 
+if [[ "${CEO_OWNER_HTML_REFRESH:-1}" == "1" ]]; then
+  bash "$ROOT/scripts/refresh-owner-notify-html.sh" || true
+fi
 echo ""
-echo "RESULT: PASS — Owner gate complete"
+echo "RESULT: PASS — Owner gate complete (routine 交 Owner：否 · HTML refreshed if enabled)"
 echo "See $LATEST"

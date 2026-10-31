@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/skill_bilibili_upload.md"
+goal: "Skill Router: B 站投稿填表（bilibili-upload）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "e61a82335237da7b"
+---
+
+# Skill Router: B 站投稿填表（bilibili-upload）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **边界：** 填表至 **「立即投稿」前**；**Owner 扫码登录 + 手点发布**。见 [bilibili-inst360-channel-adoption.md](../../integration/bilibili-inst360-channel-adoption.md)。
+- **Path:** `rules/skills/skill_bilibili_upload.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Skill Router: B 站投稿填表（bilibili-upload）
 
 > **边界：** 填表至 **「立即投稿」前**；**Owner 扫码登录 + 手点发布**。见 [bilibili-inst360-channel-adoption.md](../../integration/bilibili-inst360-channel-adoption.md)。

@@ -1,0 +1,318 @@
+{
+  "version": "2026-10-30",
+  "generated_utc": "2026-10-30T08:02:02.608653+00:00",
+  "repo": "/Users/danying/Desktop/danying-brand-agent",
+  "mirror": "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/brand-knowledge-mirror/_rag/cursor-brand-corpus",
+  "git_note": "Open WebUI sync reads local mirror + working tree; git push 非必须，但未 commit 的改动仅在本机。",
+  "knowledge_collections": {
+    "workflow-automation-pack": "可自动化 workflow · manifest L0–L4 · gate/CEO 命令",
+    "agent-prompt-pack": "SOP / INTEGRATION 路由（短）",
+    "cursor-brand-corpus": "本仓全部 MD 的 L0/L1/L2（上下文编排）",
+    "brand-ip-knowledge": "Google Drive 背书库（与 Cursor 仓分离）"
+  },
+  "cursor_must_read_after_reorg": [
+    "integration/handoff/openwebui-context-reorg-latest.json",
+    "docs/PROMPT-CONTEXT-STANDARD.md",
+    "integration/handoff/cursor-openwebui-task-routing.json"
+  ],
+  "openwebui_chat_tags": [
+    "# workflow-automation-pack",
+    "# agent-prompt-pack",
+    "# cursor-brand-corpus",
+    "# brand-ip-knowledge"
+  ],
+  "workflow_automation": {
+    "manifest": "integration/handoff/workflow-automation-manifest.json",
+    "catalog_l1": "integration/handoff/workflow-automation-catalog-l1.json",
+    "runner": "python3 scripts/run-workflow-from-manifest.py",
+    "export": "bash scripts/export-workflow-automation-pack.sh"
+  },
+  "counts": {
+    "md_scanned": 414,
+    "exported_l012": 414,
+    "skipped_oversize": 0,
+    "repo_rewritten": 0
+  },
+  "entries_sample": [
+    {
+      "path": ".cursor/skills/brand-visual/SKILL.md",
+      "title": "Brand Visual",
+      "sha16": "e3ee2ee22dfabdc2",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/business-brand/SKILL.md",
+      "title": "Business & Brand Planning",
+      "sha16": "4a7546799f2a217a",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/guide-core/SKILL.md",
+      "title": "Guide Core — 总控",
+      "sha16": "228b43797796b5bf",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/guide-core/routing.md",
+      "title": "Task Routing",
+      "sha16": "73344041a3620f45",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/guide-core/soul.md",
+      "title": "Guide Agent — Soul",
+      "sha16": "2eca2d323a61513a",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/guide-core/user.md",
+      "title": "Owner — 张丹瀛 / Danying Zhang",
+      "sha16": "f405f6ca0322ec78",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/marketing-strategy/SKILL.md",
+      "title": "Marketing Strategy",
+      "sha16": "ea0d63571e6868ff",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/personal-ip/SKILL.md",
+      "title": "Personal IP",
+      "sha16": "b372e74e871db5cc",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/xiaohongshu/SKILL.md",
+      "title": "Xiaohongshu",
+      "sha16": "02d26d977a065462",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/xiaohongshu/topic-manager.md",
+      "title": "Xiaohongshu Topic Manager（选题 IP Manager）",
+      "sha16": "332373395ce04f5a",
+      "owui": "rag_l2"
+    },
+    {
+      "path": ".cursor/skills/yage-voice/SKILL.md",
+      "title": "yage-voice",
+      "sha16": "ac7cde94bc07a907",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "AGENTS.md",
+      "title": "AGENTS.md — Guide Brand Agent",
+      "sha16": "f84b33ea70cde832",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "INDEX.md",
+      "title": "INDEX · danying-brand-agent",
+      "sha16": "b1d25d4761775ce9",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "SETUP.md",
+      "title": "SETUP · Guide Brand Agent",
+      "sha16": "6490f5721243f484",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/00-manager/AUTO-WORKFLOW.md",
+      "title": "00 Manager · 自动接手工作流（无需启动口令）",
+      "sha16": "31d275fda62b2f40",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/00-manager/CEO-DISPATCH-SOP.md",
+      "title": "CEO 派活 SOP · 模板",
+      "sha16": "6af8ce5414352ef9",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md",
+      "title": "CEO 双轮串行迭代 SOP（「consult SOP.md」入口）",
+      "sha16": "7c962f5166b7eb86",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/00-manager/INTEGRATION-PROMPT.md",
+      "title": "Manager 集成 Prompt（非算法层）",
+      "sha16": "35d9d5c51885e63f",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/00-manager/ROLE.md",
+      "title": "00 · 总 Manager",
+      "sha16": "88d144c93b05bc99",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/01-personal-ip/INTEGRATION-PROMPT.md",
+      "title": "INTEGRATION-PROMPT",
+      "sha16": "885664d740d8c141",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/01-personal-ip/ROLE.md",
+      "title": "01 · Personal IP & 战略",
+      "sha16": "c28d856e957f4a5e",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/02-business-brand/INTEGRATION-PROMPT.md",
+      "title": "02 Business Brand · 集成",
+      "sha16": "b28c6b29d1f06778",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/02-business-brand/ROLE.md",
+      "title": "02 · Business Brand · `content/business-brand/` · `.cursor/skills/business-brand/`",
+      "sha16": "4c203c7d000e9238",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/03-marketing-strategy/INTEGRATION-PROMPT.md",
+      "title": "03 Marketing Strategy · 集成",
+      "sha16": "1c213dc1438880d2",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/03-marketing-strategy/ROLE.md",
+      "title": "03 · Marketing · `content/marketing/` · `.cursor/skills/marketing-strategy/`",
+      "sha16": "b3e588cf9818f4d8",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/04-xhs-topic-manager/INTEGRATION-PROMPT.md",
+      "title": "04 · Xiaohongshu Topic Manager · 集成 Prompt",
+      "sha16": "7c86bac7659828b0",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/04-xhs-topic-manager/ROLE.md",
+      "title": "04 · 小红书 Topic Manager",
+      "sha16": "d70ed5a3e52c9595",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/05-xhs-kernel/INTEGRATION-PROMPT.md",
+      "title": "INTEGRATION-PROMPT",
+      "sha16": "5663fd0870134690",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/05-xhs-kernel/ROLE.md",
+      "title": "05 · Classifier 核心（算法层）",
+      "sha16": "530f2c86fff5efbc",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/06-xhs-content-pipeline/INTEGRATION-PROMPT.md",
+      "title": "INTEGRATION-PROMPT",
+      "sha16": "33c4233a29ebf1bf",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/06-xhs-content-pipeline/ROLE.md",
+      "title": "06 · 小红书内容管线",
+      "sha16": "6d3a35a7fdf60094",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/07-brand-visual/INTEGRATION-PROMPT.md",
+      "title": "07 Brand Visual · 集成",
+      "sha16": "fc9a2b329397d685",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/07-brand-visual/ROLE.md",
+      "title": "07 · Brand Visual · `content/visual/` · `.cursor/skills/brand-visual/`",
+      "sha16": "77edce0865820757",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/08-platform-integration/INTEGRATION-PROMPT.md",
+      "title": "08 Platform Integration · 集成",
+      "sha16": "d28986d879d4cb23",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/08-platform-integration/ROLE.md",
+      "title": "08 · Platform · `verify-integration.sh` · gdocs/Drive · `.env` Gemini",
+      "sha16": "8f336741d05f049c",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/09-data-analytics/DATA-NEEDS.md",
+      "title": "数据分析 Agent · 多平台数据规范",
+      "sha16": "5dec743edc08976b",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/09-data-analytics/INTEGRATION-PROMPT.md",
+      "title": "Data Analytics 集成 Prompt",
+      "sha16": "3739e5952d74458e",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/09-data-analytics/ROLE.md",
+      "title": "09 · 小红书数据 Analytics Agent",
+      "sha16": "af99825becd28122",
+      "owui": "rag_l2"
+    },
+    {
+      "path": "agents/10-artist-benchmark/INTEGRATION-PROMPT.md",
+      "title": "10 · Artist Benchmark GM · 日更 Sub-Agent",
+      "sha16": "2959923cc9b2908d",
+      "owui": "rag_l1"
+    },
+    {
+      "path": "agents/11-ip-daily-evaluator/INTEGRATION-PROMPT.md",
+      "title": "11 · IP Daily Evaluator GM · 日更 Sub-Agent",
+      "sha16": "3b22f85822deddb9",
+      "owui": "rag_l1"
+    }
+  ],
+  "infrastructure": {
+    "open_webui": "http://localhost:3000",
+    "embedding": "ollama bge-m3 @ host.docker.internal:11434",
+    "pipes": [
+      "yage_cot",
+      "yage_long_context"
+    ],
+    "tools": [
+      "yage_sqlite"
+    ],
+    "deploy": "bash scripts/deploy-learning-stack.sh"
+  },
+  "agents_gm_ceo": {
+    "manager": "agents/00-manager",
+    "gms": [
+      "agents/01-*",
+      "agents/02-*",
+      "agents/03-*",
+      "agents/04-*",
+      "agents/05-*",
+      "agents/06-*",
+      "agents/07-*",
+      "agents/08-*",
+      "agents/09-*",
+      "agents/10-*",
+      "agents/11-*",
+      "agents/12-*"
+    ],
+    "six_case_doc": "docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md",
+    "eval": [
+      "scripts/ceo-triple-eval-baseline-loop.sh",
+      "scripts/ceo-double-stress.sh",
+      "scripts/evaluate-xhs-brief-complete.py"
+    ]
+  },
+  "sync_commands": [
+    "python3 LLM-Ollama/RAG/RAG/scripts/fix_openwebui_rag_ollama_url.py",
+    "python3 LLM-Ollama/RAG/RAG/scripts/sync_cursor_brand_corpus_to_openwebui.py",
+    "python3 LLM-Ollama/RAG/RAG/scripts/sync_agent_prompt_pack_to_openwebui.py"
+  ]
+}

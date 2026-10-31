@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-28T01:02:50.832371+00:00",
-  "count": 3,
+  "updated_at": "2026-10-31T01:02:43.905832+00:00",
+  "count": 5,
   "entries": [
     {
       "date": "2026-10-27",
@@ -105,6 +105,76 @@
       "timeline_len": 3,
       "sources_note": "基于 Groovemedia 行业案例拆解及 HAUSER 公开社媒（Instagram/TikTok/YouTube）运营数据分析，不涉及未经公开的合同或未证实收入数据。",
       "path": "content/evolution/10-artist-intel/2026-10-28/hauser-cellist/versions/v0-benchmark.json",
+      "owner_verdict": null
+    },
+    {
+      "date": "2026-10-29",
+      "slug": "fuzzy-hug-digital-ip",
+      "artist_slug": "fuzzy-hug-digital-ip",
+      "borrow_score": 50,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 55.0,
+          "rationale": "Fuzzy hug 是纯视觉/数字角色 IP，并非真人艺术家人设，但其通过 CG 形象与品牌跨界的方式与 Owner 的跨界品牌策划及 AI/数字 IP 支柱在商业落地维度部分同向。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 52.0,
+          "rationale": "案例集中在单次商业 Campaign，其“CG 角色+实景/产品”的视觉钩子与商业叙事结构可拆解迁移，但缺乏个人博主式的日常日更/周更栏目模板。"
+        },
+        "audience_persona_overlap": {
+          "score": 48.0,
+          "rationale": "主要受众为泛快消消费者与商业营销从业者，与 Owner 寻求的高质感艺术叙事、品牌方决策层及教育链受众重叠度有限。"
+        },
+        "core_topic_density": {
+          "score": 42.0,
+          "rationale": "选题高度集中于单次商业联名与形象营销，缺乏法派古典艺术专业深度与长效叙事主线，话题易稀释为单纯的商业广告。"
+        }
+      },
+      "priority_tier": null,
+      "why_evaluate": "评估 Fuzzy hug 旨在研究小体量数字角色 IP 如何通过 CG 与实景结合的方式撬动大牌跨界合作（如潘婷 3分钟奇迹案例）。在 DB 与 PLD 维度，其 Campaign 级别的商业视觉沉淀与案例包装对 Owner 的“跨界策划”与“数字 IP 落地”具有直接参考价值；但从 APO 与 CTD 维度看，其缺乏真人艺术家的专业厚度与日常内容主线，与 Owner 的全貌定位存在一定撕裂。",
+      "alignment_points": [
+        "跨界品牌策划落地：展示了小体量数字 IP 如何通过具象化的视觉符号撬动知名品牌的商业合作。",
+        "数字/CG 艺术呈现：将虚拟数字形象（CG）与真实商业场景结合，为 Owner 的 AI/数字藏品落地提供视觉呈现参考。",
+        "案例层叙事方法：通过明确的 Campaign 主题（如“治愈/抚平损伤”）将 IP 属性与品牌卖点深度缝合。"
+      ],
+      "timeline_len": 3,
+      "sources_note": "tier: 基于公开营销案例（如广告门报道 https://www.adquan.com/article/343094）及公开行业搜索推断；无虚构商业合同或未公开收入数据。",
+      "path": "content/evolution/10-artist-intel/2026-10-29/fuzzy-hug-digital-ip/versions/v0-benchmark.json",
+      "owner_verdict": null
+    },
+    {
+      "date": "2026-10-31",
+      "slug": "drew-forde-thatviolakid",
+      "artist_slug": "drew-forde-thatviolakid",
+      "borrow_score": 78.0,
+      "benchmark_metrics": {
+        "directional_benchmarking": {
+          "score": 90.0,
+          "rationale": "战略方向高度同向，均以顶级古典学院派背景为基石，通过跨界合作（古典×流行/商业）与品牌共创打造不被单品类绑定的个人 IP。"
+        },
+        "pixel_level_deconstruction": {
+          "score": 72.0,
+          "rationale": "其社媒的 Practice Vlog、改编钩子、互动 CTA 与栏目化表达具有极高的像素级拆解价值，可直接迁移至小红书与 IG 的内容执行。"
+        },
+        "audience_persona_overlap": {
+          "score": 70.0,
+          "rationale": "受众涵盖古典音乐学习者、艺术爱好者以及寻求新潮艺术叙事的商业品牌，与 Owner 在教育链和 B 端品牌侧有良好重叠。"
+        },
+        "core_topic_density": {
+          "score": 75.0,
+          "rationale": "核心话题紧扣古典中提琴专业度、跨界音乐实验与艺术人生成长，未出现垂直锁号或跑题现象，题密度较为集中。"
+        }
+      },
+      "priority_tier": null,
+      "why_evaluate": "Drew Alexander Forde（ThatViolaKid）是顶级古典音乐正统出身与当代社交媒体个人 IP 成功结合的先锋标杆。根据 DB/PLD/APO/CTD 框架评估，他在保持茱莉亚音乐学院专业底色的同时，成功打通了跨界流行实验与 Fortune 500 品牌合作，对 Owner 打造‘法派长笛传承 × 跨界品牌策划’的复合 IP 路径具有极高的策略参考价值。",
+      "alignment_points": [
+        "名校/名师正统古典传承与当代跨界创新者双重人设的无缝叠加",
+        "不被单一商业品类绑定，始终以‘艺术演奏者/内容策展人’的主体身份接入多元品牌共创",
+        "将严肃艺术练琴与跨界改编转化为高粘性内容，同时覆盖 B 端品牌与 C 端音乐教育受众"
+      ],
+      "timeline_len": 3,
+      "sources_note": "评估基于 ThatViolaKid 官方网站、Creative Strings Podcast 访谈及公开社交平台（Instagram/YouTube/TikTok）数据；未捏造未公开的具体商业合同与财务细节，品牌合作信息均源自公开案例。",
+      "path": "content/evolution/10-artist-intel/2026-10-31/drew-forde-thatviolakid/versions/v0-benchmark.json",
       "owner_verdict": null
     }
   ]

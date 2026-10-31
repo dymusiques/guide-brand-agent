@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "test": "ceo-openwebui-e2e",
+  "finished_at": "2026-10-29T11:00:14.750147+00:00",
+  "goal": "E2E workflow test：基于 personal-ip intake（KPI Publish×法派长笛跨界），产出 LinkedIn 系列深度口播分节大纲；须结合 brand-ip-knowledge 事实，长文结构化输出",
+  "route": "HYBRID",
+  "source_md": "content/personal-ip/intake/2026-10-29-e2e-kpi-longform-source.md",
+  "job_json": "integration/handoff/openwebui-jobs/e2e-workflow-test-基于-personal-ip-intake-kpi-publ.json",
+  "outbox_md": "/Users/danying/Desktop/Open WebUI Personal IP/outbox/e2e-workflow-test-基于-personal-ip-intake-kpi-publ.md",
+  "outbox_chars": 59549,
+  "ceo_report": "content/evolution/00-manager/ceo-inbox/CEO-OPENWEBUI-E2E-TEST-2026-10-29.md",
+  "subagent_verifies": [
+    {
+      "cmd": "bash scripts/verify-workflow-automation.sh",
+      "result": "PASS"
+    },
+    {
+      "cmd": "SKIP_GEMINI=1 bash scripts/verify-agent-fused.sh --agent 01",
+      "result": "PASS"
+    },
+    {
+      "cmd": "SKIP_GEMINI=1 bash scripts/verify-agent-fused.sh --agent 04",
+      "result": "PASS"
+    }
+  ]
+}

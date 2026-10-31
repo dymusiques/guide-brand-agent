@@ -1,21 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/owner-source-pivot-C-ai-depth-2026-10-21.md"
+goal: "Owner 原话 · 选题 C / AI × 深度（2026-10-21 · 待成熟）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "f411e711a41d0f64"
+---
+
+# Owner 原话 · 选题 C / AI × 深度（2026-10-21 · 待成熟）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **规划稿：** [owner-plan-pivot-C-ai-extensions-2026-10-21.md](./owner-plan-pivot-C-ai-extensions-2026-10-21.md)  
+> **成稿入口：** [2026-10-21-pivot-triple-A-B-C-packages.md](./2026-10-21
+- **Path:** `content/xiaohongshu/owner-source-pivot-C-ai-depth-2026-10-21.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Agent 备注（写稿约束）**: - 可提工具名（Cursor、Claude 等）作 **个人使用体验**；不做「哪个最强」测评、不教 bypass。
+
+
+---
+
+## L2 正文
+
 # Owner 原话 · 选题 C / AI × 深度（2026-10-21 · 待成熟）
 
 > **规划稿：** [owner-plan-pivot-C-ai-extensions-2026-10-21.md](./owner-plan-pivot-C-ai-extensions-2026-10-21.md)  
 > **成稿入口：** [2026-10-21-pivot-triple-A-B-C-packages.md](./2026-10-21-pivot-triple-A-B-C-packages.md) §篇 C  
 > **前序已发：** 《用深度替代选择☝️》· [voice-anchor-transcripts §用深度](./voice-anchor-transcripts-2026-10-21.md)
 
----
-
-## Owner 口述（2026-10-21 · 未经结构化）
-
-- 家长常报 **3～5 个兴趣班**，每个都学不精（与《用深度》同构）。  
-- 自己学 AI：用 **Cursor** 做项目；也接触 **Claude、ChatGPT、Codex、Cloud Code、Gemini** 等。  
-- 感受：工具 **太聪明**，有时只说想法和方向，就能执行很多。  
-- **越用越反过来想：** 该怎么 **提问题**？现状如此时，如何 **把握方向、给出更有针对性的指向**？  
-- 像 **拼积木 / 搭乐高**，不停拼凑；喜欢这个过程，**激发深度思考**。  
-- **不要** 只当 **翻译器**，或像 **随手问豆包** 那样浅层使用。
-
----
 
 ## Agent 备注（写稿约束）
 

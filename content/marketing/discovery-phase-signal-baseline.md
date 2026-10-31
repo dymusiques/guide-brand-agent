@@ -1,3 +1,33 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/discovery-phase-signal-baseline.md"
+goal: "认知期 · 强链接信号基线（Owner 观测）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "ae376991172e1984"
+---
+
+# 认知期 · 强链接信号基线（Owner 观测）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** | 类型 | 含义 | 是否算认知期「有效强链接」 |
+|------|------|---------------------------|
+| **品牌向** | 私信含 **聊聊 / 合作 / 品牌**（或同等 B2B 场景描述） | **是** → 计入 `dm_count`、快检 §2.1 |
+| **约课向** | 想上长笛课、约课、询价课时等 
+- **Path:** `content/marketing/discovery-phase-signal-baseline.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** 关联：[discovery-phase-OPERATING-PLAN.md](./discovery-phase-OPERATING-PLAN.md) · [DATA-NEED…
+- **章节锚点**: - **2026-10-20 · 私信口径（Owner 确认）**: | 类型 | 含义 | 是否算认知期「有效强链接」 |
+- **2026-10-20 · 私信口径（Owner 确认）**: | 类型 | 含义 | 是否算认知期「有效强链接」 |
+
+
+---
+
+## L2 正文
+
 # 认知期 · 强链接信号基线（Owner 观测）
 
 关联：[discovery-phase-OPERATING-PLAN.md](./discovery-phase-OPERATING-PLAN.md) · [DATA-NEEDS](../agents/09-data-analytics/DATA-NEEDS.md)

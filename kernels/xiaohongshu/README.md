@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "kernels/xiaohongshu/README.md"
+goal: "Xiaohongshu Topic Manager · Gemini Kernel"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "13730b5ef15dfaf0"
+---
+
+# Xiaohongshu Topic Manager · Gemini Kernel
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Module 3 课纲线（docstring → line2 核心函数 → 6 case 验收）在本仓的小红书选题判定实现。
+- **Path:** `kernels/xiaohongshu/README.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **文件清单（Git 定稿，不依赖聊天记录）**: | 路径 | 作用 |
+- **快速开始**: ```bash
+- **数据形状（强制 dict）**: - **输入：** `{"subject": str, "body": str}` — 标题 + 正文（含 hook / CTA）
+- **与 Module 3 参考仓的关系**: 课纲参考 monorepo / `module3-2-2-gemini` 的 `demo.py` + 6 test 模式；本 kernel 业务规则替换为小红书 IP / 涨粉 / 强链接，技术模式相…
+- **Topic Manager Skill**: - Skill：`.cursor/skills/xiaohongshu/topic-manager.md`（选题 → Brief → `scripts/evaluate-xhs-topic.py`）
+
+
+---
+
+## L2 正文
+
 # Xiaohongshu Topic Manager · Gemini Kernel
 
 Module 3 课纲线（docstring → line2 核心函数 → 6 case 验收）在本仓的小红书选题判定实现。

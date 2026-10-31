@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/MARKETING-TO-XHS-GLOSSARY.md"
+goal: "营销触达 → 小红书 · 术语（小白向）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "5da73df97f1d79a4"
+---
+
+# 营销触达 → 小红书 · 术语（小白向）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **04 = 小红书选题 Agent（Topic Manager）**  
+职责：根据 IP 和触达计划，**写「笔记施工单」**，不是直接发小红书。
+- **Path:** `docs/MARKETING-TO-XHS-GLOSSARY.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **04 是谁？**: **04 = 小红书选题 Agent（Topic Manager）**
+- **Brief 是什么？**: **Brief = 一篇 Markdown 施工单**，路径形如：
+- **evaluate 是什么？**: **evaluate = 用 Gemini 自动审这篇 Brief 是否对齐你的目标**（IP、强链接、不单品类绑定等）。
+- **和触达计划的关系**: ```
+
+
+---
+
+## L2 正文
+
 # 营销触达 → 小红书 · 术语（小白向）
 
 ## 04 是谁？

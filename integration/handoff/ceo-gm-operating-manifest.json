@@ -1,5 +1,6 @@
 {
   "version": "2026-10-28",
+  "workflow_automation": "integration/handoff/workflow-automation-manifest.json",
   "north_star": "打造 Danying 个人 IP（长笛 / 教育 / 咨询 · Discovery + Artist + 听见 Daily 同一叙事轴）",
   "owner_one_line_triggers": {
     "doc": "docs/CEO-OWNER-ONE-LINE-TRIGGERS.md",

@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/overlays/gdocs-skill.local.example.md"
+goal: "gdocs-skill — Local Overlay (example)"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "9db9d4cc16e23030"
+---
+
+# gdocs-skill — Local Overlay (example)
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Copy to `gdocs-skill.local.md` in this directory and adjust paths for your machine.
+- **Path:** `rules/skills/overlays/gdocs-skill.local.example.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Workspace Paths**: | Key | Value |
+- **Activation**: ```bash
+- **OAuth (one-time)**: 1. Save Desktop OAuth JSON as `vendor/gdocs-skill/secrets/credentials.json` (`chmod 600`)
+- **Knowledge Bank (Drive folder IDs)**: Root: `1jLcbbr0WkmEI8mJlsf5R4Y1NtSGEP8_c`
+
+
+---
+
+## L2 正文
+
 # gdocs-skill — Local Overlay (example)
 
 Copy to `gdocs-skill.local.md` in this directory and adjust paths for your machine.

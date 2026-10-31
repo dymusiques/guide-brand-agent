@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/bestpractice_skill_writing.md"
+goal: "Skill 写作指南（Meta-Skill）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "7c559c9c89af7d94"
+---
+
+# Skill 写作指南（Meta-Skill）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **上游：** [grapeot/context-infrastructure · bestpractice_skill_writing.md](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md)（本
+- **Path:** `rules/skills/bestpractice_skill_writing.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **元数据**: - **类型**: BestPractice
+- **这个文件是干什么的**: Skill 文件是给 AI agent 的能力定义。写得好的 skill 让 agent 能可靠地完成任务，写得差的 skill 要么把 agent 变成一个机械执行清单的脚本，要么因为缺少关键边界和…
+- **核心原则**
+- **Skill 文件应该包含什么**: 以下是一个 skill 文件通常需要覆盖的内容区域。顺序和组织方式由你根据具体 skill 决定，不需要严格按照这个列表排列。
+- **验收标准（这个 meta-skill 自身的）**: 一个 skill 文件写好之后，用以下标准检查。
+- **常见陷阱**: | 陷阱 | 表现 | 应对 |
+- **与现有 skill 的关系**: 写新 skill 之前，先读 `rules/skills/INDEX.md` 确认没有重复。如果已有类似 skill，优先修改而非新建。
+
+
+---
+
+## L2 正文
+
 # Skill 写作指南（Meta-Skill）
 
 > **上游：** [grapeot/context-infrastructure · bestpractice_skill_writing.md](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md)（本 workspace 为 standalone 拷贝；私有路径见 `rules/skills/overlays/*.local.md`，勿写进 public skill repo。）

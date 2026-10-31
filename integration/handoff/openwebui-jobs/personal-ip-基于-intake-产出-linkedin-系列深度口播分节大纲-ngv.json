@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "slug": "personal-ip-基于-intake-产出-linkedin-系列深度口播分节大纲-ngv",
+  "route": "HYBRID",
+  "platform": "personal_ip",
+  "goal": "Personal IP：基于 intake，产出 LinkedIn 系列深度口播分节大纲（NGV×MSO 动线策展 vs 门口四重奏）；须结合 brand-ip-knowledge 事实",
+  "brief_path": null,
+  "intake_path": "/Users/danying/Desktop/danying-brand-agent/content/personal-ip/intake/2026-10-29-ngv-flute-curation-theme.md",
+  "outbox_md": "/Users/danying/Desktop/Open WebUI Personal IP/outbox/personal-ip-基于-intake-产出-linkedin-系列深度口播分节大纲-ngv.md",
+  "status": "failed",
+  "updated_at": "2026-10-29T11:02:14Z",
+  "rag_prefetch": true,
+  "error": "POST /api/chat/completions -> HTTP 400: {\"detail\":\"peer closed connection without sending complete message body (incomplete chunked read)\"}"
+}

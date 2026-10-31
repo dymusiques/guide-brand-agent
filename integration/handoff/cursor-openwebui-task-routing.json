@@ -1,0 +1,45 @@
+{
+  "version": "2026-10-30",
+  "doc": "docs/PROMPT-CONTEXT-STANDARD.md",
+  "cursor": {
+    "must_read_each_session": [
+      "rules/SOUL.md",
+      "rules/USER.md",
+      "integrations/index.md",
+      "docs/PROMPT-CONTEXT-STANDARD.md"
+    ],
+    "tasks": [
+      "CEO / Manager 指挥链与 gate",
+      "Brief / intake 编辑与进化",
+      "verify / scripts / Git 定稿",
+      "Drive MCP / gdocs 读原件",
+      "短帖压缩、标题、标签",
+      "Flute / 其他 repo 代码"
+    ]
+  },
+  "openwebui": {
+    "functions": ["yage_cot", "yage_long_context"],
+    "knowledge": [
+      "workflow-automation-pack",
+      "cursor-brand-corpus",
+      "agent-prompt-pack",
+      "brand-ip-knowledge"
+    ],
+    "workflow_runner": "python3 scripts/run-workflow-from-manifest.py",
+    "workflow_catalog": "integration/handoff/workflow-automation-catalog-l1.json",
+    "tools_optional": ["yage_sqlite"],
+    "models": {
+      "long_writing": "yage_cot.yage/yage-outline",
+      "long_rewrite": "yage_long_context.yage/yage-long-context",
+      "local_tool_calling": "local-llama3.2-3b"
+    },
+    "tasks": [
+      "PIPE_COT / HYBRID / PIPE_DILIGENT / RAG_ONLY via run-openwebui-router-pipeline.sh",
+      "intake 长源稿 + brand-ip-knowledge",
+      "HTML artifact 图表（非 CEO HTML 交付）"
+    ]
+  },
+  "router_script": "scripts/route-openwebui-for-goal.py",
+  "deploy": "bash scripts/deploy-learning-stack.sh",
+  "prompt_pack_export": "bash scripts/export-agent-prompt-pack.sh"
+}

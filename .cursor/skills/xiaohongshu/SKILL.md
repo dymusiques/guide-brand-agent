@@ -1,9 +1,31 @@
 ---
-name: xiaohongshu
-description: >-
-  Xiaohongshu content, ads, growth, and Topic Manager — notes, hooks, topic selection,
-  IP-aligned verify. Use for 小红书, 笔记, 种草, 投放, 选题, Topic Manager, 爆款, 涨粉.
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/xiaohongshu/SKILL.md"
+goal: "Xiaohongshu"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "a68c5cbf7e8a35ee"
 ---
+
+# Xiaohongshu
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **选题、Brief、对齐 IP、强链接、涨粉路径** → 必读 **[topic-manager.md](./topic-manager.md)**，并接 Kernel：
+- **Path:** `.cursor/skills/xiaohongshu/SKILL.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Topic Manager（选题 / IP 对齐）**: **选题、Brief、对齐 IP、强链接、涨粉路径** → 必读 **[topic-manager.md](./topic-manager.md)**，并接 Kernel：
+- **读什么**: 1. **Owner 固定总纲（Brief Must）** → [OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](../../../docs/OWNER…
+- **存储默认规则**: 与 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md) 一致：
+- **产出**: - 笔记结构（标题 / 钩子 / 正文 / 标签）
+- **验收**: - [ ] 符合小红书语气与合规（无 Web3/NFT；数字藏品表述 OK）
+
+
+---
+
+## L2 正文
 
 # Xiaohongshu
 
@@ -17,13 +39,14 @@ description: >-
 
 ## 读什么
 
-1. `guide-core/soul.md`（品牌名与语气）
-2. **Owner 数据叠加栈（写 Brief/视频/标题前 Must）** → [XHS-CONTENT-INTAKE-STACK.md](../../../docs/XHS-CONTENT-INTAKE-STACK.md) · [CONTENT-DELIVERY-FOR-OWNER.md](../../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md)
-3. Git `content/xiaohongshu/`（真相源，优先）
-4. 个人 Skill `danying-tingjian-daily`（栏目规范，若做长笛内容）
-5. Drive `05-xiaohongshu/`（仅 Owner 已同步定稿时查阅）
-6. `kernels/templates/xhs-content-brief.template.md`
-7. **选题管线** → [topic-manager.md](./topic-manager.md)
+1. **Owner 固定总纲（Brief Must）** → [OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](../../../docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) · pitfalls · 三镜头 · gap 直到 READY
+2. `guide-core/soul.md`（品牌名与语气）
+3. **Owner 数据叠加栈（写 Brief/视频/标题前 Must）** → [XHS-CONTENT-INTAKE-STACK.md](../../../docs/XHS-CONTENT-INTAKE-STACK.md) · [CONTENT-DELIVERY-FOR-OWNER.md](../../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md)
+4. Git `content/xiaohongshu/`（真相源，优先）
+5. 个人 Skill `danying-tingjian-daily`（栏目规范，若做长笛内容）
+6. Drive `05-xiaohongshu/`（仅 Owner 已同步定稿时查阅）
+7. `kernels/templates/xhs-content-brief.template.md`
+8. **选题管线** → [topic-manager.md](./topic-manager.md)
 
 ## 存储默认规则
 

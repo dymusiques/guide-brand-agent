@@ -1,29 +1,36 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/ip-content-skills-adoption.md"
+goal: "集成 · IP 内容工具链（grapeot skills · Owner 2026-10-22 全装）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "7d7dd94ecb553b0e"
+---
+
+# 集成 · IP 内容工具链（grapeot skills · Owner 2026-10-22 全装）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 每个 repo **一个** router：`rules/skills/skill_<name>.md` → vendor root skill（见 [WORKSPACE.md](../rules/WORKSPACE.md) 表）。
+- **Path:** `integration/ip-content-skills-adoption.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **纪律：** 本仓 **已 vendor** 下列 submodule；**默认不跑 CLI**（不替代 00 Manager 小红书主链）。
+- **章节锚点**: - **1. 触发条件总表**: | Skill | Vendor | 何时启用（触发） | 何时 **不要** 用 | 本仓 overlay |
+- **6. Discovery 入口**: 每个 repo **一个** router：`rules/skills/skill_<name>.md` → vendor root skill（见 [WORKSPACE.md](../rules/W…
+
+
+---
+
+## L2 正文
+
 # 集成 · IP 内容工具链（grapeot skills · Owner 2026-10-22 全装）
 
 > **纪律：** 本仓 **已 vendor** 下列 submodule；**默认不跑 CLI**（不替代 00 Manager 小红书主链）。  
 > **触发条件表 = 何时才值得动用**；「已安装 ≠ 每次会话都要用」。  
 > **真相源：** 小红书 Brief / 口播 → `content/xiaohongshu/` · `VOICE-ANCHOR.md` · `owner-source-*`。
 
----
-
-## 0. 「anchor 满 10 再 ASR」是什么意思？
-
-**Anchor（声音锚）** 在本仓指 [`content/xiaohongshu/voice-anchor-sources.json`](../content/xiaohongshu/voice-anchor-sources.json) 里登记的 **已发或定稿故事帖**，每条至少含：
-
-- **标题**（你账号验证过的语气）
-- **口播开头 ~80 字** 和/或 **全文**（见 `voice-anchor-transcripts-*.md`）
-
-**「满 10」** = JSON 里 `anchor_count` **≥ 10**，且多数条目为 `caption_status: owner_transcript`（有可靠口播文本，不是 Agent 猜的）。
-
-**为什么和 ASR 绑在一起：**
-
-- 你小红书 **描述区常空**，历史口播不在 App 正文里；ASR 用来 **从视频/录音反推文稿**，补 anchor、做检索、对齐 L2 禁词。
-- 锚点 **少**（例如现在 **5 条**）时：仍可对 **单条新片** 跑 ASR（Insta360、一条待发稿）；**不建议** 批量爬全账号做 embedding/训练——样本太少、性价比低。
-- 锚点 **≥10** 后：值得 **批量 ASR + 写入 transcripts**、开 **semantic-search 索引**、用 **voice-lora-detect** 做全库 AI 腔扫描。
-
-**当前计数（机器可读）：** `voice-anchor-sources.json` → `anchor_count`（2026-10-21 为 **5**）。
-
----
 
 ## 1. 触发条件总表
 
@@ -44,16 +51,6 @@
 | **typefully-twitter** | `vendor/typefully-twitter-skill/` | IG/X 与听见 **英文帖** 走 Typefully 排期 | 小红书 | `typefully-twitter.local.md` |
 | **dataforseo** | `vendor/dataforseo-skill/` | **关键词/SERP** 调研补充 Drive PDF | 替代 Owner Excel 选题表 | `dataforseo.local.md` |
 
----
-
-## 2. 推荐启用顺序（时间线）
-
-1. **现在（anchor=5）：** semantic-search **手工 grep + transcripts** 即可；voice-lora-**detect** 试跑外稿/B站简介；intake + voice-memos 随时收 **新故事**；单条 ASR 按需。  
-2. **A→B→C→E 连发后：** 每发一条 **更新 anchor JSON + transcripts**；到 **10 条** 再 **批量 ASR + semantic index**。  
-3. **第一条 Insta360 + B 站：** bilibili dry-run fill；仍 **Owner 点投稿**。  
-4. **重制作：** vlog/opus **二选一试点**，scratch 在 `content/video/` 或 `tmp/video/`。
-
----
 
 ## 3. 与 00 Manager 分工
 
@@ -64,25 +61,6 @@
 | B 站 / Insta360 | 本文件 §1 | bilibili · asr · opus/vlog |
 | 听见 / 外链 | `danying-tingjian-daily` | online-media |
 
----
-
-## 4. 安装与 pip（已完成 submodule）
-
-```bash
-git submodule update --init --recursive
-source .venv/bin/activate   # 或: source scripts/ensure-workspace-venv.sh
-# SETUP.md §2 全量 pip + playwright install chromium
-# ASR / intake 转写权重（MLX）仍按需：pip install -e 'vendor/intake-skill[qwen-asr]'（见 vendor asr README）
-```
-
-**验收（装完 submodule / 换机 pip 后 · Agent Must）：**
-
-```bash
-bash scripts/verify-handoff.sh
-bash scripts/verify-ip-skills-env.sh
-```
-
----
 
 ## 5. Agent 执行纪律（防错乱 · Must）
 

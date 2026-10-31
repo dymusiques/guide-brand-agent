@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/BENCHMARK-FRAMEWORK-ARTIST.md"
+goal: "Artist 对标四指标 · DB / PLD / APO / CTD"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "2435f89e3c369a9b"
+---
+
+# Artist 对标四指标 · DB / PLD / APO / CTD
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **取代 SWOT** 作为 GM10 与 watchlist 筛查的统一框架。实现：`kernels/daily-gm/benchmark_framework.py`
+- **Path:** `docs/BENCHMARK-FRAMEWORK-ARTIST.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **指标定义（相对 Owner · 张丹瀛 IP）**: | 缩写 | 全称 | 含义 |
+- **命令**: ```bash
+- **JSON 契约（v0-benchmark.json）**: ```json
+
+
+---
+
+## L2 正文
+
 # Artist 对标四指标 · DB / PLD / APO / CTD
 
 > **取代 SWOT** 作为 GM10 与 watchlist 筛查的统一框架。实现：`kernels/daily-gm/benchmark_framework.py`

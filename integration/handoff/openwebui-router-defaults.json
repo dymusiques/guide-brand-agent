@@ -1,0 +1,16 @@
+{
+  "version": "2026-10-29",
+  "knowledge_name": "brand-ip-knowledge",
+  "openwebui_base_url": "http://127.0.0.1:3000",
+  "env_file": "/Users/danying/Desktop/未命名/LLM-Ollama/RAG/RAG/scripts/brand-drive-sync.env",
+  "pipe_models": {
+    "PIPE_COT": "yage_cot.yage/yage-outline",
+    "PIPE_DILIGENT": "yage_long_context.yage/yage-long-context",
+    "HYBRID": "yage_cot.yage/yage-outline"
+  },
+  "outbox": {
+    "personal_ip": "~/Desktop/Open WebUI Personal IP/outbox",
+    "website": "~/Desktop/Open WebUI Fluid Body/outbox"
+  },
+  "jobs_dir": "integration/handoff/openwebui-jobs"
+}

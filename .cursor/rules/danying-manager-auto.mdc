@@ -7,20 +7,25 @@ alwaysApply: true
 
 Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、笔记、IP、品牌、营销、视觉、定稿、campaign、涨粉、强链接等；**口语/碎片即可，勿要求公式化 prompt**）时：
 
-**Owner 一句话 CEO（不必贴 bash）：** 「**请 CEO 开始工作**」「CEO 开始」「CEO 干活」等 → **Must** 按 [`docs/CEO-OWNER-ONE-LINE-TRIGGERS.md`](docs/CEO-OWNER-ONE-LINE-TRIGGERS.md)：`ceo-auto-recover-blocked.sh` → 读最新 dispatch / 未完成双轮状态 → 自动执行下一项（campaign · 双轮 Brief · 深交付 · 刷新 HTML）→ 输出 Manager 派活记录；**勿**问 Owner「要不要跑脚本」。双轮 Brief 见 [`CEO-DOUBLE-ITERATION-SOP.md`](agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md)。
+**§0 CEO 全量执行（Must · 任何任务 + 口语触发）：** 读 [`docs/CEO-FULL-EXECUTION-MANDATE.md`](docs/CEO-FULL-EXECUTION-MANDATE.md) → **`bash scripts/ceo-full-execution-pipeline.sh --goal "<Owner 原话>"`**（有 Brief 则加 `--brief …` · `--no-discovery-auto`）= recover + Router + **01 IP 函数壳** + 集成/sub-agent **矩阵 test** + **`run_ceo_xhs_autopilot.py`**（evaluate · 对抗 · 进化 · 压测 round2 若适用）+ **浏览器弹出 HTML**（`#owner-latest`）。**禁止** Owner 重复说 evaluate / autopilot / 弹 HTML。
 
-1. **不要**等启动口令；**立即**读 [`agents/00-manager/AUTO-WORKFLOW.md`](agents/00-manager/AUTO-WORKFLOW.md) 并按指挥链执行。
+**Owner 一句话 CEO（不必贴 bash）：** 「**CEO 开始执行**」「**请 CEO 开始工作**」「CEO 开始」「CEO 干活」→ 同上 **§0** + [`docs/CEO-OWNER-ONE-LINE-TRIGGERS.md`](docs/CEO-OWNER-ONE-LINE-TRIGGERS.md)（dispatch / 深交付 / campaign 按队列叠加）· **勿**问 Owner「要不要跑脚本」。双轮 Brief 见 [`CEO-DOUBLE-ITERATION-SOP.md`](agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md)。
+
+1. **不要**等启动口令；**角色边界**：[`docs/ROLE-DISPATCH-MAP.md`](docs/ROLE-DISPATCH-MAP.md)（CEO/GM/sub-agent/Open WebUI 勿混）。**Must 步 −1**：[`docs/OPENWEBUI-CEO-ROUTER.md`](docs/OPENWEBUI-CEO-ROUTER.md) — `bash scripts/run-openwebui-router-pipeline.sh --goal "<原话>" [--intake path]`（Agent 自跑）；再读 [`agents/00-manager/AUTO-WORKFLOW.md`](agents/00-manager/AUTO-WORKFLOW.md) 并按指挥链执行。
+1b. **Owner 给新小红书主题/篇名（Must）：** [`docs/CEO-XHS-NEW-BRIEF-AUTOPILOT.md`](docs/CEO-XHS-NEW-BRIEF-AUTOPILOT.md) + [`OWNER-LONGFORM-XHS-SPEC.md`](content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md) + [`docs/OWNER-LONGFORM-DE-AI-VOICE.md`](docs/OWNER-LONGFORM-DE-AI-VOICE.md) + [`docs/OWNER-LONGFORM-CLEVER-ADVOCATE.md`](docs/OWNER-LONGFORM-CLEVER-ADVOCATE.md)（**Clever ≥4 反方** · 感想≥60% · **yage-voice** 去 AI）+ [**LinkedIn/多通道 HTML**](docs/OWNER-MULTICHANNEL-LINKEDIN-IMAGE-DELIVERABLE.md) → full execution · evaluate 含 **clever-advocate** · triple-eval/stress 跑 **`verify-xhs-clever-advocate.sh`** · **勿**逐步问 Owner。
 2. 读 [`integration/IMPORTANT.md`](integration/IMPORTANT.md)；集成层 **不写** kernel 算法。
 3. 每步派活前读对应 [`agents/<nn>-*/INTEGRATION-PROMPT.md`](agents/README.md)；单会话内 **顺序扮演** 各 Agent 职责（不必要 Owner 开多个 chat）。
-4. **禁止等 Owner 说 evaluate / challenge。** CEO 派活或改 Brief 后 **Must 自动**（见 `docs/BRIEF-AUTO-GATE-PIPELINE.md` · `agents/_shared/BRIEF-ADVERSARIAL-CHALLENGE.md`）：
+4. **Owner 固定 · 对抗 + 交付链（Must）：** [`OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md`](docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) + [`CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md`](docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md) — 搜坑 → 三镜头 → gap **READY** → **`manager-ceo-xhs-owner-delivery.sh`**（HTML rebuild+verify；测试稿 **round2**）· **勿问 Owner**。
+5. **禁止等 Owner 说 evaluate / challenge。** CEO 派活或改 Brief 后 **Must 自动**（见 `docs/BRIEF-AUTO-GATE-PIPELINE.md` · `agents/_shared/BRIEF-ADVERSARIAL-CHALLENGE.md`）：
    - 全仓：`bash scripts/manager-xhs-briefs-auto-pipeline.sh`（含 **重对抗** `run-xhs-brief-adversarial-challenge.py`）
-   - 单篇：`manager-ceo-auto-gate-loop.sh --brief …`（内嵌 redteam + **adversarial** + complete）
+   - 单篇：`bash scripts/manager-brief-evolution-until-gap.sh --brief …`（或 gate-one-round 后 **Must** `analyze-brief-evolution-gap.py`；FAIL **exit 42** → 读 `EVOLUTION-GAP-latest.md` + CEO-REROUTE **实质性改稿**再跑）
    - 各 **04/01/09/11** GM：读对应 challenge 节；FAIL **同会话改稿**，勿问 Owner「要不要跑对抗」
-5. 每轮输出 **Manager 派活记录**：**Owner Gate PASS/FAIL · 打回轮次 n/3 · 交 Owner：是/否**。
-6. Gate FAIL → **同会话自动**读 `CEO-REROUTE.md` 改稿 → 再跑 auto-gate-loop（≤3 轮）；**勿**把 FAIL 稿或「请你 evaluate」交给 Owner。
-7. **交给 Owner 的任何交付物**须 auto-gate **PASS**；仅 gold/发布/裁决/3 轮仍 FAIL 升级才问 Owner。
-8. redteam-pre：无文件时 **`ensure-redteam-pre.py` 自动补**；04 改 Brief 时应细化内容，不能只剩 AUTO  stub 长期不更新。
-9. **会话开头**：读 `content/ip-research/artist-intel-catalog.json` + review-state；有未审 artist 条目 → **一次性列全**待审清单（**不**每日主动打扰）· `docs/OWNER-ARTIST-CATALOG-ON-OPEN.md`。
+6. 每轮输出 **Manager 派活记录** + **[`OWNER-CHAT-DELIVERY-FORMAT.md`](docs/OWNER-CHAT-DELIVERY-FORMAT.md)**：**Agent/能力表 · 步骤时间线 · HTML file:// URI**（Must `CEO-RUN-MANIFEST-latest.json`）· **Owner Gate · 进化 READY/NEEDS_WORK · 六项 6-case · triple-eval n/3 · stress 1-2 · norm_dist · 交 Owner：是/否**（routine **READY** → **交 Owner：否** · 见 `docs/OWNER-DELIVERY-NOTIFY-DEFAULT.md`）。
+7. Gate FAIL 或 **NEEDS_WORK** → **同会话自动**读 `EVOLUTION-GAP-latest.md` + `CEO-REROUTE.md` **实质性改稿** → 再跑 evolution（默认 ≤**6** 轮 · `CEO_EVOLUTION_MAX_ROUNDS`）；**勿**把 FAIL/废话稿交给 Owner。
+8. **EVOLUTION-GAP READY = 流程闭合**（非仅 L1 PASS）；**不**等 Owner 回复；routine **不**写 OWNER-HANDOFF；Must **`bash scripts/refresh-owner-notify-html.sh`**（含 FILTER 绿框测试稿 + TEST 页 **从 Brief 重建** · `verify-owner-html-deliverables.sh` PASS）→ **Must 浏览器打开** `bash scripts/open-owner-xhs-deliverable-html.sh`（新稿带 `#owner-latest` 自动弹出全文 · 见 [`OWNER-DELIVERY-NOTIFY-DEFAULT.md`](docs/OWNER-DELIVERY-NOTIFY-DEFAULT.md)）。**同一条 chat Must 附** [`OWNER-CHAT-DELIVERY-FORMAT.md`](docs/OWNER-CHAT-DELIVERY-FORMAT.md)：**01–12 Agent 全表（invoked/skipped）+ 明确写「非全员并行」+ HTML URI**（见 [`CEO-AGENT-ROSTER-AND-PARALLELISM.md`](docs/CEO-AGENT-ROSTER-AND-PARALLELISM.md)）。仅 gold/战略/不可逆/max 轮仍 NEEDS_WORK 才 **交 Owner：是**。
+9. **工作流测试稿** 在 §2 READY 后 **Must 自动** **`bash scripts/ceo-workflow-test-round2-finish.sh`** · [CEO-WORKFLOW-TEST-SOP.md](docs/CEO-WORKFLOW-TEST-SOP.md)。
+10. redteam-pre / pitfalls：无文件时 **ensure 或 Agent Must 写**；`ensure-redteam-pre.py` AUTO stub **不得**长期不更新。
+11. **会话开头**：读 `content/ip-research/artist-intel-catalog.json` + review-state；有未审 artist 条目 → **一次性列全**待审清单 · `docs/OWNER-ARTIST-CATALOG-ON-OPEN.md`。
 
 **Owner 给截止交付（如今晚 12 点 / 深筛 / 交 HTML）：** Must 跑 `bash scripts/run-ceo-deep-delivery-cycle.sh`（多轮 pipeline + gate + adversarial 刷新），**禁止**只跑 `ceo-xhs-ip-filter-batch.py` 一轮应付。见 `docs/CEO-OWNER-DEADLINE-DELIVERY.md`。  
 **IP 截止且须 01–12 全员派活：** 先落盘 `content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27.md`（或当日同名），再跑 `bash scripts/run-ceo-ip-all-agents-campaign.sh`；与 deep-delivery **并行**时用 `/tmp/ceo-deep-delivery.lock` 或进程检测 **SKIP_GEMINI**，勿重复 heavy Gemini。

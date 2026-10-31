@@ -1,21 +1,38 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md"
+goal: "Key Person of Influence · CAPSTONE 与个人 IP  playbook（张丹瀛 / Danying）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "c761295692d893d6"
+---
+
+# Key Person of Influence · CAPSTONE 与个人 IP  playbook（张丹瀛 / Danying）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** | 日期 | 说明 |
+|------|------|
+| 2026-10-18 | 初版：PDF + Owner 口述 + CAPSTONE 截图示例 + Danying 工作稿 |
+- **Path:** `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **给 Agent：** 01 personal-ip、03 营销、04 选题、00 Manager 写 Pitch / 定位 / 对外介绍时 **Must 对齐** 本文…
+- **章节锚点**: - **1. The Five Ps（KPI 框架总览）**: | P | 含义 | 本仓落地 |
+- **10. 变更记录**: | 日期 | 说明 |
+
+
+---
+
+## L2 正文
+
 # Key Person of Influence · CAPSTONE 与个人 IP  playbook（张丹瀛 / Danying）
 
 > **给 Agent：** 01 personal-ip、03 营销、04 选题、00 Manager 写 Pitch / 定位 / 对外介绍时 **Must 对齐** 本文。  
 > **真相源并列：** [ip-positioning-brief-2026-10-05.md](./ip-positioning-brief-2026-10-05.md) · [integration/IMPORTANT.md](../../integration/IMPORTANT.md) · 认知期 [2026-10-brand-discovery-phase.md](../marketing/2026-10-brand-discovery-phase.md)  
 > **来源：** Owner 口述整理 · 蔡蔡《Key Person of Influence 方法论笔记》（Daniel Priestley；正文已提炼进本文）· CAPSTONE 适配示例见 [reference/capstone-ai-builders/](./reference/capstone-ai-builders/)（**结构参考**，非本 IP 正文）· KPI 笔记 PDF 见 [reference/kpi-source/](./reference/kpi-source/) · 索引 [reference/INDEX.md](./reference/INDEX.md)
 
----
-
-## 0. 两个底层观念（必须先植入）
-
-1. **自己做得好，并且要让别人知道**  
-   Don’t just be good at what you do. Become known for what you do.  
-   「让别人知道」本身是一项需要 **学习、经营、Publish** 的能力，不会自然发生。
-
-2. **You are already standing on the mountain of value**  
-   不必等「再攒一点资格」才开始做影响力。经历、故事、知识、方法、关系 **已有价值**；关键是 **发现、整理、包装、放大**（对应本仓 Git 定稿 Brief / 内容资产）。
-
----
 
 ## 1. The Five Ps（KPI 框架总览）
 
@@ -27,26 +44,6 @@
 | **Profile** | 别人 Google/搜到你时看到什么 | SALT · §7 |
 | **Partnership** | 乘法游戏 · Brand × Distribution × Product | 跨行业品牌合作 · §8 |
 
----
-
-## 2. Pitch 原则
-
-- **You get what you pitch for, and you are always pitching.**  
-- **Pitch in the market, not in your mind.**  
-  真实循环：`Pitch → Feedback / Rejection → Adjust → Repeat`（The journey of 1,000 pitches）。
-- **先卖观点，再卖产品** — Don’t pitch the product without context. **Belief drives behavior.**
-- 核心四问（对外任何场景都要能答）：  
-  **你是谁？你看见了什么？你凭什么这样判断？你能帮助谁？下一步是什么？**
-
-### 2.1 Pitch 递进（关系深度）
-
-| 阶段 | 目标 | 关系 |
-|------|------|------|
-| Social Pitch | 产生兴趣 | Interest |
-| Scheduled Pitch | 进一步了解与参与 | Engagement |
-| Sales Pitch | 明确行动/成交 | Action |
-
----
 
 ## 3. CAPSTONE（完整 Pitch 结构）
 
@@ -97,32 +94,6 @@
 
 很多品牌活动里的艺术，好看但 **站不住**——用户三秒划走，记住的是滤镜不是品牌。我是法派长笛背景出身的跨界策划人，训练里的是 **句读与呼吸**，落到品牌上是 **体验节奏与专业信任**。我不卖硬广曝光，卖 **叙事与不可替代 moment**；跨行业 open，但不把自己绑成某一品类博主。你可以先在小红书看认知期深度帖，同频再私信「聊聊」。
 
----
-
-## 4. Publish · 7-11-4 与影响力四步
-
-**7-11-4：** 约 **7 小时** 内容接触 · **11 次** 互动 · **4 个** 渠道/场景（如：自己的小红书/IG、听见 Daily、第三方播客/采访、书或长文等）→ 熟悉感与信任。
-
-**影响力是 Asset：** 需要时间、耐心、长线；目标 **Build assets that work even when you don’t.**
-
-| 进阶 | 目的 | Danying 注意 |
-|------|------|----------------|
-| 1. **Grab attention** | 吸引注意 | **切忌** 过分宏大或过早过度产品化（对齐认知期，非大 Campaign） |
-| 2. **Build trust** | 建立信任 | **先了解** 对方需求与情境；深度帖 + Daily 专业感 |
-| 3. **Generate revenue** | 带来收入 | 客户消费后 **筛选** 精准、可长线服务者 → 提高 LTV |
-| 4. **Generate profit** | 创造利润 | 服务已有客户、复购/订阅；非单次短线 |
-
-**四类 Publish 资产（PDF）：** Watch · Read · Listen · Do（测评/模板/实践）。本仓优先：**Read**（Brief/触达计划）+ **Watch**（小红书/IG/视频号）。
-
-**Innovation：** **90%** 借鉴成熟商业模式 + **10%** 个人特色（故事、法派、跨界路径）。  
-Model what works → understand why → add differentiation.
-
-**内容比例（Owner 口径）：** **70%** 满足观众期待 + **30%** 自己想讲；**灵活调整**。  
-（PDF Profile 章 Social 曾写 95/5 audience-first — 与 70/30 **不矛盾**：都是 **audience 优先**，比例按渠道微调。）
-
-**心态：** Choose your sacrifice, know your desire.
-
----
 
 ## 5. Outcome · Target · Market · Replaceable
 
@@ -132,18 +103,6 @@ Model what works → understand why → add differentiation.
 - **One person cannot make a dent in the universe. Make yourself replaceable.**  
   用 simple systems + team（或 Agent 工作流 + 资产）逐步 **把自己从日常执行中替换出来** — 对应本仓 **CEO/Manager + Git 定稿**，不是 Owner 24h 亲自堆内容。
 
----
-
-## 6. Product 生态（Product ecosystem makes money）
-
-| 层级 | 角色 | Danying 映射（示例 · 可演进） |
-|------|------|-------------------------------|
-| **Gift** | 免费传播、建立信任 | 听见 Daily、部分深度认知内容、公开文章 |
-| **Product for Prospects (P4P)** | 极低门槛体验方法 | 私信轻对话「聊聊」、小型对齐 call（非报价体验季） |
-| **Core Product** | **Transformation** + 主要营收 | 跨界品牌艺术策划 / 活动叙事 / 联名体验 **项目**（卖结果） |
-| **Product for Clients (P4C)** | Recurring · LTV | 长期顾问、系列内容合作、订阅式陪伴（**须提前设计**） |
-
----
 
 ## 7. Profile · SALT（公众形象四渠道）
 
@@ -156,17 +115,6 @@ Model what works → understand why → add differentiation.
 
 Owner 口述四维：**Social media · Award · Life events · Traditional third-party media** — 与 SALT 对齐。
 
----
-
-## 8. Partnership · 乘法心态
-
-- **Business is a multiplication game：** **Brand · Distribution · Product** 粘合；与不同品牌合作，同一底层能力 **衍生** 更多价值（对齐 **G-CROSS-INDUSTRY**、不单品类绑定）。
-- **With or without you energy：** 对品牌方传达——**没有你们，这件事我照样会继续做**（专业主体性）；同时 **欢迎** 同频合作。Abundance of options，非 desperation。
-- **ABC / 10×10×10：** 用 **组合** 放大机会，而非一次加一个客户。
-
-（PDF 另述 Pledge 1% · B1G1 — 可选社会价值层，非当前 Must。）
-
----
 
 ## 9. Agent 使用说明
 
@@ -178,7 +126,9 @@ Owner 口述四维：**Social media · Award · Life events · Traditional third
 | 定位冲突 | **以** [ip-positioning-brief-2026-10-05.md](./ip-positioning-brief-2026-10-05.md) **为准** |
 | 新机接手 | [docs/AGENT-TAKEOVER.md](../../docs/AGENT-TAKEOVER.md) · 口令 `danying-brand-agent` |
 
-**Verify：** 改 Pitch 类对外稿后，走对应 `evaluate-*` / `manager-workflow-verify.sh`（Brief）；本文档为 **战略 playbook**，不替代 classifier。
+**Verify：** 改 Pitch 类对外稿后，走对应 `evaluate-*` / `manager-workflow-verify.sh`（Brief）。  
+**01 定位层（本文 + ip-positioning-brief）：** 人定标准 = **MD + Prompt + Skill**；机器 **函数壳** = `python scripts/evaluate_personal_ip.py --check`（静态标记，**不**替代写内容）。  
+本文档为 **战略 playbook**，不替代 classifier。
 
 ---
 

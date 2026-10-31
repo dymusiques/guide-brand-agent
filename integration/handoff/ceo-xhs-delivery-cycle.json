@@ -1,0 +1,39 @@
+{
+  "version": "2026-10-28",
+  "doc_human": "docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md",
+  "orchestrator_python": "python scripts/run_ceo_xhs_autopilot.py",
+  "orchestrator_bash": "bash scripts/manager-ceo-xhs-owner-delivery.sh",
+  "discovery_auto_expand": "any_discovery_brief_mtime_gt_html_or_brief_arg_is_discovery → evolve_all_01_04",
+  "verify": "bash scripts/verify-owner-html-deliverables.sh",
+  "owner_never_repeat": [
+    "Brief 改了 Owner HTML 必须 rebuild",
+    "FILTER 须含 test + Discovery01-04 当前 subject",
+    "禁止 Discovery 与 test brief 分裂叙事",
+    "L1 PASS 不等于 READY",
+    "搜坑 + 三镜头 + L2-L3 对抗 + 多轮 gap",
+    "工作流测试 READY 后自动 round2 campaign",
+    "campaign 不得只 open 旧 HTML"
+  ],
+  "steps": [
+    { "id": "pitfalls", "doc": "content/xiaohongshu/BRIEF-PITFALLS-RESEARCH-SOP.md" },
+    { "id": "mandate", "doc": "docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md" },
+    { "id": "evolution", "script": "scripts/manager-brief-evolution-until-gap.sh" },
+    { "id": "series", "doc": "content/xiaohongshu/DISCOVERY-SERIES-UNIFIED-NARRATIVE.md" },
+    { "id": "html_rebuild", "script": "scripts/refresh-owner-notify-html.sh" },
+    { "id": "html_verify", "script": "scripts/verify-owner-html-deliverables.sh" },
+    { "id": "round2_stress", "script": "scripts/ceo-workflow-test-round2-finish.sh", "when": "test_brief_ready_and_CEO_WORKFLOW_TEST_ROUND2=1" }
+  ],
+  "brief_sets": {
+    "discovery_queue": [
+      "content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md",
+      "content/xiaohongshu/2026-10-17-discovery-02-narrative-not-ads-brief.md",
+      "content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md",
+      "content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md"
+    ],
+    "workflow_test_glob": "content/xiaohongshu/*-test-brief.md"
+  },
+  "html_outputs": [
+    "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-<YYYY-MM-DD>.html",
+    "content/evolution/00-manager/ceo-inbox/OWNER-WORKFLOW-TEST-ARTICLE-<YYYY-MM-DD>.html"
+  ]
+}

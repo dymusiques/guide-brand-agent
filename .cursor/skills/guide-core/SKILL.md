@@ -1,11 +1,30 @@
 ---
-name: guide-core
-description: >-
-  Orchestrator for the Guide multi-domain brand agent. Routes tasks across personal IP,
-  business/brand planning, marketing, Xiaohongshu, and visual design. Use when the user
-  asks for brand strategy, IP building, marketing, 小红书, or visual direction without
-  naming a single sub-domain.
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/guide-core/SKILL.md"
+goal: "Guide Core — 总控"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "534e6644f512b5fc"
 ---
+
+# Guide Core — 总控
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **Canonical 集成：** [agents/README.md](../../../agents/README.md) · [docs/DANYING-BRAND-AGENT-INTEGRATION.md](../../../docs/DANYING-BRAND-AGENT-INTEGRATION.md) · [00-manager INTEGRAT
+- **Path:** `.cursor/skills/guide-core/SKILL.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **启动顺序**: **Canonical 集成：** [agents/README.md](../../../agents/README.md) · [docs/DANYING-BRAND-AGENT-INTEGRAT…
+- **路由规则**: | 用户意图关键词 | 领域 Skill |
+- **Knowledge Bank · 存储（少占 Drive）**: 读 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md)：
+- **Generative Kernel 原则**: - 复用 `kernels/` 里的参考实现与模板，现场组装，不跑死程序
+
+
+---
+
+## L2 正文
 
 # Guide Core — 总控
 

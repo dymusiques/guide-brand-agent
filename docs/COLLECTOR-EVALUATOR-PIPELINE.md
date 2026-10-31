@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/COLLECTOR-EVALUATOR-PIPELINE.md"
+goal: "Collector + Evaluator · Owner 怎么用"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "45cb5de5b3e4fb11"
+---
+
+# Collector + Evaluator · Owner 怎么用
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 1. **收集者（Collector）** — 你喂的语音转写、md、chat 片段、表格，**全部进 intake**，Agent 必须基于 **manifest 里全部 intake** 再写 v0。  
+2. **Evaluator** — 每轮产出 **纠正稿** + 与 **gold 标准答案** 的 **编辑距离**，记入 `metrics.js
+- **Path:** `docs/COLLECTOR-EVALUATOR-PIPELINE.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **你要的两层能力（全 Agent + CEO 都有）**: 1. **收集者（Collector）** — 你喂的语音转写、md、chat 片段、表格，**全部进 intake**，Agent 必须基于 **manifest 里全部 intake** 再写 v…
+- **一次完整循环（以篇 E 口播为例 · Agent 04）**: ```bash
+- **CEO（00）同样**: ```bash
+- **双螺旋：基线升高 · 标准升高**: **Owner 原则（2026-10-27）：** 迭代让 **单篇成果** 慢慢变好，并让 **自己的基线**（素材 + gold）越抬越高；**无论你用多口语、多碎片的说法**，系统在基线抬高后应…
+- **与小红书 aligned 的关系**: - **进化距离** = 你离「心中定稿」多近（可量化）。
+- **规范全文**: [agents/_shared/COLLECTOR-EVALUATOR.md](../agents/_shared/COLLECTOR-EVALUATOR.md) · [integration/col…
+
+
+---
+
+## L2 正文
+
 # Collector + Evaluator · Owner 怎么用
 
 ## 你要的两层能力（全 Agent + CEO 都有）

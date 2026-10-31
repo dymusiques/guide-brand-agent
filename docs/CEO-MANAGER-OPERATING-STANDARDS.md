@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/CEO-MANAGER-OPERATING-STANDARDS.md"
+goal: "CEO / Manager 运营标准 · Owner 五原则（持久团队资产）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "dffbfea3f228ef1a"
+---
+
+# CEO / Manager 运营标准 · Owner 五原则（持久团队资产）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **文件**
+- 派活：`content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27-evening.md`
+- 日间关联：`…/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27.md`
+- 报告：`…/ceo-ip-all-agents-
+- **Path:** `docs/CEO-MANAGER-OPERATING-STANDARDS.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **签发：** 2026-10-27 · 00 Manager 代 CEO
+- **章节锚点**: - **总览：五原则 → 落地**: | # | Owner 原则 | CEO/GM 一句话做法 | 主要产物 | 主验收 |
+- **示范案例（Worked example）：2026-10-27 晚间战役**: **文件**
+- **相关**: - [MANAGER-THREE-PILLARS](./MANAGER-THREE-PILLARS.md)（Owner 三支柱主框架：可观察性 / 可衡量基准 / 教练→SOP）
+
+
+---
+
+## L2 正文
+
 # CEO / Manager 运营标准 · Owner 五原则（持久团队资产）
 
 > **签发：** 2026-10-27 · 00 Manager 代 CEO  
@@ -16,27 +47,6 @@
 | 4 | 教练式引导促成长 | CEO 给 GM 的是「哪条 gate 为何 FAIL + 改哪一段」，不是代写；GM 自改 v(N+1) | `CEO-REROUTE.md` · GM-REPORT | 打回轮次 n/3 递减、同类 FAIL 不复发 |
 | 5 | 个人洞见 → 持久团队资产 | Owner 一句洞见 → 当天落盘成 doc/SOP/脚本/rule，并进索引 | 本文件 · SOP · WORKSPACE 索引 · `.mdc` 规则 | `verify-handoff.sh` · 索引可检索 |
 
----
-
-## 1. 清晰的委派：项目开始不含糊
-
-**CEO 必做**
-- Owner 给目标（口语即可）→ **同会话先写 dispatch，再动手**。禁止「边聊边做」没有书面任务。
-- dispatch 必含：North star、战役题目、per-agent 表（任务 + 终端验收）、截止/时间盒、红线、`G-*` 目标绑定、**交 Owner 条件**。
-- 只问 Owner **一次且仅限**：目标歧义（影响方向）、发布/Drive/对外裁决。其余自己决定并记录假设。
-- 每个 GM 收到的是**自己那一行**：做什么 · 交什么 · 用什么命令证明。
-
-**GM 必做**：读 `agents/<nn>-*/INTEGRATION-PROMPT.md`；复述任务一句话（验收口径）；不扩范围。
-
-**产物：** `content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-<YYYY-MM-DD>[-evening].md`  
-**验证：**
-```bash
-ls content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*.md
-rg -c '^\| 0[0-9]|^\| 1[0-2]' content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27-evening.md   # 应覆盖 00–12
-```
-**反模式 ✗**：只在聊天里说「大家动起来」· dispatch 无验收命令 · 事后补 dispatch · 把「要不要跑 evaluate」抛给 Owner。
-
----
 
 ## 2. 有把握的评估：可衡量进展
 
@@ -55,25 +65,6 @@ VERIFY_GOALS_SKIP_PLATFORM=0 bash scripts/run-ceo-ip-all-agents-campaign.sh   # 
 ```
 **反模式 ✗**：「差不多好了」「应该没问题」· 只跑 1 条 shell 称深筛 · 半截日志当交付（无 `RESULT: PASS` 标记即作废）· 隐藏未做项。
 
----
-
-## 3. 数据驱动改进，非猜测
-
-**CEO/GM 必做**
-- 选题/标题/策略调整前读 09 产出：`content/analytics/derived/next-topics-*.md`、`ceo-dispatch-latest.md`；文案类先走 [XHS-CONTENT-INTAKE-STACK](./XHS-CONTENT-INTAKE-STACK.md)。
-- Gate FAIL → 读 FAIL 具体项（redteam / adversarial / L1×6 / evaluate / kernel 6）→ 针对性改，**不凭感觉重写**。
-- 有 gold 时记编辑距离：`evaluate-edit-distance.py` → `evolution-metrics-summary.py` 看趋势。
-- 无 CSV/无 inbox 数据 → 结论标 **「未验证」**（红线：不编造阅读/转化数据）。
-
-**验证命令**
-```bash
-bash scripts/analytics-pipeline.sh
-python scripts/evolution-metrics-summary.py
-bash scripts/verify-xhs-content-intake.sh
-```
-**反模式 ✗**：编造数据 · 「我觉得读者喜欢」当依据 · 改 Brief 不引用 FAIL 原因 · 引用过期「最新」资讯不核日期（见 `bestpractice_temporal_info_verification.md`）。
-
----
 
 ## 4. 教练式引导促成长
 
@@ -90,33 +81,6 @@ bash scripts/verify-xhs-content-intake.sh
 **验证：** 同一 Brief 打回轮次逐篇下降（campaign 晚间：Discovery 01 round **1/3** 即过）；`ceo-auto-fix-brief.py` 记录可追溯。  
 **反模式 ✗**：CEO 直接代写全文 · REROUTE 只写「不行重来」· 把 FAIL 稿交 Owner 验 · 同一错误反复出现不沉淀。
 
----
-
-## 5. 个人洞见 → 持久团队资产（Owner + AI 执行能力）
-
-**机制：** Owner 的每一条判断（原则、红线、口吻、取舍）→ 当天变成 **可被 AI 执行** 的载体：
-
-| 洞见类型 | 落盘到 | 例 |
-|----------|--------|-----|
-| 工作方式/原则 | `docs/*.md` + SOP | 本文件 · [CEO-DISPATCH-SOP](../agents/00-manager/CEO-DISPATCH-SOP.md) |
-| 每次必执行 | `.cursor/rules/*.mdc`（`alwaysApply`） | `danying-manager-auto.mdc` |
-| 可重复流程 | `scripts/*.sh` + verify | `run-ceo-ip-all-agents-campaign.sh` |
-| Agent 职责/口径 | `agents/<nn>-*/INTEGRATION-PROMPT.md` | 各 GM |
-| 内容红线 | Brief 模板 / challenge 节 | `BRIEF-ADVERSARIAL-CHALLENGE.md` |
-| 找得到 | `rules/WORKSPACE.md` · `INDEX.md` | 新文档必入索引 |
-
-**CEO 做法：** 听到 Owner 洞见 → ① 判断类型 → ② 落盘 → ③ 入索引 → ④ 跑 `verify-handoff.sh` → ⑤ 在派活记录写「新增资产：路径」。  
-**Owner + AI 执行能力：** Owner 提供判断（只说一次）；AI 负责落盘、执行、复验、重试。**定稿产出 commit 进 Git**（Owner 要求时）；Drive 仅 Owner 要求时 sync。
-
-**验证命令**
-```bash
-bash scripts/verify-handoff.sh
-bash scripts/verify-agent-takeover.sh
-rg -n 'CEO-MANAGER-OPERATING-STANDARDS|CEO-DISPATCH-SOP' rules/WORKSPACE.md agents/00-manager/AUTO-WORKFLOW.md
-```
-**反模式 ✗**：洞见只留在聊天记录 · 新文档不入索引 · 只写文档不配命令/规则 · 换机后「不记得 Owner 说过什么」。
-
----
 
 ## 总反模式清单（速查）
 

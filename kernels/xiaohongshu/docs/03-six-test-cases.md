@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "kernels/xiaohongshu/docs/03-six-test-cases.md"
+goal: "六个必过测试用例说明"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "4586c46dc0cea73b"
+---
+
+# 六个必过测试用例说明
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **执行源（唯一真相）：** `line2/tests/test_is_xhs_growth_aligned.py`  
+Test 仅 `from is_xhs_growth_aligned import is_xhs_growth_aligned`（真文件在 `line2/is_xhs_growth_aligned.py`），不引用 `learning2/
+- **Path:** `kernels/xiaohongshu/docs/03-six-test-cases.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **设计意图**: - **1–2：** 覆盖「显性」与「隐性」符合规则的笔记。
+- **运行**: ```bash
+
+
+---
+
+## L2 正文
+
 # 六个必过测试用例说明
 
 **执行源（唯一真相）：** `line2/tests/test_is_xhs_growth_aligned.py`  

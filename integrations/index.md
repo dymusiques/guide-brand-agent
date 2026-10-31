@@ -1,3 +1,33 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integrations/index.md"
+goal: "Integrations · 任务路由表"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "05cd74a544405f7b"
+---
+
+# Integrations · 任务路由表
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **用法：** 用户说任务 → 匹配「意图」列 → 只读对应 Skill + **Git `content/`** + 本地目录。**禁止**无路由全盘 grep。  
+> **存储策略：** [docs/HANDOFF-COMPLETENESS.md](../docs/HANDOFF-COMPLETENESS.md) — Git 真相源；Drive 仅
+- **Path:** `integrations/index.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **产出默认流程**: 1. 草稿 → `content/<domain>/`
+- **领域任务**: | 意图（语义） | Skill | Drive 文件夹 | 本地产出 | 模板 |
+- **工具集成**: | 意图 | 入口 | 配置 |
+- **Drive Knowledge Bank（folder ID）**: Root: `1jLcbbr0WkmEI8mJlsf5R4Y1NtSGEP8_c` — 完整表见 `rules/skills/overlays/gdocs-skill.local.md`（gitign…
+- **上下文信号**: | 信号 | 路由 |
+
+
+---
+
+## L2 正文
+
 # Integrations · 任务路由表
 
 > **用法：** 用户说任务 → 匹配「意图」列 → 只读对应 Skill + **Git `content/`** + 本地目录。**禁止**无路由全盘 grep。  

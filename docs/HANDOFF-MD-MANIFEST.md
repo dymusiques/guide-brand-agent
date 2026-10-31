@@ -1,3 +1,36 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/HANDOFF-MD-MANIFEST.md"
+goal: "接手 MD 清单 · 新机「植入」读序"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "dfec47fbde83cc02"
+---
+
+# 接手 MD 清单 · 新机「植入」读序
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > Owner 在新会话说 **`danying-brand-agent`** 或 **`请 CEO 开始工作`** → Agent 按本清单 **Read 文件**（不依赖旧对话）。  
+> 总入口：[AGENT-TAKEOVER.md](AGENT-TAKEOVER.md) · **CEO/GM 接手包：** [HANDOFF-CEO-GM-SOP-PA
+- **Path:** `docs/HANDOFF-MD-MANIFEST.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **0 · CEO/GM 体系（2026-10-28 · 先读）**: | # | 路径 |
+- **1 · 指挥与架构（Must）**: | # | 路径 |
+- **2 · Owner / IP / 红线（Must）**: | # | 路径 |
+- **3 · 认知期触达 + 商业（当前 program · Must）**: | # | 路径 |
+- **4 · 小红书 Brief 队列（Must · 当前 4+1）**: | # | 路径 |
+- **4b · Artist 对标 · GM10（Must · 不用 SWOT）**: | # | 路径 |
+- **5 · Prompt / 上下文 / Open WebUI（Must · 2026-10-30）**: | # | 路径 |
+- **6 · 路由与验收（Should）**: | # | 路径 |
+
+
+---
+
+## L2 正文
+
 # 接手 MD 清单 · 新机「植入」读序
 
 > Owner 在新会话说 **`danying-brand-agent`** 或 **`请 CEO 开始工作`** → Agent 按本清单 **Read 文件**（不依赖旧对话）。  
@@ -68,7 +101,15 @@
 | 21c | [OWNER-ARTIST-CATALOG-ON-OPEN.md](OWNER-ARTIST-CATALOG-ON-OPEN.md) · [../content/ip-research/README.md](../content/ip-research/README.md) |
 | 21d | [VERIFY-AGENT-FUSED.md](VERIFY-AGENT-FUSED.md) |
 
-## 5 · 路由与验收（Should）
+## 5 · Prompt / 上下文 / Open WebUI（Must · 2026-10-30）
+
+| # | 路径 |
+|---|------|
+| 21e | **[PROMPT-CONTEXT-STANDARD.md](PROMPT-CONTEXT-STANDARD.md)** |
+| 21f | [COURSE-METHOD-TO-YOUR-STACK.md](COURSE-METHOD-TO-YOUR-STACK.md) · [OPENWEBUI-INTAKE-PROMPT-TEMPLATE.md](OPENWEBUI-INTAKE-PROMPT-TEMPLATE.md) |
+| 21g | [../integration/handoff/cursor-openwebui-task-routing.json](../integration/handoff/cursor-openwebui-task-routing.json) |
+
+## 6 · 路由与验收（Should）
 
 | # | 路径 |
 |---|------|

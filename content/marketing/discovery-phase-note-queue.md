@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/discovery-phase-note-queue.md"
+goal: "认知期 · 小红书深度系列队列（触达计划执行）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "a8744ec00929f86a"
+---
+
+# 认知期 · 小红书深度系列队列（触达计划执行）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 主计划：[2026-10-brand-discovery-phase.md](./2026-10-brand-discovery-phase.md)
+- **Path:** `content/marketing/discovery-phase-note-queue.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **内容主轴（初期重价值，合作轻 touch）**: | 主轴 | 含义 |
+- **CTA 从第一篇就要有，但不违和**: - **正文 90%** 只谈价值与判断，**不出现** 报价、体验季、服务清单。
+- **系列篇数 · 按真实数据落地**: **基准一轮：4 篇**（每周 1 篇，约 1 个月）。每篇对应队列 `#` 与价值主轴。
+- **工作流（每篇固定）**: 1. Owner 确认队列 `#` 或改一句强调点
+
+
+---
+
+## L2 正文
+
 # 认知期 · 小红书深度系列队列（触达计划执行）
 
 主计划：[2026-10-brand-discovery-phase.md](./2026-10-brand-discovery-phase.md)
@@ -52,4 +80,4 @@
 1. Owner 确认队列 `#` 或改一句强调点  
 2. 04 写 `content/xiaohongshu/*-brief.md`  
 3. `evaluate --brief` → aligned  
-4. 发布 → CSV 进 `analytics/inbox` → 09 复盘 → 决定延长/暂停  
+4. 发布 → CSV 进 `analytics/inbox` → 09 复盘 → 决定延长/暂停

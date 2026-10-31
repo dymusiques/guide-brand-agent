@@ -1,3 +1,33 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/parallel-subagents-adoption.md"
+goal: "并行 Subagent · 本仓采纳说明"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "d60f7e90aa762573"
+---
+
+# 并行 Subagent · 本仓采纳说明
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Discovery：** [rules/skills/workflow_parallel_subagents.md](../rules/skills/workflow_parallel_subagents.md)  
+> **勿与** [agents/00-manager/AUTO-WORKFLOW.md](../agents/00-manager/
+- **Path:** `integration/parallel-subagents-adoption.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **两套「多 Agent」各管什么**: | 维度 | **本仓 00 Manager + 01–09** | **并行 Subagent（Task）** |
+- **采纳清单**: | 上游内容 | 本仓 |
+- **推荐组合（认知期 / 多任务）**: 1. **选题前：** 轻量并行 Task → `tmp/parallel/<slug>/`；**需 Tier/claim/fact_check 时** 走 [workflow_deep_resear…
+- **扩展接口**: | 改动 | 接哪里 |
+- **验收**: - `rules/skills/workflow_parallel_subagents.md` 存在
+
+
+---
+
+## L2 正文
+
 # 并行 Subagent · 本仓采纳说明
 
 > **Discovery：** [rules/skills/workflow_parallel_subagents.md](../rules/skills/workflow_parallel_subagents.md)  

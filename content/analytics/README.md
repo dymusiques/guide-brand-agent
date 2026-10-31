@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/analytics/README.md"
+goal: "多平台数据仓库 · Analytics"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "84a6766e685331e0"
+---
+
+# 多平台数据仓库 · Analytics
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 统一存放 **小红书 / Instagram / YouTube** 运营数据（Git 内为 **示例 + 派生报告**；真实导出 CSV 建议本地命名 `notes.csv` 且勿含私信正文）。
+- **Path:** `content/analytics/README.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **目录**: | 路径 | 用途 |
+- **三阶段（摘录 · 与 staged 对齐）**: | Stage | 本仓动作 | 边界 |
+- **Pipeline（读 → 算分 → 下一题清单）**: ```bash
+- **API 说明**: 各平台 **无统一公开 API** 给本仓自动拉取；`analytics-fetch.sh` 处理 **后台导出的 CSV/表格**。
+
+
+---
+
+## L2 正文
+
 # 多平台数据仓库 · Analytics
 
 统一存放 **小红书 / Instagram / YouTube** 运营数据（Git 内为 **示例 + 派生报告**；真实导出 CSV 建议本地命名 `notes.csv` 且勿含私信正文）。

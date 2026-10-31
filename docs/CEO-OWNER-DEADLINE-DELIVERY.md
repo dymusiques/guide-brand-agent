@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/CEO-OWNER-DEADLINE-DELIVERY.md"
+goal: "CEO · Owner 截止交付（24:00 北京时间）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "90a927a4708ad12e"
+---
+
+# CEO · Owner 截止交付（24:00 北京时间）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Owner 意图：** 只对 CEO 说一次目标 → 各 GM 被派活 → **持续收集** → **多轮**筛选与测试 → **24:00 前** HTML/邮件交付。  
+> **不是** 5 分钟跑一条 shell 就称「认真筛选」。
+- **Path:** `docs/CEO-OWNER-DEADLINE-DELIVERY.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **你对 CEO 说什么（示例）**: 口语即可，例如：
+- **深交付 vs 应付式 batch**: | | 应付式（旧） | 深交付（Must） |
+- **一条命令（Owner 或 Agent 跑）**: ```bash
+- **怎么「测试」整个机制**: 1. **干跑计时：** 看 log 是否含 `C1` `D1` `E1` `C2`… 多阶段时间戳。
+- **能力边界（诚实）**: | 能自动 | 不能自动（除非另开 Cursor 会话/Task） |
+- **相关**: - [BRIEF-AUTO-GATE-PIPELINE.md](./BRIEF-AUTO-GATE-PIPELINE.md)
+
+
+---
+
+## L2 正文
+
 # CEO · Owner 截止交付（24:00 北京时间）
 
 > **Owner 意图：** 只对 CEO 说一次目标 → 各 GM 被派活 → **持续收集** → **多轮**筛选与测试 → **24:00 前** HTML/邮件交付。  

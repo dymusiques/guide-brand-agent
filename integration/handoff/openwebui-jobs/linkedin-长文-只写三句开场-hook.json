@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "slug": "linkedin-长文-只写三句开场-hook",
+  "route": "PIPE_COT",
+  "platform": "personal_ip",
+  "goal": "LinkedIn 长文：只写三句开场 hook",
+  "brief_path": null,
+  "outbox_md": "/Users/danying/Desktop/Open WebUI Personal IP/outbox/linkedin-长文-只写三句开场-hook.md",
+  "status": "done",
+  "updated_at": "2026-10-29T09:47:17Z",
+  "model": "yage_cot.yage/yage-outline",
+  "knowledge": "brand-ip-knowledge"
+}

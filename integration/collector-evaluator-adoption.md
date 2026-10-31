@@ -1,3 +1,33 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/collector-evaluator-adoption.md"
+goal: "Collector + Evaluator · 集成 adoption"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "73553333515458c2"
+---
+
+# Collector + Evaluator · 集成 adoption
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Owner 需求（2026-10-27）：** **CEO（00）+ 部门总经理（01–09 二级 Manager）** 公司层级；各部门 **Collector + v0→vN + Evaluator + GM-REPORT→CEO**。见 [docs/IP-MANAGEMENT-HIERARCHY.md](../docs/IP-MANAGEMEN
+- **Path:** `integration/collector-evaluator-adoption.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **分层（不替代 00 步序）**: ```text
+- **路径约定（Git 真相源）**: ```text
+- **脚本（集成层 · 非 kernel）**: | 脚本 | 作用 |
+- **各 Agent 范围（收集什么）**: | Agent | slug 前缀 | 典型 artifact | gold 从哪来 |
+- **改集成时**: 1. 各 `agents/<nn>-*/INTEGRATION-PROMPT.md` 已链到 [`agents/_shared/COLLECTOR-EVALUATOR.md`](../agents/_…
+- **验收**: ```bash
+
+
+---
+
+## L2 正文
+
 # Collector + Evaluator · 集成 adoption
 
 > **Owner 需求（2026-10-27）：** **CEO（00）+ 部门总经理（01–09 二级 Manager）** 公司层级；各部门 **Collector + v0→vN + Evaluator + GM-REPORT→CEO**。见 [docs/IP-MANAGEMENT-HIERARCHY.md](../docs/IP-MANAGEMENT-HIERARCHY.md)。

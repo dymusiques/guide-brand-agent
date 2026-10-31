@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/daily-brief/2026-10-27-owner-daily-brief.md"
+goal: "Owner Daily Brief · 2026-10-27"
+openwebui_route: "intake_l2"
+cursor_route: "exec_gate"
+content_sha256: "6c34416280380302"
+---
+
+# Owner Daily Brief · 2026-10-27
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Owner Daily Brief · 2026-10-27
+- **Path:** `content/daily-brief/2026-10-27-owner-daily-brief.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `exec_gate`
+
+## 章节锚点
+- **Artist 对标（GM10）**
+- **IP 自检（GM11）**: - Brief 缺 redteam-pre：0 篇
+- **今日派活建议（09→04）**
+- **Owner 边界（本块不代做）**: - **发帖**：小红书 / 其他平台由 Owner 操作
+- **当前执行优先级**: 1. **定稿 / 视觉 / 发帖**：`content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md`
+- **数据选题（09 → 04）**: 来源：`content/analytics/derived/next-topics-2026-10-27.md`
+- **支柱 Strong-link 得分合计**: - **跨界品牌**：552.0
+- **建议交给 04 Topic Manager（3 条）**: 1. **跨界品牌：把强链接做成下一篇主线**
+
+
+---
+
+## L2 正文
+
 # Owner Daily Brief · 2026-10-27
 > CEO 汇总 GM10/11/09 · 内部已跑 verify/challenge
 ## Artist 对标（GM10）
@@ -87,17 +119,6 @@
 2. [Danying HEAR Daily flute tip](https://instagram.com/p/example) · 听见Daily · score 141.0
 3. **Flute masterclass excerpt** · 艺术专业 · score 68.8 · id `dQw4example`
 
----
-由 `scripts/analytics-summarize.py` 生成 → Manager 派 04 写 Brief → `evaluate --brief`
-
-## 派活口令（粘贴给 Agent / 04）
-
-```
-读 agents/00-manager/AUTO-WORKFLOW.md；
-若 Owner 未指定 Brief：优先处理 ceo-dispatch-latest 中「当前执行优先级」；
-```
-
----
 队列参考：`content/marketing/discovery-phase-note-queue.md`
 
 ## 请你（仅决策）

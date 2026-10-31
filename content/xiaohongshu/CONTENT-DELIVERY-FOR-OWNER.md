@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md"
+goal: "内容交付 · Owner 确认门（Agent 必守）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "ce23ae998e566bc2"
+---
+
+# 内容交付 · Owner 确认门（Agent 必守）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **数据叠加栈：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)
+- **Path:** `content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Owner 报告格式（Must · 2026-10-27）**: - **交给 Owner 的汇总/筛选/CEO 交付**：默认 **单文件 HTML**（浏览器双击可开；Discovery 等用 **弹出层** 展示全文）。
+- **流程**: ```text
+- **Agent 每轮必须交给 Owner 的包**: 规范细则：[OWNER-CONTENT-SPEC.md](./OWNER-CONTENT-SPEC.md) · **视频迭代：** [XHS-VIDEO-ITERATION.md](./XHS-VID…
+- **Owner 确认后**: - 在 Brief 填 `## 发布状态`（日期、链接）。
+- **禁止**: - 未读 Intake Stack 就称「已数据驱动定稿」。
+
+
+---
+
+## L2 正文
+
 # 内容交付 · Owner 确认门（Agent 必守）
 
 > **数据叠加栈：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)

@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/analytics/derived/xhs-data-strategy-2026-10-20.md"
+goal: "小红书数据 → 选题策略 · 2026-10-20"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "0faac86e89d6dd81"
+---
+
+# 小红书数据 → 选题策略 · 2026-10-20
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **Owner 目标：** 跨行业品牌发现（强链接 > 纯涨粉）· 认知期 depth 队列  
+**数据：** 23 篇 notes.csv + 23 篇单篇明细 · 无品牌向私信导出（见 signal-baseline）
+- **Path:** `content/analytics/derived/xhs-data-strategy-2026-10-20.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **1. 数据说了什么（可验证）**: | 信号 | 证据 | 对选题的含义 |
+- **2. 与 Agent 链路的对应**: ```text
+- **3. 推荐发布顺序（数据 × 队列）**: 1. **discovery-01**（不可替代性）— P0；钩子已按 Top 笔记结构微调
+- **4. 2026 平台机制**: 本策略 **不依赖** 未验证的算法细节。封面/完播/2 秒退出已进 CSV，用于结构复盘。
+
+
+---
+
+## L2 正文
+
 # 小红书数据 → 选题策略 · 2026-10-20
 
 **Owner 目标：** 跨行业品牌发现（强链接 > 纯涨粉）· 认知期 depth 队列  

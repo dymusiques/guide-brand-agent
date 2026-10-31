@@ -1,24 +1,37 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/HANDOFF-CEO-GM-SOP-PACK.md"
+goal: "接手包 · CEO / GM 运营体系（2026-10-28）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "1f9805d88d616828"
+---
+
+# 接手包 · CEO / GM 运营体系（2026-10-28）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **给谁：** 新 Cursor Agent、换机后的第一次会话、Owner 要确认「是不是都写进程序了」。  
+> **机器可读索引：** [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)
+- **Path:** `docs/HANDOFF-CEO-GM-SOP-PACK.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **2. 框架与 SOP 文件清单（Must 知道）**
+- **4. 新 Agent 接手后第一次 Owner 交互**: Owner 说：**「请 CEO 开始工作」** → Agent Must：
+- **6. 相关**: - [HANDOFF-COMPLETENESS.md](./HANDOFF-COMPLETENESS.md) · [SETUP.md](../SETUP.md) · [rules/WORKSPACE.…
+
+
+---
+
+## L2 正文
+
 # 接手包 · CEO / GM 运营体系（2026-10-28）
 
 > **给谁：** 新 Cursor Agent、换机后的第一次会话、Owner 要确认「是不是都写进程序了」。  
 > **机器可读索引：** [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)  
 > **新机口令：** 在 chat 说 **`danying-brand-agent`** 或 **`请 CEO 开始工作`**（见 [CEO-OWNER-ONE-LINE-TRIGGERS.md](./CEO-OWNER-ONE-LINE-TRIGGERS.md)）。
 
----
-
-## 1. Owner 确认：是不是都写进「程序」了？
-
-**是 — 在 Git 仓库里分三层：**
-
-| 层 | 是什么 | 你/新 Agent 怎么用 |
-|----|--------|-------------------|
-| **规则（自动生效）** | `.cursor/rules/danying-manager-auto.mdc` 等 | 打开本仓即加载；Owner 给目标 → **00 Manager 自动接手**，不必贴 bash |
-| **SOP / 文档** | 下文 §2 清单 | 新 Agent **按读序读一遍**；日常查路径 |
-| **脚本（可执行）** | `scripts/*.sh` · `scripts/*.py` | Agent **Must 自己跑**；Owner 只说「CEO 开始工作」即可 |
-
-**不在 Git 的（需 Owner 本机一次）：** Google OAuth（`vendor/gdocs-skill/secrets/`）、Cursor **Customize → MCPs** Connect、Gemini API key（`.env`）。见 [SETUP.md](../SETUP.md)。
-
----
 
 ## 2. 框架与 SOP 文件清单（Must 知道）
 
@@ -46,6 +59,7 @@
 | [agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md](../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md) | **consult SOP** · 迭代1 → analyze → 迭代2 |
 | [CEO-OWNER-ONE-LINE-TRIGGERS.md](./CEO-OWNER-ONE-LINE-TRIGGERS.md) | Owner **不必贴命令** |
 | [CEO-AUTO-RECOVER-AND-RETRY.md](./CEO-AUTO-RECOVER-AND-RETRY.md) | 中断/FAIL **自动 recover** |
+| [OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](./OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) | **Owner 固定** · 搜坑 · L2–L3 对抗 · 多轮 gap 直到 READY |
 | [BRIEF-AUTO-GATE-PIPELINE.md](./BRIEF-AUTO-GATE-PIPELINE.md) | evaluate / adversarial / 6-test **无人值守** |
 | [CEO-OWNER-DEADLINE-DELIVERY.md](./CEO-OWNER-DEADLINE-DELIVERY.md) | 截止 **深交付** |
 
@@ -61,32 +75,11 @@
 | `scripts/run-ceo-ip-all-agents-campaign.sh` | 01–12 全员 |
 | `scripts/run-ceo-deep-delivery-cycle.sh` | 深交付截止 |
 | `scripts/manager-xhs-briefs-auto-pipeline.sh` | 全 Brief 管线 |
+| `scripts/manager-brief-evolution-until-gap.sh` | 单篇进化直到 EVOLUTION-GAP READY |
+| `scripts/analyze-brief-evolution-gap.py` | 轮间差距 · baseline / gold |
 
 **勿混淆：** `CEO_DEEP_ROUNDS=2` ≠ CEO 双轮 prompt 迭代；gate 默认 3 轮 ≠ 两次「改 prompt 迭代」。
 
----
-
-## 3. 新 Agent / 新机 · 10 分钟读序
-
-1. 本文（你正在读）  
-2. [HANDOFF-MD-MANIFEST.md](./HANDOFF-MD-MANIFEST.md) 全文表  
-3. [AGENT-TAKEOVER.md](./AGENT-TAKEOVER.md) · [integration/IMPORTANT.md](../integration/IMPORTANT.md)  
-4. [MANAGER-THREE-PILLARS.md](./MANAGER-THREE-PILLARS.md) → [CEO-DOUBLE-ITERATION-SOP.md](../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md)  
-5. `integration/handoff/ceo-gm-operating-manifest.json`（路由用）
-
-**一键（推荐 · 含 background 09:00 配置）：**
-
-```bash
-bash scripts/new-machine-bootstrap.sh
-```
-
-或分步：`ensure-venv-deps.sh` · `verify-handoff.sh` · `manager-autopilot.sh`（autopilot 内会自动 `ensure-background-goal-evolution.sh`）。
-
-**仍须 Owner 本机一次（若 daily 后台要跑）：** Terminal 里 `process-launcher start --config config/dba-brand-agent.yaml`（bootstrap 结束会提示是否已在 :7997 监听）。
-
-有 OAuth：`bash scripts/verify-integration.sh` · `VERIFY_GOALS_SKIP_PLATFORM=0 bash scripts/verify-goals.sh`
-
----
 
 ## 4. 新 Agent 接手后第一次 Owner 交互
 
@@ -97,21 +90,6 @@ Owner 说：**「请 CEO 开始工作」** → Agent Must：
 3. 执行下一项（campaign / 双轮 Brief / 深交付 / 刷新 HTML）  
 4. 输出 **Manager 派活记录**（Owner Gate · 打回轮次 · 是否交 Owner）
 
----
-
-## 5. 模板与产物路径（改稿时）
-
-| 产物 | 路径 |
-|------|------|
-| ITERATION-LOG | `content/evolution/04-xhs-topic-manager/<slug>/ITERATION-LOG.md` |
-| CEO-REROUTE | `content/evolution/04-xhs-topic-manager/<slug>/CEO-REROUTE.md`（含 **Prompt Change 提案**） |
-| GM-REPORT | 同目录或 `content/evolution/<dept>/…/GM-REPORT.md`（含 **本轮分析结论**） |
-| 派活 / 报告 | `content/evolution/00-manager/ceo-inbox/` |
-| Owner HTML | `ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-<date>.html` |
-
-模板：`content/evolution/_template/CEO-REROUTE.md` · `GM-REPORT.md`
-
----
 
 ## 6. 相关
 

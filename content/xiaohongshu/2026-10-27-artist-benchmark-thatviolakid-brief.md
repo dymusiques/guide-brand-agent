@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/2026-10-27-artist-benchmark-thatviolakid-brief.md"
+goal: "小红书笔记 Brief · 对标 ThatViolaKid"
+openwebui_route: "intake_l2"
+cursor_route: "exec_gate"
+content_sha256: "aee25ef14df2c2a0"
+---
+
+# 小红书笔记 Brief · 对标 ThatViolaKid
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 小红书笔记 Brief · 对标 ThatViolaKid
+- **Path:** `content/xiaohongshu/2026-10-27-artist-benchmark-thatviolakid-brief.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `exec_gate`
+
+## 章节锚点
+- **标题（≤20 字建议）**: 古典乐手接品牌，怎样不丢专业？
+- **封面**: - 主视觉: 长笛演奏局部 + 品牌空间/ rehearsal 幕后感（非单品类卖场）
+- **钩子**: 跨界不是换身份，是 **同一套专业判断** 进不同场景。
+- **正文结构**: 1. **问题：** 装饰性露出 vs 能建立信任的专业 moment
+- **标签**
+- **CTA**: 收藏本篇框架；有具体场景私信「聊聊」。
+- **Owner 决策**: - [ ] 是否采用 P1 对标写正式稿
+
+
+---
+
+## L2 正文
+
 # 小红书笔记 Brief · 对标 ThatViolaKid
 
 <!-- xhs-classifier -->

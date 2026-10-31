@@ -1,0 +1,162 @@
+{
+  "version": "2026-10-30",
+  "context_window_and_data_routing": "docs/CONTEXT-WINDOW-AND-DATA-ROUTING.md",
+  "deploy_learning_stack": "bash scripts/deploy-learning-stack.sh",
+  "owner_mandate": "docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md",
+  "xhs_owner_delivery": "docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md",
+  "xhs_delivery_cycle_json": "integration/handoff/ceo-xhs-delivery-cycle.json",
+  "doc_human": "docs/WORKFLOW-AUTOMATION-MATRIX.md",
+  "verify": "bash scripts/verify-workflow-automation.sh",
+  "coverage_summary": {
+    "headline": "Machine layer ~85% wired; end-to-end content quality loop ~70% without Cursor Agent editing between gate rounds.",
+    "fully_unattended": [
+      "background-goal-evolution-cycle (daily 09:00 via process-launcher)",
+      "ensure-redteam-pre + adversarial + evaluate batch (manager-xhs-briefs-auto-pipeline)",
+      "ceo-dispatch-refresh + manager-dashboard + evolution rollups + daily-gm-trio",
+      "ceo-auto-recover-blocked (deep-delivery / campaign / locks)",
+      "new-machine-bootstrap + ensure-background-goal-evolution"
+    ],
+    "agent_session_required": [
+      "Brief FAIL → read CEO-REROUTE → edit Brief or INTEGRATION-PROMPT → rerun gate (one round per step)",
+      "CEO double iteration phase 2 after ITERATION-LOG filled (manager-ceo-double-iteration.sh)",
+      "New Brief v0 from Owner intent (04 GM write)",
+      "Canva / cover when Owner asks visual",
+      "Git commit when Owner did not forbid (AUTO-WORKFLOW step 5)"
+    ],
+    "owner_only": [
+      "XHS / IG post in platform apps (no publish API)",
+      "Export CSV → content/analytics/inbox/",
+      "Gold / strategic veto / irreversible ops / gate 3 rounds still FAIL escalation",
+      "OAuth first-time + Cursor MCP Connect",
+      "Destructive: mass DM, Gmail send, Drive overwrite, force push main"
+    ],
+    "owner_delivery_default": "docs/OWNER-DELIVERY-NOTIFY-DEFAULT.md",
+    "owner_notify_html": "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-<YYYY-MM-DD>.html",
+    "routine_handoff_file": false,
+    "external_blockers": [
+      "GEMINI_API_KEY missing → pipeline SKIP",
+      "VERIFY_GOALS_SKIP_PLATFORM=1 default in campaign → G-PLATFORM-SYNC not exercised until VERIFY_GOALS_SKIP_PLATFORM=0"
+    ]
+  },
+  "layers": [
+    {
+      "id": "L0_BOOT",
+      "name": "Clone / new machine / new Agent",
+      "owner_phrases": ["全部克隆", "danying-brand-agent", "新机接手"],
+      "steps": [
+        {
+          "order": 1,
+          "action": "hub clone-all",
+          "script": "bash ~/danying-apps/scripts/clone-all.sh",
+          "auto": "agent_runs"
+        },
+        {
+          "order": 2,
+          "action": "repo bootstrap",
+          "script": "bash scripts/new-machine-bootstrap.sh",
+          "auto": "agent_runs",
+          "includes": ["ensure-background-goal-evolution.sh", "verify-handoff", "manager-autopilot"]
+        },
+        {
+          "order": 3,
+          "action": "process-launcher start if :7997 down",
+          "script": "bash scripts/ensure-process-launcher.sh",
+          "auto": "script_tries_nohup",
+          "owner_fallback": "Terminal start once"
+        }
+      ]
+    },
+    {
+      "id": "L1_BACKGROUND",
+      "name": "Daily machine cycle (no Owner utterance)",
+      "trigger": "process-launcher cron 09:00",
+      "script": "scripts/background-goal-evolution-cycle.sh",
+      "outputs": [
+        "content/evolution/00-manager/ceo-inbox/agent-work-queue.md",
+        "content/analytics/derived/ceo-dispatch-latest.md",
+        "content/evolution/00-manager/ceo-inbox/background-cycle-latest.md"
+      ]
+    },
+    {
+      "id": "L2_CEO_START",
+      "name": "Owner says work",
+      "owner_phrases": ["CEO 开始执行", "请 CEO 开始工作", "CEO 开始", "CEO 干活"],
+      "script": "bash scripts/ceo-full-execution-pipeline.sh --goal \"<owner goal>\"",
+      "recover_first": "bash scripts/ceo-auto-recover-blocked.sh",
+      "mandate_doc": "docs/CEO-FULL-EXECUTION-MANDATE.md",
+      "longform_spec": "content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md",
+      "then_read": [
+        "content/evolution/00-manager/ceo-inbox/ceo-auto-recover-latest.md",
+        "content/evolution/00-manager/ceo-inbox/agent-work-queue.md",
+        "content/analytics/derived/ceo-dispatch-latest.md",
+        "content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*.md (latest)"
+      ],
+      "workflow_doc": "agents/00-manager/AUTO-WORKFLOW.md",
+      "openwebui_router": {
+        "must_before_manager_step_0": true,
+        "doc": "docs/OPENWEBUI-CEO-ROUTER.md",
+        "script": "bash scripts/run-openwebui-router-pipeline.sh --goal \"<owner goal>\"",
+        "verify": "bash scripts/verify-openwebui-ceo-router.sh",
+        "jobs_dir": "integration/handoff/openwebui-jobs",
+        "outbox_personal_ip": "~/Desktop/Open WebUI Personal IP/outbox",
+        "outbox_website": "~/Desktop/Open WebUI Fluid Body/outbox"
+      }
+    },
+    {
+      "id": "L3_BRIEF_GATE",
+      "name": "Brief quality gate + evolution until READY",
+      "batch": "bash scripts/manager-xhs-briefs-auto-pipeline.sh",
+      "evolution_loop": "bash scripts/manager-brief-evolution-until-gap.sh --brief <path>",
+      "gap_analyze": "python scripts/analyze-brief-evolution-gap.py --brief <path>",
+      "single_round": "bash scripts/manager-ceo-gate-one-round.sh --brief <path>",
+      "multi_round_agent": "bash scripts/manager-ceo-auto-gate-loop.sh --brief <path> --max-rounds 3",
+      "pitfalls_sop": "content/xiaohongshu/BRIEF-PITFALLS-RESEARCH-SOP.md",
+      "exit_codes": {
+        "0": "PASS",
+        "1": "FAIL after max rounds",
+        "42": "FAIL one round — Brief unchanged; Agent MUST edit then rerun single_round"
+      },
+      "on_fail_read": "content/evolution/04-xhs-topic-manager/<slug>/CEO-REROUTE.md",
+      "double_iteration": "bash scripts/manager-ceo-double-iteration.sh --brief <path> --phase 1|2"
+    },
+    {
+      "id": "L4_CAMPAIGN",
+      "name": "01-12 campaign / deep delivery",
+      "scripts": [
+        "bash scripts/run-ceo-deep-delivery-cycle.sh",
+        "bash scripts/run-ceo-ip-all-agents-campaign.sh"
+      ],
+      "recover": "bash scripts/ceo-auto-recover-blocked.sh"
+    }
+  ],
+  "agent_playbook": {
+    "session_start": [
+      "Read docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md (XHS / Brief tasks)",
+      "Read docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md (HTML sync + round2)",
+      "Read integration/handoff/workflow-automation-manifest.json (this file)",
+      "Read docs/WORKFLOW-AUTOMATION-MATRIX.md",
+      "Read content/ip-research/artist-intel-catalog.json if Owner opened chat (OWNER-ARTIST-CATALOG-ON-OPEN)"
+    ],
+    "on_brief_gate_exit_42": [
+      "Read CEO-REROUTE Prompt Change 提案",
+      "Edit Brief or integration prompt per REROUTE",
+      "bash scripts/manager-ceo-gate-one-round.sh --brief <same>",
+      "Repeat until PASS or round 3 then escalate Owner"
+    ],
+    "on_autopilot_fail": [
+      "Read content/evolution/00-manager/ceo-inbox/ceo-action-needed.md",
+      "Read agent-work-queue.md",
+      "GM-loop failed briefs; do NOT ask Owner to evaluate"
+    ],
+    "must_not": [
+      "Wait for Owner to say evaluate or challenge",
+      "Hand Owner Brief with aligned false",
+      "Run parallel Brief writers for same slug",
+      "Hand-edit OWNER-XHS-FILTER-DELIVERABLE HTML as source of truth",
+      "campaign PASS without refresh-owner-notify-html + verify-owner-html-deliverables",
+      "Discovery series narrative split from workflow test brief"
+    ],
+    "after_workflow_test_brief_pass": "CEO_WORKFLOW_TEST_ROUND2=1 bash scripts/manager-ceo-xhs-owner-delivery.sh --round2",
+    "after_any_xhs_brief_edit": "bash scripts/manager-ceo-xhs-owner-delivery.sh [--brief path] (Discovery auto-expands 01-04)"
+  }
+}

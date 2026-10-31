@@ -21,9 +21,10 @@ from __future__ import annotations
 
 import json
 import os
+import socket
 import subprocess
 import sys
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
@@ -36,8 +37,33 @@ IP_DOC_NEEDLE = "法派长笛"
 DEFAULT_PROXY = "http://127.0.0.1:3213"
 
 
-def _proxy_url() -> str:
-    return os.environ.get("HTTPS_PROXY") or os.environ.get("HTTP_PROXY") or DEFAULT_PROXY
+def _proxy_reachable(proxy: str, timeout_s: float = 0.4) -> bool:
+    parsed = urlparse(proxy if "://" in proxy else f"http://{proxy}")
+    host = parsed.hostname or "127.0.0.1"
+    port = parsed.port or 80
+    try:
+        with socket.create_connection((host, port), timeout=timeout_s):
+            return True
+    except OSError:
+        return False
+
+
+def _detect_local_proxy() -> str | None:
+    """Default 3213 only when the port is listening (aligns with GEMINI-NETWORK-AUTO)."""
+    if _proxy_reachable(DEFAULT_PROXY):
+        return DEFAULT_PROXY
+    return None
+
+
+def _proxy_url() -> str | None:
+    for raw in (
+        os.environ.get("HTTPS_PROXY"),
+        os.environ.get("HTTP_PROXY"),
+        _detect_local_proxy(),
+    ):
+        if raw and _proxy_reachable(raw):
+            return raw
+    return None
 
 
 def _load_access_token() -> str | None:
@@ -57,10 +83,13 @@ def _curl_google_api(url: str, token: str, timeout: int = 30) -> tuple[int, str]
         "-H", f"Authorization: Bearer {token}",
         "-H", "Accept: application/json",
     ]
+    proxy = _proxy_url()
     for use_proxy in (True, False):
         cmd = ["curl", "-sS", "--max-time", str(timeout), *headers, url]
-        if use_proxy:
-            cmd[4:4] = ["-x", _proxy_url()]
+        if use_proxy and proxy:
+            cmd[4:4] = ["-x", proxy]
+        elif use_proxy:
+            continue
         proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
         body = (proc.stdout or proc.stderr or "").strip()
         if proc.returncode == 7 and use_proxy:
@@ -85,10 +114,11 @@ def gdocs_cmd(
     py = str(VENV_PYTHON if VENV_PYTHON.exists() else sys.executable)
     sec = secrets_dir or SECRETS
     env = os.environ.copy()
-    # Inherit shell proxy; common local default if googleapis.com blocked direct.
+    # Only inject local proxy when port is up — dead 3213 breaks OAuth refresh.
     if not env.get("HTTPS_PROXY") and not env.get("HTTP_PROXY"):
-        env.setdefault("HTTPS_PROXY", DEFAULT_PROXY)
-        env.setdefault("HTTP_PROXY", DEFAULT_PROXY)
+        if local := _detect_local_proxy():
+            env.setdefault("HTTPS_PROXY", local)
+            env.setdefault("HTTP_PROXY", local)
     try:
         return subprocess.run(
             [py, "-m", "gdocs", "--secrets-dir", str(sec), *args],

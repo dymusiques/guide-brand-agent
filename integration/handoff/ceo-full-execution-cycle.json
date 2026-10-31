@@ -1,0 +1,35 @@
+{
+  "version": "2026-10-30",
+  "doc_human": "docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md",
+  "orchestrator_python": "scripts/run_ceo_full_execution.py",
+  "orchestrator_bash": "scripts/ceo-full-execution-pipeline.sh",
+  "chat_delivery": "docs/OWNER-CHAT-DELIVERY-FORMAT.md",
+  "roster_and_parallelism": "docs/CEO-AGENT-ROSTER-AND-PARALLELISM.md",
+  "manifest": "content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.json",
+  "phases": [
+    { "id": "recover", "script": "scripts/ceo-auto-recover-blocked.sh" },
+    { "id": "router", "script": "scripts/run-openwebui-router-pipeline.sh", "optional": true },
+    { "id": "six_case_battery", "script": "scripts/ceo-six-case-battery.sh", "requires_brief_for_l1_kernel": true },
+    { "id": "triple_eval", "script": "scripts/ceo-triple-eval-baseline-loop.sh", "max_rounds_default": 3 },
+    { "id": "double_stress", "script": "scripts/ceo-double-stress.sh" },
+    { "id": "autopilot", "script": "scripts/run_ceo_xhs_autopilot.py" },
+    { "id": "html_open", "script": "scripts/open-owner-xhs-deliverable-html.sh" },
+    { "id": "manifest", "script": "scripts/ceo_write_run_manifest.py" }
+  ],
+  "gm_chain_order": ["01-personal-ip", "04-xhs-topic-manager", "05-xhs-kernel", "00-ceo-gate"],
+  "six_case_layers": [
+    "verify-integration.sh",
+    "evaluate_personal_ip.py --check",
+    "verify-agent-fused.sh --agent 01",
+    "verify-agent-fused.sh --agent 04",
+    "verify-agent-fused.sh --agent 05",
+    "evaluate-xhs-brief-complete.py + verify-xhs-topic.sh"
+  ],
+  "owner_never_repeat": [
+    "六项 6-case 后再派 CEO",
+    "triple evaluate 1-3 轮 + baseline/gold 距离",
+    "double stress",
+    "Cursor 回复须 Agent 表 + 步骤 + HTML uri",
+    "evaluate / autopilot / 弹 HTML 口令"
+  ]
+}

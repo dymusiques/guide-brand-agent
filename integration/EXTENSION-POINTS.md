@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/EXTENSION-POINTS.md"
+goal: "扩展接口 · 预留能力（不改 kernel）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "749f264f7e20f81f"
+---
+
+# 扩展接口 · 预留能力（不改 kernel）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **当前运行策略（Owner 2026-10-27）：** **Cursor + 00 Manager** + **后台 goal-evolution loop**（`setup-background-goal-evolution.sh` 一次）；`manager-autopilot.sh` 仅 Debug/交班单次。  
+> 本文定义 **以后加能力时
+- **Path:** `integration/EXTENSION-POINTS.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **0. 现在最好的选择（唯一默认栈 · 下一阶段前不变）**: **只留这一套当「主路径」**（Agent 与 Owner 日常）：
+- **1. 分层（谁接什么改动）**: ```
+- **2. Process Launcher · 预留接口（工具箱模式）**: | 接口 | 路径 | 用途 | 默认 |
+- **3. CEO / 数据轨 · 预留接口**: | 接口 | 扩展方式 |
+- **4. Skills / Vendor · 预留接口**: | 动作 | 接口 |
+- **5. 改完后的最小验收（防接手乱）**: ```bash
+- **6. 已扫入能力 · 下一阶段口子（改这里，勿新建平行体系）**: | 能力 | Discovery 入口 | 本仓边界 / 策略 MD | 私有 / 启用开关 | 下一阶段典型动作 |
+
+
+---
+
+## L2 正文
+
 # 扩展接口 · 预留能力（不改 kernel）
 
 > **当前运行策略（Owner 2026-10-27）：** **Cursor + 00 Manager** + **后台 goal-evolution loop**（`setup-background-goal-evolution.sh` 一次）；`manager-autopilot.sh` 仅 Debug/交班单次。  

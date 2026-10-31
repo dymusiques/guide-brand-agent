@@ -4,9 +4,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 IP="$ROOT/content/personal-ip/ip-positioning-brief-2026-10-05.md"
 if [[ "${1:-}" == "--check" ]]; then
-  [[ -f "$IP" ]] || exit 1
-  grep -q "品牌合作范围" "$IP" && grep -q "不单品类绑定" "$IP"
-  exit 0
+  PY="$ROOT/.venv/bin/python"
+  [[ -x "$PY" ]] || PY="python3"
+  exec "$PY" "$ROOT/scripts/evaluate_personal_ip.py" --check
 fi
 echo "=== Agent 01 personal-ip shell ==="
 grep -E "品牌合作范围|不单品类绑定|三支柱" "$IP" | head -5

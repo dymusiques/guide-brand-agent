@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Owner 交付 · 小红书筛选 · 2026-10-29</title>
+<style>
+  :root { font-family: -apple-system, "PingFang SC", sans-serif; line-height: 1.5; }
+  body { max-width: 960px; margin: 0 auto; padding: 24px; background: #fafafa; color: #1a1a1a; }
+  h1 { font-size: 1.5rem; }
+  .glossary { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 16px 0; }
+  .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card button { margin-top: 8px; padding: 8px 12px; cursor: pointer; background: #111; color: #fff; border: none; border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; }
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 100; overflow: auto; }
+  .modal.open { display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; }
+  .modal-inner { background: #fff; max-width: 720px; width: 100%; padding: 24px; border-radius: 12px; position: relative; }
+  .close { position: absolute; right: 12px; top: 8px; font-size: 28px; border: none; background: none; cursor: pointer; }
+  .box { background: #f6f6f6; padding: 12px; border-radius: 6px; max-height: 40vh; overflow: auto; font-size: 0.9rem; }
+  .brief { max-height: 50vh; }
+  a { color: #0645ad; }
+  .open-hint { background: #fff3cd; border: 1px solid #ffc107; padding: 12px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<h1>Owner 交付 · CEO 小红书资料筛选 · 2026-10-29</h1>
+<p class="open-hint">HTML 重建时间：<strong>2026-10-29 19:04:37</strong> · 脚本 <code>build-owner-xhs-report-html.py</code>。
+若在 Cursor 里只看到代码：Finder 双击本文件。工作流测试稿（若有）在下方<strong>绿色边框</strong>卡片。</p>
+
+<section class="glossary">
+<h2>名词说明</h2>
+<p><strong>Gate（Owner Gate）</strong>：内部质检，不是让你跑的命令。Agent 在交给你之前用
+<code>manager-ceo-owner-gate.sh</code> + Brief 的 <code>evaluate-xhs-topic</code>（05 分类器）检查是否
+<code>aligned: true</code>、redteam-pre 是否齐全。<strong>「待 Gate」</strong> = 当时批量脚本未重跑 Gate，不代表内容一定不合格；Discovery 01 在 Brief 里已有
+<code>aligned: true</code> 记录（2026-10-17）。</p>
+<p><strong>优先级（本报告）</strong>：按<strong>认知期发帖顺序 + 数据策略</strong>，不是 evaluate 退出码排序。
+<strong>#1 Discovery 01</strong> = 不可替代性（首推）；02 叙事；03 专业信任；04 轻收口（#1–3 发后再发）。</p>
+<p><strong>Discovery 01 是什么？</strong> 文件
+<code>2026-10-17-discovery-01-irreplaceability-brief.md</code>，认知期 #1（与<strong>工作流测试稿</strong>同案例线：NGV×Cartier×MSO 等）。标题以 Brief 重建为准。</p>
+<p><strong>系列统一：</strong> 测试稿 + Discovery 01–04 共用动线/三问语言；HTML 重建时从 classifier 读取。</p>
+</section>
+
+<h2>工作流测试 + Discovery 01–04 · 点击弹出</h2>
+<div class="cards">
+
+<article class="card" style="border:2px solid #0a7;grid-column:1/-1">
+  <h3>工作流测试稿 · 全链路（最新）</h3>
+  <p><strong>Evolution READY</strong> · 文件：<code>2026-10-28-classical-musicians-business-hiring-test-brief.md</code></p>
+  <p class="title">标题：别在门口放四重奏：NGV 那夜把 MSO 写进展线里</p>
+  <p style="font-size:0.9rem">我进品牌场最怕：「四重奏营造高端氛围。」——人在场，听感像循环 Vivaldi，和放音响没差。同月两场：NGV×Cartier×MSO 把曲目写进 Gandel Hall 动线，观众跟着「听展览」走；另一场大理石厅角落四重奏，聊天盖过弦——预算同级，一场记展一场记香槟。常被忽略的是 RT60 和时段：cocktail 高峰别站桩大编制，主菜别排完整曲目——没…</p>
+  <button onclick="openModal('modal-workflow-test')">弹出 · 测试稿全文</button>
+  <a href="OWNER-WORKFLOW-TEST-ARTICLE-2026-10-29.html" style="margin-left:12px">打开专用页 →</a>
+</article>
+<article class="card">
+  <h3>认知期 #1 · 不可替代性</h3>
+  <p><strong>Discovery 01</strong> · 推荐：首推发表</p>
+  <p class="title">标题：NGV跟着展线听，另一场只记香槟</p>
+  <button onclick="openModal('modal-d01')">弹出全文 · Brief + 正文</button>
+</article>
+<article class="card">
+  <h3>认知期 #2 · 叙事而非硬广</h3>
+  <p><strong>Discovery 02</strong> · 推荐：队列 #2</p>
+  <p class="title">标题：百富Frieze把live写进揭幕，不是晚宴BG</p>
+  <button onclick="openModal('modal-d02')">弹出全文 · Brief + 正文</button>
+</article>
+<article class="card">
+  <h3>认知期 #3 · 专业信任</h3>
+  <p><strong>Discovery 03</strong> · 推荐：队列 #3</p>
+  <p class="title">标题：撤场复述不了品牌句，再贵的乐手也不信</p>
+  <button onclick="openModal('modal-d03')">弹出全文 · Brief + 正文</button>
+</article>
+<article class="card">
+  <h3>认知期 #4 · 轻收口</h3>
+  <p><strong>Discovery 04</strong> · 推荐：队列 #4</p>
+  <p class="title">标题：找艺术合作先问三问，别先问报价</p>
+  <button onclick="openModal('modal-d04')">弹出全文 · Brief + 正文</button>
+</article>
+</div>
+
+<h2>Artist 四指标（DB / PLD / APO / CTD）</h2>
+<p>Excel/CSV：<a href="../../../../ip-research/artist-watchlist-four-metrics.xlsx">content/ip-research/artist-watchlist-four-metrics.xlsx</a>（用 Excel 或 Numbers 打开）</p>
+<table>
+<thead><tr><th>Tier</th><th>Artist</th><th>Composite</th><th>DB</th><th>PLD</th><th>APO</th><th>CTD</th><th>URLs</th></tr></thead>
+<tbody><tr>
+          <td>P1</td>
+          <td>Drew Alexander Forde · ThatViolaKid</td>
+          <td>73</td>
+          <td>95.0</td>
+          <td>63.0</td>
+          <td>68.0</td>
+          <td>60.0</td>
+          <td>https://thatviolakid.com/about · https://christianhowes.com/2021/05/06/creative-strings-podcast-ep-43-drew-alexander-forde/</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>土豆人 · tudou_man（林晨）</td>
+          <td>70</td>
+          <td>68.0</td>
+          <td>77.0</td>
+          <td>80.0</td>
+          <td>50.0</td>
+          <td>https://www.digitaling.com/articles/942108.html · https://www.digitaling.com/articles/1320234.html</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>画画的小福象（小红书 · 品牌/IP 视觉）</td>
+          <td>66</td>
+          <td>68.0</td>
+          <td>72.0</td>
+          <td>70.0</td>
+          <td>50.0</td>
+          <td>https://www.xiaohongshu.com/user/profile/5657b233b8ce1a4fa16e6d0f</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>儿力力 · 白日梦小姐 IP</td>
+          <td>62</td>
+          <td>68.0</td>
+          <td>50.0</td>
+          <td>60.0</td>
+          <td>68.0</td>
+          <td>https://www.99ys.com/exhibit/2025/03/05/11/72048.html</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>Lang Lang · 郎朗</td>
+          <td>58</td>
+          <td>83.0</td>
+          <td>35.0</td>
+          <td>58.0</td>
+          <td>50.0</td>
+          <td>https://langlang.com/</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>HAUSER（Stjepan Hauser）</td>
+          <td>54</td>
+          <td>65.0</td>
+          <td>58.0</td>
+          <td>38.0</td>
+          <td>50.0</td>
+          <td>https://groovemedia.org/work/hauser</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>Fuzzy hug（独立数字艺术 IP）</td>
+          <td>50</td>
+          <td>58.0</td>
+          <td>50.0</td>
+          <td>50.0</td>
+          <td>40.0</td>
+          <td>https://www.adquan.com/article/343094</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>Lincoln Center / 机构级艺术传播（非个人，学内容结构）</td>
+          <td>37</td>
+          <td>25.0</td>
+          <td>35.0</td>
+          <td>58.0</td>
+          <td>30.0</td>
+          <td>https://www.lincolncenter.org/</td>
+        </tr></tbody>
+</table>
+
+<p style="margin-top:32px;color:#666;font-size:0.85rem">danying-brand-agent · HTML Owner 报告 · 以后 CEO 交付以 HTML 为准</p>
+
+<div id="modal-workflow-test" class="modal" onclick="if(event.target===this)closeModal('modal-workflow-test')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-workflow-test')">×</button>
+    <h2>工作流测试稿 · 别在门口放四重奏：NGV 那夜把 MSO 写进展线里</h2>
+    <p class="meta">Evolution READY · <code>2026-10-28-classical-musicians-business-hiring-test-brief.md</code></p>
+    <h3>可发帖正文</h3>
+    <div class="box">我进品牌场最怕：「四重奏营造高端氛围。」——人在场，听感像循环 Vivaldi，和放音响没差。同月两场：NGV×Cartier×MSO 把曲目写进 Gandel Hall 动线，观众跟着「听展览」走；另一场大理石厅角落四重奏，聊天盖过弦——预算同级，一场记展一场记香槟。常被忽略的是 RT60 和时段：cocktail 高峰别站桩大编制，主菜别排完整曲目——没人抬头，钱白花。百富 Frieze 首尔用 25 分钟原创声场卡揭幕；RCM 演奏者绕藏品走，艺术家是第 0 号展品。我嵌法派长笛：先动线后编制，要 12 分钟焦点+一句能拍的 reveal，不要两小时背景板。会得罪「只要好看」的 PR；硬灌巴赫像电梯音乐，观画加 BGM 还掉喜爱度；借古典洗形象，圈内秒懂。三问：社交还是被转译？撤场能复述品牌句？不能别租人。收藏；展开幕私信「聊聊」。</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 测试 v3 · 乐手写进展线里<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;别在门口放四重奏：NGV 那夜把 MSO 写进展线里&quot;,<br>
+  &quot;body&quot;: &quot;我进品牌场最怕：「四重奏营造高端氛围。」——人在场，听感像循环 Vivaldi，和放音响没差。同月两场：NGV×Cartier×MSO 把曲目写进 Gandel Hall 动线，观众跟着「听展览」走；另一场大理石厅角落四重奏，聊天盖过弦——预算同级，一场记展一场记香槟。常被忽略的是 RT60 和时段：cocktail 高峰别站桩大编制，主菜别排完整曲目——没人抬头，钱白花。百富 Frieze 首尔用 25 分钟原创声场卡揭幕；RCM 演奏者绕藏品走，艺术家是第 0 号展品。我嵌法派长笛：先动线后编制，要 12 分钟焦点+一句能拍的 reveal，不要两小时背景板。会得罪「只要好看」的 PR；硬灌巴赫像电梯音乐，观画加 BGM 还掉喜爱度；借古典洗形象，圈内秒懂。三问：社交还是被转译？撤场能复述品牌句？不能别租人。收藏；展开幕私信「聊聊」。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; v3.1 · 2026-10-28 · Mandate：[OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](../../docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) · pitfalls：[research/…-pitfalls.md](./research/2026-10-28-classical-musicians-business-hiring-test-pitfalls.md)<br>
+<br>
+## 标题<br>
+<br>
+别在门口放四重奏：NGV 那夜把 MSO 写进展线里<br>
+<br>
+## 封面<br>
+<br>
+- overlay：「第 0 号展品，不是 BG」<br>
+- 视觉：展线俯示意 + 长笛 close-up（非婚礼/门口四重奏 stock）<br>
+<br>
+## 三镜头 · 正文展开（Owner 长文层）<br>
+<br>
+### 1 · 谁怎么做<br>
+<br>
+| 案例 | 做法 | 被忽略的 |<br>
+|------|------|----------|<br>
+| **NGV × Cartier × MSO** | 驻场/Friday Nights · 曲目与展线同频 | 只抄「门口四重奏」皮 |<br>
+| **百富 88 · Frieze 首尔** | 25′ 原创声场 = 产品叙事一轨 | live 当晚宴杂费 |<br>
+| **RCM Museum** | 绕藏品流动 · 观众在声场里走 | 艺术家无 brief |<br>
+<br>
+### 2 · 忽略了什么<br>
+<br>
+- **时段：** cocktail / 主菜 ≠ 剧场静坐 — Lombard + 嘴忙。  <br>
+- **声学：** 大理石厅未减编 = wallpaper。  <br>
+- **测量：** 九宫格 ≠ 品牌句复述率。  <br>
+- **伦理：** art-washing · BGM 抢视觉工作记忆。<br>
+<br>
+### 3 · 反常规 · 策展嵌入（我）<br>
+<br>
+- **动线 &gt; 编制** · **走动的 reveal** &gt; 角落站桩。  <br>
+- Trade-off：丢「谁都懂的 ambient 安全感」，换高意向 DM 能说出「那晚做了什么」。<br>
+<br>
+## 标签<br>
+<br>
+#品牌策划 #艺术跨界 #策展 #法派长笛 #品牌活动 #沉浸式体验 #古典音乐 #NGV #专业信任 #长笛<br>
+<br>
+## CTA<br>
+<br>
+收藏；展开幕/发布场景私信 **「聊聊」**<br>
+<br>
+## Verify log<br>
+<br>
+- v1 · gate PASS · **Owner FAIL 空泛**  <br>
+- v2 · 三镜头 + 案例 · gate PASS  <br>
+- v3 · pitfalls + 时段坑 + 标题改刺 · evolution 待跑<br>
+</div>
+  </div>
+</div>
+<div id="modal-d01" class="modal" onclick="if(event.target===this)closeModal('modal-d01')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d01')">×</button>
+    <h2>认知期 #1 · 不可替代性</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-01-irreplaceability-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">- **Brief：** `2026-10-17-discovery-01-irreplaceability-brief.md`<br>
+- **标题：** NGV跟着展线听，另一场只记香槟<br>
+<br>
+### 正文（复制到小红书）<br>
+<br>
+同月两场高级 live：NGV×Cartier×MSO 把曲目写进 Gandel Hall 动线，观众跟着「听展览」走；另一场大理石厅角落四重奏，聊天盖过弦——预算同级，一场被记住展，一场只记香槟。不可替代的不是报价，是乐手有没有写进展线：当 wallpaper 谁都能替，当第 0 号展品才难复制。我会得罪只要「高端氛围」的人：硬空间不减编，再贵的编制也是 BG。法派进场我看句读能不能变成空间里的 reveal——不能就别租。隐患：开放厅灌巴赫像 elevator 音乐。收藏；有发布/展陈场景私信「聊聊」。<br>
+<br>
+### 标签<br>
+<br>
+#品牌策划 #艺术跨界 #法派长笛 #跨界品牌 #专业信任 #品牌活动 #快闪活动 #品牌叙事 #艺术营销 #长笛</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #1 不可替代性<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;NGV跟着展线听，另一场只记香槟&quot;,<br>
+  &quot;body&quot;: &quot;同月两场高级 live：NGV×Cartier×MSO 把曲目写进 Gandel Hall 动线，观众跟着「听展览」走；另一场大理石厅角落四重奏，聊天盖过弦——预算同级，一场被记住展，一场只记香槟。不可替代的不是报价，是乐手有没有写进展线：当 wallpaper 谁都能替，当第 0 号展品才难复制。我会得罪只要「高端氛围」的人：硬空间不减编，再贵的编制也是 BG。法派进场我看句读能不能变成空间里的 reveal——不能就别租。隐患：开放厅灌巴赫像电梯音乐。收藏；有发布/展陈场景私信「聊聊」。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 触达计划 · 队列 #1 · 主轴：不可替代性 + 叙事而非硬广 + 专业信任（本篇偏不可替代性）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+NGV跟着展线听，另一场只记香槟<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 长笛细节 / 演奏姿态局部，克制光影（非卖场、非家居场景）<br>
+- 文案 overlay: 「不可替代的，不是装饰」（**文字海报**，避免空镜卖场感；v1.1）<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+同月两场高级 live，预算同级——一场跟着展线听，一场只记香槟。  <br>
+差别在乐手是 **第 0 号展品** 还是 **wallpaper**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **不可替代性：** 「装饰性艺术」vs「能建立信任的专业 moment」——差别在用户停不停  <br>
+2. **叙事而非硬广：** 硬广买曝光；艺术叙事买 **被感受的句读**（法派体系 → 空间/体验节奏，一句方法论）  <br>
+3. **专业信任：** 人即品牌——跨界策划来自可验证的训练，不是人设口号  <br>
+4. **边界：** 跨行业 open；案例可跨垂直，**不** 将账号绑成某一商品品类主攻号  <br>
+<br>
+## 标签<br>
+<br>
+#品牌策划 #艺术跨界 #法派长笛 #跨界品牌 #专业信任 #品牌活动 #快闪活动 #品牌叙事 #艺术营销 #长笛<br>
+<br>
+## CTA（轻 · 不违和）<br>
+<br>
+- 同频再聊：**收藏** 本篇；有具体场景再私信 **「聊聊」**（非报价、非体验季推销）  <br>
+- 高意向仍可用 **「合作/品牌」**，仅放在结尾一句，不进标题  <br>
+<br>
+## 与品牌<br>
+<br>
+- 栏目: 认知期深度 #1 · [discovery-phase-note-queue.md](../marketing/discovery-phase-note-queue.md)  <br>
+- 语气: 价值判断优先；克制、可对话  <br>
+- 触达: [2026-10-brand-discovery-phase.md](../marketing/2026-10-brand-discovery-phase.md)<br>
+- 数据校准: [xhs-data-strategy-2026-10-20.md](../analytics/derived/xhs-data-strategy-2026-10-20.md) · 直发正文 [2026-10-20-publish-ready-queue.md](./2026-10-20-publish-ready-queue.md)<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · v1 · `evaluate-xhs-topic.py --brief` → **`aligned: true`**<br>
+- `2026-10-27` · `evaluate-xhs-topic.py --brief` → **`aligned: true`**（复查）<br>
+- `2026-10-27` · **challenge 复查** · redteam-pre 补录 + 外部对标 · Owner HTML：`content/evolution/00-manager/ceo-inbox/OWNER-DISCOVERY-01-CHALLENGE-AUDIT-2026-10-27.html` · **发前建议 v1.1**（moment + 10 标签）<br>
+- `2026-10-27` · **`evaluate-xhs-brief-complete.py`** → redteam + L1×6 + evaluate + kernel 6 · **PASS** · log：`content/xiaohongshu/verify-logs/2026-10-17-discovery-01-irreplaceability-complete-20261027-173149.json` · CEO Gate PASS<br>
+- `2026-10-27` · **v1.1 已改稿**（campaign 晚间 · 04 工作项）：开头加匿名 moment 1 句 + 标签补满 10 个 + 封面定为文字海报；已 auto-gate-loop 第 1/3 轮 PASS（redteam + adversarial + L1×6 + evaluate aligned + kernel 6）· `manager-ceo-owner-gate.sh` PASS · log：`content/xiaohongshu/verify-logs/2026-10-17-discovery-01-irreplaceability-complete-20261027-183045.json`<br>
+</div>
+  </div>
+</div>
+<div id="modal-d02" class="modal" onclick="if(event.target===this)closeModal('modal-d02')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d02')">×</button>
+    <h2>认知期 #2 · 叙事而非硬广</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-02-narrative-not-ads-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">- **Brief：** `2026-10-17-discovery-02-narrative-not-ads-brief.md`<br>
+- **标题：** 百富Frieze把live写进揭幕，不是晚宴BG<br>
+<br>
+### 正文（复制到小红书）<br>
+<br>
+品牌常加硬广预算，展后仍说不清「那晚做了什么」——缺的不是曝光，是一段能被复述的体验。百富 88 在 Frieze 首尔用 25 分钟原创声场卡揭幕，音乐是产品叙事一轨；对照很多发布：门口四重奏+PPT，cocktail 里聊天盖过弦，和 NGV 那夜「跟着展线听」不是一回事。我把法派句读借到发布/快闪里，问的是：有没有 15 秒能拍、撤场能复述品牌句的 reveal。代价：少做谁都懂的安全歌单。全品类可聊，不绑单一垂直主攻号。收藏；有发布场景私信「聊聊」。<br>
+<br>
+### 标签<br>
+<br>
+#品牌策划 #内容营销 #艺术跨界 #法派长笛 #品牌叙事</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #2 叙事而非硬广<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;百富Frieze把live写进揭幕，不是晚宴BG&quot;,<br>
+  &quot;body&quot;: &quot;品牌常加硬广预算，展后仍说不清「那晚做了什么」——缺的不是曝光，是一段能被复述的体验。百富 88 在 Frieze 首尔用 25 分钟原创声场卡揭幕，音乐是产品叙事一轨；对照很多发布：门口四重奏+PPT，cocktail 里聊天盖过弦，和 NGV 那夜「跟着展线听」不是一回事。我把法派句读借到发布/快闪里，问的是：有没有 15 秒能拍、撤场能复述品牌句的 reveal。代价：少做谁都懂的安全歌单。全品类可聊，不绑单一垂直主攻号。收藏；有发布场景私信「聊聊」。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 队列 #2 · 主轴：**叙事而非硬广**（#1 已讲「站得住」；本篇专讲「硬广 vs moment」）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+百富Frieze把live写进揭幕，不是晚宴BG<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 对比感——左侧杂乱的 slogan 字块（虚焦），右侧单一演奏/空间线条（清晰）<br>
+- 文案 overlay: 「叙事 ≠ 更多硬广」<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+曝光越来越多，停留越来越短——  <br>
+问题常常不是预算，而是 **用户在第 3 秒有没有理由留下**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **现象：** 硬广买「看见」；叙事买 **moment**（一个可被感受的片段）  <br>
+2. **方法一笔：** 句读/呼吸/节奏 → 活动体验里的「停下来的点」（不展开案例名）  <br>
+3. **边界：** 跨行业 open；**不** 绑定单一品类账号人设  <br>
+4. **与 #1 衔接：** #1 讲「站得住」；本篇讲 **为什么硬广堆不满信任**<br>
+<br>
+## 标签<br>
+<br>
+#品牌策划 #内容营销 #艺术跨界 #法派长笛 #品牌叙事<br>
+<br>
+## CTA<br>
+<br>
+收藏本篇；有发布/活动场景再私信 **「聊聊」**。高意向可用 **「合作」** 放末句。<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+&gt; CEO 仪表盘读此块：`bash scripts/manager-dashboard.sh`<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · `evaluate --brief` → **aligned: true**<br>
+</div>
+  </div>
+</div>
+<div id="modal-d03" class="modal" onclick="if(event.target===this)closeModal('modal-d03')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d03')">×</button>
+    <h2>认知期 #3 · 专业信任</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-03-professional-trust-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">- **Brief：** `2026-10-17-discovery-03-professional-trust-brief.md`<br>
+- **标题：** 撤场复述不了品牌句，再贵的乐手也不信<br>
+<br>
+### 正文（复制到小红书）<br>
+<br>
+跨界里观众不信「贵」，信「你撤场后能不能复述品牌做了什么」。NGV×MSO 跟着 Cartier 展线走，信任来自动线里看得见的专业；大理石厅那次，乐手在角落——编制再像礼仪道具。RCM Museum 让演奏者绕藏品走：人即品牌，买的是能在 reveal 负责审美的人。我做法派协作先三问：宾客社交还是被转译？有没有 15 秒能拍的句读？撤场能否复述品牌句？不能就别谈合作。洗艺隐患：争议品牌借古典抬格调，圈内秒懂。收藏；私信「品牌」或「聊聊」。<br>
+<br>
+### 标签<br>
+<br>
+#品牌策划 #艺术跨界 #法派长笛 #专业信任 #跨界体验</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #3 专业信任<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;撤场复述不了品牌句，再贵的乐手也不信&quot;,<br>
+  &quot;body&quot;: &quot;跨界里观众不信「贵」，信「你撤场后能不能复述品牌做了什么」。NGV×MSO 跟着 Cartier 展线走，信任来自动线里看得见的专业；大理石厅那次，乐手在角落——编制再像礼仪道具。RCM Museum 让演奏者绕藏品走：人即品牌，买的是能在 reveal 负责审美的人。我做法派协作先三问：宾客社交还是被转译？有没有 15 秒能拍的句读？撤场能否复述品牌句？不能就别谈合作。洗艺隐患：争议品牌借古典抬格调，圈内秒懂。收藏；私信「品牌」或「聊聊」。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 队列 #3 · 主轴：**专业信任**（师承与判断，非口号）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+撤场复述不了品牌句，再贵的乐手也不信<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 练习/谱面/乐器细节 + 专注神情（学术感，非网红摆拍）<br>
+- 文案 overlay: 「信任来自可验证的专业」<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+跨界活动里，艺术有时很贵——  <br>
+但用户不买「贵」，买 **「信不信得过」**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **专业信任 vs 装饰：** 观众如何感知「站得住」  <br>
+2. **法派体系一句：** 训练 → 判断 → 体验设计（不堆履历）  <br>
+3. **人即品牌：** 决策链短、责任清晰  <br>
+4. **边界：** 跨行业；案例层可提行业，人设层不绑垂直  <br>
+<br>
+## 标签<br>
+<br>
+#法派长笛 #跨界品牌 #品牌合作 #专业主义 #艺术商业<br>
+<br>
+## CTA<br>
+<br>
+收藏；私信 **「品牌」** 或 **「聊聊」**（末句，非标题推销）。<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · `evaluate --brief` → **aligned: true**<br>
+</div>
+  </div>
+</div>
+<div id="modal-d04" class="modal" onclick="if(event.target===this)closeModal('modal-d04')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-d04')">×</button>
+    <h2>认知期 #4 · 轻收口</h2>
+    <p class="meta">文件：<code>2026-10-17-discovery-04-open-close-brief.md</code></p>
+    <h3>可直发 / 正文区</h3>
+    <div class="box">私信常问：你只服务我们这行吗？——全品类可聊，但不把账号绑成某垂直主攻号。合作前先对齐三问（和前面几篇同一套）：社交还是被转译？有没有 15 秒 reveal？撤场能否复述品牌句？案例仍那句：NGV 把 MSO 写进展线 vs 门口四重奏皮；百富 Frieze 把 live 卡揭幕。适合：发布/展陈/联名要艺术叙事；不太适合：纯抽奖要人头。认同这套再来私信「合作」+一句场景；还在了解阶段发「品牌」。系列 #1 不可替代 #2 硬广vs reveal #3 信任三问——本篇收口，可置顶。</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief"># 小红书笔记 Brief · 认知期 #4 轻收口 · 跨行业 open<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;找艺术合作先问三问，别先问报价&quot;,<br>
+  &quot;body&quot;: &quot;私信常问：你只服务我们这行吗？——全品类可聊，但不把账号绑成某垂直主攻号。合作前先对齐三问（和前面几篇同一套）：社交还是被转译？有没有 15 秒 reveal？撤场能否复述品牌句？案例仍那句：NGV 把 MSO 写进展线 vs 门口四重奏皮；百富 Frieze 把 live 卡揭幕。适合：发布/展陈/联名要艺术叙事；不太适合：纯抽奖要人头。认同这套再来私信「合作」+一句场景；还在了解阶段发「品牌」。系列 #1 不可替代 #2 硬广vs reveal #3 信任三问——本篇收口，可置顶。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 队列 #4 · **轻收口**：谁适合聊、跨行业 open、不单品类绑定（系列小结，非体验季推销）<br>
+<br>
+## 标题（≤20 字建议）<br>
+<br>
+找艺术合作先问三问，别先问报价<br>
+<br>
+## 封面<br>
+<br>
+- 主视觉: 简洁文字海报风——三行对齐清单（设计克制）<br>
+- 文案 overlay: 「跨行业 open · 不绑单品类」<br>
+- 尺寸: 3:4<br>
+<br>
+## 钩子（前 2 行）<br>
+<br>
+品牌找艺术合作，最常问的其实不是价格——  <br>
+是 **「你到底是谁、适不适合我们这个行业」**。<br>
+<br>
+## 正文结构<br>
+<br>
+1. **跨行业 open + 不单品类绑定**（全品类可合作；不做 XX 主攻号）  <br>
+2. **合作前先对齐的三件事**（moment / 决策 / 留存）  <br>
+3. **适合 / 不太适合** 各一句（筛客，非歧视行业）  <br>
+4. **系列回扣：** 不可替代 · 叙事 · 信任 → 为何值得聊  <br>
+<br>
+## 标签<br>
+<br>
+#品牌合作 #跨界策划 #法派长笛 #品牌主理人 #艺术商业<br>
+<br>
+## CTA<br>
+<br>
+品牌方：私信 **「合作」** + 一句场景；了解阶段：**「品牌」**。本篇可 **置顶** 配合认知期。<br>
+<br>
+## 发布状态<br>
+<br>
+- 状态: 待发<br>
+- 发布日期:<br>
+- 笔记链接:<br>
+<br>
+## Verify log<br>
+<br>
+- `2026-10-17` · `evaluate --brief` → **aligned: true**<br>
+</div>
+  </div>
+</div>
+<script>
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id)); });
+</script>
+</body>
+</html>

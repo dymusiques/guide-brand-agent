@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/evolution/00-manager/ip-adversarial-drill-2026-10-27/versions/v1-ceo-counter-plan.md"
+goal: "v1-ceo-counter-plan"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "6276acd29302ffa3"
+---
+
+# v1-ceo-counter-plan
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 【CEO 打回后 · 对抗反击计划 v1】
+- **Path:** `content/evolution/00-manager/ip-adversarial-drill-2026-10-27/versions/v1-ceo-counter-plan.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 【CEO 打回后 · 对抗反击计划 v1】
 
 - 认知期：每周 1 深度名片帖 + Daily 分层；不日更三毒条

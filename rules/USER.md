@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/USER.md"
+goal: "USER.md — Owner 信息（模板）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "51c074cc4c262b5c"
+---
+
+# USER.md — Owner 信息（模板）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > 请按你的实际情况补充本节。Agent 每 session 会读此文件。
+- **Path:** `rules/USER.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **基本信息**: - **Name:** 张丹瀛 / Danying Zhang
+- **个人 IP**: - **一句话定位：** 法派长笛传承 × 跨界品牌策划——帮品牌、艺术家、教育者与 AI 创新者，把古典艺术里不可替代的审美与叙事，翻译成可合作、可传播、可沉淀为数字藏品的稀缺语言。
+- **协作偏好**: - 回复语言：简体中文（代码与命令保持原文）
+- **相关 Skill（个人级，Cursor 全局）**: - `danying-tingjian-daily` — 每日长笛栏目生产
+- **待补充**: - [x] 个人 IP 一句话定位
+
+
+---
+
+## L2 正文
+
 # USER.md — Owner 信息（模板）
 
 > 请按你的实际情况补充本节。Agent 每 session 会读此文件。

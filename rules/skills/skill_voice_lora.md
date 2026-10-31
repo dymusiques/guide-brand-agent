@@ -1,3 +1,26 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/skill_voice_lora.md"
+goal: "Skill Router: voice-lora（detect / rewrite）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "819da7d5233983e0"
+---
+
+# Skill Router: voice-lora（detect / rewrite）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **边界：** **detect** → 外稿、B 站简介、Owner 说明；**rewrite** → 仅 Owner 点名润色且 **非** XHS Brief/evaluate。  
+> **小红书 Brief** → L2 `verify-xhs-voice-qa.sh` + Owner 选稿。
+- **Path:** `rules/skills/skill_voice_lora.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Skill Router: voice-lora（detect / rewrite）
 
 > **边界：** **detect** → 外稿、B 站简介、Owner 说明；**rewrite** → 仅 Owner 点名润色且 **非** XHS Brief/evaluate。  

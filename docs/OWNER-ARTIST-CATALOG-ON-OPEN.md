@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/OWNER-ARTIST-CATALOG-ON-OPEN.md"
+goal: "Owner 打开对话 · Artist 对标一次性审阅（不每日提示）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "86a12b9281afc664"
+---
+
+# Owner 打开对话 · Artist 对标一次性审阅（不每日提示）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Owner（2026-10-27）：** GM10 **每天**继续收集/分析 artist；**不要**每天提醒。  
+> **Owner 打开本仓库对话时**，Agent **自动**对比目录，**一次性列全**待审条目，等 Owner 回复适合/不适合及原因。
+- **Path:** `docs/OWNER-ARTIST-CATALOG-ON-OPEN.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Agent Must（会话开头 · 有则做）**: 1. 跑或读最新：`content/ip-research/artist-intel-catalog.json`（daily trio 后 `merge-artist-intel-catalog.py…
+- **Owner 怎么回复**: - 「A 适合，因为…；B 不适合，因为…」→ Agent 更新 `verdicts` + 可选调整 `artist-watchlist.json` 权重/移除
+- **Watchlist 维护（Must）**: - **新出现的、与 Owner 相关的 artist** → 必须加入 [`artist-watchlist.json`](../content/ip-research/artist-watchli…
+- **命令**: ```bash
+
+
+---
+
+## L2 正文
+
 # Owner 打开对话 · Artist 对标一次性审阅（不每日提示）
 
 > **Owner（2026-10-27）：** GM10 **每天**继续收集/分析 artist；**不要**每天提醒。  

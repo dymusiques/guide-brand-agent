@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/process-launcher-adoption.md"
+goal: "Process Launcher · 本仓采纳说明"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "826acb563075b711"
+---
+
+# Process Launcher · 本仓采纳说明
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **真相源分工：** 能力 API 与 TCC 规则 → `vendor/process-launcher/skills/skill_process_launcher.md`；本文件只写 **danying-brand-agent 里用它做什么、不做什么**，防新 Agent 与 Manager 工作流打架。
+- **Path:** `integration/process-launcher-adoption.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **0. 运行策略（Owner 确认 · 2026-10）**: | 项 | 选择 |
+- **1. 从上游提炼、对本仓有用的部分**
+- **2. 与本仓已有机制的分工（接手必读）**: | 机制 | 负责什么 | Process Launcher 是否替代 |
+- **3. 文件与路径（防 clone 后混乱）**: | 类型 | 路径 | Git |
+- **4. 新机 / 新 Agent 安装顺序**: 1. `git submodule update --init --recursive`（含 `vendor/process-launcher`）
+- **5. 验收**: - Submodule：`[[ -f vendor/process-launcher/pyproject.toml ]]`
+- **6. 变更接口（摘要）**: | 要改什么 | 接哪里 |
+
+
+---
+
+## L2 正文
+
 # Process Launcher · 本仓采纳说明
 
 > **真相源分工：** 能力 API 与 TCC 规则 → `vendor/process-launcher/skills/skill_process_launcher.md`；本文件只写 **danying-brand-agent 里用它做什么、不做什么**，防新 Agent 与 Manager 工作流打架。

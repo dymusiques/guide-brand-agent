@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/MANAGER-EVAL-IMPROVEMENT-LOOP.md"
+goal: "Manager 评估改进环 · 每个 GM（01–12）的闭环对照"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "7ffebb9563cecac9"
+---
+
+# Manager 评估改进环 · 每个 GM（01–12）的闭环对照
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **来源：** Owner 2026-10-27 分享的示意图（Manager evaluation loop，顺时针 5 步，每条箭头标 **Manager**）。  
+> **结论先行：** 本仓对 GM 的流程 **基本类似** 这个环——而且 `agents/00-manager/AUTO-WORKFLOW.md` 的 *Manager's Lo
+- **Path:** `docs/MANAGER-EVAL-IMPROVEMENT-LOOP.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **1. Owner 原图**: ![Manager evaluation loop](./assets/manager-eval-improvement-loop.png)
+- **2. 五步（顺时针）与「Manager」箭头**: ```text
+- **3. 总映射：图中步骤 → 仓内脚本 / 文档 / 产物（以 04 为典型 GM）**: | 图中步骤 | 04 xhs-topic-manager 对应 | 脚本 / 文档 | 产物 / 证据 |
+- **4. 诚实差距：我们更强 / 更弱**
+- **5. 示例走查 · 04 xhs-topic-manager（Discovery 类 Brief）**: 场景：`content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md` 一篇 Brief，gate 第 1 轮 FAIL。
+- **6. 给下一张图铺垫 · CEO / Senior Manager 层与 GM 的区别**: | 维度 | 部门 GM（01–12）≈ 本文这个环 | CEO（00 Manager） |
+- **7. 相关**: - [agents/README.md](../agents/README.md) · [AUTO-WORKFLOW](../agents/00-manager/AUTO-WORKFLOW.md)（M…
+
+
+---
+
+## L2 正文
+
 # Manager 评估改进环 · 每个 GM（01–12）的闭环对照
 
 > **来源：** Owner 2026-10-27 分享的示意图（Manager evaluation loop，顺时针 5 步，每条箭头标 **Manager**）。  

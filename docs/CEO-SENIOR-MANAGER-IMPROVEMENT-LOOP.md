@@ -1,3 +1,36 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md"
+goal: "CEO / Senior Manager 改进环 · 第二张图 ↔ 本仓审计"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "467e52b26d3e4758"
+---
+
+# CEO / Senior Manager 改进环 · 第二张图 ↔ 本仓审计
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **来源：** Owner 2026-10-27 分享的第二张示意图（CEO / Senior Manager 环，**顺时针 5 步，每条箭头标 AI**）。  
+> **第一张图**（GM 环，箭头标 Manager）→ [MANAGER-EVAL-IMPROVEMENT-LOOP.md](./MANAGER-EVAL-IMPROVEMENT-LOO
+- **Path:** `docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **1. Owner 原图**: ![CEO / Senior Manager improvement loop](./assets/ceo-senior-manager-improvement-loop.png)
+- **2. 与第一张图的差别（别混）**: | 维度 | 图 1 · GM 环（[EVAL-LOOP](./MANAGER-EVAL-IMPROVEMENT-LOOP.md)） | 图 2 · CEO / Senior Manager 环（本文…
+- **3. 嵌套关系：**CEO 编排** vs **AI 执行****: ```text
+- **4. 图 2 五步 → 本仓映射**: | 图中步骤 | 本仓落点（现状） | 脚本 / 文档 | 产物 / 证据 | 匹配度 |
+- **5. 审计：**两轮串行迭代 + 中间显式 analyze**？**
+- **6. 推荐的「正常工作流」写法（Owner 口令 → 本仓动作）**: Owner 口语：**「consult SOP，对当前 prompt/Brief 跑两轮改进迭代」** →
+- **7. 诚实边界**: - 本次**未改任何脚本**（`manager-ceo-auto-gate-loop.sh`、`ceo-auto-fix-brief.py`、`run-ceo-deep-delivery-cycle.…
+- **8. 相关**: [MANAGER-THREE-PILLARS](./MANAGER-THREE-PILLARS.md) · [MANAGER-EVAL-IMPROVEMENT-LOOP](./MANAGER-EVAL…
+
+
+---
+
+## L2 正文
+
 # CEO / Senior Manager 改进环 · 第二张图 ↔ 本仓审计
 
 > **来源：** Owner 2026-10-27 分享的第二张示意图（CEO / Senior Manager 环，**顺时针 5 步，每条箭头标 AI**）。  

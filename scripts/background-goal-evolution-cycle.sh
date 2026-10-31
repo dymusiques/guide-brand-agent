@@ -128,6 +128,8 @@ p.write_text(json.dumps({
 }, indent=2), encoding="utf-8")
 PY
 
+"$PY" scripts/ceo-action-needed-refresh.py >/dev/null 2>&1 || true
+
 if [[ "$FAIL" -gt 0 ]]; then
   echo "RESULT: FAIL ($FAIL)"
   exit 1

@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md"
+goal: "TRIGGER · 后台 cycle 频率变更（Agent Must 问 Owner）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "20bb774f99237d98"
+---
+
+# TRIGGER · 后台 cycle 频率变更（Agent Must 问 Owner）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Owner 固定（2026-10-27）：** **每天 1 次** · 09:00 Asia/Shanghai · `dba_goal_evolution_daily`  
+> **Agent：** 下列任一情况 **必须先向 Owner 确认** 再改 `integration/templates/dba-launcher-goal-evolut
+- **Path:** `integration/BACKGROUND-CYCLE-INTERVAL-TRIGGER.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **必须确认 Owner 的情况**: | 触发 | 示例 |
+- **不必问（可直接改集成层）**: - Bugfix cycle 脚本崩溃
+- **改完必做**: 1. `bash scripts/setup-background-goal-evolution.sh`（重写 `vendor/process-launcher/config/dba-brand-ag…
+- **当前真相源**: - 模板：`integration/templates/dba-launcher-goal-evolution.yaml`
+
+
+---
+
+## L2 正文
+
 # TRIGGER · 后台 cycle 频率变更（Agent Must 问 Owner）
 
 > **Owner 固定（2026-10-27）：** **每天 1 次** · 09:00 Asia/Shanghai · `dba_goal_evolution_daily`  

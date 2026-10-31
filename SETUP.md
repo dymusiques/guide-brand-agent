@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "SETUP.md"
+goal: "SETUP · Guide Brand Agent"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "1e4b62154b7e79db"
+---
+
+# SETUP · Guide Brand Agent
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 新机 / 新 Agent clone 后执行（主 Agent 直接做，见 hub `rules/check/check.md`）。
+- **Path:** `SETUP.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **1. Clone**: ```bash
+- **2. Python**: ```bash
+- **3. OAuth（一次性 · 不进 git）**: ```bash
+- **4. Cursor**: - Open Folder → 新终端自动激活 `.venv`（`.vscode/settings.json`）
+- **5. 验证**: ```bash
+- **6. 后台目标链（新机 · 自动写入配置）**: **新机 / 新 Agent：** 跑 **`bash scripts/new-machine-bootstrap.sh`**（已含 `ensure-background-goal-evolution…
+- **7. Hub 关系**: 总索引不在本仓 → [danying-apps INDEX](https://github.com/dymusiques/danying-apps/blob/main/INDEX.md)
+
+
+---
+
+## L2 正文
+
 # SETUP · Guide Brand Agent
 
 新机 / 新 Agent clone 后执行（主 Agent 直接做，见 hub `rules/check/check.md`）。
@@ -61,7 +92,8 @@ python -m gdocs --secrets-dir vendor/gdocs-skill/secrets create --title "Smoke t
 ## 4. Cursor
 
 - Open Folder → 新终端自动激活 `.venv`（`.vscode/settings.json`）
-- **Customize → MCPs**（侧边栏「自定义」）：安装并 Connect **Google Drive**、**Gmail**、**Google Calendar**、**Canva**（2026 起 MCP 不在 `Cmd+,` Settings 里；找不到时用 `Cmd+Shift+P` → **Open Customize** 或 **Open MCP Settings**）
+- **Google（推荐 · Owner 已授权 Agent）：** §3 的 **gdocs CLI + token.json** 即可；Agent **默认不用**反复 Connect MCP。见 [docs/OWNER-GOOGLE-GRANT-AGENT.md](docs/OWNER-GOOGLE-GRANT-AGENT.md)。
+- **Customize → MCPs**（**可选** duplicate）：Drive / Gmail / Calendar / Canva — 未 Connect 时 Agent **仍走 CLI**，**不会**在 chat 请你确认。
 
 ## 5. 验证
 

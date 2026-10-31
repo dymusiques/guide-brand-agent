@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/guide-core/routing.md"
+goal: "Task Routing"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "6ec61f03dfca32ce"
+---
+
+# Task Routing
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** ```
+用户消息
+  → guide-core（识别主领域，可读多领域）
+  → 读对应 .cursor/skills/<domain>/SKILL.md
+  → 查 rules/WORKSPACE.md 定位文件
+  → 读 Git content/<domain>/（真相源，优先）
+  → 查 Drive Knowledge Bank（仅 Owner 已
+- **Path:** `.cursor/skills/guide-core/routing.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **文件落点**: | 产出类型 | Git（Must commit） | Drive（仅 Owner 说「同步 Drive」） |
+
+
+---
+
+## L2 正文
+
 # Task Routing
 
 ```

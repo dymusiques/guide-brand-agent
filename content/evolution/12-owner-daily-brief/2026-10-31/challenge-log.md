@@ -1,0 +1,1 @@
+- Challenge: brief 是否过长/是否逼 Owner 验脚本 → 只给决策勾

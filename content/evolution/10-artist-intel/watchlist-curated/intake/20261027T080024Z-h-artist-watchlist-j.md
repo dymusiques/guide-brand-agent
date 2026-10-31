@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/evolution/10-artist-intel/watchlist-curated/intake/20261027T080024Z-h-artist-watchlist-j.md"
+goal: "20261027T080024Z-h-artist-watchlist-j"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "47b3a3c348ae50ba"
+---
+
+# 20261027T080024Z-h-artist-watchlist-j
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** <!-- collector-intake id=20261027T080024Z-h-artist-watchlist-j source=/Users/danying/Desktop/danying-brand-agent/content/ip-research/artist-watchlist.json -->
+- **Path:** `content/evolution/10-artist-intel/watchlist-curated/intake/20261027T080024Z-h-artist-watchlist-j.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 <!-- collector-intake id=20261027T080024Z-h-artist-watchlist-j source=/Users/danying/Desktop/danying-brand-agent/content/ip-research/artist-watchlist.json -->
 
 {

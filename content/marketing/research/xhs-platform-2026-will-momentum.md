@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/research/xhs-platform-2026-will-momentum.md"
+goal: "小红书 2026 平台风向 · WILL + Momentum（Agent 摘录）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "9787fea54208f77a"
+---
+
+# 小红书 2026 平台风向 · WILL + Momentum（Agent 摘录）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - 全库文件名索引：[xhs-drive-catalog-2026-10-20.md](./xhs-drive-catalog-2026-10-20.md)  
+- 04 执行摘要：[platform-notes-2026.md](../../xiaohongshu/platform-notes-2026.md)  
+- 补全 Momentum 正文后：在本
+- **Path:** `content/marketing/research/xhs-platform-2026-will-momentum.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **来源（Google Drive · DY Zhang）**
+- **章节锚点**: - **2. 机制要点（可写进 Brief）**
+- **5. 引用与下一步**: - 全库文件名索引：[xhs-drive-catalog-2026-10-20.md](./xhs-drive-catalog-2026-10-20.md)
+
+
+---
+
+## L2 正文
+
 # 小红书 2026 平台风向 · WILL + Momentum（Agent 摘录）
 
 > **来源（Google Drive · DY Zhang）**  
@@ -7,13 +36,6 @@
 
 **给 04 Topic Manager / 认知期 depth 用：** 与 [`platform-notes-2026.md`](../../xiaohongshu/platform-notes-2026.md) 配合。
 
----
-
-## 1. 2026 总判断（一句话）
-
-**种草进入「效果化时代」**：不是洗流量素材，而是 **看见具体的人** → **前置人群与内容** → **一方数据衡量长效 ROI**；社区仍是 **真人感 UGC + 搜索/互动**，品牌要 **叙事与场景**，不是硬广堆曝光。
-
----
 
 ## 2. 机制要点（可写进 Brief）
 
@@ -47,18 +69,6 @@
 - 「后物质 / 小共识」：放弃功能大共识，做 **精准人群的小共识**（与认知期 **跨行业 open、不绑垂直号** 一致）。
 - **爱具体的人，不爱抽象的人** —— 与 IP「专业 moment / 叙事而非硬广」同构。
 
----
-
-## 3. Momentum 2026 · 导入状态
-
-| 项 | 状态 |
-|----|------|
-| 本地 PDF | ✅ `raw/momentum-2026.pdf`（2026-10-20） |
-| Agent 成稿 | ✅ [xhs-momentum-2026-agent-brief.md](./xhs-momentum-2026-agent-brief.md) |
-| 长文本（可选） | `bash scripts/research/extract-momentum-2026.sh` → `xhs-momentum-2026-extract.md` |
-| Drive 备份 | [`fileId=12e2I54uSpzW-RvJ2ExKLUUyytDJmTBKv`](https://drive.google.com/file/d/12e2I54uSpzW-RvJ2ExKLUUyytDJmTBKv/view) |
-
----
 
 ## 4. 与自有数据的对齐（2026-10-20）
 

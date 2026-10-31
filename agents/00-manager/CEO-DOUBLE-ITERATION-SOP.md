@@ -1,3 +1,37 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md"
+goal: "CEO 双轮串行迭代 SOP（「consult SOP.md」入口）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "98d08f411e3ea80d"
+---
+
+# CEO 双轮串行迭代 SOP（「consult SOP.md」入口）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Owner 口令（例）：** 「consult SOP，对当前 prompt / Brief 跑 **两轮改进迭代**。」  
+> **图与审计：** [docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md](../../docs/CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md)  
+>
+- **Path:** `agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **0. 铁律**: 1. **串行：** 迭代 1 → **Analyze（落盘）** → 迭代 2。迭代 2 **只能**依据迭代 1 的分析改动。
+- **1. Consult SOP · 必读栈（步骤 1）**: 按顺序读（**不复制内容，只引用**），并在 `ITERATION-LOG` 写一行「已读：…」：
+- **2. 迭代模板（每次迭代 = 一圈图 2）**: ```text
+- **3. Propose Prompt Change · 提案格式（补缺口 A/E）**: ```markdown
+- **4. ITERATION-LOG 约定（phase 2 脚本强制）**: **命令：** `bash scripts/manager-ceo-double-iteration.sh --brief … --phase 1` → AI 填 log → `--phase 2`（…
+- **迭代 1**: - 提案：（§3）
+- **迭代 2**: - Consult：已读迭代 1 分析
+- **对比**: | 指标 | 基线 | 迭代 1 | 迭代 2 |
+
+
+---
+
+## L2 正文
+
 # CEO 双轮串行迭代 SOP（「consult SOP.md」入口）
 
 > **Owner 口令（例）：** 「consult SOP，对当前 prompt / Brief 跑 **两轮改进迭代**。」  

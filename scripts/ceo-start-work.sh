@@ -29,7 +29,11 @@ while IFS= read -r st; do
 done < <(find "$ROOT/content/evolution/04-xhs-topic-manager" -name '.ceo-double-iteration-state.json' 2>/dev/null || true)
 [[ "$found" -eq 0 ]] && echo "  (none)"
 
+action="$INBOX/ceo-action-needed.md"
+if [[ -f "$action" ]]; then
+  echo "CEO action needed: ${action#"$ROOT/"}"
+fi
 echo ""
 echo "In Cursor chat, say: 请 CEO 开始工作"
-echo "Doc: docs/CEO-OWNER-ONE-LINE-TRIGGERS.md"
+echo "Doc: docs/CEO-OWNER-ONE-LINE-TRIGGERS.md · automation: docs/WORKFLOW-AUTOMATION-MATRIX.md"
 exit 0

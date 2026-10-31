@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/evolution/10-artist-intel/2026-10-28/hauser-cellist/reference/gold.md"
+goal: "Artist 对标 · Evaluator 靶心（gold rubric · DB/PLD/APO/CTD）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "2143c6ba2cf43c19"
+---
+
+# Artist 对标 · Evaluator 靶心（gold rubric · DB/PLD/APO/CTD）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 法派长笛传承 × 跨界品牌策划——帮品牌、艺术家、教育者与 AI 创新者，把古典艺术里不可替代的审美与叙事，翻译成可合作、可传播、可沉淀为数字藏品的稀缺语言。
+- **Path:** `content/evolution/10-artist-intel/2026-10-28/hauser-cellist/reference/gold.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** **禁用 SWOT 作对外对标表**；使用四指标（`kernels/daily-gm/benchmark_framework.py`）：
+- **章节锚点**: - **一句话定位**: 法派长笛传承 × 跨界品牌策划——帮品牌、艺术家、教育者与 AI 创新者，把古典艺术里不可替代的审美与叙事，翻译成可合作、可传播、可沉淀为数字藏品的稀缺语言。
+- **一句话定位**: 法派长笛传承 × 跨界品牌策划——帮品牌、艺术家、教育者与 AI 创新者，把古典艺术里不可替代的审美与叙事，翻译成可合作、可传播、可沉淀为数字藏品的稀缺语言。
+- **目标受众（一句话）**: 寻求高质感艺术叙事与跨界合作的品牌与艺术家，关注音乐成长路径的学生与家长，以及探索 AI 创新、数字藏品与艺术 IP 数字化的新兴领域从业者。
+- **目标受众（展开）**: | 群体 | 核心需求 |
+- **品牌合作范围（选题 · 对外表述 · Agent 必遵）**: - **跨行业 open：** 品牌合作、跨界、沉浸式体验面向 **各行业** 品牌与商品品类；**不排斥** 与任何一类商品/行业合作，只要符合 IP 与强链接目标。
+- **三内容支柱**: 1. **艺术专业高度** — 法派长笛传承、演奏与教学、听见 Daily 内容策展
+- **差异化**: - 同时具备法派长笛顶级师承、十年跨界商业落地与中英法三语跨文化能力
+
+
+---
+
+## L2 正文
+
 # Artist 对标 · Evaluator 靶心（gold rubric · DB/PLD/APO/CTD）
 
 **禁用 SWOT 作对外对标表**；使用四指标（`kernels/daily-gm/benchmark_framework.py`）：

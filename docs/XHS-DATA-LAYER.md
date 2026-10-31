@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/XHS-DATA-LAYER.md"
+goal: "小红书数据层 · 接手必读（AI + Owner）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "b3dd0cf875b5493e"
+---
+
+# 小红书数据层 · 接手必读（AI + Owner）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **机器索引：** [`content/analytics/xiaohongshu/DATA-MANIFEST.json`](../content/analytics/xiaohongshu/DATA-MANIFEST.json)  
+> **行级快照（可提交 Git）：** [`notes-snapshot-2026-10-20.json`](../c
+- **Path:** `docs/XHS-DATA-LAYER.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **状态（2026-10-20）**: | 项 | 值 |
+- **三层存放（记路径即可）**: ```text
+- **一行命令（新机恢复 pipeline）**: ```bash
+- **CSV 长什么样**: 列定义：`scripts/analytics/schemas.py` → `XHS_CSV_FIELDNAMES`。
+- **与成稿的衔接**: | 数据结论 | 成稿位置 |
+- **强链接口径**: 约课私信 **不计** 认知期有效 `dm_count` → [discovery-phase-signal-baseline.md](../content/marketing/discovery-p…
+
+
+---
+
+## L2 正文
+
 # 小红书数据层 · 接手必读（AI + Owner）
 
 > **机器索引：** [`content/analytics/xiaohongshu/DATA-MANIFEST.json`](../content/analytics/xiaohongshu/DATA-MANIFEST.json)  

@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/xiaohongshu/topic-manager.md"
+goal: "Xiaohongshu Topic Manager（选题 IP Manager）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "8e09095a45a94864"
+---
+
+# Xiaohongshu Topic Manager（选题 IP Manager）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Xiaohongshu Topic Manager（选题 IP Manager）
+- **Path:** `.cursor/skills/xiaohongshu/topic-manager.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **角色**: 你是 **小红书 IP Manager**，不是泛泛写稿工具。每一篇候选笔记都要回答：
+- **Agent 工作流（必须按序）**
+- **Brief 验收清单**: - [ ] `subject` + `body` dict 完整，且与 Brief 正文一致
+- **P 层指标（不进单元测试）**: 在 Brief 末尾可选记录：`目标：涨粉 / 筛客 / 案例引流` — 用于复盘，不替代 `aligned` 判定。
+
+
+---
+
+## L2 正文
+
 # Xiaohongshu Topic Manager（选题 IP Manager）
 
 > **触发词：** 选题、Topic Manager、笔记方向、爆款、涨粉、强链接、选题 verify、对齐 IP  

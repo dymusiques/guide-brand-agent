@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/WORKSPACE.md"
+goal: "WORKSPACE.md — 目录路由速查"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "c46aa538a28bbb8b"
+---
+
+# WORKSPACE.md — 目录路由速查
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 目标：让 AI 每轮 session 都能快速知道「去哪里找/放什么」。**找任何文件前先查这里。**
+- **Path:** `rules/WORKSPACE.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **路由规则**
+- **已安装的 Public Skill Repos**: | Repo | 路径 | Root skill | 更新 |
+- **Python 环境**: - 根目录 `.venv/` 为工作区级环境
+- **命名规则**: - 目录和文件名：小写 + 下划线（snake_case）
+
+
+---
+
+## L2 正文
+
 # WORKSPACE.md — 目录路由速查
 
 目标：让 AI 每轮 session 都能快速知道「去哪里找/放什么」。**找任何文件前先查这里。**

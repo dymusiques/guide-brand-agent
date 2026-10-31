@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/personal-ip/ip-positioning-brief-2026-10-05.md"
+goal: "IP 定位 Brief — 2026-10-05"
+openwebui_route: "intake_l2"
+cursor_route: "exec_gate"
+content_sha256: "5d39a630d25e1ffd"
+---
+
+# IP 定位 Brief — 2026-10-05
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** IP 定位 Brief — 2026-10-05
+- **Path:** `content/personal-ip/ip-positioning-brief-2026-10-05.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `exec_gate`
+
+## 章节锚点
+- **一句话定位**: 法派长笛传承 × 跨界品牌策划——帮品牌、艺术家、教育者与 AI 创新者，把古典艺术里不可替代的审美与叙事，翻译成可合作、可传播、可沉淀为数字藏品的稀缺语言。
+- **目标受众（一句话）**: 寻求高质感艺术叙事与跨界合作的品牌与艺术家，关注音乐成长路径的学生与家长，以及探索 AI 创新、数字藏品与艺术 IP 数字化的新兴领域从业者。
+- **目标受众（展开）**: | 群体 | 核心需求 |
+- **品牌合作范围（选题 · 对外表述 · Agent 必遵）**: - **跨行业 open：** 品牌合作、跨界、沉浸式体验面向 **各行业** 品牌与商品品类；**不排斥** 与任何一类商品/行业合作，只要符合 IP 与强链接目标。
+- **三内容支柱**: 1. **艺术专业高度** — 法派长笛传承、演奏与教学、听见 Daily 内容策展
+- **差异化**: - 同时具备法派长笛顶级师承、十年跨界商业落地与中英法三语跨文化能力
+- **KPI / CAPSTONE playbook**: 战略层 Pitch、Publish、Product 生态与 CAPSTONE 工作稿：[2026-10-18-key-person-of-influence-capstone-playbook.md]…
+- **英文对照（Instagram 等）**: French-school flute lineage × cross-disciplinary brand strategist — helping brands, artists, educato…
+
+
+---
+
+## L2 正文
+
 # IP 定位 Brief — 2026-10-05
 
 ## 一句话定位

@@ -1,4 +1,30 @@
-# Artist watchlist screened · 2026-10-27
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/ip-research/artist-watchlist-screened.md"
+goal: "Artist watchlist screened · 2026-10-29"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "2e77b11731abe708"
+---
+
+# Artist watchlist screened · 2026-10-29
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > 指标：Directional Benchmarking · Pixel-Level Deconstruction · Audience Persona Overlap · Core Topic Density
+> 程序：`kernels/daily-gm/benchmark_framework.py` · 本表为 **启发式筛查**；GM10 日更 Ge
+- **Path:** `content/ip-research/artist-watchlist-screened.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Rationale per artist**
+
+
+---
+
+## L2 正文
+
+# Artist watchlist screened · 2026-10-29
 
 > 指标：Directional Benchmarking · Pixel-Level Deconstruction · Audience Persona Overlap · Core Topic Density
 > 程序：`kernels/daily-gm/benchmark_framework.py` · 本表为 **启发式筛查**；GM10 日更 Gemini 可 override

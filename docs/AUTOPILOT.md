@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/AUTOPILOT.md"
+goal: "Autopilot 脚本（Debug / 交班单次）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "ae7fb46b272ce1e5"
+---
+
+# Autopilot 脚本（Debug / 交班单次）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **Owner 主路径：** 后台常驻链见 **[BACKGROUND-GOAL-EVOLUTION.md](./BACKGROUND-GOAL-EVOLUTION.md)** — `bash scripts/setup-background-goal-evolution.sh`（一次）+ Process Launcher。**不必** 日常手动跑本脚本。
+- **Path:** `docs/AUTOPILOT.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Owner 日常仅两件事**: | 环节 | 说明 |
+- **维护者 / Debug 单次**: ```bash
+- **SEO（小红书可发现性）**: `scripts/seo-lint-xhs-briefs.py` 检查 Brief 的 `## 标签`（≥3 个 `#`）、标题长度、软 CTA。autopilot 内 **WARN 不挡跑**；Re…
+- **09 → 04 半自动派活**: - `scripts/analytics-summarize.py` 结束后自动刷新 `ceo-dispatch-latest.md`
+- **相关**: - M4：`bash scripts/verify-goals.sh` · `integration/goals/verify_hooks.json` · 与 kernel 6 case 分工：[VE…
+
+
+---
+
+## L2 正文
+
 # Autopilot 脚本（Debug / 交班单次）
 
 **Owner 主路径：** 后台常驻链见 **[BACKGROUND-GOAL-EVOLUTION.md](./BACKGROUND-GOAL-EVOLUTION.md)** — `bash scripts/setup-background-goal-evolution.sh`（一次）+ Process Launcher。**不必** 日常手动跑本脚本。

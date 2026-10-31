@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/research/xhs-platform-research-index.md"
+goal: "小红书平台研究 · Agent 读序（2026-10-20）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "61f7c009d5e561d2"
+---
+
+# 小红书平台研究 · Agent 读序（2026-10-20）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **总栈（Excel + PDF + IP）：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../../docs/XHS-CONTENT-INTAKE-STACK.md) · Owner 确认门 [CONTENT-DELIVERY-FOR-OWNER.md](../../xiaohongshu/CONTENT-DELI
+- **Path:** `content/marketing/research/xhs-platform-research-index.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # 小红书平台研究 · Agent 读序（2026-10-20）
 
 > **总栈（Excel + PDF + IP）：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../../docs/XHS-CONTENT-INTAKE-STACK.md) · Owner 确认门 [CONTENT-DELIVERY-FOR-OWNER.md](../../xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md)  

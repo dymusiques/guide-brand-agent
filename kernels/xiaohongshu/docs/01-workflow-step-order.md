@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "kernels/xiaohongshu/docs/01-workflow-step-order.md"
+goal: "工作方式与步骤顺序审阅"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "64bd7d241f0f0472"
+---
+
+# 工作方式与步骤顺序审阅
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 本文把对话里约定的做法写成**可交接文档**，并回答：**每一步的方式对不对、顺序对不对。**
+- **Path:** `kernels/xiaohongshu/docs/01-workflow-step-order.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **结论（简短）**: **你的顺序和 Module 3 / Superlinear 课纲一致，可以沿用。** 唯一建议：在「核心函数能跑通」之后，立刻把说明写进 Git（本 `kernels/xiaohongshu/` 目…
+- **推荐顺序 vs 你实际做的**: | 顺序 | 步骤 | 是否正确 | 说明 |
+- **常见误区（你没有犯）**: - ❌ 在 test 文件里写 Gemini 调用 —— 你没有。
+- **你刚补充的一步**: **完全正确，且应紧接在 verify 通过之后。** 代码已在 Git 工作区；本文档目录补全**流程审阅、API 说明、用例说明、README 索引**，以后新 Agent 只读文件即可接手。
+- **当前这一步（test 卫生 · Module 3）**: | 动作 | 是否正确 |
+- **仍未实现、但顺序正确的后续**: | 顺序 | 步骤 | 说明 |
+- **建议的后续固定节奏（选题 Manager）**: 1. 在 `content/xiaohongshu/` 写 Brief（dict 或模板转 dict）。
+
+
+---
+
+## L2 正文
+
 # 工作方式与步骤顺序审阅
 
 本文把对话里约定的做法写成**可交接文档**，并回答：**每一步的方式对不对、顺序对不对。**

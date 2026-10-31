@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/skill_yage_voice.md"
+goal: "Skill · 鸭哥口吻（yage.ai 风格 · 去 AI 腔）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "eeaa25390cc03cff"
+---
+
+# Skill · 鸭哥口吻（yage.ai 风格 · 去 AI 腔）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > 来源：grapeot [voice-lora](https://github.com/grapeot/voice-lora) 训练语料指向 **鸭哥 / yage.ai** 中文工程博客口吻。  
+> **边界：** 小红书 **Brief / classifier JSON / Pitch 定稿** 仍以 **张丹瀛 IP + CAPSTONE + e
+- **Path:** `rules/skills/skill_yage_voice.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **何时用**: | 场景 | 用鸭哥口吻？ |
+- **口吻要点（Agent 直接写时）**: - **短句、有判断**：先给结论，再补一句为什么；少「首先其次此外综上所述」。
+- **若本机已装 voice-lora（可选）**: ```bash
+- **路由**: - 写作总规范：`rules/skills/skill_writing.md` · `vendor/writing-skill/`
+
+
+---
+
+## L2 正文
+
 # Skill · 鸭哥口吻（yage.ai 风格 · 去 AI 腔）
 
 > 来源：grapeot [voice-lora](https://github.com/grapeot/voice-lora) 训练语料指向 **鸭哥 / yage.ai** 中文工程博客口吻。  
@@ -9,6 +38,7 @@
 |------|----------------|
 | 向 Owner **解释** 选题逻辑、workflow、测试结果 | ✅ |
 | 小红书 **Brief 正文**、**evaluate 用的 body** | ❌（保持 Danying 品牌语气） |
+| 小红书 **Owner 长稿** `drafts/*-longform.md` | ✅ **Must**（配合 [VOICE-ANCHOR](../../content/xiaohongshu/VOICE-ANCHOR.md) · [OWNER-LONGFORM-DE-AI-VOICE](../../docs/OWNER-LONGFORM-DE-AI-VOICE.md)） |
 | 实验稿 / memo / 内部说明 | ✅ 可选 |
 | 已装 **voice-lora-rewrite** CLI | ✅ 对 **非 Brief** 段落跑 rewrite |
 

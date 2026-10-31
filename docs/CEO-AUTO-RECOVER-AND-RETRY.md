@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/CEO-AUTO-RECOVER-AND-RETRY.md"
+goal: "CEO · 中断 / 阻塞 / FAIL 自动恢复与重试"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "20de01157a891916"
+---
+
+# CEO · 中断 / 阻塞 / FAIL 自动恢复与重试
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Owner 原则：** CEO、campaign、deep-delivery 任务若被中断、阻塞、FAIL 或跑错路径，**Agent Must 自动**检测 → 诊断 → 修脚本或环境 → 换策略重试，直到闭合或达上限。**Owner 不必重复下口令。**
+- **Path:** `docs/CEO-AUTO-RECOVER-AND-RETRY.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **何时触发**: | 信号 | 检测方式 |
+- **流程（Detect → Diagnose → Fix → Retry → Escalate）**: 1. **Detect** — 锁文件、进程表、`*ceo-inbox/*.log` 末行与关键字。
+- **环境变量（recover 脚本）**: | 变量 | 默认 | 含义 |
+- **产物**: - 每次 recover：`content/evolution/00-manager/ceo-inbox/ceo-auto-recover-latest.md`（动作、pid、是否启动 nohup）。
+- **相关**: - [CEO-OWNER-DEADLINE-DELIVERY.md](./CEO-OWNER-DEADLINE-DELIVERY.md)
+
+
+---
+
+## L2 正文
+
 # CEO · 中断 / 阻塞 / FAIL 自动恢复与重试
 
 > **Owner 原则：** CEO、campaign、deep-delivery 任务若被中断、阻塞、FAIL 或跑错路径，**Agent Must 自动**检测 → 诊断 → 修脚本或环境 → 换策略重试，直到闭合或达上限。**Owner 不必重复下口令。**
@@ -28,7 +57,7 @@ bash scripts/ceo-auto-recover-blocked.sh
 4. **Retry** — 默认最多 **3 轮** recover 循环（`CEO_AUTO_RECOVER_MAX_ROUNDS`，跨会话由 Agent 读 `ceo-auto-recover-latest.md` 续跑）。  
    - 深交付重跑：`VERIFY_GOALS_SKIP_PLATFORM=1 CEO_DEEP_ROUNDS=2 bash scripts/run-ceo-deep-delivery-cycle.sh`（勿与第二条 deep 并行）。  
    - Campaign 重跑：`bash scripts/run-ceo-ip-all-agents-campaign.sh`（deep 仍跑时自动 `SKIP_GEMINI=1`）。
-5. **Escalate to Owner** — 仅当：已达 N 轮仍 FAIL、需 **gold/发布/裁决**、或 OAuth/Drive 等 Owner 侧凭据；**不要**为「要不要重跑」问 Owner。
+5. **Escalate to Owner** — 仅当：已达 N 轮仍 FAIL、需 **gold/发布/裁决**；**不要**为「要不要重跑」问 Owner。**Google：** 先 `check-google-auth-for-agent.sh`；PASS 则 **勿**因 OAuth chat 打扰 Owner（见 OWNER-GOOGLE-GRANT-AGENT.md）。
 
 ## 环境变量（recover 脚本）
 

@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/IMPORTANT.md"
+goal: "IMPORTANT · Manager / 集成层必读（<!-- important -->）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "316e9f4d3633ddd3"
+---
+
+# IMPORTANT · Manager / 集成层必读（<!-- important -->）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 集成 Agent **只读本文件 + 各 agent 的 INTEGRATION-PROMPT**，**不复制** classifier docstring 全文。
+- **Path:** `integration/IMPORTANT.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Owner 目标（P 层）**: - **强链接** 客户：品牌（**跨行业 open**）、艺术家、教育、AI×数字藏品创新者 —— 非 vanity 流量。
+- **黑盒核心（勿在集成层改规则）**: - `kernels/xiaohongshu/line2/is_xhs_growth_aligned.py`
+- **CEO / Manager 运营（Owner 五原则 · 派活 SOP）**: - [CEO-MANAGER-OPERATING-STANDARDS.md](../docs/CEO-MANAGER-OPERATING-STANDARDS.md)（原则详述）· [CEO-MANAG…
+- **集成调用（胶水）**: - **Owner 固定 · 小红书对抗 + 多轮进化（Must）：** [OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](../docs/OWNER-…
+- **后台目标链（Owner · setup 一次）**: - 机器层：`bash scripts/setup-background-goal-evolution.sh` → Process Launcher 常驻 · [docs/BACKGROUND-GOA…
+- **Owner 打开对话 · Artist 对标审阅（Must · 不每日提示）**: - GM10 **每天**更新分析；合并目录 `content/ip-research/artist-intel-catalog.md`
+- **Owner 怎么说话（Must · 零公式）**: - **最简单、最直接即可**（口语、碎片、多意图）；系统 **内化** 为 intake + 派活 + 内部提示词，**不要** 要求 Owner 按 Skill/Brief/verify 口令说话…
+- **CEO 交 Owner 前（Must · 内部 Gate，不抬高 Owner 门槛）**: - **Agent 自验，默认不让 Owner 逐条跑 verify。** **禁止等 Owner 回复才 
+…
+
+---
+
+## L2 正文
+
 # IMPORTANT · Manager / 集成层必读（<!-- important -->）
 
 集成 Agent **只读本文件 + 各 agent 的 INTEGRATION-PROMPT**，**不复制** classifier docstring 全文。
@@ -22,8 +54,9 @@
 
 ## 集成调用（胶水）
 
+- **Owner 固定 · 小红书对抗 + 多轮进化（Must）：** [OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](../docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) — pitfalls · 三镜头 · L2–L3 · **gap 直到 READY**（L1 PASS ≠ 闭合）  
 - **自动（Must · 无人值守）：** [BRIEF-AUTO-GATE-PIPELINE.md](../docs/BRIEF-AUTO-GATE-PIPELINE.md) · [BRIEF-ADVERSARIAL-CHALLENGE.md](../agents/_shared/BRIEF-ADVERSARIAL-CHALLENGE.md)  
-  `manager-xhs-briefs-auto-pipeline.sh`（含 **`run-xhs-brief-adversarial-challenge.py`** 重对抗）· 单篇 `manager-ceo-auto-gate-loop.sh`
+  `manager-xhs-briefs-auto-pipeline.sh`（含 **`run-xhs-brief-adversarial-challenge.py`** 重对抗）· 单篇 **`manager-brief-evolution-until-gap.sh`**
 - 单条 evaluate（仅改稿循环）：`python scripts/evaluate-xhs-topic.py --brief …`
 - 批量：`bash scripts/verify-xhs-content-dir.sh`（默认 complete 管线）
 - 全仓集成构建：`bash scripts/verify-all.sh` · 目标表 `integration/GOALS-REGISTRY.md`
@@ -45,7 +78,16 @@
 
 ## CEO 交 Owner 前（Must · 内部 Gate，不抬高 Owner 门槛）
 
-- **Agent 自验，默认不让 Owner 逐条跑 verify。** **禁止等 Owner 回复才 evaluate**；后台/autopilot/改 Brief 后自动跑 `manager-xhs-briefs-auto-pipeline.sh` 或 `manager-ceo-auto-gate-loop.sh`；FAIL 写 CEO-REROUTE 并同会话改稿（≤3 轮）。见 [CEO-AUTO-QA-LOOP.md](../docs/CEO-AUTO-QA-LOOP.md) · [BRIEF-AUTO-GATE-PIPELINE.md](../docs/BRIEF-AUTO-GATE-PIPELINE.md)。
+- **Agent 自验，默认不让 Owner 逐条跑 verify。** **禁止等 Owner 回复才 evaluate**；后台/autopilot/改 Brief 后自动跑 pipeline / gate；FAIL 写 CEO-REROUTE 并同会话改稿（≤3 轮）。见 [CEO-AUTO-QA-LOOP.md](../docs/CEO-AUTO-QA-LOOP.md) · [BRIEF-AUTO-GATE-PIPELINE.md](../docs/BRIEF-AUTO-GATE-PIPELINE.md)。
+
+## Google · Owner 已全权授权（Must · 勿 chat 确认）
+
+- Owner **不再**在对话里确认 Google/MCP/Drive。凭证：`vendor/gdocs-skill/secrets/` · 状态：`bash scripts/check-google-auth-for-agent.sh` → `integration/handoff/google-auth-status.json`。
+- Agent **Must** 用 **gdocs CLI**；MCP `needsAuth` → 用 CLI，**勿**把 Connect 甩给 Owner（除非 verify-integration FAIL · Terminal 一次 re-auth）。见 [docs/OWNER-GOOGLE-GRANT-AGENT.md](../docs/OWNER-GOOGLE-GRANT-AGENT.md)。
+
+## Owner 交付默认（Must · 2026-10-28）
+
+- **Gate PASS = 流程闭合**；routine **交 Owner：否**；**不**写 `OWNER-HANDOFF.md` 等勾选。**Owner 通知 = 当日 HTML**（`refresh-owner-notify-html.sh`）。**不**以 Owner chat 回复为闭环条件。见 [OWNER-DELIVERY-NOTIFY-DEFAULT.md](../docs/OWNER-DELIVERY-NOTIFY-DEFAULT.md)。Owner **仍必做**：发帖 + CSV。
 
 ## CEO 深交付 / campaign 中断恢复（Must · 无人值守）
 

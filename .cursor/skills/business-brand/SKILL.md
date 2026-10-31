@@ -1,9 +1,33 @@
 ---
-name: business-brand
-description: >-
-  Business planning and brand strategy — positioning, SWOT, competitor framing.
-  Use for 商业策划, 品牌策划, 品牌策略, 竞品, SWOT.
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/business-brand/SKILL.md"
+goal: "Business & Brand Planning"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "c9f52cf18d1bdee3"
 ---
+
+# Business & Brand Planning
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 1. `guide-core/soul.md` + `guide-core/user.md`
+2. Git `content/business-brand/` + `rules/USER.md`（真相源，优先）
+3. Drive `03-business-brand/`（仅 Owner 已同步定稿时查阅）
+4. `kernels/templates/camp
+- **Path:** `.cursor/skills/business-brand/SKILL.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **读什么**: 1. `guide-core/soul.md` + `guide-core/user.md`
+- **存储默认规则**: 与 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md) 一致：
+- **产出**: - 品牌定位 / 价值主张
+- **验收**: - [ ] 结论可验证（不编造竞品数据）
+
+
+---
+
+## L2 正文
 
 # Business & Brand Planning
 

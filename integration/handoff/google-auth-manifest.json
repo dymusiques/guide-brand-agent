@@ -1,0 +1,22 @@
+{
+  "version": "2026-10-28",
+  "owner_grant": "Google Workspace access delegated to Agent via gdocs CLI secrets; no repeated chat confirmation",
+  "status_file": "integration/handoff/google-auth-status.json",
+  "check_script": "bash scripts/check-google-auth-for-agent.sh",
+  "doc": "docs/OWNER-GOOGLE-GRANT-AGENT.md",
+  "primary_path": {
+    "tool": "python -m gdocs",
+    "secrets_dir": "vendor/gdocs-skill/secrets",
+    "verify": "bash scripts/verify-integration.sh"
+  },
+  "cursor_mcp": {
+    "role": "optional",
+    "when_needs_auth": "use CLI primary; do not ask Owner to Connect unless CLI verify_integration FAIL"
+  },
+  "agent_rules": [
+    "Never ask Owner to confirm Google permission in chat when verify_integration PASS",
+    "Never block CEO/campaign on MCP Connect card",
+    "Escalate Owner only for Terminal re-auth when token.json invalid and verify-integration FAIL"
+  ],
+  "campaign_platform_verify": "auto: VERIFY_GOALS_SKIP_PLATFORM=0 if verify-integration PASS else 1"
+}

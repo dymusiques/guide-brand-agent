@@ -1,9 +1,31 @@
 ---
-name: personal-ip
-description: >-
-  Personal IP positioning, persona, content pillars, and platform strategy for Danying.
-  Use when user asks about 个人IP, 人设, 定位, 内容支柱, or creator brand building.
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/personal-ip/SKILL.md"
+goal: "Personal IP"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "82bb569d51342032"
 ---
+
+# Personal IP
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 1. `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（KPI · CAPSTONE · Pitch/Publish/Product）
+2. `content/personal-ip/ip-positioning-brief-2026-10-05.md`
+- **Path:** `.cursor/skills/personal-ip/SKILL.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **读什么**: 1. `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（KPI · CAPSTONE · Pi…
+- **存储默认规则**: 与 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md) 一致：
+- **产出**: - IP 定位陈述（一句话 + 三支柱 + 差异化）
+- **验收**: - [ ] 与现有 Danying 品牌不冲突
+
+
+---
+
+## L2 正文
 
 # Personal IP
 

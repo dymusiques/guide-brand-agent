@@ -1,7 +1,7 @@
-# Adversarial challenge · 2026-10-17-discovery-02-narrative-not-ads · 2026-10-28 09:00
+# Adversarial challenge · 2026-10-17-discovery-02-narrative-not-ads · 2026-10-31 09:00
 
 > **Must 节：** 交 Owner / complete gate 前自动生成 · `run-xhs-brief-adversarial-challenge.py`  
-> Brief: `content/xiaohongshu/2026-10-17-discovery-02-narrative-not-ads-brief.md` · 标题：**用户三秒划走，缺的是叙事不是预算**
+> Brief: `content/xiaohongshu/2026-10-17-discovery-02-narrative-not-ads-brief.md` · 标题：**百富Frieze把live写进揭幕，不是晚宴BG**
 
 ## 外部 · 类似命题 / 大 V 压力
 
@@ -14,11 +14,11 @@
 | 同类低点击形态 | #品牌策划 短观点、无 moment/无封面判断句 |
 
 
-**本篇命题：** 「用户三秒划走，缺的是叙事不是预算」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
+**本篇命题：** 「百富Frieze把live写进揭幕，不是晚宴BG」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
 
 ## 其它 IP 产出 · 对打句
 
-, not vague "flute phrasing" metaphors that can't be presented to the CMO.
+1. **机构号视角**：甲方听懂了“25分钟原创声场”，
 
 ## FULL-DRILL · 多 GM 攻击
 
@@ -44,27 +44,55 @@
 **redteam-pre 摘录：**
 
 ```
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/redteam/2026-10-17-discovery-02-narrative-not-ads-pre.md"
+goal: "Redteam pre · discovery-02-narrative-not-ads"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "87ac8824a0660b6f"
+---
+
+# Redteam pre · discovery-02-narrative-not-ads
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - **攻击 1**（X3 / §D·04）：与 #1 语义重叠（硬广/三秒划走），连发时读者觉得 **重复说教**。
+- **驳/改：** 本篇 **只打「预算 vs moment」**，#1 的「站得住/装饰」一句带过；封面用对比视觉（Brief 已写）。
+- **Path:** `content/xiaohongshu/redteam/2026-10-17-discovery-02-narrative-not-ads-pre.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Redteam pre · discovery-02-narrative-not-ads
 
 - **攻击 1**（X3 / §D·04）：与 #1 语义重叠（硬广/三秒划走），连发时读者觉得 **重复说教**。
-- **驳/改：** 本篇 **只打「预算 vs moment」**，#1 的「站得住/装饰」一句带过；封面用对比视觉（Brief 已写）。
-
-- **攻击 2**（X9 / §D·09）：标题蹭「三秒划走」易吸引 **泛流量**，品牌 DM 不增。
-- **驳/改：** 正文第二段点明 **品牌市场/文化合作** 读者；CTA 收藏+聊聊保留。
-
-- **CEO：** 允许写 Brief；发前跑 `evaluate-xhs-brief-complete.py`。
-
+- **驳/改：** 本篇 **只打「预算 vs moment」
 ```
 
 ## 与 ip-positioning 融合
 
 | 红线 | 本篇 |
 |------|------|
-| 跨行业 open · 不绑单品类 | ⚠️ 待加强 |
+| 三镜头 · 可辨认案例（L2） | ✅ |
+| 跨行业 open · 不绑单品类 | ✅ |
 | 强链接 CTA | ✅ |
 | 认知期 · 价值判断非硬推销 | ✅ |
-| 故事 moment（数据策略） | ✅ |
+| trade-off 或隐患（L2） | ✅ |
 | 约课非 KPI | ✅ |
+
+## Clever · 长稿多网红反方（Must · OWNER-LONGFORM-CLEVER-ADVOCATE）
+
+| 检查 | 结果 |
+|------|------|
+| 反方席小节 | ⚠️ 缺 杠精席/Clever |
+| 反方人设 ≥4 | ⚠️ · n=0 |
+| 作者收束（收进包里/回杠） | ⚠️ |
+
+**Must：** 长稿含 ≥4 个 `**反方·…**` 立场 + 「收进包里」式收束 · 见 `verify-xhs-clever-advocate.sh` · CEO triple-eval / double-stress 已编排。
 
 ## L2–L3 隐蔽风险
 

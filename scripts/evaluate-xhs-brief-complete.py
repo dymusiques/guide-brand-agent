@@ -22,6 +22,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "kernels/xiaohongshu"))
 from challenge_brief_schema import validate_challenge_file  # noqa: E402
+from xhs_brief_longform import extract_longform_text  # noqa: E402
+from xhs_clever_advocate import analyze_clever_advocate  # noqa: E402
 REDTEAM = ROOT / "content/xiaohongshu/redteam"
 LOG_DIR = ROOT / "content/xiaohongshu/verify-logs"
 EVAL = ROOT / "scripts/evaluate-xhs-topic.py"
@@ -205,12 +207,17 @@ def process_brief(brief: Path, py: str, skip_kernel: bool, ensure_redteam: bool)
     if not skip_kernel:
         report["kernel_six_regression"] = run_kernel_six(py)
 
+    lf = extract_longform_text(brief)
+    clever = analyze_clever_advocate(lf or "")
+    report["clever_advocate"] = clever
+
     l1_ok = all(c["pass"] for c in report["l1_six_on_this_brief"])
     gem_ok = report["gemini_evaluate"].get("aligned") is True and report["gemini_evaluate"].get("_exit") == 0
     rt_ok = report["redteam_pre"]["pass"]
     ch_ok = report["adversarial_challenge"]["pass"]
     kern_ok = skip_kernel or (report["kernel_six_regression"] or {}).get("pass", False)
-    report["overall_pass"] = l1_ok and gem_ok and rt_ok and ch_ok and kern_ok
+    clever_ok = clever["pass"] if lf else True
+    report["overall_pass"] = l1_ok and gem_ok and rt_ok and ch_ok and kern_ok and clever_ok
     return report
 
 
@@ -251,6 +258,11 @@ def main() -> int:
         print(f"\n=== {status} · {brief.name} ===")
         print(f"  redteam-pre: {'PASS' if rep['redteam_pre']['pass'] else 'FAIL'}")
         print(f"  adversarial-challenge: {'PASS' if rep['adversarial_challenge']['pass'] else 'FAIL'}")
+        ca = rep.get("clever_advocate") or {}
+        print(
+            f"  clever-advocate: {'PASS' if ca.get('pass') else 'FAIL'} "
+            f"personas={ca.get('persona_count', 0)}"
+        )
         for c in rep["l1_six_on_this_brief"]:
             print(f"  {c['id']}: {'PASS' if c['pass'] else 'FAIL'} · {c['kernel_ref']}")
         ge = rep["gemini_evaluate"]

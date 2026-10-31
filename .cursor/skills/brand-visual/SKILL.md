@@ -1,9 +1,34 @@
 ---
-name: brand-visual
-description: >-
-  Brand visual design direction, Canva workflows, palette and consistency checks.
-  Use for 品牌视觉, Canva, 配色, 设计规范, 封面.
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/brand-visual/SKILL.md"
+goal: "Brand Visual"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "62f835a9e639a847"
 ---
+
+# Brand Visual
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 1. `guide-core/soul.md` + `rules/USER.md`（视觉规范）
+2. Git `content/visual/`（Brief + Canva 链接，真相源，优先）
+3. Canva Brand Kit（MCP 授权后）
+4. Drive `06-visual/`（仅 Owner 已同步定稿时查阅）
+5. Canva skill
+- **Path:** `.cursor/skills/brand-visual/SKILL.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **读什么**: 1. `guide-core/soul.md` + `rules/USER.md`（视觉规范）
+- **存储默认规则**: 与 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md) 一致：
+- **产出**: - 视觉 Brief（尺寸、主色、字体、参考）
+- **验收**: - [ ] 与 Brand Kit 或 `rules/USER.md` 中的视觉规范一致
+
+
+---
+
+## L2 正文
 
 # Brand Visual
 

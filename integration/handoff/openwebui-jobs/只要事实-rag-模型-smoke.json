@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "slug": "只要事实-rag-模型-smoke",
+  "route": "RAG_ONLY",
+  "platform": "personal_ip",
+  "goal": "只要事实：RAG 模型 smoke",
+  "brief_path": null,
+  "outbox_md": "/Users/danying/Desktop/Open WebUI Personal IP/outbox/只要事实-rag-模型-smoke.md",
+  "status": "done",
+  "updated_at": "2026-10-29T09:59:13Z",
+  "model": "openai/gpt-4o-mini",
+  "knowledge": "brand-ip-knowledge"
+}

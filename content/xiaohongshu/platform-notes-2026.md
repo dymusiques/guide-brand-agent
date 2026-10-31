@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/platform-notes-2026.md"
+goal: "小红书 2026 · 写稿约束（04 / Owner）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "4f175019cf397bad"
+---
+
+# 小红书 2026 · 写稿约束（04 / Owner）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **总栈（Excel + PDF + IP · Must）：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md) · 交付 [CONTENT-DELIVERY-FOR-OWNER.md](./CONTENT-DELIVERY-FOR-OWNER.md)
+- **Path:** `content/xiaohongshu/platform-notes-2026.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **必守（认知期 + 2026 风向）**: 1. **前 3 行**：具体 **moment / 判断**（数据：故事帖 > 纯技巧），再接到品牌命题。
+- **搜索与时段（2024 趋势报告 · 仍作机制参考）**: - 用户 **高频搜索**；发布可偏 **15–17 点 / 20–22 点**（以你数据为准）。
+- **禁止**: - 编造 2026 官方数据；大会/特刊数字仅在有摘录时谨慎使用。
+
+
+---
+
+## L2 正文
+
 # 小红书 2026 · 写稿约束（04 / Owner）
 
 **总栈（Excel + PDF + IP · Must）：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md) · 交付 [CONTENT-DELIVERY-FOR-OWNER.md](./CONTENT-DELIVERY-FOR-OWNER.md)

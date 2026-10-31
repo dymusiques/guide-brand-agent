@@ -1,38 +1,41 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/research/xhs-content-structure-2025-notes.md"
+goal: "2025 爆款拆解黄金公式 · Agent 说明"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "0cdd423c45a0a267"
+---
+
+# 2025 爆款拆解黄金公式 · Agent 说明
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > 源：`raw/2025-golden-formula.pdf`  
+> **说明：** 该 PDF 为 **图片型**，无法自动 OCR。本节 = **可执行的「结构公式」**，由 **自有 23 篇数据 + WILL/Momentum** 归纳，供 04 写 Brief；Owner 对照 PDF 可视检查是否一致。
+- **Path:** `content/marketing/research/xhs-content-structure-2025-notes.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **与数据的对应（为何这样写）**: - **故事 + 判断** 帖互动强于 **纯技巧教程** → 钩子必须「人/事件/态度」先行。
+- **衔接**: - 模板：`kernels/templates/xhs-content-brief.template.md`
+
+
+---
+
+## L2 正文
+
 # 2025 爆款拆解黄金公式 · Agent 说明
 
 > 源：`raw/2025-golden-formula.pdf`  
 > **说明：** 该 PDF 为 **图片型**，无法自动 OCR。本节 = **可执行的「结构公式」**，由 **自有 23 篇数据 + WILL/Momentum** 归纳，供 04 写 Brief；Owner 对照 PDF 可视检查是否一致。
 
----
-
-## 黄金结构（认知期 depth 版）
-
-| 块 | 字数感 | 内容 |
-|----|--------|------|
-| **标题** | ≤20 字感 | **具体冲突 / 判断**（非「长笛技巧第 N 集」） |
-| **钩子 3 行** | 短 | **moment + 对象**（品牌/艺术/判断） |
-| **正文** | 中 | 1 个 **Solution**（你的专业视角）+ **Why**（为何品牌该关心） |
-| **CTA** | 1 句 | 收藏 + 私信「聊聊」/「合作/品牌」 |
-| **标签** | ≥3 | 含 `#品牌策划` / `#艺术跨界` 等（evaluate 要求） |
-
----
 
 ## 与数据的对应（为何这样写）
 
 - **故事 + 判断** 帖互动强于 **纯技巧教程** → 钩子必须「人/事件/态度」先行。  
 - 教程结构保留为 **听见 Daily / 垂直需求**，**不**作为认知期主轴。
 
----
-
-## 拆解 checklist（写完后自检）
-
-- [ ] 前 3 行能否 **脱离封面** 独立传播？  
-- [ ] 是否出现 **具体的人/场景**（非「高端人群」）？  
-- [ ] 是否 **无** 未核实平台大盘数据？  
-- [ ] CTA 是否 **非约课主导**？  
-- [ ] 已跑 `evaluate-xhs-topic.py` 且 `aligned: true`？
-
----
 
 ## 衔接
 

@@ -1,3 +1,33 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/workflow_parallel_subagents.md"
+goal: "并行 Subagent 工作流"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "ad0e3280aaf47119"
+---
+
+# 并行 Subagent 工作流
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - 2–3 个精心设计的 subagent 通常优于 5 个松散任务。
+- 并行消耗更多 token；轻量任务不要「多 agent 仪式」。
+- Research / 大规模探索：关键中间工件整理到 `tmp/parallel/<session_slug>/`。
+- **Path:** `rules/skills/workflow_parallel_subagents.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **上游：** [grapeot/context-infrastructure · workflow_parallel_subagents.md](https://gith…
+- **章节锚点**: - **元数据**: - **类型**: Workflow
+- **注意事项**: - 2–3 个精心设计的 subagent 通常优于 5 个松散任务。
+- **常见错误**: | 错误 | 正确做法 |
+
+
+---
+
+## L2 正文
+
 # 并行 Subagent 工作流
 
 > **上游：** [grapeot/context-infrastructure · workflow_parallel_subagents.md](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/workflow_parallel_subagents.md)（standalone 拷贝，已做 Cursor / 本仓裁剪。）  
@@ -10,21 +40,6 @@
 - **适用场景**: 独立 review、并行调研探索；**仅 Owner 明确要求**时的实现委派
 - **本仓安装**: 2026-10-19
 
----
-
-## 本仓运行时（Cursor · 先读）
-
-| 上游概念 | 本仓对应 |
-|----------|----------|
-| `functions.task` + `subagent_type` | Cursor **`Task`** 工具；`subagent_type` 以当前会话 schema 为准（如 `explore`、`generalPurpose`、`bugbot` 等） |
-| OpenCode agent 注册表 | **无**；不编造 `subagent_type` |
-| `multi_tool_use.parallel` | 同一轮 **并行发起多个 Task**（独立 tool call） |
-| Antigravity / OpenCode / headless Cursor | 读 [skill_ai_agent_cli.md](./skill_ai_agent_cli.md) + vendor focused skill；IDE 内 review 优先 Task / Bugbot |
-| 并行落盘目录 | 默认 `tmp/parallel/<session_slug>/`（gitignored，见 overlay） |
-
-**与 00 Manager 的关系：** 01–09 是 **单会话内顺序扮演 + verify**，不是后台 subagent。并行 Task **只**用于读/调研/review 等 **可隔离** 工作；**不**并行改同一 Brief 或同一 `content/` 定稿文件。
-
----
 
 ## 核心判断
 
@@ -71,44 +86,6 @@ Code / privacy / design review 通常交 **独立** Task 或 Bugbot 子代理，
 | 工程实现（多文件） | 默认不委派 | 仅 Owner 明确要求时分派 |
 | 多 agent 同时写同一文件 | 低 | 先并行读/审，**单一 writer** 写定稿 |
 
----
-
-## 并行执行流程
-
-### 1. 评估与分割
-
-| 任务类型 | Overlap 范围 |
-|---------|-------------|
-| 调研 / 多视角审阅 | 30% – 50% |
-| 代码库探索 / Owner 明确委派的实现 | 0% – 20% |
-
-### 2. 并行启动（Cursor）
-
-- 以 **当前 Task 工具 schema** 为准；缺能力则说明边界，不编造调用。
-- 同批就绪任务：**同一轮并行多个 Task**。
-- 后台/异步行为以 Cursor 实际通知为准；**不**用 sleep 轮询替代完成信号。
-
-每个 subagent prompt 应包含：维度/范围、overlap 区域、输出格式、**落盘路径**（overlay 中的 session 目录）、验证标准、语言要求（见下）。
-
-**语言：** 用户用中文则 prompt 与输出均中文（引用原文/API 名除外）。
-
-### 2.1 文件优先的 Agent 交接
-
-1. Prompt 传目标、边界和**路径**，不粘贴大段正文。
-2. Subagent 写入 **namespaced** 路径，不覆盖 `content/` 定稿或 canonical Brief。
-3. 完整结果落盘；返回消息仅 manifest（路径、状态、未决问题）。
-4. Parent 读 artifact 合并后，**单一 writer** 写回 `content/` 或 Brief。
-5. 长任务分阶段 checkpoint，便于中断恢复。
-
-**本仓 canonical 定稿：** 仅 `content/<domain>/` + evaluate PASS + Owner 认可的 commit；`tmp/parallel/` 为中间工件。
-
-### 3. 等待与整合
-
-1. 读 child 落盘文件；交叉验证重叠区。
-2. 整合写入 session 目录（如 `synthesis.md`）。
-3. 若 child 未落盘，主线程立即把关键结论落盘。
-
----
 
 ## 路由决策（本仓）
 

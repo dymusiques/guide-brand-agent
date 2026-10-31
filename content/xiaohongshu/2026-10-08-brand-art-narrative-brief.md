@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md"
+goal: "小红书笔记 Brief · 品牌如何用艺术讲清故事"
+openwebui_route: "intake_l2"
+cursor_route: "exec_gate"
+content_sha256: "106dd2dbbe09ed44"
+---
+
+# 小红书笔记 Brief · 品牌如何用艺术讲清故事
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 小红书笔记 Brief · 品牌如何用艺术讲清故事
+- **Path:** `content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `exec_gate`
+
+## 章节锚点
+- **标题（≤20 字建议）**: 品牌讲故事，为什么需要艺术？
+- **封面**: - 主视觉: 长笛局部 + 品牌活动氛围感（暖金/深绿，非网红滤镜）
+- **钩子（前 2 行）**: 硬广越砸越贵，用户却三秒划走——
+- **正文结构**: 1. **现象：** 硬广 vs 艺术体验——用户愿意在哪个「moment」停留
+- **标签**
+- **CTA**: 私信关键词 **「合作」** → 20 分钟需求对齐（客群、场景、要记住的一刻）
+- **与品牌**: - 栏目: Topic Manager 首篇定稿 Brief（非听见 Daily）
+- **Verify log**: - `2026-10-08` · v1 · `evaluate-xhs-topic.py --brief` → **`aligned: true`**（exit 0）
+
+
+---
+
+## L2 正文
+
 # 小红书笔记 Brief · 品牌如何用艺术讲清故事
 
 <!-- xhs-classifier -->

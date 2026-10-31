@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/TOUCH-PLAN-GUIDE.md"
+goal: "触达计划 · Owner 保留说明（认知期）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "fd47fc44f4cc8eac"
+---
+
+# 触达计划 · Owner 保留说明（认知期）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 本目录 **当前主文档：** [2026-10-brand-discovery-phase.md](./2026-10-brand-discovery-phase.md)
+- **Path:** `content/marketing/TOUCH-PLAN-GUIDE.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **保留的名称方向**: - 品牌触达阶段 · Q4
+- **五块内容框架（认知期，非大 Campaign）**: 1. **一句话目标** — 多行业品牌知道你是谁，愿进主页或私信
+- **04 Brief 与 evaluate（人话）**: 见 [docs/MARKETING-TO-XHS-GLOSSARY.md](../docs/MARKETING-TO-XHS-GLOSSARY.md)
+
+
+---
+
+## L2 正文
+
 # 触达计划 · Owner 保留说明（认知期）
 
 本目录 **当前主文档：** [2026-10-brand-discovery-phase.md](./2026-10-brand-discovery-phase.md)

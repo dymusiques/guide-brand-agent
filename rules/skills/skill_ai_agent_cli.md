@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/skill_ai_agent_cli.md"
+goal: "Skill Router: AI Agent CLI"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "5e403373ad038589"
+---
+
+# Skill Router: AI Agent CLI
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **唯一 discovery 入口。** 各 CLI 细则在 vendor 内按需加载，**不**单独占 INDEX 行。
+- **Path:** `rules/skills/skill_ai_agent_cli.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **激活顺序**: 1. **Overlay（Must 读本仓边界）:** [integration/ai-agent-cli-adoption.md](../../integration/ai-agent-cli-ad…
+- **When to Use**: 从 **脚本 / 父 Agent / CI** 非交互调用 **Claude Code、Codex、OpenCode、Antigravity (`agy`)、Grok、Cursor `cursor a…
+- **Quick Check（Cursor CLI · 可选）**: ```bash
+
+
+---
+
+## L2 正文
+
 # Skill Router: AI Agent CLI
 
 > **唯一 discovery 入口。** 各 CLI 细则在 vendor 内按需加载，**不**单独占 INDEX 行。

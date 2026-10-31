@@ -16,6 +16,7 @@ fi
 
 echo "-------- background goal-evolution config --------"
 bash scripts/ensure-background-goal-evolution.sh
+bash scripts/ensure-process-launcher.sh || true
 echo ""
 
 FAIL=0

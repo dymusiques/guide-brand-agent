@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/PIPELINE.md"
+goal: "content/xiaohongshu/ 管线"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "41175a92b5ff93d7"
+---
+
+# content/xiaohongshu/ 管线
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** content/xiaohongshu/ 管线
+- **Path:** `content/xiaohongshu/PIPELINE.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **在总顺序中的位置**: ```
+- **Owner 数据叠加栈（写 Brief / 视频 / 标题前 · Must）**: **先读：** [docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)（Excel 笔记数据 + PDF …
+- **三阶段与状态（摘录 · 分阶段工作法）**: 本管线对齐 **采集 → 本地处理 → Owner 确认发布**（参考 [grapeot staged approach](https://github.com/grapeot/context-inf…
+- **时间敏感表述（摘录 · temporal）**: Brief 或听见类内容若出现 **具体日期、档期、「最新/刚发布」、产品或模型版本号**，Agent **不得**仅凭记忆断言；应检索或标注待 Owner 确认（详见 [check.md](../.…
+- **文件约定**: | 项 | 规则 |
+- **单篇流程（必会）**: 1. 复制模板 → 填 Brief + **同步改 classifier JSON**
+- **批量流程（交班 / 发版前）**: 扫描目录内所有 `*-brief.md`：
+- **与 kernel 6 case 的分工**: | 命令 | 何时跑 |
+
+
+---
+
+## L2 正文
+
 # content/xiaohongshu/ 管线
 
 Git 真相源下的 **小红书选题 → Brief → Gemini 对齐 → 定稿 commit** 流程。Kernel / Skill 已就绪；本文件定义 **重复执行** 时的状态与命令。

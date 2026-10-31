@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "agents/_shared/COLLECTOR-EVALUATOR.md"
+goal: "收集者 + Evaluator · 管理层级（CEO + 部门总经理）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "2e2c73ba08b5360c"
+---
+
+# 收集者 + Evaluator · 管理层级（CEO + 部门总经理）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **组织：** [docs/IP-MANAGEMENT-HIERARCHY.md](../../docs/IP-MANAGEMENT-HIERARCHY.md) — **00 = CEO**；**01–09 = 部门总经理（二级 Manager）**，兼 Collector + 部门 Evaluator + 部门管理，**GM-REPORT 汇报 CEO
+- **Path:** `agents/_shared/COLLECTOR-EVALUATOR.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **两个程序（每个 Agent 产出都要走）**
+- **与现有 gate 的关系**: | 层 | 工具 | 测什么 |
+- **CEO（00）vs 部门总经理（01–09）**: | 角色 | Collector | Evaluator + v0→vN | 管理 | 汇报 |
+
+
+---
+
+## L2 正文
+
 # 收集者 + Evaluator · 管理层级（CEO + 部门总经理）
 
 > **组织：** [docs/IP-MANAGEMENT-HIERARCHY.md](../../docs/IP-MANAGEMENT-HIERARCHY.md) — **00 = CEO**；**01–09 = 部门总经理（二级 Manager）**，兼 Collector + 部门 Evaluator + 部门管理，**GM-REPORT 汇报 CEO**。  

@@ -1,20 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/research/xhs-momentum-2026-agent-brief.md"
+goal: "Momentum 2026 · Agent 摘录（认知期 / 04 Brief）"
+openwebui_route: "intake_l2"
+cursor_route: "exec_gate"
+content_sha256: "47ec4af2576e2cda"
+---
+
+# Momentum 2026 · Agent 摘录（认知期 / 04 Brief）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Momentum 2026 · Agent 摘录（认知期 / 04 Brief）
+- **Path:** `content/marketing/research/xhs-momentum-2026-agent-brief.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `exec_gate`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > 源：`raw/momentum-2026.pdf`（Owner 2026-10-20 落盘）· pdftotext → `tmp/survey/xhs-local-pdf/…
+- **章节锚点**: - **2. 写 Danying 认知期帖时可「学结构、不抄行业」**: | Momentum 案例逻辑 | 映射到你的帖 |
+- **5. 维护**: - PDF 更新 → 重跑 `bash scripts/research/extract-momentum-2026.sh`（长文本）+ 人工刷新本节要点。
+
+
+---
+
+## L2 正文
+
 # Momentum 2026 · Agent 摘录（认知期 / 04 Brief）
 
 > 源：`raw/momentum-2026.pdf`（Owner 2026-10-20 落盘）· pdftotext → `tmp/survey/xhs-local-pdf/momentum-2026.txt`  
 > 与 [WILL 2026 摘要](./xhs-platform-2026-will-momentum.md) 同构：**看见具体的人与情绪 → 原生内容 → 搜索与评论验证 → 长效经营**
 
----
-
-## 1. 特刊在讲什么（对写稿）
-
-- **案例体**：品牌在小红书从 **0→规模** 的「启示录」，强调 **故事、场景、评论区真实反馈**，不是素材轰炸。
-- **反复母题**（与 WILL 一致，可写进 Brief）：
-  - **看见具体的人 / 具体情绪**（例：「小时候的味道」= 情绪沟通点，评论区验证后放大）
-  - **搜索 + 种草一体**（用户做功课、找同好、分享体验全在站内）
-  - **生活兴趣社区**（圈层需求、审美、现场感；非纯参数硬广）
-  - **「超级小内容」**（通勤防雨、夜爬穿搭等 **可感知 moment**，连接大品类）
-
----
 
 ## 2. 写 Danying 认知期帖时可「学结构、不抄行业」
 
@@ -25,15 +40,6 @@
 | 搜索验证需求（SPU/品类榜是 **商品** 语境） | 你用 **命题/审美/合作** 词，非卖课词 |
 | KOS/投放/闭环（贝壳、海尔等） | **认知期不做**；仅学「内容前置验证」 |
 
----
-
-## 3. 机制句（可引用，勿编造数字）
-
-- 社区承载 **从搜索做功课 → 分享体验** 的全链路（特刊多处案例）。
-- **情绪共鸣** 被定义为 **产品与服务真实**，不是套路 slogan（beU 等段落）。
-- **Live 图 / 审美 / citywalk** 等 = **社区趋势搭车**（OPPO 等）；你可搭 **艺术现场 / 松弛专业** 趋势，见 [搜索趋势](./xhs-search-trends-2024-agent-brief.md)「多元审美」。
-
----
 
 ## 4. 禁止 / 降级
 

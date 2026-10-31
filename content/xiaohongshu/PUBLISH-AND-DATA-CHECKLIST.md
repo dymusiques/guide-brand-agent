@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/PUBLISH-AND-DATA-CHECKLIST.md"
+goal: "认知期 · 发布与数据回填（Owner 操作 · #5）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "98ea85e56676c3e4"
+---
+
+# 认知期 · 发布与数据回填（Owner 操作 · #5）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Agent **不能** 替你在 App 内发帖；本清单 = **#5 待办** 的可执行步骤。
+- **Path:** `content/xiaohongshu/PUBLISH-AND-DATA-CHECKLIST.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **发布顺序建议**: | 顺序 | Brief 文件 | 建议发完间隔 |
+- **CSV 回填（ ideally · 不阻塞发布）**: 1. 小红书创作者后台 → 笔记数据 → 导出或复制到表格
+- **15 天快检提醒**: 从 **第 1 篇深度发布日** 起算 15 天：强链接为主，涨粉 ~100 参考。
+
+
+---
+
+## L2 正文
+
 # 认知期 · 发布与数据回填（Owner 操作 · #5）
 
 Agent **不能** 替你在 App 内发帖；本清单 = **#5 待办** 的可执行步骤。

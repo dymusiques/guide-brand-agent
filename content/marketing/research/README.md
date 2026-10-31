@@ -1,3 +1,28 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/research/README.md"
+goal: "marketing/research · 深度调研报告"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "478e1b9cba721584"
+---
+
+# marketing/research · 深度调研报告
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Survey workflow 定稿位置（非小红书 Brief）。流程见 [workflow_deep_research_survey.md](../../rules/skills/workflow_deep_research_survey.md) · [deep-research-survey-adoption.md](../../integration/
+- **Path:** `content/marketing/research/README.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **小红书 · 平台研究（2026-10-20 · Owner PDF 已落盘）**: **总入口：** [xhs-platform-research-index.md](./xhs-platform-research-index.md)
+
+
+---
+
+## L2 正文
+
 # marketing/research · 深度调研报告
 
 Survey workflow 定稿位置（非小红书 Brief）。流程见 [workflow_deep_research_survey.md](../../rules/skills/workflow_deep_research_survey.md) · [deep-research-survey-adoption.md](../../integration/deep-research-survey-adoption.md)。

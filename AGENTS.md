@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "AGENTS.md"
+goal: "AGENTS.md — Guide Brand Agent"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "734fa6977388f17d"
+---
+
+# AGENTS.md — Guide Brand Agent
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** This folder is the home for a multi-domain AI agent (personal IP, brand, marketing, Xiaohongshu, visual design).
+- **Path:** `AGENTS.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **全部克隆（换机 / 新 Agent）**: Owner 说 **`全部克隆`** → 不在本仓单独 clone → 读 Hub [全部克隆.md](https://github.com/dymusiques/danying-apps/blob/…
+- **验收 / verify**: 交付前：读本仓 [`check.md`](check.md)（含 hub [`VERIFY-MAP.md`](https://github.com/dymusiques/danying-apps/bl…
+- **Every Session**: Before doing anything else:
+- **Owner 给目标任务时（自动 00 Manager · 无需口令）**: **不用粘贴启动口令。** Owner 一旦给出要写/要做/选题/Brief/定稿等目标，或说 **「CEO 开始执行」**：
+- **File Routing**: **找文件时，先查 `rules/WORKSPACE.md`，再搜索。** 发现新目录未被收录时，顺手更新 WORKSPACE.md。
+- **Skills**: **遇到「怎么做 X」时，先查路由，再查 skill，最后才用系统工具。** 搜索顺序：
+- **接手 / verify**: 交付前读 [`check.md`](check.md)（含 hub [`VERIFY-MAP.md`](https://github.com/dymusiques/danying-apps/blob/…
+- **Handoff · 接手完整性**: - **新 Agent 必读：** [docs/AGENT-TAKEOVER.md](docs/AGENT-TAKEOVER.md)（当前状态 + 三轨 + 验收命令）
+
+
+---
+
+## L2 正文
+
 # AGENTS.md — Guide Brand Agent
 
 This folder is the home for a multi-domain AI agent (personal IP, brand, marketing, Xiaohongshu, visual design).
@@ -21,18 +53,23 @@ Before doing anything else:
 1. Read `rules/SOUL.md` — who you are in this workspace
 2. Read `rules/USER.md` — who you are helping
 3. Read `integrations/index.md` — **task routing (read before searching)**
-4. Read `rules/WORKSPACE.md` — file paths; check before glob/grep
+4. Read `rules/WORKSPACE.md` — file paths; check before glob/grep  
+   **自动化边界：** [docs/WORKFLOW-AUTOMATION-MATRIX.md](docs/WORKFLOW-AUTOMATION-MATRIX.md) · [integration/handoff/workflow-automation-manifest.json](integration/handoff/workflow-automation-manifest.json)  
+   **Prompt / 上下文窗口（Must）：** [docs/PROMPT-CONTEXT-STANDARD.md](docs/PROMPT-CONTEXT-STANDARD.md) · [docs/CONTEXT-WINDOW-AND-DATA-ROUTING.md](docs/CONTEXT-WINDOW-AND-DATA-ROUTING.md) · 部署 `bash scripts/deploy-learning-stack.sh` · 导出 Prompt→RAG `bash scripts/export-agent-prompt-pack.sh`  
+   **Google（勿 chat 确认）：** [docs/OWNER-GOOGLE-GRANT-AGENT.md](docs/OWNER-GOOGLE-GRANT-AGENT.md) · `integration/handoff/google-auth-status.json`
 5. Read `rules/skills/INDEX.md` — CLI skills (gdocs, etc.)
 
 **IP 内容工具链 CLI（bili-upload、voice-lora、ASR…）：** 默认 **不跑**；触发见 [integration/ip-content-skills-adoption.md](integration/ip-content-skills-adoption.md)。真要执行前先 `source scripts/ensure-workspace-venv.sh`，装/换机后 `bash scripts/verify-ip-skills-env.sh`。
 
 ## Owner 给目标任务时（自动 00 Manager · 无需口令）
 
-**不用粘贴启动口令。** Owner 一旦给出要写/要做/选题/Brief/定稿等目标：
+**不用粘贴启动口令。** Owner 一旦给出要写/要做/选题/Brief/定稿等目标，或说 **「CEO 开始执行」**：
 
-1. 读 [`agents/00-manager/AUTO-WORKFLOW.md`](agents/00-manager/AUTO-WORKFLOW.md) 并按指挥链执行  
-2. 读 [`integration/IMPORTANT.md`](integration/IMPORTANT.md)  
-3. 验收：`bash scripts/manager-workflow-verify.sh`（有 Brief 时传入路径）
+0. **CEO 全量（Must）：** [`docs/CEO-FULL-EXECUTION-MANDATE.md`](docs/CEO-FULL-EXECUTION-MANDATE.md) · `bash scripts/ceo-full-execution-pipeline.sh --goal "<原话>"` · 小红书长稿 [`OWNER-LONGFORM-XHS-SPEC.md`](content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md)（3000–5000 字）· HTML 浏览器弹出  
+1. 读 [`agents/00-manager/AUTO-WORKFLOW.md`](agents/00-manager/AUTO-WORKFLOW.md) 并按指挥链执行 
+2. 读 [`integration/IMPORTANT.md`](integration/IMPORTANT.md) 
+3. **小红书 Brief / 笔记：** Must [`docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md`](docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) + [`docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md`](docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md)（进化 + **HTML 重建/verify** + 测试稿 **round2 压测** · **勿重复问 Owner**）
+4. 验收：`bash scripts/manager-workflow-verify.sh <brief>` · 或 `bash scripts/manager-ceo-xhs-owner-delivery.sh`（改任一篇 Discovery → **自动**进化 01–04）
 
 规则：`.cursor/rules/danying-manager-auto.mdc`（`alwaysApply: true`）
 

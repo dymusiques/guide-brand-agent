@@ -1,3 +1,27 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/GOALS-REGISTRY.md"
+goal: "Owner 目标注册表（Goal Registry）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "662f537bbbe19622"
+---
+
+# Owner 目标注册表（Goal Registry）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 机器可读：`integration/goals/registry.json`  
+Hook 映射：`integration/goals/verify_hooks.json`  
+验收：`python integration/tests/test_goals_registry.py`（注册表结构 6 case）· **M4** `bash scripts/ve
+- **Path:** `integration/GOALS-REGISTRY.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Owner 目标注册表（Goal Registry）
 
 机器可读：`integration/goals/registry.json`  

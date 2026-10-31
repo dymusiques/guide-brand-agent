@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/CEO-MANAGER-OPERATING-PRINCIPLES.md"
+goal: "CEO / Manager 运营五原则 · SOP"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "b644a83b092aecca"
+---
+
+# CEO / Manager 运营五原则 · SOP
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - [ ] dispatch md 已落盘，每个 Agent 有验收命令
+- [ ] 终端有 PASS 输出（非口头）
+- [ ] Brief 已过 auto-gate（Owner Gate PASS）
+- [ ] 无数据处已标「未验证」
+- [ ] FAIL / 中断已 recover，非半截日志
+- [ ] 洞见已落盘（本仓文件），待 commit 项已
+- **Path:** `docs/CEO-MANAGER-OPERATING-PRINCIPLES.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **定位：** 原则 → **脚本映射** + **晚间派活 8 步**（偏执行清单）。
+- **章节锚点**: - **1. 清晰的委派**: **做法**
+- **8. 自检清单（CEO 每次交付前）**: - [ ] dispatch md 已落盘，每个 Agent 有验收命令
+
+
+---
+
+## L2 正文
+
 # CEO / Manager 运营五原则 · SOP
 
 > **定位：** 原则 → **脚本映射** + **晚间派活 8 步**（偏执行清单）。  
@@ -6,19 +38,6 @@
 > **范围：** 不改 kernel、不新增第二套 CEO 体系（见 [integration/IMPORTANT.md](../integration/IMPORTANT.md)）。  
 > **首次落盘：** 2026-10-27 晚（北京）· Owner 确认五原则 + 目标「打造个人 IP」。
 
----
-
-## 0. 五原则一页纸
-
-| # | 原则 | 一句话 | 仓库里的落点 |
-|---|------|--------|--------------|
-| 1 | **清晰的委派** | 谁、做什么、验收什么、红线是什么，写进 dispatch md | `ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*.md` · [AUTO-WORKFLOW](../agents/00-manager/AUTO-WORKFLOW.md) |
-| 2 | **有把握的评估** | 进展必须可衡量：终端 PASS/FAIL + 日志，不凭感觉 | `verify-goals` · `verify-agent-fused` · auto-gate · 6 test |
-| 3 | **数据驱动改进** | 失败 → 分类 → 改稿/改集成 → 复测；无数据标「未验证」 | adversarial · CEO-REROUTE · 09 analytics · auto-recover |
-| 4 | **教练式引导促成长** | 给 GM 具体 REROUTE 与评分理由，让其改稿，不替 Owner 兜底 | `CEO-REROUTE.md` · GM-REPORT · Manager's Loop |
-| 5 | **个人+AI 洞见 → 持久团队资产** | Owner 的口语判断 + Agent 的分析 → 落盘 md/HTML/catalog，并 commit | `docs/` · `content/` · `artist-intel-catalog` · handoff |
-
----
 
 ## 1. 清晰的委派
 
@@ -32,7 +51,7 @@
    - 红线（不编造数据、不单品类绑定、发布/Drive 仅 Owner）
    - 回填区：Manager 派活记录 + 结果
 3. 每步派活前读 `agents/<nn>-*/INTEGRATION-PROMPT.md`；单会话内顺序扮演各 Agent。
-4. 交 Owner 的只有：gold / 发布 / 裁决 / 3 轮仍 FAIL 的升级项。
+4. **Routine Gate PASS：** 交 Owner **否** · 通知 **HTML**（[OWNER-DELIVERY-NOTIFY-DEFAULT.md](./OWNER-DELIVERY-NOTIFY-DEFAULT.md)）。**交 Owner：是** 仅 gold / 战略 / 不可逆 / 3 轮仍 FAIL。
 
 **Dispatch md 模板（复制改日期即可）**
 
@@ -53,26 +72,6 @@
 
 参考实例：[CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27-evening.md](../content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27-evening.md)（日间版：同目录 `…-2026-10-27.md`）。
 
----
-
-## 2. 有把握的评估（可衡量进展）
-
-**规则：** 没有命令输出 / 日志 / JSON，就不叫「完成」。
-
-| 度量层 | 命令 / 产物 | 回答的问题 |
-|--------|-------------|------------|
-| 目标钩子 | `bash scripts/verify-goals.sh`（`VERIFY_GOALS_SKIP_PLATFORM=0` 含 Drive 平台） | G-* 总目标是否仍成立 |
-| 单 Agent 融合 | `bash scripts/verify-agent-fused.sh --agent <nn> [--with-artifacts]` · `scripts/agent-shells/<nn>-*.sh` | 该 Agent 的 verify + 产物是否达标 |
-| Brief Owner Gate | `manager-ceo-auto-gate-loop.sh --brief …`（内嵌 redteam + adversarial + complete）· `manager-ceo-owner-gate.sh` | 稿能否交 Owner |
-| 全仓 Brief | `manager-xhs-briefs-auto-pipeline.sh` | 全部 Brief 是否对齐 |
-| 6 test（Gemini） | `bash scripts/verify-xhs-topic.sh`（04/05 kernel 6 case）；02/03 另有各自 Gemini 6 | 小红书涨粉/强链接/IP 对齐判定是否稳定。**Module 3 课纲 6 test 不在本仓**，见 [check.md](../check.md) |
-| 小红书目录卫生 | `bash scripts/verify-xhs-content-dir.sh`（SEO：H1≤40 字等 6 项） | 标题/结构/SEO |
-| 集成 / 交班 | `verify-integration.sh`（6 case）· `verify-handoff.sh` | 工具链与接手完整性 |
-| Manager 总验 | `bash scripts/manager-workflow-verify.sh [brief]` | 指挥链是否闭环 |
-
-**派活记录固定格式（每轮必出）：** `Owner Gate PASS/FAIL · 打回轮次 n/3 · 交 Owner：是/否`。
-
----
 
 ## 3. 数据驱动改进
 
@@ -83,17 +82,6 @@
 5. **数据诚实**：09 无 CSV（`content/analytics/inbox/`）时，阅读/转化结论一律标 **「未验证」**，不编造。
 6. **深交付**：Owner 给截止时用 `run-ceo-deep-delivery-cycle.sh`（多轮 pipeline + gate + adversarial 刷新），不以单轮 `ceo-xhs-ip-filter-batch.py` 应付（[CEO-OWNER-DEADLINE-DELIVERY.md](CEO-OWNER-DEADLINE-DELIVERY.md)）。
 
----
-
-## 4. 教练式引导促成长
-
-- **REROUTE 不是判决书**：写清「哪条红线/哪条 challenge 没过 → 建议怎么改 → 复测命令」，让 GM（04/01/09/11…）在同会话自己改到 PASS。
-- **GM-REPORT**：每个 GM 先自跑本部门 evaluate/verify，再汇报；CEO 只在 gate 层抽检。
-- **Manager's Loop**（`AUTO-WORKFLOW.md`）：`Analyze Failures → Manual Analysis → Propose Prompt Change → Observe Score → Re-run`——改的是集成/Brief/Skill，**不碰 kernel**（除非 05 专项）。
-- **每轮复盘一句话**：本轮学到什么（例：开头加匿名 moment 可过 gate；H1 超 40 字会挂 06 SEO），写进 dispatch md「结果」或相关 SOP，下一轮默认应用。
-- **对 Owner**：只升级需要其判断的事；不要求 Owner 学公式化 prompt（[OWNER-INPUT-PRINCIPLES.md](OWNER-INPUT-PRINCIPLES.md)）。
-
----
 
 ## 5. 个人 + AI 洞见 → 持久团队资产
 
@@ -107,26 +95,6 @@
 
 红线：未 `aligned: true` 不称定稿、不 sync Drive；发布/私信/Drive 覆盖仅 Owner 授权。
 
----
-
-## 6. 原则 → 脚本映射总表
-
-| 脚本 / 机制 | 对应原则 | 作用 |
-|-------------|----------|------|
-| dispatch md（`ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-*.md`） | 1 | 委派契约：任务 + 验收 + 红线 |
-| `run-ceo-ip-all-agents-campaign.sh` | 1·2 | 01–12 顺序 verify + shell，出 campaign 报告 |
-| `verify-agent-fused.sh` / `agent-shells/*.sh` | 2 | 每 Agent 可测的进展 |
-| `verify-goals.sh` | 2 | G-* 目标钩子 |
-| `manager-ceo-auto-gate-loop.sh` · `manager-ceo-owner-gate.sh` | 2·3·4 | Owner Gate + ≤3 轮改稿 |
-| `run-xhs-brief-adversarial-challenge.py` | 3 | 对抗找漏洞 |
-| `verify-xhs-topic.sh`（6 test）· `verify-xhs-content-dir.sh` | 2·3 | kernel 判定 + SEO/目录卫生 |
-| `ceo-auto-recover-blocked.sh` | 3 | 中断自愈，不打扰 Owner |
-| `run-ceo-deep-delivery-cycle.sh` | 2·3 | 截止前多轮深筛 |
-| `build-owner-xhs-report-html.py` | 5 | 交 Owner 的 HTML 资产 |
-| `manager-workflow-verify.sh` | 2 | 指挥链总验 |
-| `ceo-dispatch-refresh.py` / 09→04 派活块 | 3·5 | 数据 → 下一轮派活 |
-
----
 
 ## 7. 晚间派活套路（Evening Dispatch Pattern）
 

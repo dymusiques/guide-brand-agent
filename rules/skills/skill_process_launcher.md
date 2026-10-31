@@ -1,3 +1,30 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/skill_process_launcher.md"
+goal: "Skill Router: Process Launcher"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "a608f38dae43bb13"
+---
+
+# Skill Router: Process Launcher
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **唯一 discovery 入口。** 长任务巡检模式见 vendor 内 `skills/skill_agentic_patrol.md`（第二份 skill，**不**单独占 INDEX 路由）。
+- **Path:** `rules/skills/skill_process_launcher.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **激活顺序**: 1. **Overlay（Must 读本仓边界）:** [integration/process-launcher-adoption.md](../../integration/process-lau…
+- **When to Use**: 本机 **localhost HTTP** 启停命令、读日志、** durable 延时/定点任务**、YAML 声明的常开服务与周期任务。触发词：延时执行、定时任务、周期任务、background …
+- **Quick Activation**: ```bash
+
+
+---
+
+## L2 正文
+
 # Skill Router: Process Launcher
 
 > **唯一 discovery 入口。** 长任务巡检模式见 vendor 内 `skills/skill_agentic_patrol.md`（第二份 skill，**不**单独占 INDEX 路由）。

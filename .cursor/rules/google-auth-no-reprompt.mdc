@@ -1,0 +1,18 @@
+---
+description: Owner 已全权授权 Google CLI — Agent 禁止在 chat 反复请 Owner 确认 Connect/OAuth
+alwaysApply: true
+---
+
+# Google · 勿再向 Owner 确认授权
+
+Owner **已全部授权** Agent 使用 Google（见 [docs/OWNER-GOOGLE-GRANT-AGENT.md](docs/OWNER-GOOGLE-GRANT-AGENT.md)）。
+
+**Must**
+
+1. 读 `integration/handoff/google-auth-status.json`（或跑 `bash scripts/check-google-auth-for-agent.sh`）。
+2. **`verify_integration: PASS`** → **禁止**在对话里问 Owner「要不要 Connect MCP / 确认 Google / 授权 Drive」。
+3. **Google 操作默认走 CLI：** `.venv/bin/python -m gdocs --secrets-dir vendor/gdocs-skill/secrets …`（见 [rules/skills/skill_google_docs.md](rules/skills/skill_google_docs.md)）。
+4. Cursor **MCP** Google 插件若 `needsAuth` → **改用 CLI**；不要把 Connect 卡片当阻塞项甩给 Owner。
+5. Token 真失效（verify-integration FAIL）→ 只写 `ceo-inbox/google-auth-terminal-once.md` 说明 **Terminal 一次** re-auth 步骤；**不在 chat 来回确认**。
+
+**禁止：** 以 Agent 08 / G-PLATFORM-SYNC / campaign FAIL 为由，反复请 Owner「点一下 Google」——先 `verify-integration.sh`，PASS 则继续。

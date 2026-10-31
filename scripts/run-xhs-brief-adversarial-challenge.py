@@ -22,6 +22,10 @@ sys.path.insert(0, str(ROOT / "kernels/xiaohongshu"))
 
 from challenge_brief_schema import validate_challenge_markdown  # noqa: E402
 
+sys.path.insert(0, str(ROOT / "scripts"))
+from xhs_brief_longform import extract_longform_text  # noqa: E402
+from xhs_clever_advocate import analyze_clever_advocate  # noqa: E402
+
 MARKER = "<!-- xhs-classifier -->"
 IP_BRIEF = ROOT / "content/personal-ip/ip-positioning-brief-2026-10-05.md"
 
@@ -102,11 +106,23 @@ def gemini_crossover(subject: str, body: str) -> str:
 def fusion_checks(subject: str, body: str) -> str:
     combined = subject + body
     rows = []
+    # L2 · 难自动纠：关键词过 gate 但无案例（X2/X11）
+    case_markers = (
+        "NGV", "Cartier", "MSO", "百富", "Frieze", "RCM", "Gandel",
+        "Microsoft", "British Museum", "White Cube", "某夜", "我不点名",
+    )
+    has_named_case = any(m in combined for m in case_markers) or re.search(
+        r"[A-Z]{2,}|[\u4e00-\u9fff]{2,6}(展|夜|馆|厅|发布)", combined
+    )
+    platitude_title = any(
+        p in subject for p in ("什么是", "买的到底是啥", "到底在干什么", "如何理解")
+    )
     checks = [
-        ("跨行业 open · 不绑单品类", any(x in combined for x in ("跨行业", "品类", "open", "不绑"))),
+        ("三镜头 · 可辨认案例（L2）", has_named_case and not platitude_title),
+        ("跨行业 open · 不绑单品类", any(x in combined for x in ("跨行业", "品类", "open", "不绑")) or "家居" not in combined),
         ("强链接 CTA", any(x in combined for x in ("私信", "聊聊", "收藏", "合作"))),
         ("认知期 · 价值判断非硬推销", "体验季" not in combined and "报价" not in combined),
-        ("故事 moment（数据策略）", any(x in combined for x in ("moment", "场景", "发布", "快闪", "环节")) or "装饰" in combined),
+        ("trade-off 或隐患（L2）", any(x in combined for x in ("隐患", "洗艺", "代价", "得罪", "会丢", "翻车", "壁纸", "wallpaper"))),
         ("约课非 KPI", "评估" not in subject and "约课" not in subject),
     ]
     for label, ok in checks:
@@ -132,6 +148,14 @@ def build_challenge(brief: Path, use_gemini: bool = True) -> str:
             "2. 活动拆解号：「**命题撞车** — 我们上周刚发过品牌活动结构。」\n"
             "3. 路人粉：「法派长笛？**关我品牌什么事** — 划走。」"
         )
+
+    lf = extract_longform_text(brief)
+    clever = analyze_clever_advocate(lf or "")
+    clever_rows = (
+        f"| 反方席小节 | {'✅' if clever['has_clever_section'] else '⚠️ 缺 杠精席/Clever'} |\n"
+        f"| 反方人设 ≥{clever['min_personas']} | {'✅' if clever['persona_count'] >= clever['min_personas'] else '⚠️'} · n={clever['persona_count']} |\n"
+        f"| 作者收束（收进包里/回杠） | {'✅' if clever['has_author_rebuttal'] else '⚠️'} |"
+    )
 
     today = datetime.now().strftime("%Y-%m-%d %H:%M")
     doc = f"""# Adversarial challenge · {base} · {today}
@@ -164,6 +188,14 @@ def build_challenge(brief: Path, use_gemini: bool = True) -> str:
 | 红线 | 本篇 |
 |------|------|
 {fusion_checks(sub, body)}
+
+## Clever · 长稿多网红反方（Must · OWNER-LONGFORM-CLEVER-ADVOCATE）
+
+| 检查 | 结果 |
+|------|------|
+{clever_rows}
+
+**Must：** 长稿含 ≥4 个 `**反方·…**` 立场 + 「收进包里」式收束 · 见 `verify-xhs-clever-advocate.sh` · CEO triple-eval / double-stress 已编排。
 
 ## L2–L3 隐蔽风险
 

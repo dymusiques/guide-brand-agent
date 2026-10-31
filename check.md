@@ -1,3 +1,28 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "check.md"
+goal: "check · 验收"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "5466df4c41e7a039"
+---
+
+# check · 验收
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 做完自己复查 — **canonical 总则**在 hub：
+- **Path:** `check.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Agent 交付前（Owner 不必记）**: 1. 先跑 `bash scripts/verify-handoff.sh`
+
+
+---
+
+## L2 正文
+
 # check · 验收
 
 做完自己复查 — **canonical 总则**在 hub：
@@ -8,56 +33,6 @@
 
 **[danying-apps/rules/check/VERIFY-MAP.md](https://github.com/dymusiques/danying-apps/blob/main/rules/check/VERIFY-MAP.md)**
 
----
-
-## 本仓 verify（两层）
-
-| 层级 | 脚本 | 检查什么 | 终端 |
-|------|------|----------|------|
-| **接手** | `bash scripts/verify-handoff.sh` | Git 骨架、IP Brief、OAuth、`AGENT-TAKEOVER.md` | PASS / WARN / FAIL |
-| **接手文档** | `bash scripts/verify-agent-takeover.sh` | 新 Agent 指挥手册锚点 + 关键路径 | PASS / FAIL |
-| **接手全量** | `bash scripts/verify-handoff-program.sh` | MD + CEO + 10×6 + M4 + Gemini 6 + autopilot | PASS / FAIL |
-| **集成** | `bash scripts/verify-integration.sh` | 6 case：gdocs 读/错 JSON、Git 读、Drive 搜 | PASS / SKIP / FAIL |
-
-### 集成 6 case（`scripts/verify_integration.py`）
-
-1. `import gdocs`
-2. OAuth secrets 存在（缺则 3–4–6 **SKIP**，不阻塞接手）
-3. **读路径** — `gmail profile` → exit 0 + JSON stdout
-4. **错路径** — 无效 Drive id → exit 1 + JSON stderr
-5. **Git 读** — `content/personal-ip/` 与 `USER.md` 事实一致
-6. **Drive 读** — Knowledge Bank 根文件夹 search 有结果
-
-### 小红书 Topic Manager（6 case · Gemini · Module 3 课纲线）
-
-| 层级 | 脚本 | 检查什么 |
-|------|------|----------|
-| **核心 + 6 test** | `bash scripts/verify-xhs-topic.sh` | `is_xhs_growth_aligned` · IP/涨粉/强链接 · 读 `Guide/0/.env` |
-
-Key：`cp .env.example .env` → 填 `GEMINI_API_KEY`（不进 git）。Python 启动时 `load_dotenv()` 读取。  
-说明文档：[kernels/xiaohongshu/README.md](kernels/xiaohongshu/README.md)（含步骤审阅、Gemini/API、6 case 表）。  
-Topic Manager Skill：`.cursor/skills/xiaohongshu/topic-manager.md` · 单条 `python scripts/evaluate-xhs-topic.py --brief …`  
-**内容管线：** [content/xiaohongshu/PIPELINE.md](content/xiaohongshu/PIPELINE.md) · 批量 `bash scripts/verify-xhs-content-dir.sh`  
-**Goal Registry（6 case）：** `python integration/tests/test_goals_registry.py` · [integration/GOALS-REGISTRY.md](integration/GOALS-REGISTRY.md)  
-**Agent 矩阵（10×6 glue）：** `bash scripts/verify-agent-matrix.sh` · `--agent 04` 单模块  
-**Manager 集成（兼容）：** `bash scripts/verify-manager-integration.sh` (= goals + 全矩阵)  
-**CEO 仪表盘（00 总览）：** `bash scripts/manager-dashboard.sh` → `content/analytics/derived/manager-dashboard-*.md`  
-**全自动编排（Owner 仅发帖+CSV）：** [docs/AUTOPILOT.md](docs/AUTOPILOT.md) · `bash scripts/manager-autopilot.sh`  
-**M4 Goal 按 G-* verify：** `bash scripts/verify-goals.sh` · `integration/goals/verify_hooks.json`  
-**交班一页纸 M5：** [docs/HANDOFF-SOP.md](docs/HANDOFF-SOP.md)  
-**全仓集成构建：** [docs/VERIFY-TIERS.md](docs/VERIFY-TIERS.md) · `VERIFY_TIER=release bash scripts/verify-all.sh` · CI=`VERIFY_TIER=ci`  
-**02 商业品牌：** `bash scripts/verify-business-brand.sh` · `python scripts/evaluate-business-brand.py --file …`  
-**03 营销 Campaign：** `bash scripts/verify-marketing-campaign.sh` · `python scripts/evaluate-marketing-campaign.py --file …`  
-**Manager 自动工作流：** [agents/00-manager/AUTO-WORKFLOW.md](agents/00-manager/AUTO-WORKFLOW.md) · `bash scripts/manager-workflow-verify.sh [brief.md]`  
-**Analytics 09 pipeline：** `bash scripts/analytics-pipeline.sh` · [content/analytics/README.md](content/analytics/README.md)
-
-### 本仓不含（见 VERIFY-MAP）
-
-- Module 3 课纲 **`is_genai_email` + 6 Python test** → [`module3-2-2-gemini`](https://github.com/dymusiques/module3-2-2-gemini)
-- Bookmarklet 六条浏览器手测 → `danying-agent-workspace` / `bookmarklet-search-switcher`
-- 听见 Daily 每期 verify → `danying-tingjian-daily` · `verify_daily_issue.py`
-
----
 
 ## Agent 交付前（Owner 不必记）
 

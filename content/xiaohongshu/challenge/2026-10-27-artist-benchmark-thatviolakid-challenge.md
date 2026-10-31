@@ -1,4 +1,4 @@
-# Adversarial challenge · 2026-10-27-artist-benchmark-thatviolakid · 2026-10-28 09:00
+# Adversarial challenge · 2026-10-27-artist-benchmark-thatviolakid · 2026-10-31 09:00
 
 > **Must 节：** 交 Owner / complete gate 前自动生成 · `run-xhs-brief-adversarial-challenge.py`  
 > Brief: `content/xiaohongshu/2026-10-27-artist-benchmark-thatviolakid-brief.md` · 标题：**古典乐手怎么做品牌共创，还不丢专业脸？**
@@ -18,7 +18,7 @@
 
 ## 其它 IP 产出 · 对打句
 
-1. **机构号：** 别拿国外极小众个案硬
+作为红队，从三类账号视角对该笔记发起极具挑战性的针对性攻击：
 
 ## FULL-DRILL · 多 GM 攻击
 
@@ -44,27 +44,55 @@
 **redteam-pre 摘录：**
 
 ```
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/redteam/2026-10-27-artist-benchmark-thatviolakid-pre.md"
+goal: "Redteam pre · artist-benchmark-thatviolakid"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "0a2a2330a9596ccc"
+---
+
+# Redteam pre · artist-benchmark-thatviolakid
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - **攻击 1**（X10 / §D·10）：对标 ThatViolaKid 易写成 **抄袭结构**，缺 Owner 语境与法派差异。
+- **驳/改：** 只借 **方法**（叙事/跨界），不借 **人设/视觉**；须写「可迁移 vs 不可迁移」。
+- **Path:** `content/xiaohongshu/redteam/2026-10-27-artist-benchmark-thatviolakid-pre.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Redteam pre · artist-benchmark-thatviolakid
 
 - **攻击 1**（X10 / §D·10）：对标 ThatViolaKid 易写成 **抄袭结构**，缺 Owner 语境与法派差异。
-- **驳/改：** 只借 **方法**（叙事/跨界），不借 **人设/视觉**；须写「可迁移 vs 不可迁移」。
-
-- **攻击 2**（X11 / §D·01）：娱乐化中提琴梗 **压过** 品牌策划主线。
-- **驳/改：** 标题/首屏先 **品牌/IP 命题**；artist 作案例层一段。
-
-- **CEO：** **Owner 裁决前勿发**；须 Gate + Owner 适合/不适合确认。
-
+- **驳/改：** 只借 **方法**（叙事/跨界），不借
 ```
 
 ## 与 ip-positioning 融合
 
 | 红线 | 本篇 |
 |------|------|
+| 三镜头 · 可辨认案例（L2） | ⚠️ 待加强 |
 | 跨行业 open · 不绑单品类 | ✅ |
 | 强链接 CTA | ✅ |
 | 认知期 · 价值判断非硬推销 | ✅ |
-| 故事 moment（数据策略） | ✅ |
+| trade-off 或隐患（L2） | ⚠️ 待加强 |
 | 约课非 KPI | ✅ |
+
+## Clever · 长稿多网红反方（Must · OWNER-LONGFORM-CLEVER-ADVOCATE）
+
+| 检查 | 结果 |
+|------|------|
+| 反方席小节 | ⚠️ 缺 杠精席/Clever |
+| 反方人设 ≥4 | ⚠️ · n=0 |
+| 作者收束（收进包里/回杠） | ⚠️ |
+
+**Must：** 长稿含 ≥4 个 `**反方·…**` 立场 + 「收进包里」式收束 · 见 `verify-xhs-clever-advocate.sh` · CEO triple-eval / double-stress 已编排。
 
 ## L2–L3 隐蔽风险
 

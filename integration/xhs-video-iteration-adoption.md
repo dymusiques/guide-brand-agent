@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "integration/xhs-video-iteration-adoption.md"
+goal: "集成 · 小红书视频迭代 + 声音锚定"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "0b22d16950e25c32"
+---
+
+# 集成 · 小红书视频迭代 + 声音锚定
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **胶水层路由：** 00 Manager 步 **2a**（视频 Round 1–3）→ 本文件 + `content/xiaohongshu/XHS-VIDEO-ITERATION.md`  
+> **不改 kernel**；L1 仍用 `evaluate-xhs-topic.py`；L2 用 `verify-xhs-voice-qa.sh`。
+- **Path:** `integration/xhs-video-iteration-adoption.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **何时走本链路**: Owner 要：**视频标题/封面备选 · 像本人 · 迭代点选** → **Must** 本链路，**Skip** 旧「5 题一次性长正文测试队列」模式。
+- **Manager 步序（插入 AUTO-WORKFLOW 步 2a）**: 1. `verify-xhs-content-intake.sh`（L0）
+- **Drive**: - CV：`fileId=13vh69eCf_OaVY0DT9gj7AYifeq_wjmCt482cExcjf0k` → Git `content/personal-ip/cv-source-2026…
+- **04 INTEGRATION-PROMPT**: 硬规则与禁词表已写入 `agents/04-xhs-topic-manager/INTEGRATION-PROMPT.md` §视频迭代 / §L2 QA。
+
+
+---
+
+## L2 正文
+
 # 集成 · 小红书视频迭代 + 声音锚定
 
 > **胶水层路由：** 00 Manager 步 **2a**（视频 Round 1–3）→ 本文件 + `content/xiaohongshu/XHS-VIDEO-ITERATION.md`  

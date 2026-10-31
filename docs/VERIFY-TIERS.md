@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/VERIFY-TIERS.md"
+goal: "verify-all 档位（公司审计标准）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "e05a8fdd22a33b46"
+---
+
+# verify-all 档位（公司审计标准）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** | 档位 | 命令 | 含义 |
+|------|------|------|
+| **CI** | `VERIFY_TIER=ci bash scripts/verify-all.sh` | 胶水 + 矩阵 + platform + analytics demo；**不**烧 Gemini |
+| **Release** | `VERIFY_TIER=re
+- **Path:** `docs/VERIFY-TIERS.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Gemini 6 case 与 M4 分工**: Module 3 课纲里的 **Gemini 6 case** = 各 kernel 下 `test_*_aligned.py` / `test_is_xhs_growth_aligned.py` 的…
+- **小红书声音 · L2（无 Gemini）**: | 层 | 命令 | 何时 |
+
+
+---
+
+## L2 正文
+
 # verify-all 档位（公司审计标准）
 
 | 档位 | 命令 | 含义 |

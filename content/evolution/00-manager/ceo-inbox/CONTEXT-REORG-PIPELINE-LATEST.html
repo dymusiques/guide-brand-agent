@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>上下文重组 · Open WebUI ↔ Cursor</title>
+<style>
+  :root { font-family: system-ui, sans-serif; line-height: 1.5; color: #1a1a1a; }
+  body { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.6rem; }
+  h2 { margin-top: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 0.3rem; }
+  .card { background: #f6f8fa; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th, td { border: 1px solid #ddd; padding: 0.4rem 0.6rem; text-align: left; }
+  th { background: #eee; }
+  code { font-size: 0.88em; }
+  pre { background: #222; color: #eee; padding: 1rem; overflow-x: auto; border-radius: 6px; }
+  .mermaid { background: #fff; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; }
+</style>
+</head>
+<body>
+<h1>Brand Agent · 上下文重组链路</h1>
+<p>生成时间：2026-10-30 16:02 · handoff：<code>integration/handoff/openwebui-context-reorg-latest.json</code></p>
+
+<div class="card">
+<strong>Git / 双推说明：</strong> Open WebUI 同步读<strong>本机</strong> <code>reorganize-brand-corpus-l012.py</code> 导出的镜像，
+不读 GitHub/Origin 远程。未 commit 的 MD 也会进 Knowledge；双推只为备份与换机，<em>不是</em>喂库前置条件。
+</div>
+
+<h2>1. Infrastructure</h2>
+<ul>
+<li>Open WebUI：http://localhost:3000</li>
+<li>Embedding：ollama bge-m3 @ host.docker.internal:11434</li>
+<li>Pipes：yage_cot, yage_long_context</li>
+<li>Tools：yage_sqlite</li>
+<li>Deploy： <code>bash scripts/deploy-learning-stack.sh</code></li>
+</ul>
+
+<h2>2. 数据流（Mermaid）</h2>
+<div class="mermaid">
+flowchart LR
+  subgraph Cursor
+    MD[danying-brand-agent MD]
+    REORG[reorganize-brand-corpus-l012.py]
+    HAND[handoff JSON]
+    CEO[CEO verify / gate / HTML]
+  end
+  subgraph Mirror
+    L0[L0 index]
+    L1[L1 任务壳]
+    L2[L2 正文]
+  end
+  subgraph OpenWebUI
+    KB1[cursor-brand-corpus]
+    KB2[agent-prompt-pack]
+    KB3[brand-ip-knowledge]
+    KB4[workflow-automation-pack]
+    RAG[RAG + Pipe 长文]
+  end
+  WF[run-workflow-from-manifest.py]
+  MD --> REORG
+  REORG --> L0 & L1 & L2
+  L1 --> KB1
+  REORG --> HAND
+  HAND --> CEO
+  KB1 & KB2 & KB3 & KB4 --> RAG
+  RAG -.->|outbox / intake 路径| CEO
+  HAND --> WF
+  WF --> CEO
+</div>
+
+<h2>3. Knowledge 集合</h2>
+<table><tr><th>集合</th><th>用途</th></tr><tr><td><code>workflow-automation-pack</code></td><td>可自动化 workflow · manifest L0–L4 · gate/CEO 命令</td></tr><tr><td><code>agent-prompt-pack</code></td><td>SOP / INTEGRATION 路由（短）</td></tr><tr><td><code>cursor-brand-corpus</code></td><td>本仓全部 MD 的 L0/L1/L2（上下文编排）</td></tr><tr><td><code>brand-ip-knowledge</code></td><td>Google Drive 背书库（与 Cursor 仓分离）</td></tr></table>
+<p>聊天标签：# workflow-automation-pack · # agent-prompt-pack · # cursor-brand-corpus · # brand-ip-knowledge</p>
+
+<h2>4. 三层上下文（L0 / L1 / L2）</h2>
+<table>
+<tr><th>层</th><th>内容</th><th>谁读</th></tr>
+<tr><td>L0</td><td>路径 + 路由一行</td><td>索引 / RAG 定位</td></tr>
+<tr><td>L1</td><td>Goal + 验收 + 章节锚点（≤~400 字）</td><td>Cursor 顶栏 · Open WebUI 任务</td></tr>
+<tr><td>L2</td><td>正文全文</td><td>Open WebUI RAG · intake</td></tr>
+</table>
+<p>本次导出：<strong>414</strong> 文件 · 仓内重写：<strong>0</strong></p>
+
+<h2>5. Agent / GM / CEO / 六项 test</h2>
+<p>六项 6-case 文档：<code>docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md</code></p>
+<ul>
+<li>00 Manager / CEO：指挥链 · triple-eval · double-stress · Owner HTML</li>
+<li>01–12 GM：各部门 INTEGRATION-PROMPT（已进 agent-prompt-pack）</li>
+<li>Evaluation：scripts/ceo-triple-eval-baseline-loop.sh, scripts/ceo-double-stress.sh, scripts/evaluate-xhs-brief-complete.py</li>
+</ul>
+
+<h2>6. 函数与胶水</h2>
+<pre>python3 LLM-Ollama/RAG/RAG/scripts/fix_openwebui_rag_ollama_url.py
+python3 LLM-Ollama/RAG/RAG/scripts/sync_cursor_brand_corpus_to_openwebui.py
+python3 LLM-Ollama/RAG/RAG/scripts/sync_agent_prompt_pack_to_openwebui.py</pre>
+<ul>
+<li><code>scripts/route-openwebui-for-goal.py</code> — Cursor 路由长文</li>
+<li><code>scripts/run-openwebui-router-pipeline.sh</code> — Pipe + intake</li>
+<li><code>scripts/openwebui-pipe-to-outbox.py</code> — 回写 outbox 给 Cursor</li>
+<li><code>scripts/deploy-learning-stack.sh</code> — 栈部署</li>
+</ul>
+
+<h2>7. Cursor 回喂（Must read）</h2>
+<ol>
+<li><code>integration/handoff/openwebui-context-reorg-latest.json</code></li>
+<li><code>integration/handoff/cursor-openwebui-task-routing.json</code></li>
+<li><code>docs/PROMPT-CONTEXT-STANDARD.md</code></li>
+</ol>
+
+<h2>8. 可自动化 Workflow（L0_BOOT → L4）</h2>
+<p>机器目录：<code>integration/handoff/workflow-automation-catalog-l1.json</code> · 
+脚本数：<strong>135</strong></p>
+<pre>python3 scripts/run-workflow-from-manifest.py --layer &lt;ID&gt; [--goal &quot;...&quot;] [--brief path]
+python3 scripts/run-workflow-from-manifest.py --phrase &quot;CEO 开始执行&quot; [--goal &quot;...&quot;]</pre>
+<table><tr><th>layer</th><th>名称</th><th>主命令</th></tr><tr><td><code>L0_BOOT</code></td><td>Clone / new machine / new Agent</td><td><code></code></td></tr><tr><td><code>L1_BACKGROUND</code></td><td>Daily machine cycle (no Owner utterance)</td><td><code>scripts/background-goal-evolution-cycle.sh</code></td></tr><tr><td><code>L2_CEO_START</code></td><td>Owner says work</td><td><code>bash scripts/ceo-full-execution-pipeline.sh --goal &quot;&lt;owner goal&gt;&quot;</code></td></tr><tr><td><code>L3_BRIEF_GATE</code></td><td>Brief quality gate + evolution until READY</td><td><code></code></td></tr><tr><td><code>L4_CAMPAIGN</code></td><td>01-12 campaign / deep delivery</td><td><code>bash scripts/run-ceo-deep-delivery-cycle.sh</code></td></tr></table>
+<p>Open WebUI：<code># workflow-automation-pack</code> · Cursor：<code>python3 scripts/run-workflow-from-manifest.py --list-layers</code></p>
+
+<h2>9. 路径样例（L1 路由）</h2>
+<table><tr><th>repo_path</th><th>OWUI</th></tr><tr><td><code>.cursor/skills/brand-visual/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/business-brand/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/routing.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/soul.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/guide-core/user.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/marketing-strategy/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/personal-ip/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/xiaohongshu/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/xiaohongshu/topic-manager.md</code></td><td>rag_l2</td></tr><tr><td><code>.cursor/skills/yage-voice/SKILL.md</code></td><td>rag_l2</td></tr><tr><td><code>AGENTS.md</code></td><td>rag_l2</td></tr></table>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Adversarial challenge · 2026-10-08-brand-art-narrative · 2026-10-28 09:00
+# Adversarial challenge · 2026-10-08-brand-art-narrative · 2026-10-31 09:00
 
 > **Must 节：** 交 Owner / complete gate 前自动生成 · `run-xhs-brief-adversarial-challenge.py`  
 > Brief: `content/xiaohongshu/2026-10-08-brand-art-narrative-brief.md` · 标题：**品牌讲故事，为什么需要艺术？**
@@ -18,7 +18,8 @@
 
 ## 其它 IP 产出 · 对打句
 
-1. **【机构号视角】** 拿着长笛背景和巴黎高师概念做招
+(Agency / Commercial Client)**
+        *   *Focus*: Lacks real
 
 ## FULL-DRILL · 多 GM 攻击
 
@@ -44,27 +45,57 @@
 **redteam-pre 摘录：**
 
 ```
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/redteam/2026-10-08-brand-art-narrative-pre.md"
+goal: "Redteam pre · brand-art-narrative"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "15a0d2c031a8083c"
+---
+
+# Redteam pre · brand-art-narrative
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - **攻击 1**（X3 / §D·04）：「20 分钟需求对齐」+「合作」偏 **硬转化**，认知期读者未熟。
+- **驳/改：** 若仍用本篇，CTA 改 **收藏+聊聊** 为主；「20 分钟」放末句可选。
+- **Path:** `content/xiaohongshu/redteam/2026-10-08-brand-art-narrative-pre.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Redteam pre · brand-art-narrative
 
 - **攻击 1**（X3 / §D·04）：「20 分钟需求对齐」+「合作」偏 **硬转化**，认知期读者未熟。
 - **驳/改：** 若仍用本篇，CTA 改 **收藏+聊聊** 为主；「20 分钟」放末句可选。
 
-- **攻击 2**（X5 / §D·04）：「巴黎高师」一句若无 moment，像 ** consultant 简历首屏**。
-- **驳/改：** 加 **1 句场景** 或并入 discovery 队列口径；与 ip-positioning 案例层规则一致。
-
-- **CEO：** 补位 Brief；discovery 队列优先，本篇 **非** 认知期 #1–4 主序列。
-
+- **攻击 2**（X5 / §D·04）：「巴黎高师」一句若无 moment，像 ** consultant 简历首屏
 ```
 
 ## 与 ip-positioning 融合
 
 | 红线 | 本篇 |
 |------|------|
-| 跨行业 open · 不绑单品类 | ⚠️ 待加强 |
+| 三镜头 · 可辨认案例（L2） | ✅ |
+| 跨行业 open · 不绑单品类 | ✅ |
 | 强链接 CTA | ✅ |
 | 认知期 · 价值判断非硬推销 | ✅ |
-| 故事 moment（数据策略） | ✅ |
+| trade-off 或隐患（L2） | ⚠️ 待加强 |
 | 约课非 KPI | ✅ |
+
+## Clever · 长稿多网红反方（Must · OWNER-LONGFORM-CLEVER-ADVOCATE）
+
+| 检查 | 结果 |
+|------|------|
+| 反方席小节 | ⚠️ 缺 杠精席/Clever |
+| 反方人设 ≥4 | ⚠️ · n=0 |
+| 作者收束（收进包里/回杠） | ⚠️ |
+
+**Must：** 长稿含 ≥4 个 `**反方·…**` 立场 + 「收进包里」式收束 · 见 `verify-xhs-clever-advocate.sh` · CEO triple-eval / double-stress 已编排。
 
 ## L2–L3 隐蔽风险
 

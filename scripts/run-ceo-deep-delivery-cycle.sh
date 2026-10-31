@@ -69,7 +69,7 @@ while [[ "$deep" -le "$DEEP_ROUNDS" ]]; do
 
   phase "E${deep} · 再筛选 · 刷新 adversarial + Owner HTML"
   run_phase "adversarial-refresh" "$PY" scripts/run-xhs-brief-adversarial-challenge.py --all
-  run_phase "owner-html" "$PY" scripts/build-owner-xhs-report-html.py
+  run_phase "owner-html" bash scripts/refresh-owner-notify-html.sh
 
   deep=$((deep + 1))
 done

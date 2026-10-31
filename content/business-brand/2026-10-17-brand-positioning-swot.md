@@ -1,28 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/business-brand/2026-10-17-brand-positioning-swot.md"
+goal: "商业品牌定位 · SWOT（瀛想 / 张丹瀛个人 IP）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "6e156c2cde58de5a"
+---
+
+# 商业品牌定位 · SWOT（瀛想 / 张丹瀛个人 IP）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Owner / Manager：触达与 Brief 须 **扣 SWOT 的 S+O**，认知期 **避免** 放大 W3（大单承诺）。对外 CTA 见 marketing 触达计划（聊聊/合作/品牌）。
+- **Path:** `content/business-brand/2026-10-17-brand-positioning-swot.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > **与 IP 关系：** 本稿 = **02 商业品牌层** 对 `content/personal-ip/ip-positioning-brief-2026-10-05.…
+- **章节锚点**: - **SWOT**: | | 内容 |
+- **CTA（文档级 · 对内）**: Owner / Manager：触达与 Brief 须 **扣 SWOT 的 S+O**，认知期 **避免** 放大 W3（大单承诺）。对外 CTA 见 marketing 触达计划（聊聊/合作/品牌…
+
+
+---
+
+## L2 正文
+
 # 商业品牌定位 · SWOT（瀛想 / 张丹瀛个人 IP）
 
 > **与 IP 关系：** 本稿 = **02 商业品牌层** 对 `content/personal-ip/ip-positioning-brief-2026-10-05.md` 的 **战略拆解**，供触达计划与 Brief 共用。  
 > **是否需要「商业数据」：** **不需要** 才能写 SWOT。下文 S/W/O/T 来自 IP、经历与认知期判断。**可选** 日后用询盘数、客单价、行业分布 CSV **校准** O/T，非写稿前提。
 
----
-
-## 定位
-
-**一句话：** 法派长笛传承 × 跨界品牌策划人——为 **各行业** 品牌与艺术家，把 **站得住的艺术专业** 翻译成 **叙事而非硬广** 的体验与传播结构。
-
-**差异化（人即品牌）：**
-
-- 法派体系 + 歌剧院级训练背景 → **专业信任** 可感知，非装饰性「艺术元素」
-- 十年跨界商业落地 + 中英法三语 → 国际资源与 **跨行业 open** 对话能力
-- 古典 **不可替代性** × 可协作 × 可延展数字藏品叙事（不用 NFT/Web3 炒词）
-
-**当前阶段（Q4 认知期）：** 目标 = **多行业品牌注意到并愿意私信**；不单品类绑定；强链接优于 vanity 涨粉。
-
-**不做什么：**
-
-- 不做某一商品品类 **主攻号**（家居/母婴/美妆等 **同一规则**）
-- 不在认知期卖「体验季 / 大单」菜单；先 **价值 + 轻 CTA**
-
----
 
 ## SWOT
 
@@ -33,19 +40,6 @@
 | **O 机会** | ① 品牌 **降本增效** 下更需 **艺术叙事** 替代纯硬广 ② **跨行业** 体验、发布、联名需求（消费/奢侈品/科技/文化等）③ AI×艺术 IP **数字化** 探索者寻合作 ④ 认知期 **15 天快检** 可快速试钩子；私信即线索 |
 | **T 威胁** | ① 平台 **泛娱乐** 内容稀释专业信任 ② 竞品 **低价伪艺术** 包装 ③ 若内容 **绑死单一行业** 则丧失跨行业 open ④ 无复盘 CSV 时 **误判** 选题（靠 inbox 补数） |
 
----
-
-## 与 IP 对齐
-
-| IP 要求 | 本稿对应 |
-|---------|----------|
-| 跨行业 open · 不排斥任何品类合作 | 定位与 O：各行业品牌；案例层可写具体行业，人设层不写主攻垂直 |
-| 不单品类绑定 | W 中主动纠正误绑；T 中警惕系列化 |
-| 三支柱 | S/O 覆盖艺术专业、跨界策划、AI×数字藏品 |
-| 强链接 | 认知期触达 [2026-10-brand-discovery-phase.md](../marketing/2026-10-brand-discovery-phase.md) |
-| 小红书执行 | 深度队列 [discovery-phase-note-queue.md](../marketing/discovery-phase-note-queue.md) → 04 Brief |
-
----
 
 ## 可选 · 日后用「商业数据」校准（非必填）
 

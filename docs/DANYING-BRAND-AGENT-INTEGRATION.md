@@ -1,3 +1,33 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/DANYING-BRAND-AGENT-INTEGRATION.md"
+goal: "danying-brand-agent · 集成总览"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "0199bfa5626d2688"
+---
+
+# danying-brand-agent · 集成总览
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 本仓库 **danying-brand-agent**（建议路径 `~/Desktop/danying-brand-agent`）= 品牌 / IP / 小红书 Agent 一体仓。  
+**Agent 分角色：** `agents/` · **集成环：** `integration/` · **算法：** `kernels/` · **定稿：** `con
+- **Path:** `docs/DANYING-BRAND-AGENT-INTEGRATION.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **The Manager's Loop（集成监督环）**: ```mermaid
+- **Agent 目录（分角色）**: | 目录 | 角色 | 算法 / 真相源 |
+- **Owner 给目标 → 自动 00 Manager（无需口令）**: - 规则：`.cursor/rules/danying-manager-auto.mdc`（`alwaysApply: true`）
+- **集成验收（Manager 层 6 test · 不调新算法）**: ```bash
+- **品牌 / IP 内容（Git 真相源）**: `content/{personal-ip,business-brand,marketing,xiaohongshu,visual}/`
+
+
+---
+
+## L2 正文
+
 # danying-brand-agent · 集成总览
 
 本仓库 **danying-brand-agent**（建议路径 `~/Desktop/danying-brand-agent`）= 品牌 / IP / 小红书 Agent 一体仓。  

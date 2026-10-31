@@ -1,7 +1,7 @@
-# Adversarial challenge · 2026-10-17-discovery-04-open-close · 2026-10-28 09:00
+# Adversarial challenge · 2026-10-17-discovery-04-open-close · 2026-10-31 09:00
 
 > **Must 节：** 交 Owner / complete gate 前自动生成 · `run-xhs-brief-adversarial-challenge.py`  
-> Brief: `content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md` · 标题：**跨行业品牌找艺术合作，先对齐三件事**
+> Brief: `content/xiaohongshu/2026-10-17-discovery-04-open-close-brief.md` · 标题：**找艺术合作先问三问，别先问报价**
 
 ## 外部 · 类似命题 / 大 V 压力
 
@@ -14,11 +14,11 @@
 | 同类低点击形态 | #品牌策划 短观点、无 moment/无封面判断句 |
 
 
-**本篇命题：** 「跨行业品牌找艺术合作，先对齐三件事」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
+**本篇命题：** 「找艺术合作先问三问，别先问报价」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
 
 ## 其它 IP 产出 · 对打句
 
--level trust, and scalability. This note sounds like a solo freelancer setting huge rules with zero proof,
+你用15秒Reveal这种虚无概念忽悠谁呢？(Too generic)
 
 ## FULL-DRILL · 多 GM 攻击
 
@@ -44,27 +44,57 @@
 **redteam-pre 摘录：**
 
 ```
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/redteam/2026-10-17-discovery-04-open-close-pre.md"
+goal: "Redteam pre · discovery-04-open-close"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "d326e7602bb344c2"
+---
+
+# Redteam pre · discovery-04-open-close
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - **攻击 1**（X7 / §D·01）：「跨行业 open」像 **空口号**，若无边界案例易被杠「什么都能做=什么都不专」。
+- **驳/改：** 保留 **适合/不适合** 各一句（Brief 结构已有）；不列单品类主攻。
+- **Path:** `content/xiaohongshu/redteam/2026-10-17-discovery-04-open-close-pre.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Redteam pre · discovery-04-open-close
 
 - **攻击 1**（X7 / §D·01）：「跨行业 open」像 **空口号**，若无边界案例易被杠「什么都能做=什么都不专」。
 - **驳/改：** 保留 **适合/不适合** 各一句（Brief 结构已有）；不列单品类主攻。
 
-- **攻击 2**（X3 / §D·04）：轻收口被读成 **硬推销体验季/报价**。
-- **驳/改：** CTA 仅「合作/品牌」关键词；正文 **不写价格、不写体验季主推销**。
-
-- **CEO：** 允许写 Brief；系列第 4 篇，可置顶配合认知期。
-
+- **攻击 2**（X3 / §D·04）：
 ```
 
 ## 与 ip-positioning 融合
 
 | 红线 | 本篇 |
 |------|------|
+| 三镜头 · 可辨认案例（L2） | ✅ |
 | 跨行业 open · 不绑单品类 | ✅ |
 | 强链接 CTA | ✅ |
 | 认知期 · 价值判断非硬推销 | ⚠️ 待加强 |
-| 故事 moment（数据策略） | ✅ |
+| trade-off 或隐患（L2） | ⚠️ 待加强 |
 | 约课非 KPI | ✅ |
+
+## Clever · 长稿多网红反方（Must · OWNER-LONGFORM-CLEVER-ADVOCATE）
+
+| 检查 | 结果 |
+|------|------|
+| 反方席小节 | ⚠️ 缺 杠精席/Clever |
+| 反方人设 ≥4 | ⚠️ · n=0 |
+| 作者收束（收进包里/回杠） | ⚠️ |
+
+**Must：** 长稿含 ≥4 个 `**反方·…**` 立场 + 「收进包里」式收束 · 见 `verify-xhs-clever-advocate.sh` · CEO triple-eval / double-stress 已编排。
 
 ## L2–L3 隐蔽风险
 

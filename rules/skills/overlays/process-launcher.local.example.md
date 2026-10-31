@@ -1,3 +1,29 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/overlays/process-launcher.local.example.md"
+goal: "process-launcher · Local Overlay (example)"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "d93bef2527f633ec"
+---
+
+# process-launcher · Local Overlay (example)
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 复制为 `process-launcher.local.md`（gitignored）。真实 job、路径、`.env` **只**写在此或 `vendor/process-launcher/config/launcher.yaml`。
+- **Path:** `rules/skills/overlays/process-launcher.local.example.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **预留配方（默认未启用）**: Git 内可复制的 YAML 片段（**全部 `enabled: false`**）：
+- **与 Cursor Agent 的关系**: - OpenCode `opencode_skill append` 示例 **不适用** 本仓；Patrol 若要用，改为延时触发 **shell 脚本 + 固定 prompt 文件** 或 Own…
+
+
+---
+
+## L2 正文
+
 # process-launcher · Local Overlay (example)
 
 复制为 `process-launcher.local.md`（gitignored）。真实 job、路径、`.env` **只**写在此或 `vendor/process-launcher/config/launcher.yaml`。

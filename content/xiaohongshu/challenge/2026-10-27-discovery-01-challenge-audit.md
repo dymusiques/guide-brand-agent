@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/challenge/2026-10-27-discovery-01-challenge-audit.md"
+goal: "Challenge 复查 · Discovery 01 · 2026-10-27"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "c3ea7409343bdee7"
+---
+
+# Challenge 复查 · Discovery 01 · 2026-10-27
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** Brief: `2026-10-17-discovery-01-irreplaceability-brief.md`  
+标题: 品牌活动里，什么是「站得住」的艺术？
+- **Path:** `content/xiaohongshu/challenge/2026-10-27-discovery-01-challenge-audit.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **A. 之前到底做了什么（事实）**: | 检查项 | 是否做过 | 证据 |
+- **B. 外部对标（类似命题 · 2026-10-27 检索）**
+- **C. 与 IP 基调融合度**: | IP 红线（ip-positioning-brief） | 本篇 | 融合？ |
+- **D. 不融合点 · 潜在问题 · 隐蔽问题**: 1. **显性：** 标签 5≠10；与交付规范不一致，Gate 的 seo-lint 可能 WARN 但未挡发。
+- **E. 6 项 test 与本篇的关系（说清）**: - **Module 3 六 case**（`kernels/xiaohongshu/line2/tests/test_is_xhs_growth_aligned.py`）：验证 **Gemini 分…
+- **F. 建议改稿方向（v1.1 · 未改 Brief，供你裁决）**: 1. 首段加 **1 个匿名场景**（30 字内）：例如「某次发布会的 90 秒环节，观众先举手机后放下听」。
+
+
+---
+
+## L2 正文
+
 # Challenge 复查 · Discovery 01 · 2026-10-27
 
 Brief: `2026-10-17-discovery-01-irreplaceability-brief.md`  

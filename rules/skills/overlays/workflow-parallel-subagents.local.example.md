@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/overlays/workflow-parallel-subagents.local.example.md"
+goal: "workflow-parallel-subagents · Local Overlay (example)"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "2975cfc4326e0a17"
+---
+
+# workflow-parallel-subagents · Local Overlay (example)
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 复制为 `workflow-parallel-subagents.local.md`（gitignored）。
+- **Path:** `rules/skills/overlays/workflow-parallel-subagents.local.example.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # workflow-parallel-subagents · Local Overlay (example)
 
 复制为 `workflow-parallel-subagents.local.md`（gitignored）。

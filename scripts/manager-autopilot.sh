@@ -83,8 +83,12 @@ echo "派活块：content/analytics/derived/ceo-dispatch-latest.md"
 echo "仪表盘：content/analytics/derived/manager-dashboard-$(date +%Y-%m-%d).md"
 echo ""
 
+if [[ "$FAIL" -eq 0 && "${CEO_OWNER_HTML_REFRESH:-1}" == "1" ]]; then
+  run_optional "Owner notify HTML" bash scripts/refresh-owner-notify-html.sh
+fi
+
 if [[ "$FAIL" -gt 0 ]]; then
   echo "RESULT: FAIL — autopilot ($FAIL blocking step(s))"
   exit 1
 fi
-echo "RESULT: PASS — autopilot (ready for Owner post/CSV only)"
+echo "RESULT: PASS — autopilot (Owner: optional HTML · Must post + CSV)"

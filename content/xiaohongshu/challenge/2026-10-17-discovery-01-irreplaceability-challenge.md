@@ -1,7 +1,7 @@
-# Adversarial challenge · 2026-10-17-discovery-01-irreplaceability · 2026-10-28 09:00
+# Adversarial challenge · 2026-10-17-discovery-01-irreplaceability · 2026-10-31 09:00
 
 > **Must 节：** 交 Owner / complete gate 前自动生成 · `run-xhs-brief-adversarial-challenge.py`  
-> Brief: `content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md` · 标题：**品牌活动里，什么是「站得住」的艺术？**
+> Brief: `content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md` · 标题：**NGV跟着展线听，另一场只记香槟**
 
 ## 外部 · 类似命题 / 大 V 压力
 
@@ -14,11 +14,11 @@
 | 同类低点击形态 | #品牌策划 短观点、无 moment/无封面判断句 |
 
 
-**本篇命题：** 「品牌活动里，什么是「站得住」的艺术？」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
+**本篇命题：** 「NGV跟着展线听，另一场只记香槟」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
 
 ## 其它 IP 产出 · 对打句
 
-Good, directly attacks the B2B value metric (ROI/cases).
+1. 拆解缺失：没算过MSO在Gandel Hall的声
 
 ## FULL-DRILL · 多 GM 攻击
 
@@ -44,29 +44,55 @@ Good, directly attacks the B2B value metric (ROI/cases).
 **redteam-pre 摘录：**
 
 ```
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/redteam/2026-10-17-discovery-01-irreplaceability-pre.md"
+goal: "Redteam pre · discovery-01-irreplaceability"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "aeabbd6b622a76cb"
+---
+
+# Redteam pre · discovery-01-irreplaceability
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > 补录 · 2026-10-27（本篇 Brief 2026-10-17 写成时 **未落盘**，属流程缺口；以下为复查时按 BRIEF-REDTEAM-PRE 补做）
+- **Path:** `content/xiaohongshu/redteam/2026-10-17-discovery-01-irreplaceability-pre.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Redteam pre · discovery-01-irreplaceability
 
 > 补录 · 2026-10-27（本篇 Brief 2026-10-17 写成时 **未落盘**，属流程缺口；以下为复查时按 BRIEF-REDTEAM-PRE 补做）
 
-- **攻击 1**（X7 / §D·04 · 同质化）：小红书「品牌×艺术」「活动装置」「沉浸式体验」案例拆解已高度饱和（如活动加油站 1 万+粉、SAGE HOUSE 等机构号）；本篇若只有判断句、无 **具体 moment + 可辨认案例层**，会落入「类似文章很多、点击一般」的坑。
-- **驳/改：** 正文前 3 行保留冲突；**加 1 个匿名化场景**（发布/快闪/联名其一，不写家居主线）；封面必须 **非卖场非家居**（Brief 已写，执行时必查）。
-
-- **攻击 2**（X3 / §D·01 · IP 误读）：「法派长笛体系」出现在品牌向标题下，冷启动读者可能仍把你归类为 **乐器教学号**，削弱「跨界策划」人设；与 ip-positioning「案例层写行业、人设层写通用艺术×商业」有摩擦。
-- **驳/改：** 首段先 **品牌命题**，第二段再落训练→体验结构；标签补满 10 个且含 **#品牌策划 #跨界**；避免首屏只有乐器词。
-
-- **CEO：** 允许保留选题；**发前**须补 moment 场景句 + 标签 10 个 + 对照 [discovery-01-challenge-audit HTML](../evolution/00-manager/ceo-inbox/OWNER-DISCOVERY-01-CHALLENGE-AUDIT-2026-10-27.html) 改一版 v1.1 正文。
-
+- **攻击 1**（X7 / §D·04 · 同质化）：小红书「品牌×艺术」「活动装置」「沉浸式体验」案例拆
 ```
 
 ## 与 ip-positioning 融合
 
 | 红线 | 本篇 |
 |------|------|
+| 三镜头 · 可辨认案例（L2） | ✅ |
 | 跨行业 open · 不绑单品类 | ✅ |
 | 强链接 CTA | ✅ |
-| 认知期 · 价值判断非硬推销 | ✅ |
-| 故事 moment（数据策略） | ✅ |
+| 认知期 · 价值判断非硬推销 | ⚠️ 待加强 |
+| trade-off 或隐患（L2） | ✅ |
 | 约课非 KPI | ✅ |
+
+## Clever · 长稿多网红反方（Must · OWNER-LONGFORM-CLEVER-ADVOCATE）
+
+| 检查 | 结果 |
+|------|------|
+| 反方席小节 | ⚠️ 缺 杠精席/Clever |
+| 反方人设 ≥4 | ⚠️ · n=0 |
+| 作者收束（收进包里/回杠） | ⚠️ |
+
+**Must：** 长稿含 ≥4 个 `**反方·…**` 立场 + 「收进包里」式收束 · 见 `verify-xhs-clever-advocate.sh` · CEO triple-eval / double-stress 已编排。
 
 ## L2–L3 隐蔽风险
 

@@ -1,15 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/research/xhs-search-trends-2024-agent-brief.md"
+goal: "10 大搜索趋势 2024 · Agent 摘录"
+openwebui_route: "intake_l2"
+cursor_route: "exec_gate"
+content_sha256: "41ba7ecee847e4e9"
+---
+
+# 10 大搜索趋势 2024 · Agent 摘录
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 10 大搜索趋势 2024 · Agent 摘录
+- **Path:** `content/marketing/research/xhs-search-trends-2024-agent-brief.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `exec_gate`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > 源：`raw/10-search-trends-2024.pdf` · 官方《小红书10大搜索趋势洞察报告2024》
+- **章节锚点**: - **十大趋势（标题）**: 1. **积极怠工** — 卷不动也躺不平（兼职/简历/摆摊）
+- **衔接**: - 执行摘要：[platform-notes-2026.md](../../xiaohongshu/platform-notes-2026.md)
+
+
+---
+
+## L2 正文
+
 # 10 大搜索趋势 2024 · Agent 摘录
 
 > 源：`raw/10-search-trends-2024.pdf` · 官方《小红书10大搜索趋势洞察报告2024》
 
----
-
-## 平台习惯（写稿硬事实）
-
-- 约 **70%** 月活使用搜索；人均约 **6 次/天**；约 **1/3** 用户 **打开先搜索**。
-- 搜索高峰：**15–17 点**、**20–22 点**（作发布时间参考，仍以你账号数据为准）。
-
----
 
 ## 十大趋势（标题）
 
@@ -24,19 +43,6 @@
 9. **间歇努力** — 学英语、准备重启  
 10. **选修爱情** — 精神独立、关系边界  
 
----
-
-## 对 Danying 认知期（跨行业品牌）怎么用
-
-| 趋势 | Brief 用法 |
-|------|------------|
-| **多元审美 / 国风 / 松弛** | 首屏 **审美判断 + 专业松弛**；适合艺术跨界、法派叙事 |
-| **理性听劝** | 结构：**结论先行** → 依据 → 一句 CTA（对齐你高互动「判断帖」） |
-| **自我疗愈 / 身份** | 「我是谁的专业 moment」— 品牌合作是 **身份延展**，非教程堆叠 |
-| **积极怠工 / 选修爱情** | 轻触 **边界感、不卷话术**；忌说教打工人 |
-| 宠物/养生/健身/吃饭 | **默认不主攻**（除非单篇 Brief 明确跨界选题） |
-
----
 
 ## 标签与搜索词
 

@@ -1,3 +1,36 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "agents/00-manager/AUTO-WORKFLOW.md"
+goal: "00 Manager · 自动接手工作流（无需启动口令）"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "d61c8e76bed86c74"
+---
+
+# 00 Manager · 自动接手工作流（无需启动口令）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **何时生效：** Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、IP、小红书、品牌、定稿、campaign、涨粉、强链接等）时，Agent **默认就是 00 Manager**，不要等粘贴口令。  
+> **纯问答**（解释概念、历史对话回顾、不用交付文件）可不跑全流程，但仍遵守 `integration/IMPORTANT.
+- **Path:** `agents/00-manager/AUTO-WORKFLOW.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Manager's Loop（失败时）**: `Analyze Failures` → `Manual Analysis` → `Propose Prompt Change`（只改集成/Brief/Skill，**不改** kernel 除非 0…
+- **CEO 自动纠错 · Owner 门控（Must · 2026-10-27）**: **默认不让 Owner 逐条 verify。** 见 [docs/CEO-AUTO-QA-LOOP.md](../../docs/CEO-AUTO-QA-LOOP.md)。
+- **标准指挥链（单会话内顺序执行）**: 每一步：**读** `agents/<nn>-*/INTEGRATION-PROMPT.md` → **产出** → **终端验收** → 再下一步。
+- **一键验收**: | 场景 | 命令 |
+- **派活记录（Manager 每轮必输出）**: ```markdown
+- **Manager 派活记录**: - 目标：（Owner 原话摘要）
+- **并行 Subagent（Task · 可选）**: **不替代上表步序。** 宽口径调研 → [workflow_parallel_subagents.md](../../rules/skills/workflow_parallel_subagents…
+- **红线**: - 未 `aligned: true` → 不 Drive、不称定稿
+
+
+---
+
+## L2 正文
+
 # 00 Manager · 自动接手工作流（无需启动口令）
 
 > **何时生效：** Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、IP、小红书、品牌、定稿、campaign、涨粉、强链接等）时，Agent **默认就是 00 Manager**，不要等粘贴口令。  
@@ -18,8 +51,8 @@
 1. **GM** 产出后自跑本部门 evaluate/verify，再交 **GM-REPORT**。  
 2. **CEO** 跑 `bash scripts/manager-ceo-owner-gate.sh --brief …`（视频加 `--voice`；进化加 `--evolution`）。  
 3. **FAIL** → 写 **CEO-REROUTE** → 同会话扮演 GM 出 v(N+1) → 再 gate（默认最多 **3** 轮），**勿**把 FAIL 稿交给 Owner 验。  
-4. **PASS** → 用 **OWNER-HANDOFF** 模板交 Owner（仅 gold/发布/裁决类确认）。  
-5. 派活记录须含 **Owner Gate：PASS/FAIL · 打回轮次 n/3 · 交 Owner：是/否**。
+4. **PASS** → **流程闭合**；刷新 **Owner HTML 通知**（[OWNER-DELIVERY-NOTIFY-DEFAULT.md](../../docs/OWNER-DELIVERY-NOTIFY-DEFAULT.md)）；**不** routine 写 OWNER-HANDOFF。**交 Owner：是** 仅 gold/战略/不可逆/3 轮仍 FAIL。
+5. 派活记录须含 **Owner Gate · 打回 n/3 · 交 Owner：是/否 · Owner 通知（HTML 路径）**。
 
 **运营五原则**（清晰委派 · 可衡量评估 · 数据驱动改进 · 教练式引导 · 洞见沉淀为团队资产）及晚间派活套路 → [docs/CEO-MANAGER-OPERATING-PRINCIPLES.md](../../docs/CEO-MANAGER-OPERATING-PRINCIPLES.md)。
 
@@ -29,17 +62,20 @@
 
 | 步 | Agent | 做什么 | 验收 |
 |----|-------|--------|------|
-| 0 | **00 Manager** | 解析 Owner 目标，写 3 行计划（受众、支柱、CTA 类型） | 计划与 `content/personal-ip/` 不冲突 |
+| **−1** | **Open WebUI Router** | Owner/CEO **目标任务** → `bash scripts/run-openwebui-router-pipeline.sh --goal "<原话>"`；`SKIP` 则跳过；否则读 `integration/handoff/openwebui-jobs/<slug>.json` + Desktop **outbox** `.md` | [`docs/OPENWEBUI-CEO-ROUTER.md`](../../docs/OPENWEBUI-CEO-ROUTER.md) · `verify-openwebui-ceo-router.sh` PASS |
+| 0 | **00 Manager** | 解析 Owner 目标，写 3 行计划（受众、支柱、CTA 类型）；若有 outbox **intake**，写进计划 | 计划与 `content/personal-ip/` 不冲突 |
 | **0a** | **09 + 04 数据栈** | 凡产出 **文案/标题/视频/选题** → 先读 [XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)（Excel + PDF 研究叠加） | `bash scripts/verify-xhs-content-intake.sh` PASS |
 | **0c** | **Collector（全 Agent）** | Owner 新资料 → `collector-intake.py` 落盘；写 **v0** 前读该 slug 全部 `intake/` + [COLLECTOR-EVALUATOR.md](../_shared/COLLECTOR-EVALUATOR.md) | `bash scripts/verify-collector-evaluator.sh`（交班可选） |
 | **2a** | **04 视频迭代** | Owner 要 **视频备选/像本人** → [XHS-VIDEO-ITERATION.md](../../content/xiaohongshu/XHS-VIDEO-ITERATION.md) · Round1→点选→Round2；**默认轨1** | `bash scripts/verify-xhs-voice-qa.sh <round1.md>` PASS |
 | **0b** | **01 personal-ip**（Pitch 层） | 凡 **对外 Pitch / 简介 / 合作开场 / 新栏目定位** → 先读 [KPI·CAPSTONE playbook](../../content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md) §3.2–3.3，再改 Brief 或触达稿 | 与 [ip-positioning-brief](../../content/personal-ip/ip-positioning-brief-2026-10-05.md) 一致；**先观点后产品** |
 | 1 | **01 personal-ip** | 战略/行业边界：「品牌合作范围」· Five Ps 与 7-11-4 节奏（playbook §1、§4） | 全品类可合作、不单品类绑定 |
 | 1b | **03 / 02**（若 campaign / SWOT） | 触达计划 / 商业文档：Problem→Opportunity 对齐 CAPSTONE；Product 生态勿越级推销（playbook §6） | `evaluate-marketing-campaign` / `evaluate-business-brand` |
-| **1c** | **红队（Owner 已固定）** | 落盘 `redteam/<slug>-pre.md`；**无则** `python scripts/ensure-redteam-pre.py --brief …` **自动补** | [BRIEF-REDTEAM-PRE.md](../../content/xiaohongshu/BRIEF-REDTEAM-PRE.md) |
-| 2 | **04 xhs-topic-manager** | Intake + [CONTENT-DELIVERY-FOR-OWNER.md](../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md) | 视频 Round1=L2 |
-| 3 | **04 + 05 · 自动验收** | **`run-xhs-brief-adversarial-challenge.py`** → **`manager-ceo-auto-gate-loop.sh --brief <file>`**（redteam + **重对抗** + L1×6 + evaluate + kernel 6 · ≤3 轮） | [BRIEF-ADVERSARIAL-CHALLENGE.md](../_shared/BRIEF-ADVERSARIAL-CHALLENGE.md) · **禁止等 Owner 叮嘱** |
-| **3b** | **Evolution Evaluator** | 有 `reference/gold.md` 时：`evaluate-edit-distance.py` 记 vN；`evolution-metrics-summary.py` 看均值 | metrics.jsonl 追加成功 |
+| **1c** | **搜坑（Owner Must）** | WebSearch → `research/<slug>-pitfalls.md` | [BRIEF-PITFALLS-RESEARCH-SOP.md](../../content/xiaohongshu/BRIEF-PITFALLS-RESEARCH-SOP.md) · [OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md](../../docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) §1 |
+| **1d** | **红队（Owner 已固定）** | 落盘 `redteam/<slug>-pre.md`；**≥1 条 L2–L3**；无则 `ensure-redteam-pre.py` | [BRIEF-REDTEAM-PRE.md](../../content/xiaohongshu/BRIEF-REDTEAM-PRE.md) |
+| 2 | **04 xhs-topic-manager** | 三镜头进正文 · Intake + [CONTENT-DELIVERY-FOR-OWNER.md](../../content/xiaohongshu/CONTENT-DELIVERY-FOR-OWNER.md) | [BRIEF-THREE-LENS-SOP.md](../../content/xiaohongshu/BRIEF-THREE-LENS-SOP.md) |
+| 3 | **04 + 05 · 进化闭环** | **`manager-brief-evolution-until-gap.sh --brief <file>`**（轮间读 **EVOLUTION-GAP** · 实质性改稿 · **勿问 Owner** 开第 2 轮） | [BRIEF-ADVERSARIAL-CHALLENGE.md](../_shared/BRIEF-ADVERSARIAL-CHALLENGE.md) · **L1 PASS ≠ READY** |
+| **3b** | **Evolution Evaluator** | 每轮：`analyze-brief-evolution-gap.py`；有 gold：`evaluate-edit-distance.py` → `metrics.jsonl` | `EVOLUTION-GAP-latest.md` 状态 READY |
+| **3c** | **Owner HTML 交付（Must）** | 改 Brief 后 **`manager-ceo-xhs-owner-delivery.sh`**（或至少 `refresh-owner-notify-html.sh`）· **禁止**手改 HTML | [CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md](../../docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md) · `verify-owner-html-deliverables.sh` |
 | 4 | **06 pipeline** | `bash scripts/verify-xhs-content-dir.sh` | 全 Brief PASS |
 | 5 | **00 Manager** | Owner 未反对则 **git commit** 定稿；**禁止**未 aligned commit | `git status` clean |
 | 6 | **07 brand-visual** | Owner 要封面时：Brief 封面块 → Canva / visual skill | 可选 |

@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "rules/skills/skill_playwright_test.md"
+goal: "Skill Router: Playwright Test（CDP 调试）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "ea14b725aa3e7a79"
+---
+
+# Skill Router: Playwright Test（CDP 调试）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **边界：** 调试 bilibili / XHS Playwright 步骤；非内容写作。
+- **Path:** `rules/skills/skill_playwright_test.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Skill Router: Playwright Test（CDP 调试）
 
 > **边界：** 调试 bilibili / XHS Playwright 步骤；非内容写作。

@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-29T11:24:31.905234+00:00",
+  "cli_secrets_present": true,
+  "verify_integration": "PASS",
+  "owner_must_reauth_terminal_only": false,
+  "agent_must_not_ask_owner_confirm_google": true,
+  "agent_use": "python -m gdocs --secrets-dir vendor/gdocs-skill/secrets (primary); Cursor MCP Google plugins optional duplicate — do NOT prompt Owner when this file says verify_integration PASS",
+  "detail": "verify-integration 6/6",
+  "doc": "docs/OWNER-GOOGLE-GRANT-AGENT.md"
+}

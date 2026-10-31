@@ -1,3 +1,28 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/published-notes-index.md"
+goal: "已发布笔记索引（非 Topic Manager Brief）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "de52e88012e686a9"
+---
+
+# 已发布笔记索引（非 Topic Manager Brief）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 由 `xhs_note_links.py import-workbook` 刷新。
+- **Path:** `content/xiaohongshu/published-notes-index.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** 认知期深度 Brief 见 `2026-10-17-discovery-*`；下表为 **历史已发笔记**（艺术专业 / 日常），供 `brief_path` 与数据分析对齐。
+
+
+---
+
+## L2 正文
+
 # 已发布笔记索引（非 Topic Manager Brief）
 
 认知期深度 Brief 见 `2026-10-17-discovery-*`；下表为 **历史已发笔记**（艺术专业 / 日常），供 `brief_path` 与数据分析对齐。

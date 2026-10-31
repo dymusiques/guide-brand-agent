@@ -1,9 +1,33 @@
 ---
-name: marketing-strategy
-description: >-
-  Promotion direction, channel strategy, campaign briefs, and scheduling.
-  Use for 宣传, 营销, 推广, campaign, 渠道策略.
+context_version: "2026-10-30-l012"
+repo_path: ".cursor/skills/marketing-strategy/SKILL.md"
+goal: "Marketing Strategy"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "cf02d623a193c4ed"
 ---
+
+# Marketing Strategy
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 1. `guide-core/soul.md` + `guide-core/user.md`
+2. Git `content/marketing/`（真相源，优先）
+3. Drive `04-marketing/`（仅 Owner 已同步定稿时查阅）
+4. `kernels/templates/campaign-plan.template.md`
+- **Path:** `.cursor/skills/marketing-strategy/SKILL.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **读什么**: 1. `guide-core/soul.md` + `guide-core/user.md`
+- **存储默认规则**: 与 [docs/HANDOFF-COMPLETENESS.md](../../../docs/HANDOFF-COMPLETENESS.md) 一致：
+- **产出**: - Campaign Brief（目标、受众、渠道、KPI、时间线）
+- **验收**: - [ ] Brief 含可执行下一步
+
+
+---
+
+## L2 正文
 
 # Marketing Strategy
 

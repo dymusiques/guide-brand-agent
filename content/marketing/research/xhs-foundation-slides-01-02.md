@@ -1,22 +1,36 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/marketing/research/xhs-foundation-slides-01-02.md"
+goal: "01 社区生态 · 02 营销逻辑（课件 Agent 版）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "93b840a996bd239e"
+---
+
+# 01 社区生态 · 02 营销逻辑（课件 Agent 版）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - PDF 在 `content/marketing/research/raw/`；换机 clone 后需 **拷贝 raw/** 或从 Drive 再下。  
+- 若课件与本文冲突，以 **2026 WILL/Momentum 官方口径** 为准，并更新本节。
+- **Path:** `content/marketing/research/xhs-foundation-slides-01-02.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** > 源：`raw/01-community-ecology.pdf` · `raw/02-marketing-logic.pdf`
+- **章节锚点**: - **02 · 小红书的独特营销逻辑（Agent 应默认的规则）**: 1. **种草** = 先 **理解人** 再谈转化；效果化 ≠ 洗素材。
+- **Owner 目视课件时**: - PDF 在 `content/marketing/research/raw/`；换机 clone 后需 **拷贝 raw/** 或从 Drive 再下。
+
+
+---
+
+## L2 正文
+
 # 01 社区生态 · 02 营销逻辑（课件 Agent 版）
 
 > 源：`raw/01-community-ecology.pdf` · `raw/02-marketing-logic.pdf`  
 > **说明：** 两份为 **图片型课件**（pdftotext 无正文）。Agent **以 WILL 2026 + Momentum 摘要为准**；Owner 目视课件时对照本页 checklist。
 
----
-
-## 01 · 认识小红书的社区生态（Agent 应默认的事实）
-
-与 [WILL 2026](./xhs-platform-2026-will-momentum.md) 对齐，写 Brief 时当作背景：
-
-1. **UGC / 真人感** 高于硬广；用户分享 **生活现场** 与 **真实体验**。  
-2. **兴趣标签** 多元；用户因 **场景与审美** 聚集，不只因单一品类。  
-3. **搜索** 是高频行为（见 [搜索趋势](./xhs-search-trends-2024-agent-brief.md)）。  
-4. **评论与收藏** 是信任与「做功课」信号；认知期可看 **收藏 + 品牌向私信**。
-
-**对你：** 帖 = **一个具体 moment** 放进「生活兴趣社区」，不是课堂讲义。
-
----
 
 ## 02 · 小红书的独特营销逻辑（Agent 应默认的规则）
 

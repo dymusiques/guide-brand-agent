@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "agents/README.md"
+goal: "agents · danying-brand-agent"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "754304b3a8150fe0"
+---
+
+# agents · danying-brand-agent
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 所有目标任务 Agent 分角色目录（集成 prompt，非算法层）。
+- **Path:** `agents/README.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # agents · danying-brand-agent
 
 所有目标任务 Agent 分角色目录（集成 prompt，非算法层）。

@@ -1,3 +1,28 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "scripts/analytics/fetch/README.md"
+goal: "Platform fetch / export（非 live API 默认）"
+openwebui_route: "skip"
+cursor_route: "exec"
+content_sha256: "748a4150f6fecc57"
+---
+
+# Platform fetch / export（非 live API 默认）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 本仓 **默认** 不持有小红书 / Meta / Google OAuth 用于自动拉数。
+- **Path:** `scripts/analytics/fetch/README.md`
+- **Open WebUI:** `skip`
+- **Cursor:** `exec`
+
+## 章节锚点
+- **将来 API 扩展点**: 在此目录增加 `fetch_<platform>.py`，读取 gitignored `.env` 中的 key，写入 `content/analytics/inbox/`，再由 `analytics…
+
+
+---
+
+## L2 正文
+
 # Platform fetch / export（非 live API 默认）
 
 本仓 **默认** 不持有小红书 / Meta / Google OAuth 用于自动拉数。

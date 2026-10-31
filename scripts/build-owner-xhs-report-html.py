@@ -6,12 +6,15 @@ from __future__ import annotations
 import csv
 import html
 import json
+import os
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+from xhs_brief_longform import extract_longform_text  # noqa: E402
 INBOX = ROOT / "content/evolution/00-manager/ceo-inbox"
 IP = ROOT / "content/ip-research"
 XHS = ROOT / "content/xiaohongshu"
@@ -99,10 +102,116 @@ def write_artist_csv_xlsx() -> tuple[Path, Path]:
     return csv_path, xlsx_path
 
 
+def latest_test_brief_block() -> tuple[str, str]:
+    """Return (cards_html, modal_html) for workflow test brief, or empty."""
+    cands = sorted(XHS.glob("*-test-brief.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not cands:
+        return "", ""
+    b = extract_brief_sections(cands[0])
+    slug = cands[0].name.replace("-brief.md", "")
+    gap_path = ROOT / "content/evolution/04-xhs-topic-manager" / slug / "EVOLUTION-GAP-latest.md"
+    gap_status = "—"
+    if gap_path.is_file():
+        m = re.search(r"`(READY|NEEDS_WORK)`", gap_path.read_text(encoding="utf-8"))
+        if m:
+            gap_status = m.group(1)
+    subj = b["subject"] or "—"
+    body = b["classifier_body"] or ""
+    test_href = f"OWNER-WORKFLOW-TEST-ARTICLE-{datetime.now().strftime('%Y-%m-%d')}.html"
+    card = f"""
+<article class="card" style="border:2px solid #0a7;grid-column:1/-1">
+  <h3>工作流测试稿 · 全链路（最新）</h3>
+  <p><strong>Evolution {html.escape(gap_status)}</strong> · 文件：<code>{html.escape(b['file'])}</code></p>
+  <p class="title">标题：{html.escape(subj)}</p>
+  <p style="font-size:0.9rem">{html.escape(body[:180])}{'…' if len(body) > 180 else ''}</p>
+  <button onclick="openModal('modal-workflow-test')">弹出 · 测试稿全文</button>
+  <a href="{html.escape(test_href)}" style="margin-left:12px">打开专用页 →</a>
+</article>"""
+    modal = f"""
+<div id="modal-workflow-test" class="modal" onclick="if(event.target===this)closeModal('modal-workflow-test')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-workflow-test')">×</button>
+    <h2>工作流测试稿 · {html.escape(subj)}</h2>
+    <p class="meta">Evolution {html.escape(gap_status)} · <code>{html.escape(b['file'])}</code></p>
+    <h3>可发帖正文</h3>
+    <div class="box">{md_block(body)}</div>
+    <h3>Brief 全文</h3>
+    <div class="box brief">{md_block(b['full_md'])}</div>
+  </div>
+</div>"""
+    return card, modal
+
+
+def _is_series_or_test_brief(path: Path) -> bool:
+    name = path.name
+    if name.endswith("-test-brief.md"):
+        return True
+    if re.match(r"2026-10-17-discovery-0[1-4]-", name):
+        return True
+    return False
+
+
+def latest_owner_brief_block() -> tuple[str, str]:
+    """Owner 指定新稿（非 Discovery / 非 test）· 弹出层卡片。"""
+    extra = os.environ.get("CEO_OWNER_EXTRA_BRIEF", "").strip()
+    path: Path | None = None
+    if extra:
+        p = ROOT / extra if not extra.startswith("/") else Path(extra)
+        if p.is_file():
+            path = p
+    if path is None:
+        cands = [
+            p
+            for p in XHS.glob("*-brief.md")
+            if p.is_file() and not _is_series_or_test_brief(p)
+        ]
+        cands.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+        path = cands[0] if cands else None
+    if path is None:
+        return "", ""
+    b = extract_brief_sections(path)
+    slug = path.name.replace("-brief.md", "")
+    gap_path = ROOT / "content/evolution/04-xhs-topic-manager" / slug / "EVOLUTION-GAP-latest.md"
+    gap_status = "—"
+    if gap_path.is_file():
+        m = re.search(r"`(READY|NEEDS_WORK)`", gap_path.read_text(encoding="utf-8"))
+        if m:
+            gap_status = m.group(1)
+    subj = b["subject"] or "—"
+    body = b["classifier_body"] or ""
+    longform = extract_longform_text(path)
+    display_body = longform if longform else body
+    card = f"""
+<article class="card" id="owner-latest" style="border:2px solid #06c;grid-column:1/-1">
+  <h3>Owner 指定新稿（最新）</h3>
+  <p><strong>Evolution {html.escape(gap_status)}</strong> · 文件：<code>{html.escape(b['file'])}</code></p>
+  <p class="title">标题：{html.escape(subj)}</p>
+  <p style="font-size:0.9rem">{html.escape(display_body[:180])}{'…' if len(display_body) > 180 else ''}</p>
+  <button onclick="openModal('modal-owner-latest')">弹出 · 新稿全文（长稿优先）</button>
+</article>"""
+    modal = f"""
+<div id="modal-owner-latest" class="modal" onclick="if(event.target===this)closeModal('modal-owner-latest')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-owner-latest')">×</button>
+    <h2>Owner 指定新稿 · {html.escape(subj)}</h2>
+    <p class="meta">Evolution {html.escape(gap_status)} · <code>{html.escape(b['file'])}</code></p>
+    <h3>{'长稿 · Owner 发布版' if longform else '可发帖正文'}</h3>
+    <div class="box">{md_block(display_body)}</div>
+    {f'<h3>列表摘要（classifier）</h3><div class="box">{md_block(body)}</div>' if longform and body else ''}
+    <h3>Brief 全文</h3>
+    <div class="box brief">{md_block(b['full_md'])}</div>
+  </div>
+</div>"""
+    return card, modal
+
+
 def build_html(out_path: Path) -> None:
     date = datetime.now().strftime("%Y-%m-%d")
+    rebuilt_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     csv_path, xlsx_path = write_artist_csv_xlsx()
     publish = load_publish_sections()
+    test_card, test_modal = latest_test_brief_block()
+    owner_card, owner_modal = latest_owner_brief_block()
     discoveries = [
         ("discovery-01", "认知期 #1 · 不可替代性", XHS / "2026-10-17-discovery-01-irreplaceability-brief.md", 1),
         ("discovery-02", "认知期 #2 · 叙事而非硬广", XHS / "2026-10-17-discovery-02-narrative-not-ads-brief.md", 2),
@@ -189,8 +298,8 @@ def build_html(out_path: Path) -> None:
 </head>
 <body>
 <h1>Owner 交付 · CEO 小红书资料筛选 · {date}</h1>
-<p class="open-hint">若在 <strong>Cursor 里打开只看到代码</strong>：请用 Finder 双击本文件，或双击同目录
-<code>OPEN-OWNER-REPORT-IN-BROWSER.command</code>。网页打开后，Discovery 点按钮可弹出全文。</p>
+<p class="open-hint">HTML 重建时间：<strong>{rebuilt_at}</strong> · 脚本 <code>build-owner-xhs-report-html.py</code>。
+若在 Cursor 里只看到代码：Finder 双击本文件。工作流测试稿（若有）在下方<strong>绿色边框</strong>卡片。</p>
 
 <section class="glossary">
 <h2>名词说明</h2>
@@ -201,12 +310,13 @@ def build_html(out_path: Path) -> None:
 <p><strong>优先级（本报告）</strong>：按<strong>认知期发帖顺序 + 数据策略</strong>，不是 evaluate 退出码排序。
 <strong>#1 Discovery 01</strong> = 不可替代性（首推）；02 叙事；03 专业信任；04 轻收口（#1–3 发后再发）。</p>
 <p><strong>Discovery 01 是什么？</strong> 文件
-<code>2026-10-17-discovery-01-irreplaceability-brief.md</code>，标题「品牌活动里，什么是「站得住」的艺术？」，认知期深度队列第一篇。</p>
+<code>2026-10-17-discovery-01-irreplaceability-brief.md</code>，认知期 #1（与<strong>工作流测试稿</strong>同案例线：NGV×Cartier×MSO 等）。标题以 Brief 重建为准。</p>
+<p><strong>系列统一：</strong> 测试稿 + Discovery 01–04 共用动线/三问语言；HTML 重建时从 classifier 读取。</p>
 </section>
 
-<h2>Discovery 01–04 · 点击弹出</h2>
+<h2>Owner 新稿 + 工作流测试 + Discovery 01–04 · 点击弹出</h2>
 <div class="cards">
-{"".join(cards)}
+{owner_card}{test_card}{"".join(cards)}
 </div>
 
 <h2>Artist 四指标（DB / PLD / APO / CTD）</h2>
@@ -217,11 +327,17 @@ def build_html(out_path: Path) -> None:
 </table>
 
 <p style="margin-top:32px;color:#666;font-size:0.85rem">danying-brand-agent · HTML Owner 报告 · 以后 CEO 交付以 HTML 为准</p>
-{"".join(modal_blocks)}
+{owner_modal}{test_modal}{"".join(modal_blocks)}
 <script>
 function openModal(id) {{ document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }}
 function closeModal(id) {{ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }}
 document.addEventListener('keydown', e => {{ if (e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id)); }});
+(function() {{
+  var h = (location.hash || '').replace(/^#/, '');
+  if (h === 'owner-latest' && document.getElementById('modal-owner-latest')) {{
+    openModal('modal-owner-latest');
+  }}
+}})();
 </script>
 </body>
 </html>"""

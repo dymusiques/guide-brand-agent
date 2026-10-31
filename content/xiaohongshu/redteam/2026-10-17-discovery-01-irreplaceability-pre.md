@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/redteam/2026-10-17-discovery-01-irreplaceability-pre.md"
+goal: "Redteam pre · discovery-01-irreplaceability"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "aeabbd6b622a76cb"
+---
+
+# Redteam pre · discovery-01-irreplaceability
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > 补录 · 2026-10-27（本篇 Brief 2026-10-17 写成时 **未落盘**，属流程缺口；以下为复查时按 BRIEF-REDTEAM-PRE 补做）
+- **Path:** `content/xiaohongshu/redteam/2026-10-17-discovery-01-irreplaceability-pre.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Redteam pre · discovery-01-irreplaceability
 
 > 补录 · 2026-10-27（本篇 Brief 2026-10-17 写成时 **未落盘**，属流程缺口；以下为复查时按 BRIEF-REDTEAM-PRE 补做）

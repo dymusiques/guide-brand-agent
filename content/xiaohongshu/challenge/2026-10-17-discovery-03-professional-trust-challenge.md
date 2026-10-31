@@ -1,7 +1,7 @@
-# Adversarial challenge · 2026-10-17-discovery-03-professional-trust · 2026-10-28 09:00
+# Adversarial challenge · 2026-10-17-discovery-03-professional-trust · 2026-10-31 09:00
 
 > **Must 节：** 交 Owner / complete gate 前自动生成 · `run-xhs-brief-adversarial-challenge.py`  
-> Brief: `content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md` · 标题：**品牌合作里，「专业信任」从哪来？**
+> Brief: `content/xiaohongshu/2026-10-17-discovery-03-professional-trust-brief.md` · 标题：**撤场复述不了品牌句，再贵的乐手也不信**
 
 ## 外部 · 类似命题 / 大 V 压力
 
@@ -14,11 +14,11 @@
 | 同类低点击形态 | #品牌策划 短观点、无 moment/无封面判断句 |
 
 
-**本篇命题：** 「品牌合作里，「专业信任」从哪来？」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
+**本篇命题：** 「撤场复述不了品牌句，再贵的乐手也不信」→ 若仅抽象判断、无 moment/封面判断句，易落入「类似但点击一般」。
 
 ## 其它 IP 产出 · 对打句
 
-:* B2B client perspective, cares about commercial value, cases, ROI, execution capabilities, team
+以下是来自小红书「艺术×品牌」赛道三类竞争对手的
 
 ## FULL-DRILL · 多 GM 攻击
 
@@ -44,27 +44,55 @@
 **redteam-pre 摘录：**
 
 ```
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/xiaohongshu/redteam/2026-10-17-discovery-03-professional-trust-pre.md"
+goal: "Redteam pre · discovery-03-professional-trust"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "91db5f913c19bc09"
+---
+
+# Redteam pre · discovery-03-professional-trust
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - **攻击 1**（X2 / §D·01）：「专业信任」易写成 **履历/口号**，缺 moment → 与数据策略 Top 帖（故事+判断）脱节。
+- **驳/改：** 必须含 **1 个可感知场景**（排练/发布/合作决策之一，可匿名）；禁 CV 堆叠。
+- **Path:** `content/xiaohongshu/redteam/2026-10-17-discovery-03-professional-trust-pre.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # Redteam pre · discovery-03-professional-trust
 
 - **攻击 1**（X2 / §D·01）：「专业信任」易写成 **履历/口号**，缺 moment → 与数据策略 Top 帖（故事+判断）脱节。
-- **驳/改：** 必须含 **1 个可感知场景**（排练/发布/合作决策之一，可匿名）；禁 CV 堆叠。
-
-- **攻击 2**（X8 / §D·01）：法派教学线 **抢戏**，读者以为招生。
-- **驳/改：** 训练只作 **信任证据一句**；CTA 品牌向「合作/聊聊」，不用「评估/约课」进标题。
-
-- **CEO：** 允许写 Brief；完整验收见 verify-logs。
-
+- **驳/改：** 
 ```
 
 ## 与 ip-positioning 融合
 
 | 红线 | 本篇 |
 |------|------|
+| 三镜头 · 可辨认案例（L2） | ✅ |
 | 跨行业 open · 不绑单品类 | ✅ |
 | 强链接 CTA | ✅ |
 | 认知期 · 价值判断非硬推销 | ✅ |
-| 故事 moment（数据策略） | ✅ |
+| trade-off 或隐患（L2） | ✅ |
 | 约课非 KPI | ✅ |
+
+## Clever · 长稿多网红反方（Must · OWNER-LONGFORM-CLEVER-ADVOCATE）
+
+| 检查 | 结果 |
+|------|------|
+| 反方席小节 | ⚠️ 缺 杠精席/Clever |
+| 反方人设 ≥4 | ⚠️ · n=0 |
+| 作者收束（收进包里/回杠） | ⚠️ |
+
+**Must：** 长稿含 ≥4 个 `**反方·…**` 立场 + 「收进包里」式收束 · 见 `verify-xhs-clever-advocate.sh` · CEO triple-eval / double-stress 已编排。
 
 ## L2–L3 隐蔽风险
 

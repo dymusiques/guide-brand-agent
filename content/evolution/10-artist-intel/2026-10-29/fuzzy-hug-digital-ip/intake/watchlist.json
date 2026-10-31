@@ -1,0 +1,33 @@
+{
+  "slug": "fuzzy-hug-digital-ip",
+  "name": "Fuzzy hug（独立数字艺术 IP）",
+  "domain": "数字角色 IP × 快消/美妆跨界（非真人艺术家，学 IP 商业化）",
+  "search_queries": [
+    "Fuzzy hug 潘婷 3分钟 跨界",
+    "Fuzzy hug IP 合作"
+  ],
+  "urls": [
+    "https://www.adquan.com/article/343094"
+  ],
+  "notes": "可借鉴：小 IP 撬大声量、CG+实景落地；勿绑单品类；偏 campaign 案例层",
+  "priority_tier": "P3",
+  "last_screened_composite": 50,
+  "last_screened_metrics": {
+    "directional_benchmarking": {
+      "score": 58.0,
+      "rationale": "非真人 IP，方向仅 campaign 结构可参考。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 50.0,
+      "rationale": "拆解度待 URL 深读。"
+    },
+    "audience_persona_overlap": {
+      "score": 50.0,
+      "rationale": "受众重叠待复核。"
+    },
+    "core_topic_density": {
+      "score": 40.0,
+      "rationale": "偏单次 campaign，核心题易稀释。"
+    }
+  }
+}

@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/MANAGER-DASHBOARD.md"
+goal: "CEO 仪表盘（00 Manager）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "2ad8b5c69fdfc9a1"
+---
+
+# CEO 仪表盘（00 Manager）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **命令：**
+- **Path:** `docs/MANAGER-DASHBOARD.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 # CEO 仪表盘（00 Manager）
 
 **命令：**

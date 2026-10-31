@@ -1,3 +1,34 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/HANDOFF-SOP.md"
+goal: "交班 SOP · 一页纸（M5）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "69feccd3d2d60c58"
+---
+
+# 交班 SOP · 一页纸（M5）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **CEO/GM 接手包（2026-10-28）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON `integration/handoff/ceo-gm-operating-manifest.json`  
+> **新 Agent 主 SOP：** [NEW-AGENT
+- **Path:** `docs/HANDOFF-SOP.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **Owner 只做两件事（系统不能替代）**: 1. **各平台发帖**（小红书 / IG 等）
+- **机器层（Owner setup 后 · 其余）**: 见 [BACKGROUND-GOAL-EVOLUTION.md](BACKGROUND-GOAL-EVOLUTION.md)（**每日 09:00** cycle）。Debug 单次：`bash sc…
+- **交班前 Must（约 15 分钟）**: | 步 | 命令 / 动作 |
+- **新 Agent clone 后 Must**: ```bash
+- **认知期节奏**: - 每周 1 深度 Brief · Daily 日更
+- **定时提醒（可选）**: 见 `content/marketing/automation/CURSOR-AUTOMATION-15D.md` — 在 Cursor Automations 里每 15 天跑 autopilot。
+
+
+---
+
+## L2 正文
+
 # 交班 SOP · 一页纸（M5）
 
 > **CEO/GM 接手包（2026-10-28）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON `integration/handoff/ceo-gm-operating-manifest.json`  

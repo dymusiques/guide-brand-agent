@@ -1,3 +1,28 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/VERIFY-AGENT-FUSED.md"
+goal: "verify-agent-fused · A + B + C 融合"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "9744f7f445a0de84"
+---
+
+# verify-agent-fused · A + B + C 融合
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** **Owner 确认策略（勿回退成「每岗第二个 Gemini kernel」）：**
+- **Path:** `docs/VERIFY-AGENT-FUSED.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **成本与改 daily 幅度**: | 改动 | daily 增量 | Gemini | 说明 |
+
+
+---
+
+## L2 正文
+
 # verify-agent-fused · A + B + C 融合
 
 **Owner 确认策略（勿回退成「每岗第二个 Gemini kernel」）：**

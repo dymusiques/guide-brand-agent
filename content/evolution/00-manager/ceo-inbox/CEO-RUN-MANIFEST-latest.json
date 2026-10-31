@@ -1,0 +1,164 @@
+{
+  "overall": "PASS",
+  "goal": "Owner: HTML交付 + Agent调用透明",
+  "brief": "content/xiaohongshu/2026-10-30-musicians-who-love-music-brief.md",
+  "agents": [
+    {
+      "agent": "00 CEO",
+      "capability": "refresh HTML + manifest",
+      "result": "PASS"
+    },
+    {
+      "agent": "01/04/05/08",
+      "capability": "六项 6-case (最近一次 full execution 路径)",
+      "result": "PASS"
+    }
+  ],
+  "steps": [
+    "规则更新 → ceo_write_run_manifest",
+    "HTML: OWNER-XHS-FILTER-DELIVERABLE-2026-10-30.html#owner-latest"
+  ],
+  "roster": [
+    {
+      "id": "00",
+      "name": "CEO / 00-manager",
+      "status": "invoked",
+      "capabilities": [
+        "recover · dispatch · manifest · HTML gate"
+      ],
+      "parallel_with_others": false,
+      "result": "PASS"
+    },
+    {
+      "id": "01",
+      "name": "01-personal-ip",
+      "status": "invoked",
+      "capabilities": [
+        "evaluate_personal_ip · verify-agent-fused 01"
+      ],
+      "parallel_with_others": false,
+      "result": "PASS"
+    },
+    {
+      "id": "02",
+      "name": "02-business-brand",
+      "status": "skipped",
+      "capabilities": [
+        "evaluate-business-brand · fused 02"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    },
+    {
+      "id": "03",
+      "name": "03-marketing-strategy",
+      "status": "skipped",
+      "capabilities": [
+        "evaluate-marketing-campaign · fused 03"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    },
+    {
+      "id": "04",
+      "name": "04-xhs-topic-manager",
+      "status": "invoked",
+      "capabilities": [
+        "pitfalls · longform · gate · GM-REPORT"
+      ],
+      "parallel_with_others": false,
+      "result": "PASS"
+    },
+    {
+      "id": "05",
+      "name": "05-xhs-kernel",
+      "status": "invoked",
+      "capabilities": [
+        "verify-xhs-topic · verify-agent-fused 05"
+      ],
+      "parallel_with_others": false,
+      "result": "PASS"
+    },
+    {
+      "id": "06",
+      "name": "06-xhs-content-pipeline",
+      "status": "skipped",
+      "capabilities": [
+        "verify-xhs-content-dir"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    },
+    {
+      "id": "07",
+      "name": "07-brand-visual",
+      "status": "skipped",
+      "capabilities": [
+        "brand-visual / Canva"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    },
+    {
+      "id": "08",
+      "name": "08-platform-integration",
+      "status": "invoked",
+      "capabilities": [
+        "verify-integration · gdocs"
+      ],
+      "parallel_with_others": false,
+      "result": "PASS"
+    },
+    {
+      "id": "09",
+      "name": "09-data-analytics",
+      "status": "skipped",
+      "capabilities": [
+        "analytics-pipeline · next-topics"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    },
+    {
+      "id": "10",
+      "name": "10-artist-benchmark",
+      "status": "skipped",
+      "capabilities": [
+        "verify-agent-fused 10"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    },
+    {
+      "id": "11",
+      "name": "11-ip-daily-evaluator",
+      "status": "skipped",
+      "capabilities": [
+        "verify-agent-fused 11"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    },
+    {
+      "id": "12",
+      "name": "12-owner-daily-brief",
+      "status": "skipped",
+      "capabilities": [
+        "verify-agent-fused 12"
+      ],
+      "parallel_with_others": false,
+      "result": "—"
+    }
+  ],
+  "parallelism": {
+    "all_agents_invoked": false,
+    "invoked_count": 5,
+    "total_agents": 13,
+    "mode": "sequential_ceo_gm_chain",
+    "owner_answer": "不是全员并行；也不是 12 Agent 全调用。 本次 invoked 5/13，主链串行（见 CEO-AGENT-ROSTER-AND-PARALLELISM.md）。"
+  },
+  "generated_at": "2026-10-30T03:50:57.821771+00:00",
+  "doc": "docs/OWNER-CHAT-DELIVERY-FORMAT.md",
+  "owner_html_file": "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-2026-10-30.html",
+  "owner_html_uri": "file:///Users/danying/Desktop/danying-brand-agent/content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-2026-10-30.html#owner-latest"
+}

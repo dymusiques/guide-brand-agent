@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "agents/00-manager/INTEGRATION-PROMPT.md"
+goal: "Manager 集成 Prompt（非算法层）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "174465036c476297"
+---
+
+# Manager 集成 Prompt（非算法层）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **上下文与平台（Must · 全部门通用）**  
+> - 标准：[docs/PROMPT-CONTEXT-STANDARD.md](../../docs/PROMPT-CONTEXT-STANDARD.md)  
+> - Cursor ↔ Open WebUI：[docs/COURSE-METHOD-TO-YOUR-STACK.md](../../d
+- **Path:** `agents/00-manager/INTEGRATION-PROMPT.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
+> **上下文与平台（Must · 全部门通用）**  
+> - 标准：[docs/PROMPT-CONTEXT-STANDARD.md](../../docs/PROMPT-CONTEXT-STANDARD.md)  
+> - Cursor ↔ Open WebUI：[docs/COURSE-METHOD-TO-YOUR-STACK.md](../../docs/COURSE-METHOD-TO-YOUR-STACK.md) · JSON [integration/handoff/cursor-openwebui-task-routing.json](../../integration/handoff/cursor-openwebui-task-routing.json)  
+> - **长文/翻译** → Open WebUI Router + intake；**gate/verify/改 Brief** → Cursor only  
+> - 本文件下方内容 = **本部门专属**；勿重复粘贴 SOUL / 整份 IP Brief 正文
 # Manager 集成 Prompt（非算法层）
 
 > **CEO 层级：** [docs/IP-MANAGEMENT-HIERARCHY.md](../../docs/IP-MANAGEMENT-HIERARCHY.md) · 你 = **总 Manager**；01–09 = **部门总经理**，各带 Collector+Evaluator，**GM-REPORT 向你汇报**。  

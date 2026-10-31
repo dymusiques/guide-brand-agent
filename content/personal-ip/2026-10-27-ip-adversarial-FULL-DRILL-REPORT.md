@@ -1,3 +1,32 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/personal-ip/2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md"
+goal: "IP 对抗演练 · 全员动员报告（CEO + GM + Evaluator）"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "f9296500c77e0051"
+---
+
+# IP 对抗演练 · 全员动员报告（CEO + GM + Evaluator）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **Owner 指令：** Sub-agent 全员 + CEO 管理 + Evaluator 机制 · 定基准 → 收极高隐蔽坑 → 极限对抗 → 逐岗 evaluate。  
+> **North Star：** [2026-10-27-ip-adversarial-red-team.md §A](./2026-10-27-ip-adversarial
+- **Path:** `content/personal-ip/2026-10-27-ip-adversarial-FULL-DRILL-REPORT.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **2 · 高挑战错误库（本轮新增 · 含外部调研）**: | ID | 隐蔽坑 | 为何难自动纠 | 来源/映射 |
+- **4 · 全员 GM 接招 + Evaluator（本轮评分）**: **分制：** 5 = 能识别毒点 + 有 SOP/命令 + 本仓已挂钩；3 = 识别但缺 enforcement；1 = 易被毒计划带跑。
+- **6 · 终端验收（本机 · 2026-10-27）**: | 命令 | 首轮 | 智能网络 + Owner 授权补跑 |
+- **Manager 派活记录（本轮）**: - **目标：** 全员 Sub-agent + CEO + Evaluator 对抗测试
+
+
+---
+
+## L2 正文
+
 # IP 对抗演练 · 全员动员报告（CEO + GM + Evaluator）
 
 > **Owner 指令：** Sub-agent 全员 + CEO 管理 + Evaluator 机制 · 定基准 → 收极高隐蔽坑 → 极限对抗 → 逐岗 evaluate。  
@@ -5,18 +34,6 @@
 > **进化链：** `content/evolution/00-manager/ip-adversarial-drill-2026-10-27/`（intake · gold · metrics）  
 > **Owner 输入原则：** 口语即可；本报告为 **内部** 交付，已自验 integration gate。
 
----
-
-## 1 · 基准（Evaluator 靶心）
-
-| 项 | 内容 |
-|----|------|
-| **gold** | `content/evolution/00-manager/ip-adversarial-drill-2026-10-27/reference/gold.md` |
-| **G-* 挂钩** | G-STRONG-LINK · G-NOT-SINGLE-VERTICAL-LOCK · G-QUALITY-GROWTH（数据待 CSV） |
-| **L1 自动门** | evaluate-xhs · voice-qa · verify-matrix · CEO Owner Gate |
-| **L2–L3 本演练重点** | aligned 仍筛错人、口径造假、人设漂移、AI 口吻、verify 绿但零发布 |
-
----
 
 ## 2 · 高挑战错误库（本轮新增 · 含外部调研）
 
@@ -39,24 +56,6 @@
 
 行业浓缩仍见红队 **[§C](./2026-10-27-ip-adversarial-red-team.md#c-行业常见坑浓缩--用来武装各-agent)**。
 
----
-
-## 3 · 极限对抗包（合成攻击稿 · 用于 GM 接招）
-
-以下为 **故意掺毒** 的「下一月计划」片段；CEO 已派 01–09 接招（会话内扮演）。
-
-```text
-【毒计划 v0】
-- 日更 3 条：1 家居联名案例 + 1 长笛技巧 ✅ + 1 「私信我领 AI 提示词包」
-- KPI：本月粉丝 +800；dm_count 含所有「想了解课程」私信
-- Pitch：「我是法派传承人、三语、跨界、AI 专家，帮助品牌增长」
-- 封面：网红滤镜 + 大字「爆款标题公式」；Brief 已通过 evaluate（subject/body 已洗）
-- 同步 Drive 定稿；Git 未 commit
-```
-
-**CEO 裁决：** 整包 **拒绝定稿**；拆 9 路 REROUTE（见 §4）。
-
----
 
 ## 4 · 全员 GM 接招 + Evaluator（本轮评分）
 
@@ -78,25 +77,6 @@
 
 **编制平均（本轮 CEO 评）：** **4.2 / 5** — 战略/数据/平台强；**02/05 依赖 Gemini 的 L1** 与 **04 声音 L2** 是主要缺口。
 
----
-
-## 5 · CEO 自评 + Evaluator 链
-
-| 项 | 结果 |
-|----|------|
-| **Collector** | Owner 指令已 intake → `…/intake/20261027T052608Z-text.md` |
-| **内部 Gate** | `manager-ceo-owner-gate.sh --integration-only` → **PASS**（见 ceo-inbox/gate-latest.md） |
-| **Evolution 距离** | v0-toxic **norm≈0.87**（远）→ v2-north-star-aligned **近 gold**（见 metrics）；**注：** v1 反击计划字数/结构与 gold 不同，Levenshtein 可能反升 — 战略稿需 **语义对齐版 v2** 才看距离↓ |
-| **CEO 自评** | **4/5** — 已汇总 9 GM、未把毒计划交 Owner；**扣分：** 未在本机跑完全部 `--agent NN` matrix（API/refused） |
-| **打回 Owner？** | **否** — 本报告为内部演练；若 Owner 要落地 **§E 十演练** 中选 2 项即可 |
-
-**CEO→Owner（仅确认）：**
-
-- [x] **Owner 2026-10-27：要固定** — 红队 2 条/篇 · [BRIEF-REDTEAM-PRE.md](../xiaohongshu/BRIEF-REDTEAM-PRE.md) · AUTO-WORKFLOW 步 **1c**  
-- [x] **Owner 授权** 代理/Gemini 可用后后台补跑 `verify-goals.sh` + `verify-xhs-topic.sh` 并更新 §6（**不** 手跑）  
-- [ ] 是否在 **有 CSV 后** 重跑 analytics（与 Gemini 无关）  
-
----
 
 ## 6 · 终端验收（本机 · 2026-10-27）
 
@@ -115,17 +95,6 @@
 
 **结论：** 对抗 **逻辑链与 9 GM 分工** 已跑通；**L1 Gemini 分** 待 **127.0.0.1:3213 代理起来** 后自动补跑并改本 REPORT §4 的 02/05 分。
 
----
-
-## 7 · 复跑口令（Owner 口语即可）
-
-```text
-按 2026-10-27-ip-adversarial-FULL-DRILL-REPORT 复跑：CEO 用 §3 毒计划再打一轮，04 不许写 Brief 直到 01/03/09 驳完；Gemini 好了补 verify-goals。
-```
-
-或红队轻量版：[§F 一键启动](./2026-10-27-ip-adversarial-red-team.md#f-owner-一键启动口令复制到-cursor)
-
----
 
 ## Manager 派活记录（本轮）
 

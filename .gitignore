@@ -55,3 +55,9 @@ content/analytics/derived/next-topics-*.md
 content/analytics/derived/manager-dashboard-*.md
 content/analytics/derived/ceo-dispatch-latest.md
 content/analytics/derived/.manager-dashboard-state.json
+
+# Brief gate verify snapshots (regenerable; not source of truth)
+content/xiaohongshu/verify-logs/
+
+# Unattended CEO / gate run logs
+content/evolution/**/*.log

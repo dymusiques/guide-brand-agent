@@ -1,3 +1,25 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/evolution/00-manager/ip-adversarial-drill-2026-10-27/versions/v2-north-star-aligned.md"
+goal: "v2-north-star-aligned"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "e946b482e8b2eb37"
+---
+
+# v2-north-star-aligned
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** 法派长笛传承 × 跨界品牌策划 —— 帮跨行业品牌/艺术家/教育/AI 创新者，把古典审美与叙事变成可合作、可传播、可沉淀的语言；人即品牌，不绑垂直。
+- **Path:** `content/evolution/00-manager/ip-adversarial-drill-2026-10-27/versions/v2-north-star-aligned.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+
+---
+
+## L2 正文
+
 法派长笛传承 × 跨界品牌策划 —— 帮跨行业品牌/艺术家/教育/AI 创新者，把古典审美与叙事变成可合作、可传播、可沉淀的语言；人即品牌，不绑垂直。
 
 认知期 2026 Q4：每周 1 深度名片帖；Daily 分层；品牌向私信与判断帖；强链接非 vanity；aligned 后 commit；不写家居系列默认。

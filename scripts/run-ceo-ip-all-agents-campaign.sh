@@ -54,7 +54,18 @@ acquire_campaign_lock
 ceo_campaign_wait_for_deep
 
 SKIP_GEMINI="${SKIP_GEMINI:-0}"
-export VERIFY_GOALS_SKIP_PLATFORM="${VERIFY_GOALS_SKIP_PLATFORM:-1}"
+if [[ -n "${VERIFY_GOALS_SKIP_PLATFORM:-}" ]]; then
+  export VERIFY_GOALS_SKIP_PLATFORM
+else
+  bash scripts/check-google-auth-for-agent.sh >/dev/null 2>&1 || true
+  if bash scripts/verify-integration.sh >/dev/null 2>&1; then
+    export VERIFY_GOALS_SKIP_PLATFORM=0
+    echo ">>> VERIFY_GOALS_SKIP_PLATFORM=0 (verify-integration PASS · Owner Google grant · no chat confirm)"
+  else
+    export VERIFY_GOALS_SKIP_PLATFORM=1
+    echo ">>> VERIFY_GOALS_SKIP_PLATFORM=1 (integration not PASS · skip platform hook silently)"
+  fi
+fi
 sync_skip_gemini_from_deep
 if [[ "$SKIP_GEMINI" == "1" ]]; then
   echo ">>> campaign SKIP_GEMINI=1 · no duplicate kernel/daily Gemini (deep lock or CEO override)"
@@ -177,11 +188,11 @@ run_step "fused-12" fused 12
 # —— HTML · 不与 deep-delivery 重复构建 ——
 phase "HTML" "Owner deliverable"
 if deep_delivery_active; then
-  echo ">>> build-owner-xhs-report-html: SKIP (deep-delivery will refresh HTML)"
-elif [[ -f "$HTML" ]]; then
-  echo ">>> build-owner-xhs-report-html: SKIP (exists $HTML)"
+  echo ">>> refresh-owner-notify-html: SKIP (deep-delivery will refresh HTML)"
+elif [[ "${CEO_OWNER_HTML_REFRESH:-1}" == "1" ]]; then
+  run_step "owner-html" bash scripts/refresh-owner-notify-html.sh
 else
-  run_step "owner-html" "$PY" scripts/build-owner-xhs-report-html.py
+  echo ">>> refresh-owner-notify-html: SKIP (CEO_OWNER_HTML_REFRESH=0)"
 fi
 
 {

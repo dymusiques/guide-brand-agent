@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27-evening.md"
+goal: "CEO · 全员派活（晚间战役）· 90 天 IP 筛选漏斗"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "dab5c0eeedc53746"
+---
+
+# CEO · 全员派活（晚间战役）· 90 天 IP 筛选漏斗
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - **Campaign：** `VERIFY_GOALS_SKIP_PLATFORM=0` · `SKIP_GEMINI=0`（预检无 deep-delivery 在跑）· **RESULT: PASS ceo-ip-all-agents-campaign**
+  - 报告：`content/evolution/00-manager/ceo-inbox/c
+- **Path:** `content/evolution/00-manager/ceo-inbox/CEO-IP-ALL-AGENTS-DISPATCH-2026-10-27-evening.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **L1 任务（压缩 · Open WebUI / Cursor 顶栏）**: - **Goal:** **签发：** 2026-10-27 晚（北京）· 00 Manager 代 CEO
+- **章节锚点**: - **漏斗三段（叙事轴）**: | 段 | 0–30 天 | 31–60 天 | 61–90 天 |
+- **结果 · 2026-10-27 18:27–18:35（北京）**: - **Campaign：** `VERIFY_GOALS_SKIP_PLATFORM=0` · `SKIP_GEMINI=0`（预检无 deep-delivery 在跑）· **RESULT: PA…
+
+
+---
+
+## L2 正文
+
 # CEO · 全员派活（晚间战役）· 90 天 IP 筛选漏斗
 
 **签发：** 2026-10-27 晚（北京）· 00 Manager 代 CEO  

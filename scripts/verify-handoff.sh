@@ -26,7 +26,16 @@ for f in \
   scripts/manager-ceo-double-iteration.sh \
   scripts/verify-ceo-iteration-log.py \
   scripts/new-machine-bootstrap.sh \
-  scripts/ensure-background-goal-evolution.sh; do
+  scripts/ensure-background-goal-evolution.sh \
+  integration/handoff/workflow-automation-manifest.json \
+  docs/WORKFLOW-AUTOMATION-MATRIX.md \
+  docs/OWNER-DELIVERY-NOTIFY-DEFAULT.md \
+  docs/OWNER-GOOGLE-GRANT-AGENT.md \
+  integration/handoff/google-auth-manifest.json \
+  scripts/check-google-auth-for-agent.sh \
+  scripts/verify-workflow-automation.sh \
+  scripts/manager-ceo-gate-one-round.sh \
+  scripts/ensure-process-launcher.sh; do
   [[ -f "$f" ]] && pass "$f" || fail "missing $f"
 done
 

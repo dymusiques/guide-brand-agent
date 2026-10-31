@@ -1,3 +1,36 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-2026-10-27.md"
+goal: "Owner 交付 · CEO 派活筛选 · 小红书资料 + IP 对标 · 2026-10-27 18:27"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "09f26e3eb10134ec"
+---
+
+# Owner 交付 · CEO 派活筛选 · 小红书资料 + IP 对标 · 2026-10-27 18:27
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **内部链：** 00 CEO → 01 IP / 04 Topic / 09 Analytics / 10 Artist · Gate 后交 Owner
+> **Owner 请打开 HTML（可双击浏览器）：** `content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-2
+- **Path:** `content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-2026-10-27.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **一、CEO 派活记录**: | GM | 任务 | 产出 |
+- **二、小红书 Brief · 推荐优先级（最适合你当前 IP）**: | 优先级 | Brief | aligned | 说明 |
+- **三、数据侧推荐（09 → 04）**: 摘录自 `xhs-data-strategy-2026-10-20.md`：
+- **1. 数据说了什么（可验证）**: | 信号 | 证据 | 对选题的含义 |
+- **2. 与 Agent 链路的对应**: ```text
+- **3. 推荐发布顺序（数据 × 队列）**: 1. **discovery-01**（不可替代性）— P0；钩子已按 Top 笔记结构微调
+- **四、Artist 对标 · 四指标（10 → Owner 裁决）**: - **Drew Alexander Forde · ThatViolaKid** · P1 · composite **73** · DB 95.0 · PLD 63.0 · APO 68.0 · …
+- **五、请你（仅决策）**: - [ ] 先发表 **discovery-01** 或指定 Brief 序号
+
+
+---
+
+## L2 正文
+
 # Owner 交付 · CEO 派活筛选 · 小红书资料 + IP 对标 · 2026-10-27 18:27
 
 > **内部链：** 00 CEO → 01 IP / 04 Topic / 09 Analytics / 10 Artist · Gate 后交 Owner

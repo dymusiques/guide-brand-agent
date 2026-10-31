@@ -1,3 +1,35 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "kernels/xiaohongshu/docs/02-gemini-and-functions.md"
+goal: "Gemini 调用方式与函数说明"
+openwebui_route: "rag_l2"
+cursor_route: "read"
+content_sha256: "9ef46e23b2a4f2ac"
+---
+
+# Gemini 调用方式与函数说明
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** ```bash
+pip install -r requirements-gemini.txt
+```
+- **Path:** `kernels/xiaohongshu/docs/02-gemini-and-functions.md`
+- **Open WebUI:** `rag_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **依赖与环境**: ```bash
+- **调用逻辑（对齐 demo / 课纲）**: 1. 用 `inspect.getdoc(is_xhs_growth_aligned)` 取得 **分类规则**（与对外文档同源）。
+- **命令行 demo**: ```bash
+- **函数 API**
+- **在 Python 中调用示例**: ```python
+- **验收**: ```bash
+
+
+---
+
+## L2 正文
+
 # Gemini 调用方式与函数说明
 
 ## 依赖与环境

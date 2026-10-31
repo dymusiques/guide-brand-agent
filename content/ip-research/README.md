@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "content/ip-research/README.md"
+goal: "IP 研究 · Artist 对标 watchlist"
+openwebui_route: "intake_l2"
+cursor_route: "read"
+content_sha256: "8a489025d2b377a6"
+---
+
+# IP 研究 · Artist 对标 watchlist
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** - **维护者：** Agent（GM10）· Owner 不必手填  
+- **配置：** [artist-watchlist.json](./artist-watchlist.json) · 筛查 [artist-watchlist-screened.md](./artist-watchlist-screened.md) · **全员详表** [2026
+- **Path:** `content/ip-research/README.md`
+- **Open WebUI:** `intake_l2`
+- **Cursor:** `read`
+
+## 章节锚点
+- **范围**: **艺术门类**内创作者/IP 均可（音乐、视觉、戏剧、舞蹈、装置、数字艺术等）— **不限定**某一细分专业。
+- **换人或加人（Owner Must · 2026-10-27）**: **凡会话/调研/intake 里出现、与 Owner IP 可对标的 artist/IP，Agent 必须写入 `artist-watchlist.json`（含 `urls`），并随认知更新 `n…
+- **优先级 P1 / P2 / P3（Agent 建议档 · 非 JSON 字段）**: | 档 | 含义 | GM10 怎么用 |
+
+
+---
+
+## L2 正文
+
 # IP 研究 · Artist 对标 watchlist
 
 - **维护者：** Agent（GM10）· Owner 不必手填  

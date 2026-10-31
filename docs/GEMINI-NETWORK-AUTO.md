@@ -1,3 +1,31 @@
+---
+context_version: "2026-10-30-l012"
+repo_path: "docs/GEMINI-NETWORK-AUTO.md"
+goal: "Gemini 网络 · 全自动默认策略（Owner：全局 VPN · 3213 可选）"
+openwebui_route: "rag_l1"
+cursor_route: "read"
+content_sha256: "aa62743f97ad1714"
+---
+
+# Gemini 网络 · 全自动默认策略（Owner：全局 VPN · 3213 可选）
+
+## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
+- **Goal:** > **2026-10-27 Owner 前提：** 平时 **全局 VPN**；可能偶发掉线；`.env` 可保留 `GEMINI_HTTP_PROXY` 备忘，**不必** 为每次 verify 手动开关。
+- **Path:** `docs/GEMINI-NETWORK-AUTO.md`
+- **Open WebUI:** `rag_l1`
+- **Cursor:** `read`
+
+## 章节锚点
+- **推荐方式（已写入代码 · 不用你二选一）**: **智能回退（默认）：**
+- **和全自动 workflow 的关系**: | 命令 | 需要 Gemini 通 |
+- **可选增强（非必须）**: - 以后若 **不用** 3213：`.env` 里注释 `GEMINI_HTTP_PROXY` 即可；行为仍是 VPN 直连。
+- **相关**: - `.env.example` · [SETUP.md](../SETUP.md)
+
+
+---
+
+## L2 正文
+
 # Gemini 网络 · 全自动默认策略（Owner：全局 VPN · 3213 可选）
 
 > **2026-10-27 Owner 前提：** 平时 **全局 VPN**；可能偶发掉线；`.env` 可保留 `GEMINI_HTTP_PROXY` 备忘，**不必** 为每次 verify 手动开关。
