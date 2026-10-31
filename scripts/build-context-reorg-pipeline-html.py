@@ -12,7 +12,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 GITHUB_BLOB = "https://github.com/dymusiques/guide-brand-agent/blob/main/"
-GITHUB_PAGES_MINDMAP = "https://dymusiques.github.io/guide-brand-agent/owner-stack-openwebui-mindmap.html"
+SHARE_DOC = "docs/SHARE-FOR-鸭哥.md"
+HTMLPREVIEW_MINDMAP = (
+    "https://htmlpreview.github.io/?"
+    "https://raw.githubusercontent.com/dymusiques/guide-brand-agent/main/docs/owner-stack-openwebui-mindmap.html"
+)
 HANDOFF = ROOT / "integration/handoff/openwebui-context-reorg-latest.json"
 OUT = ROOT / "content/evolution/00-manager/ceo-inbox/CONTEXT-REORG-PIPELINE-LATEST.html"
 MINDMAP_COPY = ROOT / "docs/owner-stack-openwebui-mindmap.html"
@@ -348,8 +352,8 @@ def render_page(data: dict, catalog: dict, sync: dict) -> str:
 <div class="topbar">
   <button type="button" id="btn-popup">在新窗口打开</button>
   <a id="link-md" href="#">打开选中节点 MD</a>
-  <a href="{html.escape(GITHUB_BLOB)}docs/SHARE-FOR-LIU-TEACHER.md" target="_blank" rel="noopener">分享给刘老师 · 导读</a>
-  <a href="{html.escape(GITHUB_PAGES_MINDMAP)}" target="_blank" rel="noopener">GitHub Pages 分享链接</a>
+  <a href="{html.escape(GITHUB_BLOB + SHARE_DOC)}" target="_blank" rel="noopener">分享给鸭哥 · 导读</a>
+  <a href="{html.escape(HTMLPREVIEW_MINDMAP)}" target="_blank" rel="noopener">在线思维导图（分享用）</a>
   <a href="{html.escape(GITHUB_BLOB)}" target="_blank" rel="noopener">打开 GitHub 仓库</a>
   <span style="font-size:13px">本地仓：{html.escape(repo_s)}</span>
 </div>
@@ -358,10 +362,10 @@ def render_page(data: dict, catalog: dict, sync: dict) -> str:
 <p>生成：{html.escape(now)} · handoff <code>integration/handoff/openwebui-context-reorg-latest.json</code></p>
 
 <div class="card" style="border-left:4px solid #1f6feb">
-  <strong>分享给刘老师（GitHub · 勿用 file://）</strong>
+  <strong>分享给鸭哥（GitHub · 勿用 file://）</strong>
   <ul style="margin:0.5rem 0 0;padding-left:1.2rem;font-size:14px">
-    <li>交互导图：<a href="{html.escape(GITHUB_PAGES_MINDMAP)}">{html.escape(GITHUB_PAGES_MINDMAP)}</a></li>
-    <li>导读 MD：<a href="{html.escape(GITHUB_BLOB)}docs/SHARE-FOR-LIU-TEACHER.md">docs/SHARE-FOR-LIU-TEACHER.md</a></li>
+    <li>交互导图：<a href="{html.escape(HTMLPREVIEW_MINDMAP)}">{html.escape(HTMLPREVIEW_MINDMAP)}</a></li>
+    <li>导读 MD：<a href="{html.escape(GITHUB_BLOB + SHARE_DOC)}">{html.escape(SHARE_DOC)}</a></li>
     <li>仓库首页：<a href="{html.escape(GITHUB_BLOB.rstrip('/'))}">github.com/dymusiques/guide-brand-agent</a></li>
   </ul>
 </div>

@@ -1,30 +1,30 @@
-# 分享给刘老师 · Brand Agent 总览（GitHub 可读）
+# 分享给鸭哥 · Brand Agent 总览（GitHub 可读）
 
 > **仓库：** [github.com/dymusiques/guide-brand-agent](https://github.com/dymusiques/guide-brand-agent)  
-> **交互思维导图（推荐浏览器打开）：** [Pages · 总流程思维导图](https://dymusiques.github.io/guide-brand-agent/owner-stack-openwebui-mindmap.html)  
+> **交互思维导图（浏览器）：** [htmlpreview · 总流程思维导图](https://htmlpreview.github.io/?https://raw.githubusercontent.com/dymusiques/guide-brand-agent/main/docs/owner-stack-openwebui-mindmap.html)  
 > **说明：** 点页面里任意方块 → **底部黑色栏**出现工序说明；MD 链接跳到 GitHub 对应文件（无需本机 `file://`）。
 
 ---
 
-## 1. 发给老师的一句话
+## 1. 发给鸭哥的一句话
 
-「这是我们品牌 IP / 小红书 / 多 Agent 工作流的 **GitHub 定稿仓**。请先看 **交互导图**（上面 Pages 链接），再按需点开各 MD。Open WebUI 是本地 RAG 界面；**定稿与测评在 Cursor + 仓库脚本**。」
+「这是我们品牌 IP / 小红书 / 多 Agent 工作流的 **GitHub 定稿仓**。请先看 **交互导图**（上面 htmlpreview 链接），再按需点开各 MD。Open WebUI 是本地 RAG 界面；**定稿与测评在 Cursor + 仓库脚本**。」
 
 ---
 
 ## 2. 系统分三块（避免和 Open WebUI 混淆）
 
-| 块 | 干什么 | 老师怎么看 |
+| 块 | 干什么 | 鸭哥怎么看 |
 |----|--------|------------|
 | **Git 仓（本 repo）** | 规则、CEO 工作流、Brief、脚本、验收 | 浏览器看 MD + 导图 |
-| **Cursor** | 写稿、改 MD、跑 verify / evolution / 交 HTML | 学生本机 IDE（老师可不装） |
-| **Open WebUI（本机 Docker）** | RAG 四包：Drive 背书、corpus、SOP、workflow 命令 | 需学生本机；**push 不会自动更新 Knowledge** |
+| **Cursor** | 写稿、改 MD、跑 verify / evolution / 交 HTML | 我本机 IDE（鸭哥可不装） |
+| **Open WebUI（本机 Docker）** | RAG 四包：Drive 背书、corpus、SOP、workflow 命令 | 需我本机；**push 不会自动更新 Knowledge** |
 
 **Drive 资料库：** 主要在 Open WebUI 的 `brand-ip-knowledge`（镜像 Google Drive）。**用 Cursor 提炼** = 改 Git 里 MD + 跑 gate/evolution（定稿级）。
 
 ---
 
-## 3. CEO · 测评 · Evolution（您问的那条链）
+## 3. CEO · 测评 · Evolution
 
 均在仓库内，**不是**只在本地 HTML。
 
@@ -62,25 +62,25 @@
 
 ---
 
-## 6. 新 Agent / 学生接手（一键读序）
+## 6. 新 Agent 接手（一键读序）
 
 | 步骤 | 链接 |
 |------|------|
 | 新电脑口令 | [新电脑一句话.md](https://github.com/dymusiques/guide-brand-agent/blob/main/%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%80%E5%8F%A5%E8%AF%9D.md) |
 | 接手手册 | [docs/AGENT-TAKEOVER.md](https://github.com/dymusiques/guide-brand-agent/blob/main/docs/AGENT-TAKEOVER.md) |
 | MD 清单 | [docs/HANDOFF-MD-MANIFEST.md](https://github.com/dymusiques/guide-brand-agent/blob/main/docs/HANDOFF-MD-MANIFEST.md) |
-| Workflow 思维导图（CEO 部门向） | [docs/workflow-handoff-mindmap.html](https://dymusiques.github.io/guide-brand-agent/workflow-handoff-mindmap.html) |
+| Workflow 思维导图（CEO 部门向） | [htmlpreview · workflow-handoff-mindmap.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/dymusiques/guide-brand-agent/main/docs/workflow-handoff-mindmap.html) |
 
 ---
 
 ## 7. 与本地 `file://` HTML 的关系
 
-- 学生本机路径：`content/evolution/00-manager/ceo-inbox/CONTEXT-REORG-PIPELINE-LATEST.html`（与 Pages 上图 **内容同源**，由 `scripts/build-context-reorg-pipeline-html.py` 生成）。
-- **分享给老师请用 Pages 链接**（上文 § 顶部），不要发 `file://`。
+- 我本机路径：`content/evolution/00-manager/ceo-inbox/CONTEXT-REORG-PIPELINE-LATEST.html`（与 `docs/owner-stack-openwebui-mindmap.html` **同源**，由 `scripts/build-context-reorg-pipeline-html.py` 生成）。
+- **分享给鸭哥请用 htmlpreview / GitHub 链接**，不要发 `file://`。
 
 ---
 
-## 8. 克隆给老师讲「代码也在 GitHub」
+## 8. 克隆（代码也在 GitHub）
 
 ```bash
 git clone https://github.com/dymusiques/guide-brand-agent.git
