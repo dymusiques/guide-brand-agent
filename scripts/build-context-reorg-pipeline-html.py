@@ -62,6 +62,69 @@ MINDMAP_NODES = [
         "cmd": ["bash scripts/ceo-full-execution-pipeline.sh --goal \"…\""],
     },
     {
+        "id": "ceo-six-case",
+        "col": "CEO · 测评链",
+        "title": "六项 6-case + GM 胶水",
+        "desc": "integration/agents a01–a09 + kernel",
+        "role": "CEO 函数壳：各部门 Manager 集成测试矩阵；见 CEO-SIX-CASE 文档与 ceo-six-case-battery.sh",
+        "md": ["docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md", "integration/handoff/ceo-full-execution-cycle.json"],
+        "cmd": ["bash scripts/ceo-six-case-battery.sh", "bash scripts/ceo-six-case-battery.sh --brief <path>"],
+    },
+    {
+        "id": "ceo-triple",
+        "col": "CEO · 测评链",
+        "title": "Triple eval + baseline 距离",
+        "desc": "多轮 evaluate · 拉近 gold",
+        "role": "ceo-triple-eval-baseline-loop：每轮 gate + analyze-brief-evolution-gap（READY/NEEDS_WORK）+ baseline/gold 距离",
+        "md": ["docs/MANAGER-EVAL-IMPROVEMENT-LOOP.md", "docs/BRIEF-AUTO-GATE-PIPELINE.md"],
+        "cmd": ["bash scripts/ceo-triple-eval-baseline-loop.sh --brief <path>"],
+    },
+    {
+        "id": "ceo-stress",
+        "col": "CEO · 测评链",
+        "title": "Double stress 压测",
+        "desc": "clever-advocate ×2 等",
+        "role": "ceo-double-stress：在 READY 前加压；长稿 verify-xhs-clever-advocate",
+        "md": ["docs/OWNER-LONGFORM-CLEVER-ADVOCATE.md"],
+        "cmd": ["bash scripts/ceo-double-stress.sh --brief <path>"],
+    },
+    {
+        "id": "ceo-evolution",
+        "col": "CEO · 测评链",
+        "title": "Evolution gap · 成功目标 G-*",
+        "desc": "测距 → 改稿 → 再 evaluate",
+        "role": "analyze-brief-evolution-gap.py 输出 EVOLUTION-GAP-latest.md；G-* 注册表在 integration/goals/registry.json",
+        "md": ["integration/GOALS-REGISTRY.md", "docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md"],
+        "cmd": ["python3 scripts/analyze-brief-evolution-gap.py --brief <path>", "bash scripts/manager-brief-evolution-until-gap.sh --brief <path>"],
+    },
+    {
+        "id": "ceo-autopilot",
+        "col": "CEO · 测评链",
+        "title": "run_ceo_xhs_autopilot / manifest",
+        "desc": "对抗 · HTML · roster",
+        "role": "CEO 交付闭环：run_ceo_xhs_autopilot.py + CEO-RUN-MANIFEST-latest.json + Owner HTML",
+        "md": ["docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md", "docs/OWNER-CHAT-DELIVERY-FORMAT.md"],
+        "cmd": ["python3 scripts/run_ceo_xhs_autopilot.py", "bash scripts/manager-ceo-xhs-owner-delivery.sh"],
+    },
+    {
+        "id": "wf-auto",
+        "col": "自动 Workflow",
+        "title": "workflow-automation-manifest",
+        "desc": "L0_BOOT → L4 · 勿问 Owner",
+        "role": "改 Brief / CEO 派活后自动 gate+evolution；manifest 在 integration/handoff/",
+        "md": ["docs/WORKFLOW-AUTOMATION-MATRIX.md", "integration/handoff/workflow-automation-manifest.json"],
+        "cmd": ["python3 scripts/run-workflow-from-manifest.py --phrase \"CEO 开始执行\" --goal \"…\""],
+    },
+    {
+        "id": "wf-dispatch",
+        "col": "自动 Workflow",
+        "title": "派活 · dispatch · autopilot",
+        "desc": "09→04 · ceo-dispatch",
+        "role": "manager-autopilot / dashboard；ceo-dispatch-latest.md；09 数据 GM 半自动派 04",
+        "md": ["docs/AUTOPILOT.md", "agents/09-data-analytics/DATA-NEEDS.md"],
+        "cmd": ["bash scripts/manager-autopilot.sh", "bash scripts/manager-dashboard.sh"],
+    },
+    {
         "id": "cursor-refine",
         "col": "Cursor · CEO",
         "title": "Cursor 做「提炼 / 定稿」",
@@ -267,10 +330,11 @@ def render_page(data: dict, catalog: dict, sync: dict) -> str:
   .node h3 {{ margin: 0 0 4px; font-size: 0.92rem; }}
   .node p {{ margin: 0; font-size: 0.78rem; color: #57606a; }}
   #panel {{
-    position: fixed; left: 0; right: 0; bottom: 0; max-height: 38vh; overflow-y: auto;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 100; max-height: 42vh; overflow-y: auto;
     background: #161b22; color: #e6edf3; padding: 14px 18px; border-top: 3px solid #1f6feb;
-    font-size: 14px;
+    font-size: 14px; box-shadow: 0 -4px 24px rgba(0,0,0,.35);
   }}
+  #panel-hint {{ font-size: 12px; color: #8b949e; margin-top: 6px; }}
   #panel h2 {{ margin: 0 0 8px; color: #79c0ff; border: 0; font-size: 1.05rem; }}
   #panel a {{ color: #58a6ff; }}
   .flow-row {{ display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 12px 0; }}
@@ -353,7 +417,7 @@ def render_page(data: dict, catalog: dict, sync: dict) -> str:
 <p>{html.escape(', '.join(agents.get('eval', [])))}</p>
 </div>
 
-<div id="panel"><h2>点击上方任意节点</h2><p>显示工序含义、MD 与命令。</p></div>
+<div id="panel" aria-live="polite"><h2>点击上方任意节点</h2><p>详情出现在<strong>本页底部黑栏</strong>（不是弹新窗）。MD 链接需浏览器允许 file://。</p><p id="panel-hint"></p></div>
 
 <script>
 (function() {{
@@ -391,9 +455,9 @@ def render_page(data: dict, catalog: dict, sync: dict) -> str:
         h += "<p><strong>相关 MD / 链接：</strong></p><ul>";
         n.md.forEach(function(p) {{
           if (p.indexOf("http") === 0) {{
-            h += "<li><a href=\"" + p + "\" target=\"_blank\" rel=\"noopener\">" + p + "</a></li>";
+            h += '<li><a href="' + p + '" target="_blank" rel="noopener">' + p + '</a></li>';
           }} else {{
-            h += "<li><a href=\"" + fileUrl(p) + "\"><code>" + p + "</code></a></li>";
+            h += '<li><a href="' + fileUrl(p) + '"><code>' + p + '</code></a></li>';
           }}
         }});
         h += "</ul>";
@@ -403,7 +467,8 @@ def render_page(data: dict, catalog: dict, sync: dict) -> str:
         n.cmd.forEach(function(c) {{ h += "<li><code>" + c + "</code></li>"; }});
         h += "</ul>";
       }}
-      panel.innerHTML = h;
+      panel.innerHTML = h + '<p id="panel-hint">已选：' + n.id + ' · 黑栏可滚动</p>';
+      panel.scrollIntoView({{ behavior: "smooth", block: "end" }});
       var firstLocal = (n.md || []).find(function(p) {{ return p && p.indexOf("http") !== 0; }});
       if (firstLocal) {{
         linkMd.href = fileUrl(firstLocal);
@@ -419,8 +484,15 @@ def render_page(data: dict, catalog: dict, sync: dict) -> str:
   document.getElementById("btn-popup").addEventListener("click", function() {{
     window.open(location.href.split("#")[0] + "?popup=1#owner-latest", "dba-context-mindmap", "width=1024,height=900,scrollbars=yes");
   }});
-  if (location.search.indexOf("popup=1") !== -1 || location.search.indexOf("open=1") !== -1) {{
-    setTimeout(function() {{ document.getElementById("btn-popup").click(); }}, 300);
+  if (location.hash.indexOf("node-") === 1) {{
+    var id = location.hash.slice(6);
+    var hit = NODES.find(function(x) {{ return x.id === id; }});
+    if (hit) {{
+      var idx = 0;
+      grid.querySelectorAll(".node").forEach(function(el, i) {{
+        if (el.querySelector("h3") && el.querySelector("h3").textContent === hit.title) el.click();
+      }});
+    }}
   }}
 }})();
 </script>

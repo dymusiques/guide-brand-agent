@@ -21,6 +21,13 @@ else
   echo "PASS: no external CDN"
 fi
 
+if grep -q 'href="" +' "$HTML"; then
+  echo "FAIL: broken JavaScript string (mindmap clicks will not work)"
+  FAIL=$((FAIL + 1))
+else
+  echo "PASS: mindmap JS href concatenation"
+fi
+
 if grep -q 'LLM-Ollama/RAG/RAG/scripts' "$HTML"; then
   echo "WARN: legacy LLM-Ollama path still in HTML body"
 else
