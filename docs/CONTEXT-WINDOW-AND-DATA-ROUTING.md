@@ -56,7 +56,8 @@ flowchart TD
 | 整份 Brief/手册 **翻译/改写** | **Diligent** | — |
 | 只要事实 + Sources | **RAG_ONLY** | 交叉验证 claim |
 | 结构化数据 / SQL / 图表（自有库） | **llama3.2:3b + SQLite Tool**（Valve 自配） | Python 自动化脚本 |
-| Drive 新书入库 | 跑 sync 脚本后 **RAG 聊天** | MCP 读 Drive、改 mirror 配置 |
+| Drive **T1 精选**入库 | manifest 内文件夹 → sync → **RAG 短问** | 维护 `drive-context-manifest.json` |
+| Drive **T2 书海**查证 | —（不全量 sync） | **搜索 + 精读** → intake 文件 |
 | gate / adversarial / HTML 交付 | — | **Must** |
 
 
@@ -71,7 +72,7 @@ flowchart TD
 | Knowledge | `brand-ip-knowledge` | Drive 镜像 RAG |
 | Pipe Valves 同步 | `python3 scripts/sync-openwebui-pipe-valves.py` | 从 Admin Connections 写 Valves |
 
-配置说明：[OPENWEBUI-CEO-ROUTER.md](./OPENWEBUI-CEO-ROUTER.md) · Drive：[README-BRAND-DRIVE-KNOWLEDGE.md](../../../未命名/LLM-Ollama/RAG/RAG/README-BRAND-DRIVE-KNOWLEDGE.md)
+配置说明：[OPENWEBUI-CEO-ROUTER.md](./OPENWEBUI-CEO-ROUTER.md) · Drive 三层：[AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](./AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md) · RAG 脚本：[integration/openwebui-rag/README.md](../integration/openwebui-rag/README.md)
 
 
 ## 6. Python 全流程自动化（课件练习 · MVP）

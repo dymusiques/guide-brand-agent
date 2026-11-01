@@ -33,7 +33,8 @@ content_sha256: "75467ade311103d1"
 > **验证：** `bash scripts/verify-handoff.sh`（含本文件检查）· `bash scripts/verify-agent-takeover.sh`  
 > **CEO/GM 接手包（Must）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)  
 > **接手 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html) · Open WebUI 总图 [owner-stack-openwebui-mindmap.html](owner-stack-openwebui-mindmap.html)  
-> **一页纸：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · **存储策略：** [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md)
+> **一页纸：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · **存储策略：** [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md)  
+> **Drive / 上下文外置（新 Agent Must）：** [AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md)
 
 
 ## 1. Owner 成功目标（G-* · 指挥时不丢）

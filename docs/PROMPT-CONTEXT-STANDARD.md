@@ -32,6 +32,16 @@ content_sha256: "fcac933726efa12f"
 > **课程方法论：** 输入上下文要**结构化、自包含**；长**输出**走 Open WebUI **Pipe**；事实走 **RAG**；结构化表走 **SQLite Tool**（可选）。  
 > **平台分工：** [COURSE-METHOD-TO-YOUR-STACK.md](./COURSE-METHOD-TO-YOUR-STACK.md) · **Open WebUI intake：** [OPENWEBUI-INTAKE-PROMPT-TEMPLATE.md](./OPENWEBUI-INTAKE-PROMPT-TEMPLATE.md)
 
+## 1. 上下文外置（新 Agent Must · 动机）
+
+**不能让越来越长的 chat 或整片 Google Drive 直接变成定稿 prompt。** 必须先 **压缩、分层、外置到 Git**（intake / Brief / L1），再 CEO / 新 Agent 接手。
+
+- **Drive 书海（T2）：** Cursor + **搜索** → 精读少量 → `content/personal-ip/intake/*.md`（带 `drive_files`）。  
+- **Drive 精选（T1）：** 仅 manifest 文件夹 sync 到 `brand-ip-knowledge`；RAG 短问 + Sources。  
+- **Open WebUI：** 有界 RAG + Pipe 草稿 → **outbox/intake 文件**；不替代 T2 搜索，不替代 Git 定稿。
+
+全文：[AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](./AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md) · manifest 示例：`integration/handoff/drive-context-manifest.json.example`
+
 
 ## 2. 输出长度 → 路由（防输出窗口偷懒）
 

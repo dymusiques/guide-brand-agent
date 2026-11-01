@@ -1,0 +1,18 @@
+{
+  "version": "2026-11-01",
+  "purpose": "T1 Drive folders allowed to sync into Open WebUI brand-ip-knowledge. T2 ocean = search-only, never listed here for full sync.",
+  "tier1_sync_folders": [
+    {
+      "label": "example-current-program",
+      "drive_folder_id": "REPLACE_WITH_DRIVE_FOLDER_ID",
+      "note": "Owner: 当前 Personal IP / campaign 常用资料，不是整库"
+    }
+  ],
+  "tier2_search_only": {
+    "policy": "Use Cursor + gdocs/Drive MCP search; write excerpts to content/personal-ip/intake/",
+    "max_files_per_task": 8,
+    "max_excerpt_chars_per_file": 12000
+  },
+  "intake_template": "content/personal-ip/intake/TEMPLATE.md",
+  "agent_must_read": "docs/AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md"
+}
