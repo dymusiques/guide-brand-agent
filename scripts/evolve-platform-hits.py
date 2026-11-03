@@ -20,7 +20,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "kernels/xiaohongshu"))
 
 PLATFORMS = ("linkedin", "xiaohongshu", "medium")
-ANGLE_BAR = 80  # do not lower this to finish a run
+ANGLE_BAR = 80  # adversarial seats; do not lower to finish a run
+HIT_BAR = 75  # platform-mechanic score; do not lower, and do not use it to pass the angle bar
 STANDARDS = "docs/PLATFORM-HIT-STANDARDS.md"
 
 
@@ -300,7 +301,7 @@ def angle_specs(goal: str, html: str) -> list[dict]:
             "id": "04-cut",
             "layer": "04 Topic",
             "name": "切入视角",
-            "task": "换一个切口来拆：从「说热爱的人很少肯真正学」出发，而不是从「艺术家太多」出发。看现切口有没有把劳动力数字偷换成「爱艺术的人应该变少」。",
+            "task": "换一个切口来拆。三个平台共用同一套可写范围：AI、艺术前沿、各国历史与文化、音乐、视觉、建筑、设计、不同地方的商业走向。一篇不能只停在长笛一个门类。小红书还必须多角度、新颖、能让作者自己往下想。Medium 是长文。看现稿有没有把这些收成一句口号。",
         },
         {
             "id": "00-senior",
@@ -441,9 +442,9 @@ def main() -> int:
                 history.append({"round": round_i, "fails": fails, "api_error": api_error})
                 break
             history.append({"round": round_i, "fails": fails, "score": score})
-            if (not fails and score.get("score", 0) >= 75) or args.judge_only:
+            if (not fails and score.get("score", 0) >= HIT_BAR) or args.judge_only:
                 break
-            if not fails and score.get("score", 0) < 75:
+            if not fails and score.get("score", 0) < HIT_BAR:
                 fails = [f"Gemini 爆款潜力分 {score.get('score')}：{score.get('reason', '')}"]
             try:
                 html = gemini_rewrite(name, html, fails)

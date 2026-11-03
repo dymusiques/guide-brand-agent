@@ -16,7 +16,7 @@ Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、笔记�
 2. 读 [`integration/IMPORTANT.md`](integration/IMPORTANT.md)；集成层 **不写** kernel 算法。
 3. 每步派活前读对应 [`agents/<nn>-*/INTEGRATION-PROMPT.md`](agents/README.md)；单会话内 **顺序扮演** 各 Agent 职责（不必要 Owner 开多个 chat）。
 4. **Owner 固定 · 对抗 + 交付链（Must）：** [`OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md`](docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md) + [`CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md`](docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md) — 搜坑 → 三镜头 → gap **READY** → **`manager-ceo-xhs-owner-delivery.sh`**（HTML rebuild+verify；测试稿 **round2**）· **勿问 Owner**。
-4b. **写作 / 三平台 / 爆款（Must · 没有 Brief 也要跑）：** 进门读 [`docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md`](docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md)。换角度对抗，炸出舒适区 → 测量距成功线 → 提高 baseline → 再 evolution → 再测量，循环到各层 ≥80 且各平台爆款线对标通过。**禁止**模糊、偷懒、把分数线改低、只打爆款分、停下来问 Owner 要不要对抗。
+4b. **写作 / 三平台 / 爆款（Must · 没有 Brief 也要跑）：** 进门读 [`docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md`](docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md) 和 [`docs/PLATFORM-HIT-STANDARDS.md`](docs/PLATFORM-HIT-STANDARDS.md)。换角度对抗，炸出舒适区 → 测量距成功线 → 提高 baseline → 再 evolution → 再测量，循环到各层 ≥80 且各平台爆款线 ≥75 并且本地规则通过。**禁止**模糊、偷懒、把分数线改低、只打爆款分、停下来问 Owner 要不要对抗。LinkedIn、小红书、Medium 共用同一套可写范围：AI、艺术前沿、各国历史与文化、音乐、视觉、建筑、设计、各地商业走向。Medium 是长文。小红书每一篇都要多角度、新颖、能启发 Owner。
 5. **禁止等 Owner 说 evaluate / challenge。** CEO 派活或改 Brief 后 **Must 自动**（见 `docs/BRIEF-AUTO-GATE-PIPELINE.md` · `agents/_shared/BRIEF-ADVERSARIAL-CHALLENGE.md`）：
    - 全仓：`bash scripts/manager-xhs-briefs-auto-pipeline.sh`（含 **重对抗** `run-xhs-brief-adversarial-challenge.py`）
    - 单篇：`bash scripts/manager-brief-evolution-until-gap.sh --brief …`（或 gate-one-round 后 **Must** `analyze-brief-evolution-gap.py`；FAIL **exit 42** → 读 `EVOLUTION-GAP-latest.md` + CEO-REROUTE **实质性改稿**再跑）

@@ -52,7 +52,7 @@ content_sha256: "dfec47fbde83cc02"
 | 2 | [../AGENTS.md](../AGENTS.md) |
 | 3 | [../agents/00-manager/AUTO-WORKFLOW.md](../agents/00-manager/AUTO-WORKFLOW.md) |
 | 3b | **[MANAGER-THREE-PILLARS.md](MANAGER-THREE-PILLARS.md)**（Owner 三支柱主框架）· [CEO-MANAGER-OPERATING-STANDARDS.md](CEO-MANAGER-OPERATING-STANDARDS.md) · [CEO-MANAGER-OPERATING-PRINCIPLES.md](CEO-MANAGER-OPERATING-PRINCIPLES.md) · [MANAGER-EVAL-IMPROVEMENT-LOOP.md](MANAGER-EVAL-IMPROVEMENT-LOOP.md) · **[CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md](CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md)**（第二张图 · CEO 环）· **[../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md](../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md)** · [../agents/00-manager/CEO-DISPATCH-SOP.md](../agents/00-manager/CEO-DISPATCH-SOP.md) |
-| 3c | **[CEO-ADVERSARIAL-EVOLUTION-LOOP.md](CEO-ADVERSARIAL-EVOLUTION-LOOP.md)**（换角度对抗 → 量距离 → 再进化 → 各平台爆款对标。没有 Brief 也要跑。禁止改低 baseline）· [PLATFORM-HIT-STANDARDS.md](PLATFORM-HIT-STANDARDS.md) |
+| 3c | **[CEO-ADVERSARIAL-EVOLUTION-LOOP.md](CEO-ADVERSARIAL-EVOLUTION-LOOP.md)**（换角度对抗 → 量距离 → 再进化 → 各平台爆款对标。没有 Brief 也要跑。禁止改低 baseline）· [PLATFORM-HIT-STANDARDS.md](PLATFORM-HIT-STANDARDS.md)（角度 80、爆款 75 的来历；Medium 长文；小红书每篇多角度；AI、艺术前沿、各国历史与文化、音乐/视觉/建筑/设计、各地商业走向，三平台共用） |
 | 4 | [AUTOPILOT.md](AUTOPILOT.md) |
 | 5 | [DANYING-BRAND-AGENT-INTEGRATION.md](DANYING-BRAND-AGENT-INTEGRATION.md) |
 | 6 | [HANDOFF-SOP.md](HANDOFF-SOP.md) |
