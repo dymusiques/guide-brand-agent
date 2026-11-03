@@ -57,7 +57,8 @@ bash scripts/ceo-full-execution-pipeline.sh --goal "<主题>" --brief content/xi
 | 步 | 谁 | 做什么 | 脚本 / 文档 |
 |----|-----|--------|-------------|
 | 0 | **CEO** | 进程自愈 | `ceo-auto-recover-blocked.sh` → 读 `ceo-auto-recover-latest.md` |
-| −1 | **Router** | Open WebUI / 目标路由 | `run-openwebui-router-pipeline.sh --goal "…"` |
+| −2 | **CEO** | 小红书 Drive **全库筛选**（脚本，不靠读说明） | `screen-xhs-drive-corpus.py --goal "…"` → `ceo-inbox/xhs-drive-screen-latest.md`。入选文件才打开；Open WebUI 只切长稿输出 |
+| −1 | **Router** | Open WebUI / 目标路由 | `run-openwebui-router-pipeline.sh --goal "…"`（内部再跑一次筛选） |
 | 1 | **01 IP** | 函数壳 / KPI 边界 | `evaluate_personal_ip.py --check` |
 | 2 | **集成** | Google/Drive 读、handoff | `verify-integration.sh`（FAIL 写 terminal-once，**不** chat 甩 Connect） |
 | 3 | **01–12 矩阵** | sub-agent **test 函数** 抽检 | `verify-agent-matrix.sh --agent 01` … `04` …（全量可选 `CEO_FULL_MATRIX_ALL=1`） |
@@ -82,6 +83,7 @@ bash scripts/ceo-full-execution-pipeline.sh --goal "<主题>" --brief content/xi
 - evaluate / challenge / adversarial / gate / evolution  
 - `run_ceo_xhs_autopilot.py` / refresh HTML / **弹出 HTML**  
 - 长稿 **3000–5000 字**、Web 搜引用、吸睛幽默犀利  
+- 从 Drive 资料夹 **筛选**支撑文件（`screen-xhs-drive-corpus.py`，流水线里会跑）  
 - sub-agent 矩阵 / `evaluate_personal_ip` / 集成 verify  
 
 以上已全部写入本 Mandate + 04 INTEGRATION-PROMPT + intake 模板。

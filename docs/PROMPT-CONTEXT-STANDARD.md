@@ -39,6 +39,7 @@ content_sha256: "fcac933726efa12f"
 - **Drive 书海（T2）：** Cursor + **搜索** → 精读少量 → `content/personal-ip/intake/*.md`（带 `drive_files`）。  
 - **Drive 精选（T1）：** 仅 manifest 文件夹 sync 到 `brand-ip-knowledge`；RAG 短问 + Sources。  
 - **Open WebUI：** 有界 RAG + Pipe 草稿 → **outbox/intake 文件**；不替代 T2 搜索，不替代 Git 定稿。
+- **小红书资料夹（写文案时 Must）：** 执行脚本 `scripts/screen-xhs-drive-corpus.py --goal "<原话>"`（CEO 全量与 Router 已调用）。读它写出的 `content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.md`，再打开入选原件。资料库由 Cursor 按文件打开；Open WebUI 切分只用在这一篇长稿的输出上。筛掉的文件留在 Drive，不写进 prompt。
 
 全文：[AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](./AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md) · manifest 示例：`integration/handoff/drive-context-manifest.json.example`
 

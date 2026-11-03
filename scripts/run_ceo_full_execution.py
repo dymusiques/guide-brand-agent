@@ -122,6 +122,16 @@ def main() -> int:
 
     fail = 0
 
+    screen_goal = args.goal.strip() or (Path(brief).stem if brief else "小红书个人IP文案")
+    ec = run(
+        [sys.executable, "scripts/screen-xhs-drive-corpus.py", "--goal", screen_goal],
+        step="XHS Drive corpus screen (all catalog filenames)",
+        env=env,
+    )
+    record_step("screen-xhs-drive-corpus", ec, cap="Drive 全库筛选", roster_ids=["00"])
+    if ec != 0:
+        fail += 1
+
     ec = run(["bash", "scripts/ceo-auto-recover-blocked.sh"], step="CEO recover", env=env, allow_fail=True)
     record_step("ceo-auto-recover-blocked", ec, cap="进程自愈", roster_ids=["00"])
     if ec != 0:

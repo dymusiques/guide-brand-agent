@@ -109,6 +109,7 @@ content_sha256: "dfec47fbde83cc02"
 | 21f | [COURSE-METHOD-TO-YOUR-STACK.md](COURSE-METHOD-TO-YOUR-STACK.md) · [OPENWEBUI-INTAKE-PROMPT-TEMPLATE.md](OPENWEBUI-INTAKE-PROMPT-TEMPLATE.md) |
 | 21g | [../integration/handoff/cursor-openwebui-task-routing.json](../integration/handoff/cursor-openwebui-task-routing.json) |
 | 21h | **[AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md)**（Drive T0/T1/T2 · intake 外置 · 新 Agent Must） |
+| 21h2 | **[../content/personal-ip/intake/2026-11-03-xhs-drive-corpus-L1.md](../content/personal-ip/intake/2026-11-03-xhs-drive-corpus-L1.md)**（小红书 Drive 380 · 写文案前按文件名筛选再打开原件） |
 | 21i | [../integration/handoff/drive-context-manifest.json.example](../integration/handoff/drive-context-manifest.json.example) |
 
 ## 6 · 路由与验收（Should）

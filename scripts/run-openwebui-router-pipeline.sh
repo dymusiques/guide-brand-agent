@@ -32,6 +32,8 @@ done
 
 [[ -n "$GOAL" ]] || usage
 
+python3 scripts/screen-xhs-drive-corpus.py --goal "$GOAL"
+
 ROUTE_JSON="$(python3 scripts/route-openwebui-for-goal.py --goal "$GOAL" ${BRIEF:+--brief "$BRIEF"} --platform "$PLATFORM" ${SLUG:+--slug "$SLUG"} --json)"
 echo "$ROUTE_JSON" | python3 -m json.tool
 

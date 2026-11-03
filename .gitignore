@@ -38,6 +38,13 @@ tmp/survey/
 content/marketing/research/raw/*.pdf
 content/marketing/research/raw/*.txt
 
+# Xiaohongshu IP Drive binary mirror (catalog JSON stays tracked)
+content/personal-ip/intake/_raw/**/drive-mirror/
+
+# Regenerated each time the screen script runs
+content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.md
+content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.json
+
 # Gemini API — never commit
 .env
 .local-config.json
