@@ -1,0 +1,33 @@
+{
+  "theme": "这个世界上不需要那么多艺术家，但是需要很多热爱艺术的人",
+  "ran_at": "2026-11-03T08:26:58Z",
+  "dimensions": [
+    "AI",
+    "艺术前沿",
+    "各国历史与文化",
+    "音乐",
+    "世界建筑设计",
+    "各地商业走向"
+  ],
+  "sources": [
+    {
+      "title": "topicalcream.org",
+      "url": "https://topicalcream.org/features/tending-the-cracks-and-shifts-on-loops-of-infinite-reception/",
+      "dimension": "",
+      "use": ""
+    },
+    {
+      "title": "c2magazine.mo",
+      "url": "http://www.c2magazine.mo/focus_info/161.html",
+      "dimension": "",
+      "use": ""
+    },
+    {
+      "title": "ljworld.com",
+      "url": "https://www2.ljworld.com/news/2014/sep/05/new-york-times-art-critic-lawrence-high-grad-says/",
+      "dimension": "",
+      "use": ""
+    }
+  ],
+  "grounding_count": 5
+}

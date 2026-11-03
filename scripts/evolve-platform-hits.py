@@ -23,6 +23,8 @@ PLATFORMS = ("linkedin", "xiaohongshu", "medium")
 ANGLE_BAR = 80  # adversarial seats; do not lower to finish a run
 HIT_BAR = 75  # platform-mechanic score; do not lower, and do not use it to pass the angle bar
 STANDARDS = "docs/PLATFORM-HIT-STANDARDS.md"
+SOURCE_DIR: Path | None = None
+LINKEDIN_DIMENSIONS = ("AI", "艺术前沿", "各国历史与文化", "音乐", "世界建筑设计", "各地商业走向")
 
 
 def cjk_len(text: str) -> int:
@@ -58,7 +60,7 @@ def check_linkedin(html: str) -> list[str]:
     head = body[:180]
     if "http" in head or "www." in head:
         fails.append("链接不要出现在开头")
-    return fails
+    return fails + linkedin_index_fails(html)
 
 
 def check_xiaohongshu(html: str) -> list[str]:
@@ -120,6 +122,33 @@ def check_linkedin_any(html: str) -> list[str]:
     head = "\n".join(paras)[:180]
     if "http" in head or "www." in head:
         fails.append("链接不要出现在开头")
+    return fails + linkedin_index_fails(html)
+
+
+def article_hrefs(html: str) -> list[str]:
+    body = re.sub(r"<footer\b.*?</footer>", "", html, flags=re.S | re.I)
+    return re.findall(r'href=["\'](https?://[^"\']+)["\']', body)
+
+
+def linkedin_index_fails(html: str) -> list[str]:
+    if SOURCE_DIR is None:
+        return ["没有 LinkedIn 检索目录"]
+    path = SOURCE_DIR / "linkedin-sources.json"
+    if not path.is_file():
+        return ["没有 LinkedIn 检索索引 linkedin-sources.json"]
+    data = json.loads(path.read_text(encoding="utf-8"))
+    urls = {item.get("url") for item in data.get("sources") or [] if item.get("url")}
+    fails: list[str] = []
+    if len(urls) < 2:
+        fails.append("检索索引里可用原文少于 2 篇")
+    if "linkedin-index" not in html:
+        fails.append("正文没有接上检索索引")
+    hrefs = article_hrefs(html)
+    if len(hrefs) > 2:
+        fails.append(f"正文原文链接 {len(hrefs)} 条，最多 2 篇")
+    for href in hrefs:
+        if href not in urls:
+            fails.append(f"正文链接不在检索索引里：{href}")
     return fails
 
 
@@ -152,7 +181,124 @@ def check_medium_any(html: str) -> list[str]:
     return fails
 
 
-def gemini_draft(platform: str, goal: str) -> str:
+def linkedin_source_note(folder: Path | None) -> str:
+    if folder is None:
+        return ""
+    path = folder / "linkedin-sources.json"
+    if not path.is_file():
+        return ""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    lines = []
+    for item in data.get("sources") or []:
+        if item.get("url"):
+            lines.append(f"- {item.get('title') or item['url']} | {item['url']} | {item.get('use') or ''}")
+    if not lines:
+        return ""
+    return (
+        "检索索引里可以用的原文如下。观点若来自它们，正文最多链出 2 篇，用 <a href> 链到索引中的 url。"
+        "其余不要链。第一段不要放链接。判断和性格是张丹瀛自己的，不要写成资料汇编。文末加上注释 <!-- linkedin-index -->。\n"
+        + "\n".join(lines)
+    )
+
+
+def resolve_public_url(url: str) -> str:
+    import urllib.request
+
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            final = resp.geturl()
+            status = getattr(resp, "status", 200) or 200
+    except Exception:
+        return ""
+    if status >= 400:
+        return ""
+    if any(host in final for host in ("vertexaisearch.cloud.google.com", "google.com/search")):
+        return ""
+    return final
+
+
+def research_linkedin(goal: str, folder: Path) -> dict:
+    from google import genai
+    from google.genai import types
+
+    from config.gemini_config import get_api_key, get_model
+
+    prompt = f"""为主题检索公开原文，给张丹瀛写 LinkedIn 时当背书。主题：{goal}
+范围只在这些里面挑和主题真正相关的：{'、'.join(LINKEDIN_DIMENSIONS)}。
+不要为了凑满每个范围而搜无关网页。
+先搜索，再列出 4 到 6 条。每条一行：标题 | 原始 URL | 它怎样帮她说出自己的角度。
+URL 必须是检索到的文章原址。
+"""
+    client = genai.Client(api_key=get_api_key())
+    response = client.models.generate_content(
+        model=get_model(),
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            temperature=0.2,
+            max_output_tokens=4096,
+            tools=[types.Tool(google_search=types.GoogleSearch())],
+            thinking_config=types.ThinkingConfig(thinking_level=types.ThinkingLevel.MINIMAL),
+        ),
+    )
+    grounded: list[dict] = []
+    supported: list[str] = []
+    titles: dict[str, str] = {}
+    for cand in response.candidates or []:
+        meta = getattr(cand, "grounding_metadata", None)
+        for chunk in getattr(meta, "grounding_chunks", None) or []:
+            web = getattr(chunk, "web", None)
+            uri = getattr(web, "uri", None) if web else None
+            if uri:
+                grounded.append({"title": getattr(web, "title", None) or "", "url": uri})
+        for support in getattr(meta, "grounding_supports", None) or []:
+            if not getattr(support, "grounding_chunk_indices", None):
+                continue
+            segment = getattr(support, "segment", None)
+            text = getattr(segment, "text", "") or ""
+            found = [url.strip("`").rstrip(".,)") for url in re.findall(r"https?://[^\s\)\]\>\"'`]+", text)]
+            for url in found:
+                supported.append(url)
+                before = text.split(url, 1)[0].strip(" *|")
+                if before and url not in titles:
+                    titles[url] = before[-80:]
+    sources = []
+    seen = set()
+    for item in grounded:
+        final = resolve_public_url(item["url"])
+        if not final or final in seen:
+            continue
+        if any(host in final for host in ("youtube.com", "youtu.be", "music.youtube.com")):
+            continue
+        seen.add(final)
+        sources.append({"title": item.get("title") or "", "url": final, "dimension": "", "use": ""})
+    if len(sources) < 2:
+        for url in dict.fromkeys(supported):
+            final = resolve_public_url(url)
+            if not final or final in seen:
+                continue
+            if any(host in final for host in ("youtube.com", "youtu.be", "music.youtube.com")):
+                continue
+            seen.add(final)
+            sources.append({"title": titles.get(url) or "", "url": final, "dimension": "", "use": ""})
+    if len(sources) < 2:
+        raise RuntimeError("LinkedIn 检索没有拿到可打开的原文")
+    payload = {
+        "theme": goal,
+        "ran_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "dimensions": list(LINKEDIN_DIMENSIONS),
+        "sources": sources[:8],
+        "grounding_count": len(grounded),
+    }
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / "linkedin-sources.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return payload
+
+
+def gemini_draft(platform: str, goal: str, folder: Path | None = None) -> str:
     from google import genai
     from google.genai import types
 
@@ -166,6 +312,7 @@ def gemini_draft(platform: str, goal: str) -> str:
     prompt = f"""为张丹瀛（长笛，法国学派）写一篇可发布的 {platform} 稿。题目或任务：{goal}
 声音像一个活着的人：有场景、有判断，不要首先/此外/综上所述/赋能/闭环。
 {shape}
+{linkedin_source_note(folder) if platform == "linkedin" else ""}
 只输出完整 HTML，从 <!DOCTYPE html> 开始。
 """
     client = genai.Client(api_key=get_api_key())
@@ -213,6 +360,7 @@ def gemini_rewrite(platform: str, html: str, fails: list[str]) -> str:
 保留这些事实：NEA 2024 约 290 万艺术家、占劳动力 1.6%；演奏者全职约 54%。1.6% 只统计主要职业，不能说成爱艺术的人应该变少。
 没过的线：
 {chr(10).join('- ' + f for f in fails)}
+{linkedin_source_note(SOURCE_DIR) if platform == "linkedin" else ""}
 
 下面是当前 HTML。只输出完整 HTML，从 <!DOCTYPE html> 开始，不要解释。
 
@@ -345,6 +493,7 @@ def gemini_rewrite_angles(platform: str, html: str, notes: list[str]) -> str:
 小红书口播继续用 <p class="say">。
 没接住的意见：
 {chr(10).join('- ' + note for note in notes)}
+{linkedin_source_note(SOURCE_DIR) if platform == "linkedin" else ""}
 
 只输出完整 HTML，从 <!DOCTYPE html> 开始。
 
@@ -385,6 +534,13 @@ def main() -> int:
     args = parser.parse_args()
     folder = args.dir if args.dir.is_absolute() else ROOT / args.dir
     folder.mkdir(parents=True, exist_ok=True)
+    global SOURCE_DIR
+    SOURCE_DIR = folder
+    if args.goal and (not args.judge_only or not (folder / "linkedin-sources.json").is_file()):
+        try:
+            research_linkedin(args.goal, folder)
+        except Exception as exc:
+            print(json.dumps({"linkedin_research": "FAIL", "error": str(exc)}, ensure_ascii=False), flush=True)
     specific = (not args.goal) or ("艺术家" in args.goal)
     report: dict = {
         "ran_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -403,7 +559,7 @@ def main() -> int:
                 failed += 1
                 continue
             try:
-                path.write_text(gemini_draft(name, args.goal), encoding="utf-8")
+                path.write_text(gemini_draft(name, args.goal, folder), encoding="utf-8")
             except Exception as exc:
                 report["platforms"][name] = {"pass": False, "error": str(exc)}
                 failed += 1
