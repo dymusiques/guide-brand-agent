@@ -73,6 +73,16 @@ bash scripts/ceo-triple-eval-baseline-loop.sh --brief content/xiaohongshu/<file>
 - **退出：** READY 且 gold/longform 达标 → 0；**42** → Agent 同会话改稿再跑 full execution；未 READY 且轮次用尽 → 1
 - **可观察性：** 每轮写入 `EVOLUTION-GAP-latest.md` · `CEO-RUN-MANIFEST-latest.json` 的 `eval_rounds[]`
 
+### 3b. 三平台成稿（没有 Brief 也要跑）
+
+没有 `--brief` 时，上面的 triple-eval 和 Clever 对抗不会启动。写作目标仍由 CEO 跑 `scripts/evolve-platform-hits.py`。顺序写在 [`PLATFORM-HIT-STANDARDS.md`](./PLATFORM-HIT-STANDARDS.md)，脚本按这个顺序执行：
+
+1. **01** 只攻击写作标准（像不像本人在说话）
+2. **04** 只攻击切入视角（换一个切口还站不站得住）
+3. **00 CEO / Senior Manager** 只攻击反方读者
+4. 距成功线（每层 80 分，禁止改低，距离 = 各层不足分之和）大于 0 就改稿再量，默认最多 6 轮。没有 Brief 不能拿来跳过。见 [CEO-ADVERSARIAL-EVOLUTION-LOOP.md](./CEO-ADVERSARIAL-EVOLUTION-LOOP.md)
+5. 这几步做完，才打领英 / 小红书 / Medium 各自的爆款分
+
 ## 4. 双重压测（stress ×2）
 
 **Must**（工作流测试稿 READY 或 Owner 指定压测）：

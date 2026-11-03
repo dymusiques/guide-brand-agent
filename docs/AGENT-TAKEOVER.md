@@ -34,15 +34,19 @@ content_sha256: "75467ade311103d1"
 > **CEO/GM 接手包（Must）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)  
 > **接手 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html) · Open WebUI 总图 [owner-stack-openwebui-mindmap.html](owner-stack-openwebui-mindmap.html)  
 > **一页纸：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · **存储策略：** [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md)  
-> **Drive / 上下文外置（新 Agent Must）：** [AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md)
+> **Drive / 上下文外置（新 Agent Must）：** [AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md)  
+> **对抗进化环（新 Agent Must · Owner 不必重复）：** [CEO-ADVERSARIAL-EVOLUTION-LOOP.md](CEO-ADVERSARIAL-EVOLUTION-LOOP.md) · 换角度 → 量距离 → 再进化 → 各平台爆款对标。没有 Brief 也要跑。禁止改低 baseline。
 
 
 ## 1. Owner 成功目标（G-* · 指挥时不丢）
 
 注册表：[integration/GOALS-REGISTRY.md](../integration/GOALS-REGISTRY.md) · JSON：`integration/goals/registry.json`
 
+**北极星（Owner 个人 IP · 先于一切 G-*）：** **G-PERSON-IS-BRAND** — 无论与谁合作，认的都是 **张丹瀛 / Danying** 本人（中文名张丹瀛；西方人多数叫 **Danying**）。详 [ip-positioning-brief §终极成功目标](../content/personal-ip/ip-positioning-brief-2026-10-05.md) · [rules/USER.md](../rules/USER.md)。
+
 | 目标 | 含义（摘要） |
 |------|----------------|
+| **G-PERSON-IS-BRAND** | 合作不改变「人即品牌」心智；案例写合作、人设写 Danying |
 | **G-STRONG-LINK** | B2B 强链接 CTA（私信/合作/评估），非 vanity 流量 |
 | **G-QUALITY-GROWTH** | 小红书 1700→5000→10000 **里程碑**；**仅 Owner/CSV 验证**，不进 kernel 硬断言 |
 | **G-NOT-SINGLE-VERTICAL-LOCK** | 全品类可合作；**不**把账号绑成任一垂直主攻号（家居仅为曾误绑示例） |

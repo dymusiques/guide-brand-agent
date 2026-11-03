@@ -63,6 +63,7 @@ content_sha256: "d61c8e76bed86c74"
 | 步 | Agent | 做什么 | 验收 |
 |----|-------|--------|------|
 | **−1** | **Open WebUI Router** | Owner/CEO **目标任务** → `bash scripts/run-openwebui-router-pipeline.sh --goal "<原话>"`；`SKIP` 则跳过；否则读 `integration/handoff/openwebui-jobs/<slug>.json` + Desktop **outbox** `.md` | [`docs/OPENWEBUI-CEO-ROUTER.md`](../../docs/OPENWEBUI-CEO-ROUTER.md) · `verify-openwebui-ceo-router.sh` PASS |
+| **−1b** | **01 → 04 → 00 CEO** | 三平台成稿先换角度对抗，量到成功线的距离，再进化，最后才对爆款线。没有 Brief 也要跑 | [`docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md`](../../docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md) · [`docs/PLATFORM-HIT-STANDARDS.md`](../../docs/PLATFORM-HIT-STANDARDS.md) · `evolve-platform-hits.py` |
 | 0 | **00 Manager** | 解析 Owner 目标，写 3 行计划（受众、支柱、CTA 类型）；若有 outbox **intake**，写进计划 | 计划与 `content/personal-ip/` 不冲突 |
 | **0a** | **09 + 04 数据栈** | 凡产出 **文案/标题/视频/选题** → 先读 [XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)（Excel + PDF 研究叠加） | `bash scripts/verify-xhs-content-intake.sh` PASS |
 | **0c** | **Collector（全 Agent）** | Owner 新资料 → `collector-intake.py` 落盘；写 **v0** 前读该 slug 全部 `intake/` + [COLLECTOR-EVALUATOR.md](../_shared/COLLECTOR-EVALUATOR.md) | `bash scripts/verify-collector-evaluator.sh`（交班可选） |

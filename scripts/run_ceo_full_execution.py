@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -123,8 +124,11 @@ def main() -> int:
     fail = 0
 
     screen_goal = args.goal.strip() or (Path(brief).stem if brief else "小红书个人IP文案")
+    screen_cmd = [sys.executable, "scripts/screen-xhs-drive-corpus.py", "--goal", screen_goal]
+    if brief:
+        screen_cmd.extend(["--brief", brief])
     ec = run(
-        [sys.executable, "scripts/screen-xhs-drive-corpus.py", "--goal", screen_goal],
+        screen_cmd,
         step="XHS Drive corpus screen (all catalog filenames)",
         env=env,
     )
@@ -147,6 +151,42 @@ def main() -> int:
         record_step("openwebui-router", ec, cap="目标路由", roster_ids=["00"])
         if ec != 0:
             fail += 1
+
+        goal = args.goal.strip()
+        if "不需要那么多艺术家" in goal:
+            hit_dir = ROOT / "content/evolution/00-manager/ceo-inbox/2026-11-03-artists-three"
+        else:
+            slug = re.sub(r"[^\w\u4e00-\u9fff]+", "-", goal).strip("-")[:40] or "goal"
+            hit_dir = ROOT / "content/evolution/00-manager/ceo-inbox/platform-hits" / slug
+        writing = any(k in goal for k in ("写", "笔记", "口播", "成稿", "LinkedIn", "Medium", "艺术家", "爆款"))
+        if writing:
+            hit_dir.mkdir(parents=True, exist_ok=True)
+            ec = run(
+                [
+                    sys.executable,
+                    "scripts/evolve-platform-hits.py",
+                    "--dir",
+                    str(hit_dir),
+                    "--goal",
+                    goal,
+                ],
+                step="Platform hit evolution (Gemini API)",
+                env=env,
+                allow_fail=True,
+            )
+            record_step("evolve-platform-hits", ec, cap="换角度对抗 → 距离 → 爆款线", roster_ids=["00", "01", "04"])
+            if ec == 42:
+                manifest["overall"] = "NEEDS_WORK"
+                write_manifest(manifest, invoked_ids, result_by_id)
+                print(
+                    "NEEDS_WORK: angle distance or hit line still open. "
+                    "Do not lower ANGLE_BAR. Same session must rewrite and rerun. "
+                    "See docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md",
+                    file=sys.stderr,
+                )
+                return 42
+            if ec != 0:
+                fail += 1
 
     if not args.skip_six_case:
         cmd = ["bash", "scripts/ceo-six-case-battery.sh"]
@@ -212,6 +252,12 @@ def main() -> int:
     for b in args.brief:
         ap_cmd.extend(["--brief", b])
     if not args.brief:
+        print(
+            "NOTE: no brief, so brief triple-eval/stress are skipped. "
+            "That skip does not cancel evolve-platform-hits.py. "
+            "See docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md",
+            flush=True,
+        )
         ap_cmd = [sys.executable, "scripts/run_ceo_xhs_autopilot.py", "--skip-evolution"]
 
     ec = run(ap_cmd, step="run_ceo_xhs_autopilot (evolution + HTML + verify + open)", env=env)

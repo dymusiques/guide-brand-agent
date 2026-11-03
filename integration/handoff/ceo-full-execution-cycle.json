@@ -9,6 +9,7 @@
   "phases": [
     { "id": "recover", "script": "scripts/ceo-auto-recover-blocked.sh" },
     { "id": "router", "script": "scripts/run-openwebui-router-pipeline.sh", "optional": true },
+    { "id": "platform_angles_then_hit", "script": "scripts/evolve-platform-hits.py", "standards": "docs/PLATFORM-HIT-STANDARDS.md", "loop": "docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md", "order": ["01-voice", "04-cut", "00-senior", "evolution-distance", "hit-line"], "when": "writing goal, brief not required", "angle_bar": 80, "do_not_lower_bar": true },
     { "id": "six_case_battery", "script": "scripts/ceo-six-case-battery.sh", "requires_brief_for_l1_kernel": true },
     { "id": "triple_eval", "script": "scripts/ceo-triple-eval-baseline-loop.sh", "max_rounds_default": 3 },
     { "id": "double_stress", "script": "scripts/ceo-double-stress.sh" },
