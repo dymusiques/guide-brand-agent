@@ -121,9 +121,19 @@ if should_expand_discovery; then
 fi
 
 echo "=== manager-ceo-xhs-owner-delivery · briefs=${#BRIEFS[@]} round2=$ROUND2 discovery_mode=$DISCOVERY_MODE ==="
+PY="$ROOT/.venv/bin/python"
+[[ -x "$PY" ]] || PY="python3"
 FAIL=0
 for b in "${BRIEFS[@]}"; do
   [[ -f "$b" ]] || { echo "FAIL: missing $b"; exit 1; }
+  echo "--- v-tier attestation (pre-evolution): $b ---"
+  if ! "$PY" scripts/verify-owner-copy-v-tier-attestation.py --brief "$b"; then
+    EC=$?
+    if [[ "$EC" -ne 0 ]]; then
+      echo "NEEDS_WORK: V-Tier attestation — open big-V comparables before draft · docs/OWNER-COPY-V-TIER-MEASUREMENT-HONESTY.md"
+      exit 42
+    fi
+  fi
   echo "--- evolution: $b ---"
   if ! bash scripts/manager-brief-evolution-until-gap.sh --brief "$b"; then
     EC=$?

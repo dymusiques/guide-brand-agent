@@ -103,6 +103,47 @@
       }
     },
     {
+      "id": "L2b_DUAL_TRACK_DELIVER",
+      "name": "Owner dual-track HTML (no FILTER)",
+      "doc": "docs/CEO-DUAL-TRACK-WORKFLOWS.md",
+      "tracks": [
+        {
+          "id": "flutebuddy_product",
+          "open": "bash scripts/open-owner-flutebuddy-deliverable-html.sh",
+          "registry": "integration/handoff/owner-product-registry.json"
+        },
+        {
+          "id": "personal_ip_ecosystem",
+          "open": "bash scripts/open-owner-ip-ecosystem-deliverable-html.sh",
+          "registry": "integration/handoff/owner-ip-track.json"
+        }
+      ],
+      "preflight": "python scripts/ceo-preflight-product-context.py --goal \"<owner goal>\""
+    },
+    {
+      "id": "L2c_DUAL_TRACK_COPY",
+      "name": "Dual-track copy · V-Tier 40–50万粉文笔 + Owner review",
+      "doc": "docs/OWNER-DUAL-TRACK-COPY-WORKFLOW.md",
+      "mandate_doc": "docs/OWNER-COPY-V-TIER-400K-MANDATE.md",
+      "machine_json": "integration/handoff/owner-copy-v-tier-400k.json",
+      "verify": "bash scripts/verify-owner-copy-v-tier-mandate.sh",
+      "applies_to": ["flutebuddy_product", "personal_ip_ecosystem"],
+      "automation": {
+        "auto": [
+          "preflight injects copy must_read",
+          "verify-owner-copy-v-tier-mandate.sh",
+          "verify-owner-copy-v-tier-attestation.py before evolution (dual-track briefs)",
+          "verify-owner-copy-human-readable.py when brief exists",
+          "evolve-platform-hits.py four dimensions"
+        ],
+        "agent_session": [
+          "deep-scrape 大 V → owner-ip-benchmark-creators.json",
+          "write drafts mimicking V-Tier style_checklist"
+        ],
+        "owner_only": ["final prose review before publish"]
+      }
+    },
+    {
       "id": "L3_BRIEF_GATE",
       "name": "Brief quality gate + evolution until READY",
       "batch": "bash scripts/manager-xhs-briefs-auto-pipeline.sh",

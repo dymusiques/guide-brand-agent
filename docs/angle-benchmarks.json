@@ -1,0 +1,114 @@
+{
+  "checked_at": "2026-11-03",
+  "rule": "同类型、类似的稿。Medium 的 clap 必须在文章页上读到。低于高线的不进分。找不到的格子不硬补、不写成 0。互动最高的一篇（阅读、点赞或 clap）是基点，缺的格子用这一篇去给正文打分。",
+  "floors": {
+    "medium": {"field": "claps", "min": 10000, "must_read_on_page": true},
+    "linkedin": {"field": "reactions", "min": 1000},
+    "xiaohongshu": {"field": "likes", "min": 10000}
+  },
+  "cells": [
+    "linkedin/same",
+    "linkedin/different",
+    "linkedin/sharp",
+    "xiaohongshu/same",
+    "xiaohongshu/different",
+    "xiaohongshu/sharp",
+    "medium/same",
+    "medium/different",
+    "medium/sharp"
+  ],
+  "rejected": [
+    {
+      "platform": "medium",
+      "title": "Is There Such a Thing as Saturation of Artists?",
+      "url": "https://medium.com/read-or-die/is-there-such-a-thing-as-saturation-of-artists-d7aeac0c567d",
+      "claps_label": "195",
+      "why": "文章页读到 195。Owner 当面核对也是 195。低于 10000，不进基准。"
+    },
+    {
+      "platform": "medium",
+      "title": "The Algebra of Wealth: Don’t follow your passion — Follow your talent",
+      "url": "https://medium.com/@profgalloway/the-algebra-of-wealth-dont-follow-your-passion-follow-your-talent-3af23fb96488",
+      "claps_label": "839",
+      "why": "文章页读到 839。同类型、角度接近，但低于 10000。"
+    }
+  ],
+  "items": [
+    {
+      "id": "li-same-supply",
+      "platform": "linkedin",
+      "angle": "same",
+      "name": "同类型职业帖：座位少，但不能写成热爱该少",
+      "benchmark": {
+        "platform": "linkedin",
+        "author": "Balamurali krishna N",
+        "title": "If VFX Is “Too Expensive”… Why Are Artists Struggling?",
+        "url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+        "engagement": {"reactions": 1301, "comments": 257},
+        "as_of": "2026-11-03",
+        "their_cut": "同类型：第一人称行业帖。同角度：人太多、项目太少。"
+      },
+      "any": [
+        "没有资格说爱艺术的人应该变少",
+        "不能规定世上该有多少爱艺术的人",
+        "它没有说爱艺术的人应该变少"
+      ]
+    },
+    {
+      "id": "xhs-different-claim",
+      "platform": "xiaohongshu",
+      "angle": "different",
+      "name": "同类型笔记：大众认下一件具体的作品",
+      "benchmark": {
+        "platform": "xiaohongshu",
+        "author": "邓雨柔",
+        "title": "《织忆经纬》创作阐述",
+        "url": "https://news.qq.com/rain/a/20250711A03GYA00",
+        "engagement": {"likes": 40000},
+        "as_of": "2025-07-11",
+        "their_cut": "腾讯新闻引述小红书 4 万赞。不同角度：一件私人的作品被认下，不是职业配额。"
+      },
+      "groups": [
+        ["曲名", "听完"],
+        ["退出", "别学"]
+      ]
+    },
+    {
+      "id": "medium-different-must",
+      "platform": "medium",
+      "angle": "different",
+      "name": "同类型长文：Should 走太久，就给 Must 一次",
+      "benchmark": {
+        "platform": "medium",
+        "author": "elle luna",
+        "title": "The Crossroads of Should and Must",
+        "url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+        "engagement": {"claps_label": "37K", "claps": 37000, "responses": 265},
+        "read_on_page": true,
+        "as_of": "2026-11-03",
+        "their_cut": "文章页显示 37K clap。不同角度：感到 Must 就去走，不是先数座位。"
+      },
+      "any": ["不会拿", "不是来叫人", "别学"]
+    },
+    {
+      "id": "medium-sharp-airbnb",
+      "platform": "medium",
+      "angle": "sharp",
+      "name": "同类型长文：高 clap 在讲公司和目标，不讲观众的气口",
+      "benchmark": {
+        "platform": "medium",
+        "author": "Lenny Rachitsky",
+        "title": "What Seven Years at Airbnb Taught Me About Building a Business",
+        "url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+        "engagement": {"claps_label": "30K", "claps": 30000, "responses": 80},
+        "read_on_page": true,
+        "as_of": "2026-11-03",
+        "their_cut": "文章页显示 30K clap。刁钻在于这篇不谈观众。我们的稿要把气口写成节目单，不写成观众没教养。"
+      },
+      "groups": [
+        ["节目单"],
+        ["人没错", "不是他们的错"]
+      ]
+    }
+  ]
+}

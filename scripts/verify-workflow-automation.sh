@@ -33,6 +33,19 @@ for s in \
   docs/OWNER-LONGFORM-CLEVER-ADVOCATE.md \
   scripts/ceo_write_run_manifest.py \
   docs/CEO-FULL-EXECUTION-MANDATE.md \
+  docs/CEO-EXECUTION-MINDMAP.html \
+  docs/OWNER-BRAND-AGENT-SCOPE.md \
+  docs/OWNER-SUCCESS-METRICS-MAP.md \
+  integration/handoff/owner-copy-success-rubric.json \
+  scripts/score-owner-copy-success-rubric.py \
+  scripts/open-owner-ceo-execution-mindmap-html.sh \
+  docs/OWNER-COPY-V-TIER-400K-MANDATE.md \
+  docs/OWNER-DUAL-TRACK-COPY-WORKFLOW.md \
+  integration/handoff/owner-copy-v-tier-400k.json \
+  integration/handoff/owner-copy-v-tier-live-corpus.json \
+  docs/OWNER-COPY-V-TIER-LIVE-CORPUS-SOP.md \
+  scripts/refresh-owner-copy-v-tier-live-corpus.py \
+  scripts/verify-owner-copy-v-tier-mandate.sh \
   docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md \
   docs/OWNER-CHAT-DELIVERY-FORMAT.md \
   docs/CEO-AGENT-ROSTER-AND-PARALLELISM.md \
@@ -51,6 +64,11 @@ for s in \
   scripts/verify-openwebui-ceo-router.sh \
   docs/OPENWEBUI-CEO-ROUTER.md \
   integration/handoff/openwebui-router-defaults.json \
+  integration/handoff/drive-long-context-fusion.json \
+  scripts/build-drive-long-context-fusion.py \
+  scripts/run-drive-long-context-fusion-auto.sh \
+  scripts/verify-drive-long-context-fusion.sh \
+  docs/DRIVE-LONG-CONTEXT-FUSION.md \
   scripts/manager-ceo-gate-one-round.sh \
   scripts/ensure-process-launcher.sh \
   scripts/ceo-action-needed-refresh.py \

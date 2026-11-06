@@ -24,6 +24,8 @@ if extra:
         extra_paths = [ep]
 paths = extra_paths + (test[:1] if test else []) + paths
 for p in paths:
+    if not p.is_file():
+        continue
     t = p.read_text(encoding="utf-8")
     m = re.search(r'"subject":\s*"([^"]+)"', t)
     if m:

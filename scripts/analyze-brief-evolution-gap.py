@@ -84,6 +84,34 @@ def fusion_warnings(challenge_path: Path) -> list[str]:
     return warns
 
 
+def drive_backing(brief: Path, evo: Path) -> tuple[bool | None, str]:
+    """None = this brief has no bound shortlist yet. False = shortlist not quoted."""
+    screen = evo / "drive-screen.json"
+    if not screen.is_file():
+        return None, "本篇还没有 drive-screen.json"
+    selected = json.loads(screen.read_text(encoding="utf-8")).get("selected") or []
+    text = brief.read_text(encoding="utf-8")
+    parts = text.split("## Drive 背书", 1)
+    if len(parts) < 2:
+        names = "；".join(str(item.get("name") or item.get("id")) for item in selected[:6])
+        return False, f"缺 ## Drive 背书。要引用：{names}"
+    block = parts[1]
+    nxt = re.search(r"\n## ", block)
+    if nxt:
+        block = block[: nxt.start()]
+    missing: list[str] = []
+    for item in selected:
+        fid = str(item.get("id") or "")
+        label = str(item.get("name") or fid)
+        line = next((ln for ln in block.splitlines() if fid and fid in ln), "")
+        quote = re.search(r"「([^」]{8,})」", line)
+        if not fid or not line or not quote:
+            missing.append(label)
+    if missing:
+        return False, "缺原文摘录：" + "；".join(missing[:8])
+    return True, f"{len(selected)} 份入选均有「摘录」"
+
+
 def verify_pass(report: dict) -> bool:
     if report.get("overall_pass") is True:
         return True
@@ -145,8 +173,10 @@ def main() -> int:
     longform_ok = LONGFORM_MIN <= lf_n <= LONGFORM_MAX if longform else False
     clever = analyze_clever_advocate(longform or "")
     clever_ok = clever["pass"] if longform else False
+    backing_flag, backing_note = drive_backing(brief, evo)
+    backing_ok = backing_flag is not False
 
-    ready = gate_ok and fusion_ok and pitfalls_ok and gold_ok and longform_ok and clever_ok
+    ready = gate_ok and fusion_ok and pitfalls_ok and gold_ok and longform_ok and clever_ok and backing_ok
     status = "READY" if ready else "NEEDS_WORK"
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -164,6 +194,7 @@ def main() -> int:
 | gold 距离 | {'✅' if gold_ok else '❌'} norm_dist={norm_dist if norm_dist is not None else 'n/a'} (max {args.gold_norm_max}) |
 | 长稿 {LONGFORM_MIN}–{LONGFORM_MAX} 字 | {'✅' if longform_ok else '❌'} chars={lf_n} |
 | Clever 反方席 ≥{clever['min_personas']} | {'✅' if clever_ok else '❌'} personas={clever['persona_count']} |
+| Drive 背书摘录 | {'—' if backing_flag is None else ('✅' if backing_ok else '❌')} {backing_note} |
 
 ## fusion ⚠️ 待加强
 

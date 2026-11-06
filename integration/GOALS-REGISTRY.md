@@ -30,6 +30,7 @@ Hook 映射：`integration/goals/verify_hooks.json`
 
 | ID | 目标 | 负责 Agent | 自动断言 |
 |----|------|------------|----------|
+| **G-PERSON-IS-BRAND** | **北极星 · 张丹瀛本人即品牌**（与谁合作，认的都是我） | 00/01/02/03/04 | IP Brief §终极成功目标；**否**（Owner/心智，非 classifier 硬断言） |
 | G-STRONG-LINK | 强链接、非 vanity | 00/01/04/05 | evaluate + Gemini 6 |
 | G-QUALITY-GROWTH | 1700→5000→10k | 09/04 | **否**（CSV/Owner；不进 classifier） |
 | G-NOT-SINGLE-VERTICAL-LOCK | 不单品类绑定；全品类可合作 | 01/02/03/04/05 | IP Brief + kernel（家居仅为曾误绑示例） |

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""CEO full execution: GM six-case → triple eval → double stress → autopilot → manifest → HTML.
+"""Cursor CEO main chain: Drive screen → fusion → recover → optional OWUI router → evaluate → HTML.
 
+Open WebUI is optional step -1 only (allow_fail); not the pipeline host.
 See docs/CEO-FULL-EXECUTION-MANDATE.md · docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md
 """
 
@@ -18,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 from ceo_agent_roster import build_roster, parallelism_summary  # noqa: E402
+from ceo_goal_tracks import is_flutebuddy_goal, is_ip_ecosystem_goal  # noqa: E402
 
 
 def run(cmd: list[str], *, step: str, env: dict[str, str], allow_fail: bool = False) -> int:
@@ -71,9 +73,43 @@ def write_manifest(manifest: dict, invoked_ids: set[str], result_by_id: dict[str
     subprocess.run([sys.executable, "scripts/ceo_write_run_manifest.py"], cwd=ROOT, env=env, check=False)
 
 
+def goal_wants_xhs_filter_html(goal: str, brief: str) -> bool:
+    if brief:
+        return True
+    g = goal.strip()
+    if not g:
+        return False
+    keys = (
+        "Brief",
+        "brief",
+        "小红书",
+        "Discovery",
+        "笔记",
+        "长稿",
+        "xhs",
+        "口播",
+        "FILTER",
+        "筛选",
+    )
+    return any(k in g for k in keys)
+
+
+def open_platform_three_html(hit_dir: Path, *, env: dict[str, str]) -> None:
+    """Owner Must 看见三平台 HTML；与 evolve / Gate 是否 PASS 无关。"""
+    names = ("linkedin.html", "xiaohongshu.html", "medium.html")
+    if not all((hit_dir / name).is_file() for name in names):
+        return
+    run(
+        ["bash", "scripts/open-owner-platform-three-html.sh", str(hit_dir)],
+        step="Open Owner platform HTML (LinkedIn → 小红书 → Medium)",
+        env=env,
+        allow_fail=True,
+    )
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description="CEO full execution pipeline")
-    p.add_argument("--goal", default="", help="Owner goal for Open WebUI router")
+    p.add_argument("--goal", default="", help="Owner goal (CEO main chain; also feeds optional Open WebUI router step -1)")
     p.add_argument("--brief", action="append", default=[], help="XHS brief path(s)")
     p.add_argument("--no-discovery-auto", action="store_true")
     p.add_argument("--skip-integration", action="store_true", help="(legacy) skip not used if six-case runs")
@@ -90,6 +126,22 @@ def main() -> int:
         env["CEO_OWNER_EXTRA_BRIEF"] = brief
         env.setdefault("CEO_OWNER_HTML_HASH", "#owner-latest")
         env["CEO_SIX_CASE_BRIEF"] = brief
+    elif args.goal.strip() and not goal_wants_xhs_filter_html(args.goal.strip(), ""):
+        env["CEO_OWNER_HTML_REFRESH"] = "0"
+        env["CEO_OWNER_HTML_OPEN"] = "0"
+        goal_l = args.goal.strip().lower()
+        inbox = ROOT / "content/evolution/00-manager/ceo-inbox"
+        if is_ip_ecosystem_goal(args.goal.strip()):
+            ip_html = inbox / f"OWNER-IP-ECOSYSTEM-DELIVERABLE-{datetime.now(timezone.utc).strftime('%Y-%m-%d')}.html"
+            ip_strat = inbox / "2026-11-05-owner-ip-ecosystem-strategy.md"
+            if ip_strat.is_file():
+                env["CEO_OWNER_DELIVERABLE_PATH"] = str(ip_strat.relative_to(ROOT))
+            elif ip_html.is_file():
+                env["CEO_OWNER_DELIVERABLE_PATH"] = str(ip_html.relative_to(ROOT))
+        elif is_flutebuddy_goal(args.goal.strip()):
+            for p in sorted(inbox.glob("*flutebuddy*strategy*.md"), key=lambda x: x.stat().st_mtime, reverse=True):
+                env["CEO_OWNER_DELIVERABLE_PATH"] = str(p.relative_to(ROOT))
+                break
 
     manifest: dict = {
         "overall": "FAIL",
@@ -124,7 +176,44 @@ def main() -> int:
     fail = 0
 
     screen_goal = args.goal.strip() or (Path(brief).stem if brief else "小红书个人IP文案")
-    screen_cmd = [sys.executable, "scripts/screen-xhs-drive-corpus.py", "--goal", screen_goal]
+    if screen_goal:
+        ec_pf = run(
+            [sys.executable, "scripts/ceo-preflight-product-context.py", "--goal", screen_goal],
+            step="CEO product context preflight (owner-product-registry)",
+            env=env,
+            allow_fail=True,
+        )
+        record_step("ceo-preflight-product-context", ec_pf, cap="Owner 轨解析（产品/IP）", roster_ids=["00", "01"])
+        if ec_pf == 42:
+            manifest["overall"] = "NEEDS_WORK"
+            manifest["product_preflight"] = "FAIL — read product-context-resolved-latest.json"
+            write_manifest(manifest, invoked_ids, result_by_id)
+            print("NEEDS_WORK: product preflight — fix goal/dispatch before screen or delivery", file=sys.stderr)
+            return 42
+        if ec_pf != 0:
+            fail += 1
+        if is_flutebuddy_goal(screen_goal) or is_ip_ecosystem_goal(screen_goal):
+            ec_vt = run(
+                ["bash", "scripts/verify-owner-copy-v-tier-mandate.sh"],
+                step="V-Tier copy mandate (dual-track)",
+                env=env,
+                allow_fail=True,
+            )
+            record_step(
+                "verify-owner-copy-v-tier-mandate",
+                ec_vt,
+                cap="40–50万粉文笔标准 · 文件验收",
+                roster_ids=["00", "01", "04"],
+            )
+            if ec_vt != 0:
+                fail += 1
+    screen_cmd = [
+        sys.executable,
+        "scripts/ceo-task-drive-corpus-screen.py",
+        "--auto",
+        "--goal",
+        screen_goal,
+    ]
     if brief:
         screen_cmd.extend(["--brief", brief])
     ec = run(
@@ -136,6 +225,35 @@ def main() -> int:
     if ec != 0:
         fail += 1
 
+    env["CEO_GOAL"] = screen_goal
+    if brief:
+        env["CEO_SIX_CASE_BRIEF"] = brief
+    fusion_cmd = [
+        sys.executable,
+        "scripts/build-drive-long-context-fusion.py",
+        "--auto",
+        "--phase",
+        "ceo_dispatch",
+    ]
+    if brief:
+        fusion_cmd.extend(["--brief", brief])
+    if screen_goal:
+        fusion_cmd.extend(["--goal", screen_goal])
+    ec = run(
+        fusion_cmd,
+        step="Drive long-context fusion auto (ceo_dispatch)",
+        env=env,
+        allow_fail=True,
+    )
+    record_step(
+        "build-drive-long-context-fusion",
+        ec,
+        cap="fusion JSON checklist + evidence path",
+        roster_ids=["00"],
+    )
+    if ec != 0:
+        fail += 1
+
     ec = run(["bash", "scripts/ceo-auto-recover-blocked.sh"], step="CEO recover", env=env, allow_fail=True)
     record_step("ceo-auto-recover-blocked", ec, cap="进程自愈", roster_ids=["00"])
     if ec != 0:
@@ -144,7 +262,7 @@ def main() -> int:
     if args.goal.strip():
         ec = run(
             ["bash", "scripts/run-openwebui-router-pipeline.sh", "--goal", args.goal.strip()],
-            step="Open WebUI CEO router",
+            step="Open WebUI CEO router (optional step -1)",
             env=env,
             allow_fail=True,
         )
@@ -175,11 +293,14 @@ def main() -> int:
                 allow_fail=True,
             )
             record_step("evolve-platform-hits", ec, cap="换角度对抗 → 距离 → 爆款线", roster_ids=["00", "01", "04"])
+            open_platform_three_html(hit_dir, env=env)
+            manifest["platform_html_open"] = "linkedin→xiaohongshu→medium"
             if ec == 42:
                 manifest["overall"] = "NEEDS_WORK"
                 write_manifest(manifest, invoked_ids, result_by_id)
                 print(
                     "NEEDS_WORK: angle distance or hit line still open. "
+                    "Platform HTML still opened for Owner review. "
                     "Do not lower ANGLE_BAR. Same session must rewrite and rerun. "
                     "See docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md",
                     file=sys.stderr,
@@ -272,6 +393,43 @@ def main() -> int:
     if brief:
         bp = ROOT / brief if not Path(brief).is_absolute() else Path(brief)
         ensure_gm_report(bp, overall="PASS" if fail == 0 else "PARTIAL")
+
+    goal_s = args.goal.strip()
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    if is_ip_ecosystem_goal(goal_s):
+        ip_html = ROOT / "content/evolution/00-manager/ceo-inbox" / f"OWNER-IP-ECOSYSTEM-DELIVERABLE-{day}.html"
+        ec_ip = run(
+            [sys.executable, "scripts/build-owner-ip-ecosystem-deliverable-html.py"],
+            step="Build Owner IP ecosystem HTML",
+            env=env,
+            allow_fail=True,
+        )
+        record_step("build-owner-ip-ecosystem-deliverable-html", ec_ip, cap="个人 IP 生态链 HTML", roster_ids=["00", "01"])
+        if ip_html.is_file():
+            env["CEO_OWNER_DELIVERABLE_PATH"] = str(ip_html.relative_to(ROOT))
+        run(
+            ["bash", "scripts/open-owner-ip-ecosystem-deliverable-html.sh"],
+            step="Open Owner IP ecosystem HTML",
+            env=env,
+            allow_fail=True,
+        )
+    if is_flutebuddy_goal(goal_s):
+        fb_html = ROOT / "content/evolution/00-manager/ceo-inbox" / f"OWNER-FLUTEBUDDY-DELIVERABLE-{day}.html"
+        ec_fb = run(
+            [sys.executable, "scripts/build-owner-flutebuddy-deliverable-html.py"],
+            step="Build FluteBuddy Owner HTML",
+            env=env,
+            allow_fail=True,
+        )
+        record_step("build-owner-flutebuddy-deliverable-html", ec_fb, cap="FluteBuddy 可视化交付", roster_ids=["00"])
+        if fb_html.is_file() and not is_ip_ecosystem_goal(goal_s):
+            env["CEO_OWNER_DELIVERABLE_PATH"] = str(fb_html.relative_to(ROOT))
+        run(
+            ["bash", "scripts/open-owner-flutebuddy-deliverable-html.sh"],
+            step="Open FluteBuddy Owner HTML",
+            env=env,
+            allow_fail=True,
+        )
 
     manifest["overall"] = "PASS" if fail == 0 else "PARTIAL_FAIL"
     write_manifest(manifest, invoked_ids, result_by_id)

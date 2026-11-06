@@ -1,14 +1,25 @@
 {
   "version": "2026-10-30",
+  "architecture": "Cursor CEO main chain (orchestrator below); Open WebUI is optional phase router only (optional: true)",
   "doc_human": "docs/CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md",
   "orchestrator_python": "scripts/run_ceo_full_execution.py",
   "orchestrator_bash": "scripts/ceo-full-execution-pipeline.sh",
   "chat_delivery": "docs/OWNER-CHAT-DELIVERY-FORMAT.md",
   "roster_and_parallelism": "docs/CEO-AGENT-ROSTER-AND-PARALLELISM.md",
   "manifest": "content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.json",
+  "drive_long_context_fusion": {
+    "manifest": "integration/handoff/drive-long-context-fusion.json",
+    "doc": "docs/DRIVE-LONG-CONTEXT-FUSION.md",
+    "bind_script": "scripts/build-drive-long-context-fusion.py --auto --phase ceo_dispatch",
+    "pre_delivery_script": "scripts/build-drive-long-context-fusion.py --auto --phase pre_delivery",
+    "auto_wrapper": "scripts/run-drive-long-context-fusion-auto.sh",
+    "task_latest": "content/evolution/00-manager/ceo-inbox/drive-fusion-task-latest.json",
+    "must_before_longform_drive": true
+  },
   "phases": [
+    { "id": "drive_fusion_bind", "script": "scripts/build-drive-long-context-fusion.py", "after": "screen-xhs-drive-corpus", "optional": false },
     { "id": "recover", "script": "scripts/ceo-auto-recover-blocked.sh" },
-    { "id": "router", "script": "scripts/run-openwebui-router-pipeline.sh", "optional": true },
+    { "id": "router", "script": "scripts/run-openwebui-router-pipeline.sh", "optional": true, "note": "Open WebUI step -1; SKIP route = no OWUI call; Drive corpus not required in OWUI" },
     { "id": "platform_angles_then_hit", "script": "scripts/evolve-platform-hits.py", "standards": "docs/PLATFORM-HIT-STANDARDS.md", "loop": "docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md", "order": ["01-voice", "04-cut", "00-senior", "evolution-distance", "hit-line"], "when": "writing goal, brief not required", "angle_bar": 80, "do_not_lower_bar": true },
     { "id": "six_case_battery", "script": "scripts/ceo-six-case-battery.sh", "requires_brief_for_l1_kernel": true },
     { "id": "triple_eval", "script": "scripts/ceo-triple-eval-baseline-loop.sh", "max_rounds_default": 3 },

@@ -14,7 +14,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
-from xhs_brief_longform import extract_longform_text  # noqa: E402
+from xhs_brief_longform import (  # noqa: E402
+    extract_classifier_body,
+    extract_longform_text,
+    strip_owner_facing_md,
+)
 INBOX = ROOT / "content/evolution/00-manager/ceo-inbox"
 IP = ROOT / "content/ip-research"
 XHS = ROOT / "content/xiaohongshu"
@@ -178,9 +182,10 @@ def latest_owner_brief_block() -> tuple[str, str]:
         if m:
             gap_status = m.group(1)
     subj = b["subject"] or "—"
-    body = b["classifier_body"] or ""
+    body = b["classifier_body"] or extract_classifier_body(path)
     longform = extract_longform_text(path)
     display_body = longform if longform else body
+    brief_agent = strip_owner_facing_md(b["full_md"])
     card = f"""
 <article class="card" id="owner-latest" style="border:2px solid #06c;grid-column:1/-1">
   <h3>Owner 指定新稿（最新）</h3>
@@ -197,9 +202,9 @@ def latest_owner_brief_block() -> tuple[str, str]:
     <p class="meta">Evolution {html.escape(gap_status)} · <code>{html.escape(b['file'])}</code></p>
     <h3>{'长稿 · Owner 发布版' if longform else '可发帖正文'}</h3>
     <div class="box">{md_block(display_body)}</div>
-    {f'<h3>列表摘要（classifier）</h3><div class="box">{md_block(body)}</div>' if longform and body else ''}
-    <h3>Brief 全文</h3>
-    <div class="box brief">{md_block(b['full_md'])}</div>
+    {f'<p class="meta">口播/列表摘要（classifier · 非长稿）</p><div class="box">{md_block(body)}</div>' if longform and body else ''}
+    <details><summary>Agent Brief 元数据（给管线用，不是发帖正文）</summary>
+    <div class="box brief">{md_block(brief_agent)}</div></details>
   </div>
 </div>"""
     return card, modal
@@ -212,12 +217,13 @@ def build_html(out_path: Path) -> None:
     publish = load_publish_sections()
     test_card, test_modal = latest_test_brief_block()
     owner_card, owner_modal = latest_owner_brief_block()
-    discoveries = [
+    discoveries_all = [
         ("discovery-01", "认知期 #1 · 不可替代性", XHS / "2026-10-17-discovery-01-irreplaceability-brief.md", 1),
         ("discovery-02", "认知期 #2 · 叙事而非硬广", XHS / "2026-10-17-discovery-02-narrative-not-ads-brief.md", 2),
         ("discovery-03", "认知期 #3 · 专业信任", XHS / "2026-10-17-discovery-03-professional-trust-brief.md", 3),
         ("discovery-04", "认知期 #4 · 轻收口", XHS / "2026-10-17-discovery-04-open-close-brief.md", 4),
     ]
+    discoveries = [(k, lab, p, n) for k, lab, p, n in discoveries_all if p.is_file()]
 
     modal_blocks = []
     cards = []
@@ -225,7 +231,7 @@ def build_html(out_path: Path) -> None:
         b = extract_brief_sections(path)
         pub = publish.get(key) or b.get("classifier_body") or "_（正文见 Brief 全文）_"
         modal_id = f"modal-d{num:02d}"
-        body_html = md_block(b["full_md"])
+        body_html = md_block(strip_owner_facing_md(b["full_md"]))
         pub_html = md_block(pub if isinstance(pub, str) else str(pub))
         modal_blocks.append(
             f"""
@@ -236,8 +242,8 @@ def build_html(out_path: Path) -> None:
     <p class="meta">文件：<code>{html.escape(b['file'])}</code></p>
     <h3>可直发 / 正文区</h3>
     <div class="box">{pub_html}</div>
-    <h3>Brief 全文</h3>
-    <div class="box brief">{body_html}</div>
+    <details><summary>Agent Brief 元数据（给管线用，不是发帖正文）</summary>
+    <div class="box brief">{body_html}</div></details>
   </div>
 </div>"""
         )
@@ -296,8 +302,11 @@ def build_html(out_path: Path) -> None:
   .open-hint {{ background: #fff3cd; border: 1px solid #ffc107; padding: 12px; border-radius: 8px; }}
 </style>
 </head>
-<body>
+<body data-auto-modal="{os.environ.get('CEO_OWNER_HTML_AUTO_MODAL', '0')}">
 <h1>Owner 交付 · CEO 小红书资料筛选 · {date}</h1>
+<p style="font-size:0.9rem;color:#444">本页 = <strong>小红书 Discovery 队列 + 工作流测试</strong> 的日常通知板。
+若你当轮任务是产品战略 / FluteBuddy / 无 Brief 的 CEO 跑数，<strong>不应</strong>自动弹本页 — 见
+<code>docs/CEO-OWNER-HTML-ROUTING.md</code>。</p>
 <p class="open-hint">HTML 重建时间：<strong>{rebuilt_at}</strong> · 脚本 <code>build-owner-xhs-report-html.py</code>。
 若在 Cursor 里只看到代码：Finder 双击本文件。工作流测试稿（若有）在下方<strong>绿色边框</strong>卡片。</p>
 
@@ -333,8 +342,9 @@ function openModal(id) {{ document.getElementById(id).classList.add('open'); doc
 function closeModal(id) {{ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }}
 document.addEventListener('keydown', e => {{ if (e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id)); }});
 (function() {{
+  var auto = document.body.getAttribute('data-auto-modal') === '1';
   var h = (location.hash || '').replace(/^#/, '');
-  if (h === 'owner-latest' && document.getElementById('modal-owner-latest')) {{
+  if (auto && h === 'owner-latest' && document.getElementById('modal-owner-latest')) {{
     openModal('modal-owner-latest');
   }}
 }})();

@@ -21,7 +21,10 @@ AGENT_MODULES = [
 def run_agent_module(mod_name: str) -> tuple[int, int, str]:
     mod = importlib.import_module(mod_name)
     agent_id = getattr(mod, "AGENT_ID", "?")
-    cases: list[tuple[str, Callable[[], tuple[bool, str]]]] = mod.CASES
+    cases: list[tuple[str, Callable[[], tuple[bool, str]]]] = list(mod.CASES)
+    from integration.agents._four_dimensions import case_four_dimension_contract
+
+    cases.append(("四项 100 · 过线 80", case_four_dimension_contract))
     passed = failed = 0
     print(f"\n--- Agent {agent_id} · {getattr(mod, 'AGENT_LABEL', mod_name)} ({len(cases)} cases) ---")
     for desc, fn in cases:
@@ -49,7 +52,7 @@ def run_all_agents() -> int:
     if total_f:
         print("RESULT: FAIL — agent matrix")
         return 1
-    print("RESULT: PASS — all agents 6-case matrix")
+    print(f"RESULT: PASS — all agents matrix ({total} cases)")
     return 0
 
 

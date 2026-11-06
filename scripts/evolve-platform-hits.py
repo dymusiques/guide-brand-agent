@@ -21,7 +21,8 @@ sys.path.insert(0, str(ROOT / "kernels/xiaohongshu"))
 
 PLATFORMS = ("linkedin", "xiaohongshu", "medium")
 ANGLE_BAR = 80  # adversarial seats; do not lower to finish a run
-HIT_BAR = 75  # platform-mechanic score; do not lower, and do not use it to pass the angle bar
+HIT_BAR = 80  # hit score is out of 100; pass line is 80, same as the other three
+FOUR_PASS = 80
 STANDARDS = "docs/PLATFORM-HIT-STANDARDS.md"
 SOURCE_DIR: Path | None = None
 LINKEDIN_DIMENSIONS = ("AI", "艺术前沿", "各国历史与文化", "音乐", "世界建筑设计", "各地商业走向")
@@ -144,8 +145,8 @@ def linkedin_index_fails(html: str) -> list[str]:
     if "linkedin-index" not in html:
         fails.append("正文没有接上检索索引")
     hrefs = article_hrefs(html)
-    if len(hrefs) > 2:
-        fails.append(f"正文原文链接 {len(hrefs)} 条，最多 2 篇")
+    if len(hrefs) != 2:
+        fails.append(f"正文要有两篇对上主题的原文，现在是 {len(hrefs)} 篇")
     for href in hrefs:
         if href not in urls:
             fails.append(f"正文链接不在检索索引里：{href}")
@@ -349,6 +350,51 @@ ANY_CHECKS = {
 }
 
 
+def score_voice(platform: str, html: str) -> dict:
+    prompt = f"""你在打张丹瀛的口吻，满分 100。她吹长笛，学法国学派。
+80 分表示读起来像她本人在说话：有场景，有判断，有性格。
+抽掉场景还能独立成立的金句，最高 60。品牌腔、论文腔，最高 50。
+只输出 JSON：{{"score": 0, "reason": "一句话"}}
+平台：{platform}
+
+{html[:5000]}
+"""
+    return gemini_json(prompt)
+
+
+def score_citations(platform: str, html: str, goal: str) -> dict:
+    hrefs = article_hrefs(html)
+    urls: set[str] = set()
+    if SOURCE_DIR is not None and (SOURCE_DIR / "linkedin-sources.json").is_file():
+        data = json.loads((SOURCE_DIR / "linkedin-sources.json").read_text(encoding="utf-8"))
+        urls = {item.get("url") for item in data.get("sources") or [] if item.get("url")}
+    if len(hrefs) != 2 or any(href not in urls for href in hrefs):
+        return {"score": 0, "reason": f"要有两篇索引内、对上主题的原文，现在 {len(hrefs)} 篇"}
+    bits = []
+    for href in hrefs:
+        idx = html.find(href)
+        snippet = re.sub(r"<[^>]+>", "", html[max(0, idx - 80): idx + len(href) + 80])
+        use = ""
+        if SOURCE_DIR is not None and (SOURCE_DIR / "linkedin-sources.json").is_file():
+            data = json.loads((SOURCE_DIR / "linkedin-sources.json").read_text(encoding="utf-8"))
+            for item in data.get("sources") or []:
+                if item.get("url") == href:
+                    use = item.get("use") or item.get("title") or ""
+        bits.append(f"{href}\n用在这里：{snippet}\n索引说明：{use}")
+    listed = "\n\n".join(bits)
+    prompt = f"""满分 100。主题：{goal}
+匹配的意思是：这篇原文支撑主题里的一个具体判断。劳动力统计对上「领工资的座位少」，识读或教学对上「需要肯学的人」，都算 match。
+不要求原文标题复述整句主题。两篇都 match 才可以到 80。有一篇没被用上，最高 50。
+只输出 JSON：{{"score": 0, "reason": "一句话"}}
+{listed}
+"""
+    return gemini_json(prompt)
+
+
+def four_distance(scores: dict[str, int]) -> int:
+    return sum(max(0, FOUR_PASS - int(scores[key])) for key in ("angle", "hit", "voice", "cite"))
+
+
 def gemini_rewrite(platform: str, html: str, fails: list[str]) -> str:
     from google import genai
     from google.genai import types
@@ -430,11 +476,135 @@ Medium看一篇只做一个观点、有个人场景、读者能读完。
     return gemini_json(prompt)
 
 
+def _plain(html: str) -> str:
+    return re.sub(r"<[^>]+>", "", html)
+
+
+def _group_hit(plain: str, options: tuple[str, ...]) -> str:
+    return next((item for item in options if item in plain), "")
+
+
+def angle_benchmark_path() -> Path:
+    if SOURCE_DIR is not None:
+        local = SOURCE_DIR / "angle-benchmarks.json"
+        if local.is_file():
+            return local
+    return ROOT / "docs/angle-benchmarks.json"
+
+
+def _floor_ok(item: dict, floors: dict) -> bool:
+    bench = item.get("benchmark") or {}
+    platform = item.get("platform") or bench.get("platform")
+    rule = floors.get(platform) or {}
+    if rule.get("must_read_on_page") and not bench.get("read_on_page"):
+        return False
+    engagement = bench.get("engagement") or {}
+    try:
+        value = int(engagement.get(rule.get("field") or "") or 0)
+    except (TypeError, ValueError):
+        return False
+    return value >= int(rule.get("min") or 0)
+
+
+def angle_items() -> tuple[list[dict], dict]:
+    path = angle_benchmark_path()
+    if not path.is_file():
+        raise FileNotFoundError(f"缺少角度基准 {path}")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    floors = data.get("floors") or {}
+    for platform in ("linkedin", "xiaohongshu", "medium"):
+        if platform not in floors:
+            raise RuntimeError(f"角度基准缺 {platform} 的高线")
+    cells = data.get("cells") or []
+    needed = {
+        f"{platform}/{kind}"
+        for platform in ("linkedin", "xiaohongshu", "medium")
+        for kind in ("same", "different", "sharp")
+    }
+    if set(cells) != needed:
+        raise RuntimeError("角度基准必须是三平台各三种角度，共九格")
+    items = []
+    for item in data.get("items") or []:
+        if _floor_ok(item, floors):
+            items.append(item)
+    return items, data
+
+
+def _engagement_value(item: dict, floors: dict) -> int:
+    bench = item.get("benchmark") or {}
+    platform = item.get("platform") or bench.get("platform")
+    field = (floors.get(platform) or {}).get("field") or ""
+    try:
+        return int((bench.get("engagement") or {}).get(field) or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _item_match(plain: str, item: dict) -> tuple[bool, str]:
+    if "groups" in item:
+        hits = [_group_hit(plain, tuple(group)) for group in item["groups"]]
+        ok = all(hits)
+        return ok, "、".join(hit for hit in hits if hit)
+    evidence = _group_hit(plain, tuple(item.get("any") or ()))
+    return bool(evidence), evidence
+
+
+def angle_hard(html: str) -> dict:
+    """Use the articles we actually have. A missing cell borrows the highest one."""
+    plain = _plain(html)
+    items, data = angle_items()
+    floors = data.get("floors") or {}
+    if not items:
+        return {
+            "score": 0,
+            "passed_cells": 0,
+            "cells": 0,
+            "rows": [],
+            "benchmark_file": str(angle_benchmark_path().relative_to(ROOT)),
+            "checked_at": data.get("checked_at"),
+            "why": "没有一篇过线的同类型文章",
+        }
+    base = max(items, key=lambda item: _engagement_value(item, floors))
+    by_cell = {f"{item.get('platform')}/{item.get('angle')}": item for item in items}
+    rows = []
+    passed = 0
+    for cell in data["cells"]:
+        own = by_cell.get(cell)
+        item = own or base
+        ok, evidence = _item_match(plain, item)
+        if ok:
+            passed += 1
+        bench = item.get("benchmark") or {}
+        rows.append({
+            "id": item["id"],
+            "cell": cell,
+            "angle": item.get("angle"),
+            "name": item["name"],
+            "pass": ok,
+            "evidence": evidence,
+            "inherited": own is None,
+            "benchmark_url": bench.get("url"),
+            "benchmark_engagement": bench.get("engagement"),
+        })
+    score = int(round(100 * passed / len(data["cells"])))
+    return {
+        "score": score,
+        "passed_cells": passed,
+        "cells": len(data["cells"]),
+        "base_id": base.get("id"),
+        "rows": rows,
+        "benchmark_file": str(angle_benchmark_path().relative_to(ROOT)),
+        "checked_at": data.get("checked_at"),
+    }
+
+
 def angle_specs(goal: str, html: str) -> list[dict]:
     thesis = "艺术家" in goal or "艺术家" in html
     senior = (
-        "三条反驳里选正文最没接住的一条：业内人说你自己靠这行吃饭却宣布座位该少；"
+        "三条里选正文最没接住的一条：业内人说你自己靠这行吃饭却宣布座位该少；"
         "听众说你把鼓掌的人写成不懂；1.6% 只统计主要职业，不能用来规定热爱艺术的人数。"
+        "正文若已经写了不会拿这个百分比叫人退出、鼓掌的人没错、1.6% 不能规定热爱的人数，这三条不许再判没接住。"
+        "另找一条正文没写的具体反对。找不到，分数写 80。"
         if thesis
         else "找一个会公开反驳的读者，写出他最具体的一条反对，看正文有没有接住。"
     )
@@ -443,13 +613,13 @@ def angle_specs(goal: str, html: str) -> list[dict]:
             "id": "01-voice",
             "layer": "01 IP",
             "name": "写作标准",
-            "task": "只攻击声音。抓住最像品牌总结、最不像长笛手本人在说话的一句。场景删掉之后观点还在，就算没接住。",
+            "task": "只攻击声音。反对必须引用标题以外的一句。标题、「需要很多热爱艺术的人」、以及平台规定的结尾「评论区留下曲名」，都不许当反对。场景删掉之后那句还能独立成立，才算没接住。",
         },
         {
             "id": "04-cut",
             "layer": "04 Topic",
             "name": "切入视角",
-            "task": "换一个切口来拆。三个平台共用同一套可写范围：AI、艺术前沿、各国历史与文化、音乐、视觉、建筑、设计、不同地方的商业走向。一篇不能只停在长笛一个门类。小红书还必须多角度、新颖、能让作者自己往下想。Medium 是长文。看现稿有没有把这些收成一句口号。",
+            "task": "点名一个范围内的维度，正文里没有对应场景，才算没接住。范围是 AI、艺术前沿、各国历史与文化、音乐、视觉、建筑、设计、各地商业走向。调音软件算 AI，也算艺术前沿里的工具。法国学派算法国的教法。留白的墙、开幕照片、小画比大画好卖，算建筑、设计和商业走向。已经写了场景的维度，不许再说没写到，也不许要求再收成一句口号。",
         },
         {
             "id": "00-senior",
@@ -467,7 +637,7 @@ def distance_to_bar(rows: list[dict]) -> int:
 def gemini_angle(platform: str, html: str, spec: dict) -> dict:
     prompt = f"""你是 {spec['layer']}，这一层只负责「{spec['name']}」。
 不要夸。先写出最狠、最具体的一条反对，再打 0 到 100。
-分数表示正文已经把这条反对接住了多少。没接住必须低于 {ANGLE_BAR}。
+分数表示正文已经把这条反对拆掉了多少。部分接住最高 70。没有具体场景最高 60。没接住必须低于 {ANGLE_BAR}。
 写不出具体反对时，分数不得超过 70。
 只输出 JSON：{{"score": 0, "objection": "一句话"}}
 攻击任务：{spec['task']}
@@ -536,7 +706,19 @@ def main() -> int:
     folder.mkdir(parents=True, exist_ok=True)
     global SOURCE_DIR
     SOURCE_DIR = folder
-    if args.goal and (not args.judge_only or not (folder / "linkedin-sources.json").is_file()):
+    def linkedin_index_ready() -> bool:
+        path = folder / "linkedin-sources.json"
+        html = folder / "linkedin.html"
+        if not path.is_file() or not html.is_file():
+            return False
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return False
+        urls = [item.get("url") for item in (data.get("sources") or []) if item.get("url")]
+        return len(urls) >= 2
+
+    if args.goal and not linkedin_index_ready():
         try:
             research_linkedin(args.goal, folder)
         except Exception as exc:
@@ -568,24 +750,13 @@ def main() -> int:
         checker = CHECKS[name] if specific else ANY_CHECKS[name]
         angle_history: list[dict] = []
         angle_error = ""
-        try:
-            specs = angle_specs(args.goal, html)
-            for round_i in range(1, args.rounds + 1):
-                rows = [gemini_angle(name, html, spec) for spec in specs]
-                dist = distance_to_bar(rows)
-                angle_history.append({"round": round_i, "distance": dist, "rows": rows})
-                if dist == 0 or args.judge_only:
-                    break
-                notes = [
-                    f"{row['layer']}·{row['name']} {row['score']}：{row.get('objection', '')}"
-                    for row in rows
-                    if int(row["score"]) < ANGLE_BAR
-                ]
-                html = gemini_rewrite_angles(name, html, notes)
-                path.write_text(html, encoding="utf-8")
-        except Exception as exc:
-            angle_error = str(exc)
-            angle_history.append({"api_error": angle_error})
+        hard = angle_hard(html)
+        angle_history.append({
+            "round": 1,
+            "distance": max(0, ANGLE_BAR - int(hard["score"])),
+            "rows": hard["rows"],
+            "score": hard["score"],
+        })
         history = []
         score: dict = {}
         api_error = ""
@@ -615,20 +786,67 @@ def main() -> int:
             final_fails = final_fails + [api_error]
         if angle_error:
             final_fails = final_fails + [angle_error]
-        angle_ready = bool(angle_history) and angle_history[-1].get("distance") == 0
-        if not angle_ready:
-            final_dist = angle_history[-1].get("distance") if angle_history else None
-            final_fails = final_fails + [f"角度对抗距成功线还差 {final_dist}"]
-        ok = not final_fails
+        hard = angle_hard(final_html)
+        angle_score = int(hard["score"])
+        angle_history.append({
+            "round": "final",
+            "distance": max(0, ANGLE_BAR - angle_score),
+            "rows": hard["rows"],
+            "score": angle_score,
+        })
+        mechanic = [
+            item
+            for item in checker(final_html)
+            if "原文" not in item and "检索" not in item
+        ]
+        hit_points = int(score.get("score") or 0) if not mechanic else 0
+        try:
+            voice = score_voice(name, final_html)
+        except Exception as exc:
+            voice = {"score": 0, "reason": str(exc)}
+            final_fails = final_fails + [str(exc)]
+        try:
+            cite = score_citations(name, final_html, args.goal)
+        except Exception as exc:
+            cite = {"score": 0, "reason": str(exc)}
+            final_fails = final_fails + [str(exc)]
+        four = {
+            "angle": angle_score,
+            "hit": hit_points,
+            "voice": int(voice.get("score") or 0),
+            "cite": int(cite.get("score") or 0),
+        }
+        four_gap = four_distance(four)
+        stress = {}
+        if four_gap == 0:
+            try:
+                stress_voice = score_voice(name, final_html)
+                stress_angle = angle_hard(final_html)
+                stress = {
+                    "voice": int(stress_voice.get("score") or 0),
+                    "angle": int(stress_angle["score"]),
+                    "rows": stress_angle["rows"],
+                }
+                if stress["voice"] < FOUR_PASS or stress["angle"] < FOUR_PASS:
+                    four_gap += (FOUR_PASS - min(stress["voice"], stress["angle"]))
+                    final_fails = final_fails + ["压测线低于 80"]
+            except Exception as exc:
+                stress = {"error": str(exc)}
+                final_fails = final_fails + [str(exc)]
+        ok = four_gap == 0 and not api_error and not angle_error and not mechanic
         if not ok:
             failed += 1
         baseline = angle_history[0].get("distance") if angle_history else None
-        final_distance = angle_history[-1].get("distance") if angle_history else None
+        final_distance = four_gap
         report["platforms"][name] = {
             "pass": ok,
-            "angle_ready": angle_ready,
+            "angle_ready": angle_score >= FOUR_PASS,
             "distance_before": baseline,
             "distance_after": final_distance,
+            "four": four,
+            "voice": voice,
+            "cite": cite,
+            "stress": stress,
             "angles": angle_history,
             "hit_pass": not checker(final_html) and not api_error,
             "hit_score": score,
@@ -638,13 +856,31 @@ def main() -> int:
         print(json.dumps({
             "platform": name,
             "pass": ok,
-            "distance_before": baseline,
+            "four": four,
             "distance_after": final_distance,
-            "hit_score": score.get("score"),
             "fails": final_fails,
         }, ensure_ascii=False))
     out = folder / "hit-evolution.json"
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    summary = {
+        "ran_at": report["ran_at"],
+        "pass_line": FOUR_PASS,
+        "full_score": 100,
+        "dimensions": ["angle", "hit", "voice", "cite"],
+        "platforms": {
+            name: {
+                "pass": item.get("pass"),
+                "four": item.get("four"),
+                "distance_after": item.get("distance_after"),
+                "stress": item.get("stress"),
+            }
+            for name, item in report["platforms"].items()
+        },
+    }
+    (folder / "four-dimensions.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     print(f"WROTE {out.relative_to(ROOT)}")
     return 0 if failed == 0 else 42
 

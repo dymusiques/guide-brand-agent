@@ -1,0 +1,31 @@
+{
+  "version": "2026-11-05",
+  "purpose": "CEO 派活前 Must 解析 FluteBuddy 等产品实体",
+  "parallel_ip_track": "integration/handoff/owner-ip-track.json",
+  "products": [
+    {
+      "id": "flutebuddy",
+      "canonical_names": ["FluteBuddy", "FluteBuddy practice", "Flute Buddy", "Flute Practice Buddy", "flute-practice-buddy"],
+      "public_marketing_name": "FluteBuddy",
+      "domain": "长笛 · 乐谱 PDF + 录音 · AI 分析节奏/音准/音质",
+      "must_read": [
+        "content/product/flutebuddy-ceo-snapshot.md",
+        "content/product/2026-10-18-home-practice-feedback-app-capstone-pitch.md",
+        "rules/USER.md",
+        "docs/OWNER-COPY-V-TIER-400K-MANDATE.md",
+        "docs/OWNER-DUAL-TRACK-COPY-WORKFLOW.md",
+        "integration/handoff/owner-copy-v-tier-400k.json",
+        "integration/handoff/owner-copy-benchmarks-tier2.json",
+        "docs/OWNER-COPY-V-TIER-CULTURAL-ART-STANDARD.md",
+        "integration/handoff/owner-copy-v-tier-cultural-art-creators.json"
+      ],
+      "copy_v_tier_json": "integration/handoff/owner-copy-v-tier-400k.json",
+      "related_repo_path": "../flute-practice-buddy"
+    }
+  ],
+  "preflight_script": "scripts/ceo-preflight-product-context.py",
+  "must_before": [
+    "ceo-task-drive-corpus-screen.py",
+    "strategic delivery to Owner"
+  ]
+}

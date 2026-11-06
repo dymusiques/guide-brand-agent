@@ -1,0 +1,97 @@
+{
+  "version": "2026-11-05",
+  "archetype_id": "cultural_art_aesthetic",
+  "owner_label": "文化属性 · 艺术属性 · 审美属性大 V（Owner 偏好）",
+  "owner_aliases": {
+    "天才少女G": "天才女友GG（时尚社会学 · 小红书 tiancainvyou_gg · Owner 口语或指该账号）"
+  },
+  "applies_to_tracks": ["flutebuddy_product", "personal_ip_ecosystem"],
+  "copy_standard": "FluteBuddy 与 IP 生态链宣传文案，文笔 Must 对齐本池 + 滚动语料库中「高互动帖」的写法——有判断、有审美、有文化上下文，不是功能说明书或品牌手册。",
+  "must_in_each_attestation": {
+    "min_posts_from_this_archetype": 1,
+    "note": "session_fresh_posts 或 corpus_entry_ids 中至少 1 条来自本池 creator 或带 tag cultural_art_aesthetic"
+  },
+  "creators": [
+    {
+      "platform": "xiaohongshu",
+      "handle": "谢胜子极致进化学",
+      "owner_tags": ["cultural_art_aesthetic", "cognition", "attitude"],
+      "followers_approx": 200000,
+      "persona": "认知+关系+成长 · 高能量 · 直播切片",
+      "why_owner_likes": "态度、文化判断、私人化表达与金句；敢写关系与争议边界",
+      "ecosystem": ["主号", "直播", "播客/私域"],
+      "style_for_danying": ["干货里有人", "一句态度打头", "评论层当第二内容"],
+      "url": "https://www.xiaohongshu.com/user/profile/5eb2d83e00000000010005d9"
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "天才女友GG",
+      "aliases": ["天才少女G", "theuniquer"],
+      "owner_tags": ["cultural_art_aesthetic", "fashion_sociology", "审美"],
+      "followers_approx": 319000,
+      "persona": "时尚社会学 · 大众审美/文化自信/女性叙事",
+      "why_owner_likes": "把时尚当文化现象写，不是纯穿搭 KPI",
+      "high_engagement_note": "首条时尚意识长视频等单篇互动 6万+ 级（热浪/新榜摘要）",
+      "style_for_danying": ["现象+个人立场", "延伸到艺术/身份/文化", "视频口播像聊天"],
+      "url": "https://www.xiaohongshu.com/user/profile/6228ad7b0000000021027bb7",
+      "sources": ["热浪数据", "站长之家 时尚博主企划报道"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "何水晶",
+      "owner_tags": ["cultural_art_aesthetic", "艺术", "画家"],
+      "followers_approx": 877000,
+      "persona": "认证画家 · 绘画过程与作品",
+      "why_owner_likes": "艺术专业+大众可读的视觉叙事",
+      "style_for_danying": ["作品即故事", "过程镜头", "审美先行不堆术语"],
+      "url": "https://www.xiaohongshu.com/search_result?keyword=何水晶",
+      "sources": ["热浪数据 iloveyouart"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "画画的玉玉卿",
+      "owner_tags": ["cultural_art_aesthetic", "国风", "文物拟人"],
+      "followers_approx": 1000000,
+      "persona": "国风拟人 · 国家宝藏合作 · 水墨审美",
+      "why_owner_likes": "文化符号转叙事，单篇 10万+ 赞级传播",
+      "high_engagement_note": "文物拟人系列 · 凤凰网/采访称百万粉 · 单篇点赞10万+",
+      "style_for_danying": ["一件器物一个灵魂", "审美+文化认同", "长过程但不枯燥"],
+      "sources": ["凤凰网 2024-05"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "天才职业故事",
+      "owner_tags": ["cultural_art_aesthetic", "文化", "非虚构"],
+      "followers_approx": 1515000,
+      "persona": "1000 个职业故事 · 人文观察",
+      "why_owner_likes": "文化质感+真实人物，不是成功学",
+      "style_for_danying": ["一个人一段命运", "听见/音乐人可以借这种「职业叙事」"],
+      "url": "https://www.xiaohongshu.com/search_result?keyword=天才职业故事",
+      "sources": ["热浪数据"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "闫不闲",
+      "owner_tags": ["cultural_art_aesthetic", "审美", "手工"],
+      "followers_approx": 550000,
+      "persona": "电子闺蜜 · 创意手工 · 软装审美",
+      "why_owner_likes": "审美+情绪价值，单篇可 42万涨粉/56万赞藏",
+      "high_engagement_note": "自我介绍笔记 1000万阅读/42万涨粉；光影蝴蝶 12万+赞藏",
+      "style_for_danying": ["生活场景+视觉惊喜", "闺蜜对白体"],
+      "sources": ["新榜 2024-10"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "晨子看书",
+      "owner_tags": ["cultural_art_aesthetic", "阅读", "文化"],
+      "followers_approx": 565600,
+      "persona": "读书/文化向 · 千瓜涨粉榜",
+      "style_for_danying": ["一本书一个切面", "口语推荐+个人判断"],
+      "sources": ["千瓜涨粉榜 2026"]
+    }
+  ],
+  "cross_platform_same_standard": {
+    "linkedin": "Lara Acosta / Justin Welsh 级故事+lesson；须带文化/审美判断句",
+    "medium": "Martha Eason / 文化长文 · clap 档对标"
+  }
+}

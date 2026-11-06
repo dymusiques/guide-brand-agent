@@ -58,7 +58,10 @@ def main() -> int:
             cmd.append("--no-discovery-auto")
         steps.append(("XHS owner delivery (evolution+HTML+verify)", cmd))
     else:
-        steps.append(("HTML refresh+verify only", ["bash", "scripts/refresh-owner-notify-html.sh"]))
+        if env.get("CEO_OWNER_HTML_REFRESH", "1") != "0":
+            steps.append(("HTML refresh+verify only", ["bash", "scripts/refresh-owner-notify-html.sh"]))
+        else:
+            print("SKIP HTML refresh (CEO_OWNER_HTML_REFRESH=0)", flush=True)
 
     fail = 0
     for name, cmd in steps:

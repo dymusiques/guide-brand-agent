@@ -24,6 +24,8 @@ run "fused-01" bash scripts/verify-agent-fused.sh --agent 01
 run "fused-04" bash scripts/verify-agent-fused.sh --agent 04
 run "fused-05" bash scripts/verify-agent-fused.sh --agent 05
 
+run "four-dimensions" "$PY" scripts/verify-four-dimension-bar.py
+
 if [[ -n "$BRIEF" && -f "$BRIEF" ]]; then
   run "brief-l1-gemini-6" "$PY" scripts/evaluate-xhs-brief-complete.py --brief "$BRIEF"
   run "kernel-regression-6" bash scripts/verify-xhs-topic.sh

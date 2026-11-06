@@ -1,0 +1,176 @@
+{
+  "version": "2026-11-05",
+  "standard_id": "owner_copy_v_tier_400k",
+  "mandate_doc": "docs/OWNER-COPY-V-TIER-400K-MANDATE.md",
+  "workflow_doc": "docs/OWNER-DUAL-TRACK-COPY-WORKFLOW.md",
+  "owner_review_required": true,
+  "measurement_honesty": {
+    "auto_proves_400k_style_match": false,
+    "mandate_doc": "docs/OWNER-COPY-V-TIER-MEASUREMENT-HONESTY.md",
+    "what_v_tier_number_means": "benchmark cohort follower/exposure tier — not an auto grade on your draft",
+    "live_corpus_json": "integration/handoff/owner-copy-v-tier-live-corpus.json",
+    "corpus_log_jsonl": "content/evolution/00-manager/ceo-inbox/owner-copy-v-tier-corpus-log.jsonl",
+    "corpus_sop": "docs/OWNER-COPY-V-TIER-LIVE-CORPUS-SOP.md",
+    "mandatory_before_draft": "content/xiaohongshu/v-tier-attestations/<brief-filename>.json",
+    "session_fresh_posts_min": 1,
+    "attestation_verify": "python scripts/verify-owner-copy-v-tier-attestation.py --brief <path>",
+    "attestation_proves": "Agent opened listed URLs and wrote style_notes in same writing cycle",
+    "prose_final_authority": "Owner review only"
+  },
+  "automation_class": "semi_auto",
+  "follower_floor_approx": 400000,
+  "follower_ceiling_note": "40万–50万粉或同级别曝光（如 LinkedIn 300k+ 教育型叙事者 · Medium 顶栏作者）",
+  "applies_to_tracks": ["flutebuddy_product", "personal_ip_ecosystem"],
+  "owner_archetype_preference": {
+    "id": "cultural_art_aesthetic",
+    "label": "文化 · 艺术 · 审美向大 V（Owner 点名：谢胜子、天才少女G/天才女友GG 等）",
+    "creators_pool": "integration/handoff/owner-copy-v-tier-cultural-art-creators.json",
+    "mandate": "双线宣传文案 Must 达到「几十万粉、高互动帖」同类文笔：有文化判断、艺术/审美语感、可私人叙事；FluteBuddy 亦同，禁止纯功能罗列。",
+    "min_posts_per_attestation": 1
+  },
+  "layered_with": {
+    "tier2_engagement": "integration/handoff/owner-copy-benchmarks-tier2.json",
+    "platform_hit_standards": "docs/PLATFORM-HIT-STANDARDS.md",
+    "ip_ecosystem_creators": "integration/handoff/owner-ip-benchmark-creators.json",
+    "benchmark_growth_paths": "integration/handoff/owner-benchmark-growth-paths.json",
+    "benchmark_drive_sync": "scripts/sync-owner-benchmark-paths-to-drive.sh"
+  },
+  "instagram_attestation_note": "国际路径 Must 含 ≥1 Instagram 高互动帖 URL（Reel/Post）；长笛垂直可 niche_exception 见 growth-paths JSON",
+  "style_checklist": [
+    "Must 含 ≥1 篇「文化/艺术/审美向」大 V 高互动帖（见 owner-copy-v-tier-cultural-art-creators.json）",
+    "写前打开 2–3 篇对标原文，标出：开场钩子、段长、动词密度、是否第一人称",
+    "模仿句式与节奏，不复制观点与人设；张丹瀛仍是法派长笛+听见，不是泛成长号",
+    "具体名词与场景（时间/地点/一句对话）≥ 抽象形容词",
+    "小红书：口语但不土，禁 KPI 式小标题链",
+    "LinkedIn：故事→lesson→PS；清单帖也要有一句私人细节",
+    "Medium：段短、副标题扫读、一段一论点，允许长但不水",
+    "生态链：像大 V 一样「列栏目/矩阵/固定系列」，见 ecosystem_display_patterns"
+  ],
+  "ecosystem_display_patterns": [
+    "固定系列名（如周三故事帖 / 听见 Daily / 跟练挑战）",
+    "简介一句话：我是谁 + 你为什么要关注 + 第三栏做什么",
+    "主号+副号/直播/Newsletter 分工写清楚（可逐步上线，但规划要可见）",
+    "私人故事与专业证据交替，不单屏堆 credentials"
+  ],
+  "agent_deep_scrape": {
+    "must": true,
+    "method": "Agent 自搜主页与代表帖/文；粉丝数写入 benchmark JSON；摘录 3 条原句作语气参考（不粘贴进成稿）",
+    "refresh_cadence": "quarterly_or_when_owner_asks"
+  },
+  "verify_script": "bash scripts/verify-owner-copy-v-tier-mandate.sh",
+  "preflight_inject": true,
+  "tracks": {
+    "flutebuddy_product": {
+      "copy_goal": "产品叙事像大 V 种草/创业故事，不像功能 PDF",
+      "product_cap_pct": 30,
+      "must_read_extra": [
+        "content/product/flutebuddy-ceo-snapshot.md",
+        "content/evolution/00-manager/ceo-inbox/2026-11-05-flutebuddy-xhs-strategy.md"
+      ]
+    },
+    "personal_ip_ecosystem": {
+      "copy_goal": "真实生态链：生活/关系/故事 + 专业；文笔对齐 40万+ 私人感大 V",
+      "must_read_extra": [
+        "content/evolution/00-manager/ceo-inbox/owner-ip-ecosystem-content.json",
+        "integration/handoff/owner-ip-benchmark-creators.json",
+        "integration/handoff/owner-benchmark-growth-paths.json",
+        "content/evolution/00-manager/ceo-inbox/CEO-BENCHMARK-GROWTH-PATHS-2026-11-06.md"
+      ]
+    }
+  },
+  "platform_exemplars_400k_plus": [
+    {
+      "platform": "xiaohongshu",
+      "handle": "独立女生小课堂",
+      "followers_approx": 560000,
+      "style_steal": ["第一视角 vlog 语感", "极小生活痛点", "像跟朋友说话"],
+      "ecosystem_steal": ["小红书+B站同发", "场景即选题"],
+      "ref": "integration/handoff/owner-ip-benchmark-creators.json"
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "她行技能站",
+      "followers_approx": 450000,
+      "style_steal": ["一句话简介锁人群", "每条=生活障碍+解法"],
+      "ecosystem_steal": ["垂直简介", "高密度系列"],
+      "ref": "integration/handoff/owner-ip-benchmark-creators.json"
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "谢胜子极致进化学",
+      "followers_approx": 200000,
+      "style_steal": ["态度与金句", "干货里掺私人立场"],
+      "ecosystem_steal": ["主号+直播+播客矩阵"],
+      "note": "粉丝略低于 40 万但 Owner 点名；学结构不抄人设",
+      "ref": "integration/handoff/owner-ip-benchmark-creators.json"
+    },
+    {
+      "platform": "linkedin",
+      "handle": "Lara Acosta",
+      "followers_approx": 369000,
+      "style_steal": ["Educational Storyteller", "私人故事+编号 lesson"],
+      "ecosystem_steal": ["LinkedIn+Newsletter+Academy"],
+      "ref": "integration/handoff/owner-ip-benchmark-creators.json"
+    },
+    {
+      "platform": "linkedin",
+      "handle": "Justin Welsh",
+      "followers_approx": 580000,
+      "style_steal": ["极短段", "list 可扫", "一句结论打头"],
+      "ecosystem_steal": ["Solopreneur 产品栈透明陈列"],
+      "ref": "integration/handoff/owner-ip-benchmark-creators.json"
+    },
+    {
+      "platform": "medium",
+      "handle": "Ayodeji Awosika",
+      "followers_approx": 115000,
+      "style_steal": ["直白第一人称", "长文仍保持推进感"],
+      "ecosystem_steal": ["书+Newsletter+Medium 互导"],
+      "note": "Medium 按 claps/订阅量级对标，不单看 follower",
+      "ref": "integration/handoff/owner-ip-benchmark-creators.json"
+    },
+    {
+      "platform": "medium",
+      "handle": "Michael Thompson",
+      "followers_approx": 84000,
+      "style_steal": ["raw 私人细节", "职业转折叙事"],
+      "ecosystem_steal": ["教练+写作课+Medium"],
+      "note": "曝光/关注量级对标 V-Tier 叙事档",
+      "ref": "integration/handoff/owner-ip-benchmark-creators.json"
+    },
+    {
+      "platform": "instagram",
+      "handle": "@hausercello",
+      "followers_approx": 7300000,
+      "style_steal": ["短 caption", "一曲一 Reels 钩子"],
+      "ecosystem_steal": ["IG+Shorts+TikTok 同素材多切"],
+      "ref": "integration/handoff/owner-benchmark-growth-paths.json"
+    },
+    {
+      "platform": "instagram",
+      "handle": "@twosetviolin",
+      "followers_approx": 957000,
+      "style_steal": ["古典梗+真实排练"],
+      "ecosystem_steal": ["社区 inside joke"],
+      "ref": "integration/handoff/owner-benchmark-growth-paths.json"
+    },
+    {
+      "platform": "instagram",
+      "handle": "@nik.classical",
+      "followers_approx": 449000,
+      "style_steal": ["一条一知识点", "卧室练琴真实"],
+      "ecosystem_steal": ["2023 起号快速涨粉范本"],
+      "ref": "integration/handoff/owner-benchmark-growth-paths.json"
+    }
+  ],
+  "writing_pipeline_order": [
+    "ceo-preflight-product-context.py",
+    "read owner-copy-v-tier-400k.json + track must_read",
+    "deep_scrape update owner-ip-benchmark-creators.json if stale",
+    "draft",
+    "xhs-copy-grep-banned.sh (xhs only)",
+    "verify-owner-copy-human-readable.py",
+    "evolve-platform-hits.py",
+    "owner_review"
+  ]
+}

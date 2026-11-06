@@ -37,7 +37,7 @@ content_sha256: "c46aa538a28bbb8b"
 - **Agent 总目录：** `agents/`（00-manager … 09-data-analytics）· `integration/`（含 `goals/registry.json`）· `content/` 品牌/IP 定稿
 - **集成构建：** `scripts/verify-all.sh` · `scripts/verify-agent-matrix.sh` · `scripts/verify-agent-fused.sh` · `scripts/agent-shells/`
 - **多平台数据仓库：** `content/analytics/` · `scripts/analytics-pipeline.sh`
-- 通用 Q&A / 操作问题专用 Agent 工作区：`问题解决/`（单独开 Folder；聊天与品牌产线分开）
+- 通用 Q&A Chat（如「问题解决」）：**仍打开本 repo 根目录**（见 [docs/CURSOR-CHAT-ORG.md](../docs/CURSOR-CHAT-ORG.md)）；仓内 `问题解决/` 仅作可选占位，非第二 Desktop 文件夹
 - Python 虚拟环境：`.venv/`（工作区级，已安装 vendored skills）
 - 第三方 public skill repos（只读，可 `git pull` 更新）：`vendor/<repo-name>/`
 - 总控 + 领域 Skills：`.cursor/skills/guide-core/`、`.cursor/skills/{personal-ip,business-brand,marketing-strategy,xiaohongshu,brand-visual}/`
@@ -55,6 +55,7 @@ content_sha256: "c46aa538a28bbb8b"
 - 深度调研 scratch（gitignored）：`tmp/survey/<session_slug>/` · 定稿报告 [content/marketing/research/](../content/marketing/research/) · [workflow_deep_research_survey.md](./skills/workflow_deep_research_survey.md)
 - 小红书平台 PDF（gitignore）：`content/marketing/research/raw/*.pdf` · Agent 读 [xhs-platform-research-index.md](../content/marketing/research/xhs-platform-research-index.md)
 - Headless CLI scratch（gitignored）：`tmp/ai-agent-cli/<job_id>/` · skill [skill_ai_agent_cli.md](./skills/skill_ai_agent_cli.md)
+- **FluteBuddy 产品（Sibling repo · CEO Must）：** `../flute-practice-buddy/` · 本仓摘要 `content/product/flutebuddy-ceo-snapshot.md` · 注册表 `integration/handoff/owner-product-registry.json`
 - **个人 IP / KPI playbook：** `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（CAPSTONE · Five Ps · 新机 Agent 写 Pitch 用）
 - **个人 IP · Owner 参考原件（PDF/截图 · 索引）：** `content/personal-ip/reference/INDEX.md` · `reference/capstone-ai-builders/` · `reference/kpi-source/`（**非** Brief 正文；见 INDEX「何时 Must 读」）
 

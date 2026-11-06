@@ -1,0 +1,150 @@
+{
+  "version": "2026-11-06",
+  "purpose": "CEO 派活 · 国内/国际双路径 · 几十万粉大 V 成长轨迹 + 文案/配图借鉴",
+  "owner_product_in_brand_agent": "张丹瀛/Danying（FluteBuddy=对外软件，本仓=宣传）",
+  "follower_floor_note": "优先 ≥400k； flute 垂直 IG 稀缺时允许 ≥300k 顶流 + 标注 niche_exception",
+  "drive_corpus_folders": "integration/handoff/ceo-drive-corpus-folders.json",
+  "sync_doc_local": "content/evolution/00-manager/ceo-inbox/CEO-BENCHMARK-GROWTH-PATHS-2026-11-06.md",
+  "google_doc_link": "https://docs.google.com/document/d/1eVHpsMOI3JLEwGq4F3ItnXuUpWsYoyhbivgwqWLA7Nc/edit",
+  "google_doc_id": "1eVHpsMOI3JLEwGq4F3ItnXuUpWsYoyhbivgwqWLA7Nc",
+  "drive_handoff": "integration/handoff/owner-benchmark-paths-drive-latest.json",
+  "paths": {
+    "domestic_cn": {
+      "label": "国内路径",
+      "platforms": ["xiaohongshu", "wechat_channels_future", "bilibili_mirror"],
+      "creators": [
+        {
+          "handle": "谢胜子极致进化学",
+          "platform": "xiaohongshu",
+          "followers_approx": 200000,
+          "overlap": ["文化判断", "态度", "认知"],
+          "growth_arc": ["高频直播+切片", "矩阵号", "评论对抗换推流", "私人金句混商业思考"],
+          "copy_steal": ["一句态度打头", "干货里有人", "敢写关系边界"],
+          "visual_steal": ["口播近景", "字幕金句卡", "不棚拍高大上"],
+          "for_danying": ["听见+长笛观点帖", "IP 生活化", "非 KPI 成长号"]
+        },
+        {
+          "handle": "天才女友GG",
+          "platform": "xiaohongshu",
+          "followers_approx": 319000,
+          "aliases": ["天才少女G"],
+          "overlap": ["时尚社会学", "审美", "文化"],
+          "growth_arc": ["时尚媒体人背景", "首条长视频讲大众时尚意识", "单篇互动 6万+ 级破圈", "金冠薯+品牌企划"],
+          "copy_steal": ["现象+你的判断", "延伸到身份/文化自信", "像聊天不像教程"],
+          "visual_steal": ["一条视频一个论点", "人脸+字幕", "无杂志风硬照堆"],
+          "for_danying": ["把「法派长笛/听见」当文化现象写", "审美先行"]
+        },
+        {
+          "handle": "画画的玉玉卿",
+          "platform": "xiaohongshu",
+          "followers_approx": 1000000,
+          "overlap": ["国风", "艺术", "文物叙事"],
+          "growth_arc": ["半道出家插画师", "文物拟人系列", "单篇10万+赞", "国家宝藏合作→百万粉约3年"],
+          "copy_steal": ["一件器物一个灵魂", "短句画面感", "文化认同>技巧炫耀"],
+          "visual_steal": ["统一水墨审美", "拟人角色一致", "过程镜头"],
+          "for_danying": ["听见曲目=一个故事", "视觉系列化"]
+        },
+        {
+          "handle": "何水晶",
+          "platform": "xiaohongshu",
+          "followers_approx": 877000,
+          "overlap": ["画家", "艺术过程"],
+          "growth_arc": ["认证画家", "绘画过程视频", "作品+生活", "87万+粉"],
+          "copy_steal": ["过程即内容", "专业不术语"],
+          "visual_steal": ["强色彩", "手部/笔触特写"],
+          "for_danying": ["练琴/排练过程片", "艺术现场"]
+        }
+      ]
+    },
+    "international_en": {
+      "label": "国际路径",
+      "platforms": ["instagram", "linkedin", "medium", "youtube_shorts"],
+      "creators": [
+        {
+          "handle": "@hausercello",
+          "platform": "instagram",
+          "followers_approx": 7300000,
+          "overlap": ["古典×流行视觉", "跨圈层", "听见Daily同类：音乐日常"],
+          "growth_arc": [
+            "古典学院派大提琴手",
+            "2018+ 与 Luca 组合 2CELLO 破圈",
+            "solo 后 cinematic 封面+户外大片",
+            "GROOVE：2022–2025 IG 1.8M→4.1M；TikTok 0→1.4M；Shorts 0→148K sub / 16.3M views"
+          ],
+          "copy_steal": ["短 caption 情绪词", "巡演/新单 CTA", "人格=王者但可接近"],
+          "visual_steal": ["电影感竖版", "地标+乐器", "Reels 一钩子一曲"],
+          "sources": ["https://www.instagram.com/hausercello/", "https://groovemedia.org/work/hauser"],
+          "for_danying": ["Danying HEAR Daily IG：一曲一画面", "墨尔本/现场", "不学术腔"]
+        },
+        {
+          "handle": "@twosetviolin",
+          "platform": "instagram",
+          "followers_approx": 957000,
+          "overlap": ["古典音乐普及", "幽默", "年轻受众"],
+          "growth_arc": ["澳音乐学院背景", "YouTube 古典梗", "巡演+周边", "IG 同步梗图/幕后/教育"],
+          "copy_steal": ["自嘲+专业", "community 内梗", "短句 punchline"],
+          "visual_steal": ["双人构图", "排练室真实", "meme 式封面"],
+          "for_danying": ["长笛版「练琴真相」", "听见冷知识", "尊重专业不贬古典"]
+        },
+        {
+          "handle": "@langlangpiano",
+          "platform": "instagram",
+          "followers_approx": 1000000,
+          "overlap": ["华人古典顶流", "教育", "跨界"],
+          "growth_arc": ["国际比赛出圈", "UNESCO 等公共角色", "IG=巡演+教育+家庭侧写", "与流行艺人合作放大"],
+          "copy_steal": ["中英短句", "大师但亲和", "教育使命一句"],
+          "visual_steal": ["红琴 iconic", "后台+娃/学生", "高饱和舞台"],
+          "for_danying": ["法派传承+国际生活", "中英双轨 HEAR Daily"]
+        },
+        {
+          "handle": "@jasminechoi_flutist",
+          "platform": "instagram",
+          "followers_approx": 346500,
+          "niche_exception": "长笛垂直 IG 第一档；略低于40万但必扒",
+          "overlap": ["长笛", "演奏家", "巡演日记"],
+          "growth_arc": ["国际独奏家长笛", "IG=演出日程+短 clip", "专业但频繁更新"],
+          "copy_steal": ["日期+地点+一句感想", "标签乐团/指挥"],
+          "visual_steal": ["舞台侧拍", "竖屏 clip", "礼服/现场光"],
+          "for_danying": ["法派长笛技术帖", "与 Jasmine 区分：更多生活+品牌"]
+        },
+        {
+          "handle": "@nik.classical",
+          "platform": "instagram",
+          "followers_approx": 449000,
+          "overlap": ["Z 世代古典", "教育使命"],
+          "growth_arc": ["2023-09 起号", "伦敦学生钢琴", "一年内→约45万", "TikTok/IG 同步短教育"],
+          "copy_steal": ["「古典可以酷」", "一条一知识点", "第一人称"],
+          "visual_steal": ["琴键特写", "字幕科普", "卧室练琴真实"],
+          "sources": ["https://debut.org.uk/blog/2024/5/22/meet-nikclassical-a-man-on-a-mission-to-get-the-younger-generation-talking-about-classical-music"],
+          "for_danying": ["FluteBuddy=让练在家也「酷」", "年轻家长视角"]
+        },
+        {
+          "handle": "@estherabrami",
+          "platform": "instagram",
+          "followers_approx": 358500,
+          "overlap": ["小提琴", "女性演奏家", "教育者"],
+          "growth_arc": ["RCM/RBC 训练", "短视频平台同步", "TT 415k / YT 300k / IG 265k+", "ESO 驻场→权威+亲和"],
+          "copy_steal": ["练习室 vulnerable", "教育句+演出预告"],
+          "visual_steal": ["暖色练习室", "近景表情", "Stories 问答"],
+          "for_danying": ["女性演奏者社媒羞怯→发声", "Martha Eason 叙事同类"]
+        },
+        {
+          "handle": "Lara Acosta / Justin Welsh",
+          "platform": "linkedin",
+          "followers_approx": 369000,
+          "note": "LinkedIn 已在 owner-ip-benchmark-creators；国际路径文案主战场",
+          "growth_arc": ["故事帖破圈", "Newsletter/课程栈", "周三故事 rhythm"],
+          "for_danying": ["英文 story→lesson", "HEAR Daily 链接 Medium"]
+        }
+      ]
+    }
+  },
+  "recommendations_for_ceo": [
+    "国内：小红书为主轴，B站/视频号镜像；每条至少 1 生活故事 + 1 文化审美判断",
+    "国际：Instagram（Danying HEAR Daily 英文）+ LinkedIn 故事 + Medium 长文；Reels 学 HAUSER/Esther 竖屏一钩子",
+    "长笛垂直 IG 少：Jasmine 346k 必跟；跨类学 HAUSER/TwoSet/Lang Lang 的「破圈视觉与短 caption」",
+    "FluteBuddy：国际路径用 nik.classical 式「练习可以酷」+ 国内用家庭场景；产品 ≤30%",
+    "每次写稿：domestic 池 + international 池各 ≥1 高互动帖进 attestation",
+    "配图：电影感现场（HAUSER）+ 真实练琴（nik）+ 高审美静态（玉玉卿/何水晶）三选一组合"
+  ]
+}

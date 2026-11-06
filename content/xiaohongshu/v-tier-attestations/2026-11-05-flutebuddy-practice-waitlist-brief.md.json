@@ -1,0 +1,32 @@
+{
+  "brief": "content/xiaohongshu/2026-11-05-flutebuddy-practice-waitlist-brief.md",
+  "track": "flutebuddy_product",
+  "checked_at": "2026-11-05",
+  "live_corpus": "integration/handoff/owner-copy-v-tier-live-corpus.json",
+  "corpus_entry_ids": [
+    "li-jw-unreachable",
+    "li-lara-rejected",
+    "md-martha-performer-12",
+    "xhs-smzdm-flute-rank",
+    "xhs-xieshengzi-attitude",
+    "xhs-tiancainvyou-gg-sociology"
+  ],
+  "session_fresh_posts": [
+    {
+      "id": "sess-li-jw-viral-2020",
+      "platform": "linkedin",
+      "creator_handle": "Justin Welsh",
+      "creator_followers_approx": 580000,
+      "title": "In 2020, I had a post take off. 11M views — and nothing happened.",
+      "post_url": "https://www.linkedin.com/posts/justinwelsh_in-2020-i-had-a-post-take-off-11-m-views-activity-7352168287620722688-dxaW",
+      "engagement": { "reactions": 1681, "comments": 597 },
+      "engagement_rate_note": "高转评比≈35% · 当次新扒",
+      "captured_at": "2026-11-05",
+      "source": "LinkedIn 帖文页 · 当次写前打开",
+      "style_steal": ["反 viral 叙事", "写给一个具体的人", "产品轨学结构不学 solopreneur 人设"]
+    }
+  ],
+  "owner_review_still_required": true,
+  "auto_style_score": false,
+  "style_transfer_intent": "FluteBuddy：家庭场景第一人称+短段；LinkedIn 学一句结论+对照列表；小红书 Must 有文化/审美语感——对标谢胜子态度口播+天才女友GG式「现象+判断」，乐器帖用高赞争议/生活化，禁止 SaaS 功能体。"
+}

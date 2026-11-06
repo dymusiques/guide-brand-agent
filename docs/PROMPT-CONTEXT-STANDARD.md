@@ -41,7 +41,8 @@ content_sha256: "fcac933726efa12f"
 - **Open WebUI：** 有界 RAG + Pipe 草稿 → **outbox/intake 文件**；不替代 T2 搜索，不替代 Git 定稿。
 - **小红书资料夹（写文案时 Must）：** 执行脚本 `scripts/screen-xhs-drive-corpus.py --goal "<原话>"`（CEO 全量与 Router 已调用）。读它写出的 `content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.md`，再打开入选原件。资料库由 Cursor 按文件打开；Open WebUI 切分只用在这一篇长稿的输出上。筛掉的文件留在 Drive，不写进 prompt。
 
-全文：[AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](./AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md) · manifest 示例：`integration/handoff/drive-context-manifest.json.example`
+全文：[AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](./AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md) · manifest 示例：`integration/handoff/drive-context-manifest.json.example`  
+**Simon+Anthropic 融合（CEO/长文 Must）：** [DRIVE-LONG-CONTEXT-FUSION.md](./DRIVE-LONG-CONTEXT-FUSION.md) · `integration/handoff/drive-long-context-fusion.json` · `scripts/build-drive-long-context-fusion.py`
 
 
 ## 2. 输出长度 → 路由（防输出窗口偷懒）

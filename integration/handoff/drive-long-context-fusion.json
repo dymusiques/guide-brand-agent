@@ -1,0 +1,207 @@
+{
+  "version": "2026-11-05",
+  "tagline": "Simon：数据少进 LLM；Anthropic：先进 LLM 的必须引用优先、外置 memory。Drive 背书两条都要。",
+  "docs_human": "docs/DRIVE-LONG-CONTEXT-FUSION.md",
+  "docs_must_read": [
+    "docs/AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md",
+    "docs/PROMPT-CONTEXT-STANDARD.md",
+    "docs/CONTEXT-WINDOW-AND-DATA-ROUTING.md",
+    "rules/skills/skill_google_docs.md"
+  ],
+  "drive_tiers": {
+    "T0_git": {
+      "what": "content/ docs/ agents/ 定稿与 SOP",
+      "agent": "Must 优先读 Git，不复制整段 chat"
+    },
+    "T1_curated": {
+      "what": "drive-context-manifest.json tier1 文件夹",
+      "agent": "可 Open WebUI brand-ip-knowledge RAG 短问，必须 Sources",
+      "never": "代替 T2 精读"
+    },
+    "T2_ocean": {
+      "what": "Drive 书海 / 小红书资料库等海量文件",
+      "agent": "screen → 按需 gdocs 打开 → 写入 evidence scratchpad",
+      "never": "全量 embedding、整库贴进 prompt"
+    }
+  },
+  "lines": {
+    "simon_willison": {
+      "focus": "数据怎么流动（少进 LLM）",
+      "practices": [
+        "先目录/元数据（listing、screen shortlist），再按需读单个文件",
+        "正文用 gdocs CLI / Drive MCP 落到磁盘或 mirror，不粘贴进 chat",
+        "多文件用脚本步骤串联；大段正文可不经过模型",
+        "可选：Drive listing → sqlite/JSON 索引（google-drive-to-sqlite 思路）"
+      ],
+      "references": [
+        "https://simonwillison.net/2024/Aug/26/long-context-prompting-tips/",
+        "https://simonwillison.net/2025/Nov/4/code-execution-with-mcp/"
+      ]
+    },
+    "anthropic": {
+      "focus": "进 LLM 的那一段怎么写、多轮怎么不丢",
+      "practices": [
+        "长材料在 prompt 上方，问题与指令在下方",
+        "阶段 A：只抽 direct quotes（原文「…」），再阶段 B 合成",
+        "事实、数字、Owner 约束写入 Git evidence/intake，不靠 compaction 摘要",
+        "可重新拉取的 tool 结果不要长期堆在 context（tool-result clearing 思路）"
+      ],
+      "references": [
+        "https://www.anthropic.com/news/prompting-long-context",
+        "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+      ]
+    },
+    "merged_iron_rules": [
+      "禁止把整片 Google Drive 或整篇长 chat 当作定稿 prompt",
+      "禁止无 drive_file_id / 无原文摘录的 Drive 事实写进 Brief 或 HTML",
+      "T2 必须 screen → 打开 ≤max_files_per_task 个原件 → evidence scratchpad",
+      "长文输出可走 Open WebUI Pipe；事实只认 Git 里的 evidence/intake",
+      "合成前 Must 完成 phase_a_extract_quotes；不够则继续读或标未解决，禁止硬编"
+    ]
+  },
+  "artifacts": {
+    "fusion_manifest": "integration/handoff/drive-long-context-fusion.json",
+    "ceo_corpus_folders": "integration/handoff/ceo-drive-corpus-folders.json",
+    "ceo_catalog_live": "content/personal-ip/intake/_raw/ceo-drive-catalog-live.json",
+    "refresh_catalog_script": "scripts/refresh-ceo-drive-catalog.py",
+    "drive_context_manifest": "integration/handoff/drive-context-manifest.json",
+    "screen_script": "scripts/ceo-task-drive-corpus-screen.py",
+    "corpus_screen_lib": "scripts/ceo_corpus_screen_lib.py",
+    "corpus_screens_dir": "content/evolution/00-manager/ceo-inbox/corpus-screens",
+    "screen_md": "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.md",
+    "screen_json": "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.json",
+    "task_binding_latest": "content/evolution/00-manager/ceo-inbox/drive-fusion-task-latest.json",
+    "evidence_path_template": "content/personal-ip/intake/{slug}-drive-evidence.md",
+    "intake_path_template": "content/personal-ip/intake/{slug}.md",
+    "brief_drive_section": "## Drive 背书"
+  },
+  "limits": {
+    "max_files_per_task": 8,
+    "max_open_files_without_evidence_update": 0,
+    "min_quote_chars": 8,
+    "max_excerpt_chars_per_file": 12000
+  },
+  "text_extraction": {
+    "script": "scripts/drive_corpus_extract_text.py",
+    "formats": [
+      "pdf (pdftotext / optional pypdf)",
+      "docx pptx xlsx",
+      "epub fb2",
+      "mobi azw azw3 (calibre ebook-convert if installed)",
+      "txt md html csv json xml rtf"
+    ],
+    "fallback": "Google Docs/Sheets/Slides export via gdocs drive download then extract"
+  },
+  "ceo_pipeline_order": [
+    {
+      "order": 0,
+      "id": "read_fusion_manifest",
+      "action": "读 fusion JSON（本文件）",
+      "path": "integration/handoff/drive-long-context-fusion.json",
+      "must_not_skip": true
+    },
+    {
+      "order": 1,
+      "id": "screen_catalog",
+      "action": "按 goal 筛文件名（不写 body 进 prompt）",
+      "script": "python3 scripts/screen-xhs-drive-corpus.py --goal \"<Owner原话>\"",
+      "outputs": [
+        "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.md"
+      ],
+      "must_not_skip": true
+    },
+    {
+      "order": 2,
+      "id": "bind_task",
+      "action": "自动 bind（从 manifest/brief/screen 读 goal，无需 Owner 重复原话）",
+      "script": "python3 scripts/build-drive-long-context-fusion.py --auto --phase ceo_dispatch",
+      "outputs": [
+        "content/evolution/00-manager/ceo-inbox/drive-fusion-task-latest.json"
+      ],
+      "must_not_skip": true
+    },
+    {
+      "order": 2.5,
+      "id": "pre_delivery_gate",
+      "action": "定稿前：hydrate（如需）+ validate evidence",
+      "script": "python3 scripts/build-drive-long-context-fusion.py --auto --phase pre_delivery [--brief path]",
+      "must_not_skip": true
+    },
+    {
+      "order": 3,
+      "id": "read_originals",
+      "action": "对 shortlist 逐个 gdocs/Drive 读原件（Simon）",
+      "skill": "rules/skills/skill_google_docs.md",
+      "must_not_skip": true
+    },
+    {
+      "order": 4,
+      "id": "phase_a_quotes",
+      "action": "写入 evidence scratchpad：仅原文摘录 + file id（Anthropic）",
+      "path_template": "content/personal-ip/intake/{slug}-drive-evidence.md",
+      "must_not_skip": true
+    },
+    {
+      "order": 5,
+      "id": "phase_b_synthesize",
+      "action": "写稿/Brief 只引用 evidence；长输出走 Open WebUI Pipe",
+      "router": "scripts/run-openwebui-router-pipeline.sh",
+      "must_not_skip": false
+    },
+    {
+      "order": 6,
+      "id": "cross_check_t1",
+      "action": "可选：T1 RAG 短问交叉核对，要 Sources",
+      "must_not_skip": false
+    },
+    {
+      "order": 7,
+      "id": "ceo_gate_evolution",
+      "action": "evolution / gate；analyze-brief-evolution-gap 查 Drive 摘录",
+      "script": "scripts/analyze-brief-evolution-gap.py",
+      "must_not_skip": true
+    }
+  ],
+  "prompt_templates": {
+    "phase_a_extract_quotes": "你正在做阶段 A（只抽取，不写作）。\n文件：{file_name} · drive_file_id={file_id}\n目标：{goal_one_line}\n只输出与目标相关的 direct quotes：每条用中文书名号「…」包住原文，每条注明来自该文件的哪一段（小节/页码若可知）。\n若无相关内容，只写 NONE。禁止总结、禁止结论。",
+    "phase_b_synthesize": "你正在做阶段 B（合成）。\n只能使用 evidence 文件中的 quote id 与原文；每条主张必须指向 evidence 里的一条 quote。\nevidence 路径：{evidence_path}\n目标：{goal_one_line}\n禁止引入 evidence 中未出现的 Drive 事实。"
+  },
+  "evidence_file_schema": {
+    "required_frontmatter_keys": [
+      "goal_one_line",
+      "drive_files",
+      "created_at"
+    ],
+    "required_sections": [
+      "## 摘录（原文）",
+      "## 用于本任务的判断（须指向摘录）",
+      "## 未解决 / 待读"
+    ],
+    "quote_pattern": "「"
+  },
+  "forbidden": [
+    "跳读 fusion manifest 直接写长稿",
+    "screen 后不开原件就写 Drive 背书",
+    "把 gdocs 全文贴进 Cursor chat",
+    "用 Open WebUI RAG 代替 T2 精读",
+    "用 chat 摘要代替 evidence 文件",
+    "无「」原文摘录就定稿"
+  ],
+  "verify": {
+    "write_manifest": "python3 scripts/build-drive-long-context-fusion.py --write-manifest",
+    "auto_ceo": "python3 scripts/build-drive-long-context-fusion.py --auto --phase ceo_dispatch",
+    "auto_pre_delivery": "python3 scripts/build-drive-long-context-fusion.py --auto --phase pre_delivery",
+    "auto_full": "bash scripts/run-drive-long-context-fusion-auto.sh",
+    "shell": "bash scripts/verify-drive-long-context-fusion.sh"
+  },
+  "auto_phases": {
+    "ceo_dispatch": "CEO 派活：screen 后 bind + task-latest（不 validate）",
+    "pre_delivery": "定稿前：bind 刷新 + gdocs hydrate + validate（FAIL→exit 42）",
+    "full": "ceo_dispatch 然后 pre_delivery"
+  },
+  "related_handoff": [
+    "integration/handoff/ceo-full-execution-cycle.json",
+    "integration/handoff/cursor-openwebui-task-routing.json"
+  ],
+  "generated_at": "2026-11-05T04:08:26Z"
+}

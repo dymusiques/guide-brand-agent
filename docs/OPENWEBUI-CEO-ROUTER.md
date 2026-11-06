@@ -30,6 +30,9 @@ content_sha256: "229b915ef4ec9ede"
 
 # Open WebUI × CEO Router（Must）
 
+> **在总架构中的位置：** **Cursor CEO 主链的可选步 −1**（见 [`CEO-FULL-EXECUTION-MANDATE.md`](./CEO-FULL-EXECUTION-MANDATE.md)）。多数 gate/verify/改稿任务 **route=SKIP**，不必调 Open WebUI。  
+> **Drive：** CEO 资料库筛选与 gdocs hydrate 走 **Cursor + 本仓脚本**；**不必**把整盘 CEO catalog 同步进 Open WebUI。仅当 route 用 `RAG_ONLY` / Pipe+Knowledge 时，可选同步 **T1 精选文件夹** 到 `# brand-ip-knowledge`（见 [`AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md`](./AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md)）。
+
 > **机器入口：** `bash scripts/run-openwebui-router-pipeline.sh --goal "…"`  
 > **验收：** `bash scripts/verify-openwebui-ceo-router.sh`  
 > **E2E（CEO→Open WebUI→outbox→handoff）：** `bash scripts/run-ceo-openwebui-e2e-workflow-test.sh`

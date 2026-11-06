@@ -1,0 +1,80 @@
+{
+  "version": "2026-11-05",
+  "doc": "docs/OWNER-SUCCESS-METRICS-MAP.md",
+  "applies_to": ["flutebuddy_product", "personal_ip_ecosystem"],
+  "overall_min_weighted": 80,
+  "score_scale": "0-100 per dimension",
+  "evidence_required": true,
+  "dimensions": [
+    {
+      "id": "cultural_judgment",
+      "label": "文化/艺术/审美判断",
+      "weight": 0.22,
+      "min_score": 75,
+      "agent_checks": [
+        "至少引用 attestation 里 1 条 cultural_art_aesthetic 帖的语气结构",
+        "有具体文化/审美/艺术名词，非抽象「高品质」",
+        "FluteBuddy/IP 均适用"
+      ]
+    },
+    {
+      "id": "private_narrative",
+      "label": "私人叙事与态度",
+      "weight": 0.2,
+      "min_score": 75,
+      "agent_checks": [
+        "第一人称场景或一句对话",
+        "有态度/代价，非中立百科",
+        "IP 轨：生活/关系；FB 轨：家庭/练琴场景"
+      ]
+    },
+    {
+      "id": "v_tier_rhythm",
+      "label": "大 V 节奏与扫读性",
+      "weight": 0.18,
+      "min_score": 70,
+      "agent_checks": [
+        "开场 3 行内可留住人",
+        "段长适合平台（XHS/LI/Medium）",
+        "对照 attestation 中 2+ URL 写 style_steal 对应"
+      ]
+    },
+    {
+      "id": "track_fit",
+      "label": "轨一致（人即品牌 / 非 SaaS）",
+      "weight": 0.18,
+      "min_score": 75,
+      "agent_checks": [
+        "IP：读者先感到「这个人」",
+        "FluteBuddy：Essence 家长不当裁判，非功能 bullet 堆",
+        "不抄谢胜子/KPI 成长号人设"
+      ]
+    },
+    {
+      "id": "product_exposure",
+      "label": "产品露出体感",
+      "weight": 0.07,
+      "min_score": 80,
+      "agent_checks": [
+        "单篇产品/功能叙述体感 ≤30% 篇幅",
+        "其余为故事/场景/判断"
+      ]
+    },
+    {
+      "id": "platform_voice",
+      "label": "平台口吻（evolution 口吻维对齐）",
+      "weight": 0.15,
+      "min_score": 80,
+      "agent_checks": [
+        "与 PLATFORM-HIT-STANDARDS 口吻维一致",
+        "LinkedIn 检索源若适用：正文链 ≤2"
+      ]
+    }
+  ],
+  "output_path_pattern": "content/xiaohongshu/rubric-scores/{brief_basename}.json",
+  "owner_gate": {
+    "id": "L3_owner_prose_approve",
+    "numeric_substitute": false,
+    "required_for_publish": true
+  }
+}

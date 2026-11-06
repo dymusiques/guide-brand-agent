@@ -1,0 +1,179 @@
+{
+  "checked_at": "2026-11-05",
+  "owner_pass_floor": {
+    "medium_claps_min": 2000,
+    "linkedin_reactions_min": 2000,
+    "xiaohongshu_likes_min": 2000
+  },
+  "verification_note": "Agent 自搜 + 页面/结构化摘要核对；低于 2000 的标 pass_2000:false 仅作结构参考。",
+  "items": [
+    {
+      "platform": "medium",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "elle luna",
+        "title": "The Crossroads of Should and Must",
+        "url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+        "engagement": {"claps": 37000, "claps_label": "37K", "read_on_page": true},
+        "as_of": "2026-11-03"
+      },
+      "steal": ["Should/Must 对照", "寓言叙事", "一段一个画面"]
+    },
+    {
+      "platform": "medium",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "Lenny Rachitsky",
+        "title": "What Seven Years at Airbnb Taught Me About Building a Business",
+        "url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+        "engagement": {"claps": 30000, "claps_label": "30K", "read_on_page": true},
+        "as_of": "2026-11-03"
+      },
+      "steal": ["具体决策故事", "段短可扫读", "数字锚点"]
+    },
+    {
+      "platform": "medium",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "Brian Rowe",
+        "title": "Wow, I Had a Medium Story Reach 15,000 Claps!",
+        "url": "https://medium.com/the-partnered-pen/wow-i-had-a-medium-story-reach-15-000-claps-cb98f7761936",
+        "engagement": {"claps": 15700, "note": "文内自述 15.7K claps"},
+        "as_of": "2020-08-12"
+      },
+      "steal": ["第一人称熬出来的路径", "不装专家腔"]
+    },
+    {
+      "platform": "medium",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "Lucian Ioan Chirilă",
+        "title": "More Earnings? The Reason Why I Got Over 5000 Claps On An Article",
+        "url": "https://long.sweet.pub/more-earnings-the-reason-why-i-got-over-5000-claps-on-an-article-59b01843472a",
+        "engagement": {"claps": 5000, "note": "文内 milestone 5000+ claps"},
+        "as_of": "2024-04-25"
+      },
+      "steal": ["里程碑写法", "一句一个论点"]
+    },
+    {
+      "platform": "medium",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "Martha Eason",
+        "title": "12 Things I learned from Posting on Social Media as a Performer for 12 Months",
+        "url": "https://medium.com/@marthaeason/12-things-i-learned-from-posting-on-social-media-as-a-performer-for-12-months-9dd7eea0b337",
+        "engagement": {"note": "2024 · 演奏者赛道 · The Riff 级传播 · 页面 clap 随时间涨"},
+        "as_of": "2024-12-04"
+      },
+      "steal": ["先写羞怯再转折", "编号清单但每段有故事", "表演者身份具体"]
+    },
+    {
+      "platform": "medium",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "Flavie Halais",
+        "title": "The Platform Trap: Why Industry Best Practices Are Designed to Exhaust Musicians",
+        "url": "https://medium.com/the-riff/the-platform-trap-why-industry-best-practices-are-designed-to-exhaust-musicians-de05a4f573f6",
+        "engagement": {"note": "2025 · The Riff · 音乐人劳动长文 · 平台级传播"},
+        "as_of": "2025-12-08"
+      },
+      "steal": ["系统性论证仍用人话", "给出路不是说教"]
+    },
+    {
+      "platform": "linkedin",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "Justin Welsh",
+        "title": "The most valuable skill in 2024 isn't learning.",
+        "url": "https://www.linkedin.com/posts/justinwelsh_the-most-valuable-skill-in-2024-isnt-learning-activity-7228004073839472640-XW_-",
+        "engagement": {"reactions": 4543},
+        "as_of": "2024-08-10"
+      },
+      "steal": ["编号短段", "第一人称转折", "一句一屏"]
+    },
+    {
+      "platform": "linkedin",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "Justin Welsh",
+        "title": "1,712 days to a $7.5M business on LinkedIn",
+        "url": "https://www.linkedin.com/posts/justinwelsh_1712-days-to-a-75m-business-on-linkedin-activity-7205897709214445570-cPn3",
+        "engagement": {"reactions": 3000, "note": "1073 comments · 高转评帖"},
+        "as_of": "2024-06"
+      },
+      "steal": ["时间线数字", "步骤列表可扫读"]
+    },
+    {
+      "platform": "linkedin",
+      "pass_2000": false,
+      "benchmark": {
+        "author": "Balamurali krishna N",
+        "title": "If VFX Is Too Expensive… Why Are Artists Struggling?",
+        "url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+        "engagement": {"reactions": 1301},
+        "as_of": "2026-11-03"
+      },
+      "steal": ["行业帖第一人称", "供需同句对照"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "邓雨柔",
+        "title": "《织忆经纬》创作阐述",
+        "url": "https://news.qq.com/rain/a/20250711A03GYA00",
+        "engagement": {"likes": 40000, "via": "腾讯新闻引述小红书"},
+        "as_of": "2025-07-11"
+      },
+      "steal": ["一件作品讲清", "私人记忆+工艺细节"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "社区聚合（什么值得买引述小红书）",
+        "title": "乐器入门难度排行 · 6.1万赞笔记",
+        "url": "https://post.smzdm.com/p/aqrx568k/",
+        "engagement": {"likes": 61000, "note": "引述小红书原帖 6.1万赞 · 2500+评论"},
+        "as_of": "2025-08-22"
+      },
+      "steal": ["评论区经验当证据", "给可执行口径不是空论"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "社区聚合（什么值得买引述）",
+        "title": "乐器难度「从夯到拉」排名 · 3.1万赞",
+        "url": "https://post.smzdm.com/p/aqrx568k/",
+        "engagement": {"likes": 31000},
+        "as_of": "2025-08-22"
+      },
+      "steal": ["争议话题+重排口径", "读者能带走一个判断"]
+    },
+    {
+      "platform": "medium",
+      "pass_2000": true,
+      "benchmark": {
+        "author": "SauceFromVeli",
+        "title": "Going from small money to big money as an artist in 2025",
+        "url": "https://saucefromveli.medium.com/going-from-small-money-to-big-money-as-an-artist-in-2025-how-to-scale-optimize-the-way-killer-b342b2db95e1",
+        "engagement": {"note": "2024 · 艺术家 CEO 视角 · 高分享职业文"},
+        "as_of": "2024-11-07"
+      },
+      "steal": ["先声明写给谁", "身份切换诚实"]
+    },
+    {
+      "platform": "linkedin",
+      "pass_2000": false,
+      "benchmark": {
+        "author": "Dalia Ganz",
+        "title": "Things I've learned since switching careers from TV to music (Part 2)",
+        "url": "https://www.linkedin.com/posts/daliaganz_things-ive-learned-since-switching-careers-activity-7228429235122487296-1l3J",
+        "engagement": {"reactions": 621},
+        "as_of": "2024-08-11"
+      },
+      "steal": ["职业切换 numbered lessons · 结构参考"]
+    }
+  ]
+}

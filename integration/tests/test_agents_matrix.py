@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""All agents · 6 cases each (10 × 6 = 60)."""
+"""All agents · structural cases plus the four-dimension contract."""
 
 from __future__ import annotations
 

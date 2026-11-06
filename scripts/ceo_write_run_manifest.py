@@ -21,12 +21,24 @@ def main() -> int:
     data.setdefault("generated_at", datetime.now(timezone.utc).isoformat())
     data.setdefault("doc", "docs/OWNER-CHAT-DELIVERY-FORMAT.md")
     day = datetime.now().strftime("%Y-%m-%d")
-    html = INBOX / f"OWNER-XHS-FILTER-DELIVERABLE-{day}.html"
-    data.setdefault(
-        "owner_html_file",
-        str(html.relative_to(ROOT)) if html.is_file() else f"content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-{day}.html",
-    )
-    data["owner_html_uri"] = f"file://{html.resolve()}#owner-latest" if html.is_file() else ""
+    custom = os.environ.get("CEO_OWNER_DELIVERABLE_PATH", "").strip()
+    if custom:
+        cp = ROOT / custom if not custom.startswith("/") else Path(custom)
+        data["owner_html_file"] = custom
+        data["owner_html_uri"] = f"file://{cp.resolve()}" if cp.is_file() else ""
+        data["owner_html_note"] = "本轮主交付（非 FILTER 通知板）"
+    else:
+        html = INBOX / f"OWNER-XHS-FILTER-DELIVERABLE-{day}.html"
+        data.setdefault(
+            "owner_html_file",
+            str(html.relative_to(ROOT)) if html.is_file() else f"content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-{day}.html",
+        )
+        hash_suffix = os.environ.get("CEO_OWNER_HTML_HASH", "")
+        if html.is_file():
+            data["owner_html_uri"] = f"file://{html.resolve()}{hash_suffix}"
+        else:
+            data["owner_html_uri"] = ""
+        data.setdefault("owner_html_note", "小红书 Discovery FILTER 通知板（仅 Brief/筛选任务）")
 
     INBOX.mkdir(parents=True, exist_ok=True)
     jpath = INBOX / "CEO-RUN-MANIFEST-latest.json"

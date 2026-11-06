@@ -16,7 +16,7 @@ content_sha256: "51c074cc4c262b5c"
 - **Cursor:** `read`
 
 ## 章节锚点
-- **基本信息**: - **Name:** 张丹瀛 / Danying Zhang
+- **基本信息**: - **Name:** 张丹瀛 · Western: **Danying** · Formal EN: Danying Zhang
 - **个人 IP**: - **一句话定位：** 法派长笛传承 × 跨界品牌策划——帮品牌、艺术家、教育者与 AI 创新者，把古典艺术里不可替代的审美与叙事，翻译成可合作、可传播、可沉淀为数字藏品的稀缺语言。
 - **协作偏好**: - 回复语言：简体中文（代码与命令保持原文）
 - **相关 Skill（个人级，Cursor 全局）**: - `danying-tingjian-daily` — 每日长笛栏目生产
@@ -33,12 +33,19 @@ content_sha256: "51c074cc4c262b5c"
 
 ## 基本信息
 
-- **Name:** 张丹瀛 / Danying Zhang
+- **Name（中文）：** 张丹瀛  
+- **Western / 英文呼名：** **Danying**（拼音；多数西方人日常这样叫）  
+- **Formal EN：** Danying Zhang（需全名时：LinkedIn、合同、bio）  
 - **Primary brand:** Danying 听见 Daily（长笛资讯栏目）；Instagram: Danying HEAR Daily
 - **Channels:** 小红书、Instagram；未来：视频号
 
+## 产品（CEO Must）
+
+- **FluteBuddy / Flute Buddy / FluteBuddy practice：** 长笛练习分析 App（对外宣传名 **FluteBuddy** · 摘要 `content/product/flutebuddy-ceo-snapshot.md` · 代码 `../flute-practice-buddy`）
+
 ## 个人 IP
 
+- **终极成功目标（G-PERSON-IS-BRAND）：** 无论与谁合作，认的都是 **张丹瀛 / Danying 本人**——人即品牌；中文语境用「张丹瀛」，英文/西方语境用 **Danying**；合作项目在案例层，人设层始终是「我」。
 - **一句话定位：** 法派长笛传承 × 跨界品牌策划——帮品牌、艺术家、教育者与 AI 创新者，把古典艺术里不可替代的审美与叙事，翻译成可合作、可传播、可沉淀为数字藏品的稀缺语言。
 - **目标受众（一句话）：** 寻求高质感艺术叙事与跨界合作的品牌与艺术家，关注音乐成长路径的学生与家长，以及探索 AI 创新、数字藏品与艺术 IP 数字化的新兴领域从业者。
 - **品牌合作范围：** 跨行业 open，**不排斥任何品类合作**；**不单品类绑定**（勿把账号框成任一垂直主攻号；家居仅为曾误绑示例）。详情见 IP Brief「品牌合作范围」。

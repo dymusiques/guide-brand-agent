@@ -1,0 +1,121 @@
+{
+  "checked_at": "2026-11-05",
+  "method": "Agent 自搜公开报道/平台主页/新榜摘要；粉丝数为约数，须定期复核。",
+  "purpose": "深扒大 V 的人设与生态链做法，供张丹瀛 IP 轨对标——学结构，不抄人设。",
+  "anti_pattern": "只堆专业背书、无私人叙事 → 像品牌手册，不是生态链",
+  "cultural_art_aesthetic_standard": "docs/OWNER-COPY-V-TIER-CULTURAL-ART-STANDARD.md",
+  "cultural_art_aesthetic_pool": "integration/handoff/owner-copy-v-tier-cultural-art-creators.json",
+  "items": [
+    {
+      "platform": "xiaohongshu",
+      "handle": "天才女友GG",
+      "aliases": ["天才少女G"],
+      "followers_approx": "31.9万+ · 时尚社会学",
+      "persona": "时尚社会学 · 审美/文化自信/女性叙事",
+      "ecosystem": ["视频长口播", "全网同名", "时尚媒体视角"],
+      "what_works": ["现象+判断", "审美争议", "单篇高互动"],
+      "steal_for_danying": ["把长笛/听见写成文化现场", "审美态度先行", "不学纯穿搭 KPI"],
+      "url": "https://www.xiaohongshu.com/user/profile/6228ad7b0000000021027bb7",
+      "sources": ["热浪数据", "站长之家时尚博主企划"],
+      "owner_tags": ["cultural_art_aesthetic"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "谢胜子极致进化学",
+      "followers_approx": "20万+（新榜指数550+ · 867作品）",
+      "persona": "高能量 · 认知/关系/成长 · 直播+切片",
+      "ecosystem": ["主号观点", "直播号", "播客/私域", "橱窗课程"],
+      "what_works": ["私人化表达与金句", "评论区对抗换推流", "矩阵号渗透", "生活方式与商业思考混发"],
+      "steal_for_danying": ["敢写态度和关系观", "一条里既有干货也有「人」", "不回避争议但要有边界"],
+      "url": "https://www.xiaohongshu.com/user/profile/5eb2d83e00000000010005d9",
+      "sources": ["新榜主页", "即刻/播客公开访谈"],
+      "owner_tags": ["cultural_art_aesthetic", "cognition"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "独立女生小课堂",
+      "followers_approx": "56万+",
+      "persona": "独居女性 · 生活技能 vlog · 真人出镜",
+      "ecosystem": ["小红书+B站同发", "手把手场景", "商单"],
+      "what_works": ["极小痛点（修龙头）", "第一视角真实场景", "观众觉得「这就是我的生活」"],
+      "steal_for_danying": ["把专业翻译成「今晚回家就能用」", "家事/生活细节建立信任"],
+      "url": "https://www.xiaohongshu.com/search_result?keyword=独立女生小课堂",
+      "sources": ["36氪 2025", "卡思涨粉报告"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "她行技能站",
+      "followers_approx": "45万+（23条笔记起号案例）",
+      "persona": "女性实用技能 · 修理/居家",
+      "ecosystem": ["垂直简介一句话", "高密度商单"],
+      "what_works": ["人群+领域一句话锁死", "选题=生活障碍"],
+      "steal_for_danying": ["简介说清「我是谁+你为什么要关注」", "技能可以换成「练琴/听曲/家庭沟通」"],
+      "sources": ["腾讯新闻 2024-08"]
+    },
+    {
+      "platform": "xiaohongshu",
+      "handle": "尚雯婕Laure",
+      "followers_approx": "40天涨粉35万+（英语挑战）",
+      "persona": "明星+学霸反差 · 打卡挑战 · 直播改作业",
+      "ecosystem": ["话题挑战", "直播答疑", "粉丝交作业二创"],
+      "what_works": ["互动作业", "专业权威+娱乐化"],
+      "steal_for_danying": ["听见/练琴「跟练挑战」", "直播答疑而非单向说教"],
+      "sources": ["中华网 2024-10"]
+    },
+    {
+      "platform": "linkedin",
+      "handle": "Lara Acosta",
+      "followers_approx": "369k（LinkedIn 主页 2025 检索）",
+      "persona": "Educational Storyteller · 个人故事+清单+Lesson",
+      "ecosystem": ["LinkedIn 主战场", "Newsletter", "课程 Literally Academy", "Agency"],
+      "what_works": ["周三固定故事帖", "写发生在自己身上的事", "评论区养人设", "不日更但周三稳定"],
+      "steal_for_danying": ["故事→lesson→PS", "专业要具体，情绪要普遍", "评论深度=第二内容层"],
+      "url": "https://www.linkedin.com/in/laraacostar/",
+      "sources": ["LinkedIn profile", "Kleo interview"]
+    },
+    {
+      "platform": "linkedin",
+      "handle": "Justin Welsh",
+      "followers_approx": "580k+（公开帖文）",
+      "persona": "Solopreneur · 短段 numbered list · 反 corporate",
+      "ecosystem": ["Newsletter 220k+", "LinkedIn OS 课程", "Saturday Essay"],
+      "what_works": ["第一人称 unlearning", "可扫读编号", "不装专家腔"],
+      "steal_for_danying": ["一段一个观点", "职业转型故事线"],
+      "url": "https://www.linkedin.com/in/justinwelsh/",
+      "sources": ["LinkedIn 帖 4543 reactions 样本"]
+    },
+    {
+      "platform": "medium",
+      "handle": "Ayodeji Awosika",
+      "followers_approx": "115k–118k",
+      "persona": "每日写作 · 实用人生课 · 个人经历",
+      "ecosystem": ["Medium 主站", "Newsletter", "课程/会员"],
+      "what_works": ["Consistency", "从个人故事抽 lesson", "Practice in Public 社区"],
+      "steal_for_danying": ["一篇一个生活教训", "不装高大上哲学"],
+      "url": "https://medium.com/@ayodeji9805",
+      "sources": ["Medium 2024 统计文"]
+    },
+    {
+      "platform": "medium",
+      "handle": "Michael Thompson",
+      "followers_approx": "84k Medium",
+      "persona": "Raw personal · 害羞/销售/海外生活 · 书 Substack",
+      "ecosystem": ["Medium  viral 故事", "Substack Shy by Design", "咨询"],
+      "what_works": ["极度私人开头", "幽默+脆弱", "不写 niche 箱 CHECK"],
+      "steal_for_danying": ["亲朋好友故事（可 anonymize）", "海外生活+职业交叉"],
+      "url": "https://medium.com/@michael_th",
+      "sources": ["Substack 自述", "Tom Kuegler 访谈 2024"]
+    },
+    {
+      "platform": "medium",
+      "handle": "Martha Eason",
+      "followers_approx": "演奏者向 · 2024 长文传播",
+      "persona": "Opera singer · 社媒羞怯→一年实验",
+      "ecosystem": ["Instagram 主消费", "Medium 长反思", " coaching 衍生"],
+      "what_works": ["先写怕什么再写转变", "编号清单但每点有故事"],
+      "steal_for_danying": ["音乐家也怕发社媒——同频专业读者"],
+      "url": "https://medium.com/@marthaeason",
+      "sources": ["Medium 12 Things 2024"]
+    }
+  ]
+}

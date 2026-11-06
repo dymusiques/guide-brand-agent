@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CEO 派活 · 全链路思维导图 · danying-brand-agent</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #161b22;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --line: #30363d;
+    --accent: #58a6ff;
+    --owner: #3fb950;
+    --ceo: #1f6feb;
+    --copy: #d29922;
+    --brief: #bc8cff;
+    --deliver: #39c5cf;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "PingFang SC", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  .top {
+    position: sticky; top: 0; z-index: 50; background: #21262d; border-bottom: 1px solid var(--line);
+    padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  }
+  .top h1 { font-size: 1rem; margin: 0; flex: 1; min-width: 200px; }
+  .top button, .top a.btn {
+    background: var(--ceo); color: #fff; border: 0; padding: 8px 14px; border-radius: 8px;
+    font-weight: 600; cursor: pointer; text-decoration: none; font-size: 13px;
+  }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--muted); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+  #canvas-wrap {
+    position: relative; width: 100%; height: calc(100vh - 56px); overflow: auto;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, #1a2332 0%, var(--bg) 70%);
+  }
+  svg.edges { position: absolute; top: 0; left: 0; pointer-events: none; }
+  .node {
+    position: absolute; transform: translate(-50%, -50%); width: 112px; height: 112px;
+    border-radius: 50%; border: 3px solid var(--line); background: var(--panel);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 8px; cursor: pointer; font-size: 11px; line-height: 1.25; font-weight: 600;
+    transition: box-shadow .15s, border-color .15s; z-index: 2;
+  }
+  .node:hover, .node.on { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(88,166,255,.25); }
+  .node.owner { border-color: var(--owner); }
+  .node.ceo { border-color: var(--ceo); }
+  .node.copy { border-color: var(--copy); }
+  .node.brief { border-color: var(--brief); }
+  .node.deliver { border-color: var(--deliver); }
+  .node.hub { width: 128px; height: 128px; font-size: 12px; background: #1f3a5f; border-color: var(--ceo); }
+  #modal {
+    display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.55);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  #modal.show { display: flex; }
+  #modal-box {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    max-width: 520px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 20px 22px;
+    box-shadow: 0 16px 48px rgba(0,0,0,.5);
+  }
+  #modal-box h2 { margin: 0 0 8px; color: var(--accent); font-size: 1.15rem; }
+  #modal-box p { margin: 0 0 10px; font-size: 14px; line-height: 1.55; color: var(--text); }
+  #modal-box h3 { font-size: 12px; text-transform: uppercase; color: var(--muted); margin: 14px 0 6px; }
+  #modal-box ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  #modal-box code { font-size: 12px; background: #0d1117; padding: 2px 6px; border-radius: 4px; }
+  #modal-box a { color: var(--accent); }
+  .close { float: right; background: transparent; border: 0; color: var(--muted); font-size: 22px; cursor: pointer; }
+  .hint { font-size: 12px; color: var(--muted); padding: 8px 16px 16px; }
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>CEO 派活后全链路 · 点击圆点看延伸</h1>
+  <button type="button" id="btn-fit">居中</button>
+  <a class="btn" href="AGENT-TAKEOVER.md">Agent 接手</a>
+  <a class="btn" href="OWNER-SUCCESS-METRICS-MAP.md">成功指标地图</a>
+</div>
+<div class="legend" style="padding:0 16px 8px">
+  <span><i class="dot" style="background:var(--owner)"></i>Owner</span>
+  <span><i class="dot" style="background:var(--ceo)"></i>CEO/机器</span>
+  <span><i class="dot" style="background:var(--copy)"></i>文案 L1/L2/L3</span>
+  <span><i class="dot" style="background:var(--brief)"></i>Brief 进化</span>
+  <span><i class="dot" style="background:var(--deliver)"></i>HTML 交付</span>
+</div>
+<p class="hint">生成：2026-11-06 · 真源：<code>CEO-FULL-EXECUTION-MANDATE.md</code> + 双线/文案扩展 · 本仓=宣传非 FluteBuddy 调试</p>
+<div id="canvas-wrap">
+  <svg class="edges" id="svg" width="1200" height="900"></svg>
+</div>
+<div id="modal" role="dialog">
+  <div id="modal-box">
+    <button class="close" type="button" id="modal-close" aria-label="关闭">×</button>
+    <h2 id="m-title"></h2>
+    <p id="m-body"></p>
+    <h3>从哪来（上游）</h3>
+    <ul id="m-in"></ul>
+    <h3>连到哪（下游）</h3>
+    <ul id="m-out"></ul>
+    <h3>文件 / 脚本</h3>
+    <ul id="m-files"></ul>
+  </div>
+</div>
+<script>
+const NODES = [
+  { id:"owner", label:"Owner\n派活 / CEO开始", x:600, y:80, cls:"owner hub",
+    body:"口语目标或「CEO 开始执行」。本仓做宣传：张丹瀛 IP + FluteBuddy 叙事，不做 App 调试。",
+    files:["docs/CEO-OWNER-ONE-LINE-TRIGGERS.md","docs/OWNER-BRAND-AGENT-SCOPE.md"] },
+  { id:"recover", label:"自愈\nrecover", x:420, y:180, cls:"ceo",
+    body:"检查 deep-delivery/campaign 锁与阻塞，按需重跑。",
+    files:["scripts/ceo-auto-recover-blocked.sh","ceo-inbox/ceo-auto-recover-latest.md"] },
+  { id:"router", label:"OpenWebUI\nRouter −1", x:780, y:180, cls:"ceo",
+    body:"可选长文/RAG 路由；SKIP 则跳过。终稿仍在 Cursor CEO 链。",
+    files:["docs/OPENWEBUI-CEO-ROUTER.md","scripts/run-openwebui-router-pipeline.sh"] },
+  { id:"preflight", label:"Preflight\nA/B 轨", x:600, y:200, cls:"ceo",
+    body:"解析 FluteBuddy 产品轨 vs 个人 IP 轨 vs 混合；注入 must_read（含 V-Tier、文化审美池）。",
+    files:["scripts/ceo-preflight-product-context.py","owner-context-resolved-latest.json"] },
+  { id:"drive", label:"Drive\n全库筛选", x:480, y:300, cls:"ceo",
+    body:"按 goal 筛 corpus-screens，fusion 长上下文。",
+    files:["scripts/ceo-task-drive-corpus-screen.py","docs/DRIVE-LONG-CONTEXT-FUSION.md"] },
+  { id:"vverify", label:"V-Tier\n文件验收", x:720, y:300, cls:"copy",
+    body:"验证 mandate / 语料库 / 文化池 JSON 存在（非文笔分）。",
+    files:["scripts/verify-owner-copy-v-tier-mandate.sh"] },
+  { id:"branch", label:"轨分支", x:600, y:340, cls:"ceo hub",
+    body:"ceo_goal_tracks：product / personal_ip / mixed / brief-xhs。",
+    files:["scripts/ceo_goal_tracks.py","docs/CEO-DUAL-TRACK-WORKFLOWS.md"] },
+  { id:"fb", label:"A轨\nFluteBuddy", x:380, y:440, cls:"deliver",
+    body:"产品叙事 HTML、视频 JSON、P0 家庭；文案同 V-Tier。",
+    files:["owner-product-registry.json","open-owner-flutebuddy-deliverable-html.sh"] },
+  { id:"ip", label:"B轨\nIP生态链", x:820, y:440, cls:"deliver",
+    body:"生活故事配比、大 V 对标、#life #benchmarks HTML；含 Instagram 听见 Daily。",
+    files:["owner-ip-track.json","open-owner-ip-ecosystem-deliverable-html.sh"] },
+  { id:"bench", label:"对标路径\n国内/国际", x:960, y:300, cls:"copy",
+    body:"几十万粉成长轨迹（XHS + IG + LinkedIn/Medium）；MD→Drive 同步；attestation 双路径各≥1 fresh。",
+    files:["owner-benchmark-growth-paths.json","CEO-BENCHMARK-GROWTH-PATHS-2026-11-06.md","sync-owner-benchmark-paths-to-drive.sh"] },
+  { id:"benchhtml", label:"对标\nHTML", x:960, y:860, cls:"deliver",
+    body:"OWNER-BENCHMARK-PATHS-DELIVERABLE 表格：轨迹·文案·配图借鉴。",
+    files:["build-owner-benchmark-paths-deliverable-html.py"] },
+  { id:"attest", label:"Attestation\n写前对标", x:520, y:520, cls:"copy",
+    body:"≥3帖 ≥3人 ≥1 fresh ≥1 文化审美；merge 语料库 jsonl。",
+    files:["verify-owner-copy-v-tier-attestation.py","OWNER-COPY-V-TIER-LIVE-CORPUS-SOP.md"] },
+  { id:"rubric", label:"L2 Rubric\n自评≥80", x:680, y:520, cls:"copy",
+    body:"Agent 填 rubric-scores JSON + 证据；不替代 Owner 文笔审。",
+    files:["score-owner-copy-success-rubric.py","owner-copy-success-rubric.json"] },
+  { id:"evolve", label:"四维度\n≥80", x:600, y:520, cls:"copy",
+    body:"角度/爆款/口吻/引用；无 Brief 也跑写作 goal。",
+    files:["evolve-platform-hits.py","PLATFORM-HIT-STANDARDS.md"] },
+  { id:"briefpath", label:"有 Brief?\n小红书长稿", x:600, y:620, cls:"brief hub",
+    body:"3000–5000 字、Clever、对抗、pitfalls、yage-voice。",
+    files:["OWNER-LONGFORM-XHS-SPEC.md","CEO-XHS-NEW-BRIEF-AUTOPILOT.md"] },
+  { id:"gate", label:"Evolution\nREADY", x:480, y:720, cls:"brief",
+    body:"manager-brief-evolution-until-gap；FAIL 42 读 CEO-REROUTE 改稿。",
+    files:["manager-ceo-xhs-owner-delivery.sh","EVOLUTION-GAP-latest.md"] },
+  { id:"six", label:"六项\n6-case", x:720, y:720, cls:"ceo",
+    body:"CEO 全量时的集成/04/05 等抽检（有 brief 时 L1 kernel 更完整）。",
+    files:["ceo-six-case-battery.sh","CEO-SIX-CASE-GM-TO-CEO-WORKFLOW.md"] },
+  { id:"autopilot", label:"Autopilot\n+ HTML", x:600, y:780, cls:"ceo",
+    body:"run_ceo_xhs_autopilot；refresh HTML；Brief 弹 FILTER，战略轨不弹。",
+    files:["run_ceo_xhs_autopilot.py","CEO-OWNER-HTML-ROUTING.md"] },
+  { id:"htmlfb", label:"FB\nHTML", x:400, y:860, cls:"deliver",
+    body:"OWNER-FLUTEBUDDY-DELIVERABLE 浏览器打开。",
+    files:["build-owner-flutebuddy-deliverable-html.py"] },
+  { id:"htmlip", label:"IP\nHTML", x:800, y:860, cls:"deliver",
+    body:"OWNER-IP-ECOSYSTEM-DELIVERABLE #life #benchmarks。",
+    files:["build-owner-ip-ecosystem-deliverable-html.py"] },
+  { id:"ownerL3", label:"Owner\nL3 终审", x:600, y:860, cls:"owner hub",
+    body:"唯一「能发布」：文笔是否真到大 V / 文化审美档。",
+    files:["OWNER-SUCCESS-METRICS-MAP.md","OWNER-COPY-V-TIER-MEASUREMENT-HONESTY.md"] },
+  { id:"manifest", label:"Manifest\n派活记录", x:600, y:920, cls:"ceo",
+    body:"CEO-RUN-MANIFEST-latest.json + chat 交付格式。",
+    files:["ceo_write_run_manifest.py","OWNER-CHAT-DELIVERY-FORMAT.md"] },
+  { id:"fullpipe", label:"全量入口", x:240, y:300, cls:"ceo",
+    body:"ceo-full-execution-pipeline.sh --goal …",
+    files:["run_ceo_full_execution.py","CEO-FULL-EXECUTION-MANDATE.md"] },
+];
+
+const EDGES = [
+  ["owner","recover"],["owner","router"],["owner","preflight"],["owner","fullpipe"],
+  ["fullpipe","recover"],["fullpipe","preflight"],["preflight","drive"],["preflight","vverify"],
+  ["preflight","branch"],["drive","branch"],["drive","bench"],["bench","attest"],["bench","ip"],
+  ["branch","fb"],["branch","ip"],
+  ["branch","attest"],["branch","evolve"],["attest","rubric"],["rubric","briefpath"],
+  ["evolve","briefpath"],["briefpath","gate"],["briefpath","six"],["gate","autopilot"],
+  ["six","autopilot"],["autopilot","htmlfb"],["autopilot","htmlip"],["autopilot","ownerL3"],
+  ["fb","htmlfb"],["ip","htmlip"],["ownerL3","manifest"],["vverify","attest"],
+];
+
+const wrap = document.getElementById("canvas-wrap");
+const svg = document.getElementById("svg");
+const byId = Object.fromEntries(NODES.map(n => [n.id, n]));
+
+function drawEdges() {
+  svg.innerHTML = "";
+  EDGES.forEach(([a,b]) => {
+    const A = byId[a], B = byId[b];
+    if (!A || !B) return;
+    const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+    line.setAttribute("x1", A.x); line.setAttribute("y1", A.y);
+    line.setAttribute("x2", B.x); line.setAttribute("y2", B.y);
+    line.setAttribute("stroke", "#484f58");
+    line.setAttribute("stroke-width", "2");
+    line.setAttribute("opacity", "0.85");
+    svg.appendChild(line);
+  });
+}
+
+function inEdges(id) { return EDGES.filter(e => e[1]===id).map(e => byId[e[0]]?.label.replace(/\n/g," ")); }
+function outEdges(id) { return EDGES.filter(e => e[0]===id).map(e => byId[e[1]]?.label.replace(/\n/g," ")); }
+
+NODES.forEach(n => {
+  const el = document.createElement("div");
+  el.className = "node " + (n.cls||"");
+  el.style.left = n.x + "px";
+  el.style.top = n.y + "px";
+  el.innerHTML = n.label.replace(/\n/g,"<br/>");
+  el.dataset.id = n.id;
+  el.addEventListener("click", () => openModal(n.id));
+  wrap.appendChild(el);
+});
+
+function openModal(id) {
+  const n = byId[id];
+  document.querySelectorAll(".node").forEach(x => x.classList.toggle("on", x.dataset.id===id));
+  document.getElementById("m-title").textContent = n.label.replace(/\n/g," · ");
+  document.getElementById("m-body").textContent = n.body;
+  const fill = (el, arr) => { el.innerHTML = arr.length ? arr.map(t=>`<li>${t}</li>`).join("") : "<li>—</li>"; };
+  fill(document.getElementById("m-in"), inEdges(id));
+  fill(document.getElementById("m-out"), outEdges(id));
+  fill(document.getElementById("m-files"), (n.files||[]).map(f=>`<li><code>${f}</code></li>`));
+  document.getElementById("modal").classList.add("show");
+}
+
+document.getElementById("modal-close").onclick = () => document.getElementById("modal").classList.remove("show");
+document.getElementById("modal").onclick = e => { if (e.target.id==="modal") document.getElementById("modal").classList.remove("show"); };
+document.getElementById("btn-fit").onclick = () => wrap.scrollTo({ top: 0, left: 280, behavior: "smooth" });
+
+drawEdges();
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "updated": "2026-11-05",
+  "owner_zh": "张丹瀛",
+  "owner_en": "Danying",
+  "one_line": "法派长笛传承 × 跨界品牌策划——把古典里不可替代的审美与叙事，翻译成可合作、可传播的语言。",
+  "ultimate_goal": "人即品牌：合作项目在案例层，人设层始终是张丹瀛 / Danying",
+  "product_cap": "FluteBuddy 等产品 ≤30% 露出；读者先认识「这个人怎么生活、怎么想」，再认识工具",
+  "life_ecosystem_principle": "生态链 = 专业可信 + 家长里短 + 真实故事。不要做成高大上品牌手册；要像朋友聊天，但有判断力。",
+  "copy_v_tier_cultural_art": "文笔 Must 对齐文化/艺术/审美向大 V 高互动帖（谢胜子、天才少女G/天才女友GG 等）· docs/OWNER-COPY-V-TIER-CULTURAL-ART-STANDARD.md · FluteBuddy 同标准",
+  "story_sources": [
+    "个人：练琴前后、航班、搬家、学语言、失败演出",
+    "家庭：父母/伴侣/孩子（征得同意或 anonymize）",
+    "亲朋好友：一句真实对话改 anonymize",
+    "工作：甲方一句气话、合作里学到的边界",
+    "社会与感情：不装中立，写你的态度和代价"
+  ],
+  "dimensions": [
+    {"id": "life_home", "label": "生活 · 家庭与日常", "share_pct": 22, "signal": "晚饭桌、练琴以外、墨尔本/旅途"},
+    {"id": "emotion_relation", "label": "感情 · 关系与态度", "share_pct": 18, "signal": "敢写边界、失望、感谢，不鸡汤"},
+    {"id": "work_society", "label": "工作 · 社会观察", "share_pct": 15, "signal": "行业里见到的真事，一句观点"},
+    {"id": "flute", "label": "法派长笛 · 专业", "share_pct": 18, "signal": "可核对细节，但不端架子"},
+    {"id": "hear", "label": "听见 Daily", "share_pct": 12, "signal": "资讯+个人一句感想"},
+    {"id": "brand_art", "label": "品牌/艺术现场", "share_pct": 8, "signal": "案例故事化，禁止 jargon 堆叠"},
+    {"id": "ai_product", "label": "AI / FluteBuddy", "share_pct": 7, "signal": "场景片，不抢主线"}
+  ],
+  "platforms": {
+    "xiaohongshu": {
+      "cadence": "每周 2–3 条 · 至少 1 条「生活/故事」",
+      "formats": ["口播唠嗑", "图文故事", "听见摘要", "偶尔专业"],
+      "starter_titles": [
+        "我妈问我：你吹长笛到底图什么（我答错了）",
+        "独居练琴的晚上，邻居敲过门一次",
+        "听见 Daily：这首我私人循环了一周",
+        "甲方说「氛围好就行」——我那天没接活",
+        "FluteBuddy 是我给女儿练琴做的，不是给投资人看的"
+      ]
+    },
+    "linkedin": {
+      "cadence": "每周 1–2 · Lara 式 story→lesson→PS",
+      "formats": ["个人故事+清单", "专业帖≤30%"],
+      "starter_titles": [
+        "I canceled a gig because my kid had a school night. No regret.",
+        "What living abroad taught me about practicing (it's not discipline)",
+        "The museum walk-through failed once — here's the email I sent"
+      ]
+    },
+    "medium": {
+      "cadence": "月 1–2 · 一篇一个私人教训",
+      "formats": ["Michael Thompson 式脆弱开头", "Ayodeji 式 lesson"],
+      "starter_titles": [
+        "My Father Still Doesn't Understand What I Do for a Living",
+        "Shyness, Stutter, and Showing Up Anyway (a flutist's version)",
+        "When Your Friend Quits Music — What I Didn't Say at Dinner"
+      ]
+    },
+    "instagram": {
+      "cadence": "听见 Daily 英文 · 与小红书同题异构 · 周 3–5 Reels/Posts",
+      "formats": ["HAUSER 式一曲一画面", "Esther 式练习室", "短 caption + 链 HEAR"],
+      "benchmark_growth_paths": "integration/handoff/owner-benchmark-growth-paths.json",
+      "starter_captions": [
+        "One piece. One room. No judge — just the take.",
+        "French-school flute tone is not « perfect. » It's a choice.",
+        "What I played after my kid finally slept."
+      ]
+    }
+  },
+  "benchmark_creators_json": "integration/handoff/owner-ip-benchmark-creators.json",
+  "drive_hydrate": [
+    {"title": "塑造创始人IP-沉淀公司与个人双重品牌力.pdf", "file_id": "1MDhSdDKpoQTxwKU64wl8qxqLfGtf1w4y"},
+    {"title": "小红书营销IP指南.pdf", "file_id": "1d3Lxp1UVjf7RGuLTPDzVJTlL8a8YQ491"},
+    {"title": "2026小红书营销IP特刊《同频》.pdf", "file_id": "1UFa0JA0BhOTiuQI_MkrXWAsO50DRZr5o"},
+    {"title": "短视频人设类IP全套SOP.pptx", "file_id": "1TzBadYMN2Jb1TDcZeG8KVZJiXmNX37NA"},
+    {"title": "从个人成长视角，看高手如何把经验变成方法论。.md", "file_id": "1tcvaeiyK8_3OH5KD-y_mRFqMrvAepr58"},
+    {"title": "个人效率工作台搭建说明书.md", "file_id": "1QjrrQZj_QKjF0bPNwYep0i2RdTxChS6W"}
+  ],
+  "corpus_screen_dir": "content/evolution/00-manager/ceo-inbox/corpus-screens/张丹瀛-个人IP-生态链-多维度-影响力-小红书-LinkedIn-Medium-法派长笛-听见"
+}

@@ -3,12 +3,23 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+
+if [[ "${CEO_OWNER_HTML_REFRESH:-1}" == "0" ]]; then
+  echo "SKIP refresh-owner-notify-html (CEO_OWNER_HTML_REFRESH=0 — 非小红书 Brief 交付)"
+  exit 0
+fi
+
 bash scripts/ensure-venv-deps.sh
 PY="$ROOT/.venv/bin/python"
 [[ -x "$PY" ]] || PY="python3"
 DAY="$(date +%Y-%m-%d)"
 OUT="content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-$DAY.html"
 TEST="content/evolution/00-manager/ceo-inbox/OWNER-WORKFLOW-TEST-ARTICLE-$DAY.html"
+if [[ -n "${CEO_OWNER_EXTRA_BRIEF:-}" ]]; then
+  export CEO_OWNER_HTML_AUTO_MODAL="${CEO_OWNER_HTML_AUTO_MODAL:-1}"
+else
+  export CEO_OWNER_HTML_AUTO_MODAL="${CEO_OWNER_HTML_AUTO_MODAL:-0}"
+fi
 "$PY" scripts/build-owner-xhs-report-html.py
 if ls content/xiaohongshu/*-test-brief.md >/dev/null 2>&1; then
   "$PY" scripts/build-owner-workflow-test-article-html.py

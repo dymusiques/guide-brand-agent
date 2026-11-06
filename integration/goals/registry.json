@@ -2,6 +2,15 @@
   "version": 1,
   "owner_goals": [
     {
+      "id": "G-PERSON-IS-BRAND",
+      "title": "张丹瀛本人即品牌（合作不改变心智）",
+      "success_criteria": "个人 IP 的终极成功：无论与任何品牌/机构/艺术家合作，受众与合作方默认认的是张丹瀛 / Danying 这个人（中文张丹瀛；英文与西方日常呼名 Danying 拼音）——张丹瀛就是品牌本身；合作项目是案例层，不得把账号或对外心智写成甲方附属、机构号或「某品牌代言人号」。内容须持续强化「人即品牌」可验证背书（法派、案例、口播），非空 slogan。",
+      "agents": ["00-manager", "01-personal-ip", "04-xhs-topic-manager", "03-marketing-strategy", "02-business-brand"],
+      "verify": "integration/goals/registry.json + ip-positioning-brief §终极成功目标; Brief 案例层写合作、人设层写 Danying",
+      "kpi_automated": false,
+      "north_star": true
+    },
+    {
       "id": "G-STRONG-LINK",
       "title": "强链接客户（非 vanity 流量）",
       "success_criteria": "内容含可执行 CTA（私信/合作/评估等），对齐跨行业品牌与艺术家",

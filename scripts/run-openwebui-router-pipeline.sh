@@ -32,7 +32,14 @@ done
 
 [[ -n "$GOAL" ]] || usage
 
-python3 scripts/screen-xhs-drive-corpus.py --goal "$GOAL"
+if [[ -n "$BRIEF" ]]; then
+  python3 scripts/ceo-task-drive-corpus-screen.py --auto --goal "$GOAL" --brief "$BRIEF"
+else
+  python3 scripts/ceo-task-drive-corpus-screen.py --auto --goal "$GOAL"
+fi
+export CEO_GOAL="$GOAL"
+[[ -n "$BRIEF" ]] && export CEO_SIX_CASE_BRIEF="$BRIEF"
+python3 scripts/build-drive-long-context-fusion.py --auto --phase ceo_dispatch --goal "$GOAL" ${BRIEF:+--brief "$BRIEF"} || true
 
 ROUTE_JSON="$(python3 scripts/route-openwebui-for-goal.py --goal "$GOAL" ${BRIEF:+--brief "$BRIEF"} --platform "$PLATFORM" ${SLUG:+--slug "$SLUG"} --json)"
 echo "$ROUTE_JSON" | python3 -m json.tool

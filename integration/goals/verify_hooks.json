@@ -1,6 +1,12 @@
 {
   "version": 1,
   "hooks": {
+    "G-PERSON-IS-BRAND": {
+      "checks": [
+        {"type": "file_contains", "path": "integration/goals/registry.json", "needles": ["G-PERSON-IS-BRAND", "north_star"]},
+        {"type": "file_contains", "path": "content/personal-ip/ip-positioning-brief-2026-10-05.md", "needles": ["终极成功目标", "张丹瀛本人即品牌"]}
+      ]
+    },
     "G-STRONG-LINK": {
       "checks": [
         {"type": "file_contains", "path": "integration/IMPORTANT.md", "needles": ["强链接"]},

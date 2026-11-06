@@ -1,0 +1,309 @@
+{
+  "version": "2026-11-05",
+  "purpose": "滚动收录各平台大 V 的高互动单篇帖/文（非主页）；写稿前 Must 从此库 + 当次 session 新帖选取对标",
+  "updated_at": "2026-11-05",
+  "refresh_sop": "docs/OWNER-COPY-V-TIER-LIVE-CORPUS-SOP.md",
+  "cultural_art_aesthetic_pool": "integration/handoff/owner-copy-v-tier-cultural-art-creators.json",
+  "engagement_floors": {
+    "xiaohongshu": {
+      "min_creator_followers": 400000,
+      "min_likes_or_reactions": 10000,
+      "min_comments": 100,
+      "note": "若当次只能抓到 B 站/转引，须 session_fresh_posts 补 direct explore 链接"
+    },
+    "linkedin": {
+      "min_creator_followers": 300000,
+      "min_likes_or_reactions": 2000,
+      "min_comments": 200
+    },
+    "medium": {
+      "min_creator_followers": 50000,
+      "min_claps": 5000,
+      "min_comments": 50,
+      "note": "Medium 按 claps/曝光档，不单看 follower"
+    }
+  },
+  "entries": [
+    {
+      "id": "li-jw-unreachable",
+      "platform": "linkedin",
+      "creator_handle": "Justin Welsh",
+      "creator_followers_approx": 580000,
+      "title": "The modern flex is being completely unreachable.",
+      "post_url": "https://www.linkedin.com/posts/justinwelsh_the-modern-flex-is-being-completely-unreachable-activity-7368972878928572419-GZxA",
+      "engagement": {
+        "reactions": 3806,
+        "comments": 1396
+      },
+      "engagement_rate_note": "comments/reactions≈37%",
+      "captured_at": "2026-11-05",
+      "source": "LinkedIn 帖文页 · 2025-09-03 检索",
+      "style_steal": [
+        "旧 flex vs 新 flex 对照",
+        "极短段+一句结论",
+        "第一人称实验（关通知）"
+      ]
+    },
+    {
+      "id": "li-jw-opinions",
+      "platform": "linkedin",
+      "creator_handle": "Justin Welsh",
+      "creator_followers_approx": 580000,
+      "title": "Everyone's got an opinion about your life.",
+      "post_url": "https://www.linkedin.com/posts/justinwelsh_everyones-got-an-opinion-about-your-life-activity-7283692002469109761--P-s",
+      "engagement": {
+        "reactions": 2806,
+        "comments": 400
+      },
+      "captured_at": "2026-11-05",
+      "source": "LinkedIn 帖文页 · 2025-01-11",
+      "style_steal": [
+        "bullet 对照",
+        "36 岁转折叙事",
+        "permission 结尾"
+      ]
+    },
+    {
+      "id": "li-lara-rejected",
+      "platform": "linkedin",
+      "creator_handle": "Lara Acosta",
+      "creator_followers_approx": 369000,
+      "title": "Rejected 200+ times — one story post changed my career",
+      "post_url": "https://www.linkedin.com/posts/laraacostar_ive-been-rejected-over-200-times-i-felt-activity-7250576577783115776-tf7_",
+      "engagement": {
+        "reactions": 4000,
+        "comments": 509,
+        "impressions": 300000
+      },
+      "engagement_rate_note": "公开自述 4k likes · 300k impressions",
+      "captured_at": "2026-11-05",
+      "source": "LinkedIn 帖文页 · 访谈/帖内数据",
+      "style_steal": [
+        "how I 不是 how to",
+        "脆弱开头+职业转折",
+        "故事即产品"
+      ]
+    },
+    {
+      "id": "li-lara-viral-30",
+      "platform": "linkedin",
+      "creator_handle": "Lara Acosta",
+      "creator_followers_approx": 369000,
+      "title": "I've written 100s of LI posts, but these 30 went viral.",
+      "post_url": "https://www.linkedin.com/posts/laraacostar_ive-written-100s-of-li-posts-but-these-activity-7234522562481860608-_o4Q",
+      "engagement": {
+        "reactions": 1126,
+        "comments": 674
+      },
+      "captured_at": "2026-11-05",
+      "source": "LinkedIn 帖文页 · 2024-08-28",
+      "style_steal": [
+        "清单+资源钩子",
+        "高评论互动设计"
+      ]
+    },
+    {
+      "id": "md-kozmana-not-drinking",
+      "platform": "medium",
+      "creator_handle": "Karolina Kozmana",
+      "creator_followers_approx": 80000,
+      "title": "Common side effects of not drinking",
+      "post_url": "https://medium.com/@k.kozmana/common-side-effects-of-not-drinking-dd44714e619a",
+      "engagement": {
+        "claps": 146000,
+        "comments": 1500
+      },
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "Medium + 2024 年度 clap 盘点文引述",
+      "style_steal": [
+        "长文但段短",
+        "反常识命题",
+        "个人+文化观察"
+      ]
+    },
+    {
+      "id": "md-martha-performer-12",
+      "platform": "medium",
+      "creator_handle": "Martha Eason",
+      "creator_followers_approx": 5000,
+      "title": "12 Things I learned from Posting on Social Media as a Performer for 12 Months",
+      "post_url": "https://medium.com/@marthaeason/12-things-i-learned-from-posting-on-social-media-as-a-performer-for-12-months-9dd7eea0b337",
+      "engagement": {
+        "claps": 8000,
+        "comments": 120
+      },
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "Medium 文章页 · The Riff 级传播",
+      "style_steal": [
+        "演奏者羞怯",
+        "编号但每段有故事",
+        "与音乐家 IP 同频"
+      ]
+    },
+    {
+      "id": "xhs-smzdm-flute-rank",
+      "platform": "xiaohongshu",
+      "creator_handle": "原帖作者（什么值得买引述）",
+      "creator_followers_approx": 500000,
+      "title": "乐器入门难度排行",
+      "post_url": "https://post.smzdm.com/p/aqrx568k/",
+      "platform_native_url": null,
+      "engagement": {
+        "likes": 61000,
+        "comments": 2500
+      },
+      "engagement_verified_via": "第三方转引小红书原帖数据",
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "什么值得买 2025-08 转引 · Agent 写前须补 explore 直链到 session_fresh_posts",
+      "style_steal": [
+        "一张表/排行引发争论",
+        "评论=第二内容层"
+      ]
+    },
+    {
+      "id": "xhs-qq-dengyurou",
+      "platform": "xiaohongshu",
+      "creator_handle": "邓雨柔",
+      "creator_followers_approx": 100000,
+      "title": "《织忆经纬》创作阐述",
+      "post_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+      "engagement": {
+        "likes": 40000,
+        "comments": 800
+      },
+      "engagement_verified_via": "腾讯新闻引述小红书",
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "腾讯新闻 2025-07 · 写前须补小红书 explore 直链",
+      "style_steal": [
+        "一件作品+私人记忆",
+        "工艺细节具体"
+      ]
+    },
+    {
+      "id": "xhs-xieshengzi-attitude",
+      "platform": "xiaohongshu",
+      "creator_handle": "谢胜子极致进化学",
+      "creator_followers_approx": 200000,
+      "owner_tags": [
+        "cultural_art_aesthetic",
+        "cognition"
+      ],
+      "title": "认知/关系/成长向高能量口播与切片（代表帖当次须换最新高互动）",
+      "post_url": "https://www.xiaohongshu.com/user/profile/5eb2d83e00000000010005d9",
+      "engagement": {
+        "likes": 50000,
+        "comments": 3000
+      },
+      "engagement_verified_via": "新榜/平台摘要 · 占位须 session 换 explore 直链",
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "Owner 偏好对标 · 写前 Must session_fresh 换最新高赞帖 explore 链",
+      "style_steal": [
+        "态度+金句",
+        "私人立场",
+        "评论对抗推流"
+      ]
+    },
+    {
+      "id": "xhs-tiancainvyou-gg-sociology",
+      "platform": "xiaohongshu",
+      "creator_handle": "天才女友GG",
+      "creator_followers_approx": 319000,
+      "owner_tags": [
+        "cultural_art_aesthetic",
+        "fashion_sociology"
+      ],
+      "aliases_note": "Owner 口语「天才少女G」多指此账号",
+      "title": "时尚社会学 · 大众时尚意识/审美争议长视频",
+      "post_url": "https://www.chinaz.com/tags/shishangbozhu.shtml",
+      "engagement": {
+        "likes": 65000,
+        "comments": 2000
+      },
+      "engagement_verified_via": "站长之家引述首条笔记互动 6.5万级",
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "热浪/站长之家 · 写前须补小红书单条 explore",
+      "style_steal": [
+        "文化现象+个人判断",
+        "审美不是堆品牌",
+        "口播像聊天"
+      ]
+    },
+    {
+      "id": "xhs-yuyuqing-guobao",
+      "platform": "xiaohongshu",
+      "creator_handle": "画画的玉玉卿",
+      "creator_followers_approx": 1000000,
+      "owner_tags": [
+        "cultural_art_aesthetic",
+        "国风",
+        "艺术"
+      ],
+      "title": "国家宝藏/文物拟人系列（单篇 10万+ 赞级）",
+      "post_url": "https://h5.ifeng.com/c/vivoArticle/v002MlvoB9phYx25JfwH0R2p9f--BEC81nVwIJy1lbZ7ESUo__",
+      "engagement": {
+        "likes": 100000,
+        "comments": 5000
+      },
+      "engagement_verified_via": "凤凰网 2024-05 报道",
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "采访/报道 · 写前须补小红书 explore 直链",
+      "style_steal": [
+        "器物→人物",
+        "文化认同",
+        "审美画面一句一停"
+      ]
+    },
+    {
+      "id": "xhs-yanbuxian-butterfly",
+      "platform": "xiaohongshu",
+      "creator_handle": "闫不闲",
+      "creator_followers_approx": 550000,
+      "owner_tags": [
+        "cultural_art_aesthetic",
+        "审美",
+        "手工"
+      ],
+      "title": "光影蝴蝶/爆改手工（56万赞藏级）",
+      "post_url": "https://news.qq.com/rain/a/20241021A07ODV00",
+      "engagement": {
+        "likes": 120000,
+        "comments": 8000
+      },
+      "engagement_verified_via": "新榜 2024-10",
+      "high_engagement_exception": true,
+      "captured_at": "2026-11-05",
+      "source": "新榜对话 · 写前须补 explore",
+      "style_steal": [
+        "审美+闺蜜对白",
+        "半天可完成的视觉惊喜"
+      ]
+    },
+    {
+      "id": "sess-li-jw-viral-2020",
+      "platform": "linkedin",
+      "creator_handle": "Justin Welsh",
+      "creator_followers_approx": 580000,
+      "title": "In 2020, I had a post take off. 11M views — and nothing happened.",
+      "post_url": "https://www.linkedin.com/posts/justinwelsh_in-2020-i-had-a-post-take-off-11-m-views-activity-7352168287620722688-dxaW",
+      "engagement": {
+        "reactions": 1681,
+        "comments": 597
+      },
+      "engagement_rate_note": "高转评比≈35% · 当次新扒",
+      "captured_at": "2026-11-05",
+      "source": "LinkedIn 帖文页 · 当次写前打开",
+      "style_steal": [
+        "反 viral 叙事",
+        "写给一个具体的人",
+        "产品轨学结构不学 solopreneur 人设"
+      ]
+    }
+  ]
+}

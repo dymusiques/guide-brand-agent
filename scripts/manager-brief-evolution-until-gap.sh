@@ -37,6 +37,13 @@ ROUND=1
 
 echo "=== manager-brief-evolution-until-gap · $BRIEF · round=$ROUND max=$MAX ==="
 
+export CEO_SIX_CASE_BRIEF="$BRIEF"
+export CEO_OWNER_EXTRA_BRIEF="$BRIEF"
+if [[ -f "$ROOT/content/evolution/00-manager/ceo-inbox/drive-fusion-task-latest.json" ]]; then
+  export CEO_GOAL="$("$PY" -c "import json; print(json.load(open('$ROOT/content/evolution/00-manager/ceo-inbox/drive-fusion-task-latest.json')).get('goal',''))" 2>/dev/null || true)"
+fi
+"$PY" scripts/build-drive-long-context-fusion.py --auto --phase pre_delivery --brief "$BRIEF" || exit 42
+
 HASH_BEFORE="$(brief_hash)"
 set +e
 bash scripts/manager-ceo-gate-one-round.sh --brief "$BRIEF"

@@ -36,7 +36,8 @@ content_sha256: "b644a83b092aecca"
 > **详述与案例：** [CEO-MANAGER-OPERATING-STANDARDS.md](./CEO-MANAGER-OPERATING-STANDARDS.md) · **GM 五 step 环对照：** [MANAGER-EVAL-IMPROVEMENT-LOOP.md](./MANAGER-EVAL-IMPROVEMENT-LOOP.md) · **派活模板：** [CEO-DISPATCH-SOP.md](../agents/00-manager/CEO-DISPATCH-SOP.md)  
 > **主框架：** Owner 三支柱 → [MANAGER-THREE-PILLARS.md](./MANAGER-THREE-PILLARS.md)；**CEO 双轮迭代（consult SOP）：** [CEO-DOUBLE-ITERATION-SOP.md](../agents/00-manager/CEO-DOUBLE-ITERATION-SOP.md) · [CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md](./CEO-SENIOR-MANAGER-IMPROVEMENT-LOOP.md)；本文五原则为落地清单。  
 > **范围：** 不改 kernel、不新增第二套 CEO 体系（见 [integration/IMPORTANT.md](../integration/IMPORTANT.md)）。  
-> **首次落盘：** 2026-10-27 晚（北京）· Owner 确认五原则 + 目标「打造个人 IP」。
+> **首次落盘：** 2026-10-27 晚（北京）· Owner 确认五原则 + 目标「打造个人 IP」。  
+> **北极星（2026-11-03）：** **G-PERSON-IS-BRAND** — 张丹瀛本人即品牌；与谁合作，认的都是我（[GOALS-REGISTRY](../integration/GOALS-REGISTRY.md) · [ip-positioning-brief §终极成功目标](../content/personal-ip/ip-positioning-brief-2026-10-05.md)）。
 
 
 ## 1. 清晰的委派

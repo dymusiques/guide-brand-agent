@@ -29,6 +29,8 @@ content_sha256: "a971d2ea99a64eb1"
 
 # CEO 全量执行 · Owner 固定（Must · 2026-10-30）
 
+> **架构（Must · 勿混淆）：** **Cursor CEO 主链** = 本文件 + `run_ceo_full_execution.py` / `ceo-full-execution-pipeline.sh`（Agent 在 Cursor 里跑脚本）。**Open WebUI = 可选步 −1**（长文/RAG 外包；route=SKIP 则整步跳过）。Drive 背书 / 全库筛选 / gate / HTML **不依赖** Open WebUI。
+
 > **一句话：** Owner 给**任何目标任务**，或说 **「CEO 开始执行 / CEO 开始工作 / CEO 干活」** → Agent **Must** 以 **00 CEO** 派活 **01–12 + 函数壳 + evaluate + 对抗 + 进化 + 压测 + HTML 浏览器弹出**，**禁止**再问 Owner「要不要跑脚本 / evaluate / autopilot」。
 
 ## 0. GM → CEO · 六项 6-case + 三重 evaluate + 双重压测
@@ -57,8 +59,8 @@ bash scripts/ceo-full-execution-pipeline.sh --goal "<主题>" --brief content/xi
 | 步 | 谁 | 做什么 | 脚本 / 文档 |
 |----|-----|--------|-------------|
 | 0 | **CEO** | 进程自愈 | `ceo-auto-recover-blocked.sh` → 读 `ceo-auto-recover-latest.md` |
-| −2 | **CEO** | 小红书 Drive **全库筛选**（脚本，不靠读说明） | `screen-xhs-drive-corpus.py --goal --brief` 扫全部文件名，绑定到该篇 `drive-screen.json`。evolution 要 READY，Brief 的 `## Drive 背书` 必须给每份入选写「原文摘录」 |
-| −1 | **Router** | Open WebUI / 目标路由 | `run-openwebui-router-pipeline.sh --goal "…"`（内部再跑一次筛选） |
+| −2 | **CEO（Cursor 主链 · Must）** | Drive **全库筛选** + 任务 bundle | `ceo-task-drive-corpus-screen.py --auto --goal …` → `corpus-screens/<slug>/` + `drive-screen.json` / `drive-reference.json`。evolution READY 时 Brief `## Drive 背书` 须「原文摘录」 |
+| −1 | **Router（Open WebUI · 可选）** | 长文/RAG 路由；**SKIP 则跳过** | `run-openwebui-router-pipeline.sh --goal "…"`（`ceo-full-execution-cycle.json` · `optional: true`）。outbox **仅素材**，非终稿 |
 | −1b | **01 → 04 → 00 CEO** | 三平台：先换角度对抗，再量到成功线的距离，最后才对爆款线 | [`PLATFORM-HIT-STANDARDS.md`](./PLATFORM-HIT-STANDARDS.md) · `evolve-platform-hits.py`（写作标准 → 切入视角 → 反方读者 → evolution → 爆款分） |
 | 1 | **01 IP** | 函数壳 / KPI 边界 | `evaluate_personal_ip.py --check` |
 | 2 | **集成** | Google/Drive 读、handoff | `verify-integration.sh`（FAIL 写 terminal-once，**不** chat 甩 Connect） |
@@ -67,7 +69,7 @@ bash scripts/ceo-full-execution-pipeline.sh --goal "<主题>" --brief content/xi
 | 5 | **04+05** | redteam L2–L3 · **evaluate** · **Clever 反方席** · 对抗 | `evaluate-xhs-brief-complete.py`（含 clever）· `verify-xhs-clever-advocate.sh` · `run-xhs-brief-adversarial-challenge.py` |
 | 6 | **CEO** | **Python autopilot** 闭环 | **`run_ceo_xhs_autopilot.py`**（进化 + HTML rebuild + verify） |
 | 7 | **CEO** | 工作流 **round2 压测**（测试稿 READY） | `ceo-workflow-test-round2-finish.sh` |
-| 8 | **CEO** | **Owner 必见 HTML** | `refresh-owner-notify-html.sh` → **`open-owner-xhs-deliverable-html.sh`**（`#owner-latest`） |
+| 8 | **CEO** | **Owner 必见 HTML** | Brief：`refresh-owner-notify-html.sh` → **`open-owner-xhs-deliverable-html.sh`**（`#owner-latest`）。**三平台成稿**（`linkedin.html` + `xiaohongshu.html` + `medium.html` 同目录）：**`open-owner-platform-three-html.sh`** — **evolve / Gate FAIL 也 Must 依次弹出**，禁止因 exit 42 跳过 |
 
 深交付 / 全员 campaign：**另**按 dispatch 跑 `run-ceo-deep-delivery-cycle.sh` / `run-ceo-ip-all-agents-campaign.sh`（与上表并行时遵守 lock · 见 IMPORTANT.md）。
 

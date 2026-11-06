@@ -1,0 +1,44 @@
+{
+  "version": "2026-11-05",
+  "purpose": "CEO screen / Drive fusion 资料库：仅这些文件夹进入 catalog，不是整盘 Drive",
+  "catalog_output": "content/personal-ip/intake/_raw/ceo-drive-catalog-live.json",
+  "listing_policy": "recursive=true（含所有子文件夹）· 分页拉全 · 按 file id 去重",
+  "folders": [
+    {
+      "label": "小红书",
+      "drive_folder_id": "1SrD2n_zXN2HjhH_YPbQa-_54YakKXbzZ",
+      "drive_link": "https://drive.google.com/drive/folders/1SrD2n_zXN2HjhH_YPbQa-_54YakKXbzZ"
+    },
+    {
+      "label": "品牌领域知识库",
+      "drive_folder_id": "175YkH3G_sQSHay596QulYBR2Oc1QkNll",
+      "drive_link": "https://drive.google.com/drive/folders/175YkH3G_sQSHay596QulYBR2Oc1QkNll?usp=sharing"
+    },
+    {
+      "label": "Books",
+      "drive_folder_id": "1vvIqLP45Ml4-iORPAvtmL06Ib2zrqk8D",
+      "drive_link": "https://drive.google.com/drive/folders/1vvIqLP45Ml4-iORPAvtmL06Ib2zrqk8D?usp=drive_link"
+    },
+    {
+      "label": "消费心理学",
+      "drive_folder_id": "1qhVA_qjEwA37rloIM1XCqWcIATwV9Xwn",
+      "drive_link": "https://drive.google.com/drive/folders/1qhVA_qjEwA37rloIM1XCqWcIATwV9Xwn?usp=drive_link"
+    },
+    {
+      "label": "策展相关",
+      "drive_folder_id": "1Ig1M09UuSlY6kAfMTl0KbVCIQNaoU_gQ",
+      "drive_link": "https://drive.google.com/drive/folders/1Ig1M09UuSlY6kAfMTl0KbVCIQNaoU_gQ?usp=drive_link"
+    },
+    {
+      "label": "品牌策划营销",
+      "drive_folder_id": "1Lpi4A_Ws-StJ47NkK-R0uXFU0z4khdtc",
+      "drive_link": "https://drive.google.com/drive/folders/1Lpi4A_Ws-StJ47NkK-R0uXFU0z4khdtc?usp=drive_link"
+    },
+    {
+      "label": "01- 深度品牌档案",
+      "drive_folder_id": "16jXFFRap5GU4HeEhhWquEiRGwus_Lw6D",
+      "drive_link": "https://drive.google.com/drive/folders/16jXFFRap5GU4HeEhhWquEiRGwus_Lw6D?usp=drive_link"
+    }
+  ],
+  "agent_must_read": "docs/DRIVE-LONG-CONTEXT-FUSION.md"
+}
