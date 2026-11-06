@@ -1,0 +1,83 @@
+{
+  "updated": "2026-11-05",
+  "p0_one_line": "有 PDF 谱、肯录音、练完要客观反馈的长笛家庭",
+  "shoot_order": [3, 2, 1, 5, 4],
+  "pin_video": 1,
+  "videos": [
+    {
+      "id": 1,
+      "role": "置顶 · 证据片",
+      "title_publish": "练长笛练完不敢问老师？我让孩子先看这三处扣分",
+      "cover_main": "练完不知道错在哪",
+      "cover_sub": "PDF+录音→扣分明细",
+      "search_keywords": ["长笛练习", "居家练琴", "错音", "FluteBuddy"],
+      "filters_p0": "评论里承认「不敢问老师」+ 愿意录屏内测",
+      "shoot": "FluteBuddy 录屏：上传 PDF+录音 → 扣分列表 → 点谱面小节（30–90s）",
+      "first_line": "昨晚孩子练完长笛，问我「对吗」——我其实也听不准。"
+    },
+    {
+      "id": 2,
+      "role": "家长向",
+      "title_publish": "长笛家长：你不需要当裁判",
+      "cover_main": "别当 KPI 警察",
+      "cover_sub": "支持练习就够了",
+      "search_keywords": ["长笛家长", "陪孩子练琴", "居家练琴"],
+      "filters_p0": "私信三问里能说出本周谱名",
+      "shoot": "口播：支持练习 ≠ 逐句判错；FluteBuddy 只判基础层（30–60s）",
+      "first_line": "我最怕的不是孩子练不好，是我不得不当「裁判」。"
+    },
+    {
+      "id": 3,
+      "role": "信任 · 边界",
+      "title_publish": "长笛练习：机器能判错音节奏，判不了音乐性",
+      "cover_main": "机器判什么",
+      "cover_sub": "什么仍跟老师",
+      "search_keywords": ["长笛错音", "长笛节奏", "练琴反馈"],
+      "filters_p0": "评论选「错音/节奏」而非只想要买笛种草",
+      "shoot": "对照表：错音/节奏/音质 vs 句读/风格；结尾「音乐性跟老师」（45–90s）",
+      "first_line": "AI 可以帮你看错音和节奏，但没法替老师教你怎么呼吸乐句。"
+    },
+    {
+      "id": 4,
+      "role": "老师 · P1 预埋",
+      "title_publish": "长笛老师：我希望学生带着「第几小节」来上课",
+      "cover_main": "别空问「对吗」",
+      "cover_sub": "带问题来上课",
+      "search_keywords": ["长笛老师", "长笛工作室", "练琴方法"],
+      "filters_p0": "老师身份私信 · 工作室合作",
+      "shoot": "对镜头：课表时间宝贵；基础问题在家解决；结尾私信合作（30–60s）",
+      "first_line": "一节课如果都在纠错音，音乐性根本没有时间。"
+    },
+    {
+      "id": 5,
+      "role": "转化 · 内测",
+      "title_publish": "FluteBuddy 内测｜只收 40 组「有 PDF 谱 + 肯录音」的家庭",
+      "cover_main": "内测 40 组",
+      "cover_sub": "私信 FluteBuddy",
+      "search_keywords": ["FluteBuddy", "长笛 App", "练琴反馈"],
+      "filters_p0": "私信关键词 FluteBuddy + 三问答全",
+      "shoot": "口播三问：水平/本周谱/愿否上传一次练习；CTA 私信（30–45s）",
+      "first_line": "我们在找一小撮人：不是来围观，是肯练、有谱、要反馈。"
+    }
+  ],
+  "notes_for_p0": [
+    {
+      "type": "搜词场景短文",
+      "title_publish": "居家练长笛，怎么知道今天练对了没有？",
+      "hook": "三句话自检：有没有 PDF 谱、敢不敢录音、练完有没有人告诉你错在哪一节。",
+      "cta": "评论：你卡在哪一步？"
+    },
+    {
+      "type": "筛人帖",
+      "title_publish": "有电子版谱的长笛家庭，FluteBuddy 内测还缺名额",
+      "hook": "不是卖课，不是买笛种草——只要练完想要扣分明细的人。",
+      "cta": "私信 FluteBuddy"
+    },
+    {
+      "type": "法派长笛人设 · 30% 露出",
+      "title_publish": "法派长笛学生练完发我一段录音，我会先看节奏再听音准",
+      "hook": "用老师视角讲「练完先发什么给我」——自然引出 App 录屏一条。",
+      "cta": "收藏 · 内测私信"
+    }
+  ]
+}

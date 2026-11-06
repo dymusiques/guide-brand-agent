@@ -55,7 +55,8 @@
     },
     "instagram": {
       "cadence": "听见 Daily 英文 · 与小红书同题异构 · 周 3–5 Reels/Posts",
-      "formats": ["HAUSER 式一曲一画面", "Esther 式练习室", "短 caption + 链 HEAR"],
+      "formats": ["Colin Rocker 式 talking Reels", "nik.classical 式卧室练琴", "Ali 式副业→IP caption", "短 caption + 链 HEAR"],
+      "benchmark_archetype": "pivot_ip_not_famous_artist_ig",
       "benchmark_growth_paths": "integration/handoff/owner-benchmark-growth-paths.json",
       "starter_captions": [
         "One piece. One room. No judge — just the take.",

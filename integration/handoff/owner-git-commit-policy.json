@@ -1,0 +1,46 @@
+{
+  "version": "2026-11-07",
+  "mandate_doc": "docs/OWNER-GIT-COMMIT-NOISE-GUIDE.md",
+  "owner_preference": "baseline_in_git_ok_but_warn_on_future_commits",
+  "layers": {
+    "A_rules_scripts": {
+      "noise": "low",
+      "default": "commit_when_stable"
+    },
+    "B_strategic_baseline": {
+      "noise": "high",
+      "default": "commit_on_owner_snapshot_request",
+      "globs_hint": [
+        "content/evolution/00-manager/ceo-inbox/*-strategy.md",
+        "content/evolution/00-manager/ceo-inbox/flutebuddy-xhs-videos.json",
+        "content/xiaohongshu/**/*-brief.md",
+        "content/xiaohongshu/drafts/",
+        "content/personal-ip/intake/*"
+      ],
+      "agent_must_remind": "后续小改会产生 commit 噪音；提交前检查是否混入 runtime"
+    },
+    "C_runtime": {
+      "noise": "extreme",
+      "default": "do_not_commit",
+      "globs_hint": [
+        "content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.*",
+        "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-*",
+        "content/evolution/00-manager/ceo-inbox/daily-gm-summary-*",
+        "content/evolution/00-manager/ceo-inbox/corpus-screens/",
+        "content/personal-ip/intake/_raw/ceo-drive-catalog-live.json"
+      ]
+    }
+  },
+  "baseline_snapshots": [
+    {
+      "id": "2026-11-07-flutebuddy-ip-baseline",
+      "commit_note": "First Git backup of FluteBuddy XHS + IP ecosystem strategy and brief chain",
+      "includes": [
+        "2026-11-05-flutebuddy-xhs-strategy.md",
+        "2026-11-05-owner-ip-ecosystem-strategy.md",
+        "flutebuddy-xhs-videos.json",
+        "2026-11-05-flutebuddy-practice-waitlist-brief chain"
+      ]
+    }
+  ]
+}

@@ -54,6 +54,7 @@ content_sha256: "51c074cc4c262b5c"
 
 - 回复语言：简体中文（代码与命令保持原文）
 - 希望 Agent 主动完成安装验证、Drive 读写、Canva 修改，而不是只给步骤清单
+- **Git：** 战略 baseline（brief、5 视频 JSON、strategy MD）**可以 commit 当备份**；Agent 帮 commit 前 Must 读 [docs/OWNER-GIT-COMMIT-NOISE-GUIDE.md](../docs/OWNER-GIT-COMMIT-NOISE-GUIDE.md) 并 **提醒** 是否会混入 runtime / 是否产生后续 diff 噪音
 
 ## 相关 Skill（个人级，Cursor 全局）
 

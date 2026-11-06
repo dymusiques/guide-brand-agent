@@ -140,26 +140,26 @@
     },
     {
       "platform": "instagram",
-      "handle": "@hausercello",
-      "followers_approx": 7300000,
-      "style_steal": ["短 caption", "一曲一 Reels 钩子"],
-      "ecosystem_steal": ["IG+Shorts+TikTok 同素材多切"],
-      "ref": "integration/handoff/owner-benchmark-growth-paths.json"
-    },
-    {
-      "platform": "instagram",
-      "handle": "@twosetviolin",
-      "followers_approx": 957000,
-      "style_steal": ["古典梗+真实排练"],
-      "ecosystem_steal": ["社区 inside joke"],
+      "handle": "@careercolin",
+      "followers_approx": 450000,
+      "note": "跨平台合计；IG ~235k · pivot_ip 主对标",
+      "style_steal": ["layoff→全职", "一条一职场场景", "竖屏 hook"],
       "ref": "integration/handoff/owner-benchmark-growth-paths.json"
     },
     {
       "platform": "instagram",
       "handle": "@nik.classical",
       "followers_approx": 449000,
-      "style_steal": ["一条一知识点", "卧室练琴真实"],
-      "ecosystem_steal": ["2023 起号快速涨粉范本"],
+      "style_steal": ["专业未 famous", "一条一知识点", "卧室练琴真实"],
+      "ecosystem_steal": ["2023 起号·音乐 adjacent pivot_ip"],
+      "ref": "integration/handoff/owner-benchmark-growth-paths.json"
+    },
+    {
+      "platform": "instagram",
+      "handle": "@aliabdaal",
+      "followers_approx": 1200000,
+      "style_steal": ["副业→全职", "doctor turned 叙事", "轻教学 Reels"],
+      "note": "现已很大；学路径不学 scale",
       "ref": "integration/handoff/owner-benchmark-growth-paths.json"
     }
   ],

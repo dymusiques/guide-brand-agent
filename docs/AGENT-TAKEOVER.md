@@ -33,7 +33,7 @@ content_sha256: "75467ade311103d1"
 > **验证：** `bash scripts/verify-handoff.sh`（含本文件检查）· `bash scripts/verify-agent-takeover.sh`  
 > **CEO/GM 接手包（Must）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)  
 > **接手 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · **CEO 派活全链路导图（Must 点圆看弹窗）：** [CEO-EXECUTION-MINDMAP.html](CEO-EXECUTION-MINDMAP.html) · `bash scripts/open-owner-ceo-execution-mindmap-html.sh` · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html) · Open WebUI 总图 [owner-stack-openwebui-mindmap.html](owner-stack-openwebui-mindmap.html) · 边界 [OWNER-BRAND-AGENT-SCOPE.md](OWNER-BRAND-AGENT-SCOPE.md) · 成功指标 [OWNER-SUCCESS-METRICS-MAP.md](OWNER-SUCCESS-METRICS-MAP.md)  
-> **一页纸：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · **存储策略：** [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md)  
+> **一页纸：** [HANDOFF-SOP.md](HANDOFF-SOP.md) · **存储策略：** [HANDOFF-COMPLETENESS.md](HANDOFF-COMPLETENESS.md) · **Git 提交分层/噪音提醒：** [OWNER-GIT-COMMIT-NOISE-GUIDE.md](OWNER-GIT-COMMIT-NOISE-GUIDE.md)  
 > **Drive / 上下文外置（新 Agent Must）：** [AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md](AGENT-DRIVE-CONTEXT-EXTERNALIZATION.md)  
 > **对抗进化环（新 Agent Must · Owner 不必重复）：** [CEO-ADVERSARIAL-EVOLUTION-LOOP.md](CEO-ADVERSARIAL-EVOLUTION-LOOP.md) · 换角度 → 量距离 → 再进化 → 各平台爆款对标。没有 Brief 也要跑。禁止改低 baseline。
 

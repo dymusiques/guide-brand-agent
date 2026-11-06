@@ -45,6 +45,21 @@ def build(out: Path) -> None:
         return f"""<section><h2>{html.escape(block.get('label',''))} · {html.escape(plats)}</h2>
 <table><tr><th>账号</th><th>平台</th><th>粉丝约</th><th>成长轨迹</th><th>文案</th><th>配图</th></tr>{rows}</table></section>"""
 
+    arch = data.get("selection_archetype") or {}
+    arch_p = "<p>" + html.escape(arch.get("label", "")) + "</p><ul>"
+    for m in arch.get("must_match") or []:
+        arch_p += f"<li>{html.escape(m)}</li>"
+    arch_p += "</ul>"
+    ref_rows = ""
+    ref = data.get("reference_only_famous_artist_ig") or {}
+    for c in ref.get("creators") or []:
+        ref_rows += f"<tr><td>{html.escape(c.get('handle',''))}</td><td>{html.escape(c.get('why_not_primary',''))}</td></tr>"
+    ref_sec = ""
+    if ref_rows:
+        ref_sec = f"""<section><h2>{html.escape(ref.get('label',''))}</h2>
+<table><tr><th>账号</th><th>为何不主对标</th></tr>{ref_rows}</table>
+<p>{html.escape(ref.get('allowed_use',[''])[0] if isinstance(ref.get('allowed_use'), list) else '')}</p></section>"""
+
     rec_li = "".join(f"<li>{html.escape(r)}</li>" for r in (data.get("recommendations_for_ceo") or []))
     fold_li = "".join(
         f'<li><a href="{html.escape(f.get("drive_link",""))}">{html.escape(f.get("label",""))}</a></li>'
@@ -70,10 +85,12 @@ a{{color:#58a6ff}}
 </style></head><body><div class="wrap">
 <h1>CEO 派活 · 大 V 成长轨迹（含 Instagram）</h1>
 <p>重建 {datetime.now():%Y-%m-%d %H:%M} · JSON <code>{JSON_PATH.relative_to(ROOT)}</code> · {doc_a}</p>
-<p><span class="pill">国内路径</span><span class="pill">国际路径</span><span class="pill">≥40万粉或标注例外</span><span class="pill">Owner Drive 链接</span></p>
+<p><span class="pill">pivot IP</span><span class="pill">国内路径</span><span class="pill">国际路径</span><span class="pill">非著名演奏家 IG</span></p>
+<h3>筛选 archetype</h3>{arch_p}
 <h3>Drive 资料库（CEO screen）</h3><ul>{fold_li}</ul>
 {section("domestic_cn")}
 {section("international_en")}
+{ref_sec}
 <section><h2>CEO 建议</h2><ul>{rec_li}</ul></section>
 <p style="color:#8b949e;font-size:13px">导图：<code>docs/CEO-EXECUTION-MINDMAP.html</code> · 每次派活先 attestation + Drive catalog refresh</p>
 </div></body></html>"""
