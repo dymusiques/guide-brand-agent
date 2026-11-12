@@ -33,14 +33,9 @@ def phase_from_timeline(monorepo: Path, phase_id: str) -> dict | None:
     path = monorepo / "docs/agent/AGENT-BRAND-CEO-AUTO-TIMELINE.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     phases = data.get("phases") or []
-    hit = next((p for p in phases if p.get("id") == phase_id), None)
-    if hit:
-        return hit
-    legacy = {"3d": "6-9", "3c": "6-10", "3b": "6-8"}
-    alias = legacy.get(phase_id)
-    if alias:
-        return next((p for p in phases if p.get("id") == alias), None)
-    return None
+    legacy = data.get("legacy_id_index") or {"3d": "6-9", "3c": "6-10", "3b": "6-8"}
+    resolved = legacy.get(phase_id, phase_id)
+    return next((p for p in phases if p.get("id") == resolved), None)
 
 
 def qc_report_pass(report: Path) -> bool:
@@ -76,8 +71,8 @@ def main() -> int:
     pid = phase.get("id")
 
     if pid == "6-10" or args.phase.strip() in ("3c", "6-10"):
-        prereq = phase.get("prerequisite") or ""
-        if "6-9" in prereq or "6-9" in str(phase):
+        prereq = phase.get("prerequisite_phase") or phase.get("prerequisite") or ""
+        if "6-9" in str(prereq) or "6-9" in str(phase):
             qc_ok = (manifest.get("qc_verdict") or "").upper() == "PASS"
             report = args.qc_report
             if report:
