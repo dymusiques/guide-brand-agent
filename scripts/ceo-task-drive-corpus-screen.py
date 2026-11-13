@@ -57,8 +57,11 @@ def main() -> int:
     if args.refresh_catalog:
         import subprocess
 
-        py = sys.executable
-        subprocess.run([py, str(ROOT / "scripts/refresh-ceo-drive-catalog.py")], cwd=ROOT, check=False)
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from brand_gdocs_python import resolve_gdocs_python
+
+        py = resolve_gdocs_python()
+        subprocess.run([str(py), str(ROOT / "scripts/refresh-ceo-drive-catalog.py")], cwd=ROOT, check=False)
 
     goal, brief = (resolve_auto_args(args.goal, args.brief) if args.auto else (args.goal.strip(), args.brief.strip()))
     if not goal:

@@ -27,6 +27,22 @@ python3 scripts/agent-brainstorm-preflight.py --goal "<chat 原话>"
 
 handoff：`integration/handoff/owner-brainstorm-preflight-latest.json`
 
+### 深度链（已发复盘 / 监督 / 补全 — 自动 `--deep`）
+
+Owner 原话含 **已发、后台、复盘、监督、补全、为什么、数据分析** 时：
+
+```bash
+python3 scripts/agent-brainstorm-preflight.py --deep --goal "<原话>"
+# 或 monorepo：agent-workflow.py brand content-session --goal "<原话>"
+```
+
+依次：`catalog refresh`（gdocs venv）→ screen → **`agent-hydrate-drive-priority.py` 全文抽取**（PDF/docx/xlsx/pptx）→ `ceo-six-case-battery` → monorepo `prompt-six-case --domain xhs` → `run_ceo_full_execution` 切片 → `qc handoff`。
+
+| handoff | 用途 |
+|---------|------|
+| `owner-brainstorm-deep-preflight-latest.json` | 各层 exit / 监督 |
+| `owner-drive-hydrate-latest.json` | 每文件 `char_count` + `read_complete`（禁止只读文件名） |
+
 ---
 
 ## Owner 决策边界（战略 · 花钱 · 改库）

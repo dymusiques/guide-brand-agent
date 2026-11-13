@@ -1,0 +1,129 @@
+{
+  "as_of": "2026-11-13T13:41:40.875633+00:00",
+  "source": "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.json",
+  "items": [
+    {
+      "id": "10KhvlNZzzg92akM6qx1e0fvx3TOiDCfr",
+      "name": "重思策展 新媒体后的艺术 (（英）贝丽尔·格雷厄姆  萨拉·库克) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "mimeType": "application/pdf",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    },
+    {
+      "id": "1kxjV7WHdKSvvQjPxQQShtol1_VmD1B1c",
+      "name": "交易的艺术 Trump The Art of the Comeback by Donald J. Trump, (Donald J. Trump) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+      "mimeType": "application/pdf",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    },
+    {
+      "id": "17yLp93NKFy2j1-zrtmuFCKXwL_iljJCv",
+      "name": "品牌设计法则_徐适_z_library_sk,_1lib_sk,_z_lib_sk.epub",
+      "mimeType": "application/epub+zip",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    },
+    {
+      "id": "1kVQkQG7-X6qQ8CGqGMG8KovZjRTBsjpJ",
+      "name": "流量池 (杨飞) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "mimeType": "application/epub+zip",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    },
+    {
+      "id": "14Zgqy8-1KUNsv0TOJZxKk36s-7FYNK-A",
+      "name": "真需求 (梁宁) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "mimeType": "application/epub+zip",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    },
+    {
+      "id": "1ZqV5HFqbN-Aidm_2PSV8PMq1VIHc_GsG",
+      "name": "竞争战略_美_迈克尔波特_z_library_sk,_1lib_sk,_z_lib_sk.epub",
+      "mimeType": "application/epub+zip",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    },
+    {
+      "id": "17_Z-OayTnLV3FbCoZ0QLGSndWAUU6r9q",
+      "name": "策展的50个关键_李如菁著_z_library_sk,_1lib_sk,_z_lib_sk.pdf",
+      "mimeType": "application/pdf",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    },
+    {
+      "id": "1pvffNoDUj3U0SYI8dm2GQqvNlgIl3ktx",
+      "name": "整合行销传播_美唐E舒尔茨著_z_library_sk,_1lib_sk,_z_lib_sk.djvu",
+      "mimeType": "image/x.djvu",
+      "download_ok": false,
+      "char_count": 0,
+      "truncated": false,
+      "extract_method": "none",
+      "supervision": {
+        "min_chars_for_decisions": 200,
+        "read_complete": false,
+        "forbid": "仅用文件名或前 3 行摘录下薯条/投流结论"
+      },
+      "text_path": ""
+    }
+  ],
+  "read_complete_count": 0,
+  "status": "FAIL",
+  "fail_count": 8
+}

@@ -42,7 +42,14 @@ TRIGGERS = (
     "第四条",
     "法国",
     "意大利",
+    "已发",
+    "后台",
+    "复盘",
+    "艺术家",
+    "监督",
+    "补全",
 )
+DEEP_FLAG = ("已发", "后台", "复盘", "为什么", "监督", "补全", "深度", "数据分析", "投流")
 
 
 def session_triggers(goal: str) -> bool:
@@ -89,6 +96,7 @@ def build_route(goal: str) -> dict:
             "run_command": [
                 sys.executable,
                 "scripts/agent-brainstorm-preflight.py",
+                *(["--deep"] if any(k in g for k in DEEP_FLAG) else []),
                 "--goal",
                 g or "小红书 IP brainstorm",
             ],

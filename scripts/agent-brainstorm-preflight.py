@@ -24,7 +24,23 @@ OUT = ROOT / "integration/handoff/owner-brainstorm-preflight-latest.json"
 sys.path.insert(0, str(ROOT / "scripts"))
 from pending_videos_gate_policy import owner_wants_decision  # noqa: E402
 
-XHS_KW = ("小红书", "笔记", "薯条", "曝光", "互动", "xlsx", "后台", "近7", "近30", "数据")
+XHS_KW = (
+    "小红书",
+    "笔记",
+    "薯条",
+    "曝光",
+    "互动",
+    "xlsx",
+    "后台",
+    "近7",
+    "近30",
+    "数据",
+    "已发",
+    "复盘",
+    "投流",
+    "聚光",
+)
+DEEP_KW = ("已发", "后台", "复盘", "为什么", "监督", "深度", "补全", "数据分析", "6-case", "六项")
 PENDING_KW = ("待发", "pending", "口播", "字幕", "inbox", "法国", "意大利", "目击者")
 DRIVE_KW = (
     "Drive",
@@ -76,6 +92,10 @@ def screen_stale(screen: Path) -> bool:
     return (time.time() - screen.stat().st_mtime) > SCREEN_MAX_AGE_S
 
 
+def goal_needs_deep(goal: str) -> bool:
+    return any(k in goal for k in DEEP_KW)
+
+
 def auto_drive_screen(goal: str) -> tuple[int, str]:
     g = goal.strip() or "小红书 IP brainstorm 背书"
     cmd = [
@@ -84,6 +104,8 @@ def auto_drive_screen(goal: str) -> tuple[int, str]:
         "--goal",
         g,
         "--refresh-catalog",
+        "--limit",
+        "12",
     ]
     r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     out = (r.stdout or "") + (r.stderr or "")
@@ -119,6 +141,7 @@ def check_drive_screen(goal: str, *, auto: bool) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--goal", default="", help="Owner 原话（判定要跑哪些层）")
+    ap.add_argument("--deep", action="store_true", help="深度链：hydrate + 6-case + CEO 切片")
     args = ap.parse_args()
     goal = args.goal.strip()
 
@@ -153,12 +176,27 @@ def main() -> int:
         if layers["drive_corpus"].get("status") == "FAIL":
             fail += 1
 
+    deep = args.deep or goal_needs_deep(goal)
+    deep_handoff = None
+    if deep:
+        ec_d, tail_d = run_py("agent-brainstorm-deep-preflight.py", "--goal", goal or "深度复盘")
+        layers["deep_chain"] = {
+            "status": "PASS" if ec_d == 0 else "FAIL",
+            "exit_code": ec_d,
+            "tail": tail_d,
+            "handoff": "integration/handoff/owner-brainstorm-deep-preflight-latest.json",
+        }
+        deep_handoff = layers["deep_chain"]["handoff"]
+        if ec_d != 0:
+            fail += 1
+
     payload = {
         "as_of": datetime.now(timezone.utc).isoformat(),
-        "mode": "brainstorm",
+        "mode": "brainstorm_deep" if deep else "brainstorm",
         "owner_decision_default": "Owner 拍板；Agent 不自拟最终投流/标题定稿",
         "agent_may_deliver": ["多方案", "对比", "风险", "引用 decision_summary 作讨论依据（非拍板）"],
         "layers": layers,
+        "deep_preflight_handoff": deep_handoff,
         "status": "PASS" if fail == 0 else "FAIL",
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)

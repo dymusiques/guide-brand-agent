@@ -24,7 +24,18 @@ SCREEN_MD = ROOT / "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-late
 SCREEN_JSON = ROOT / "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.json"
 CEO_MANIFEST = ROOT / "content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.json"
 MIRROR_DIR = ROOT / "content/personal-ip/intake/_mirror/drive-fusion"
-GDOCS_PY = ROOT / ".venv/bin/python"
+def _gdocs_py() -> Path:
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("brand_gdocs_python", ROOT / "scripts/brand_gdocs_python.py")
+    if spec and spec.loader:
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod.resolve_gdocs_python()
+    return ROOT / ".venv/bin/python"
+
+
+GDOCS_PY = _gdocs_py()
 SECRETS = ROOT / "vendor/gdocs-skill/secrets"
 WRITING_GOAL = re.compile(
     r"写|笔记|Brief|brief|小红书|Drive|背书|口播|定稿|LinkedIn|Medium|长稿|艺术家|文案|种草",

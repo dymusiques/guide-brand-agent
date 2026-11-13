@@ -1,0 +1,36 @@
+{
+  "as_of": "2026-11-13T13:42:27.229691+00:00",
+  "mode": "brainstorm_deep",
+  "goal": "已发艺术家监督",
+  "layers": {
+    "drive_hydrate_fulltext": {
+      "status": "PARTIAL",
+      "exit_code": 1,
+      "tail": "{\"status\": \"FAIL\", \"handoff\": \"integration/handoff/owner-drive-hydrate-latest.json\"}"
+    },
+    "ceo_six_case_battery": {
+      "status": "PARTIAL",
+      "exit_code": 1,
+      "tail": " 空白内容: Passed\n\n=== Summary ===\ncases: 6 passed, 0 failed (of 6)\nRESULT: PASS — all 6 cases passed\n>>> fused B XHS kernel (04/05 → 05): PASS\n\n=== verify-agent-fused summary (agent=04 SKIP_GEMINI=0) ===\nRESULT: PASS\nPASS six-case · fused-04\n\n######## verify-agent-fused · agent 05 · date=2026-11-13 ########\n=== Goal registry (6) ===\n=== Goal Registry verify (6 cases) ===\n\n  PASS · Goals · registry.json 可读 (11 goals)\n  PASS · Goals · version 字段 (v1)\n  PASS · Goals · goal id 唯一 (unique ids)\n  PASS · Goals · 10 个 Agent 均有目标 (all 10 agents linked)\n  PASS · Goals · 涨粉 KPI 文档化非 kernel 断言 (milestones documented)\n  PASS · Goals · GOALS-REGISTRY.md (GOALS-REGISTRY.md ok)\n\n=== Summary ===\ncases: 6 passed, 0 failed\nRESULT: PASS — goals registry 6 cases\n\n=== Agent integration matrix verify ===\n\n--- Agent 05 · XHS Kernel (7 cases) ---\n  PASS · 05 · kernel 模块 (kernel file)\n  PASS · 05 · 空输入 False (empty input False)\n  PASS · 05 · Gemini 6-test 路径 (6-test module)\n  PASS · 05 · verify-xhs-topic 壳 (verify-xhs-topic.sh)\n  PASS · 05 · INTEGRATION-PROMPT (ok)\n  PASS · 05 · 粉丝 KPI 不进 kernel (KPI not in kernel asserts)\n  PASS · 四项 100 · 过线 80 (angle hit voice cite · 100/80)\nRESULT: PASS — single agent matrix\n>>> fused A matrix: PASS\n=== Xiaohongshu topic verify (6 cases) ===\n\n正例 — 明确提到：IP + 人群 + 强链接 CTA: Passed\n正例 — 隐含提到：未写数字藏品，但专业+教育+咨询链接清晰: Passed\n负例 — 无关：与 IP、涨粉、筛客无关: Passed\n歧义 — 标题无关、内容相关：应看正文 Pass: Passed\n歧义 — 标题相关、内容无关：标题蹭 IP，正文无链接价值: Passed\n边界 — 空白内容: Passed\n\n=== Summary ===\ncases: 6 passed, 0 failed (of 6)\nRESULT: PASS — all 6 cases passed\n>>> fused B XHS kernel (04/05 → 05): PASS\n\n=== verify-agent-fused summary (agent=05 SKIP_GEMINI=0) ===\nRESULT: PASS\nPASS six-case · fused-05\nPASS · contract · angle hit voice cite · 100/80\nFAIL · linkedin angle 44 < 80\nFAIL · xiaohongshu angle 44 < 80\nFAIL · xiaohongshu cite 0 < 80\nFAIL · medium angle 44 < 80\nFAIL · medium cite 0 < 80\nSKIP six-case · brief L1+kernel (no --brief)\nRESULT: FAIL ceo-six-case-battery (1)\nFAIL six-case · four-dimensions",
+      "note": "four-dimensions 未过线时仍 PARTIAL（integration+fused 已过）"
+    },
+    "monorepo_prompt_six_case_xhs": {
+      "status": "PASS",
+      "exit_code": 0,
+      "note": "机械真源 AGENT-PROMPT-SIX-CASE.json domain=xhs",
+      "tail": "# prompt 6-case（docs/agent/AGENT-PROMPT-SIX-CASE.json）\n针对「成功目标」的分类器/prompt 必过 6 case：description · input{subject,body} · expected bool。\n\n## 六类（与成功目标绑定）\n  1. 针对成功目标 · 明确提到 → expected=True (正例显性)\n  2. 针对成功目标 · 隐含提到 → expected=True (正例隐性)\n  3. 与成功目标无关 → expected=False (负例)\n  4. 标题无关 · 内容相关 → expected=True (歧义 · 以正文为准)\n  5. 标题相关 · 内容无关 → expected=False (歧义 · 标题蹭目标正文无价值)\n  6. 边界或空白内容 → expected=False (空输入安全默认)\n\n## domain=xhs · 小红书 growth aligned：IP + 教育专业度 + 强链接 CTA\n  canonical: /Users/danying/Desktop/danying-brand-agent/kernels/xiaohongshu/line2/tests/test_is_xhs_growth_aligned.py\n  run: cd /Users/danying/Desktop/danying-brand-agent && bash scripts/verify-xhs-topic.sh\n\n## fixtures（仓库真源）\n\n  [1] 正例 — 明确提到：IP + 人群 + 强链接 CTA\n      subject: '法派长笛老师：品牌怎么用艺术讲清故事'\n      body: '我在巴黎高师跟过歌剧院首席体系，现在帮品牌和艺术家做跨界策划。如果你正在为高端活动找一位能讲「艺术×商业×数字藏品」的策划人，私信「合作」，我们可以聊沉浸式体验怎么落地。'\n      expected: True\n\n  [2] 正例 — 隐含提到：未写数字藏品，但专业+教育+咨询链接清晰\n      subject: '孩子学长笛，家长最该先看这一件事'\n      body: '别急着比进度。法派体系里，呼吸和音乐句读比「练哪本教材」更重要。我带的学生里，有几位已经走向国际院校方向。想聊孩子适不适合走专业路径，可以私信「评估」。'\n      expected: True\n\n  [3] 负例 — 无关：与 IP、涨粉、筛客无关\n      subject: '周末办公室聚餐去哪吃'\n      body: '本周六团队聚餐，大家投票选餐厅。记得周四前 RSVP，地点在商场 B1，停车券我会发到群里。'\n      expected: False\n\n  [4] 歧义 — 标题无关、内容相关：应看正文 Pass\n      subject: '今天天气真好'\n      body: '分享一个最近常被品牌方问到的问题：为什么「艺术体验」比硬广更能让高净值用户停留？我从一次品牌×长笛×摄影的跨界项目里总结了三条可复用方法。面向各行业品牌升级与沉浸式体验需求，欢迎私信关键词案例领取结构清单。'\n      expected: True\n\n  [5] 歧义 — 标题相关、内容无关：标题蹭 IP，正文无链接价值\n      subject: '法派长笛 × AI 创新 × 数字藏品'\n      body: '今天随手拍了几张练琴房照片，滤镜调了半小时，大家觉得哪张好看？点赞最多的下次发 vlog，评论区抽三位送贴纸。'\n      expected: False\n\n  [6] 边界 — 空白内容\n      subject: ''\n      body: ''\n      expected: False\n\nPASS agent-print-prompt-six-case"
+    },
+    "ceo_full_execution_slice": {
+      "status": "SKIP",
+      "note": "--skip-ceo"
+    },
+    "qc_handoff_draft": {
+      "status": "PASS",
+      "exit_code": 0,
+      "tail": "PASS agent-qc-handoff → tmp/double-check/deep-preflight/handoff.md\nWARN: 未提供 --c2-log；handoff 中 C2 证据需主 Agent 粘贴",
+      "agent_must": "有交付时 Task×1 Double-Check + qc verify"
+    }
+  },
+  "status": "PASS",
+  "supervision_rule": "每层 exit_code 与 handoff 须进报告；禁止跳过 drive_hydrate"
+}
