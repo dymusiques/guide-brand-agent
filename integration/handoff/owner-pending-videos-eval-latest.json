@@ -1,0 +1,481 @@
+{
+  "as_of": "2026-11-13T04:23:38.510178+00:00",
+  "status": "ok",
+  "scoring_model": "rule-v2-full-body-2026-11-13",
+  "scoring_formula": "0.35×故事 + 0.35×数据像 + 0.15×好发 + 0.15×提量",
+  "pipeline": "integration/handoff/owner-pending-videos-pipeline.json",
+  "inbox": "content/xiaohongshu/inbox/pending-videos",
+  "item_count": 10,
+  "items": [
+    {
+      "id": "05-意大利泰斗发火续篇",
+      "file": "content/xiaohongshu/inbox/pending-videos/05-意大利泰斗发火续篇.md",
+      "title": "法国大师课上，泰斗当场发火（我全场目睹，不是发生在我身上）",
+      "track": "IP",
+      "sha256": "09a8e8ecc13c839e03e250d0ffe9f8c33ef1ed9faf49956979da213422c8d2bf",
+      "cjk_chars": 340,
+      "narrative_facts": {
+        "setting_france": true,
+        "setting_italy_mentioned": true,
+        "witness_not_protagonist": true,
+        "title_location_mismatch": false,
+        "location_meta": "**法国**（欧洲夏令营 · 意大利站之后的法国站；**本篇不是意大利课堂**）",
+        "perspective_meta": "**全场目击者**（事情发生在台上学生与大师之间，**不是发生在我身上**）"
+      },
+      "metrics": {
+        "match_overall": 96,
+        "story_fit": 100,
+        "data_fit": 100,
+        "hook_strength": 62,
+        "completion_risk": 25,
+        "ease_shoot": 85,
+        "volume_priority": 85
+      },
+      "scoring_basis": [
+        "故事信号 8 个关键词；判断信号 3 个；具体 moment=有。",
+        "口播约 340 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 25）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【法国大师课上，泰斗当场发火（我全场目睹，不是发生在我身上）】地点=法国（主场景） · 元数据地点=**法国**（欧洲夏令营 · 意大利站之后的法国站；**本篇不是意大利课堂**）；叙事=**全场目击者**（事情发生在台上学生与大师之间，**不是发生在我身上**）；witness_not_protagonist=True；title_location_mismatch=False；口播340字。",
+        "叙事：目击者视角（非当事人）— 标题勿写「我让…发火」除非实拍确为自己引发。",
+        "地点：法国课堂/夏令营（须与标题一致，勿误标意大利）。"
+      ],
+      "promote_tier": "A",
+      "promote_note": "自然发 72h 后可选薯条 75–150 元测播放（Drive：内容为1薯条为0）",
+      "decision_summary": "【法国大师课上，泰斗当场发火（我全场目睹，不是发生在我身上）】地点=法国（主场景） · 元数据地点=**法国**（欧洲夏令营 · 意大利站之后的法国站；**本篇不是意大利课堂**）；叙事=**全场目击者**（事情发生在台上学生与大师之间，**不是发生在我身上**）；witness_not_protagonist=True；title_location_mismatch=False；口播340字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 340
+      },
+      "human_glance_only": {
+        "preview_concat": "（提纲稿 · 你拍时按记忆补细节；结构对标后台「泰斗发火」S 级） 上一支我在意大利发的，是另一件事。今天我们只讲 **法国** 这一站：公开大师课，我在下面 **从头看到尾**——台上是一个孩子（或亚洲学生）和泰斗在对话，**主角不是我**。 不是在纠错音，是在讲音乐；但过程中有一瞬间，学生说 … 有没有把这次课当成「尊重彼此时间的对话」。 所以我要给要去大师课的孩子和家长一句判断：你可以紧张，可以吹砸，但不要用一句话、一个眼神，把「请教」变成「博弈」。这和法国那一期里 **迟到、打哈欠被请下台** 的同班同学故事，是同一条线——教养和准备，比「就一个音」更重要。 如果你也在大师课现场见过类似场面，评论里可以说说——**你当时作为旁观者** 看到的第一反应是什么。品牌/合作私信「合作」。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 1
+    },
+    {
+      "id": "05-大师课后半段给台下的人",
+      "file": "content/xiaohongshu/inbox/pending-videos/05-大师课后半段给台下的人.md",
+      "title": "她在台上被请下来之后，大师还在讲——那才是给我的课",
+      "track": "IP",
+      "sha256": "231ec79d52a0e1eeedb60fd616c6d361deeb1f967b2cd98d0a5b17f01e93799b",
+      "cjk_chars": 362,
+      "narrative_facts": {
+        "setting_france": true,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 95,
+        "story_fit": 100,
+        "data_fit": 100,
+        "hook_strength": 59,
+        "completion_risk": 25,
+        "ease_shoot": 85,
+        "volume_priority": 80
+      },
+      "scoring_basis": [
+        "故事信号 6 个关键词；判断信号 1 个；具体 moment=有。",
+        "口播约 362 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 25）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【她在台上被请下来之后，大师还在讲——那才是给我的课】地点=法国（主场景）；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播362字。",
+        "地点：法国课堂/夏令营（须与标题一致，勿误标意大利）。"
+      ],
+      "promote_tier": "A",
+      "promote_note": "自然发 72h 后可选薯条 75–150 元测播放（Drive：内容为1薯条为0）",
+      "decision_summary": "【她在台上被请下来之后，大师还在讲——那才是给我的课】地点=法国（主场景）；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播362字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 362
+      },
+      "human_glance_only": {
+        "preview_concat": "我上一条讲的是法国公开大师课里，迟到、谱子没准备好、当众打哈欠——为什么大师会发火。 今天换一面：同一个下午，小姑娘被请下台之后，大家以为课结束了，其实 **真正给台下的人上的课，才刚开始**。 大师没有继续批改她的音，他开始讲的是：大师课到底是干什么的——不是飞十几小时去对齐几个错音，是去对齐 … 和家长一句很实在的判断：如果只能上一次欧洲大师课，除了台上的十分钟，更要带走的，是 **大师怎么描述「够格」和「不够格」** 那几句话。台上那个人可能就是明天的你；台下如果你只学到「好尴尬」，那这趟机票才真正浪费。 这条不卖焦虑，只分一句：**台上的事故是教材，台下的记录才是学费。** 你如果也旁听过公开大师课，可以说说你印象最深的一句大师原话——我想收集的是「台下偷到的标准」，不是评谁对谁错。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 2
+    },
+    {
+      "id": "01-法国大师课迟到与教养",
+      "file": "content/xiaohongshu/inbox/pending-videos/01-法国大师课迟到与教养.md",
+      "title": "法国大师课上，迟到和哈欠比错音更让大师发火",
+      "track": "IP",
+      "sha256": "26ff563a9f71c937a1036a01797955a50986da08dfd389cc9c3d7e62a48c4784",
+      "cjk_chars": 1115,
+      "narrative_facts": {
+        "setting_france": true,
+        "setting_italy_mentioned": true,
+        "witness_not_protagonist": true,
+        "title_location_mismatch": false,
+        "location_meta": "**法国**（夏令营意大利站之后；本篇课堂在法国）",
+        "perspective_meta": "**全场目击者**（**不是发生在我身上**；目睹学生与大师之间的事）"
+      },
+      "metrics": {
+        "match_overall": 90,
+        "story_fit": 100,
+        "data_fit": 100,
+        "hook_strength": 69,
+        "completion_risk": 65,
+        "ease_shoot": 55,
+        "volume_priority": 80
+      },
+      "scoring_basis": [
+        "故事信号 11 个关键词；判断信号 2 个；具体 moment=有。",
+        "口播约 1115 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 65）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【法国大师课上，迟到和哈欠比错音更让大师发火】地点=法国（主场景） · 元数据地点=**法国**（夏令营意大利站之后；本篇课堂在法国）；叙事=**全场目击者**（**不是发生在我身上**；目睹学生与大师之间的事）；witness_not_protagonist=True；title_location_mismatch=False；口播1115字。",
+        "建议：剪版去掉重复铺垫，前 3 秒直接进冲突或反常识句。",
+        "叙事：目击者视角（非当事人）— 标题勿写「我让…发火」除非实拍确为自己引发。",
+        "地点：法国课堂/夏令营（须与标题一致，勿误标意大利）。"
+      ],
+      "promote_tier": "B",
+      "promote_note": "先自然流；完播达标再试薯条；可先剪短再发",
+      "decision_summary": "【法国大师课上，迟到和哈欠比错音更让大师发火】地点=法国（主场景） · 元数据地点=**法国**（夏令营意大利站之后；本篇课堂在法国）；叙事=**全场目击者**（**不是发生在我身上**；目睹学生与大师之间的事）；witness_not_protagonist=True；title_location_mismatch=False；口播1115字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 1115
+      },
+      "human_glance_only": {
+        "preview_concat": "（来源：Owner 字幕转写 · 已轻度标点） OK一说到欧洲的夏令营，我上一次曾经跟大家分享过，我在意大利的时候曾经让一个大师火了这么一个视频。但是其实这这个欧洲的夏令营还有下一站，后来我去到了法国，也发生了一件事情，不是发生在我身上，但是看到了整个的这个过程，然后我拿出来跟大家分享，呃给那些可 … 种多客气叫有教养，其实它就是体现在当你有压力的时候，当你面对那种丢脸的情境，或者是有外界有人去指责你的时候，你当下的一个眼神，你的一个反应到底是什么样的。而你如果已经选择去其他国家这种大师课，你就要按照人家的标准来，按照人家的这种规矩，用你的能力去尽量去练到这个东西。而我刚才说的这个教养，它其实应该是从小就长在你身上的，而不是说等他到了社会上的时候，到了这种不同的环境里的时候，被别人无限的去放大。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 3
+    },
+    {
+      "id": "06-自由射手Rubato别抢vibrato戏",
+      "file": "content/xiaohongshu/inbox/pending-videos/06-自由射手Rubato别抢vibrato戏.md",
+      "title": "吹《自由射手》慢乐章时，Rubato 可以拖——但 vibrato 别抢整条线",
+      "track": "IP",
+      "sha256": "b824878f7c47a98c9e0f9bbd9c4656bf44f6efe6f48b6da8dcb8f6e721a3f63c",
+      "cjk_chars": 295,
+      "narrative_facts": {
+        "setting_france": true,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 80,
+        "story_fit": 79,
+        "data_fit": 79,
+        "hook_strength": 59,
+        "completion_risk": 35,
+        "ease_shoot": 85,
+        "volume_priority": 80
+      },
+      "scoring_basis": [
+        "故事信号 3 个关键词；判断信号 3 个；具体 moment=弱。",
+        "口播约 295 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 35）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【吹《自由射手》慢乐章时，Rubato 可以拖——但 vibrato 别抢整条线】地点=法国（主场景）；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播295字。",
+        "地点：法国课堂/夏令营（须与标题一致，勿误标意大利）。"
+      ],
+      "promote_tier": "A",
+      "promote_note": "自然发 72h 后可选薯条 75–150 元测播放（Drive：内容为1薯条为0）",
+      "decision_summary": "【吹《自由射手》慢乐章时，Rubato 可以拖——但 vibrato 别抢整条线】地点=法国（主场景）；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播295字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 295
+      },
+      "human_glance_only": {
+        "preview_concat": "Vibrato 那条我讲了审美和历史，今天只钉 **一个曲子、一堂课、一个判断**。 跟 Löic Schneider 上《自由射手》里很慢的那段时，我们聊到：这段到底要不要 rubato、vibrato 该怎么给。施南子当时的意思我记了很久——**如果你的 vibrato 已经「彰显」到打扰了线 … vibrato 一深、一抖，整条抒情线就被切成碎段——听众感受到的不是诗意，是你在领功。 所以这条不是教你「怎么抖」，是教你 **什么时候故意忍住**。你可以回去听自己录音：同一段里，是你为了让心感动而抖，还是为了让别人觉得你「会」而抖——这两个动机，出来的声音完全不一样。 评论区可以留一段你最难忍住不抖的慢乐章名字，我不教指法，只说你会不会在考完级之后还愿意用「克制」这种词形容自己的演奏。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 4
+    },
+    {
+      "id": "02-vibrato审美与历史",
+      "file": "content/xiaohongshu/inbox/pending-videos/02-vibrato审美与历史.md",
+      "title": "Vibrato 不是越深越好——你的审美跟历史对上了吗",
+      "track": "IP",
+      "sha256": "6e4d50ebb4c8b92484df914cc4795374c1f2648258b30d3ac77290a84cacf724",
+      "cjk_chars": 885,
+      "narrative_facts": {
+        "setting_france": false,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 78,
+        "story_fit": 79,
+        "data_fit": 79,
+        "hook_strength": 68,
+        "completion_risk": 53,
+        "ease_shoot": 72,
+        "volume_priority": 80
+      },
+      "scoring_basis": [
+        "故事信号 3 个关键词；判断信号 3 个；具体 moment=弱。",
+        "口播约 885 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 53）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【Vibrato 不是越深越好——你的审美跟历史对上了吗】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播885字。",
+        "建议：剪版去掉重复铺垫，前 3 秒直接进冲突或反常识句。",
+        "开头「OK一说到…」偏聊天口癖，封面+字幕 hook 需另写 6 字。"
+      ],
+      "promote_tier": "B",
+      "promote_note": "先自然流；完播达标再试薯条；可先剪短再发",
+      "decision_summary": "【Vibrato 不是越深越好——你的审美跟历史对上了吗】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播885字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 885
+      },
+      "human_glance_only": {
+        "preview_concat": "OK今天我们来讲讲这个Vibrato的问题。注意我频道的朋友应该知道，发现就是我已经很长时间没有讲过这些关于术的东西了，就是演奏技巧这些东西，是因为我越发越觉得，其实好多东西跟术没有什么关系，它是审美问题，它是文化问题，它是认知问题，而审美你可以引导，但是它就是需要时间去积累。 很多人会问，包括我 … 你自己的所谓的演奏的个性的。 其实这里也可以跟大家讲一个故事，前我在跟Löic Schneider上课的时候，当时吹的是自由射手，它其中有很慢的这么一个乐段，当时我们就聊到到底要不要用Rubato，呃施南子当时就跟我讲说，如果你的Vibrato用到了会影响到你整个曲子的风格，它会打扰到整个这个线条，那么就不要这么去用。当你特别拿Vibrato当回事的时候，你已经非常的彰显它了，其实就已经多余了。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 5
+    },
+    {
+      "id": "06-尊重大师但判断权在自己",
+      "file": "content/xiaohongshu/inbox/pending-videos/06-尊重大师但判断权在自己.md",
+      "title": "尊重大师，但别把 vibrato 的「标准答案」全盘收下",
+      "track": "IP",
+      "sha256": "ce658bb5b1b4d615c0c9623e5409b345db434ba9f43ed98e4b60478765869bab",
+      "cjk_chars": 321,
+      "narrative_facts": {
+        "setting_france": false,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 74,
+        "story_fit": 70,
+        "data_fit": 70,
+        "hook_strength": 57,
+        "completion_risk": 35,
+        "ease_shoot": 85,
+        "volume_priority": 80
+      },
+      "scoring_basis": [
+        "故事信号 2 个关键词；判断信号 3 个；具体 moment=弱。",
+        "口播约 321 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 35）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【尊重大师，但别把 vibrato 的「标准答案」全盘收下】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播321字。"
+      ],
+      "promote_tier": "B",
+      "promote_note": "先自然流；完播达标再试薯条；可先剪短再发",
+      "decision_summary": "【尊重大师，但别把 vibrato 的「标准答案」全盘收下】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播321字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 321
+      },
+      "human_glance_only": {
+        "preview_concat": "很多人听完我上一条 vibrato，会来问：那你到底听不听大师的？ 我的回答一直是：**尊重，不等于把耳朵和上韬的选择权交出去。** 大师课、大师班，甚至更日常的上课——大师有大师的审美谱系，这是你要去学的；但如果你是职业演奏者，或者你将来要在舞台上说自己是谁，你就必须留一条缝：哪些是我认同要吸 … 文化和时代。你听到某位大师「只能这样吹」的时候，先问一句：这是作品的需要，还是他一辈子习惯的需要？ 对我来说，尊师和不盲从可以同时成立。最怕的一种学生是：当面点头，背后完全不知道自己在吹什么——那不是尊重，那是逃避判断。 这条给家长和大学生：你们要的「专业」，不是找一个人替你想；是找一个人逼你把标准说清楚。评论区可以留一个你曾被大师改得最狠的细节，以及你最后留没留——我想看的是你怎么做判断的。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 6
+    },
+    {
+      "id": "07-考场也有剧本紧张不只在身上",
+      "file": "content/xiaohongshu/inbox/pending-videos/07-考场也有剧本紧张不只在身上.md",
+      "title": "考场也有剧本——上台紧张，有时不是你一个人的事",
+      "track": "IP",
+      "sha256": "5900a5824666ce495b72d858e03c4dd234ba4948f5cd9da9a4b3b1757511cf41",
+      "cjk_chars": 344,
+      "narrative_facts": {
+        "setting_france": false,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 68,
+        "story_fit": 53,
+        "data_fit": 68,
+        "hook_strength": 64,
+        "completion_risk": 35,
+        "ease_shoot": 85,
+        "volume_priority": 85
+      },
+      "scoring_basis": [
+        "故事信号 1 个关键词；判断信号 1 个；具体 moment=弱。",
+        "口播约 344 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 35）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【考场也有剧本——上台紧张，有时不是你一个人的事】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播344字。"
+      ],
+      "promote_tier": "B",
+      "promote_note": "先自然流；完播达标再试薯条；可先剪短再发",
+      "decision_summary": "【考场也有剧本——上台紧张，有时不是你一个人的事】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播344字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 344
+      },
+      "human_glance_only": {
+        "preview_concat": "我上一条讲了上台紧张三个点，很多是非病理性的调节——今天补一层：**为什么同样的人，在考场会比在音乐厅更慌？** 因为我见过太多「考场也有剧本」：谁先谁后、谁被耳语、评委的表情、门口等人的碎嘴——这些都会进你的身体。你后台吃药那种，是极端；更常见的是，孩子还没上台，已经觉得自己被「定级」了。 所 … 和上场前那三十秒怎么呼吸；你不能控制的是别人的剧本，但你可以不同意那个剧本对你的定义。 这跟「要不要走专业」是连着的：如果每一次比赛都是为了证明「我是艺术家」，当然更焦虑；如果这场比赛只是你艺术生活里的一段记录，紧张会在，但不会把你整个人掀翻。 这条不教技巧，只给一个判断：**分清「我在演奏」和「我在被分类」**——家长如果愿意，可以说说孩子考级前你最常说的一句话，我看看是不是也在无形中加戏。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 7
+    },
+    {
+      "id": "04-不需要那么多艺术家",
+      "file": "content/xiaohongshu/inbox/pending-videos/04-不需要那么多艺术家.md",
+      "title": "世界上不需要那么多艺术家，但需要真的热爱艺术的人",
+      "track": "IP",
+      "sha256": "3036e4f3bbd394256b200c97d047028c96c31c4405306148af87da654e20f51b",
+      "cjk_chars": 425,
+      "narrative_facts": {
+        "setting_france": false,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 62,
+        "story_fit": 44,
+        "data_fit": 59,
+        "hook_strength": 59,
+        "completion_risk": 47,
+        "ease_shoot": 85,
+        "volume_priority": 85
+      },
+      "scoring_basis": [
+        "故事信号 0 个关键词；判断信号 1 个；具体 moment=弱。",
+        "口播约 425 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 47）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【世界上不需要那么多艺术家，但需要真的热爱艺术的人】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播425字。"
+      ],
+      "promote_tier": "B",
+      "promote_note": "先自然流；完播达标再试薯条；可先剪短再发",
+      "decision_summary": "【世界上不需要那么多艺术家，但需要真的热爱艺术的人】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播425字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 425
+      },
+      "human_glance_only": {
+        "preview_concat": "想跟大家说真的世界上不需要这么多的艺术家，需要很多很多真的热爱音乐热爱艺术的人。家长问我说孩子要不要走专业这个路线哈，其实我大部分的学生家长都讲的都比较清楚，啊不希望孩子走专业。我自己作为老师呢，我也是不推荐，几个理由吧。 第一个理由就是就是华夏文明里边，去学习西方艺术，你本身没有这个背景文化，你 … 爱艺术的人。到现在为止已经这么多年了，我们一直都在一个全民的一个普及的一个阶段……所以我这里要补一句啊，说这些并不是因为说我自己是学这个出身的……新的这些科技发展的越好，反而我觉得对于古典音乐也好……他会变得越来越好，但是他需要时间……真的还是要多普及这种古典音乐这种文化，而不是说三天两头已经这么就是从我小的时候哎就开始说音乐会礼仪……但是我觉得ok吧，就只是分享我自己的一个个人看法，碎碎念一下。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 8
+    },
+    {
+      "id": "07-考试前踩台不是为了迷信",
+      "file": "content/xiaohongshu/inbox/pending-videos/07-考试前踩台不是为了迷信.md",
+      "title": "上台紧张那条我漏说了——考试前我会去踩一次台，不是为了迷信",
+      "track": "IP",
+      "sha256": "2079cd078b83e16436752ad2c19bc31fd76d019fb61ca0ca83ae5662927750c7",
+      "cjk_chars": 371,
+      "narrative_facts": {
+        "setting_france": false,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 60,
+        "story_fit": 49,
+        "data_fit": 49,
+        "hook_strength": 57,
+        "completion_risk": 35,
+        "ease_shoot": 85,
+        "volume_priority": 85
+      },
+      "scoring_basis": [
+        "故事信号 1 个关键词；判断信号 0 个；具体 moment=弱。",
+        "口播约 371 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 35）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【上台紧张那条我漏说了——考试前我会去踩一次台，不是为了迷信】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播371字。"
+      ],
+      "promote_tier": "C",
+      "promote_note": "先剪/改 hook；不建议付费加热",
+      "decision_summary": "【上台紧张那条我漏说了——考试前我会去踩一次台，不是为了迷信】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播371字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 371
+      },
+      "human_glance_only": {
+        "preview_concat": "上台紧张「三个点」里我讲过第二条：有条件的话，去你真正要考试、要 audition 的那个地方提前感受一下。 有人留言说：这不迷信吗？我来说明白—— **我不是去求好运，我是去换掉大脑里的「陌生」。** 紧张很大一部分来自：灯光从哪打、地板什么颜色、回音是干还是湿、候场门开合有没有响声。这些东西 … 跟吃药、跟与人攀比都没关系，是一个很土但很管用的专业习惯。 家长也可以做：考级前如果允许，带孩子去看看场；不允许，就用照片、视频、甚至同一品牌的琴房角落，模拟一个 **「入场动线」**。台上那一刻，请孩子只做一件事——把第一个音送出去，别同时还在「猜环境」。 你今天如果愿意评论，就说说你最后一次考试前有没有踩过台——有或没有都行，我想看的是大家缺的是技巧，还是缺这一趟「 Familiar 」。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 9
+    },
+    {
+      "id": "03-上台紧张三点",
+      "file": "content/xiaohongshu/inbox/pending-videos/03-上台紧张三点.md",
+      "title": "上台紧张？三个点是我和所有专业老师都聊过的",
+      "track": "IP",
+      "sha256": "424bb4d6f3739d9884a10dd79c661fd3a882882dfab147272bce1624bd18c0c1",
+      "cjk_chars": 563,
+      "narrative_facts": {
+        "setting_france": false,
+        "setting_italy_mentioned": false,
+        "witness_not_protagonist": false,
+        "title_location_mismatch": false,
+        "location_meta": null,
+        "perspective_meta": null
+      },
+      "metrics": {
+        "match_overall": 52,
+        "story_fit": 40,
+        "data_fit": 40,
+        "hook_strength": 68,
+        "completion_risk": 35,
+        "ease_shoot": 72,
+        "volume_priority": 85
+      },
+      "scoring_basis": [
+        "故事信号 0 个关键词；判断信号 0 个；具体 moment=弱。",
+        "口播约 563 汉字（小红书口播建议 300–500 字/60–90s；超长抬完播风险 35）。",
+        "数据对照：你后台 S 级为「故事+冲突+判断」（泰斗/考场）；纯技巧连载偏弱。",
+        "决策事实（全文）：【上台紧张？三个点是我和所有专业老师都聊过的】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播563字。",
+        "开头「OK一说到…」偏聊天口癖，封面+字幕 hook 需另写 6 字。"
+      ],
+      "promote_tier": "C",
+      "promote_note": "先剪/改 hook；不建议付费加热",
+      "decision_summary": "【上台紧张？三个点是我和所有专业老师都聊过的】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播563字。",
+      "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+      "body_reading": {
+        "must_read": "full_md_from_h2_口播全文_through_end",
+        "scanned_chars_cjk": 563
+      },
+      "human_glance_only": {
+        "preview_concat": "OK我之前曾经拍过一个视频，讲的是我在后台看到有人因为紧张过度紧张在后台吃药的一个问题。随着其实我也收到了一些网友的一些留言，有些网友说不乏说可能会有这种焦虑症的这种情况。今天我说的这件事情，咱们先把有一些有这种疾病特征的咱们先排除在外，说三个点，我认为能够缓解你上台紧张的这个情绪的。 我和我所有 … 个东西……当你进到一个新的一个环境里的时候，不要去感受他的那个氛围……我们为了这件事情做这件事情的时候……当下你如果想要拿到一个特别具体的结果的当下，不要去感受它，也不要过多的想说我在台上我是多么的光鲜亮丽，不要做任何的预设。 ……专注力无论你是专业的学生也好，或者是你是业余的这些爱好者也好，我们通过其实乐器只是一个载体，他需要练到的是你做事情的一个专注度，以及你能多快的让自己的注意力集中起来。",
+        "not_for_decisions": true,
+        "use_instead": "integration/handoff/owner-pending-videos-facts-latest.json"
+      },
+      "rank": 10
+    }
+  ],
+  "promote_winner": "05-意大利泰斗发火续篇",
+  "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
+  "forbidden_for_agent_decisions": [
+    "body_preview",
+    "human_glance_only"
+  ],
+  "agent_advice_gate_script": "scripts/agent-gate-pending-videos-advice.py",
+  "drive_refs": [
+    "content/personal-ip/intake/_cache/drive-ref/如何投放好小红书薯条.md"
+  ]
+}

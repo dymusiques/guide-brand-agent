@@ -85,6 +85,17 @@ python scripts/collector-intake.py --agent 00-manager --slug 2026-10-27-redteam 
 
 **不是魔法：** 基线需持续 intake / gold / 内部迭代；**Agent** 在 CEO→GM 打回环里改稿并重跑 **内部 gate**，不把未验稿交给 Owner。
 
+## L2d · 待发口播（pending-videos · 非 Brief gold）
+
+口播 MD 进 `content/xiaohongshu/inbox/pending-videos/*.md` → **规则评估 + HTML**（条数不限）：
+
+```bash
+bash scripts/run-owner-pending-videos-eval.sh
+```
+
+SOP：[OWNER-PENDING-VIDEOS-EVAL-SOP.md](./OWNER-PENDING-VIDEOS-EVAL-SOP.md) · 注册：`integration/handoff/owner-pending-videos-pipeline.json`  
+与 Evaluator **编辑距离** 不同：本层是 **发布前匹配度/薯条档**，不替代 `evaluate-edit-distance.py`。
+
 ## 与小红书 aligned 的关系
 
 - **进化距离** = 你离「心中定稿」多近（可量化）。  

@@ -1,6 +1,13 @@
 {
   "version": 1,
   "as_of": "2026-10-20",
+  "drive_source": {
+    "label": "我的小红书数据",
+    "folder_id": "1kFYScZvFgd52983gK0gItIuRq0-43WyR",
+    "link": "https://drive.google.com/drive/folders/1kFYScZvFgd52983gK0gItIuRq0-43WyR?usp=drive_link",
+    "handoff": "integration/handoff/owner-xhs-data-drive.json",
+    "sync": "bash scripts/sync-owner-xhs-data-from-drive.sh"
+  },
   "platform": "xiaohongshu",
   "note_count": 23,
   "detail_json_count": 23,

@@ -45,13 +45,28 @@ content_sha256: "b3dd0cf875b5493e"
 | Owner 侧是否还有未导入表 | **否**（笔记级已齐） |
 | 缺平台导出 | **私信**（`dm_count` 手填/口述） |
 
+## Drive 真源（Owner 持续更新）
+
+| 项 | 值 |
+|----|-----|
+| 文件夹 | [我的小红书数据](https://drive.google.com/drive/folders/1kFYScZvFgd52983gK0gItIuRq0-43WyR?usp=drive_link) |
+| 配置 | `integration/handoff/owner-xhs-data-drive.json` |
+| Agent L1 | `content/personal-ip/intake/2026-11-07-owner-xhs-data-drive-L1.md` |
+| 同步 | `bash scripts/sync-owner-xhs-data-from-drive.sh` |
+
+发完笔记/视频 → 更新 Drive xlsx（**或**在 Cursor 附上 xlsx）→ **Agent 自动同步**（`xhs-owner-data-auto-sync.sh` · 见 `owner-xhs-data-drive.json` `agent_auto_sync`）→ 再读 `derived/xhs-data-strategy-*.md`。**禁止**要求 Owner 另说「同步小红书数据」。
+
 ## 三层存放（记路径即可）
 
 ```text
+L0 Drive（Owner My Drive · 与 L1 raw 镜像）
+  我的小红书数据/  # 列表、近30日、单篇明细 xlsx
+
 L1 原始（gitignore · 换机需拷贝或重导）
   content/analytics/raw/xiaohongshu/2026-10-20/notes-detail.xlsx   # 列表总表
   content/analytics/raw/xiaohongshu/note-details/*数据明细表.xlsx  # 单篇明细
-  content/analytics/raw/xiaohongshu/2026-10-20/account-*.xlsx      # 账号 30 天（pipeline 未自动读）
+  content/analytics/raw/xiaohongshu/YYYY-MM-DD/account-*.xlsx    # 近7日/30日 账号表（观看/互动/涨粉/发布）
+  content/analytics/xiaohongshu/account-7d-summary-YYYY-MM-DD.json  # 近7日合并 JSON
 
 L2 可维护注册表（建议 commit）
   content/analytics/xiaohongshu/note-links.csv
@@ -74,20 +89,21 @@ bash scripts/ensure-venv-deps.sh
 bash scripts/manager-autopilot.sh
 ```
 
-有 **新** 列表 xlsx 时：
+Owner 上传 **任意组合** xlsx（列表 / 单篇明细 / 近7日）后，Agent **同一会话自动**：
 
 ```bash
-python scripts/analytics/xhs_note_links.py import-workbook   # 若改了回填表
-python scripts/analytics/xhs_convert_notes_detail.py \
-  --xlsx content/analytics/raw/xiaohongshu/2026-10-20/notes-detail.xlsx
-bash scripts/analytics-fetch.sh && bash scripts/analytics-pipeline.sh
+bash scripts/xhs-owner-data-auto-sync.sh --from-dir <Downloads 或 drive-sync-latest>
+# Drive 真源：
+bash scripts/sync-owner-xhs-data-from-drive.sh
 ```
 
-新 **单篇明细** 放进目录后：
+脚本会：归档 raw → 合并全部历史列表 → 融合单篇明细 → `notes.csv` + `笔记链接回填表.xlsx` + `小红书笔记数据汇总-全指标-日期.xlsx`（并复制到 `~/Downloads`）。
+
+手工调试（仅 Agent）：
 
 ```bash
-python scripts/analytics/xhs_note_detail.py ingest --dir ~/Downloads
-# 再跑 convert + fetch + pipeline（同上）
+python scripts/analytics/xhs_sync_warehouse.py merge
+python scripts/analytics/xhs_note_links.py import-workbook   # 若 Owner 手改回填表
 ```
 
 ## CSV 长什么样

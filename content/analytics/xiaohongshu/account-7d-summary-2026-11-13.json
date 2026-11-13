@@ -1,0 +1,150 @@
+{
+  "as_of": "2026-11-13",
+  "window": "近7日",
+  "metrics": [
+    {
+      "dimension": "观看",
+      "metric": "曝光",
+      "value_7d": "1684.0",
+      "mom_pct": "163.0",
+      "source_file": "近7日观看数据",
+      "source_path": "account-views-7d.xlsx"
+    },
+    {
+      "dimension": "观看",
+      "metric": "观看",
+      "value_7d": "302.0",
+      "mom_pct": "277.0",
+      "source_file": "近7日观看数据",
+      "source_path": "account-views-7d.xlsx"
+    },
+    {
+      "dimension": "观看",
+      "metric": "封面点击率(%)",
+      "value_7d": "9.1",
+      "mom_pct": "",
+      "source_file": "近7日观看数据",
+      "source_path": "account-views-7d.xlsx"
+    },
+    {
+      "dimension": "观看",
+      "metric": "平均观看时长(s)",
+      "value_7d": "47.3",
+      "mom_pct": "",
+      "source_file": "近7日观看数据",
+      "source_path": "account-views-7d.xlsx"
+    },
+    {
+      "dimension": "观看",
+      "metric": "总观看时长(s)",
+      "value_7d": "38763.0",
+      "mom_pct": "",
+      "source_file": "近7日观看数据",
+      "source_path": "account-views-7d.xlsx"
+    },
+    {
+      "dimension": "观看",
+      "metric": "总完播率(%)",
+      "value_7d": "33.5",
+      "mom_pct": "",
+      "source_file": "近7日观看数据",
+      "source_path": "account-views-7d.xlsx"
+    },
+    {
+      "dimension": "互动",
+      "metric": "点赞",
+      "value_7d": "8.0",
+      "mom_pct": "166.0",
+      "source_file": "近7日互动数据",
+      "source_path": "account-interaction-7d.xlsx"
+    },
+    {
+      "dimension": "互动",
+      "metric": "评论",
+      "value_7d": "1.0",
+      "mom_pct": "-50.0",
+      "source_file": "近7日互动数据",
+      "source_path": "account-interaction-7d.xlsx"
+    },
+    {
+      "dimension": "互动",
+      "metric": "收藏",
+      "value_7d": "2.0",
+      "mom_pct": "0.0",
+      "source_file": "近7日互动数据",
+      "source_path": "account-interaction-7d.xlsx"
+    },
+    {
+      "dimension": "互动",
+      "metric": "分享",
+      "value_7d": "1.0",
+      "mom_pct": "0.0",
+      "source_file": "近7日互动数据",
+      "source_path": "account-interaction-7d.xlsx"
+    },
+    {
+      "dimension": "涨粉",
+      "metric": "净涨粉",
+      "value_7d": "2.0",
+      "mom_pct": "-300.0",
+      "source_file": "近7日涨粉数据",
+      "source_path": "account-followers-7d.xlsx"
+    },
+    {
+      "dimension": "涨粉",
+      "metric": "新增关注",
+      "value_7d": "2.0",
+      "mom_pct": "0.0",
+      "source_file": "近7日涨粉数据",
+      "source_path": "account-followers-7d.xlsx"
+    },
+    {
+      "dimension": "涨粉",
+      "metric": "取消关注",
+      "value_7d": "0.0",
+      "mom_pct": "-100.0",
+      "source_file": "近7日涨粉数据",
+      "source_path": "account-followers-7d.xlsx"
+    },
+    {
+      "dimension": "涨粉",
+      "metric": "主页访客",
+      "value_7d": "28.0",
+      "mom_pct": "100.0",
+      "source_file": "近7日涨粉数据",
+      "source_path": "account-followers-7d.xlsx"
+    },
+    {
+      "dimension": "涨粉",
+      "metric": "主页转粉率(%)",
+      "value_7d": "3.6",
+      "mom_pct": "",
+      "source_file": "近7日涨粉数据",
+      "source_path": "account-followers-7d.xlsx"
+    },
+    {
+      "dimension": "发布",
+      "metric": "总发布",
+      "value_7d": "1.0",
+      "mom_pct": "0.0",
+      "source_file": "近7日发布数据",
+      "source_path": "account-publish-7d.xlsx"
+    },
+    {
+      "dimension": "发布",
+      "metric": "发布视频",
+      "value_7d": "1.0",
+      "mom_pct": "0.0",
+      "source_file": "近7日发布数据",
+      "source_path": "account-publish-7d.xlsx"
+    },
+    {
+      "dimension": "发布",
+      "metric": "发布图文",
+      "value_7d": "0.0",
+      "mom_pct": "0.0",
+      "source_file": "近7日发布数据",
+      "source_path": "account-publish-7d.xlsx"
+    }
+  ]
+}

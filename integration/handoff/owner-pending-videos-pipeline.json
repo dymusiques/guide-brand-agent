@@ -1,0 +1,81 @@
+{
+  "version": "2026-11-13",
+  "layer_id": "L2d_PENDING_VIDEOS_EVAL",
+  "name": "待发口播 · MD 流程 + Python 打分 + HTML",
+  "sop_doc": "docs/OWNER-PENDING-VIDEOS-EVAL-SOP.md",
+  "automation_layer": "integration/handoff/workflow-automation-manifest.json#L2d_PENDING_VIDEOS_EVAL",
+  "md_role": "流程、路径、Owner 步骤、排版模板",
+  "python_role": "evaluate + facts manifest + advice gate + HTML",
+  "agent_must_read_subtitles": {
+    "rule": "Agent 禁止手读全文偷懒；决策须引用全文解析 manifest 的 decision_summary",
+    "forbidden_for_decisions": ["body_preview", "human_glance_only", "excerpts_for_orientation_only"],
+    "required_fields": ["地点", "叙事视角", "narrative_facts", "decision_summary"],
+    "scoring_model": "rule-v2-full-body-2026-11-13",
+    "facts_manifest": "integration/handoff/owner-pending-videos-facts-latest.json",
+    "advice_gate_handoff": "integration/handoff/owner-pending-videos-advice-gate-latest.json"
+  },
+  "agent_advice_gate": {
+    "must_run_before": [
+      "薯条",
+      "promote",
+      "标题",
+      "封面 hook",
+      "选题",
+      "pending",
+      "待发口播",
+      "法国",
+      "意大利",
+      "目击者"
+    ],
+    "script": "scripts/agent-gate-pending-videos-advice.py",
+    "exit_nonzero_means": "禁止交付建议；先跑 bash scripts/run-owner-pending-videos-eval.sh",
+    "auto_refresh_if_inbox_stale": true,
+    "monorepo_routing_json": "docs/agent/AGENT-PENDING-VIDEOS-FULL-READ.json"
+  },
+  "position_in_stack": "L1 Collector(MD) → L2d 本流水线 → Owner 发布 → L3 Brief/analytics",
+  "intake_dir": "content/xiaohongshu/inbox/pending-videos",
+  "intake_glob": "*.md",
+  "intake_template": "content/xiaohongshu/inbox/pending-videos/TEMPLATE.md",
+  "intake_readme": "content/xiaohongshu/inbox/pending-videos/README.md",
+  "not_fixed_count": true,
+  "scripts": {
+    "one_command": "bash scripts/run-owner-pending-videos-eval.sh",
+    "evaluate": "scripts/evaluate-owner-pending-videos.py",
+    "facts_manifest": "scripts/build-owner-pending-videos-facts-manifest.py",
+    "advice_gate": "scripts/agent-gate-pending-videos-advice.py",
+    "read_one": "scripts/read-pending-video-for-agent.py",
+    "build_html": "scripts/build-owner-pending-videos-eval-html.py",
+    "open": "bash scripts/open-owner-pending-videos-eval-html.sh",
+    "verify": "bash scripts/verify-owner-pending-videos-pipeline.sh"
+  },
+  "outputs": {
+    "eval_json": "integration/handoff/owner-pending-videos-eval-latest.json",
+    "facts_json": "integration/handoff/owner-pending-videos-facts-latest.json",
+    "advice_gate_json": "integration/handoff/owner-pending-videos-advice-gate-latest.json",
+    "html_latest": "content/evolution/00-manager/ceo-inbox/OWNER-PENDING-VIDEOS-EVAL-latest.html"
+  },
+  "ceo_goal_triggers": [
+    "评估待发",
+    "待发口播",
+    "口播评估",
+    "pending-videos",
+    "评估 pending",
+    "评估口播"
+  ],
+  "ceo_integration": {
+    "entry": "scripts/run_ceo_full_execution.py",
+    "step_script": "bash scripts/run-owner-pending-videos-eval.sh --no-open",
+    "condition": "goal 含触发词 且 inbox 存在非 README 的 .md"
+  },
+  "owner_phrases": [
+    "评估待发口播",
+    "同步待发视频",
+    "口播打分"
+  ],
+  "drive_refs_cached": [
+    "content/personal-ip/intake/_cache/drive-ref/如何投放好小红书薯条.md"
+  ],
+  "data_refs": [
+    "content/analytics/xiaohongshu/DATA-MANIFEST.json"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "as_of": "2026-11-13T04:27:22.730129+00:00",
+  "status": "PASS",
+  "advice_allowed": true,
+  "agent_must_cite": "integration/handoff/owner-pending-videos-facts-latest.json → items[].decision_summary",
+  "forbidden_for_decisions": [
+    "body_preview",
+    "human_glance_only",
+    "excerpts_for_orientation_only"
+  ],
+  "selected_ids": [
+    "01-法国大师课迟到与教养",
+    "02-vibrato审美与历史",
+    "03-上台紧张三点",
+    "04-不需要那么多艺术家",
+    "05-大师课后半段给台下的人",
+    "05-意大利泰斗发火续篇",
+    "06-尊重大师但判断权在自己",
+    "06-自由射手Rubato别抢vibrato戏",
+    "07-考场也有剧本紧张不只在身上",
+    "07-考试前踩台不是为了迷信"
+  ],
+  "decision_summaries": {
+    "01-法国大师课迟到与教养": "【法国大师课上，迟到和哈欠比错音更让大师发火】地点=法国（主场景） · 元数据地点=**法国**（夏令营意大利站之后；本篇课堂在法国）；叙事=**全场目击者**（**不是发生在我身上**；目睹学生与大师之间的事）；witness_not_protagonist=True；title_location_mismatch=False；口播1115字。",
+    "02-vibrato审美与历史": "【Vibrato 不是越深越好——你的审美跟历史对上了吗】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播885字。",
+    "03-上台紧张三点": "【上台紧张？三个点是我和所有专业老师都聊过的】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播563字。",
+    "04-不需要那么多艺术家": "【世界上不需要那么多艺术家，但需要真的热爱艺术的人】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播425字。",
+    "05-大师课后半段给台下的人": "【她在台上被请下来之后，大师还在讲——那才是给我的课】地点=法国（主场景）；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播362字。",
+    "05-意大利泰斗发火续篇": "【法国大师课上，泰斗当场发火（我全场目睹，不是发生在我身上）】地点=法国（主场景） · 元数据地点=**法国**（欧洲夏令营 · 意大利站之后的法国站；**本篇不是意大利课堂**）；叙事=**全场目击者**（事情发生在台上学生与大师之间，**不是发生在我身上**）；witness_not_protagonist=True；title_location_mismatch=False；口播340字。",
+    "06-尊重大师但判断权在自己": "【尊重大师，但别把 vibrato 的「标准答案」全盘收下】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播321字。",
+    "06-自由射手Rubato别抢vibrato戏": "【吹《自由射手》慢乐章时，Rubato 可以拖——但 vibrato 别抢整条线】地点=法国（主场景）；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播295字。",
+    "07-考场也有剧本紧张不只在身上": "【考场也有剧本——上台紧张，有时不是你一个人的事】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播344字。",
+    "07-考试前踩台不是为了迷信": "【上台紧张那条我漏说了——考试前我会去踩一次台，不是为了迷信】地点=多场景/见元数据；叙事=当事人或混称（见全文）；witness_not_protagonist=False；title_location_mismatch=False；口播371字。"
+  }
+}

@@ -121,6 +121,25 @@
       "preflight": "python scripts/ceo-preflight-product-context.py --goal \"<owner goal>\""
     },
     {
+      "id": "L2d_PENDING_VIDEOS_EVAL",
+      "name": "Pending XHS voiceover eval → JSON + HTML",
+      "doc": "docs/OWNER-PENDING-VIDEOS-EVAL-SOP.md",
+      "machine_json": "integration/handoff/owner-pending-videos-pipeline.json",
+      "intake": "content/xiaohongshu/inbox/pending-videos/*.md",
+      "script": "bash scripts/run-owner-pending-videos-eval.sh",
+      "ceo_triggers_in_goal": ["评估待发", "待发口播", "口播评估", "pending-videos"],
+      "outputs": [
+        "integration/handoff/owner-pending-videos-eval-latest.json",
+        "integration/handoff/owner-pending-videos-facts-latest.json",
+        "integration/handoff/owner-pending-videos-advice-gate-latest.json",
+        "content/evolution/00-manager/ceo-inbox/OWNER-PENDING-VIDEOS-EVAL-latest.html"
+      ],
+      "agent_must_before_advice": "python3 scripts/agent-gate-pending-videos-advice.py",
+      "forbidden_for_decisions": ["body_preview", "human_glance_only"],
+      "owner_phrases": ["评估待发口播", "口播打分", "同步待发视频"],
+      "note": "全文由 Python 解析；Agent 给薯条/标题建议须 gate PASS + 引 decision_summary（衔接 monorepo 防偷懒链，非 preview）"
+    },
+    {
       "id": "L2c_DUAL_TRACK_COPY",
       "name": "Dual-track copy · V-Tier 40–50万粉文笔 + Owner review",
       "doc": "docs/OWNER-DUAL-TRACK-COPY-WORKFLOW.md",

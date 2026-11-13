@@ -1,0 +1,42 @@
+{
+  "version": "2026-11-13",
+  "label": "我的小红书数据",
+  "drive_folder_id": "1kFYScZvFgd52983gK0gItIuRq0-43WyR",
+  "drive_link": "https://drive.google.com/drive/folders/1kFYScZvFgd52983gK0gItIuRq0-43WyR?usp=drive_link",
+  "purpose": "Owner 创作者后台导出（列表、近7/30日、单篇数据明细 xlsx）。发完笔记/视频后更新此文件夹；Agent 自动同步到 analytics 全量表。",
+  "listing_output": "content/personal-ip/intake/_raw/owner-xhs-data/drive-listing-latest.json",
+  "sync_download_dir_gitignored": "content/analytics/raw/xiaohongshu/drive-sync-latest",
+  "agent_l1": "content/personal-ip/intake/2026-11-07-owner-xhs-data-drive-L1.md",
+  "sync_script": "bash scripts/sync-owner-xhs-data-from-drive.sh",
+  "auto_sync_script": "bash scripts/xhs-owner-data-auto-sync.sh",
+  "agent_auto_sync": {
+    "enabled": true,
+    "owner_must_not_say": "同步小红书数据",
+    "agent_must": "检测到新 xlsx 后在同一会话内自动跑 auto_sync_script；不问 Owner 是否同步",
+    "triggers": [
+      "Owner 更新 Drive 文件夹「我的小红书数据」",
+      "Owner 在 chat 粘贴本地 .xlsx 路径（笔记列表明细表 / 数据明细表 / 近7日 / 近30日）",
+      "Owner 描述「新视频/笔记数据」并附导出文件",
+      "manager-autopilot 或 sync-owner-xhs-data-from-drive 结束后"
+    ],
+    "outputs": [
+      "content/analytics/xiaohongshu/notes.csv",
+      "content/analytics/xiaohongshu/笔记链接回填表.xlsx",
+      "content/analytics/xiaohongshu/小红书笔记全量-YYYY-MM-DD.xlsx",
+      "content/analytics/xiaohongshu/小红书账号近7日-YYYY-MM-DD.xlsx",
+      "content/analytics/xiaohongshu/account-7d-summary-YYYY-MM-DD.json",
+      "~/Downloads/ 上述两簿副本",
+      "content/analytics/derived/"
+    ],
+    "data_classes_must_not_merge": [
+      "笔记全量：每篇列表/累计 + 单篇明细",
+      "账号近7日：观看/互动/涨粉/发布 四表（窗口聚合 + 日趋势）"
+    ]
+  },
+  "owner_ritual": [
+    "发完一条 → 后台导出 xlsx → 丢进 My Drive「我的小红书数据」（列表表建议用排序后全量「笔记列表明细表」）",
+    "或在 Cursor 直接附上 Downloads 里的 xlsx —— 无需再下口令",
+    "Agent：stage → merge 全量 → detail-json → pipeline → Excel 导出"
+  ],
+  "notes": "文案正文在 Brief/发布稿；xlsx 内主要是标题与指标。单篇列表只有 1 行时，Agent 自动与历史 raw 列表合并。"
+}
