@@ -1,0 +1,23 @@
+{
+  "version": "2026-11-13",
+  "schema": "agent_owner_content_session_v1",
+  "purpose_zh": "Agent 唯一入口：先读 monorepo AGENT-OWNER-CONTENT-SESSION.json，再跑 execute",
+  "entry_script": "scripts/agent-owner-content-session.py",
+  "default_subcommand": "execute",
+  "modes": {
+    "discuss": {
+      "when": "Owner 未明示拍板且命中内容/数据/Drive 触发",
+      "runs": "agent-brainstorm-preflight.py",
+      "handoff": "integration/handoff/owner-brainstorm-preflight-latest.json"
+    },
+    "decide": {
+      "when": "Owner 原话含 owner_decision 短语",
+      "runs": "agent-gate-pending-videos-advice.py --intent advice",
+      "handoff": "integration/handoff/owner-pending-videos-advice-gate-latest.json"
+    },
+    "skip": {
+      "when": "未命中触发词"
+    }
+  },
+  "monorepo_delegate": "python3 scripts/agent-workflow.py brand content-session --goal \"<原话>\""
+}

@@ -94,8 +94,21 @@ def owner_decision_markers() -> tuple[str, ...]:
     return OWNER_DECISION_MARKERS + _load_overlay_list("owner_decision")
 
 
+OWNER_DECISION_NEGATION = (
+    "不要拍板",
+    "不拍板",
+    "别拍板",
+    "无需拍板",
+    "不要结论",
+    "不要定稿",
+    "不要帮我定",
+)
+
+
 def owner_wants_decision(goal: str) -> bool:
     g = (goal or "").strip()
+    if any(neg in g for neg in OWNER_DECISION_NEGATION):
+        return False
     return any(m in g for m in owner_decision_markers())
 
 
