@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 from ceo_agent_roster import build_roster, parallelism_summary  # noqa: E402
 from ceo_goal_tracks import is_flutebuddy_goal, is_ip_ecosystem_goal  # noqa: E402
+from pending_videos_gate_policy import classify_goal  # noqa: E402
 
 
 def run(cmd: list[str], *, step: str, env: dict[str, str], allow_fail: bool = False) -> int:
@@ -276,6 +277,68 @@ def main() -> int:
         else:
             slug = re.sub(r"[^\w\u4e00-\u9fff]+", "-", goal).strip("-")[:40] or "goal"
             hit_dir = ROOT / "content/evolution/00-manager/ceo-inbox/platform-hits" / slug
+        inbox_pending = ROOT / "content/xiaohongshu/inbox/pending-videos"
+        pending_mds = [
+            p
+            for p in inbox_pending.glob("*.md")
+            if p.name.lower() not in ("readme.md", "template.md")
+        ] if inbox_pending.is_dir() else []
+        pending_kind = classify_goal(goal) if pending_mds else "skip"
+        if pending_kind == "brainstorm":
+            ec = run(
+                [
+                    sys.executable,
+                    "scripts/agent-brainstorm-preflight.py",
+                    "--goal",
+                    goal,
+                ],
+                step="Brainstorm preflight (xhs + pending facts + drive)",
+                env=env,
+                allow_fail=True,
+            )
+            record_step(
+                "agent-brainstorm-preflight",
+                ec,
+                cap="调研预检 · Owner 未拍板 · 无 Agent 自拟定稿",
+                roster_ids=["00", "04"],
+            )
+            if ec != 0:
+                fail += 1
+        elif pending_kind == "eval" and pending_mds:
+            ec = run(
+                ["bash", "scripts/run-owner-pending-videos-eval.sh", "--no-open"],
+                step="Pending videos eval (L2d)",
+                env=env,
+                allow_fail=True,
+            )
+            record_step(
+                "run-owner-pending-videos-eval",
+                ec,
+                cap="待发口播打分+HTML JSON",
+                roster_ids=["00", "04", "09"],
+            )
+            if ec != 0:
+                fail += 1
+        elif pending_kind == "advice_gate" and pending_mds:
+            ec = run(
+                [
+                    sys.executable,
+                    "scripts/agent-gate-pending-videos-advice.py",
+                    "--quiet",
+                ],
+                step="Pending advice gate (L2d · narrow)",
+                env=env,
+                allow_fail=True,
+            )
+            record_step(
+                "agent-gate-pending-videos-advice",
+                ec,
+                cap="口播结论前 gate PASS（无全量 eval 噪音）",
+                roster_ids=["00", "04", "09"],
+            )
+            if ec != 0:
+                fail += 1
+
         writing = any(k in goal for k in ("写", "笔记", "口播", "成稿", "LinkedIn", "Medium", "艺术家", "爆款"))
         if writing:
             hit_dir.mkdir(parents=True, exist_ok=True)

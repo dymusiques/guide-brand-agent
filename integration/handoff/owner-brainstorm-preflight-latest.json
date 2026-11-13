@@ -1,0 +1,19 @@
+{
+  "as_of": "2026-11-13T05:30:04.873994+00:00",
+  "mode": "brainstorm",
+  "owner_decision_default": "Owner 拍板；Agent 不自拟最终投流/标题定稿",
+  "agent_may_deliver": [
+    "多方案",
+    "对比",
+    "风险",
+    "引用 decision_summary 作讨论依据（非拍板）"
+  ],
+  "layers": {
+    "xhs_analytics": {
+      "status": "PASS",
+      "exit_code": 0,
+      "hint": "PASS xhs-analytics-freshness notes=24 snapshot=24 (WARN DATA-MANIFEST note_count=23 stale vs csv=24)"
+    }
+  },
+  "status": "PASS"
+}

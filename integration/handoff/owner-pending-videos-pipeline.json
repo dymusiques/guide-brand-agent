@@ -15,21 +15,19 @@
     "advice_gate_handoff": "integration/handoff/owner-pending-videos-advice-gate-latest.json"
   },
   "agent_advice_gate": {
-    "must_run_before": [
-      "薯条",
-      "promote",
-      "标题",
-      "封面 hook",
-      "选题",
-      "pending",
-      "待发口播",
-      "法国",
-      "意大利",
-      "目击者"
+    "tier": "S",
+    "policy_module": "scripts/pending_videos_gate_policy.py",
+    "must_run_when": [
+      "pending-videos inbox .md 变更后要给结论",
+      "薯条/标题/封面/拍板类结论（见 policy CONCLUSION_MARKERS）",
+      "CEO classify_goal = advice_gate 或 eval"
     ],
+    "exempt_when": ["brainstorm / 只聊方向 / 不要结论 → --intent brainstorm"],
     "script": "scripts/agent-gate-pending-videos-advice.py",
-    "exit_nonzero_means": "禁止交付建议；先跑 bash scripts/run-owner-pending-videos-eval.sh",
+    "assert_before_delivery": "scripts/assert-pending-videos-advice-gate.py --require-advice",
+    "exit_nonzero_means": "禁止交付事实/薯条/标题建议",
     "auto_refresh_if_inbox_stale": true,
+    "ceo_quiet_flag": "--quiet",
     "monorepo_routing_json": "docs/agent/AGENT-PENDING-VIDEOS-FULL-READ.json"
   },
   "position_in_stack": "L1 Collector(MD) → L2d 本流水线 → Owner 发布 → L3 Brief/analytics",

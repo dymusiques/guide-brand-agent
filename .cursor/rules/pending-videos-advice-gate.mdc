@@ -1,18 +1,15 @@
 ---
-description: 口播建议前必须 PASS agent-gate-pending-videos-advice
+description: 默认 brainstorm；Owner 拍板才 advice
 alwaysApply: true
 ---
 
-# pending-videos · advice gate
+# L2d + 调研
 
-SOP：`docs/OWNER-PENDING-VIDEOS-EVAL-SOP.md` · 真源：`integration/handoff/owner-pending-videos-pipeline.json`
+`docs/OWNER-BRAINSTORM-RESEARCH-SOP.md` · `docs/OWNER-PENDING-VIDEOS-EVAL-SOP.md`
 
-给薯条/标题/选题/地点/叙事视角建议前：
+| | |
+|--|--|
+| 讨论 / 你没说拍板 | `agent-brainstorm-preflight.py` + gate `--intent brainstorm` |
+| 你明示拍板 | gate `--intent advice` |
 
-```bash
-python3 scripts/agent-gate-pending-videos-advice.py
-```
-
-- PASS → 只据 `integration/handoff/owner-pending-videos-facts-latest.json` 的 `decision_summary` 下结论
-- FAIL → 先 `bash scripts/run-owner-pending-videos-eval.sh --no-open`
-- **禁止**使用 `human_glance_only` / `body_preview`
+Agent **不**替 Owner 拍板。

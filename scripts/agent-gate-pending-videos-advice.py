@@ -101,7 +101,36 @@ def main() -> int:
         action="store_true",
         help="禁止自动 refresh（仅 CI；Agent 勿用）",
     )
+    ap.add_argument(
+        "--intent",
+        choices=("advice", "brainstorm"),
+        default="advice",
+        help="advice=给结论前必过；brainstorm=创意讨论豁免（不许据此下事实结论）",
+    )
+    ap.add_argument(
+        "--quiet",
+        action="store_true",
+        help="CEO 自动化：stdout 一行，不打印全文 decision_summary",
+    )
     args = ap.parse_args()
+
+    if args.intent == "brainstorm":
+        gate = {
+            "as_of": datetime.now(timezone.utc).isoformat(),
+            "status": "EXEMPT",
+            "advice_allowed": False,
+            "mode": "brainstorm",
+            "agent_must": "brainstorm 结束若要给薯条/标题/地点/叙事结论 → 再跑 --intent advice",
+            "forbidden_in_brainstorm": [
+                "引用 decision_summary 作事实",
+                "human_glance_only",
+                "body_preview",
+            ],
+        }
+        GATE_OUT.parent.mkdir(parents=True, exist_ok=True)
+        GATE_OUT.write_text(json.dumps(gate, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print("EXEMPT pending-advice-gate (brainstorm)")
+        return 0
 
     if needs_refresh():
         if args.no_refresh:
@@ -137,7 +166,10 @@ def main() -> int:
         "as_of": datetime.now(timezone.utc).isoformat(),
         "status": "PASS",
         "advice_allowed": True,
+        "mode": "advice",
+        "intent": args.intent,
         "agent_must_cite": "integration/handoff/owner-pending-videos-facts-latest.json → items[].decision_summary",
+        "delivery_must_include_line": "GATE: PASS · pending-advice · <as_of>",
         "forbidden_for_decisions": data.get("forbidden_for_decisions"),
         "selected_ids": [it["id"] for it in selected],
         "decision_summaries": {it["id"]: it["decision_summary"] for it in selected},
@@ -145,11 +177,16 @@ def main() -> int:
     GATE_OUT.parent.mkdir(parents=True, exist_ok=True)
     GATE_OUT.write_text(json.dumps(gate, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    if args.quiet:
+        print(f"PASS pending-advice-gate as_of={gate['as_of'][:19]} items={len(selected)}")
+        return 0
+
     print("PASS agent-gate-pending-videos-advice")
     print("CITE facts manifest (full-md parse) — 禁止 body_preview:")
     for it in selected:
         print(f"  · {it['id']}: {it['decision_summary']}")
     print(f"handoff → {GATE_OUT.relative_to(ROOT)}")
+    print(f"交付结论时回复须含: {gate['delivery_must_include_line']}")
     return 0
 
 

@@ -69,9 +69,11 @@ Owner 周三/五/日晚发布 → Drive 数据 → analytics 同步
 | 步 | 命令（品牌仓根） | 含义 |
 |----|------------------|------|
 | G0 | `bash scripts/run-owner-pending-videos-eval.sh --no-open` | inbox 变更后刷新 eval + facts + gate |
-| G1 | `python3 scripts/agent-gate-pending-videos-advice.py` | **PASS** → 允许谈薯条/标题/选题；**exit 1** → 禁止交付 |
-| G2 | 引用 stdout 的 `decision_summary` 或读 `owner-pending-videos-facts-latest.json` | 地点 / 目击者 / 标题一致性 |
-| G3（可选） | `python3 scripts/read-pending-video-for-agent.py 01-法国大师课迟到与教养.md` | 单条核对 |
+| G1 | `python3 scripts/agent-gate-pending-videos-advice.py --intent advice` | **仅要给结论时**；PASS 才允许薯条/标题/事实拍板 |
+| G1b | `--intent brainstorm` | 纯创意讨论；**禁止**引用 `decision_summary` 当下事实 |
+| G2 | 引用 `decision_summary`；交付加一行 `GATE: PASS · pending-advice · <as_of>` | 可 `assert-pending-videos-advice-gate.py --require-advice` |
+| G3 | inbox 改 · 或 manifest 过期 | gate 内自动 refresh；Owner 不必说「同步」 |
+| G4（可选） | `read-pending-video-for-agent.py <file.md>` | 单条核对 |
 
 | 禁止 | 必须 |
 |------|------|

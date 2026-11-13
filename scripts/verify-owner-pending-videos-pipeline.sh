@@ -14,6 +14,10 @@ PY="$ROOT/.venv/bin/python"
 [[ -f "$ROOT/scripts/pending_video_md_lib.py" ]] && ok md_lib || bad md_lib
 [[ -f "$ROOT/scripts/build-owner-pending-videos-facts-manifest.py" ]] && ok facts_manifest_py || bad facts_manifest_py
 [[ -f "$ROOT/scripts/agent-gate-pending-videos-advice.py" ]] && ok advice_gate || bad advice_gate
+[[ -f "$ROOT/scripts/pending_videos_gate_policy.py" ]] && ok gate_policy || bad gate_policy
+[[ -f "$ROOT/scripts/assert-pending-videos-advice-gate.py" ]] && ok assert_gate || bad assert_gate
+[[ -f "$ROOT/scripts/agent-brainstorm-preflight.py" ]] && ok brainstorm_preflight || bad brainstorm_preflight
+[[ -f "$ROOT/scripts/verify-xhs-analytics-freshness.py" ]] && ok xhs_freshness || bad xhs_freshness
 [[ -x "$ROOT/scripts/run-owner-pending-videos-eval.sh" ]] && ok run.sh || bad run.sh
 [[ -f "$ROOT/scripts/evaluate-owner-pending-videos.py" ]] && ok evaluate.py || bad evaluate.py
 [[ -f "$ROOT/scripts/build-owner-pending-videos-eval-html.py" ]] && ok build-html.py || bad build-html.py

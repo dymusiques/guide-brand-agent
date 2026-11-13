@@ -1,8 +1,11 @@
 {
-  "as_of": "2026-11-13T04:27:22.730129+00:00",
+  "as_of": "2026-11-13T05:29:59.434784+00:00",
   "status": "PASS",
   "advice_allowed": true,
+  "mode": "advice",
+  "intent": "advice",
   "agent_must_cite": "integration/handoff/owner-pending-videos-facts-latest.json → items[].decision_summary",
+  "delivery_must_include_line": "GATE: PASS · pending-advice · <as_of>",
   "forbidden_for_decisions": [
     "body_preview",
     "human_glance_only",
