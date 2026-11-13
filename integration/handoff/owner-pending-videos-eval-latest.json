@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-13T04:23:38.510178+00:00",
+  "as_of": "2026-11-13T13:15:59.221928+00:00",
   "status": "ok",
   "scoring_model": "rule-v2-full-body-2026-11-13",
   "scoring_formula": "0.35×故事 + 0.35×数据像 + 0.15×好发 + 0.15×提量",
@@ -8,8 +8,8 @@
   "item_count": 10,
   "items": [
     {
-      "id": "05-意大利泰斗发火续篇",
-      "file": "content/xiaohongshu/inbox/pending-videos/05-意大利泰斗发火续篇.md",
+      "id": "05-法国大师课泰斗发火续篇",
+      "file": "content/xiaohongshu/inbox/pending-videos/05-法国大师课泰斗发火续篇.md",
       "title": "法国大师课上，泰斗当场发火（我全场目睹，不是发生在我身上）",
       "track": "IP",
       "sha256": "09a8e8ecc13c839e03e250d0ffe9f8c33ef1ed9faf49956979da213422c8d2bf",
@@ -468,7 +468,7 @@
       "rank": 10
     }
   ],
-  "promote_winner": "05-意大利泰斗发火续篇",
+  "promote_winner": "05-法国大师课泰斗发火续篇",
   "agent_decision_source": "integration/handoff/owner-pending-videos-facts-latest.json",
   "forbidden_for_agent_decisions": [
     "body_preview",

@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-13T04:23:38.546761+00:00",
+  "as_of": "2026-11-13T13:15:59.257193+00:00",
   "status": "ok",
   "scoring_model": "rule-v2-full-body-2026-11-13",
   "facts_source": "content/xiaohongshu/inbox/pending-videos/*.md",
@@ -15,7 +15,7 @@
     "content/xiaohongshu/inbox/pending-videos/03-上台紧张三点.md": 1794187080.2386029,
     "content/xiaohongshu/inbox/pending-videos/04-不需要那么多艺术家.md": 1794187082.5303388,
     "content/xiaohongshu/inbox/pending-videos/05-大师课后半段给台下的人.md": 1794187544.2071297,
-    "content/xiaohongshu/inbox/pending-videos/05-意大利泰斗发火续篇.md": 1794543291.7448604,
+    "content/xiaohongshu/inbox/pending-videos/05-法国大师课泰斗发火续篇.md": 1794543291.7448604,
     "content/xiaohongshu/inbox/pending-videos/06-尊重大师但判断权在自己.md": 1794187333.8147407,
     "content/xiaohongshu/inbox/pending-videos/06-自由射手Rubato别抢vibrato戏.md": 1794187545.9077036,
     "content/xiaohongshu/inbox/pending-videos/07-考场也有剧本紧张不只在身上.md": 1794187335.860783,
@@ -170,8 +170,8 @@
       }
     },
     {
-      "id": "05-意大利泰斗发火续篇",
-      "file": "content/xiaohongshu/inbox/pending-videos/05-意大利泰斗发火续篇.md",
+      "id": "05-法国大师课泰斗发火续篇",
+      "file": "content/xiaohongshu/inbox/pending-videos/05-法国大师课泰斗发火续篇.md",
       "title": "法国大师课上，泰斗当场发火（我全场目睹，不是发生在我身上）",
       "track": "IP",
       "sha256": "09a8e8ecc13c839e03e250d0ffe9f8c33ef1ed9faf49956979da213422c8d2bf",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "as_of": "2026-10-20",
+  "as_of": "2026-11-13",
   "drive_source": {
     "label": "我的小红书数据",
     "folder_id": "1kFYScZvFgd52983gK0gItIuRq0-43WyR",
@@ -9,8 +9,8 @@
     "sync": "bash scripts/sync-owner-xhs-data-from-drive.sh"
   },
   "platform": "xiaohongshu",
-  "note_count": 23,
-  "detail_json_count": 23,
+  "note_count": 24,
+  "detail_json_count": 24,
   "owner_data_complete": true,
   "schema": "scripts/analytics/schemas.py → XHS_CSV_FIELDNAMES",
   "paths": {
