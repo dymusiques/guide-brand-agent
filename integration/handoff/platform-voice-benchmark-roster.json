@@ -1,0 +1,70 @@
+{
+  "version": "2026-11-14",
+  "purpose_zh": "Owner IP · 三平台高互动/高粉参考账号（Agent Must 读帖对标笔触后再写稿）",
+  "refresh_policy": "季度人工复核；Agent 可 WebSearch 增补并写 owner-platform-voice-benchmark-latest.json",
+  "xiaohongshu": [
+    {
+      "handle": "小手说琴",
+      "url": "https://www.xiaohongshu.com/user/profile/5ecc8da200000000010067f0",
+      "why": "教学口播 · 短句判断 · 「我劝退得意门生」类反差标题",
+      "style_axes": ["第二人称自查", "一条一个判断", "禁止堆术语", "封面=问题句"]
+    },
+    {
+      "handle": "令辰 | 古琴在巴黎",
+      "url": "https://www.xiaohongshu.com/user/profile/5fb17a99000000000101df4c",
+      "why": "法区文化+教育 · 场景感强 · 中法叙事",
+      "style_axes": ["地名先行", "画面一句", "专业不端着"]
+    },
+    {
+      "handle": "宁峰的音乐世界",
+      "note": "演奏家去神化 · 空弦回应 · 弱完播强讨论参考",
+      "style_axes": ["自嘲一句", "把大师课拉回人间"]
+    }
+  ],
+  "linkedin": [
+    {
+      "handle": "Tracey Wong",
+      "url": "https://www.linkedin.com/posts/traceywong888_classicalmusic-musicmarketing-linkedinstrategy-activity-7427331845022978049-3Miu",
+      "why": "乐团首席+营销 · 给非音乐家「 stakes 一句」",
+      "style_axes": ["拒绝海报体", "interpretation reflection", "结尾问一句", "冷静可信"]
+    },
+    {
+      "handle": "Tobias Grether-Murray",
+      "url": "https://www.linkedin.com/posts/tobiasgrethermurray_a-pursuit-that-outlasts-glory-what-music-activity-7421945168972394496-QIbL",
+      "why": " músico→工程 pivot · 长文人性",
+      "style_axes": ["At X I… timeline", "reinvention", "邀请共鸣评论"]
+    },
+    {
+      "handle": "Maria Ledentsova",
+      "url": "https://www.linkedin.com/posts/marialeden_life-is-long-at-5-i-played-violin-at-activity-7371103217541222401-lKOJ",
+      "why": "错轨/多身份 · 高互动叙事",
+      "style_axes": ["短行分段", "Life is long", "Pivot 许可"]
+    }
+  ],
+  "medium": [
+    {
+      "handle": "Maureen Mirabella",
+      "url": "https://medium.com/@maureen_40254/four-reasons-your-kids-need-to-study-the-arts-4d2a970a2160",
+      "why": "家长向 · 艺术=process 非 product",
+      "style_axes": ["重复核心句", "研究一笔带过", "不推销专业"]
+    },
+    {
+      "handle": "Laurel Proctor",
+      "url": "https://laurelai-p.medium.com/coming-home-to-singing-the-possibilities-of-internal-shifts-9e550d05fad2",
+      "why": "母亲+重返舞台 · 成长型思维",
+      "style_axes": ["具体场景开场", "bullet 内化转变", "第一人称诚实"]
+    },
+    {
+      "handle": "Nancy Ives",
+      "url": "https://medium.com/@cellonancy/im-not-playing-around-1e92b32d6663",
+      "why": "职业音乐家劳动尊严",
+      "style_axes": ["I'm a professional…", "身体/脑力劳动", "反轻量化"]
+    }
+  ],
+  "owner_lane_fit": {
+    "topic_family": "不走专业仍要大师课 / 法派目睹 / 家长判断",
+    "xhs_steal": "小手说琴：一句判断+自查；令辰：法国场景半句",
+    "linkedin_steal": "Tracey：Brahms→stir in you；Maria：short lines pivot",
+    "medium_steal": "Maureen：process not product；Laurel：pandemic scene→lesson"
+  }
+}

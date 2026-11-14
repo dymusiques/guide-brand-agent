@@ -136,6 +136,11 @@ def main() -> int:
     track("ip_brief_full", ec, tail)
     ec, tail = run([sys.executable, "scripts/agent-benchmark-cross-dimensions.py"])
     track("benchmark_cross_dim", ec, tail)
+    ec, tail = run(
+        [sys.executable, "scripts/agent-platform-voice-benchmark.py", "--goal", goal],
+        timeout=120,
+    )
+    track("platform_voice_benchmark", ec, tail)
 
     ec, tail = run(["bash", "scripts/ceo-six-case-battery.sh"], timeout=900)
     core = ec == 0 or (

@@ -22,6 +22,7 @@
     "drive_hydrate_fulltext",
     "ip_brief_full",
     "benchmark_cross_dim",
+    "platform_voice_benchmark",
     "ceo_six_case_battery",
     "prompt_six_case_xhs",
     "pending_eval_baseline",

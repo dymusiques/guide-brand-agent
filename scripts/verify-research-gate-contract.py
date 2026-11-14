@@ -39,6 +39,10 @@ def main() -> int:
     if "agent-owner-research-gate.py" not in pre:
         print("FAIL: brainstorm-preflight must invoke research-gate", file=sys.stderr)
         fail += 1
+    gate = (ROOT / "scripts/agent-owner-research-gate.py").read_text(encoding="utf-8")
+    if "agent-platform-voice-benchmark.py" not in gate:
+        print("FAIL: research-gate must invoke platform-voice-benchmark", file=sys.stderr)
+        fail += 1
     sess = (ROOT / "scripts/agent-owner-content-session.py").read_text(encoding="utf-8")
     if '"--deep"' not in sess:
         print("FAIL: content-session must pass --deep on deep goals", file=sys.stderr)
