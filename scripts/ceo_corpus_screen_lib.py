@@ -40,6 +40,14 @@ DOMAIN_EXTRA_TERMS = (
     "长笛", "练习", "LinkedIn", "Medium", "IP", "个人",
 )
 HYDRATE_DEFAULT = 8
+XHS_SUPERVISION_RE = re.compile(
+    r"已发|后台|曝光|观看|薯条|投流|复盘|监督|补全|数据明细|笔记数据|近7日|近30日"
+)
+ZLIB_RE = re.compile(r"z-library|z-lib\.sk|1lib\.sk", re.I)
+
+
+def xhs_supervision_goal(goal: str) -> bool:
+    return bool(XHS_SUPERVISION_RE.search(goal))
 
 
 def slugify(text: str) -> str:
@@ -59,8 +67,15 @@ def goal_terms(goal: str, brief_text: str = "") -> list[str]:
         text = text.replace(noise, " ")
     parts = re.split(r"[的和与及了在把是要就都很还又\s，。！？、：:\[\]()#]+", text)
     terms = [p for p in parts if re.fullmatch(r"[\u4e00-\u9fff]{2,}", p)]
+    if xhs_supervision_goal(goal):
+        terms.extend(("薯条", "投流", "IP", "小红书", "聚光", "曝光", "数据", "营销"))
+        if "艺术家" in goal:
+            terms.append("艺术家")
+            terms = [t for t in terms if t != "艺术"]
     for c in CORE_THEMES + DOMAIN_EXTRA_TERMS:
         if c in goal or c in brief_text:
+            if xhs_supervision_goal(goal) and c == "艺术" and "艺术家" in goal:
+                continue
             terms.append(c)
     terms.extend(re.findall(r"[A-Za-z][A-Za-z0-9_+-]{2,}", text))
     generic = {"笔记", "内容", "运营", "账号", "关于", "一篇", "这个", "什么", "任务", "brief", "Brief"}
@@ -156,6 +171,12 @@ def classify_file(
     why_parts: list[str] = []
     if title_hits:
         why_parts.append("题名命中：" + "、".join(title_hits[:6]))
+    if xhs_supervision_goal(goal):
+        if ZLIB_RE.search(name):
+            score -= 25
+            why_parts.append("已发/数据监督：z-library 库存电子书降权（非薯条/IP 运营原件）")
+        if source_label == "小红书":
+            score += 12
     fb, fw = folder_bonus.get(source_label, (0, ""))
     if fb:
         score += fb

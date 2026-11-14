@@ -10,7 +10,7 @@ content_sha256: "6d35a8126d56c887"
 # Owner · Google 已全权授权 Agent（勿再 chat 确认）
 
 ## L1 任务（压缩 · Open WebUI / Cursor 顶栏）
-- **Goal:** > **Owner 口径（2026-10-28）：** Google 使用权 **已全部交给 Agent**；**不要**在对话里一遍遍问「要不要 Connect / 确认 OAuth / 授权 Drive」。
+- **Goal:** > **Owner 口径（2026-10-28 · 2026-11-13 再次确认）：** Google（Drive / Docs / Gmail / Calendar 等）**完全放权给 Agent**；**不要**在对话里一遍遍问「要不要 Connect / 确认 OAuth / 授权 / 再进去认证」。
 - **Path:** `docs/OWNER-GOOGLE-GRANT-AGENT.md`
 - **Open WebUI:** `rag_l1`
 - **Cursor:** `read`
@@ -28,7 +28,7 @@ content_sha256: "6d35a8126d56c887"
 
 # Owner · Google 已全权授权 Agent（勿再 chat 确认）
 
-> **Owner 口径（2026-10-28）：** Google 使用权 **已全部交给 Agent**；**不要**在对话里一遍遍问「要不要 Connect / 确认 OAuth / 授权 Drive」。
+> **Owner 口径（2026-10-28 · 2026-11-13 再次确认）：** Google（Drive / Docs / Gmail / Calendar 等）**完全放权给 Agent**；**不要**在对话里一遍遍问「要不要 Connect / 确认 OAuth / 授权 / 再进去认证」。
 
 ## Agent Must
 

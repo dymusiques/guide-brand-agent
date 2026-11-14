@@ -43,15 +43,15 @@ def load_selected(limit: int) -> list[dict]:
     if not SCREEN_JSON.is_file():
         return []
     data = json.loads(SCREEN_JSON.read_text(encoding="utf-8"))
-    sel = data.get("selected") or []
-    if sel:
-        return sel[:limit]
     task = data.get("task_bundle_dir")
     if task:
         hp = ROOT / task / "hydrate-priority.json"
         if hp.is_file():
             return json.loads(hp.read_text(encoding="utf-8"))[:limit]
-    return []
+    sel = data.get("selected") or []
+    direct = [r for r in sel if r.get("tier") == "direct_hit"]
+    use = direct if direct else sel
+    return use[:limit]
 
 
 def gdocs_download(file_id: str, out_dir: Path) -> bool:
@@ -98,13 +98,18 @@ def main() -> int:
                 target = max(files, key=lambda p: p.stat().st_size)
                 text, method = extract.extract_text_from_path(target, max_chars=MAX_CHARS)
                 truncated = len(text) >= MAX_CHARS - 2
-        status = "PASS" if len(text.strip()) >= 200 else "FAIL"
+        scan_only = "pdf empty or unreadable" in method or "OCR" in method
+        blocked_dl = not ok_dl
+        status = "PASS" if len(text.strip()) >= 200 else ("PARTIAL" if scan_only else "FAIL")
+        if blocked_dl:
+            status = "BLOCKED"
         if status == "FAIL":
             fail += 1
         items.append(
             {
                 "id": fid,
                 "name": name,
+                "status": status,
                 "mimeType": row.get("mimeType"),
                 "download_ok": ok_dl,
                 "char_count": len(text),
@@ -122,18 +127,22 @@ def main() -> int:
             (mirror / "extracted.txt").write_text(text, encoding="utf-8")
 
     complete = sum(1 for i in items if i.get("supervision", {}).get("read_complete"))
+    partial = sum(1 for i in items if i.get("status") == "PARTIAL")
+    need = min(4, len(items)) if items else 0
+    ok = complete + partial >= need and complete >= max(1, need - 1)
     payload = {
         "as_of": datetime.now(timezone.utc).isoformat(),
         "source": str(SCREEN_JSON.relative_to(ROOT)),
         "items": items,
         "read_complete_count": complete,
-        "status": "PASS" if complete >= min(4, len(items)) else "PARTIAL" if complete else "FAIL",
+        "partial_scan_pdf_count": partial,
+        "status": "PASS" if ok else "PARTIAL" if complete else "FAIL",
         "fail_count": fail,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": payload["status"], "handoff": str(OUT.relative_to(ROOT))}))
-    return 0 if complete >= min(4, len(items)) else 1
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

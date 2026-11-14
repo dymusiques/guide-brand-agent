@@ -142,6 +142,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--goal", default="", help="Owner 原话（判定要跑哪些层）")
     ap.add_argument("--deep", action="store_true", help="深度链：hydrate + 6-case + CEO 切片")
+    ap.add_argument("--no-deep", action="store_true", help="由 research-gate 内调，禁止递归")
     args = ap.parse_args()
     goal = args.goal.strip()
 
@@ -176,17 +177,18 @@ def main() -> int:
         if layers["drive_corpus"].get("status") == "FAIL":
             fail += 1
 
-    deep = args.deep or goal_needs_deep(goal)
+    deep = (args.deep or goal_needs_deep(goal)) and not args.no_deep
     deep_handoff = None
     if deep:
-        ec_d, tail_d = run_py("agent-brainstorm-deep-preflight.py", "--goal", goal or "深度复盘")
-        layers["deep_chain"] = {
+        ec_d, tail_d = run_py("agent-owner-research-gate.py", "--goal", goal or "深度复盘")
+        layers["research_gate"] = {
             "status": "PASS" if ec_d == 0 else "FAIL",
             "exit_code": ec_d,
             "tail": tail_d,
-            "handoff": "integration/handoff/owner-brainstorm-deep-preflight-latest.json",
+            "handoff": "integration/handoff/owner-research-gate-latest.json",
+            "contract": "integration/handoff/agent-owner-research-gate-contract.json",
         }
-        deep_handoff = layers["deep_chain"]["handoff"]
+        deep_handoff = layers["research_gate"]["handoff"]
         if ec_d != 0:
             fail += 1
 

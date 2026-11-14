@@ -1,0 +1,40 @@
+{
+  "version": "2026-11-13",
+  "schema": "agent_owner_research_gate_v1",
+  "purpose_zh": "已发复盘/监督/补全 · 单层 FAIL 即整链 FAIL（禁止 Agent 自选子集）",
+  "entry_script": "scripts/agent-owner-research-gate.py",
+  "handoff": "integration/handoff/owner-research-gate-latest.json",
+  "triggers_any": [
+    "已发",
+    "后台",
+    "复盘",
+    "监督",
+    "补全",
+    "为什么",
+    "数据分析",
+    "艺术家",
+    "不需要那么多艺术家"
+  ],
+  "layers_required": [
+    "xhs_analytics",
+    "pending_facts",
+    "drive_catalog_screen",
+    "drive_hydrate_fulltext",
+    "ip_brief_full",
+    "benchmark_cross_dim",
+    "ceo_six_case_battery",
+    "prompt_six_case_xhs",
+    "pending_eval_baseline",
+    "platform_evolution_slice",
+    "ceo_manifest_slice",
+    "qc_handoff",
+    "qc_verify"
+  ],
+  "forbidden_agent": [
+    "跳过任一层仍称全链路",
+    "body_preview",
+    "仅 Drive 文件名",
+    "未跑 qc verify 仍交付"
+  ],
+  "root_cause_doc": "docs/AGENT-WHY-RESEARCH-GAPS.md"
+}

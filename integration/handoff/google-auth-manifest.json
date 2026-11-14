@@ -1,6 +1,8 @@
 {
-  "version": "2026-10-28",
+  "version": "2026-11-13",
   "owner_grant": "Google Workspace access delegated to Agent via gdocs CLI secrets; no repeated chat confirmation",
+  "owner_reaffirmed_at": "2026-11-13",
+  "owner_reaffirmed_zh": "Google 完全放权 Agent，勿每任务 chat 认证",
   "status_file": "integration/handoff/google-auth-status.json",
   "check_script": "bash scripts/check-google-auth-for-agent.sh",
   "doc": "docs/OWNER-GOOGLE-GRANT-AGENT.md",
