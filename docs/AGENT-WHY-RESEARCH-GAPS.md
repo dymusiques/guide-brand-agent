@@ -29,3 +29,12 @@ PASS 才允许交付「我已全链路调研」；否则 handoff `status=FAIL` +
 合同：`integration/handoff/agent-owner-research-gate-contract.json`
 
 **C1/C3 强制（monorepo）**：`scripts/owner_research_gate_preflight.py` — 命中 `deep_research_when_any` 时 handoff 非 PASS → preflight **exit 1**；可自动 `brand research-gate`。真源：`~/Desktop/未命名/docs/agent/AGENT-RESEARCH-GATE-PREFLIGHT.json`
+
+**最佳验收（Agent Must）**：
+
+```bash
+# 快检（改 gate 后）
+bash ~/Desktop/未命名/scripts/verify-automation-smoke.sh
+# 真目标全链（大版本 / 月度抽查）
+bash ~/Desktop/未命名/scripts/verify-automation-smoke.sh --full-gate --goal "<Owner 原话>"
+```
