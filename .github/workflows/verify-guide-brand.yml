@@ -18,6 +18,8 @@ jobs:
           python-version: "3.12"
       - name: Install gdocs-skill
         run: pip install -e vendor/gdocs-skill
+      - name: Research-gate contract wiring (CI, no Google)
+        run: python3 scripts/verify-research-gate-contract.py
       - name: Full integration build — CI tier (00 Manager capstone)
         run: VERIFY_TIER=ci bash scripts/verify-all.sh
         env:
