@@ -125,7 +125,11 @@ def cmd_route(goal: str) -> int:
 
 
 def cmd_discuss(goal: str) -> int:
-    ec, tail = run_script("agent-brainstorm-preflight.py", "--goal", goal or "小红书 IP brainstorm")
+    g = goal or "小红书 IP brainstorm"
+    extra: list[str] = ["--goal", g]
+    if any(k in g for k in DEEP_FLAG):
+        extra = ["--deep", *extra]
+    ec, tail = run_script("agent-brainstorm-preflight.py", *extra)
     payload = build_route(goal)
     payload["executed"] = "discuss"
     payload["exit_code"] = ec
