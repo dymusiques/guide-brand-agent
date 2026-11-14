@@ -1,0 +1,34 @@
+{
+  "version": "2026-11-14",
+  "purpose_zh": "Google Drive 备份 · 写稿/投流/口播决策 Must 全文（由 screen direct_hit + 固定 IP 库叠加）",
+  "roots_ref_monorepo": "docs/agent/AGENT-DRIVE-ROOTS.json",
+  "screen_handoff": "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.json",
+  "hydrate_handoff": "integration/handoff/owner-drive-hydrate-latest.json",
+  "always_supervise_when_direct_hit": true,
+  "category_labels": {
+    "xhs_ip_marketing": "小红书 IP / 薯条 / 聚光 / 营销方法论",
+    "owner_ip": "深度品牌档案与口播真源"
+  },
+  "pinned_drive_files": [
+    {
+      "id": "1d3Lxp1UVjf7RGuLTPDzVJTlL8a8YQ491",
+      "name": "小红书营销IP指南.pdf",
+      "category": "xhs_ip_marketing"
+    },
+    {
+      "id": "1UFa0JA0BhOTiuQI_MkrXWAsO50DRZr5o",
+      "name": "2026小红书营销IP特刊《同频》.pdf",
+      "category": "xhs_ip_marketing"
+    },
+    {
+      "id": "1iVqKnIEA3G8ln0mPksdQv0PmK8wH-Khn",
+      "name": "如何投放好小红书薯条.md",
+      "category": "xhs_ip_marketing"
+    },
+    {
+      "id": "11-atVv62ZXWwMa89jicuucRnPnIGeEeH",
+      "name": "教培小红书聚光投放总被拒审？….md",
+      "category": "xhs_ip_marketing"
+    }
+  ]
+}

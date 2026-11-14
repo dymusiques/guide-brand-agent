@@ -43,6 +43,9 @@ def main() -> int:
     if "agent-platform-voice-benchmark.py" not in gate:
         print("FAIL: research-gate must invoke platform-voice-benchmark", file=sys.stderr)
         fail += 1
+    if "agent-owner-copy-pipeline-gate.py" not in gate:
+        print("FAIL: research-gate must invoke owner-copy-pipeline-gate", file=sys.stderr)
+        fail += 1
     sess = (ROOT / "scripts/agent-owner-content-session.py").read_text(encoding="utf-8")
     if '"--deep"' not in sess:
         print("FAIL: content-session must pass --deep on deep goals", file=sys.stderr)

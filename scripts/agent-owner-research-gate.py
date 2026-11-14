@@ -98,39 +98,19 @@ def main() -> int:
     )
     track("brainstorm_preflight", ec, tail)
 
-    ec, tail = run([sys.executable, "scripts/agent-hydrate-drive-priority.py", "--limit", "8"], timeout=600)
-    track("drive_hydrate_fulltext", ec, tail, ok_ec={0, 1})
+    ec, tail = run([sys.executable, "scripts/agent-hydrate-drive-priority.py", "--limit", "12"], timeout=600)
+    track("drive_hydrate_fulltext", ec, tail)
     hp = ROOT / "integration/handoff/owner-drive-hydrate-latest.json"
     if hp.is_file():
         hd = json.loads(hp.read_text(encoding="utf-8"))
-        screen = json.loads(
-            (ROOT / "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.json").read_text(
-                encoding="utf-8"
-            )
-        )
-        tier_ok = {r["id"] for r in screen.get("selected") or [] if r.get("tier") == "direct_hit"}
-        pdfs = [
-            i
-            for i in hd.get("items") or []
-            if "pdf" in (i.get("mimeType") or "").lower() and i.get("id") in tier_ok
-        ]
-        bad_pdf = [
-            p["name"]
-            for p in pdfs
-            if p.get("status") not in ("PARTIAL", "BLOCKED", "SKIP")
-            and not p.get("supervision", {}).get("read_complete")
-        ]
-        if bad_pdf:
-            track("drive_hydrate_pdf_mandatory", 1, f"direct_hit PDF 未全文: {bad_pdf}")
-        elif pdfs:
-            layers.append(
-                {
-                    "name": "drive_hydrate_pdf_mandatory",
-                    "status": "PASS",
-                    "exit_code": 0,
-                    "tail": f"direct_hit PDFs ok: {[p['name'] for p in pdfs]}",
-                }
-            )
+        if hd.get("status") not in ("PASS", "PARTIAL"):
+            track("drive_hydrate_handoff", 1, f"handoff status={hd.get('status')!r}")
+
+    ec, tail = run(
+        [sys.executable, "scripts/agent-owner-copy-pipeline-gate.py", "--goal", goal],
+        timeout=120,
+    )
+    track("owner_copy_pipeline_gate", ec, tail)
 
     ec, tail = run([sys.executable, "scripts/agent-read-ip-brief-gate.py"])
     track("ip_brief_full", ec, tail)
