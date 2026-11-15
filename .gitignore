@@ -27,6 +27,7 @@ rules/skills/overlays/*.local.md
 
 # Parallel subagent scratch (workflow_parallel_subagents)
 tmp/parallel/
+tmp/double-check/
 
 # Headless CLI agent jobs (ai-agent-cli file-response)
 tmp/ai-agent-cli/
@@ -68,6 +69,17 @@ content/xiaohongshu/verify-logs/
 
 # Unattended CEO / gate run logs
 content/evolution/**/*.log
+
+# Layer C · runtime handoffs & CEO rolling outputs (regenerated locally)
+integration/handoff/owner-*-latest.json
+content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.*
+content/evolution/00-manager/ceo-inbox/daily-gm-summary-*.md
+content/evolution/00-manager/ceo-inbox/corpus-screen-latest.json
+content/evolution/00-manager/ceo-inbox/corpus-screens/
+content/personal-ip/intake/_raw/ceo-drive-catalog-live.json
+content/personal-ip/intake/_cache/
+content/personal-ip/intake/_mirror/
+tmp/
 
 # Open WebUI sync secrets + local mirror (optional)
 integration/openwebui-rag/scripts/brand-drive-sync.env

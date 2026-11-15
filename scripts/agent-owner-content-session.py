@@ -19,11 +19,15 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+MONOREPO = Path.home() / "Desktop/未命名"
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(MONOREPO / "scripts"))
 from pending_videos_gate_policy import (  # noqa: E402
     classify_goal,
     owner_wants_decision,
 )
+from research_gate_routing import requires_research_gate  # noqa: E402
+from owner_research_gate_preflight import handoff_ok  # noqa: E402
 
 SESSION_JSON = ROOT / "integration/handoff/agent-owner-content-session-contract.json"
 TRIGGERS = (
@@ -48,26 +52,6 @@ TRIGGERS = (
     "艺术家",
     "监督",
     "补全",
-)
-DEEP_FLAG = (
-    "已发",
-    "后台",
-    "复盘",
-    "为什么",
-    "监督",
-    "补全",
-    "深度",
-    "数据分析",
-    "投流",
-    "文案",
-    "口播",
-    "Medium",
-    "LinkedIn",
-    "领英",
-    "大V",
-    "对标",
-    "笔触",
-    "写稿",
 )
 
 
@@ -107,15 +91,29 @@ def build_route(goal: str) -> dict:
             classify_hint = "advice_gate_suppressed_until_owner_decision"
         else:
             classify_hint = classify_goal(g)
+        need_gate = requires_research_gate(g)
+        gate_handoff = {"ok": True, "detail": "SKIP (no research-gate required)"}
+        innovate_allowed = not need_gate
+        if need_gate:
+            ok_h, msg_h = handoff_ok(g)
+            gate_handoff = {"ok": ok_h, "detail": msg_h}
         return {
             "schema": "agent_owner_content_session_v1",
             "mode": "discuss",
             "goal": g,
             "classify_hint": classify_hint,
+            "requires_research_gate": need_gate,
+            "research_gate_handoff": gate_handoff,
+            "agent_may_innovate": innovate_allowed or (need_gate and gate_handoff["ok"]),
+            "innovate_note": (
+                "轻量 discuss：多方案/脑洞不必等全 gate"
+                if innovate_allowed
+                else "深度/写稿：须 gate PASS 后方格交付定稿级结论；讨论中仍可多方案"
+            ),
             "run_command": [
                 sys.executable,
                 "scripts/agent-brainstorm-preflight.py",
-                *(["--deep"] if any(k in g for k in DEEP_FLAG) else []),
+                *(["--deep"] if need_gate else []),
                 "--goal",
                 g or "小红书 IP brainstorm",
             ],
@@ -146,7 +144,7 @@ def cmd_route(goal: str) -> int:
 def cmd_discuss(goal: str) -> int:
     g = goal or "小红书 IP brainstorm"
     extra: list[str] = ["--goal", g]
-    if any(k in g for k in DEEP_FLAG):
+    if requires_research_gate(g):
         extra = ["--deep", *extra]
     ec, tail = run_script("agent-brainstorm-preflight.py", *extra)
     payload = build_route(goal)

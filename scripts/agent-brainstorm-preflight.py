@@ -20,9 +20,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+MONOREPO = Path.home() / "Desktop/未命名"
 OUT = ROOT / "integration/handoff/owner-brainstorm-preflight-latest.json"
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(MONOREPO / "scripts"))
 from pending_videos_gate_policy import owner_wants_decision  # noqa: E402
+from research_gate_routing import requires_research_gate  # noqa: E402
 
 XHS_KW = (
     "小红书",
@@ -40,7 +43,6 @@ XHS_KW = (
     "投流",
     "聚光",
 )
-DEEP_KW = ("已发", "后台", "复盘", "为什么", "监督", "深度", "补全", "数据分析", "6-case", "六项")
 PENDING_KW = ("待发", "pending", "口播", "字幕", "inbox", "法国", "意大利", "目击者")
 DRIVE_KW = (
     "Drive",
@@ -93,7 +95,7 @@ def screen_stale(screen: Path) -> bool:
 
 
 def goal_needs_deep(goal: str) -> bool:
-    return any(k in goal for k in DEEP_KW)
+    return requires_research_gate(goal)
 
 
 def auto_drive_screen(goal: str) -> tuple[int, str]:
