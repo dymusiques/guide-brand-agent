@@ -1,20 +1,48 @@
 {
-  "as_of": "2026-10-21",
-  "anchor_count": 5,
+  "as_of": "2026-11-15",
+  "anchor_count": 9,
   "transcripts": "voice-anchor-transcripts-2026-10-21.md",
-  "note": "first_80_chars = spoken opening; Owner title-only notes, no App description.",
+  "note": "first_80_chars = spoken opening; Owner title-only notes where noted.",
   "anchors": [
     {
-      "title": "我让长笛泰斗当场发火了",
-      "publish_date": "2026-08-16",
-      "note_url": "https://www.xiaohongshu.com/explore/6a81ab660000000005022595?xsec_token=AB6Nu3ImZdHmzZZx1vu02ND601ujRs5fANpH3mypRRefU=&xsec_source=pc_user",
-      "follows_from_note": 282.0,
-      "collects": 212.0,
-      "cover_ctr_pct": "15.1",
-      "completion_rate_pct": "12.4",
-      "first_80_chars": "懂得对大师祛魅，要建立自己的审美。那我跟大家分享一个我的真实经历。之前我还是学生的时候，有一年暑假，我在欧洲报了两个长笛夏令营，第一站是意大利，第二站是法",
+      "title": "世界不需要这么多艺术家",
+      "publish_date": "2026-11-10",
+      "note_id": "xhs:2026-11-10:世界不需要这么多艺术家",
+      "follows_from_note": 0.0,
+      "views": "240",
+      "completion_rate_pct": "36.5",
+      "cover_ctr_pct": "8.9",
+      "first_80_chars": "想跟大家说真的世界上不需要这么多的艺术家，需要很多很多真的热爱音乐热爱艺术的人。家长问我说孩子要不要走专业这个路线哈，其实我大部分的学生家长都讲的都比较清楚",
+      "caption_status": "published_oral_pending_file",
+      "caption_source": "content/xiaohongshu/inbox/pending-videos/04-不需要那么多艺术家.md",
+      "agent_note": "已发 2026-11-10 · metrics notes-snapshot-2026-11-13",
+      "collects": 2.0
+    },
+    {
+      "title": "用深度替代选择☝️",
+      "publish_date": "2026-10-06",
+      "note_url": "https://www.xiaohongshu.com/explore/6ac515eb00000000020280ff?xsec_token=AB8id-4aGwTHLbRNUE5xWCbftEvAcvoTX8TkmXLITuRJk=&xsec_source=pc_user",
+      "follows_from_note": 0.0,
+      "collects": 2.0,
+      "cover_ctr_pct": "7.3",
+      "completion_rate_pct": "19.0",
+      "first_80_chars": "好长时间没更视频了。这段时间我一直在学一些 AI 相关的课程，但越学，有时也会引发一些自己教学方面的思考。今天想跟大家分享一个我自己的观点。很多家长会一下子给孩",
       "caption_status": "owner_transcript",
-      "caption_source": "owner_chat_2026-10-21"
+      "caption_source": "owner_chat_2026-10-21",
+      "views": "79"
+    },
+    {
+      "title": "做自媒体被嘲讽后，我的回复",
+      "publish_date": "2026-08-23",
+      "note_url": "https://www.xiaohongshu.com/explore/6a8a8117000000003301802c?xsec_token=AB1Pka-I4zWpbe2LnfmkcU-5arF-H-4OpB1ISW5UyCSAc=&xsec_source=pc_user",
+      "follows_from_note": 185.0,
+      "collects": 79.0,
+      "cover_ctr_pct": "14.6",
+      "completion_rate_pct": "1.8",
+      "first_80_chars": "我真的没想到上一个对大师祛魅的视频能得到这么多的关注，有这么多的观众，特别感谢广大的网友！我在留言区里收到了一条留言。我相信这位朋友我不认识你，你可能对我也不太",
+      "caption_status": "owner_transcript",
+      "caption_source": "owner_chat_2026-10-21",
+      "views": "6773"
     },
     {
       "title": "原来考场也有剧本儿",
@@ -27,19 +55,8 @@
       "first_80_chars": "前两天刷视频，看到有一个老师讨论孩子上台吃药的问题。刚好我自己有一个亲身经历，想跟大家分享一下，也聊聊我对这件事的看法。当时在国外留学，有一次我在后台候场",
       "caption_status": "owner_transcript",
       "caption_source": "owner_chat_2026-10-21",
-      "agent_note": "Title 考场/剧本; spoken arc = 上台吃药 + 天赋多维"
-    },
-    {
-      "title": "做自媒体被嘲讽后，我的回复",
-      "publish_date": "2026-08-23",
-      "note_url": "https://www.xiaohongshu.com/explore/6a8a8117000000003301802c?xsec_token=AB1Pka-I4zWpbe2LnfmkcU-5arF-H-4OpB1ISW5UyCSAc=&xsec_source=pc_user",
-      "follows_from_note": 185.0,
-      "collects": 79.0,
-      "cover_ctr_pct": "14.6",
-      "completion_rate_pct": "1.8",
-      "first_80_chars": "我真的没想到上一个对大师祛魅的视频能得到这么多的关注，有这么多的观众，特别感谢广大的网友！我在留言区里收到了一条留言。我相信这位朋友我不认识你，你可能对我也不太",
-      "caption_status": "owner_transcript",
-      "caption_source": "owner_chat_2026-10-21"
+      "agent_note": "Title 考场/剧本; spoken arc = 上台吃药 + 天赋多维",
+      "views": "3122"
     },
     {
       "title": "尊重大师，但不把判断权交给他",
@@ -51,19 +68,57 @@
       "completion_rate_pct": "8.4",
       "first_80_chars": "这种成熟的教育其实应该是专业式、契约式的，而不是那种“封建式”的，非得提供很多情绪价值不可。我始终觉得教育行业本质上就是一个服务行业。我以前上大学的时候就有",
       "caption_status": "owner_transcript",
-      "caption_source": "owner_chat_2026-10-21"
+      "caption_source": "owner_chat_2026-10-21",
+      "views": "1091"
     },
     {
-      "title": "用深度替代选择☝️",
-      "publish_date": "2026-10-06",
-      "note_url": "https://www.xiaohongshu.com/explore/6ac515eb00000000020280ff?xsec_token=AB8id-4aGwTHLbRNUE5xWCbftEvAcvoTX8TkmXLITuRJk=&xsec_source=pc_user",
-      "follows_from_note": 0.0,
-      "collects": 2.0,
-      "cover_ctr_pct": "7.3",
-      "completion_rate_pct": "19.0",
-      "first_80_chars": "好长时间没更视频了。这段时间我一直在学一些 AI 相关的课程，但越学，有时也会引发一些自己教学方面的思考。今天想跟大家分享一个我自己的观点。很多家长会一下子给孩",
+      "title": "我让长笛泰斗当场发火了",
+      "publish_date": "2026-08-16",
+      "note_url": "https://www.xiaohongshu.com/explore/6a81ab660000000005022595?xsec_token=AB6Nu3ImZdHmzZZx1vu02ND601ujRs5fANpH3mypRRefU=&xsec_source=pc_user",
+      "follows_from_note": 282.0,
+      "collects": 212.0,
+      "cover_ctr_pct": "15.1",
+      "completion_rate_pct": "12.4",
+      "first_80_chars": "懂得对大师祛魅，要建立自己的审美。那我跟大家分享一个我的真实经历。之前我还是学生的时候，有一年暑假，我在欧洲报了两个长笛夏令营，第一站是意大利，第二站是法",
       "caption_status": "owner_transcript",
-      "caption_source": "owner_chat_2026-10-21"
+      "caption_source": "owner_chat_2026-10-21",
+      "views": "9543"
+    },
+    {
+      "title": "揭秘美国与法国大师的颤音秘籍☝️✅18",
+      "publish_date": "2026-08-13",
+      "note_url": "https://www.xiaohongshu.com/explore/6a7bfeed0000000025010de9?xsec_token=ABmcsfp6h8B9e73G8AoQLU_B-CCtdB4Z86k676toAY794=&xsec_source=pc_user",
+      "follows_from_note": 6.0,
+      "collects": 15.0,
+      "cover_ctr_pct": "8.7",
+      "completion_rate_pct": "18.7",
+      "views": "370",
+      "first_80_chars": "",
+      "caption_status": "pending_snapshot",
+      "caption_source": "sync:notes-snapshot-2026-11-13.json"
+    },
+    {
+      "title": "长笛演奏盲目照搬大师，只会害了你🪈☝️✅8",
+      "publish_date": "2026-07-24",
+      "note_url": "https://www.xiaohongshu.com/explore/6a62f6c80000000014007ed9?xsec_token=AB21oKpw5s0J2tGvc4OrwExgkIasrtk_qXmQBbr7idDhs=&xsec_source=pc_user",
+      "follows_from_note": 1.0,
+      "collects": 4.0,
+      "cover_ctr_pct": "5.7",
+      "completion_rate_pct": "18.6",
+      "views": "1068",
+      "first_80_chars": "",
+      "caption_status": "pending_snapshot",
+      "caption_source": "sync:notes-snapshot-2026-11-13.json"
+    },
+    {
+      "title": "不走专业，为什么还要去一次公开大师课？",
+      "publish_date": null,
+      "status": "pending_oral",
+      "first_80_chars": "很多人说，不走专业就别烧钱去大师课。我不同意——我带你看的，是台下那一小时。台上在教什么音？台下家长在抢什么？",
+      "caption_status": "draft_skeleton",
+      "caption_source": "agent_session_2026-11-14_fifth_video",
+      "agent_note": "待发第五篇主线 · 台下标准 · 待 Owner 录完后用原话替换 first_80"
     }
-  ]
+  ],
+  "sync_snapshot": "content/analytics/xiaohongshu/notes-snapshot-2026-11-13.json"
 }

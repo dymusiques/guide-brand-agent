@@ -1,9 +1,10 @@
 {
-  "version": "2026-11-13",
+  "version": "2026-11-15",
   "schema": "agent_owner_research_gate_v1",
   "purpose_zh": "已发复盘/监督/补全 · 单层 FAIL 即整链 FAIL（禁止 Agent 自选子集）",
   "entry_script": "scripts/agent-owner-research-gate.py",
   "handoff": "integration/handoff/owner-research-gate-latest.json",
+  "layer_union_map": "integration/handoff/agent-gate-layer-union.json",
   "triggers_any": [
     "已发",
     "后台",
@@ -24,22 +25,86 @@
     "笔触",
     "写稿"
   ],
-  "layers_required": [
-    "xhs_analytics",
-    "pending_facts",
+  "pipeline_order": [
     "drive_catalog_screen",
+    "xhs_analytics",
+    "brainstorm_preflight",
+    "owner_voice_anchor_sync",
     "drive_hydrate_fulltext",
+    "drive_hydrate_handoff",
+    "owner_voice_stack_gate",
+    "platform_voice_benchmark",
+    "ceo_owner_verify_bridge",
     "owner_copy_pipeline_gate",
     "ip_brief_full",
     "benchmark_cross_dim",
-    "platform_voice_benchmark",
     "ceo_six_case_battery",
     "prompt_six_case_xhs",
     "pending_eval_baseline",
-    "platform_evolution_slice",
+    "platform_evolution_artists_three",
     "ceo_manifest_slice",
     "qc_handoff",
-    "qc_verify"
+    "qc_verify",
+    "ceo_orchestrator_post_gate"
+  ],
+  "layers_required": [
+    "drive_catalog_screen",
+    "xhs_analytics",
+    "brainstorm_preflight",
+    "owner_voice_anchor_sync",
+    "drive_hydrate_fulltext",
+    "owner_voice_stack_gate",
+    "platform_voice_benchmark",
+    "ceo_owner_verify_bridge",
+    "owner_copy_pipeline_gate",
+    "ip_brief_full",
+    "benchmark_cross_dim",
+    "ceo_six_case_battery",
+    "prompt_six_case_xhs",
+    "pending_eval_baseline",
+    "platform_evolution_artists_three",
+    "qc_handoff",
+    "qc_verify",
+    "ceo_orchestrator_post_gate"
+  ],
+  "layers_conditional": [
+    {
+      "name": "drive_hydrate_handoff",
+      "when": "hydrate handoff status ∉ PASS/PARTIAL"
+    },
+    {
+      "name": "xhs_csv_restore",
+      "when": "xhs_analytics 首次 FAIL"
+    },
+    {
+      "name": "platform_evolution_artists_three",
+      "when": "goal 含艺术家/不需要/已发/复盘 且 artists-three 目录存在"
+    },
+    {
+      "name": "four_dimension_bar",
+      "when": "platform_evolution_artists_three 执行后"
+    },
+    {
+      "name": "qc_verify",
+      "when": "monorepo 存在且未 --skip-qc-task"
+    },
+    {
+      "name": "ceo_orchestrator_post_gate",
+      "when": "gate PASS 且未 --no-orchestrate"
+    }
+  ],
+  "layers_deprecated_skip": [
+    {
+      "name": "ceo_manifest_slice",
+      "reason": "内嵌 run_ceo_full 已废弃；gate 内固定 SKIP，战役改 ceo_orchestrator_post_gate"
+    }
+  ],
+  "layers_subsumed": [
+    {
+      "name": "pending_facts",
+      "within": "brainstorm_preflight",
+      "note": "非独立 track；勿写入 layers_required"
+    }
   ],
   "forbidden_agent": [
     "跳过任一层仍称全链路",

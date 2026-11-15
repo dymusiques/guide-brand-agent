@@ -26,7 +26,12 @@ python3 scripts/agent-owner-research-gate.py --goal "<Owner 原话>"
 
 PASS 才允许交付「我已全链路调研」；否则 handoff `status=FAIL` + 逐层 `layers`。
 
-合同：`integration/handoff/agent-owner-research-gate-contract.json`
+机械层序真源（合同 = 并集 `pipeline_order`，与 `agent-owner-research-gate.py` 一致）：
+
+`integration/handoff/agent-owner-research-gate-contract.json` · `pipeline_order`  
+并集对照（须与合同 `pipeline_order` 逐字相同）：`integration/handoff/agent-gate-layer-union.json`
+
+**管子接线**：锚点 sync → voice_stack → platform rhythm → **ceo_owner_verify_bridge** → **owner_copy_pipeline_gate** → ip_brief → 6-case/QC（`ceo_manifest_slice` 已废弃 SKIP，战役见 `ceo_orchestrator_post_gate`）
 
 **C1/C3 强制（monorepo）**：`scripts/owner_research_gate_preflight.py` — 命中 `deep_research_when_any` 时 handoff 非 PASS → preflight **exit 1**；可自动 `brand research-gate`。真源：`~/Desktop/未命名/docs/agent/AGENT-RESEARCH-GATE-PREFLIGHT.json`
 

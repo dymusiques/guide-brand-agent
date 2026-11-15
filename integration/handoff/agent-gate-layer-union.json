@@ -1,0 +1,104 @@
+{
+  "version": "2026-11-15",
+  "purpose_zh": "新 Cursor research-gate × 老 CEO 并集对照（管子接线真源）",
+  "pipeline_order_ref": "integration/handoff/agent-owner-research-gate-contract.json · pipeline_order（须逐字一致）",
+  "new_cursor_entry": "scripts/agent-owner-research-gate.py",
+  "old_ceo_entry": "bash scripts/ceo-full-execution-pipeline.sh",
+  "old_verify_bundle": "bash scripts/verify-workflow-automation.sh",
+  "pipeline_order": [
+    "drive_catalog_screen",
+    "xhs_analytics",
+    "brainstorm_preflight",
+    "owner_voice_anchor_sync",
+    "drive_hydrate_fulltext",
+    "drive_hydrate_handoff",
+    "owner_voice_stack_gate",
+    "platform_voice_benchmark",
+    "ceo_owner_verify_bridge",
+    "owner_copy_pipeline_gate",
+    "ip_brief_full",
+    "benchmark_cross_dim",
+    "ceo_six_case_battery",
+    "prompt_six_case_xhs",
+    "pending_eval_baseline",
+    "platform_evolution_artists_three",
+    "ceo_manifest_slice",
+    "qc_handoff",
+    "qc_verify",
+    "ceo_orchestrator_post_gate"
+  ],
+  "union_map": [
+    {
+      "new_layer": "owner_voice_stack_gate",
+      "script": "scripts/agent-owner-voice-stack-gate.py",
+      "replaces_persona_from": "platform KOL as default voice",
+      "old_ceo_equivalent": ["VOICE-ANCHOR.md", "rules/skills/skill_yage_voice.md", "verify-xhs-voice-qa.sh (anchor部分)"]
+    },
+    {
+      "new_layer": "platform_voice_benchmark",
+      "script": "scripts/agent-platform-voice-benchmark.py",
+      "role": "rhythm_only_kol",
+      "old_ceo_equivalent": ["L2c_DUAL_TRACK_COPY deep-scrape", "owner-copy-v-tier style_checklist (persona 仍锚点)"]
+    },
+    {
+      "new_layer": "ceo_owner_verify_bridge",
+      "script": "scripts/agent-owner-ceo-verify-bridge.py",
+      "old_ceo_equivalent": [
+        "verify-owner-copy-v-tier-mandate.sh",
+        "verify-xhs-voice-qa.sh",
+        "verify-xhs-clever-advocate.sh (when brief exists)"
+      ],
+      "order_note": "须在 owner_copy_pipeline_gate 之前",
+      "not_replaced_full_ceo": [
+        "manager-xhs-briefs-auto-pipeline.sh",
+        "manager-ceo-auto-gate-loop.sh",
+        "ceo-full-execution-pipeline.sh (Owner 战役整链)"
+      ]
+    },
+    {
+      "new_layer": "owner_copy_pipeline_gate",
+      "script": "scripts/agent-owner-copy-pipeline-gate.py",
+      "role": "Drive + stack + platform 合一 FAIL",
+      "old_ceo_equivalent": ["ceo-task-drive-corpus-screen hydrate", "OWNER-DUAL-TRACK-COPY-WORKFLOW"]
+    },
+    {
+      "new_layer": "platform_evolution_artists_three",
+      "script": "scripts/evolve-platform-hits.py",
+      "old_ceo_equivalent": ["background-goal-evolution 艺术家切片"],
+      "when": "艺术家/复盘语境"
+    },
+    {
+      "new_layer": "ceo_six_case_battery",
+      "old_ceo_equivalent": ["ceo-six-case-battery.sh", "verify-workflow-automation L6"]
+    },
+    {
+      "new_layer": "ceo_manifest_slice",
+      "status": "DEPRECATED_SKIP",
+      "note": "gate 内固定 SKIP；勿当 required 层"
+    },
+    {
+      "new_layer": "ceo_orchestrator_post_gate",
+      "script": "scripts/agent-owner-gate-ceo-orchestrator.py",
+      "old_ceo_equivalent": [
+        "run_ceo_full_execution.py",
+        "manager-ceo-auto-gate-loop.sh"
+      ],
+      "when": "orchestration_mode=copy_ceo_full 且 gate PASS"
+    }
+  ],
+  "owner_phrases_still_run_full_ceo": [
+    "CEO 开始执行",
+    "请 CEO 开始工作",
+    "CEO 干活"
+  ],
+  "ceo_dispatch_now_runs_research_gate_first": true,
+  "ceo_entry_script": "scripts/run_ceo_full_execution.py",
+  "dedupe_when_gate_pass": ["brainstorm_preflight", "ceo_six_case_battery"],
+  "handoffs": {
+    "voice_stack": "integration/handoff/owner-voice-stack-latest.json",
+    "platform_voice": "integration/handoff/owner-platform-voice-benchmark-latest.json",
+    "copy_pipeline": "integration/handoff/owner-copy-pipeline-gate-latest.json",
+    "ceo_verify_bridge": "integration/handoff/owner-ceo-verify-bridge-latest.json",
+    "research_gate": "integration/handoff/owner-research-gate-latest.json"
+  }
+}

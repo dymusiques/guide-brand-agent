@@ -17,10 +17,41 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+GATE_HANDOFF = ROOT / "integration/handoff/owner-research-gate-latest.json"
 sys.path.insert(0, str(ROOT / "scripts"))
 from ceo_agent_roster import build_roster, parallelism_summary  # noqa: E402
 from ceo_goal_tracks import is_flutebuddy_goal, is_ip_ecosystem_goal  # noqa: E402
 from pending_videos_gate_policy import classify_goal  # noqa: E402
+
+
+def _parse_iso(ts: str) -> datetime | None:
+    if not ts:
+        return None
+    try:
+        if ts.endswith("Z"):
+            ts = ts.replace("Z", "+00:00")
+        return datetime.fromisoformat(ts)
+    except ValueError:
+        return None
+
+
+def research_gate_layer_passed(layer_name: str, *, goal: str, max_age_h: float = 4.0) -> bool:
+    if not GATE_HANDOFF.is_file():
+        return False
+    data = json.loads(GATE_HANDOFF.read_text(encoding="utf-8"))
+    if data.get("status") != "PASS":
+        return False
+    as_of = _parse_iso(str(data.get("as_of") or ""))
+    if as_of and (datetime.now(timezone.utc) - as_of).total_seconds() / 3600 > max_age_h:
+        return False
+    hg = str(data.get("goal") or "")
+    if goal and goal not in hg and hg not in goal:
+        if not any(k in goal and k in hg for k in ("复盘", "艺术家", "口播", "CEO", "小红书")):
+            return False
+    for layer in data.get("layers") or []:
+        if layer.get("name") == layer_name and layer.get("status") == "PASS":
+            return True
+    return False
 
 
 def run(cmd: list[str], *, step: str, env: dict[str, str], allow_fail: bool = False) -> int:
@@ -119,6 +150,11 @@ def main() -> int:
     p.add_argument("--skip-stress", action="store_true")
     p.add_argument("--skip-matrix", action="store_true", help="six-case includes fused; skip redundant")
     p.add_argument("--round2", action="store_true")
+    p.add_argument(
+        "--skip-research-gate",
+        action="store_true",
+        help="Skip Cursor research-gate union (默认 CEO 派活先跑 gate)",
+    )
     args = p.parse_args()
 
     env = os.environ.copy()
@@ -208,6 +244,41 @@ def main() -> int:
             )
             if ec_vt != 0:
                 fail += 1
+
+        gate_ok = False
+        if not args.skip_research_gate:
+            ec_rg = run(
+                [
+                    sys.executable,
+                    "scripts/agent-owner-research-gate.py",
+                    "--goal",
+                    screen_goal,
+                    "--skip-qc-task",
+                ],
+                step="Owner research-gate (Cursor ∪ CEO 并集 · Must)",
+                env=env,
+            )
+            record_step(
+                "owner-research-gate",
+                ec_rg,
+                cap="锚点/Drive/QC/CEO verify 子集",
+                roster_ids=["00", "04", "09"],
+            )
+            if ec_rg != 0:
+                fail += 1
+                print(
+                    "FAIL: research-gate — CEO 整链暂停（修 handoff 或 --skip-research-gate 仅调试）",
+                    file=sys.stderr,
+                )
+                manifest["overall"] = "FAIL"
+                write_manifest(manifest, invoked_ids, result_by_id)
+                return 1
+            gate_ok = True
+            env["CEO_RESEARCH_GATE"] = "PASS"
+
+    skip_brainstorm_gate = gate_ok and research_gate_layer_passed("brainstorm_preflight", goal=screen_goal)
+    skip_six_case_gate = gate_ok and research_gate_layer_passed("ceo_six_case_battery", goal=screen_goal)
+
     screen_cmd = [
         sys.executable,
         "scripts/ceo-task-drive-corpus-screen.py",
@@ -285,25 +356,34 @@ def main() -> int:
         ] if inbox_pending.is_dir() else []
         pending_kind = classify_goal(goal) if pending_mds else "skip"
         if pending_kind == "brainstorm":
-            ec = run(
-                [
-                    sys.executable,
-                    "scripts/agent-brainstorm-preflight.py",
-                    "--goal",
-                    goal,
-                ],
-                step="Brainstorm preflight (xhs + pending facts + drive)",
-                env=env,
-                allow_fail=True,
-            )
-            record_step(
-                "agent-brainstorm-preflight",
-                ec,
-                cap="调研预检 · Owner 未拍板 · 无 Agent 自拟定稿",
-                roster_ids=["00", "04"],
-            )
-            if ec != 0:
-                fail += 1
+            if skip_brainstorm_gate:
+                record_step(
+                    "agent-brainstorm-preflight",
+                    0,
+                    cap="SKIP · research-gate 已跑 brainstorm_preflight",
+                    roster_ids=["00", "04"],
+                )
+            else:
+                ec = run(
+                    [
+                        sys.executable,
+                        "scripts/agent-brainstorm-preflight.py",
+                        "--goal",
+                        goal,
+                        "--no-deep",
+                    ],
+                    step="Brainstorm preflight (xhs + pending facts + drive)",
+                    env=env,
+                    allow_fail=True,
+                )
+                record_step(
+                    "agent-brainstorm-preflight",
+                    ec,
+                    cap="调研预检 · Owner 未拍板 · 无 Agent 自拟定稿",
+                    roster_ids=["00", "04"],
+                )
+                if ec != 0:
+                    fail += 1
         elif pending_kind == "eval" and pending_mds:
             ec = run(
                 ["bash", "scripts/run-owner-pending-videos-eval.sh", "--no-open"],
@@ -373,19 +453,28 @@ def main() -> int:
                 fail += 1
 
     if not args.skip_six_case:
-        cmd = ["bash", "scripts/ceo-six-case-battery.sh"]
-        if brief:
-            cmd.append(brief)
-        ec = run(cmd, step="六项 6-case battery (integration + 01/04/05 fused + L1/kernel)", env=env)
-        record_step(
-            "ceo-six-case-battery",
-            ec,
-            agent="01/04/05/08",
-            cap="六项 6-case verify",
-            roster_ids=["01", "04", "05", "08"],
-        )
-        if ec != 0:
-            fail += 1
+        if skip_six_case_gate:
+            record_step(
+                "ceo-six-case-battery",
+                0,
+                agent="01/04/05/08",
+                cap="SKIP · research-gate 已跑 6-case",
+                roster_ids=["01", "04", "05", "08"],
+            )
+        else:
+            cmd = ["bash", "scripts/ceo-six-case-battery.sh"]
+            if brief:
+                cmd.append(brief)
+            ec = run(cmd, step="六项 6-case battery (integration + 01/04/05 fused + L1/kernel)", env=env)
+            record_step(
+                "ceo-six-case-battery",
+                ec,
+                agent="01/04/05/08",
+                cap="六项 6-case verify",
+                roster_ids=["01", "04", "05", "08"],
+            )
+            if ec != 0:
+                fail += 1
     else:
         ec = run([sys.executable, "scripts/evaluate_personal_ip.py", "--check"], step="01 personal-ip shell", env=env)
         record_step("evaluate_personal_ip", ec, agent="01", cap="IP 函数壳", roster_ids=["01"])

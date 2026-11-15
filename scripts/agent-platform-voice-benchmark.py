@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 """
-三平台大V笔触对标 — Must 层（写稿/口播/brainstorm 前）。
+三平台笔触 — 人格=VOICE-ANCHOR；KOL=rhythm_only。
 
-读 platform-voice-benchmark-roster.json → 写 owner-platform-voice-benchmark-latest.json
-Agent 须在 handoff 内填 per_platform_style_notes（本轮若 --goal 则写 synthesis 草稿）。
-
-FAIL：roster 缺平台 / 无 xhs+linkedin+medium 各 ≥2 参考
+读 platform-voice-benchmark-roster.json + voice-anchor-sources → handoff
 """
 
 from __future__ import annotations
@@ -19,6 +16,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ROSTER = ROOT / "integration/handoff/platform-voice-benchmark-roster.json"
+ANCHOR_JSON = ROOT / "content/xiaohongshu/voice-anchor-sources.json"
+VOICE_STACK = ROOT / "integration/handoff/owner-voice-stack-latest.json"
 OUT = ROOT / "integration/handoff/owner-platform-voice-benchmark-latest.json"
 V_TIER = ROOT / "docs/OWNER-COPY-V-TIER-400K-MANDATE.md"
 
@@ -38,6 +37,7 @@ COPY_TRIGGERS = (
     "第五",
     "不走专业",
     "大师课",
+    "艺术家",
 )
 
 
@@ -46,27 +46,67 @@ def goal_needs_copy(goal: str) -> bool:
     return any(t in g for t in COPY_TRIGGERS) or bool(g)
 
 
-def default_synthesis(goal: str) -> dict:
-    """机械默认：第五篇「不走专业为什么还要公开大师课」对标摘要。"""
+def load_json(path: Path) -> dict | None:
+    if not path.is_file():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def pick_primary_anchor(goal: str, stack: dict | None, anchors: list[dict]) -> dict:
+    if stack and stack.get("primary_anchor", {}).get("title"):
+        p = stack["primary_anchor"]
+        for a in anchors:
+            if a.get("title") == p.get("title"):
+                return a
+    g = goal.lower()
+    for a in anchors:
+        t = str(a.get("title") or "")
+        if goal and goal in t or (goal and any(k in t for k in goal.split() if len(k) > 1)):
+            return a
+    if "艺术家" in goal:
+        for a in anchors:
+            if "艺术家" in str(a.get("title") or ""):
+                return a
+    if "大师课" in goal:
+        for a in anchors:
+            if "大师" in str(a.get("title") or "") or "祛魅" in str(a.get("title") or ""):
+                return a
+    return anchors[0] if anchors else {}
+
+
+def anchor_synthesis(goal: str, primary: dict, rhythm: dict) -> dict:
+    title = str(primary.get("title") or "")
+    open80 = str(primary.get("first_80_chars") or "")[:80]
+    xhs_r = (rhythm.get("xiaohongshu") or [])[:2]
+    li_r = (rhythm.get("linkedin") or [])[:2]
+    me_r = (rhythm.get("medium") or [])[:2]
+    rhythm_x = " · ".join(sum([r.get("style_axes") or [] for r in xhs_r], [])[:3])
+    rhythm_li = " · ".join(sum([r.get("style_axes") or [] for r in li_r], [])[:3])
+    rhythm_me = " · ".join(sum([r.get("style_axes") or [] for r in me_r], [])[:3])
+
     return {
-        "topic": goal or "不走专业为什么还要公开大师课",
+        "topic": goal or title,
+        "persona_source": "voice-anchor-sources.json",
+        "rhythm_only": True,
+        "primary_anchor_title": title,
+        "primary_opening_80": open80,
         "xiaohongshu": {
-            "hook_pattern": "问句封面 + 6 字（如「看台下一小时」）",
-            "voice": "现场目击者 · 短段 · 每段一个判断；学小手说琴「一条一个自查」；开场别 OK一说到",
-            "cta": "评论要「台下偷到的一句话」；合作私信「合作」",
-            "avoid": ["长铺垫", "纯技巧", "意大利误标"]
+            "hook_pattern": f"标题弧对齐锚点「{title[:20]}…」",
+            "voice": f"开口对齐 Owner 原话：「{open80[:40]}…」；节奏参考：{rhythm_x or '一条一判断'}",
+            "cta": "评论收「台下偷到的一句话」或真实经历（锚点回应体）",
+            "avoid": ["KOL 人设覆盖", "长铺垫", "意大利误标"],
         },
         "linkedin": {
-            "hook_pattern": "This masterclass is not about… / 读者 stakes 一句",
-            "voice": "Tracey 式 interpretation reflection；Maria 式短行；法派+家长+不推销专业",
-            "cta": "结尾问：Would you still fly to a public masterclass if your child won't major?",
-            "avoid": ["海报体 Delighted to perform", "堆履历"]
+            "hook_pattern": "stakes 一句（家长/标准）· 非海报体",
+            "voice": f"人格=锚点「{title}」；节奏：{rhythm_li or '短行'}",
+            "cta": "结尾一句问读者 stakes",
+            "avoid": ["Delighted to announce", "堆履历"],
         },
         "medium": {
-            "hook_pattern": "具体场景：公开大师课台下那一小时",
-            "voice": "Maureen：process not product；Laurel：场景→内化；段落 4–6，800–1200 词",
-            "cta": "收束：标准长什么样 ≠ 当不当艺术家",
-            "avoid": ["碎碎念无结构", "重复小红书全文"]
+            "hook_pattern": f"场景：从锚点「{title}」延伸的现场",
+            "voice": f"第一人称感想≥60%；节奏：{rhythm_me or '场景→内化'}",
+            "cta": "process not product · 与「走不走专业」分轨",
+            "avoid": ["复制小红书全文", "KOL 人格"],
         },
     }
 
@@ -86,31 +126,50 @@ def main() -> int:
         print(f"FAIL: missing {ROSTER}", file=sys.stderr)
         return 1
     roster = json.loads(ROSTER.read_text(encoding="utf-8"))
+    anchors_data = load_json(ANCHOR_JSON) or {}
+    anchors = list(anchors_data.get("anchors") or [])
+    stack = load_json(VOICE_STACK)
+
     fail = 0
+    min_a = int((roster.get("owner_anchors") or {}).get("min_entries") or 5)
+    if len(anchors) < min_a:
+        print(f"FAIL: owner anchors < {min_a}", file=sys.stderr)
+        fail += 1
+
+    rhythm = roster.get("rhythm_references") or {}
     for plat in ("xiaohongshu", "linkedin", "medium"):
-        items = roster.get(plat) or []
+        items = rhythm.get(plat) or []
         if len(items) < 2:
-            print(f"FAIL: {plat} roster < 2", file=sys.stderr)
+            print(f"FAIL: rhythm_references {plat} < 2", file=sys.stderr)
             fail += 1
 
-    synthesis = default_synthesis(goal)
-    if goal and not re.search("|".join(map(re.escape, COPY_TRIGGERS[:8])), goal):
-        synthesis["topic"] = goal
+    primary = pick_primary_anchor(goal, stack, anchors)
+    synthesis = anchor_synthesis(goal, primary, rhythm)
 
     payload = {
-        "schema": "owner_platform_voice_benchmark_v1",
+        "schema": "owner_platform_voice_benchmark_v2",
         "as_of": datetime.now(timezone.utc).isoformat(),
         "goal": goal,
+        "persona_source": roster.get("persona_source"),
+        "rhythm_only_kol": True,
+        "precedence_order": roster.get("precedence_order"),
         "roster_path": str(ROSTER.relative_to(ROOT)),
+        "voice_stack_handoff": str(VOICE_STACK.relative_to(ROOT)),
         "v_tier_mandate": str(V_TIER.relative_to(ROOT)) if V_TIER.is_file() else None,
+        "v_tier_role": "after_anchor_style_checklist_not_persona",
         "mandatory_before_draft": [
-            "读 roster 每平台 ≥2 URL（或帖）",
-            "写稿须分三平台语气，禁止剪贴同一篇",
-            "小红书 60–90s 口播；LinkedIn 800–1200 字符英文或中英；Medium 长文",
-            "Owner 终检前：verify-owner-copy-v-tier-attestation 若 brief 绑定",
+            "Must owner-voice-stack PASS",
+            "人格真源=voice-anchor-sources",
+            "KOL=rhythm_only",
+            "三平台分稿",
+            "Owner 终检前 verify-owner-copy-v-tier-attestation 若 brief 绑定",
         ],
-        "roster_summary": {
-            k: [{"handle": i.get("handle"), "url": i.get("url")} for i in (roster.get(k) or [])[:3]]
+        "matched_anchor": {
+            "title": primary.get("title"),
+            "first_80_chars": primary.get("first_80_chars"),
+        },
+        "rhythm_summary": {
+            k: [{"handle": i.get("handle"), "rhythm_only": i.get("rhythm_only")} for i in (rhythm.get(k) or [])[:2]]
             for k in ("xiaohongshu", "linkedin", "medium")
         },
         "platform_synthesis": synthesis,

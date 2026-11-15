@@ -15,4 +15,5 @@ handoff：`integration/handoff/owner-copy-pipeline-gate-latest.json`
 1. **Drive**：`owner-drive-hydrate-latest.json` 中 screen `direct_hit` + manifest 钉选文件 · 非 `BLOCKED`/`FAIL`，且 `read_complete` 或 OCR `PARTIAL`（≥200 字）
 2. **大V**：`owner-platform-voice-benchmark-latest.json` **PASS** + roster 每平台 ≥2 账号
 
-已编入 `agent-owner-research-gate.py` 层 `owner_copy_pipeline_gate`；C1/C3 在文案/口播类 goal 上同样要求 research-gate PASS。
+**管子顺序（research-gate）：** `owner_voice_stack_gate` → `platform_voice_benchmark` → `owner_copy_pipeline_gate` → `ceo_owner_verify_bridge`  
+并集对照：`integration/handoff/agent-gate-layer-union.json`

@@ -21,8 +21,14 @@ HYDRATE = ROOT / "integration/handoff/owner-drive-hydrate-latest.json"
 SCREEN = ROOT / "content/evolution/00-manager/ceo-inbox/xhs-drive-screen-latest.json"
 MANIFEST = ROOT / "integration/handoff/owner-drive-backup-manifest.json"
 VOICE = ROOT / "integration/handoff/owner-platform-voice-benchmark-latest.json"
+VOICE_STACK = ROOT / "integration/handoff/owner-voice-stack-latest.json"
+CEO_BRIDGE = ROOT / "integration/handoff/owner-ceo-verify-bridge-latest.json"
 ROSTER = ROOT / "integration/handoff/platform-voice-benchmark-roster.json"
+ANCHOR_JSON = ROOT / "content/xiaohongshu/voice-anchor-sources.json"
 MONOREPO_PIPELINE = Path.home() / "Desktop/未命名/docs/agent/AGENT-OWNER-COPY-PIPELINE-GATE.json"
+ORAL_ONLY_KW = ("口播", "文案", "大师课", "艺术家", "不走专业", "写稿")
+MARKETING_KW = ("薯条", "投放", "聚光", "投流")
+REPLAY_KW = ("复盘", "监督", "补全", "数据分析", "已发", "为什么", "后台")
 
 COPY_TRIGGERS = (
     "文案",
@@ -102,20 +108,69 @@ def check_drive(hydrate: dict | None, want_ids: set[str], rules: dict) -> tuple[
     return errors, ok_names
 
 
+def oral_only_goal(goal: str) -> bool:
+    g = goal or ""
+    if not any(k in g for k in ORAL_ONLY_KW):
+        return False
+    return not any(k in g for k in MARKETING_KW)
+
+
+def replay_without_marketing(goal: str) -> bool:
+    g = goal or ""
+    if not any(k in g for k in REPLAY_KW):
+        return False
+    return not any(k in g for k in MARKETING_KW)
+
+
+def drive_exempt_goal(goal: str) -> bool:
+    return oral_only_goal(goal) or replay_without_marketing(goal)
+
+
+def check_voice_stack(stack: dict | None, anchors: dict | None) -> list[str]:
+    errors: list[str] = []
+    if not stack or stack.get("status") != "PASS":
+        errors.append(f"owner-voice-stack missing or status!=PASS ({(stack or {}).get('status')})")
+    n = len((anchors or {}).get("anchors") or [])
+    if n < 5:
+        errors.append(f"voice-anchor-sources entries < 5 (got {n})")
+    return errors
+
+
 def check_voice(voice: dict | None, roster: dict | None, goal: str, rules: dict) -> list[str]:
     errors: list[str] = []
     min_n = int(rules.get("min_accounts_per_platform") or 2)
     plats = rules.get("platforms") or ["xiaohongshu", "linkedin", "medium"]
     if not voice or voice.get("status") != "PASS":
         errors.append(f"platform_voice handoff missing or status!=PASS ({(voice or {}).get('status')})")
-    elif goal and goal not in str(voice.get("goal") or "") and str(voice.get("goal") or "") not in goal:
-        errors.append(f"platform_voice goal mismatch: {voice.get('goal')!r} vs {goal!r}")
+    elif goal:
+        hg, hv = goal.strip(), str(voice.get("goal") or "").strip()
+        if hg not in hv and hv not in hg:
+            tokens = [t for t in re.split(r"[^\w\u4e00-\u9fff]+", hg) if len(t) >= 2]
+            if not any(t in hv for t in tokens) and not any(t in hg for t in re.split(r"[^\w\u4e00-\u9fff]+", hv) if len(t) >= 2):
+                errors.append(f"platform_voice goal mismatch: {hv!r} vs {hg!r}")
+    if voice and not voice.get("rhythm_only_kol"):
+        errors.append("platform_voice must set rhythm_only_kol=true")
     if not roster:
         errors.append("missing platform-voice-benchmark-roster.json")
     else:
+        rhythm = roster.get("rhythm_references") or {}
         for plat in plats:
-            if len(roster.get(plat) or []) < min_n:
-                errors.append(f"{plat} roster < {min_n}")
+            if len(rhythm.get(plat) or []) < min_n:
+                errors.append(f"rhythm_references {plat} < {min_n}")
+    return errors
+
+
+def check_ceo_bridge(bridge: dict | None, goal: str) -> list[str]:
+    if not oral_only_goal(goal) and not any(k in (goal or "") for k in COPY_TRIGGERS):
+        return []
+    errors: list[str] = []
+    if not bridge:
+        errors.append("missing owner-ceo-verify-bridge-latest.json")
+        return errors
+    if bridge.get("status") == "SKIP":
+        return []
+    if bridge.get("status") != "PASS":
+        errors.append(f"ceo_verify_bridge status={bridge.get('status')!r} fail_count={bridge.get('fail_count')}")
     return errors
 
 
@@ -153,10 +208,25 @@ def main() -> int:
     want = direct_hit_ids(screen if isinstance(screen, dict) else None, manifest if isinstance(manifest, dict) else None)
     if not want and isinstance(manifest, dict):
         want = {str(r["id"]) for r in manifest.get("pinned_drive_files") or [] if r.get("id")}
+    exempt = drive_exempt_goal(goal)
+    if exempt:
+        want = set()
 
-    drive_err, drive_ok = check_drive(hydrate if isinstance(hydrate, dict) else None, want, rules_drive)
+    stack = load_json(VOICE_STACK)
+    anchors = load_json(ANCHOR_JSON)
+    stack_err = check_voice_stack(stack if isinstance(stack, dict) else None, anchors if isinstance(anchors, dict) else None)
+    drive_err, drive_ok = (
+        ([], [])
+        if exempt
+        else check_drive(hydrate if isinstance(hydrate, dict) else None, want, rules_drive)
+    )
+    if exempt:
+        label = "replay/supervision (no 薯条结论)" if replay_without_marketing(goal) else "oral/copy"
+        drive_ok = [f"SKIP drive marketing PDFs ({label})"]
     voice_err = check_voice(voice if isinstance(voice, dict) else None, roster if isinstance(roster, dict) else None, goal, rules_voice)
-    all_err = drive_err + voice_err
+    bridge = load_json(CEO_BRIDGE)
+    bridge_err = check_ceo_bridge(bridge if isinstance(bridge, dict) else None, goal)
+    all_err = stack_err + drive_err + voice_err + bridge_err
     status = "PASS" if not all_err else "FAIL"
 
     payload = {
@@ -169,14 +239,29 @@ def main() -> int:
             "files_ok": drive_ok,
             "errors": drive_err,
         },
+        "voice_stack": {
+            "handoff": str(VOICE_STACK.relative_to(ROOT)),
+            "errors": stack_err,
+            "precedence": (stack or {}).get("precedence_order") if isinstance(stack, dict) else None,
+        },
         "platform_voice": {
             "handoff": str(VOICE.relative_to(ROOT)),
             "errors": voice_err,
+            "persona_source": (voice or {}).get("persona_source") if isinstance(voice, dict) else None,
+        },
+        "ceo_verify_bridge": {
+            "handoff": str(CEO_BRIDGE.relative_to(ROOT)),
+            "errors": bridge_err,
+            "status": (bridge or {}).get("status") if isinstance(bridge, dict) else None,
         },
         "hard_thresholds": {
-            "drive_read_complete_or_partial": True,
-            "platform_roster_per_platform_min": rules_voice.get("min_accounts_per_platform"),
-            "forbid_blocked_download": True,
+            "voice_anchor_before_kol": True,
+            "drive_read_complete_or_partial": not exempt,
+            "drive_exempt": exempt,
+            "oral_only_drive_exempt": oral_only_goal(goal),
+            "replay_drive_exempt": replay_without_marketing(goal),
+            "platform_rhythm_per_platform_min": rules_voice.get("min_accounts_per_platform"),
+            "forbid_blocked_download": not exempt,
         },
         "status": status,
         "fail_count": len(all_err),

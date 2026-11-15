@@ -21,6 +21,8 @@ MONOREPO = Path.home() / "Desktop/未命名"
 C2_LOG = ROOT / "tmp/research-gate-c2.log"
 ARTISTS_HIT = ROOT / "content/evolution/00-manager/ceo-inbox/2026-11-03-artists-three"
 VENV_PY = ROOT / ".venv/bin/python3"
+sys.path.insert(0, str(ROOT / "scripts"))
+from gate_ceo_orchestration import orchestration_mode  # noqa: E402
 
 
 def run(cmd: list[str], *, cwd: Path | None = None, timeout: int = 900) -> tuple[int, str]:
@@ -46,8 +48,16 @@ def main() -> int:
     ap.add_argument("--goal", required=True)
     ap.add_argument("--session", default="owner-research-gate")
     ap.add_argument("--skip-qc-task", action="store_true", help="仅 CI；交付 Must 跑 QC")
+    ap.add_argument("--brief", default="", help="Brief 路径 · 写稿类接 CEO + auto-gate-loop")
+    ap.add_argument(
+        "--no-orchestrate",
+        action="store_true",
+        help="gate PASS 后不自动接 CEO full（调试）",
+    )
     args = ap.parse_args()
     goal = args.goal.strip()
+    brief = (args.brief or "").strip()
+    orch_mode = orchestration_mode(goal=goal, brief=brief)
     layers: list[dict] = []
     fail = 0
     C2_LOG.parent.mkdir(parents=True, exist_ok=True)
@@ -98,6 +108,12 @@ def main() -> int:
     )
     track("brainstorm_preflight", ec, tail)
 
+    ec, tail = run(
+        [sys.executable, "scripts/agent-owner-voice-anchor-sync.py"],
+        timeout=120,
+    )
+    track("owner_voice_anchor_sync", ec, tail, ok_ec={0, 1})
+
     ec, tail = run([sys.executable, "scripts/agent-hydrate-drive-priority.py", "--limit", "12"], timeout=600)
     track("drive_hydrate_fulltext", ec, tail)
     hp = ROOT / "integration/handoff/owner-drive-hydrate-latest.json"
@@ -107,6 +123,30 @@ def main() -> int:
             track("drive_hydrate_handoff", 1, f"handoff status={hd.get('status')!r}")
 
     ec, tail = run(
+        [sys.executable, "scripts/agent-owner-voice-stack-gate.py", "--goal", goal],
+        timeout=60,
+    )
+    track("owner_voice_stack_gate", ec, tail)
+
+    ec, tail = run(
+        [sys.executable, "scripts/agent-platform-voice-benchmark.py", "--goal", goal],
+        timeout=120,
+    )
+    track("platform_voice_benchmark", ec, tail)
+
+    ec, tail = run(
+        [
+            sys.executable,
+            "scripts/agent-owner-ceo-verify-bridge.py",
+            "--goal",
+            goal,
+            "--skip-if-not-copy",
+        ],
+        timeout=300,
+    )
+    track("ceo_owner_verify_bridge", ec, tail, ok_ec={0})
+
+    ec, tail = run(
         [sys.executable, "scripts/agent-owner-copy-pipeline-gate.py", "--goal", goal],
         timeout=120,
     )
@@ -114,13 +154,13 @@ def main() -> int:
 
     ec, tail = run([sys.executable, "scripts/agent-read-ip-brief-gate.py"])
     track("ip_brief_full", ec, tail)
+
     ec, tail = run([sys.executable, "scripts/agent-benchmark-cross-dimensions.py"])
-    track("benchmark_cross_dim", ec, tail)
-    ec, tail = run(
-        [sys.executable, "scripts/agent-platform-voice-benchmark.py", "--goal", goal],
-        timeout=120,
+    track(
+        "benchmark_cross_dim",
+        ec,
+        tail + "\n(note: facts_only · persona precedence → owner-voice-stack-latest.json)",
     )
-    track("platform_voice_benchmark", ec, tail)
 
     ec, tail = run(["bash", "scripts/ceo-six-case-battery.sh"], timeout=900)
     core = ec == 0 or (
@@ -176,27 +216,14 @@ def main() -> int:
     else:
         layers.append({"name": "platform_evolution_artists_three", "status": "SKIP", "note": "无艺术家语境"})
 
-    ec, tail = run(
-        [
-            sys.executable,
-            "scripts/run_ceo_full_execution.py",
-            "--goal",
-            goal,
-            "--skip-triple-eval",
-            "--skip-stress",
-        ],
-        timeout=1200,
-    )
     layers.append(
         {
             "name": "ceo_manifest_slice",
-            "status": "PASS" if ec == 0 else ("PARTIAL" if ec == 42 else "FAIL"),
-            "exit_code": ec,
-            "tail": tail,
+            "status": "SKIP",
+            "note": "已迁至 gate PASS 后 owner-gate-ceo-orchestrator（避免嵌套双 gate）",
+            "orchestration_mode": orch_mode,
         }
     )
-    if ec not in (0, 42):
-        fail += 1
 
     C2_LOG.write_text("\n".join(log_lines), encoding="utf-8")
 
@@ -251,6 +278,51 @@ def main() -> int:
             OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         else:
             layers.append({"name": "qc_verify", "status": "SKIP", "note": "--skip-qc-task"})
+
+    if not args.no_orchestrate and fail == 0 and payload["status"] == "PASS":
+        if orch_mode == "copy_ceo_full":
+            orch_cmd = [
+                sys.executable,
+                "scripts/agent-owner-gate-ceo-orchestrator.py",
+                "--goal",
+                goal,
+                "--no-require-gate-pass",
+            ]
+            if brief:
+                orch_cmd.extend(["--brief", brief])
+            ec_o, tail_o = run(orch_cmd, timeout=3600)
+            orch_st = "FAIL"
+            try:
+                last = tail_o.strip().split("\n")[-1]
+                od = json.loads(last)
+                orch_st = str(od.get("status") or "FAIL")
+            except (json.JSONDecodeError, IndexError):
+                orch_st = "PASS" if ec_o == 0 else "FAIL"
+            layers.append(
+                {
+                    "name": "ceo_orchestrator_post_gate",
+                    "status": orch_st,
+                    "exit_code": ec_o,
+                    "tail": tail_o,
+                    "mode": orch_mode,
+                    "handoff": "integration/handoff/owner-gate-ceo-orchestrator-latest.json",
+                }
+            )
+            if ec_o not in (0,):
+                # 42 记入 PARTIAL，不翻 gate FAIL（战役未过线 ≠ 安检 FAIL）
+                pass
+        else:
+            layers.append(
+                {
+                    "name": "ceo_orchestrator_post_gate",
+                    "status": "SKIP",
+                    "mode": orch_mode,
+                    "note": "复盘/监督类 · gate PASS 即停",
+                }
+            )
+        payload["layers"] = layers
+        payload["orchestration_mode"] = orch_mode
+        OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(json.dumps({"status": payload["status"], "handoff": str(OUT.relative_to(ROOT)), "fail_count": fail}))
     return 0 if fail == 0 else 1

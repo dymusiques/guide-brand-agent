@@ -100,7 +100,23 @@
         "jobs_dir": "integration/handoff/openwebui-jobs",
         "outbox_personal_ip": "~/Desktop/Open WebUI Personal IP/outbox",
         "outbox_website": "~/Desktop/Open WebUI Fluid Body/outbox"
+      },
+      "cursor_union": {
+        "monorepo_json": "docs/agent/AGENT-CURSOR-CEO-UNION.json",
+        "brand_md": "docs/AGENT-CURSOR-CEO-UNION.md",
+        "prerequisite_when_deep": "integration/handoff/owner-research-gate-latest.json status=PASS",
+        "research_gate": "python3 scripts/agent-workflow.py brand research-gate --goal \"<owner goal>\""
       }
+    },
+    {
+      "id": "L2_CURSOR_GATE",
+      "name": "Cursor chat · research-gate（含老 CEO verify 子集）",
+      "owner_phrases_none_required": true,
+      "triggers_ref": "AGENT-OWNER-CONTENT-SESSION.json",
+      "script": "python3 scripts/agent-workflow.py brand research-gate --goal \"<owner goal>\"",
+      "handoff": "integration/handoff/owner-research-gate-latest.json",
+      "union_doc": "docs/AGENT-CURSOR-CEO-UNION.md",
+      "note": "不替代 L2_CEO_START；Brief 战役仍走 ceo-full-execution-pipeline.sh"
     },
     {
       "id": "L2b_DUAL_TRACK_DELIVER",

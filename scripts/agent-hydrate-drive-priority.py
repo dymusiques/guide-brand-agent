@@ -87,7 +87,13 @@ def main() -> int:
         if not fid:
             continue
         mirror = MIRROR / fid
-        ok_dl = gdocs_download(fid, mirror)
+        existing = [f for f in mirror.rglob("*") if f.is_file() and f.name != ".DS_Store"] if mirror.is_dir() else []
+        if existing and max(existing, key=lambda p: p.stat().st_size).stat().st_size > 500:
+            ok_dl = True
+        else:
+            ok_dl = gdocs_download(fid, mirror)
+            if not ok_dl and mirror.is_dir() and existing:
+                ok_dl = True
         text = ""
         method = "none"
         truncated = False

@@ -65,7 +65,9 @@ else
   bash scripts/analytics-pipeline.sh --demo >/dev/null 2>&1 || true
 fi
 
+run "owner-voice-anchor-sync" "$PY" scripts/agent-owner-voice-anchor-sync.py
 run "ceo-dispatch-refresh" "$PY" scripts/ceo-dispatch-refresh.py
+run "research-gate-light" "$PY" scripts/agent-owner-voice-stack-gate.py --goal "background-cycle-09:00"
 run "manager-dashboard" bash scripts/manager-dashboard.sh
 
 # --- Baseline + Evaluator rollups ---

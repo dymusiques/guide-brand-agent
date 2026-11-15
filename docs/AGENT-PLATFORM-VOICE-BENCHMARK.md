@@ -16,7 +16,8 @@ roster：`integration/handoff/platform-voice-benchmark-roster.json`
 | 层 | 做什么 |
 |----|--------|
 | `agent-benchmark-cross-dimensions` | 艺术家 watchlist · screened.md |
-| **`agent-platform-voice-benchmark`** | **小红书/LinkedIn/Medium 高互动写作者笔触** |
+| **`agent-owner-voice-stack-gate`** | **张丹瀛 VOICE-ANCHOR（人格真源 · Must 先于下两列）** |
+| **`agent-platform-voice-benchmark`** | **节奏参考 rhythm_only；synthesis 对齐 first_80** |
 | `owner-copy-v-tier` | 40万级 attestation · Owner 终检 |
 
 ## 自动化
