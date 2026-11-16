@@ -2,6 +2,8 @@
   "version": "2026-11-07",
   "mandate_doc": "docs/OWNER-GIT-COMMIT-NOISE-GUIDE.md",
   "owner_preference": "baseline_in_git_ok_but_warn_on_future_commits",
+  "owner_mandatory_reminder_phrase_zh": "这次 commit 可能会有噪音（尤其是 brief / 战略 JSON / 交付 HTML 小改）。建议你先跟我一起检查一遍 git status，把 runtime 和不想进历史的文件从 stage 里拿掉。",
+  "agent_must_say_verbatim_before_commit": true,
   "layers": {
     "A_rules_scripts": {
       "noise": "low",
@@ -27,8 +29,11 @@
         "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-*",
         "content/evolution/00-manager/ceo-inbox/daily-gm-summary-*",
         "content/evolution/00-manager/ceo-inbox/corpus-screens/",
-        "content/personal-ip/intake/_raw/ceo-drive-catalog-live.json"
-      ]
+        "content/personal-ip/intake/_raw/ceo-drive-catalog-live.json",
+        "integration/handoff/owner-research-gate-latest.json",
+        "integration/handoff/owner-*-latest.json"
+      ],
+      "never_commit_note_zh": "research-gate PASS 快照只认本地运行结果，禁止 commit 代替真跑"
     }
   },
   "baseline_snapshots": [
