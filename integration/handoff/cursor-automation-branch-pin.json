@@ -1,0 +1,17 @@
+{
+  "schema": "cursor_automation_branch_pin_v1",
+  "as_of": "2026-11-18",
+  "canonical": {
+    "repo_github": "dymusiques/guide-brand-agent",
+    "repo_origin": "danying/guide-brand-agent",
+    "branch": "main",
+    "local_path": "~/Desktop/danying-brand-agent"
+  },
+  "automation_must": {
+    "environment_ref": "guide-brand-agent @ main",
+    "forbidden_branches": ["develop", "staging", "feat", "cursor/", "old-main"],
+    "instruction_header": "仓库 guide-brand-agent / 分支 main only · 禁止 checkout 其它分支"
+  },
+  "verify": "python3 scripts/verify-cursor-automation-branch-pin.py",
+  "doc": "docs/OWNER-CURSOR-AUTOMATION-BRANCH-PIN.md"
+}

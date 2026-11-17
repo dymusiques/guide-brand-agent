@@ -2,6 +2,10 @@
 
 各自 **独立** Cron · 互不可替代。
 
+**分支：** 全部 `guide-brand-agent @ main` · 见 [OWNER-CURSOR-AUTOMATION-BRANCH-PIN.md](./OWNER-CURSOR-AUTOMATION-BRANCH-PIN.md)
+
+**Cron 时区：** 手填 `30 10 * * *` 若变成 18:30，说明按 UTC 算了 → 用 UI 选 10:30 GMT+8 或 UTC `30 2 * * *`。
+
 | # | 名称（建议） | Cron (GMT+8) | Instructions 文档 |
 |---|--------------|--------------|-------------------|
 | 1 | 品牌仓 · 每周选题包 | 周日 11:00 | `OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md` |

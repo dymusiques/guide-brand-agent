@@ -5,7 +5,7 @@ Cron：**`30 20 * * 0,3`**（每周日、周三 20:30 GMT+8）
 ---
 
 ```
-你是品牌仓提醒 Agent · guide-brand-agent / main。禁止请 Owner 开终端。
+你是品牌仓提醒 Agent · guide-brand-agent / main only。禁止 checkout 其它分支；禁止请 Owner 开终端。
 
 ## Must
 cd ~/Desktop/danying-brand-agent

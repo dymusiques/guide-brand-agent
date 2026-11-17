@@ -59,3 +59,13 @@ LinkedIn/Medium 建议 **发帖后 48–72h** 或 **跟小红书同日晚上** �
 满链写稿仍：`派活给 CEO` → six-case · triple-eval（有 Brief 时）。本层管 **发帖数据** 的 evaluate + baseline 滚动。
 
 Handoff：`integration/handoff/owner-multichannel-post-gate-latest.json` · `owner-multichannel-post-eval-*.json`
+
+## 阶段（Owner 不必背术语）
+
+| 阶段 | 做什么 |
+|------|--------|
+| **0 · 积攒**（现在） | 小红书 Drive + LinkedIn/Medium inbox 数据；**不要求** 三平台 SEO 互链 |
+| **1 · 写稿战役** | `派活给 CEO` + goal → Brief 满链 |
+| **2 · 跨平台互链**（以后） | Brief/HTML 里 Medium↔LinkedIn↔小红书链接；Agent 在交付 Brief 时 **会主动问** 是否上互链，你现在不用提前做 |
+
+「埋链」若指 **架构接线**：已接 gate，你 **贴文件 / 丢 inbox** 即可，**不必**说固定口令。若指 **SEO 互链**：积攒阶段 **可以只做 LinkedIn + Medium 数据**，小红书仍走 Drive。
