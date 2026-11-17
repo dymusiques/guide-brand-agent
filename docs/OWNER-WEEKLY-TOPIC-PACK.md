@@ -1,10 +1,10 @@
-# 每周选题包 · 5–10 主题（跨平台）
+# 小红书每周选题包 · 5–10 主题
 
 真源：`integration/handoff/owner-owner-triggers.json` · `weekly_topic_pack`
 
 ## 目标
 
-每周 **5–10** 个「主题包」（非仅小红书标题）：观点 + IP 契合 + 热点检索方向 + 建议平台（小红书 / LinkedIn / Medium），Owner 自选后发。
+每周 **5–10** 个小红书主题（笔记/口播向）：观点 + IP + 热点检索 + pending-eval 防撞。**LinkedIn/Medium** 选题见 `owner-weekly-linkedin-medium-topic-pack.py`（周日 12:00 Automation）。
 
 ## 机械入口
 
@@ -35,8 +35,8 @@ python3 scripts/owner-weekly-topic-pack.py
 ## Cursor Automation
 
 - **每周日 11:00 GMT+8** · `0 11 * * 0`
-- 名称：`品牌仓 · 每周选题包`
-- 指令见 `docs/OWNER-WORKSPACE-HYGIENE.md` 同目录下 Automation 草稿
+- 名称：`品牌仓 · 小红书每周选题包`
+- 指令：`docs/OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md`
 
 Automation 内 Agent **Must**：
 

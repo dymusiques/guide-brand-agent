@@ -109,14 +109,15 @@ def gemini_expand(*, brief_excerpt: str, seeds: list[dict], sparks: list[str], a
             "strong_link_cta",
             "evaluate_baseline_note",
         ],
-        "platforms_allowed": ["xiaohongshu", "linkedin", "medium"],
+        "platforms_allowed": ["xiaohongshu"],
         "rules": [
+            "仅小红书选题 · LinkedIn/Medium 由 owner-weekly-linkedin-medium-topic-pack.py 另跑",
             "跨行业品牌 open",
             "法派长笛+品牌叙事+强链接",
             "每条标注 topic_kind: hot_trend | evergreen_ip | spark_derived",
             "hot_trend: 热点/检索向；evergreen_ip: 非热点但契合 IP、值得写；均需 Agent 延伸思考一句",
             "hot_search_hint 须写可验证方向或「待 Web 检索」；禁止编造搜索量数字",
-            "平台建议 xiaohongshu/linkedin/medium 可多选并说明为何",
+            "platforms 字段固定为 [\"xiaohongshu\"]",
         ],
     }
     payload = json.dumps(prompt, ensure_ascii=False)
@@ -170,16 +171,16 @@ def template_pack(seeds: list[dict], sparks: list[str]) -> list[dict]:
     ]
     extras = [
         {
-            "title_zh": "听见 Daily：一条可转 LinkedIn 的专业资讯角度",
+            "title_zh": "听见 Daily 角度：专业资讯 + 小红书钩子",
             "angle_one_liner": "长笛/古典行业快讯 + 教学法观点",
-            "platforms": ["linkedin", "medium"],
+            "platforms": ["xiaohongshu"],
             "hot_search_hint": "古典音乐 + 教育",
-            "strong_link_cta": "订阅/咨询",
+            "strong_link_cta": "私信关键词",
             "evaluate_baseline_note": "11 ip-daily",
             "source": "ip_pillar",
         },
         {
-            "title_zh": "小红书：品牌活动里「不可替代的专业时刻」",
+            "title_zh": "品牌活动里「不可替代的专业时刻」",
             "angle_one_liner": "认知期 Discovery 线",
             "platforms": ["xiaohongshu"],
             "hot_search_hint": "品牌 storytelling",
@@ -194,7 +195,7 @@ def template_pack(seeds: list[dict], sparks: list[str]) -> list[dict]:
             {
                 "title_zh": "聊天启发衍生题（待 Owner 定方向）",
                 "angle_one_liner": sparks[0][:200],
-                "platforms": ["xiaohongshu", "linkedin", "medium"],
+                "platforms": ["xiaohongshu"],
                 "hot_search_hint": "见 chat-sparks",
                 "strong_link_cta": "待定",
                 "evaluate_baseline_note": "spark",
@@ -206,7 +207,7 @@ def template_pack(seeds: list[dict], sparks: list[str]) -> list[dict]:
             {
                 "title_zh": f"IP 储备题 #{len(out)+1}",
                 "angle_one_liner": "法派×商业×艺术体验",
-                "platforms": ["linkedin"],
+                "platforms": ["xiaohongshu"],
                 "hot_search_hint": "待检索",
                 "strong_link_cta": "私信",
                 "evaluate_baseline_note": "placeholder",
@@ -313,7 +314,7 @@ def write_md(path: Path, items: list[dict], meta: dict) -> None:
         f"# 每周选题包 · {meta['week_date']}",
         "",
         f"- 生成：{meta['as_of']}",
-        f"- 条数：**{len(items)}**（Owner 自选 LinkedIn / 小红书 / Medium）",
+        f"- 条数：**{len(items)}**（仅 **小红书**；LinkedIn/Medium → 周日 12:00 Automation）",
         f"- 真源：`integration/handoff/owner-owner-triggers.json` · pending + 本周选题 evaluate 已跑",
         f"- evaluate：`owner-weekly-topic-pack-eval-latest.json`（PASS ≥ {PASS_THRESHOLD}）",
         "",

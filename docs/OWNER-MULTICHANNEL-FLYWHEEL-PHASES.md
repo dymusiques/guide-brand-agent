@@ -60,7 +60,7 @@ python3 scripts/check-owner-flywheel-phase.py
 
 | Automation | 侧重 |
 |------------|------|
-| 周日 11:00 · 每周选题包 | 跨平台（含小红书）· evaluate 闭环 |
-| **周日 12:00 · LinkedIn + Medium 选题** | **仅**领英 + Medium · 阶段 0 主用 · 指令见 [OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md](./OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md) |
+| 周日 11:00 · 小红书每周选题包 | **仅小红书** · evaluate + pending 闭环 |
+| 周日 12:00 · LinkedIn + Medium 选题 | **仅领英 + Medium** · 指令见 [OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md](./OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md) |
 
 阶段 0：**只勾选、只积攒；不勾选不写稿。**

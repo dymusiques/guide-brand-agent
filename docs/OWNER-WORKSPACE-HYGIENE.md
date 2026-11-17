@@ -19,6 +19,6 @@ python3 scripts/owner-workspace-hygiene-alert.py
 
 ## 每周选题 Automation（周日）
 
-- 名称：`品牌仓 · 每周选题包`
+- 名称：`品牌仓 · 小红书每周选题包`（LinkedIn/Medium 见周日 12:00 另一条）
 - Cron：`0 11 * * 0`（周日 11:00 GMT+8）
 - 手册：[OWNER-WEEKLY-TOPIC-PACK.md](./OWNER-WEEKLY-TOPIC-PACK.md)
