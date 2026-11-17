@@ -13,7 +13,7 @@
 
 本 Automation 仅 LinkedIn + Medium。禁止交付小红书选题（另有周日 11:00 品牌仓小红书每周选题包 Automation）。
 
-飞轮自检（Must）：在 §0 第 0 步跑 check-owner-flywheel-phase.py；交付开头复述 next_owner_action_zh 与 current_phase；§4 文末再附一句 next_owner_action_zh。
+飞轮自检（Must）：Must 跑 check-owner-flywheel-phase.py；交付开头复述 next_owner_action_zh 与 current_phase；文末 §4 再附一句 next_owner_action_zh。
 
 ## 0. 机械链（Must）
 cd ~/Desktop/danying-brand-agent
