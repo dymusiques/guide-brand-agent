@@ -74,6 +74,9 @@ def main() -> int:
             else "继续阶段 0：发帖后填 inbox 数据 + 周日收选题；勾选序号即可"
         ),
     }
+    latest = ROOT / "integration/handoff/owner-flywheel-phase-check-latest.json"
+    latest.parent.mkdir(parents=True, exist_ok=True)
+    latest.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(out, ensure_ascii=False, indent=2))
     return 0
 

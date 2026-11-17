@@ -16,4 +16,6 @@
 
 **说明：** 你目前常见只有 **#1 + #2**。#3、#4 是飞轮补强，**不**替代选题/保洁。
 
+**#1b 尚未进 Cursor UI 时：** 只存在仓库文档 `OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md`；须在 Cursor **Automations → New** 粘贴指令并保存。Agent 可用 `open_automation` 预填草稿（周日 12:00 GMT+8 · `guide-brand-agent @ main`）。
+
 另：**本机** `process-launcher` 09:00 跑 `background-goal-evolution-cycle` —— 那是 **第 5 类**（非 Cursor Automation）。

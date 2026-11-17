@@ -33,11 +33,28 @@ python3 scripts/check-owner-flywheel-phase.py
 - Agent：各平台 **交付包**（简报 + 架构 + 完整文稿 + 为什么）  
 - 小红书仍走现有 Brief/HTML；LinkedIn/Medium → `content/deliverables/*/*-pack.md`
 
-## 阶段 2 · SEO 互链（写稿时再接）
+## 阶段 2 · 「三平台互链」（≠ 泛 SEO 顾问）
 
-- Owner 口令：**开启跨平台互链** / **三平台 SEO**  
-- 或单篇写稿时 Agent **主动问**要不要在交付包里上 Medium↔LinkedIn↔小红书链接  
+| 你说的 / 问过的 | 在本架构里叫什么 |
+|-----------------|----------------|
+| **阶段 2** | 交付包/HTML 里 **Medium ↔ LinkedIn ↔ 小红书 互相链到同一主题**（内容飞轮接线） |
+| **泛 SEO**（关键词、标题、搜索意图、外链建设等） | 写在各平台交付包 + `PLATFORM-HIT-STANDARDS` / 写稿战役里，**不单独叫阶段 2** |
+
+所以：**阶段 2 不是另请一个「SEO 顾问 Agent」**；它是你进入写稿后，要不要把三篇稿子 **链在一起** 的开关。
+
+- Owner 口令：**开启跨平台互链** / **三平台 SEO**（此处 SEO ≈ **跨平台链接 + 可发现性**，不是全套 SEO 代运营）  
+- 或单篇写稿时 Agent **主动问**要不要上互链  
 - 阶段 0 你可以一直说「先不要」
+
+## 飞轮自检（你不用记命令）
+
+**任意**品牌仓 Agent / 每周 Automation **Must 代跑**：
+
+```bash
+python3 scripts/check-owner-flywheel-phase.py
+```
+
+并在对话里带出 **`next_owner_action_zh`**（积攒进度 + 何时可口令进写稿）。你不必自己敲这条命令。
 
 ## 与现有每周选题 Automation 的关系
 

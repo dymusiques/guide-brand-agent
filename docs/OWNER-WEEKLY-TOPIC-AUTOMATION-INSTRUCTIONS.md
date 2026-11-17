@@ -11,6 +11,8 @@
 ## 0. 机械链（Must · 不要跳过）
 仓库根：~/Desktop/danying-brand-agent
 
+**飞轮自检（Must · Owner 不必记）：** 先跑 `python3 scripts/check-owner-flywheel-phase.py`，交付开头复述 `next_owner_action_zh` 一句。
+
 按顺序（脚本已编排进一条命令，你仍须核对 handoff 结果）：
 1. `bash scripts/run-owner-pending-videos-eval.sh --no-open` — 刷新待发 evaluate（pending baseline 真源）
 2. `python3 scripts/owner-weekly-topic-pack.py` — 内含：生成 5–10 条 → 选题 evaluate → 低分替换一轮 → 再评 → `agent-weekly-topic-eval-baseline-snapshot.py` 滚动本周选题 baseline

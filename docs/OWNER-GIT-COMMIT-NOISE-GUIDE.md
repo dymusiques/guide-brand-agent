@@ -34,6 +34,18 @@
 4. 仅当 Owner 确认（或已明确「就 commit baseline」）再 `git commit`。
 5. **每一次** 再 commit B 类、规则包或整包时：**重复第 3 步整句**，不要假设 Owner 已记得。
 
+## Layer C 不落 Git，但 **参考会留**（Owner 不用记路径）
+
+| 种类 | 留在哪 | 谁用 |
+|------|--------|------|
+| 发帖 metrics 汇总 | `content/analytics/linkedin/posts.jsonl` · `medium/posts.jsonl` · 小红书 `notes.csv` | 复盘 · 选题 · multichannel gate |
+| 每周选题（可审阅） | `content/strategy/weekly-*-topic-pack/*.md` | **会 commit**（B 层快照）时保留历史选题 |
+| 运行时 handoff | `integration/handoff/owner-*-latest.json`（含飞轮自检 `owner-flywheel-phase-check-latest.json`） | **本地/Drive**；Agent 每次脚本再生；**不进 Git** |
+| CEO 深交付 / HTML | `content/evolution/.../ceo-inbox/` · Drive 归档 | 归档口令后进备份或 Drive，不混架构 commit |
+| 原始导表 xlsx | Drive「我的小红书数据」+ 本地 `content/analytics/xiaohongshu/` | sync 脚本合并进 warehouse，xlsx 默认不 commit |
+
+**一句话：** 不进 Git ≠ 丢掉；**可引用的真数据**进 warehouse/ledger/strategy md；**一次性快照**在 Layer C 由 Agent 自动重写。
+
 ## 相关
 
 - [HANDOFF-COMPLETENESS.md](./HANDOFF-COMPLETENESS.md) L0 Git 真相源  
