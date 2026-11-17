@@ -16,3 +16,9 @@ python3 scripts/owner-workspace-hygiene-alert.py
 - **指令（摘要）**：跑 `owner-workspace-hygiene-alert.py`；若有 WARN，在 chat 列出并建议归档或清 Layer C；不要 commit xlsx / `owner-*-latest.json`。
 
 归档仍须 Owner 口令「定稿 / 归档」后由 Agent 执行 `archive-ceo-campaign-deliverables.sh`。
+
+## 每周选题 Automation（周日）
+
+- 名称：`品牌仓 · 每周选题包`
+- Cron：`0 11 * * 0`（周日 11:00 GMT+8）
+- 手册：[OWNER-WEEKLY-TOPIC-PACK.md](./OWNER-WEEKLY-TOPIC-PACK.md)

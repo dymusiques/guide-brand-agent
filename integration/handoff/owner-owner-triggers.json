@@ -1,0 +1,26 @@
+{
+  "schema": "owner_owner_triggers_v1",
+  "as_of": "2026-11-17",
+  "ceo_full_stack": {
+    "phrases_any": ["派活给 CEO", "派活给CEO", "派活 CEO", "派活给ceo"],
+    "doc": "docs/OWNER-CEO-FULL-STACK-TRIGGER.md",
+    "orchestration_mode": "copy_ceo_full",
+    "env": { "SKIP_GEMINI": "0" },
+    "must_not": ["默认 replay_only", "任务态 SKIP_GEMINI=1", "静默跳过 research-gate"],
+    "exceptions_human_only": ["小红书/Medium/LinkedIn 点发送"]
+  },
+  "discuss_light": {
+    "phrases_any": ["先讨论", "只聊", "随便聊", "不要结论", "brainstorm", "开放式"],
+    "unless_also_any": ["派活给 CEO", "派活给CEO", "写稿", "Brief", "复盘", "监督", "已发"]
+  },
+  "weekly_topic_pack": {
+    "cron": "0 11 * * 0",
+    "cron_zh": "每周日 11:00 GMT+8",
+    "doc": "docs/OWNER-WEEKLY-TOPIC-PACK.md",
+    "script": "scripts/owner-weekly-topic-pack.py",
+    "output_glob": "content/strategy/weekly-topic-pack/weekly-topic-pack-*.md",
+    "handoff_latest": "integration/handoff/owner-weekly-topic-pack-latest.json",
+    "count_min": 5,
+    "count_max": 10
+  }
+}

@@ -5,6 +5,12 @@
   "modes_allowed": ["replay_only", "evaluate_post_gate", "copy_ceo_full", "skip"],
   "rules": [
     {
+      "id": "owner-dispatch-ceo-full-stack",
+      "match_any": ["派活给 CEO", "派活给CEO", "派活 CEO", "派活给ceo"],
+      "mode": "copy_ceo_full",
+      "note_zh": "Owner 硬触发 · 满链 C · docs/OWNER-CEO-FULL-STACK-TRIGGER.md"
+    },
+    {
       "id": "owner-ceo-full-phrases",
       "match_any": ["CEO 开始执行", "请 CEO 开始工作", "CEO 干活", "CEO 派活"],
       "mode": "copy_ceo_full",

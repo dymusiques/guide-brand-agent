@@ -31,6 +31,12 @@
       "priority": 4
     },
     {
+      "id": "weekly_topic_pack_sunday",
+      "when": "每周日 11:00 GMT+8 · Cron 0 11 * * 0",
+      "action": "python3 scripts/owner-weekly-topic-pack.py · Automation 品牌仓·每周选题包",
+      "priority": 2
+    },
+    {
       "id": "openwebui_job_archive",
       "when": "openwebui-jobs 下单次任务 JSON 且 Owner 说定稿或 E2E PASS",
       "action": "可选 commit integration/handoff/openwebui-jobs/<slug>.json + outbox 路径记入 archive-index",
