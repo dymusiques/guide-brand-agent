@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -20,18 +21,25 @@ OUT = ROOT / "integration/handoff/owner-research-gate-latest.json"
 MONOREPO = Path.home() / "Desktop/未命名"
 C2_LOG = ROOT / "tmp/research-gate-c2.log"
 ARTISTS_HIT = ROOT / "content/evolution/00-manager/ceo-inbox/2026-11-03-artists-three"
-VENV_PY = ROOT / ".venv/bin/python3"
 sys.path.insert(0, str(ROOT / "scripts"))
 from gate_ceo_orchestration import orchestration_mode  # noqa: E402
+from lib.brand_runtime import brand_python  # noqa: E402
 
 
-def run(cmd: list[str], *, cwd: Path | None = None, timeout: int = 900) -> tuple[int, str]:
+def run(
+    cmd: list[str],
+    *,
+    cwd: Path | None = None,
+    timeout: int = 900,
+    env: dict[str, str] | None = None,
+) -> tuple[int, str]:
     r = subprocess.run(
         cmd,
         cwd=cwd or ROOT,
         capture_output=True,
         text=True,
         timeout=timeout,
+        env=env or os.environ.copy(),
     )
     out = ((r.stdout or "") + (r.stderr or "")).strip()
     return r.returncode, out[-4000:]
@@ -58,6 +66,7 @@ def main() -> int:
     goal = args.goal.strip()
     brief = (args.brief or "").strip()
     orch_mode = orchestration_mode(goal=goal, brief=brief)
+    py = brand_python()
     layers: list[dict] = []
     fail = 0
     C2_LOG.parent.mkdir(parents=True, exist_ok=True)
@@ -73,7 +82,7 @@ def main() -> int:
 
     ec, tail = run(
         [
-            sys.executable,
+            py,
             "scripts/screen-xhs-drive-corpus.py",
             "--goal",
             goal,
@@ -86,9 +95,9 @@ def main() -> int:
     track("drive_catalog_screen", ec, tail, ok_ec={0})
 
     # base brainstorm (no deep recurse)
-    ec, tail = run([sys.executable, "scripts/verify-xhs-analytics-freshness.py"], timeout=60)
+    ec, tail = run([py, "scripts/verify-xhs-analytics-freshness.py"], timeout=60)
     if ec != 0:
-        ec2, tail2 = run([sys.executable, "scripts/agent-restore-notes-csv-from-snapshot.py"], timeout=60)
+        ec2, tail2 = run([py, "scripts/agent-restore-notes-csv-from-snapshot.py"], timeout=60)
         layers.append(
             {
                 "name": "xhs_csv_restore",
@@ -99,22 +108,22 @@ def main() -> int:
         )
         if ec2 != 0:
             fail += 1
-        ec, tail = run([sys.executable, "scripts/verify-xhs-analytics-freshness.py"], timeout=60)
+        ec, tail = run([py, "scripts/verify-xhs-analytics-freshness.py"], timeout=60)
     track("xhs_analytics", ec, tail)
 
     ec, tail = run(
-        [sys.executable, "scripts/agent-brainstorm-preflight.py", "--goal", goal, "--no-deep"],
+        [py, "scripts/agent-brainstorm-preflight.py", "--goal", goal, "--no-deep"],
         timeout=600,
     )
     track("brainstorm_preflight", ec, tail)
 
     ec, tail = run(
-        [sys.executable, "scripts/agent-owner-voice-anchor-sync.py"],
+        [py, "scripts/agent-owner-voice-anchor-sync.py"],
         timeout=120,
     )
     track("owner_voice_anchor_sync", ec, tail, ok_ec={0, 1})
 
-    ec, tail = run([sys.executable, "scripts/agent-hydrate-drive-priority.py", "--limit", "12"], timeout=600)
+    ec, tail = run([py, "scripts/agent-hydrate-drive-priority.py", "--limit", "12"], timeout=600)
     track("drive_hydrate_fulltext", ec, tail)
     hp = ROOT / "integration/handoff/owner-drive-hydrate-latest.json"
     if hp.is_file():
@@ -123,20 +132,20 @@ def main() -> int:
             track("drive_hydrate_handoff", 1, f"handoff status={hd.get('status')!r}")
 
     ec, tail = run(
-        [sys.executable, "scripts/agent-owner-voice-stack-gate.py", "--goal", goal],
+        [py, "scripts/agent-owner-voice-stack-gate.py", "--goal", goal],
         timeout=60,
     )
     track("owner_voice_stack_gate", ec, tail)
 
     ec, tail = run(
-        [sys.executable, "scripts/agent-platform-voice-benchmark.py", "--goal", goal],
+        [py, "scripts/agent-platform-voice-benchmark.py", "--goal", goal],
         timeout=120,
     )
     track("platform_voice_benchmark", ec, tail)
 
     ec, tail = run(
         [
-            sys.executable,
+            py,
             "scripts/agent-owner-ceo-verify-bridge.py",
             "--goal",
             goal,
@@ -147,22 +156,28 @@ def main() -> int:
     track("ceo_owner_verify_bridge", ec, tail, ok_ec={0})
 
     ec, tail = run(
-        [sys.executable, "scripts/agent-owner-copy-pipeline-gate.py", "--goal", goal],
+        [py, "scripts/agent-owner-copy-pipeline-gate.py", "--goal", goal],
         timeout=120,
     )
     track("owner_copy_pipeline_gate", ec, tail)
 
-    ec, tail = run([sys.executable, "scripts/agent-read-ip-brief-gate.py"])
+    ec, tail = run([py, "scripts/agent-read-ip-brief-gate.py"])
     track("ip_brief_full", ec, tail)
 
-    ec, tail = run([sys.executable, "scripts/agent-benchmark-cross-dimensions.py"])
+    ec, tail = run([py, "scripts/agent-benchmark-cross-dimensions.py"])
     track(
         "benchmark_cross_dim",
         ec,
         tail + "\n(note: facts_only · persona precedence → owner-voice-stack-latest.json)",
     )
 
-    ec, tail = run(["bash", "scripts/ceo-six-case-battery.sh"], timeout=900)
+    six_env = os.environ.copy()
+    six_env["SKIP_GEMINI"] = "0" if os.environ.get("GEMINI_API_KEY") or (ROOT / ".env").is_file() else "1"
+    if brief:
+        bp = brief if brief.startswith("/") else str(ROOT / brief)
+        if Path(bp).is_file():
+            six_env["CEO_SIX_CASE_BRIEF"] = bp
+    ec, tail = run(["bash", "scripts/ceo-six-case-battery.sh"], timeout=900, env=six_env)
     core = ec == 0 or (
         "PASS six-case · fused-04" in tail
         and "PASS six-case · fused-05" in tail
@@ -186,10 +201,9 @@ def main() -> int:
         )
         track("prompt_six_case_xhs", ec, tail)
 
-    ec, tail = run([sys.executable, "scripts/agent-pending-eval-baseline-snapshot.py"])
+    ec, tail = run([py, "scripts/agent-pending-eval-baseline-snapshot.py"])
     track("pending_eval_baseline", ec, tail)
 
-    py = str(VENV_PY if VENV_PY.is_file() else sys.executable)
     if ARTISTS_HIT.is_dir() and any(k in goal for k in ("艺术家", "不需要", "已发", "复盘")):
         ec, tail = run(
             [
@@ -203,7 +217,7 @@ def main() -> int:
             timeout=600,
         )
         track("platform_evolution_artists_three", ec, tail, ok_ec={0, 42})
-        ec4, tail4 = run([sys.executable, "scripts/verify-four-dimension-bar.py"], timeout=120)
+        ec4, tail4 = run([py, "scripts/verify-four-dimension-bar.py"], timeout=120)
         layers.append(
             {
                 "name": "four_dimension_bar",
@@ -263,7 +277,7 @@ def main() -> int:
         if not args.skip_qc_task:
             ec, tail = run(
                 [
-                    sys.executable,
+                    py,
                     "scripts/agent-qc-gate-report.py",
                     "--session",
                     args.session,
@@ -282,7 +296,7 @@ def main() -> int:
     if not args.no_orchestrate and fail == 0 and payload["status"] == "PASS":
         if orch_mode in ("copy_ceo_full", "evaluate_post_gate"):
             orch_cmd = [
-                sys.executable,
+                py,
                 "scripts/agent-owner-gate-ceo-orchestrator.py",
                 "--goal",
                 goal,

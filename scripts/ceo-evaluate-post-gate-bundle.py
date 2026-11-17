@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -17,11 +18,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "integration/handoff/owner-evaluate-post-gate-latest.json"
 ARTISTS_HIT = ROOT / "content/evolution/00-manager/ceo-inbox/2026-11-03-artists-three"
-VENV_PY = ROOT / ".venv/bin/python3"
+sys.path.insert(0, str(ROOT / "scripts"))
+from lib.brand_runtime import brand_python, gemini_key_available  # noqa: E402
 
 
-def run(cmd: list[str], *, timeout: int = 900) -> tuple[int, str]:
-    r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=timeout)
+def run(cmd: list[str], *, timeout: int = 900, env: dict[str, str] | None = None) -> tuple[int, str]:
+    r = subprocess.run(
+        cmd,
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+        env=env or os.environ.copy(),
+    )
     out = ((r.stdout or "") + (r.stderr or "")).strip()
     return r.returncode, out[-3000:]
 
@@ -34,7 +43,7 @@ def main() -> int:
     args = ap.parse_args()
     goal = args.goal.strip()
     brief = (args.brief or "").strip()
-    py = str(VENV_PY if VENV_PY.is_file() else sys.executable)
+    py = brand_python()
     steps: list[dict] = []
     fail = 0
 
@@ -84,6 +93,46 @@ def main() -> int:
                 "exit_code": ec,
                 "status": "PASS" if ec == 0 else "NEEDS_WORK",
                 "tail": tail,
+            }
+        )
+
+    if gemini_key_available():
+        genv = os.environ.copy()
+        genv["SKIP_GEMINI"] = "0"
+        ec, tail = run(["bash", "scripts/verify-xhs-topic.sh"], timeout=600, env=genv)
+        steps.append(
+            {
+                "name": "gemini_xhs_kernel_6",
+                "exit_code": ec,
+                "status": "PASS" if ec == 0 else "FAIL",
+                "tail": tail,
+                "api": "GEMINI",
+            }
+        )
+        if ec != 0:
+            fail += 1
+        ec, tail = run(
+            ["bash", "scripts/verify-agent-fused.sh", "--agent", "05"],
+            timeout=900,
+            env=genv,
+        )
+        steps.append(
+            {
+                "name": "gemini_fused_05",
+                "exit_code": ec,
+                "status": "PASS" if ec == 0 else "FAIL",
+                "tail": tail[-2000:],
+                "api": "GEMINI",
+            }
+        )
+        if ec != 0:
+            fail += 1
+    else:
+        steps.append(
+            {
+                "name": "gemini_layers",
+                "status": "SKIP",
+                "note": "无 GEMINI_API_KEY · 配置品牌仓 .env 后自动调 API",
             }
         )
 

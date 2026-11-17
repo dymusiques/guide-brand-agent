@@ -22,6 +22,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from ceo_agent_roster import build_roster, parallelism_summary  # noqa: E402
 from ceo_goal_tracks import is_flutebuddy_goal, is_ip_ecosystem_goal  # noqa: E402
 from pending_videos_gate_policy import classify_goal  # noqa: E402
+from lib.brand_runtime import brand_python  # noqa: E402
+
+PY = brand_python()
 
 
 def _parse_iso(ts: str) -> datetime | None:
@@ -102,7 +105,7 @@ def write_manifest(manifest: dict, invoked_ids: set[str], result_by_id: dict[str
     finalize_manifest(manifest, invoked_ids, result_by_id)
     env = os.environ.copy()
     env["CEO_RUN_MANIFEST_JSON"] = json.dumps(manifest, ensure_ascii=False)
-    subprocess.run([sys.executable, "scripts/ceo_write_run_manifest.py"], cwd=ROOT, env=env, check=False)
+    subprocess.run([PY, "scripts/ceo_write_run_manifest.py"], cwd=ROOT, env=env, check=False)
 
 
 def goal_wants_xhs_filter_html(goal: str, brief: str) -> bool:
@@ -215,7 +218,7 @@ def main() -> int:
     screen_goal = args.goal.strip() or (Path(brief).stem if brief else "小红书个人IP文案")
     if screen_goal:
         ec_pf = run(
-            [sys.executable, "scripts/ceo-preflight-product-context.py", "--goal", screen_goal],
+            [PY, "scripts/ceo-preflight-product-context.py", "--goal", screen_goal],
             step="CEO product context preflight (owner-product-registry)",
             env=env,
             allow_fail=True,
@@ -249,7 +252,7 @@ def main() -> int:
         if not args.skip_research_gate:
             ec_rg = run(
                 [
-                    sys.executable,
+                    PY,
                     "scripts/agent-owner-research-gate.py",
                     "--goal",
                     screen_goal,
@@ -280,7 +283,7 @@ def main() -> int:
     skip_six_case_gate = gate_ok and research_gate_layer_passed("ceo_six_case_battery", goal=screen_goal)
 
     screen_cmd = [
-        sys.executable,
+        PY,
         "scripts/ceo-task-drive-corpus-screen.py",
         "--auto",
         "--goal",
@@ -301,7 +304,7 @@ def main() -> int:
     if brief:
         env["CEO_SIX_CASE_BRIEF"] = brief
     fusion_cmd = [
-        sys.executable,
+        PY,
         "scripts/build-drive-long-context-fusion.py",
         "--auto",
         "--phase",
@@ -366,7 +369,7 @@ def main() -> int:
             else:
                 ec = run(
                     [
-                        sys.executable,
+                        PY,
                         "scripts/agent-brainstorm-preflight.py",
                         "--goal",
                         goal,
@@ -402,7 +405,7 @@ def main() -> int:
         elif pending_kind == "advice_gate" and pending_mds:
             ec = run(
                 [
-                    sys.executable,
+                    PY,
                     "scripts/agent-gate-pending-videos-advice.py",
                     "--quiet",
                 ],
@@ -424,7 +427,7 @@ def main() -> int:
             hit_dir.mkdir(parents=True, exist_ok=True)
             ec = run(
                 [
-                    sys.executable,
+                    PY,
                     "scripts/evolve-platform-hits.py",
                     "--dir",
                     str(hit_dir),
@@ -476,7 +479,7 @@ def main() -> int:
             if ec != 0:
                 fail += 1
     else:
-        ec = run([sys.executable, "scripts/evaluate_personal_ip.py", "--check"], step="01 personal-ip shell", env=env)
+        ec = run([PY, "scripts/evaluate_personal_ip.py", "--check"], step="01 personal-ip shell", env=env)
         record_step("evaluate_personal_ip", ec, agent="01", cap="IP 函数壳", roster_ids=["01"])
         if ec != 0:
             fail += 1
@@ -517,7 +520,7 @@ def main() -> int:
     if brief:
         ensure_gm_report(ROOT / brief if not brief.startswith("/") else Path(brief), overall="pending")
 
-    ap_cmd = [sys.executable, "scripts/run_ceo_xhs_autopilot.py"]
+    ap_cmd = [PY, "scripts/run_ceo_xhs_autopilot.py"]
     if args.no_discovery_auto:
         ap_cmd.append("--no-discovery-auto")
     if args.round2:
@@ -531,7 +534,7 @@ def main() -> int:
             "See docs/CEO-ADVERSARIAL-EVOLUTION-LOOP.md",
             flush=True,
         )
-        ap_cmd = [sys.executable, "scripts/run_ceo_xhs_autopilot.py", "--skip-evolution"]
+        ap_cmd = [PY, "scripts/run_ceo_xhs_autopilot.py", "--skip-evolution"]
 
     ec = run(ap_cmd, step="run_ceo_xhs_autopilot (evolution + HTML + verify + open)", env=env)
     record_step("run_ceo_xhs_autopilot", ec, cap="CEO XHS autopilot + HTML", roster_ids=["00", "04"])
@@ -551,7 +554,7 @@ def main() -> int:
     if is_ip_ecosystem_goal(goal_s):
         ip_html = ROOT / "content/evolution/00-manager/ceo-inbox" / f"OWNER-IP-ECOSYSTEM-DELIVERABLE-{day}.html"
         ec_ip = run(
-            [sys.executable, "scripts/build-owner-ip-ecosystem-deliverable-html.py"],
+            [PY, "scripts/build-owner-ip-ecosystem-deliverable-html.py"],
             step="Build Owner IP ecosystem HTML",
             env=env,
             allow_fail=True,
@@ -568,7 +571,7 @@ def main() -> int:
     if is_flutebuddy_goal(goal_s):
         fb_html = ROOT / "content/evolution/00-manager/ceo-inbox" / f"OWNER-FLUTEBUDDY-DELIVERABLE-{day}.html"
         ec_fb = run(
-            [sys.executable, "scripts/build-owner-flutebuddy-deliverable-html.py"],
+            [PY, "scripts/build-owner-flutebuddy-deliverable-html.py"],
             step="Build FluteBuddy Owner HTML",
             env=env,
             allow_fail=True,
