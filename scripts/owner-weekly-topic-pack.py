@@ -102,7 +102,10 @@ def gemini_expand(*, brief_excerpt: str, seeds: list[dict], sparks: list[str], a
         "rules": [
             "跨行业品牌 open",
             "法派长笛+品牌叙事+强链接",
-            "hot_search_hint 须写「待 Agent 检索佐证」或给出可验证方向，禁止编造具体搜索量数字",
+            "每条标注 topic_kind: hot_trend | evergreen_ip | spark_derived",
+            "hot_trend: 热点/检索向；evergreen_ip: 非热点但契合 IP、值得写；均需 Agent 延伸思考一句",
+            "hot_search_hint 须写可验证方向或「待 Web 检索」；禁止编造搜索量数字",
+            "平台建议 xiaohongshu/linkedin/medium 可多选并说明为何",
         ],
     }
     payload = json.dumps(prompt, ensure_ascii=False)

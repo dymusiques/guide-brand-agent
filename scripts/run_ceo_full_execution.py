@@ -23,6 +23,7 @@ from ceo_agent_roster import build_roster, parallelism_summary  # noqa: E402
 from ceo_goal_tracks import is_flutebuddy_goal, is_ip_ecosystem_goal  # noqa: E402
 from pending_videos_gate_policy import classify_goal  # noqa: E402
 from lib.brand_runtime import brand_python  # noqa: E402
+from lib.owner_trigger import ceo_full_stack_goal  # noqa: E402
 
 PY = brand_python()
 
@@ -161,6 +162,20 @@ def main() -> int:
     args = p.parse_args()
 
     env = os.environ.copy()
+    if ceo_full_stack_goal(args.goal.strip()):
+        env["OWNER_CEO_FULL_STACK"] = "1"
+        env["SKIP_GEMINI"] = "0"
+        env["CEO_CAMPAIGN_WAIT_DEEP_SEC"] = env.get("CEO_CAMPAIGN_WAIT_DEEP_SEC", "900")
+        subprocess.run(
+            [
+                "bash",
+                "-c",
+                "source scripts/lib/ceo-deep-delivery-lock.sh && ceo_campaign_wait_for_deep",
+            ],
+            cwd=ROOT,
+            env=env,
+            check=False,
+        )
     brief = args.brief[-1] if args.brief else ""
     if brief:
         env["CEO_OWNER_EXTRA_BRIEF"] = brief

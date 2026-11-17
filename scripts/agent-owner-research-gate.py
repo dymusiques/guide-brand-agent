@@ -23,7 +23,8 @@ C2_LOG = ROOT / "tmp/research-gate-c2.log"
 ARTISTS_HIT = ROOT / "content/evolution/00-manager/ceo-inbox/2026-11-03-artists-three"
 sys.path.insert(0, str(ROOT / "scripts"))
 from gate_ceo_orchestration import orchestration_mode  # noqa: E402
-from lib.brand_runtime import brand_python  # noqa: E402
+from lib.brand_runtime import brand_python, gemini_key_available  # noqa: E402
+from lib.owner_trigger import ceo_full_stack_goal  # noqa: E402
 
 
 def run(
@@ -66,6 +67,9 @@ def main() -> int:
     goal = args.goal.strip()
     brief = (args.brief or "").strip()
     orch_mode = orchestration_mode(goal=goal, brief=brief)
+    full_stack = ceo_full_stack_goal(goal)
+    if full_stack:
+        orch_mode = "copy_ceo_full"
     py = brand_python()
     layers: list[dict] = []
     fail = 0
@@ -172,7 +176,21 @@ def main() -> int:
     )
 
     six_env = os.environ.copy()
-    six_env["SKIP_GEMINI"] = "0" if os.environ.get("GEMINI_API_KEY") or (ROOT / ".env").is_file() else "1"
+    if full_stack:
+        six_env["OWNER_CEO_FULL_STACK"] = "1"
+        six_env["CEO_CAMPAIGN_WAIT_DEEP_SEC"] = os.environ.get("CEO_CAMPAIGN_WAIT_DEEP_SEC", "900")
+        run(
+            [
+                "bash",
+                "-c",
+                "source scripts/lib/ceo-deep-delivery-lock.sh && ceo_campaign_wait_for_deep",
+            ],
+            timeout=int(six_env["CEO_CAMPAIGN_WAIT_DEEP_SEC"]) + 60,
+            env=six_env,
+        )
+        six_env["SKIP_GEMINI"] = "0" if gemini_key_available() else "1"
+    else:
+        six_env["SKIP_GEMINI"] = "0" if gemini_key_available() else "1"
     if brief:
         bp = brief if brief.startswith("/") else str(ROOT / brief)
         if Path(bp).is_file():
@@ -245,6 +263,8 @@ def main() -> int:
         "schema": "agent_owner_research_gate_v1",
         "as_of": datetime.now(timezone.utc).isoformat(),
         "goal": goal,
+        "owner_ceo_full_stack": full_stack,
+        "orchestration_mode": orch_mode,
         "layers": layers,
         "fail_count": fail,
         "status": "PASS" if fail == 0 else "FAIL",

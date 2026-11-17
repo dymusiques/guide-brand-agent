@@ -28,6 +28,13 @@ deep_delivery_active() {
 }
 
 sync_skip_gemini_from_deep() {
+  if [[ "${OWNER_CEO_FULL_STACK:-0}" == "1" ]]; then
+    ceo_campaign_wait_for_deep
+    SKIP_GEMINI=0
+    export SKIP_GEMINI
+    echo ">>> OWNER_CEO_FULL_STACK=1 — wait deep then SKIP_GEMINI=0"
+    return 0
+  fi
   if deep_delivery_active; then
     if [[ "$SKIP_GEMINI" != "1" ]]; then
       echo ">>> deep-delivery active — SKIP_GEMINI=1 for duplicate Gemini shells"
