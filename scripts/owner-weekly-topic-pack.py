@@ -20,8 +20,19 @@ SPARKS = ROOT / "content/personal-ip/chat-sparks"
 EVAL_LATEST = ROOT / "integration/handoff/owner-pending-videos-eval-latest.json"
 EVAL_BASELINE = ROOT / "integration/handoff/owner-pending-videos-eval-baseline.json"
 DISTANCE = ROOT / "integration/handoff/owner-pending-eval-version-distance.json"
+WEEKLY_EVAL = ROOT / "integration/handoff/owner-weekly-topic-pack-eval-latest.json"
+WEEKLY_EVAL_DISTANCE = ROOT / "integration/handoff/owner-weekly-topic-pack-eval-distance.json"
+PASS_THRESHOLD = 58
 sys.path.insert(0, str(ROOT / "scripts"))
 from lib.brand_runtime import brand_python, gemini_key_available  # noqa: E402
+import importlib.util
+
+_eval_mod_path = ROOT / "scripts/evaluate-weekly-topic-candidates.py"
+_spec = importlib.util.spec_from_file_location("evaluate_weekly_topic_candidates", _eval_mod_path)
+_eval_mod = importlib.util.module_from_spec(_spec)
+assert _spec and _spec.loader
+_spec.loader.exec_module(_eval_mod)
+evaluate_items = _eval_mod.evaluate_items
 
 
 def load_sparks() -> list[str]:
@@ -205,13 +216,106 @@ def template_pack(seeds: list[dict], sparks: list[str]) -> list[dict]:
     return out[:10]
 
 
+def refresh_pending_eval() -> tuple[int, str]:
+    py = brand_python()
+    r = subprocess.run(
+        ["bash", "scripts/run-owner-pending-videos-eval.sh", "--no-open"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        timeout=300,
+    )
+    tail = ((r.stdout or "") + (r.stderr or "")).strip()[-500:]
+    return r.returncode, tail
+
+
+def run_weekly_eval_baseline_snapshot() -> tuple[int, str]:
+    py = brand_python()
+    r = subprocess.run(
+        [py, "scripts/agent-weekly-topic-eval-baseline-snapshot.py"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        timeout=60,
+    )
+    return r.returncode, (r.stdout or r.stderr or "").strip()[-800:]
+
+
+def merge_eval_into_items(items: list[dict], eval_payload: dict) -> list[dict]:
+    by_title = {i.get("title_zh"): i for i in eval_payload.get("items") or []}
+    out: list[dict] = []
+    for it in items:
+        scored = by_title.get(it.get("title_zh"))
+        if scored:
+            out.append(scored)
+        else:
+            out.append(it)
+    return out
+
+
+def replace_low_scorers(
+    items: list[dict],
+    *,
+    avoid: list[str],
+    seeds: list[dict],
+    sparks: list[str],
+    min_pass: int,
+) -> list[dict]:
+    payload = evaluate_items(items, avoid=avoid)
+    if int(payload.get("pass_count") or 0) >= min_pass:
+        return merge_eval_into_items(items, payload)
+
+    pool = template_pack(seeds, sparks)
+    pool_payload = evaluate_items(pool, avoid=avoid + [i.get("title_zh", "") for i in items])
+    pool_sorted = sorted(
+        pool_payload.get("items") or [],
+        key=lambda x: x.get("metrics", {}).get("match_overall", 0),
+        reverse=True,
+    )
+    titles_in = {_norm_title(i.get("title_zh")) for i in items}
+    repl: list[dict] = []
+    for it in items:
+        scored = next(
+            (x for x in payload.get("items") or [] if x.get("title_zh") == it.get("title_zh")),
+            None,
+        )
+        if scored and scored.get("evaluate_pass"):
+            repl.append(scored)
+            continue
+        for cand in pool_sorted:
+            t = _norm_title(cand.get("title_zh"))
+            if not t or t in titles_in:
+                continue
+            titles_in.add(t)
+            repl.append(cand)
+            break
+        else:
+            repl.append(scored or it)
+
+    payload2 = evaluate_items(
+        [{k: v for k, v in it.items() if k != "rank"} for it in repl],
+        avoid=avoid,
+    )
+    return merge_eval_into_items(repl, payload2)
+
+
+def _norm_title(s: str | None) -> str:
+    return re.sub(r"\s+", "", (s or "")).casefold()
+
+
+def write_eval_json(eval_payload: dict) -> None:
+    WEEKLY_EVAL.parent.mkdir(parents=True, exist_ok=True)
+    WEEKLY_EVAL.write_text(json.dumps(eval_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def write_md(path: Path, items: list[dict], meta: dict) -> None:
     lines = [
         f"# 每周选题包 · {meta['week_date']}",
         "",
         f"- 生成：{meta['as_of']}",
         f"- 条数：**{len(items)}**（Owner 自选 LinkedIn / 小红书 / Medium）",
-        f"- 真源：`integration/handoff/owner-owner-triggers.json` · evaluate baseline 已读",
+        f"- 真源：`integration/handoff/owner-owner-triggers.json` · pending + 本周选题 evaluate 已跑",
+        f"- evaluate：`owner-weekly-topic-pack-eval-latest.json`（PASS ≥ {PASS_THRESHOLD}）",
         "",
         "## 筛选标准",
         "",
@@ -234,9 +338,15 @@ def write_md(path: Path, items: list[dict], meta: dict) -> None:
                 f"- **热点/检索**：{it.get('hot_search_hint', '—')}",
                 f"- **强链接 CTA**：{it.get('strong_link_cta', '—')}",
                 f"- **evaluate baseline**：{it.get('evaluate_baseline_note', '—')}",
-                "",
             ]
         )
+        met = it.get("metrics") or {}
+        if met:
+            lines.append(
+                f"- **score**：{met.get('match_overall', '—')} · tier {it.get('promote_tier', '—')}"
+                f" · {'PASS' if it.get('evaluate_pass') else 'rework'}"
+            )
+        lines.append("")
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -248,6 +358,11 @@ def main() -> int:
     ap.add_argument("--no-gemini", action="store_true")
     args = ap.parse_args()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    py = brand_python()
+    pending_ec, pending_tail = refresh_pending_eval()
+    if pending_ec != 0:
+        print(f"WARN pending-eval exit {pending_ec}: {pending_tail}", file=sys.stderr)
+
     brief_excerpt = IP_BRIEF.read_text(encoding="utf-8")[:3000] if IP_BRIEF.is_file() else ""
     seeds = analytics_seeds()
     sparks = load_sparks()
@@ -266,6 +381,22 @@ def main() -> int:
     if len(items) < args.min:
         print(f"WARN only {len(items)} topics", file=sys.stderr)
 
+    items = replace_low_scorers(items, avoid=avoid, seeds=seeds, sparks=sparks, min_pass=args.min)
+    eval_payload = evaluate_items(
+        [{k: v for k, v in it.items() if k != "rank"} for it in items],
+        avoid=avoid,
+    )
+    write_eval_json(eval_payload)
+    items = merge_eval_into_items(items, eval_payload)
+
+    snap_ec, snap_tail = run_weekly_eval_baseline_snapshot()
+    if snap_ec != 0:
+        print(f"WARN weekly baseline snapshot exit {snap_ec}", file=sys.stderr)
+
+    weekly_distance = None
+    if WEEKLY_EVAL_DISTANCE.is_file():
+        weekly_distance = json.loads(WEEKLY_EVAL_DISTANCE.read_text(encoding="utf-8")).get("distance")
+
     md_path = OUT_DIR / f"weekly-topic-pack-{args.date}.md"
     meta = {"week_date": args.date, "as_of": datetime.now(timezone.utc).isoformat()}
     write_md(md_path, items, meta)
@@ -278,7 +409,17 @@ def main() -> int:
         "items": items,
         "evaluate_baseline": {
             "avoid_titles_sample": avoid[:10],
-            "distance": distance_note,
+            "pending_distance": distance_note,
+            "pending_eval_refresh_exit": pending_ec,
+        },
+        "weekly_topic_evaluate": {
+            "latest": str(WEEKLY_EVAL.relative_to(ROOT)),
+            "status": eval_payload.get("status"),
+            "pass_count": eval_payload.get("pass_count"),
+            "pass_threshold": PASS_THRESHOLD,
+            "baseline_snapshot_exit": snap_ec,
+            "distance": weekly_distance,
+            "iteration": "pending-eval → generate → score → replace-low → re-score → baseline-snapshot",
         },
         "outputs": {
             "markdown": str(md_path.relative_to(ROOT)),

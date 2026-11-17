@@ -44,6 +44,8 @@ content_sha256: "20de01157a891916"
 **入口命令（Agent · 无人值守）：**
 
 ```bash
+python3 scripts/ceo-dispatch-preflight.py --for-full-stack
+
 bash scripts/ceo-auto-recover-blocked.sh
 ```
 

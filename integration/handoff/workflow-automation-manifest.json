@@ -82,7 +82,8 @@
       "name": "Owner says work",
       "owner_phrases": ["CEO 开始执行", "请 CEO 开始工作", "CEO 开始", "CEO 干活"],
       "script": "bash scripts/ceo-full-execution-pipeline.sh --goal \"<owner goal>\"",
-      "recover_first": "bash scripts/ceo-auto-recover-blocked.sh",
+      "recover_first": "python3 scripts/ceo-dispatch-preflight.py --for-full-stack && bash scripts/ceo-auto-recover-blocked.sh",
+      "dispatch_preflight_doc": "docs/CEO-DISPATCH-PREFLIGHT.md",
       "mandate_doc": "docs/CEO-FULL-EXECUTION-MANDATE.md",
       "longform_spec": "content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md",
       "then_read": [

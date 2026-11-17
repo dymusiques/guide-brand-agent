@@ -13,6 +13,10 @@ cd ~/Desktop/danying-brand-agent
 python3 scripts/owner-weekly-topic-pack.py
 ```
 
+**链内顺序（一条命令）：** `run-owner-pending-videos-eval.sh --no-open` → 生成 5–10 条 → `evaluate-weekly-topic-candidates.py` → 低分替换一轮 → 再评 → `agent-weekly-topic-eval-baseline-snapshot.py`
+
+真源：`integration/handoff/owner-weekly-topic-pack-eval-latest.json` · `owner-weekly-topic-pack-eval-baseline.json` · `owner-weekly-topic-pack-eval-distance.json`
+
 ## 输入
 
 | 来源 | 用途 |

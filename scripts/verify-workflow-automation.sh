@@ -74,6 +74,10 @@ for s in \
   scripts/ceo-action-needed-refresh.py \
   scripts/new-machine-bootstrap.sh \
   scripts/background-goal-evolution-cycle.sh \
+  scripts/ceo-dispatch-preflight.py \
+  scripts/owner-weekly-topic-pack.py \
+  scripts/evaluate-weekly-topic-candidates.py \
+  scripts/agent-weekly-topic-eval-baseline-snapshot.py \
   scripts/ceo-auto-recover-blocked.sh \
   scripts/refresh-owner-notify-html.sh \
   scripts/ceo-workflow-test-round2-finish.sh \

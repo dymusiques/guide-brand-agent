@@ -179,6 +179,7 @@ def main() -> int:
     if full_stack:
         six_env["OWNER_CEO_FULL_STACK"] = "1"
         six_env["CEO_CAMPAIGN_WAIT_DEEP_SEC"] = os.environ.get("CEO_CAMPAIGN_WAIT_DEEP_SEC", "900")
+        run([py, "scripts/ceo-dispatch-preflight.py", "--for-full-stack"], timeout=660)
         run(
             [
                 "bash",

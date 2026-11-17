@@ -166,6 +166,7 @@ def main() -> int:
         env["OWNER_CEO_FULL_STACK"] = "1"
         env["SKIP_GEMINI"] = "0"
         env["CEO_CAMPAIGN_WAIT_DEEP_SEC"] = env.get("CEO_CAMPAIGN_WAIT_DEEP_SEC", "900")
+        subprocess.run([PY, "scripts/ceo-dispatch-preflight.py", "--for-full-stack"], cwd=ROOT, check=False)
         subprocess.run(
             [
                 "bash",

@@ -5,7 +5,9 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 INBOX="$ROOT/content/evolution/00-manager/ceo-inbox"
 
-echo "=== CEO start-work (status + recover) ==="
+echo "=== CEO start-work (preflight + recover) ==="
+"$ROOT/.venv/bin/python3" scripts/ceo-dispatch-preflight.py --for-full-stack 2>/dev/null \
+  || python3 scripts/ceo-dispatch-preflight.py --for-full-stack || true
 bash scripts/ceo-auto-recover-blocked.sh || true
 echo ""
 

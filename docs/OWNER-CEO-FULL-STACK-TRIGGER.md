@@ -6,6 +6,7 @@
 
 ## 行为（Agent Must · 非闲聊）
 
+0. **预检**：`python3 scripts/ceo-dispatch-preflight.py --for-full-stack`（清僵尸锁 · 风险时 recover · 写 `ceo-dispatch-preflight-latest.json`）→ 见 [CEO-DISPATCH-PREFLIGHT.md](./CEO-DISPATCH-PREFLIGHT.md)。
 1. **编排**：强制 `copy_ceo_full`（C 档），禁止默认 `replay_only`。
 2. **门禁**：`python3 scripts/agent-owner-research-gate.py --goal "<Owner 当句原话>"`（含 QC；交付不重 `--skip-qc-task`）。
 3. **Gemini**：`SKIP_GEMINI=0`（`OWNER_CEO_FULL_STACK=1`）；deep 持锁时先 **等待至 900s**（`CEO_CAMPAIGN_WAIT_DEEP_SEC`），**仍不**因并行 campaign 规则静默 SKIP Gemini。
