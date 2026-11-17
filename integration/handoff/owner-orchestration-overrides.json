@@ -1,0 +1,33 @@
+{
+  "version": "2026-11-17",
+  "purpose_zh": "Owner 固定说法 → 强制 orchestration_mode（优先于默认词表）",
+  "schema": "owner_orchestration_overrides_v1",
+  "modes_allowed": ["replay_only", "evaluate_post_gate", "copy_ceo_full", "skip"],
+  "rules": [
+    {
+      "id": "owner-ceo-full-phrases",
+      "match_any": ["CEO 开始执行", "请 CEO 开始工作", "CEO 干活", "CEO 派活"],
+      "mode": "copy_ceo_full",
+      "note_zh": "战役整链 · C 档"
+    },
+    {
+      "id": "discuss-only-light",
+      "match_all": ["先讨论"],
+      "match_none": ["已发", "复盘", "监督", "补全", "写稿", "Brief", "brief", "文案"],
+      "mode": "replay_only",
+      "note_zh": "纯脑洞 · 不 evaluate 切片"
+    },
+    {
+      "id": "explicit-no-ceo",
+      "match_any": ["不要 CEO", "不接 CEO", "不要战役", "仅复盘结论"],
+      "mode": "replay_only",
+      "note_zh": "只要 gate + 对话"
+    },
+    {
+      "id": "explicit-evaluate",
+      "match_any": ["evaluate 拉距", "距 gold", "triple eval", "三重 evaluate"],
+      "mode": "evaluate_post_gate",
+      "note_zh": "强制 B 档（即使句子里有写稿词也先 B）"
+    }
+  ]
+}
