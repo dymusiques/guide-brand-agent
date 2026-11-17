@@ -1,6 +1,6 @@
 # 复制到 Cursor Automation · 小红书每周选题（Instructions 全文）
 
-**名称：** `品牌仓 · 小红书每周选题包`  
+**名称：** `品牌仓小红书每周选题包`（Cursor Automation 标题栏粘贴此名）  
 **Cron：** `0 11 * * 0`（每周日 **11:00 GMT+8**）  
 **分工：** LinkedIn + Medium 选题 → **另一条** Automation（周日 12:00）· [OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md](./OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md)
 

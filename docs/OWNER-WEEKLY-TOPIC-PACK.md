@@ -35,7 +35,7 @@ python3 scripts/owner-weekly-topic-pack.py
 ## Cursor Automation
 
 - **每周日 11:00 GMT+8** · `0 11 * * 0`
-- 名称：`品牌仓 · 小红书每周选题包`
+- 名称：`品牌仓小红书每周选题包`
 - 指令：`docs/OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md`
 
 Automation 内 Agent **Must**：

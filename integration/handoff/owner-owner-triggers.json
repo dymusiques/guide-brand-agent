@@ -14,7 +14,7 @@
     "unless_also_any": ["派活给 CEO", "派活给CEO", "写稿", "Brief", "复盘", "监督", "已发"]
   },
   "weekly_topic_pack": {
-    "automation_name_zh": "品牌仓 · 小红书每周选题包",
+    "automation_name_zh": "品牌仓小红书每周选题包",
     "platform_scope": ["xiaohongshu"],
     "cron": "0 11 * * 0",
     "cron_zh": "每周日 11:00 GMT+8",

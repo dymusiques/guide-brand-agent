@@ -8,7 +8,7 @@
 
 | # | 名称（建议） | Cron (GMT+8) | Instructions 文档 |
 |---|--------------|--------------|-------------------|
-| 1 | **品牌仓 · 小红书每周选题包** | 周日 11:00 | `OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md` |
+| 1 | **品牌仓小红书每周选题包** | 周日 11:00 | `OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md` |
 | 1b | **品牌仓 · LinkedIn+Medium 每周选题** | 周日 12:00 | `OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md` |
 | 2 | 品牌仓 · 每周保洁提醒 | 周四 11:00（你已配） | `OWNER-WORKSPACE-HYGIENE.md` 内 Automation 段 |
 | 3 | **（可选）小红书 · 导表提醒** | **周三+周日 20:30** | `OWNER-XHS-EXPORT-REMINDER-AUTOMATION-INSTRUCTIONS.md` |
