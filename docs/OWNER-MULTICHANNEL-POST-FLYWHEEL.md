@@ -62,10 +62,19 @@ Handoff：`integration/handoff/owner-multichannel-post-gate-latest.json` · `own
 
 ## 阶段（Owner 不必背术语）
 
+真源 + **何时进写稿/互链** → [OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md](./OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md) · `check-owner-flywheel-phase.py`
+
 | 阶段 | 做什么 |
 |------|--------|
-| **0 · 积攒**（现在） | 小红书 Drive + LinkedIn/Medium inbox 数据；**不要求** 三平台 SEO 互链 |
-| **1 · 写稿战役** | `派活给 CEO` + goal → **各平台交付包**满链（见 [OWNER-DELIVERABLE-PACK-PLATFORMS.md](./OWNER-DELIVERABLE-PACK-PLATFORMS.md)） |
-| **2 · 跨平台互链**（以后） | 交付包/HTML 里 Medium↔LinkedIn↔小红书链接；Agent 在交付时 **会主动问** 是否上互链，你现在不用提前做 |
+| **0 · 积攒**（现在） | 小红书 Drive + LinkedIn/Medium inbox 数据；**周日 12:00** LinkedIn/Medium **只选题** Automation；**不要求** SEO 互链 |
+| **1 · 写稿战役** | Owner：**进入写稿阶段** 或 `派活给 CEO` + goal → **各平台交付包**满链 |
+| **2 · 跨平台互链** | Owner：**开启跨平台互链**；或写稿时 Agent **主动问** |
+
+**口令（机械 trigger）**
+
+| 目标 | Owner 说一句 |
+|------|----------------|
+| 离开积攒、开满链写稿 | **进入写稿阶段** / **派活给 CEO** + 选题 |
+| 开 SEO 互链 | **开启跨平台互链** / **三平台 SEO** |
 
 「埋链」若指 **架构接线**：已接 gate，你 **贴文件 / 丢 inbox** 即可，**不必**说固定口令。若指 **SEO 互链**：积攒阶段 **可以只做 LinkedIn + Medium 数据**，小红书仍走 Drive。

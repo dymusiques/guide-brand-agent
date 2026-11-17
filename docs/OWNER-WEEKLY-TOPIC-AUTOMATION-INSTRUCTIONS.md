@@ -1,6 +1,7 @@
 # 复制到 Cursor Automation · Instructions 全文
 
-以下为 **品牌仓 · 每周选题包** 专用。Cron：`0 11 * * 0`（每周日 11:00 GMT+8）。
+以下为 **品牌仓 · 每周选题包** 专用。Cron：`0 11 * * 0`（每周日 11:00 GMT+8）。  
+**阶段 0** 若只要 LinkedIn + Medium 选题、不写小红书稿 → 另配 **周日 12:00** · [OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md](./OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md)。
 
 ---
 

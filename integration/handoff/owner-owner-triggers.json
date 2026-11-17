@@ -22,5 +22,22 @@
     "handoff_latest": "integration/handoff/owner-weekly-topic-pack-latest.json",
     "count_min": 5,
     "count_max": 10
+  },
+  "weekly_li_medium_topic_pack": {
+    "cron": "0 12 * * 0",
+    "cron_zh": "每周日 12:00 GMT+8",
+    "flywheel_phase_default": 0,
+    "doc": "docs/OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md",
+    "script": "scripts/owner-weekly-linkedin-medium-topic-pack.py",
+    "handoff_latest": "integration/handoff/owner-weekly-li-medium-topic-pack-latest.json",
+    "count_min": 5,
+    "count_max": 10,
+    "phase_trigger_doc": "docs/OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md"
+  },
+  "flywheel_phase": {
+    "json": "integration/handoff/owner-multichannel-flywheel-phase.json",
+    "check": "scripts/check-owner-flywheel-phase.py",
+    "enter_phase_1_phrases_any": ["进入写稿阶段", "全链路写稿", "派活给 CEO"],
+    "enter_phase_2_phrases_any": ["开启跨平台互链", "三平台 SEO"]
   }
 }

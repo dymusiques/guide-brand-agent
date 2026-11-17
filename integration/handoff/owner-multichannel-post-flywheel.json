@@ -47,5 +47,11 @@
     "复盘/已发/gate → verify-xhs-analytics-freshness",
     "禁止要求 Owner 说「同步小红书数据」"
   ],
-  "cursor_automations_index": "docs/OWNER-CURSOR-AUTOMATIONS-INDEX.md"
+  "cursor_automations_index": "docs/OWNER-CURSOR-AUTOMATIONS-INDEX.md",
+  "flywheel_phases": "integration/handoff/owner-multichannel-flywheel-phase.json",
+  "weekly_li_medium_topics": {
+    "automation": "docs/OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md",
+    "script": "scripts/owner-weekly-linkedin-medium-topic-pack.py",
+    "cron_gmt8": "0 12 * * 0"
+  }
 }

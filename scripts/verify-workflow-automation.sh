@@ -76,6 +76,8 @@ for s in \
   scripts/background-goal-evolution-cycle.sh \
   scripts/ceo-dispatch-preflight.py \
   scripts/owner-weekly-topic-pack.py \
+  scripts/owner-weekly-linkedin-medium-topic-pack.py \
+  scripts/check-owner-flywheel-phase.py \
   scripts/evaluate-weekly-topic-candidates.py \
   scripts/agent-weekly-topic-eval-baseline-snapshot.py \
   scripts/compare-owner-xhs-drive-listing.py \

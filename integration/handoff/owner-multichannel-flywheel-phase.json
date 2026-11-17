@@ -1,0 +1,49 @@
+{
+  "schema": "owner_multichannel_flywheel_phase_v1",
+  "as_of": "2026-11-18",
+  "current_phase": 0,
+  "phase_labels": {
+    "0": "积攒：数据 intake + 每周选题（默认不写稿、不做 SEO 互链）",
+    "1": "写稿战役：派活给 CEO → 各平台交付包满链",
+    "2": "跨平台互链：Brief/HTML 内 Medium↔LinkedIn↔小红书 SEO 互链"
+  },
+  "owner_enter_phase_1_phrases_any": [
+    "进入写稿阶段",
+    "全链路写稿",
+    "开写稿",
+    "派活给 CEO"
+  ],
+  "owner_enter_phase_2_phrases_any": [
+    "开启跨平台互链",
+    "上互链",
+    "三平台 SEO",
+    "开互链"
+  ],
+  "agent_in_phase_0_must_not": [
+    "未经 Owner 勾选选题主动写 Brief/长稿",
+    "默认在交付包里塞三平台互链"
+  ],
+  "agent_in_phase_0_must": [
+    "每周交付 LinkedIn+Medium 选题 5–10 条（见 weekly_li_medium_topic_pack）",
+    "写 Brief 时主动问 Owner 是否要互链（积攒阶段 Owner 可拒绝）"
+  ],
+  "suggested_readiness_before_phase_1": {
+    "note_zh": "非强制门禁；满足后 Agent 在选题交付里提示「可口语令进入写稿阶段」",
+    "linkedin_metrics_rows_min": 2,
+    "medium_metrics_rows_min": 2,
+    "xhs_analytics_freshness": "verify-xhs-analytics-freshness.py PASS",
+    "calendar_weeks_in_phase_0_min": 2
+  },
+  "mechanical_check": "python3 scripts/check-owner-flywheel-phase.py",
+  "weekly_li_medium_topic_pack": {
+    "script": "scripts/owner-weekly-linkedin-medium-topic-pack.py",
+    "handoff": "integration/handoff/owner-weekly-li-medium-topic-pack-latest.json",
+    "automation_doc": "docs/OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md",
+    "cron_gmt8": "0 12 * * 0",
+    "cron_zh": "每周日 12:00 GMT+8"
+  },
+  "docs": [
+    "docs/OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md",
+    "docs/OWNER-MULTICHANNEL-POST-FLYWHEEL.md"
+  ]
+}
