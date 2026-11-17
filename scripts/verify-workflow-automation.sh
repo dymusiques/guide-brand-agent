@@ -78,6 +78,10 @@ for s in \
   scripts/owner-weekly-topic-pack.py \
   scripts/evaluate-weekly-topic-candidates.py \
   scripts/agent-weekly-topic-eval-baseline-snapshot.py \
+  scripts/compare-owner-xhs-drive-listing.py \
+  scripts/owner-xhs-export-reminder.py \
+  scripts/ingest-owner-linkedin-metrics.py \
+  scripts/ingest-owner-medium-metrics.py \
   scripts/ceo-auto-recover-blocked.sh \
   scripts/refresh-owner-notify-html.sh \
   scripts/ceo-workflow-test-round2-finish.sh \

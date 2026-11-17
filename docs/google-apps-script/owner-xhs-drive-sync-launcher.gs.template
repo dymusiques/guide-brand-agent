@@ -1,0 +1,26 @@
+/**
+ * 可选 · 仅当本机 process-launcher 在 127.0.0.1:7997 运行
+ * 不能从 Google 云直接触发 Cursor 云端 Agent。
+ *
+ * 安装：Extensions → Apps Script · 粘贴 · 设时间驱动触发器（如每小时）
+ * Secret：Script Properties LAUNCHER_TOKEN（若你启用了鉴权）
+ */
+function pingBrandAgentSync() {
+  var url = 'http://127.0.0.1:7997/run'; // 仅本机有效；公网需 ngrok 等，不推荐默认
+  var payload = {
+    command: [
+      'bash',
+      '-lc',
+      'cd ~/Desktop/danying-brand-agent && bash scripts/sync-owner-xhs-data-from-drive.sh'
+    ],
+    description: 'owner-xhs-drive-sync from Apps Script'
+  };
+  var options = {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  };
+  var res = UrlFetchApp.fetch(url, options);
+  Logger.log(res.getResponseCode() + ' ' + res.getContentText());
+}

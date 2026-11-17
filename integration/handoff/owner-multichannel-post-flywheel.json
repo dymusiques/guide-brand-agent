@@ -1,0 +1,51 @@
+{
+  "schema": "owner_multichannel_post_flywheel_v1",
+  "as_of": "2026-11-17",
+  "purpose_zh": "发帖→等待→回填数据→复盘飞轮 · 平台分 intake，不并成假 warehouse",
+  "owner_post_only": ["xiaohongshu", "linkedin", "medium"],
+  "platforms": {
+    "xiaohongshu": {
+      "intake_primary": "Google Drive 文件夹「我的小红书数据」或 chat 附 xlsx",
+      "handoff": "integration/handoff/owner-xhs-data-drive.json",
+      "sync": "bash scripts/sync-owner-xhs-data-from-drive.sh",
+      "freshness": "python3 scripts/verify-xhs-analytics-freshness.py",
+      "warehouse": "content/analytics/xiaohongshu/notes.csv",
+      "drive_watch": "scripts/compare-owner-xhs-drive-listing.py"
+    },
+    "linkedin": {
+      "intake_dir": "content/analytics/linkedin/inbox",
+      "template": "content/analytics/linkedin/inbox/TEMPLATE-post-metrics.md",
+      "ingest": "python3 scripts/ingest-owner-linkedin-metrics.py --file <path>",
+      "ledger": "content/analytics/linkedin/posts.jsonl",
+      "handoff_latest": "integration/handoff/owner-linkedin-metrics-latest.json",
+      "formats": ["md", "csv", "json", "screenshot+md口述"]
+    },
+    "medium": {
+      "intake_dir": "content/analytics/medium/inbox",
+      "template": "content/analytics/medium/inbox/TEMPLATE-post-metrics.md",
+      "ingest": "python3 scripts/ingest-owner-medium-metrics.py --file <path>",
+      "ledger": "content/analytics/medium/posts.jsonl",
+      "handoff_latest": "integration/handoff/owner-medium-metrics-latest.json",
+      "formats": ["md", "csv", "json"]
+    }
+  },
+  "export_rhythm_xhs": {
+    "doc": "docs/OWNER-MULTICHANNEL-POST-FLYWHEEL.md",
+    "owner_posts_per_week_target": "2-3",
+    "recommended": {
+      "near_7d_export": ["周三 21:00", "周日 21:00"],
+      "reminder_cron": "30 20 * * 0,3",
+      "drive_watch_cron": "30 10 * * *",
+      "why_zh": "一周2–3条：双次近7日表覆盖首波+长尾；不必每篇24h即时导",
+      "optional_day2_after_single_hot_post": "单条爆款可发帖后第2天中午补导一次"
+    },
+    "reminder_automation": "docs/OWNER-XHS-EXPORT-REMINDER-AUTOMATION-INSTRUCTIONS.md",
+    "reminder_script": "python3 scripts/owner-xhs-export-reminder.py"
+  },
+  "agent_must_on_data_drop": [
+    "检测到 inbox 新文件或 Drive listing 变更 → 跑对应 ingest 或 xhs sync",
+    "复盘/已发/gate → verify-xhs-analytics-freshness",
+    "禁止要求 Owner 说「同步小红书数据」"
+  ],
+  "cursor_automations_index": "docs/OWNER-CURSOR-AUTOMATIONS-INDEX.md"
+}
