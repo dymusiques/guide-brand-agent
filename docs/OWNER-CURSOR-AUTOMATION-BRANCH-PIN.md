@@ -19,6 +19,12 @@ python3 scripts/verify-cursor-automation-branch-pin.py
 
 FAIL → 先 `git checkout main` · `git pull github main` · `git pull origin main` · push 后再跑 Automation。
 
+## 远程分支 hygiene
+
+- **只允许** `github/main` 与 `origin/main`（`cursor/*`、feature 分支易让云端 Agent 误以为要 checkout）。
+- 已合并分支：`git push github --delete <branch>` · 同名删 `origin`。
+- **不**用 `git push --force` 改历史去「盖掉」旧 commit；**以 main 最新 + 删多余远程分支** 为准。
+
 ## Cron 与时区（为何出现 18:30）
 
 若自定义 **`30 10 * * *`** 但界面显示 **18:30 GMT+8**：

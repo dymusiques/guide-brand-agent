@@ -1,35 +1,38 @@
 {
-  "schema": "owner_deliverable_pack_mandate_v1",
+  "schema": "owner_deliverable_pack_mandate_v2",
   "as_of": "2026-11-18",
   "owner_term_zh": "交付包",
-  "filesystem_alias": "*-brief.md",
-  "must_not_mean": "仅一页策划简报、无正文、无说明",
-  "must_include": [
-    {
-      "id": "briefing",
-      "zh": "简报与结构说明",
-      "sections": ["标题/封面", "钩子", "三镜头或正文结构", "标签", "CTA", "与品牌/数据依据"]
+  "four_blocks_zh": ["简报", "架构说明", "完整文稿", "为什么这样写"],
+  "platforms": {
+    "xiaohongshu_note": {
+      "path_glob": "content/xiaohongshu/*-brief.md",
+      "verify": "python3 scripts/verify-owner-deliverable-pack.py --brief <path>",
+      "longform_spec": "content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md"
     },
-    {
-      "id": "full_copy",
-      "zh": "完整可发帖文稿",
-      "xhs": "OWNER-LONGFORM-XHS-SPEC.md · 含 Owner 发布版长稿（或 drafts/*-longform.md 链接且 gate 可读）",
-      "linkedin_medium": "完整帖文或长文 + 平台适配说明"
+    "xiaohongshu_oral": {
+      "path_glob": "content/xiaohongshu/inbox/pending-videos/*.md",
+      "template": "content/xiaohongshu/inbox/pending-videos/TEMPLATE.md",
+      "verify": "python3 scripts/verify-owner-deliverable-pack.py --oral <path>"
     },
-    {
-      "id": "rationale",
-      "zh": "为什么这样写",
-      "content": "数据/案例/队列依据 · 非空话"
+    "linkedin": {
+      "path_glob": "content/deliverables/linkedin/*-pack.md",
+      "template": "content/deliverables/TEMPLATE-linkedin-pack.md",
+      "verify": "python3 scripts/verify-owner-deliverable-pack.py --linkedin <path>"
+    },
+    "medium": {
+      "path_glob": "content/deliverables/medium/*-pack.md",
+      "template": "content/deliverables/TEMPLATE-medium-pack.md",
+      "verify": "python3 scripts/verify-owner-deliverable-pack.py --medium <path>"
     }
-  ],
-  "gate": {
-    "evaluate": "evaluate-xhs-brief / auto-gate-loop / triple-eval 对的是交付包全集",
-    "fail_if": ["仅有结构无长稿", "仅有摘要无 Owner 发布版", "缺 rationale"]
   },
-  "ceo_full_stack": "派活给 CEO + goal → Must 产出或进化到 delivery pack READY，非半成品简报",
+  "gate": {
+    "evaluate": "auto-gate-loop · triple-eval · verify-owner-deliverable-pack",
+    "fail_if": ["仅有结构无长稿", "缺架构说明", "缺 rationale"]
+  },
+  "ceo_full_stack": "派活给 CEO → 交付包 READY 各平台",
   "docs": [
     "docs/OWNER-DELIVERABLE-PACK-MANDATE.md",
-    "content/xiaohongshu/OWNER-CONTENT-SPEC.md",
-    "content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md"
+    "docs/OWNER-DELIVERABLE-PACK-PLATFORMS.md",
+    "content/xiaohongshu/OWNER-CONTENT-SPEC.md"
   ]
 }

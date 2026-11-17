@@ -170,6 +170,7 @@
           "verify-owner-copy-v-tier-mandate.sh",
           "verify-owner-copy-v-tier-attestation.py before evolution (dual-track briefs)",
           "verify-owner-copy-human-readable.py when brief exists",
+          "verify-owner-deliverable-pack.py --brief|--oral|--linkedin|--medium before Owner delivery",
           "evolve-platform-hits.py four dimensions"
         ],
         "agent_session": [

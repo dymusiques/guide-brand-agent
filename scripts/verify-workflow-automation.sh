@@ -85,6 +85,7 @@ for s in \
   scripts/agent-multichannel-post-gate.py \
   scripts/agent-multichannel-eval-baseline-loop.py \
   scripts/verify-cursor-automation-branch-pin.py \
+  scripts/verify-owner-deliverable-pack.py \
   scripts/ceo-auto-recover-blocked.sh \
   scripts/refresh-owner-notify-html.sh \
   scripts/ceo-workflow-test-round2-finish.sh \
