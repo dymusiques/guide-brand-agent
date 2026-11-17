@@ -1,0 +1,56 @@
+{
+  "artist_slug": "hauser-cellist",
+  "borrow_score": 54.5,
+  "why_evaluate": "HAUSER 作为大提琴巨星，在古典乐跨界大众流行与短视频传播方面具有极高的现象级示范意义。通过 DB、PLD、APO、CTD 四维评估可知，其内容视觉钩子与社媒矩阵爆发力可供像素级拆解（PLD），但在受众重叠度（APO）与 B2B 战略深度上与 Owner 存在一定偏离，需有选择地借鉴。",
+  "alignment_points": [
+    "用极具视觉张力和质感的表现形式将古典乐器翻译给当代大众人群",
+    "建立清晰的社媒短视频分轨与巡演/发布节点的联动发布节奏",
+    "保持艺术演奏专业高度的同时，进行无界化的音乐与文化跨界合作"
+  ],
+  "timeline": [
+    {
+      "phase": "2CELLOS 组合爆发期",
+      "year_or_era": "2011-2018",
+      "what_happened": "以大提琴改编流行摇滚曲目爆红于 YouTube，成功打响跨界演奏家名号并开启全球巡演。"
+    },
+    {
+      "phase": "个人 IP 独奏与社媒极速裂变",
+      "year_or_era": "2019-2022",
+      "what_happened": "聚焦 HAUSER 个人品牌，通过 Instagram 和 TikTok 的短视频视觉化呈现美景与大提琴演奏，迅速积累数千万粉丝。"
+    },
+    {
+      "phase": "全球巡演与跨界商业化",
+      "year_or_era": "2023-至今",
+      "what_happened": "将泛大众流量转化为演唱会门票、品牌代言与跨界联动，巩固顶级古典跨界巨星地位。"
+    }
+  ],
+  "worth_borrowing": [
+    "短视频高光时刻前置（前3秒视觉与音效钩子设计）",
+    "自然风光/高质感场景与古典乐器演奏结合的摄制模板",
+    "巡演/新作品发布期的全网多平台高频联动发布策略"
+  ],
+  "avoid": [
+    "过分追求泛 C 端娱乐化流量与性感/眼球经济人设（纯 Vanity 流量）",
+    "缺少 B2B 品牌策划与深度对话叙事，导致商业化落脚点受限",
+    "忽视教育链与 AI/数字藏品等新兴领域的深层价值沉淀"
+  ],
+  "sources_note": "基于 GrooveMedia 案例分析及 HAUSER 公开社媒平台（YouTube/Instagram/TikTok）运营数据推断，未掺杂未证实之商业合同细节。",
+  "benchmark_metrics": {
+    "directional_benchmarking": {
+      "score": 62.0,
+      "rationale": "古典乐器跨界传播方向与法派长笛专业锚点同向，但缺乏 B2B 策划与 AI 创新维度的战略设计。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 72.0,
+      "rationale": "短视频封面、前 3 秒音画钩子及演奏高光镜头剪辑具备极强的像素级拆解与迁移价值。"
+    },
+    "audience_persona_overlap": {
+      "score": 38.0,
+      "rationale": "受众高度偏向泛大众 C 端大众娱乐需求，与 Owner 核心的品牌方、高质感艺术家及教育人群重叠度较低。"
+    },
+    "core_topic_density": {
+      "score": 52.0,
+      "rationale": "内容题库高度集中于大提琴改编曲与视觉演奏，缺少深度教育观点与跨界策划方法论拆解。"
+    }
+  }
+}

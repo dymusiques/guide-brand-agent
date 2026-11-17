@@ -1,0 +1,1 @@
+Gemini failed: Expecting property name enclosed in double quotes: line 15 column 3 (char 519)

@@ -1,0 +1,46 @@
+{
+  "ran_at": "2026-11-17T06:14:30Z",
+  "pass_line": 80,
+  "full_score": 100,
+  "dimensions": [
+    "angle",
+    "hit",
+    "voice",
+    "cite"
+  ],
+  "platforms": {
+    "linkedin": {
+      "pass": false,
+      "four": {
+        "angle": 100,
+        "hit": 0,
+        "voice": 45,
+        "cite": 80
+      },
+      "distance_after": 115,
+      "stress": {}
+    },
+    "xiaohongshu": {
+      "pass": false,
+      "four": {
+        "angle": 0,
+        "hit": 88,
+        "voice": 45,
+        "cite": 90
+      },
+      "distance_after": 115,
+      "stress": {}
+    },
+    "medium": {
+      "pass": false,
+      "four": {
+        "angle": 100,
+        "hit": 85,
+        "voice": 45,
+        "cite": 90
+      },
+      "distance_after": 35,
+      "stress": {}
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "artist_slug": "hauser-cellist",
+  "borrow_score": 54.5,
+  "why_evaluate": "评估 HAUSER 旨在分析古典乐器演奏者如何通过短视频与跨界流行表达实现全球级流量放大。虽然其在大众流行方向的视觉与内容转化极强（PLD 拆解度高），但其受众过于偏向泛 C 端泛娱乐（APO 偏低），且战略上偏向极度商业娱乐化，而非 Owner 所需的强链接与高质感 B2B 品牌策划定位（DB 与 CTD 需谨慎取舍）。",
+  "alignment_points": [
+    "古典乐器（大提琴 vs 长笛）作为核心艺术语言与视觉符号的强绑定",
+    "利用跨界曲目改编与极致视觉叙事打破古典音乐的严肃壁垒",
+    "多平台短视频（Reels/Shorts/TikTok/小红书）模块化视觉钩子与场景设计"
+  ],
+  "timeline": [
+    {
+      "phase": "2CELLOS 组合爆红期",
+      "year_or_era": "2011-2018",
+      "what_happened": "与 Luka Šulić 组成 2CELLOS，凭《Smooth Criminal》大提琴改编短视频在 YouTube 爆发，开启全球巡演。"
+    },
+    {
+      "phase": "个人 IP 极速扩展与短视频转型",
+      "year_or_era": "2019-2022",
+      "what_happened": "主打个人单飞 IP HAUSER，结合海岛自然风光与流行乐改编，在 Instagram 与 TikTok 上建立数千万粉丝生态。"
+    },
+    {
+      "phase": "全球商业巡演与社媒全渠道矩阵化",
+      "year_or_era": "2023-至今",
+      "what_happened": "上线《Rebel with a Cello》全球巡演，将线上短视频流量高频转化为线下场馆票房与品牌合作。"
+    }
+  ],
+  "worth_borrowing": [
+    "像素级拆解其短视频的前 3 秒视觉钩子（如强烈的自然场景背景与极致优雅的演奏姿态组合）",
+    "将古典乐器与流行/电影原声结合的跨界曲目策展逻辑，降低公众审美门槛",
+    "多平台（Reels/Shorts/小红书）内容分发与巡演/项目节点的预热节奏控制"
+  ],
+  "avoid": [
+    "过度的纯 C 端泛娱乐人设与博眼球动作，避免稀释艺术高质感与 B2B 商业策划专业度",
+    "依赖极高频次的大众流量做泛粉丝沉淀，导致缺少可转化的品牌决策者与高净值受众（避免纯 Vanity 流量）",
+    "将个人 IP 绑定于单一的纯音乐表演，缺少跨界品牌策划与数字藏品/AI 创新叙事的深度"
+  ],
+  "sources_note": "基于 GrooveMedia 案例分析及 HAUSER 官方公开社媒（Instagram, TikTok, YouTube）数据推断；无未经证实商业合同或隐秘收入数据。",
+  "benchmark_metrics": {
+    "directional_benchmarking": {
+      "score": 65.0,
+      "rationale": "同属古典器乐跨界突破方向，具有极高的艺术表现力，但对方偏向纯大众娱乐流量，与 Owner 的 B2B 策划及高质感叙事有战略偏差。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 58.0,
+      "rationale": "其短视频视觉构图、氛围营造与场景选址具有极高拆解性，可借鉴用于个人 IP 的视觉与短视频钩子设计。"
+    },
+    "audience_persona_overlap": {
+      "score": 38.0,
+      "rationale": "受众主要为泛 C 端大众音乐爱好者与娱乐粉丝，与 Owner 核心关注的品牌决策者、高质感艺术教育与 AI 创新受众重叠度较低。"
+    },
+    "core_topic_density": {
+      "score": 50.0,
+      "rationale": "话题高度集中于大提琴演奏与浪漫视觉场景，缺乏品牌策划案例拆解、法派教学体系与数字藏品等多元支柱。"
+    }
+  }
+}

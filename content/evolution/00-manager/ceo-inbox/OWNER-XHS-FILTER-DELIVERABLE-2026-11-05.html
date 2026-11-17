@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Owner 交付 · 小红书筛选 · 2026-11-05</title>
+<style>
+  :root { font-family: -apple-system, "PingFang SC", sans-serif; line-height: 1.5; }
+  body { max-width: 960px; margin: 0 auto; padding: 24px; background: #fafafa; color: #1a1a1a; }
+  h1 { font-size: 1.5rem; }
+  .glossary { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 16px 0; }
+  .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card button { margin-top: 8px; padding: 8px 12px; cursor: pointer; background: #111; color: #fff; border: none; border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.85rem; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; }
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 100; overflow: auto; }
+  .modal.open { display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; }
+  .modal-inner { background: #fff; max-width: 720px; width: 100%; padding: 24px; border-radius: 12px; position: relative; }
+  .close { position: absolute; right: 12px; top: 8px; font-size: 28px; border: none; background: none; cursor: pointer; }
+  .box { background: #f6f6f6; padding: 12px; border-radius: 6px; max-height: 40vh; overflow: auto; font-size: 0.9rem; }
+  .brief { max-height: 50vh; }
+  a { color: #0645ad; }
+  .open-hint { background: #fff3cd; border: 1px solid #ffc107; padding: 12px; border-radius: 8px; }
+</style>
+</head>
+<body data-auto-modal="0">
+<h1>Owner 交付 · CEO 小红书资料筛选 · 2026-11-05</h1>
+<p style="font-size:0.9rem;color:#444">本页 = <strong>小红书 Discovery 队列 + 工作流测试</strong> 的日常通知板。
+若你当轮任务是产品战略 / FluteBuddy / 无 Brief 的 CEO 跑数，<strong>不应</strong>自动弹本页 — 见
+<code>docs/CEO-OWNER-HTML-ROUTING.md</code>。</p>
+<p class="open-hint">HTML 重建时间：<strong>2026-11-05 12:47:02</strong> · 脚本 <code>build-owner-xhs-report-html.py</code>。
+若在 Cursor 里只看到代码：Finder 双击本文件。工作流测试稿（若有）在下方<strong>绿色边框</strong>卡片。</p>
+
+<section class="glossary">
+<h2>名词说明</h2>
+<p><strong>Gate（Owner Gate）</strong>：内部质检，不是让你跑的命令。Agent 在交给你之前用
+<code>manager-ceo-owner-gate.sh</code> + Brief 的 <code>evaluate-xhs-topic</code>（05 分类器）检查是否
+<code>aligned: true</code>、redteam-pre 是否齐全。<strong>「待 Gate」</strong> = 当时批量脚本未重跑 Gate，不代表内容一定不合格；Discovery 01 在 Brief 里已有
+<code>aligned: true</code> 记录（2026-10-17）。</p>
+<p><strong>优先级（本报告）</strong>：按<strong>认知期发帖顺序 + 数据策略</strong>，不是 evaluate 退出码排序。
+<strong>#1 Discovery 01</strong> = 不可替代性（首推）；02 叙事；03 专业信任；04 轻收口（#1–3 发后再发）。</p>
+<p><strong>Discovery 01 是什么？</strong> 文件
+<code>2026-10-17-discovery-01-irreplaceability-brief.md</code>，认知期 #1（与<strong>工作流测试稿</strong>同案例线：NGV×Cartier×MSO 等）。标题以 Brief 重建为准。</p>
+<p><strong>系列统一：</strong> 测试稿 + Discovery 01–04 共用动线/三问语言；HTML 重建时从 classifier 读取。</p>
+</section>
+
+<h2>Owner 新稿 + 工作流测试 + Discovery 01–04 · 点击弹出</h2>
+<div class="cards">
+
+<article class="card" id="owner-latest" style="border:2px solid #06c;grid-column:1/-1">
+  <h3>Owner 指定新稿（最新）</h3>
+  <p><strong>Evolution —</strong> · 文件：<code>2026-11-05-flutebuddy-practice-waitlist-brief.md</code></p>
+  <p class="title">标题：练完长笛不敢问老师？先把谱面和录音交给 FluteBuddy</p>
+  <p style="font-size:0.9rem">练长笛的人，多半都有过这种晚上：谱子摊在桌上，录音键按下去，一遍下来——心里发虚。
+
+问老师吧，怕问题太碎；问家长吧，家长也听不出「到底是错音还是音色」。最后只剩一句「挺好的」，谁都不太信。
+
+我做法派长笛这些年，见过太多家庭卡在同一个地方：**不是不努力，是练完没有客观反馈。**
+
+所以我做 **FluteBuddy**。逻辑很笨，也很诚实：
+
+1. 你上…</p>
+  <button onclick="openModal('modal-owner-latest')">弹出 · 新稿全文（长稿优先）</button>
+</article>
+</div>
+
+<h2>Artist 四指标（DB / PLD / APO / CTD）</h2>
+<p>Excel/CSV：<a href="../../../../ip-research/artist-watchlist-four-metrics.xlsx">content/ip-research/artist-watchlist-four-metrics.xlsx</a>（用 Excel 或 Numbers 打开）</p>
+<table>
+<thead><tr><th>Tier</th><th>Artist</th><th>Composite</th><th>DB</th><th>PLD</th><th>APO</th><th>CTD</th><th>URLs</th></tr></thead>
+<tbody><tr>
+          <td>P1</td>
+          <td>Drew Alexander Forde · ThatViolaKid</td>
+          <td>73</td>
+          <td>95.0</td>
+          <td>63.0</td>
+          <td>68.0</td>
+          <td>60.0</td>
+          <td>https://thatviolakid.com/about · https://christianhowes.com/2021/05/06/creative-strings-podcast-ep-43-drew-alexander-forde/</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>土豆人 · tudou_man（林晨）</td>
+          <td>70</td>
+          <td>68.0</td>
+          <td>77.0</td>
+          <td>80.0</td>
+          <td>50.0</td>
+          <td>https://www.digitaling.com/articles/942108.html · https://www.digitaling.com/articles/1320234.html</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>画画的小福象（小红书 · 品牌/IP 视觉）</td>
+          <td>66</td>
+          <td>68.0</td>
+          <td>72.0</td>
+          <td>70.0</td>
+          <td>50.0</td>
+          <td>https://www.xiaohongshu.com/user/profile/5657b233b8ce1a4fa16e6d0f</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>儿力力 · 白日梦小姐 IP</td>
+          <td>62</td>
+          <td>68.0</td>
+          <td>50.0</td>
+          <td>60.0</td>
+          <td>68.0</td>
+          <td>https://www.99ys.com/exhibit/2025/03/05/11/72048.html</td>
+        </tr><tr>
+          <td>P2</td>
+          <td>Lang Lang · 郎朗</td>
+          <td>58</td>
+          <td>83.0</td>
+          <td>35.0</td>
+          <td>58.0</td>
+          <td>50.0</td>
+          <td>https://langlang.com/</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>HAUSER（Stjepan Hauser）</td>
+          <td>54</td>
+          <td>65.0</td>
+          <td>58.0</td>
+          <td>38.0</td>
+          <td>50.0</td>
+          <td>https://groovemedia.org/work/hauser</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>Fuzzy hug（独立数字艺术 IP）</td>
+          <td>50</td>
+          <td>58.0</td>
+          <td>50.0</td>
+          <td>50.0</td>
+          <td>40.0</td>
+          <td>https://www.adquan.com/article/343094</td>
+        </tr><tr>
+          <td>P3</td>
+          <td>Lincoln Center / 机构级艺术传播（非个人，学内容结构）</td>
+          <td>37</td>
+          <td>25.0</td>
+          <td>35.0</td>
+          <td>58.0</td>
+          <td>30.0</td>
+          <td>https://www.lincolncenter.org/</td>
+        </tr></tbody>
+</table>
+
+<p style="margin-top:32px;color:#666;font-size:0.85rem">danying-brand-agent · HTML Owner 报告 · 以后 CEO 交付以 HTML 为准</p>
+
+<div id="modal-owner-latest" class="modal" onclick="if(event.target===this)closeModal('modal-owner-latest')">
+  <div class="modal-inner">
+    <button class="close" onclick="closeModal('modal-owner-latest')">×</button>
+    <h2>Owner 指定新稿 · 练完长笛不敢问老师？先把谱面和录音交给 FluteBuddy</h2>
+    <p class="meta">Evolution — · <code>2026-11-05-flutebuddy-practice-waitlist-brief.md</code></p>
+    <h3>长稿 · Owner 发布版</h3>
+    <div class="box">练长笛的人，多半都有过这种晚上：谱子摊在桌上，录音键按下去，一遍下来——心里发虚。<br>
+<br>
+问老师吧，怕问题太碎；问家长吧，家长也听不出「到底是错音还是音色」。最后只剩一句「挺好的」，谁都不太信。<br>
+<br>
+我做法派长笛这些年，见过太多家庭卡在同一个地方：**不是不努力，是练完没有客观反馈。**<br>
+<br>
+所以我做 **FluteBuddy**。逻辑很笨，也很诚实：<br>
+<br>
+1. 你上传 **PDF 乐谱**（或已有电子版）<br>
+2. 再上传 **这一遍的演奏录音**<br>
+3. App 识谱后，给出 **节奏、音准、音质** 的分析，带 **扣分明细**，能指到 **谱面小节**<br>
+<br>
+它不是来代替你的老师。音乐性、句读、风格——这些仍要在课上当面改。  <br>
+FluteBuddy 只管 **基础层**：练完就知道「错在哪」，下次打开谱子有目标。<br>
+<br>
+**给家长的一句话：** 你不需要当裁判，也不需要当 KPI 警察。你需要的是孩子练完能自己看见问题，带着具体问题去上课。<br>
+<br>
+**给学生的：** 敢录音，敢对照扣分练第二遍，比空泛的「再来十遍」有用。<br>
+<br>
+**给老师的：** 希望学生带着「第三行第二拍节奏拖了」来，而不是「老师我练了但不知道好不好」。<br>
+<br>
+我们现在开 **内测**，只收 **40 组** 家庭，条件很简单：<br>
+<br>
+- 家里能拿到 **电子版谱**<br>
+- 练完 **愿意录一遍**<br>
+- 愿意在两周里 **反馈一次** 使用感受<br>
+<br>
+私信关键词 **FluteBuddy**。我会用三问筛 P0：年级或水平、本周练哪本谱、能不能上传一次练习。<br>
+<br>
+如果你也在找「那一小撮」——需求能 match 的人——这就是我要找的人：**肯练、有谱、要反馈，不要空夸。**</div>
+    <p class="meta">口播/列表摘要（classifier · 非长稿）</p><div class="box">我家孩子练长笛，最怕练完问「对吗」——老师忙，家长又不敢当裁判。FluteBuddy：PDF 谱 + 录音，练完看错音、节奏、音质扣分明细，谱面能点到小节。机器只判基础层，音乐性仍跟老师。内测只收 40 组有谱、肯录音的家庭，私信 FluteBuddy。</div>
+    <details><summary>Agent Brief 元数据（给管线用，不是发帖正文）</summary>
+    <div class="box brief"># 小红书笔记 Brief · FluteBuddy 居家练琴反馈 · 2026-11-05<br>
+<br>
+&lt;!-- xhs-classifier --&gt;<br>
+```json<br>
+{<br>
+  &quot;subject&quot;: &quot;练完长笛不敢问老师？先把谱面和录音交给 FluteBuddy&quot;,<br>
+  &quot;body&quot;: &quot;我家孩子练长笛，最怕练完问「对吗」——老师忙，家长又不敢当裁判。FluteBuddy：PDF 谱 + 录音，练完看错音、节奏、音质扣分明细，谱面能点到小节。机器只判基础层，音乐性仍跟老师。内测只收 40 组有谱、肯录音的家庭，私信 FluteBuddy。&quot;<br>
+}<br>
+```<br>
+<br>
+&gt; 长稿规范：[OWNER-LONGFORM-XHS-SPEC.md](./OWNER-LONGFORM-XHS-SPEC.md) · 对标：`integration/handoff/owner-copy-benchmarks-tier2.json`<br>
+<br>
+## 正文（长稿 · Owner 发布版）<br>
+<br>
+长稿见：`content/xiaohongshu/drafts/2026-11-05-flutebuddy-practice-waitlist-longform.md`<br>
+<br>
+## 标题<br>
+<br>
+练完长笛不敢问老师？先把谱面和录音交给 FluteBuddy<br>
+<br>
+## 封面<br>
+<br>
+- 主：练完不知道错在哪<br>
+- 副：PDF + 录音 → 扣分明细<br>
+<br>
+## 三镜头<br>
+<br>
+1. **场景：** 孩子练完长笛，家长不敢逐句判错<br>
+2. **证据：** 录屏上传 → 扣分列表 → 谱面定位<br>
+3. **边界：** 机器判基础；句读、音乐性跟老师<br>
+<br>
+## 标签<br>
+<br>
+#长笛练习 #居家练琴 #FluteBuddy #长笛学生 #长笛家长<br>
+<br>
+## CTA<br>
+<br>
+评论：你最怕 **错音 / 节奏 / 不敢问老师** 哪一个？  <br>
+内测私信关键词 **FluteBuddy**（40 组 · 需 PDF 谱 + 愿意录音）</div></details>
+  </div>
+</div>
+<script>
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id)); });
+(function() {
+  var auto = document.body.getAttribute('data-auto-modal') === '1';
+  var h = (location.hash || '').replace(/^#/, '');
+  if (auto && h === 'owner-latest' && document.getElementById('modal-owner-latest')) {
+    openModal('modal-owner-latest');
+  }
+})();
+</script>
+</body>
+</html>

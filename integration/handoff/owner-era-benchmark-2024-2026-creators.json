@@ -1,0 +1,286 @@
+{
+  "version": "2026-11-07",
+  "era_filter": "2024-2026 仍值得学 · 时代校正（非 COVID 主红利依赖）",
+  "data_note": "爆款选题来自公开报道/访谈/新闻复盘；非平台全量爬取。Agent 写 attestation 须再打开原文核对互动。",
+  "owner_exclude_rules": [
+    "禁止以顶级投行/MBB/名校 MBA/大厂 title 作为可对表人设（Owner 无此背书，也不学 title 叙事）",
+    "可学：拍摄形式、栏目、reposition、hook；不可学：elite career 身份当主钩子"
+  ],
+  "excluded_with_reason": [
+    {
+      "id": "hannah_zhang",
+      "handle": "Hannah Zhang",
+      "reason_owner_pass": "摩根士丹利+Wharton+投行→tech 的「精英 nonlinear」叙事；与 Owner「专业音乐家改行 IP、不要职业头衔参考」不符。"
+    }
+  ],
+  "creators": [
+    {
+      "id": "colin_rocker",
+      "handle": "@careercolin · Colin Rocker",
+      "platform_primary": "instagram",
+      "region": "international",
+      "followers_approx": 450000,
+      "profile_urls": [
+        "https://www.instagram.com/careercolin/",
+        "https://www.colinrocker.com/",
+        "https://creatorspotlight.com/p/colin-rocker"
+      ],
+      "original_profession": "Deloitte/咨询 → 创业公司员工；水管工+教师家庭 first-gen",
+      "why_learn_now": [
+        "主爆发在 **2022–23+**（layoff 后 all-in），学 **故事型 Reels** 而非 COVID 居家教程",
+        "跨平台 45 万+；**无** 演奏明星背书",
+        "「没故事就不拍」— 适合 Owner 生活+改行叙事"
+      ],
+      "growth_path": [
+        {"phase": "侧翼", "when": "2020–2022", "what": "上班同时发 general career tips", "filming": "竖屏 talking head、纽约真实背景"},
+        {"phase": "niche 清晰", "when": "2022–2023", "what": "聚焦 **first-gen 职场**；IG 约 1 万→20 万+", "filming": "每条一个具体场景（被裁、networking、workwashing）"},
+        {"phase": "催化剂", "when": "2023", "what": "失业 + 新生儿的 **6 个月 runway** 全职内容", "filming": "personal story 锚定每条 advice"},
+        {"phase": "当下", "when": "2024–2026", "what": "For The Firsts 线下社区；Forbes 30U30；品牌合作", "filming": "短 caption + 故事 hook；Newsletter CareerColin"}
+      ],
+      "hit_topics": [
+        {"title": "First-generation professional 职场场景短剧", "type": "Reels", "note": "爆发品类", "source": "https://www.colinrocker.com/blog/who-is-colin-rocker"},
+        {"title": "Workwashing（把身份绑死在 title 上）", "type": "concept 帖", "note": "自造词传播", "source": "https://www.colinrocker.com/"},
+        {"title": "被裁 / layoff 后怎么办", "type": "Reels", "note": "layoff 叙事与 Owner 改行共振", "source": "https://kit.com/resources/blog/grow-a-community-with-email-data-colin-rocker-case-study"},
+        {"title": "How to network at events（firsts 向）", "type": "Reels", "note": "工具型+故事", "source": "https://www.colinrocker.com/"}
+      ]
+    },
+    {
+      "id": "jennifer_chou",
+      "handle": "@VeganTechNomad · Jennifer Chou",
+      "platform_primary": "instagram",
+      "region": "international",
+      "followers_approx": 100000,
+      "profile_urls": [
+        "https://www.instagram.com/vegantechnomad/",
+        "https://stan.store/blog/jennifer-chou/",
+        "https://vegantechnomad.beehiiv.com/"
+      ],
+      "original_profession": "教育公司营销；帮雇主 TikTok 做到 4 万粉",
+      "why_learn_now": [
+        "**2023 末–2024** IG 交叉发布才 viral；爆发在 saturated 期",
+        "极 **具体** 选题（life tracking）> 泛 productivity",
+        "layoff 后课 一天 $6k — 产品阶梯可参考"
+      ],
+      "growth_path": [
+        {"phase": "最初", "when": "2022–2023", "what": "马拉松 vlog 练剪辑； vegan/旅行 试过但不持续", "filming": "练手、未起量"},
+        {"phase": "偶然 niche", "when": "2023", "what": "life tracking / ADHD 友好系统", "filming": "屏幕录屏+_dashboard 美学+旁白"},
+        {"phase": "爆发", "when": "2023-12", "what": "TikTok 内容 cross-post IG，一条数百万播放", "filming": "unhinged tracking（友谊/ poop count / 2024 wrapped 式）"},
+        {"phase": "商业化", "when": "2024", "what": "被裁；life tracking 课预售 $6k/天", "filming": "同一 niche 加深 + Stan Store"},
+        {"phase": "当下", "when": "2025", "what": "10 万+ 社区；carousel + Reels 并重", "filming": "hook A/B（同片不同 on-screen text）"}
+      ],
+      "hit_topics": [
+        {"title": "Friendship / relationship tracking spreadsheet", "type": "Reels", "note": "约 100 万+ 播放级报道", "source": "https://www.theleap.co/blog/vegantechnomad-interview/"},
+        {"title": "Life tracking / 2024 wrapped 数据盘", "type": "Reels", "note": "multi-million views 报道", "source": "https://stan.store/blog/jennifer-chou/"},
+        {"title": "Poop tracking / 8 年 poop count 梗", "type": "Newsletter+Reels", "note": "争议性 hook 破圈", "source": "https://vegantechnomad.beehiiv.com/p/from-poop-tracking-to-almost-getting-shot-my-story"},
+        {"title": "ADHD-friendly Ellie Planner / 手动计时", "type": "Reels", "note": "工具植入自然", "source": "https://www.theleap.co/blog/vegantechnomad-interview/"},
+        {"title": "Time tracking 24/7（戒 doomscroll）", "type": "tutorial", "note": "系统型信任", "source": "https://metricool.com/social-media-creator-hit-70k-followers-in-two-weeks/"}
+      ]
+    },
+    {
+      "id": "jade_bonacolta",
+      "handle": "Jade Bonacolta",
+      "platform_primary": "linkedin",
+      "region": "international",
+      "followers_approx": 300000,
+      "profile_urls": [
+        "https://www.linkedin.com/in/jadebonacolta/",
+        "https://meet.jadebonacolta.com/"
+      ],
+      "original_profession": "Google 全职；The Quiet Rich™ 创始人",
+      "why_learn_now": [
+        "**2023** 1k→30 万 LinkedIn（post-COVID 文字卷但可复制结构）",
+        "IG **0→7.3 万/6 个月**（2023）— 跨平台复制",
+        "「Quiet Rich」定位 — 非炫富 growth"
+      ],
+      "growth_path": [
+        {"phase": "起点", "when": "2023-01", "what": "约 1k 粉；imposter syndrome", "filming": "纯文字帖为主"},
+        {"phase": "爆发", "when": "2023", "what": "personal growth + productivity；12 个月 30 万 LinkedIn", "filming": "每日 tips +  vulnerable 开头"},
+        {"phase": "品牌", "when": "2023–2024", "what": "The Quiet Rich™ Newsletter 6 万+；TEDx", "filming": "一致美学+女性 growth 叙事"},
+        {"phase": "当下", "when": "2024–2026", "what": "教练、书出版洽谈；仍全职背景叙事", "filming": "story→lesson 编号体"}
+      ],
+      "hit_topics": [
+        {"title": "Personal growth daily tips（LinkedIn 系列）", "type": "text post", "note": "高频可扫", "source": "https://www.linkedin.com/in/jadebonacolta/"},
+        {"title": "300k milestone / 1 year growth 复盘帖", "type": "story", "note": "信任状+路径透明", "source": "https://www.linkedin.com/posts/jadebonacolta_300000-someone-asked-me-how-many-years-activity-7167155935109443585-mGJ2"},
+        {"title": "The Quiet Rich™ 财富观（非炫富）", "type": "newsletter+LI", "note": "差异化 positioning", "source": "https://meet.jadebonacolta.com/"},
+        {"title": "Ex-Google 身份 + 女性 creator 稀缺叙事", "type": "identity", "note": "背景一句不过度堆 credential", "source": "https://www.linkedin.com/in/jadebonacolta/"}
+      ]
+    },
+    {
+      "id": "lara_acosta",
+      "handle": "Lara Acosta",
+      "platform_primary": "linkedin",
+      "region": "international",
+      "followers_approx": 369000,
+      "profile_urls": [
+        "https://www.linkedin.com/in/laraacostar/",
+        "https://www.kleo.so/blog/lara-acosta"
+      ],
+      "original_profession": "2022 失业；曾健身 IG 3 万后删号重来",
+      "why_learn_now": [
+        "2022 从零 LinkedIn — **不是** 2020 居家 LinkedIn  boom 主受益者",
+        "复盘：**周 3 帖** 非日更仍到 30 万+ 跨社媒",
+        "Educational Storyteller — 英文 story→lesson 对表 Owner"
+      ],
+      "growth_path": [
+        {"phase": "失败尝试", "when": "2021–2022", "what": "dropshipping/健身 influencer 等", "filming": "分散、无定位"},
+        {"phase": "重启", "when": "2022-05", "what": "删 LinkedIn 换新号；story 帖", "filming": "2 周内首条 viral"},
+        {"phase": "agency", "when": "2023", "what": "LA Digital ghostwriting；#1 female LinkedIn creator 叙事", "filming": "personal branding 教学+自身示范"},
+        {"phase": "当下", "when": "2024–2026", "what": "Literally Academy；Forbes 30U30", "filming": "质量>数量；评论深耕"}
+      ],
+      "hit_topics": [
+        {"title": "Introduction / vulnerable 开头 story 帖", "type": "LinkedIn", "note": "单帖 33 万 impression 级（第三方复盘）", "source": "https://www.linkedin.com/posts/amcguire_my-team-and-i-spent-20-hours-analyzing-every-activity-7259565137273978880-eGvh"},
+        {"title": "Personal branding 编号 lesson 帖", "type": "carousel", "note": "Educational Storyteller", "source": "https://www.linkedin.com/in/laraacostar/"},
+        {"title": "Writing / storytelling for LinkedIn", "type": "教程向", "note": "与 Medium 互导", "source": "https://www.kleo.so/blog/lara-acosta"},
+        {"title": "Rock bottom / 100+ job rejections 叙事", "type": "story", "note": "情绪+转化", "source": "https://www.linkedin.com/posts/timothyarmoo_pov-you-went-from-0-to-300000-followers-activity-7406326043936047107-zcam"}
+      ]
+    },
+    {
+      "id": "nik_classical",
+      "handle": "@nik.classical",
+      "platform_primary": "instagram",
+      "region": "international",
+      "followers_approx": 449000,
+      "profile_urls": [
+        "https://www.instagram.com/nik.classical/",
+        "https://debut.org.uk/blog/2024/5/22/meet-nikclassical-a-man-on-a-mission-to-get-the-younger-generation-talking-about-classical-music"
+      ],
+      "original_profession": "伦敦学生钢琴；非国际独奏会明星",
+      "why_learn_now": [
+        "**2023-09 起号** — 音乐 adjacent 里最贴「专业但未 famous」",
+        "饱和期一年 ~45 万 — 证明仍可做但更难",
+        "卧室练琴 > 巡演 clip"
+      ],
+      "growth_path": [
+        {"phase": "起号", "when": "2023-09", "what": "TikTok/IG 同步；古典年轻化使命", "filming": "卧室、琴键特写、字幕科普"},
+        {"phase": "起量", "when": "2023–2024", "what": "一条一知识点；「古典可以酷」", "filming": "第一人称、无乐团背书堆"},
+        {"phase": "当下", "when": "2024–2026", "what": "~45 万；教育短 Reels 持续", "filming": "轻制作、高信息密度"}
+      ],
+      "hit_topics": [
+        {"title": "One classical fact / myth busting 单条", "type": "Reels", "note": "系列化模板", "source": "https://debut.org.uk/blog/2024/5/22/meet-nikclassical-a-man-on-a-mission-to-get-the-younger-generation-talking-about-classical-music"},
+        {"title": "Practice room / 学生练琴日常", "type": "Reels", "note": "真实场景", "source": "https://www.instagram.com/nik.classical/"},
+        {"title": "Composer / piece 入门钩子", "type": "Reels", "note": "科普+人格", "source": "https://www.instagram.com/nik.classical/"}
+      ]
+    },
+    {
+      "id": "yan_buxian",
+      "handle": "闫不闲",
+      "platform_primary": "xiaohongshu",
+      "region": "domestic_cn",
+      "followers_approx": 550000,
+      "profile_urls": [
+        "https://www.xiaohongshu.com/user/profile/65e9e0a50000000005028a8f",
+        "https://www.newrank.cn/article/detail/28282"
+      ],
+      "original_profession": "5 年软装设计师；2023 与 MCN 合作转自媒体",
+      "why_learn_now": [
+        "**2024** 重定位成功（KiKi 失败→电子闺蜜）",
+        "9 月涨粉榜 TOP；**非** COVID 居家手工 boom",
+        "系列人设「闺蜜给我做…」— 可类比 Owner 生活+听见"
+      ],
+      "growth_path": [
+        {"phase": "失败号", "when": "2023", "what": "KiKi宅家日常；大件改造 5 条 <400 粉", "filming": "500 元改卧室等，颗粒度重、无互动"},
+        {"phase": "第一条", "when": "2024-03", "what": "《闺蜜用卫生纸做玫瑰花》", "filming": "闺蜜对话+变废为宝"},
+        {"phase": "迭代", "when": "2024", "what": "电子闺蜜手工；半天可完成创意", "filming": "轻制作+情绪价值"},
+        {"phase": "超级爆款", "when": "2024-09", "what": "营销号式自我介绍帖；单月 +44 万粉报道", "filming": "整活 BGM+作品集锦"},
+        {"phase": "当下", "when": "2024–2026", "what": "55 万+；商单约 4 万/条报道", "filming": "创意>难度"}
+      ],
+      "hit_topics": [
+        {"title": "闺蜜用卫生纸做了一束玫瑰花，太绝了吧！", "type": "视频", "note": "账号首条起势", "source": "https://m.36kr.com/p/3003455056535303"},
+        {"title": "vocal！这么宝藏的手工博主终于被发现了！", "type": "自我介绍", "note": "阅读 1000 万+、涨粉 42 万报道", "source": "https://www.newrank.cn/article/detail/28282"},
+        {"title": "光影蝴蝶（彩纸贴窗）", "type": "视频", "note": "56 万赞藏报道", "source": "https://www.newrank.cn/article/detail/28282"},
+        {"title": "会飞的蝴蝶（纸盒+鱼线）", "type": "视频", "note": "12 万+赞藏", "source": "https://www.newrank.cn/article/detail/28282"},
+        {"title": "湿透卷纸→Dimoo 装饰画", "type": "视频", "note": "变废为宝+闺蜜线", "source": "https://www.newrank.cn/article/detail/28282"},
+        {"title": "破油纸伞→汉服云肩伞", "type": "video", "note": "大片感+修复情绪", "source": "https://www.newrank.cn/article/detail/28282"},
+        {"title": "贝壳烛台 / 外卖盒樱花吊灯 / 爱心面包时钟", "type": "系列", "note": "变废为宝模板", "source": "https://m.36kr.com/p/3003455056535303"},
+        {"title": "蝴蝶从音响飞出（情绪释放）", "type": "video", "note": "个人表达", "source": "https://www.newrank.cn/article/detail/28282"}
+      ]
+    },
+    {
+      "id": "linda",
+      "handle": "琳达不呆",
+      "platform_primary": "xiaohongshu",
+      "region": "domestic_cn",
+      "followers_approx": 810000,
+      "profile_urls": [
+        "https://www.xiaohongshu.com/search_result?keyword=琳达不呆",
+        "https://znyd.rednet.cn/content/646942/58/15200585.html"
+      ],
+      "original_profession": "哈工大本 + 上海交大硕；前 AI 算法工程师",
+      "why_learn_now": [
+        "副业验证→全职；**2024–25 出书** 固化方法论",
+        "反精英、真实感 — 饱和期小红书仍有效",
+        "算法思维+内容 — 可类比你双线 measurement"
+      ],
+      "growth_path": [
+        {"phase": "动机", "when": "2019+", "what": "职场抑郁；受同学旅行博主启发", "filming": "图文起步"},
+        {"phase": "副业", "when": "2020–2023", "what": "全职上班+碎片时间；一年 30 万粉阶段", "filming": "质朴封面、信息图"},
+        {"phase": "爆款", "when": "报道中", "what": "单条近 10 万涨粉；81 万累计", "filming": "定位表、踩坑复盘"},
+        {"phase": "当下", "when": "2024–2026", "what": "《普通人如何做小红书》书展；200+ 品牌合作报道", "filming": "战略+战术双讲"}
+      ],
+      "hit_topics": [
+        {"title": "七维定位表 / 四象限（喜欢×擅长）", "type": "图文", "note": "方法论招牌", "source": "https://www.xiaoyuzhoufm.com/episode/69777b82109824f9e1b29465"},
+        {"title": "反「女性成长」空标签→具体切口", "type": "观点", "note": "定位课代表", "source": "https://www.xiaoyuzhoufm.com/episode/69777b82109824f9e1b29465"},
+        {"title": "80% 粉来自 20% 内容（涨粉伪事件）", "type": "复盘", "note": "预期管理", "source": "https://www.xiaoyuzhoufm.com/episode/69777b82109824f9e1b29465"},
+        {"title": "普通人真实感 vs 精致 elite 笔记", "type": "趋势", "note": "平台阶段判断", "source": "https://www.xiaoyuzhoufm.com/episode/69777b82109824f9e1b29465"}
+      ]
+    },
+    {
+      "id": "duli_girl",
+      "handle": "独立女生进阶记",
+      "platform_primary": "xiaohongshu",
+      "region": "domestic_cn",
+      "followers_approx": 110000,
+      "profile_urls": [
+        "https://www.xiaohongshu.com/search_result?keyword=独立女生进阶记",
+        "https://www.yunyingpai.com/media/1027417.html"
+      ],
+      "original_profession": "独居女性向；图文赛道 **视频化** 二次起量",
+      "why_learn_now": [
+        "**2024–25** 48 条视频 11 万级 — 载体换代非 COVID 红利",
+        "火过选题换形式 — 听见/生活技能可借鉴",
+        "不露脸也可 IP 化"
+      ],
+      "growth_path": [
+        {"phase": "背景", "when": "2023–2024", "what": "「女生独立指南」图文已有爆款先例", "filming": "图文"},
+        {"phase": "视频化", "when": "2024–2025", "what": "同一需求改短视频；48 条 11 万粉报道", "filming": "不露脸、工具/生活场景"},
+        {"phase": "变现", "when": "2025", "what": "家居广天然植入（开关、花洒等）", "filming": "内容留广告位"}
+      ],
+      "hit_topics": [
+        {"title": "女生独立指南 · 独居修东西/生活技能", "type": "视频", "note": "图文爆款再包装", "source": "https://www.yunyingpai.com/media/1027417.html"},
+        {"title": "23 岁深漂独居女设计师 等 IP 标签反复出现", "type": "人设", "note": "提高抄袭门槛", "source": "https://www.yunyingpai.com/media/1027417.html"},
+        {"title": "独居安全 / 动手系列", "type": "系列", "note": "垂直需求池", "source": "https://www.yunyingpai.com/media/1027417.html"}
+      ]
+    },
+    {
+      "id": "jiang_dora",
+      "handle": "姜Dora在此",
+      "platform_primary": "xiaohongshu",
+      "region": "domestic_cn",
+      "followers_approx": 285000,
+      "cross_platform_approx": 2000000,
+      "profile_urls": [
+        "https://www.xiaohongshu.com/search_result?keyword=姜Dora在此",
+        "https://www.163.com/dy/article/J9I5OP2605566QRB.html"
+      ],
+      "original_profession": "二本翻译；在线教育/字节内容岗",
+      "why_learn_now": [
+        "部分 2021 B 站波 — **但 2022 后专注自有账号** 仍值得学",
+        "改行+访谈栏目 — 贴 Owner 叙事",
+        "教训：分散接活导致翻车 → 专注资产"
+      ],
+      "growth_path": [
+        {"phase": "最初", "when": "2021-08", "what": "B 站首条：考研失败/二本逆袭", "filming": "男友教剪映、在家口播"},
+        {"phase": "在职", "when": "2021–2022", "what": "字节；副业视频", "filming": "职场 wounds 单口"},
+        {"phase": "翻车", "when": "2022 上", "what": "IP 孵化/商单分散；粉丝骂断更", "filming": "质量波动"},
+        {"phase": "专注", "when": "2022 下", "what": "只做自己账号；加访谈栏目", "filming": "单口+对谈"},
+        {"phase": "当下", "when": "2023–2026", "what": "全网 200 万+；工作室化", "filming": "现象+判断聊天体"}
+      ],
+      "hit_topics": [
+        {"title": "考研失败第一年 / 二本两条逆袭路", "type": "B站单口", "note": "首条 10 万+播放级", "source": "https://www.163.com/dy/article/J9I5OP2605566QRB.html"},
+        {"title": "放下学历自卑", "type": "单口", "note": "情绪共鸣", "source": "https://www.163.com/dy/article/J9I5OP2605566QRB.html"},
+        {"title": "职场访谈（创始人/大佬）", "type": "访谈", "note": "栏目化记忆点", "source": "https://www.163.com/dy/article/J9I5OP2605566QRB.html"},
+        {"title": "时尚/社会现象长视频（破圈 6 万互动级报道在 GG 线；Dora 为职场平行）", "type": "长视频", "note": "单条大互动", "source": "https://www.163.com/dy/article/J9I5OP2605566QRB.html"}
+      ]
+    }
+  ]
+}

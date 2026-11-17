@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Owner 多通道交付 · XHS + LinkedIn · 2026-11-05</title>
+<style>
+  body { font-family: -apple-system, "PingFang SC", sans-serif; max-width: 960px; margin: 0 auto; padding: 24px; background: #f4f4f4; }
+  .banner { background: #0a7; color: #fff; padding: 16px; border-radius: 8px; margin-bottom: 20px; }
+  .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .card { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  .card button { margin-top: 8px; padding: 8px 12px; background: #111; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+  .thumb { width: 100%; border-radius: 6px; }
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; overflow: auto; }
+  .modal.open { display: flex; align-items: flex-start; justify-content: center; padding: 32px 16px; }
+  .modal-inner { background: #fff; max-width: 720px; width: 100%; padding: 24px; border-radius: 12px; position: relative; }
+  .modal-inner.wide { max-width: 840px; }
+  .close { position: absolute; right: 12px; top: 8px; font-size: 28px; border: none; background: none; cursor: pointer; }
+  .box { background: #f6f6f6; padding: 12px; border-radius: 6px; max-height: 55vh; overflow: auto; font-size: 0.92rem; line-height: 1.6; }
+  .hero { width: 100%; max-height: 360px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
+  a { color: #0645ad; }
+</style>
+</head>
+<body>
+<div class="banner">
+  <strong>Owner 多通道交付 · v2 商业展开</strong> · 重建 2026-11-05 12:47<br/>
+  打开即弹窗：小红书长稿 + LinkedIn 图文。Canva/生图资产在 <code>assets/2026-10-30-musicians-linkedin/</code>
+</div>
+
+<h1>世界不缺音乐家，缺的是还热爱音乐的人</h1>
+<p><a href="OWNER-XHS-FILTER-DELIVERABLE-2026-11-05.html#owner-latest">← 回到 FILTER 总页</a></p>
+
+<h2>小红书 · 长稿（v2 含商业课 + 可拍案例）</h2>
+<button onclick="openModal('modal-xhs')">弹出 · 小红书全文</button>
+
+<h2>LinkedIn · Carousel（EN · 4 slides + caption）</h2>
+<div class="cards">
+<article class="card">
+  <h3>Slide 1 · Supply vs seats</h3>
+  <img src="assets/2026-10-30-musicians-linkedin/linkedin-slide-01-supply-demand.jpg" alt="slide 1" class="thumb"/>
+  <p><strong>Conservatories scale output. Auditions don’t.</strong></p>
+  <button onclick="openModal('modal-li-1')">弹出 · LinkedIn Slide 1</button>
+</article>
+<article class="card" style="grid-column:1/-1">
+  <h3>Long caption</h3>
+  <button onclick="openModal('modal-li-cap')">弹出 · LinkedIn 正文</button>
+</article>
+</div>
+
+<div id="modal-xhs" class="modal" onclick="if(event.target===this)closeModal('modal-xhs')">
+  <div class="modal-inner wide">
+    <button class="close" onclick="closeModal('modal-xhs')">×</button>
+    <h2>小红书长稿 · Owner 发布版 v2</h2>
+    <div class="box"></div>
+  </div>
+</div>
+
+<div id="modal-li-cap" class="modal" onclick="if(event.target===this)closeModal('modal-li-cap')">
+  <div class="modal-inner wide">
+    <button class="close" onclick="closeModal('modal-li-cap')">×</button>
+    <h2>LinkedIn long caption</h2>
+    <div class="box">I’ve played the gig where the strings live behind a column and the client’s goal is “feel expensive.” I’ve also played where music is exhibit #0 on the route. Same dress code. Opposite outcomes.<br>
+<br>
+Conservatories graduate more musicians than the orchestra market can seat—that’s math. What hurts more is **hiring musicians to pretend you care about art** while the brief only specifies headcount and Canon.<br>
+<br>
+Three questions I ask before I say yes (steal them):<br>
+<br>
+1. Cocktail or **story**—which one are we buying?  <br>
+2. Is there a **15-second moment** PR can actually post?  <br>
+3. After teardown, can your staff **repeat one sentence** about what the music did?<br>
+<br>
+If you’re planning a launch or exhibition and want music in the journey—not the corner—DM **“brief”** with one line on your scene.</div>
+  </div>
+</div>
+
+<div id="modal-li-1" class="modal" onclick="if(event.target===this)closeModal('modal-li-1')">
+  <div class="modal-inner wide">
+    <button class="close" onclick="closeModal('modal-li-1')">×</button>
+    <img src="assets/2026-10-30-musicians-linkedin/linkedin-slide-01-supply-demand.jpg" class="hero"/>
+    <h2>Conservatories scale output. Auditions don’t.</h2>
+    <div class="box">You can practice until your hands shake—then a buyer asks: “How many players? Can you keep it quiet for cocktails?” That’s not a music brief. That’s wallpaper.</div>
+  </div>
+</div>
+
+<script>
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+(function() {
+  var h = (location.hash || '').replace(/^#/, '');
+  if (h === 'multichannel' || h === 'owner-latest') openModal('modal-xhs');
+  else openModal('modal-xhs');
+})();
+</script>
+</body>
+</html>

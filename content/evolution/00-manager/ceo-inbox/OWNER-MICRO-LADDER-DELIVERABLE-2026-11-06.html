@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>微步阶梯 · 点击每条看详解 · 2026-11-06</title>
+<style>
+:root { --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --green:#3fb950; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:"PingFang SC",system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.55; }
+.wrap { max-width:1280px; margin:0 auto; padding:20px 16px 64px; }
+h1 { font-size:1.35rem; margin:0 0 6px; }
+.lead { color:var(--muted); font-size:0.88rem; margin-bottom:12px; }
+.tab-intro { background:#0d1117; border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin-bottom:14px; font-size:0.88rem; }
+.tab-intro p { margin:0 0 8px; }
+nav.tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+nav.tabs button {
+  background:var(--panel); border:1px solid var(--border); color:var(--text);
+  padding:8px 14px; border-radius:8px; cursor:pointer; font-size:0.88rem;
+}
+nav.tabs button.active { border-color:var(--accent); color:var(--accent); }
+section.panel { display:none; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:18px; margin-bottom:16px; }
+section.panel.active { display:block; }
+.matrix-wrap { max-width:720px; margin:0 auto; aspect-ratio:1; }
+.matrix-wrap svg { width:100%; height:100%; }
+.owner-center circle { fill:#238636; stroke:#3fb950; stroke-width:3; }
+.bench-label, .pillar-label { fill:var(--text); font-size:9px; pointer-events:none; }
+.bench-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; margin-top:16px; }
+.bcard, .qcard {
+  text-align:left; cursor:pointer; background:#0d1117; border:1px solid var(--border);
+  border-radius:8px; padding:12px; color:inherit; width:100%;
+}
+.bcard:hover, .qcard:hover, .click-row:hover { border-color:var(--accent); }
+.bcard h4 { margin:0 0 6px; }
+.qcard { display:block; margin-bottom:10px; }
+.qnum { display:inline-block; background:#238636; color:#fff; width:28px; height:28px; line-height:28px; text-align:center; border-radius:50%; margin-right:8px; font-weight:700; }
+.open-hint { color:var(--accent); font-size:0.75rem; }
+table { width:100%; border-collapse:collapse; font-size:0.78rem; }
+th,td { border-bottom:1px solid var(--border); padding:8px 4px; text-align:left; vertical-align:top; }
+th { color:var(--muted); position:sticky; top:0; background:var(--panel); }
+.click-row { cursor:pointer; }
+.click-row:focus { outline:2px solid var(--accent); }
+.rank-btn { color:var(--accent); font-weight:700; text-decoration:underline; }
+.bar { display:inline-block; width:56px; height:6px; background:#21262d; border-radius:3px; vertical-align:middle; margin-right:4px; }
+.bar span { display:block; height:100%; background:linear-gradient(90deg,#238636,#58a6ff); border-radius:3px; }
+.fit-cell strong { color:var(--green); }
+.badge { font-size:0.68rem; padding:2px 6px; border-radius:4px; }
+.track-ip { background:#3d2a5f; color:#d2a8ff; }
+.track-fb { background:#4a3018; color:#ffa657; }
+.muted { color:var(--muted); font-size:0.75rem; }
+.step { display:flex; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+.step-open { flex:1; background:none; border:none; color:inherit; text-align:left; cursor:pointer; padding:0; font:inherit; }
+.step-open p.teaser { margin:6px 0 0; font-size:0.82rem; color:var(--muted); }
+.goal-box { background:#0d1117; border:1px solid var(--green); border-radius:8px; padding:12px; margin-bottom:14px; }
+.modal {
+  position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,.75);
+  display:flex; align-items:flex-start; justify-content:center; padding:20px 12px; overflow-y:auto;
+}
+.modal[hidden] { display:none !important; }
+.modal-inner {
+  background:var(--panel); border:1px solid var(--border); border-radius:14px;
+  max-width:720px; width:100%; padding:22px 24px 28px; position:relative;
+}
+.modal-close {
+  position:absolute; top:12px; right:14px; border:none; background:#21262d;
+  color:var(--text); font-size:1.4rem; width:36px; height:36px; border-radius:8px; cursor:pointer;
+}
+.modal h2 { margin:0 40px 12px 0; font-size:1.15rem; }
+.modal h3 { margin:16px 0 6px; font-size:0.95rem; color:#79c0ff; }
+.modal p { margin:0 0 10px; font-size:0.9rem; }
+.modal .sub, .modal .evidence { color:var(--muted); font-size:0.85rem; }
+.modal .rich ul, .modal .rich ol { margin:8px 0; padding-left:1.2rem; }
+footer { color:var(--muted); font-size:0.75rem; margin-top:24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 id="owner-latest">微步阶梯 · 点序号/标题/卡片看详解</h1>
+  <p class="lead">重建 2026-11-06 11:34:43 · Esc 关闭弹窗 · 勾选微步会保存在本机浏览器</p>
+  <div class="goal-box">
+    <strong>目标：</strong>先提视频量 → IP 名头持续 → FluteBuddy 收窄人群（产品可失败，IP 不停）<br/>
+    <strong>本周：</strong>发布 ≥5 · IP ≥3 · FB ≤2
+  </div>
+  <nav class="tabs">
+    <button type="button" class="active" data-tab="matrix">① 对标矩阵</button>
+    <button type="button" data-tab="translate">② 平移小视频</button>
+    <button type="button" data-tab="steps">③ 18 微步</button>
+    <button type="button" data-tab="queue">④ 本周顺序</button>
+  </nav>
+
+  <section id="tab-matrix" class="panel active">
+    <div class="tab-intro">
+<p><strong>这一页在干什么：</strong>帮你看清「谁和你经历像」以及「该学他们哪一块」，避免盲目抄顶流演奏家。</p>
+<p><strong>怎么读：</strong>点下方<strong>对标卡片</strong>或圆点上的名字 → 弹窗里有：他怎么起步、具体发什么、你怎么平移、不要学什么。</p>
+<p>线越粗 = 该博主在这根能力柱上越值得抄<strong>动作</strong>（不是抄人设）。</p>
+</div>
+    <div class="matrix-wrap">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        
+<line x1="50%" y1="50%" x2="50.00%" y2="12.00%"
+  stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+<line x1="50%" y1="50%" x2="82.00%" y2="28.00%"
+  stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+<line x1="50%" y1="50%" x2="18.00%" y2="28.00%"
+  stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+<line x1="50%" y1="50%" x2="50.00%" y2="88.00%"
+  stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+<line x1="50%" y1="50%" x2="88.00%" y2="62.00%"
+  stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+<line x1="50%" y1="50%" x2="12.00%" y2="62.00%"
+  stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+<line x1="50.03%" y1="12.00%" x2="82.00%" y2="28.00%"
+  stroke="#58a6ff" stroke-width="4.8" stroke-opacity="0.87"/>
+<line x1="50.03%" y1="12.00%" x2="50.00%" y2="88.00%"
+  stroke="#58a6ff" stroke-width="4.4" stroke-opacity="0.82"/>
+<line x1="50.03%" y1="12.00%" x2="88.00%" y2="62.00%"
+  stroke="#58a6ff" stroke-width="4.2" stroke-opacity="0.79"/>
+<line x1="66.51%" y1="15.77%" x2="50.00%" y2="88.00%"
+  stroke="#58a6ff" stroke-width="4.6" stroke-opacity="0.84"/>
+<line x1="66.51%" y1="15.77%" x2="88.00%" y2="62.00%"
+  stroke="#58a6ff" stroke-width="4.0" stroke-opacity="0.76"/>
+<line x1="66.51%" y1="15.77%" x2="18.00%" y2="28.00%"
+  stroke="#58a6ff" stroke-width="3.8" stroke-opacity="0.73"/>
+<line x1="79.72%" y1="26.32%" x2="50.00%" y2="12.00%"
+  stroke="#58a6ff" stroke-width="4.8" stroke-opacity="0.87"/>
+<line x1="79.72%" y1="26.32%" x2="18.00%" y2="28.00%"
+  stroke="#58a6ff" stroke-width="4.6" stroke-opacity="0.84"/>
+<line x1="79.72%" y1="26.32%" x2="50.00%" y2="88.00%"
+  stroke="#58a6ff" stroke-width="3.8" stroke-opacity="0.73"/>
+<line x1="87.05%" y1="41.55%" x2="18.00%" y2="28.00%"
+  stroke="#58a6ff" stroke-width="4.4" stroke-opacity="0.82"/>
+<line x1="87.05%" y1="41.55%" x2="50.00%" y2="12.00%"
+  stroke="#58a6ff" stroke-width="4.2" stroke-opacity="0.79"/>
+<line x1="87.05%" y1="41.55%" x2="82.00%" y2="28.00%"
+  stroke="#58a6ff" stroke-width="3.2" stroke-opacity="0.65"/>
+<line x1="87.05%" y1="58.45%" x2="50.00%" y2="88.00%"
+  stroke="#58a6ff" stroke-width="4.5" stroke-opacity="0.83"/>
+<line x1="87.05%" y1="58.45%" x2="88.00%" y2="62.00%"
+  stroke="#58a6ff" stroke-width="4.4" stroke-opacity="0.82"/>
+<line x1="87.05%" y1="58.45%" x2="82.00%" y2="28.00%"
+  stroke="#58a6ff" stroke-width="3.0" stroke-opacity="0.62"/>
+<line x1="79.72%" y1="73.68%" x2="88.00%" y2="62.00%"
+  stroke="#58a6ff" stroke-width="4.6" stroke-opacity="0.84"/>
+<line x1="79.72%" y1="73.68%" x2="50.00%" y2="88.00%"
+  stroke="#58a6ff" stroke-width="4.2" stroke-opacity="0.79"/>
+<line x1="79.72%" y1="73.68%" x2="50.00%" y2="12.00%"
+  stroke="#58a6ff" stroke-width="3.4" stroke-opacity="0.68"/>
+<line x1="66.51%" y1="84.23%" x2="50.00%" y2="88.00%"
+  stroke="#58a6ff" stroke-width="4.0" stroke-opacity="0.76"/>
+<line x1="66.51%" y1="84.23%" x2="12.00%" y2="62.00%"
+  stroke="#58a6ff" stroke-width="3.6" stroke-opacity="0.71"/>
+<line x1="66.51%" y1="84.23%" x2="50.00%" y2="12.00%"
+  stroke="#58a6ff" stroke-width="2.6" stroke-opacity="0.57"/>
+<g><rect x="44.00%" y="8.00%" width="12%" height="8%" rx="6" fill="#1f3a5f" stroke="#79c0ff"/>
+<text x="50.00%" y="12.00%" text-anchor="middle" dominant-baseline="middle" class="pillar-label">故事+判断</text></g>
+<g><rect x="76.00%" y="24.00%" width="12%" height="8%" rx="6" fill="#1f3a5f" stroke="#79c0ff"/>
+<text x="82.00%" y="28.00%" text-anchor="middle" dominant-baseline="middle" class="pillar-label">听见 60 秒</text></g>
+<g><rect x="12.00%" y="24.00%" width="12%" height="8%" rx="6" fill="#1f3a5f" stroke="#79c0ff"/>
+<text x="18.00%" y="28.00%" text-anchor="middle" dominant-baseline="middle" class="pillar-label">改行/IP 勇气</text></g>
+<g><rect x="44.00%" y="84.00%" width="12%" height="8%" rx="6" fill="#1f3a5f" stroke="#79c0ff"/>
+<text x="50.00%" y="88.00%" text-anchor="middle" dominant-baseline="middle" class="pillar-label">提量习惯</text></g>
+<g><rect x="82.00%" y="58.00%" width="12%" height="8%" rx="6" fill="#1f3a5f" stroke="#79c0ff"/>
+<text x="88.00%" y="62.00%" text-anchor="middle" dominant-baseline="middle" class="pillar-label">幕后活人感</text></g>
+<g><rect x="6.00%" y="58.00%" width="12%" height="8%" rx="6" fill="#1f3a5f" stroke="#79c0ff"/>
+<text x="12.00%" y="62.00%" text-anchor="middle" dominant-baseline="middle" class="pillar-label">FluteBuddy 收窄</text></g>
+        <g class="owner-center"><circle cx="50%" cy="50%" r="32"/><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="11px">你</text></g>
+        
+<g class="bench-node" data-open="bench-nik" role="button" tabindex="0" style="cursor:pointer">
+  <circle cx="50.03%" cy="12.00%" r="28" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="50.03%" y="12.00%" text-anchor="middle" dominant-baseline="middle" class="bench-label">@nik.class</text>
+</g>
+<g class="bench-node" data-open="bench-ali" role="button" tabindex="0" style="cursor:pointer">
+  <circle cx="66.51%" cy="15.77%" r="28" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="66.51%" y="15.77%" text-anchor="middle" dominant-baseline="middle" class="bench-label">@aliabdaal</text>
+</g>
+<g class="bench-node" data-open="bench-colin" role="button" tabindex="0" style="cursor:pointer">
+  <circle cx="79.72%" cy="26.32%" r="28" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="79.72%" y="26.32%" text-anchor="middle" dominant-baseline="middle" class="bench-label">@careercol</text>
+</g>
+<g class="bench-node" data-open="bench-jiang_dora" role="button" tabindex="0" style="cursor:pointer">
+  <circle cx="87.05%" cy="41.55%" r="28" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="87.05%" y="41.55%" text-anchor="middle" dominant-baseline="middle" class="bench-label">姜 Dora</text>
+</g>
+<g class="bench-node" data-open="bench-yan_buxian" role="button" tabindex="0" style="cursor:pointer">
+  <circle cx="87.05%" cy="58.45%" r="28" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="87.05%" y="58.45%" text-anchor="middle" dominant-baseline="middle" class="bench-label">闫不闲</text>
+</g>
+<g class="bench-node" data-open="bench-jade_classical" role="button" tabindex="0" style="cursor:pointer">
+  <circle cx="79.72%" cy="73.68%" r="28" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="79.72%" y="73.68%" text-anchor="middle" dominant-baseline="middle" class="bench-label">西大调米小调 </text>
+</g>
+<g class="bench-node" data-open="bench-piano_teacher_case" role="button" tabindex="0" style="cursor:pointer">
+  <circle cx="66.51%" cy="84.23%" r="28" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+  <text x="66.51%" y="84.23%" text-anchor="middle" dominant-baseline="middle" class="bench-label">钢琴老师素人案例</text>
+</g>
+      </svg>
+    </div>
+    <div class="bench-grid"><button type="button" class="bcard" data-open="bench-nik">
+<h4>@nik.classical</h4>
+<p class="muted">国际 · 音乐专业·非巡演明星·2023 饱和期起号</p>
+<p class="open-hint">点击查看：怎么做的 · 怎么平移</p>
+</button><button type="button" class="bcard" data-open="bench-ali">
+<h4>@aliabdaal</h4>
+<p class="muted">国际 · 长周期专业·副业堆量再 pivot</p>
+<p class="open-hint">点击查看：怎么做的 · 怎么平移</p>
+</button><button type="button" class="bcard" data-open="bench-colin">
+<h4>@careercolin</h4>
+<p class="muted">国际 · 改行·无 elite title 主钩子</p>
+<p class="open-hint">点击查看：怎么做的 · 怎么平移</p>
+</button><button type="button" class="bcard" data-open="bench-jiang_dora">
+<h4>姜 Dora</h4>
+<p class="muted">国内 · 普通人改行·访谈栏目</p>
+<p class="open-hint">点击查看：怎么做的 · 怎么平移</p>
+</button><button type="button" class="bcard" data-open="bench-yan_buxian">
+<h4>闫不闲</h4>
+<p class="muted">国内 · 失败 pivot·系列名·轻制作</p>
+<p class="open-hint">点击查看：怎么做的 · 怎么平移</p>
+</button><button type="button" class="bcard" data-open="bench-jade_classical">
+<h4>西大调米小调 / Jade</h4>
+<p class="muted">国内 · 古典圈内·稳定更新·活人感</p>
+<p class="open-hint">点击查看：怎么做的 · 怎么平移</p>
+</button><button type="button" class="bcard" data-open="bench-piano_teacher_case">
+<h4>钢琴老师素人案例</h4>
+<p class="muted">国内 · 粉丝规模接近·窄选题破千</p>
+<p class="open-hint">点击查看：怎么做的 · 怎么平移</p>
+</button></div>
+  </section>
+
+  <section id="tab-translate" class="panel">
+    <div class="tab-intro">
+<p><strong>这一页在干什么：</strong>把大 V 的「一条小视频」拆成你能发的版本，并用分数说明<strong>为什么适合你现在</strong>。</p>
+<p><strong>怎么读：</strong>点每一行左侧的<strong>序号或标题</strong> → 弹窗里有：对标原片长什么样、你为什么适合、分镜怎么拍、口播开头、常见踩坑。</p>
+<p>平移综合分 = 经历像 35% + 你的后台数据 35% + 好拍 15% + 提量优先 15%。</p>
+</div>
+    <div class="filter">
+      <button type="button" data-filter="all">全部</button>
+      <button type="button" data-filter="IP">只看 IP</button>
+      <button type="button" data-filter="FB">只看 FB</button>
+    </div>
+    <div style="overflow-x:auto">
+    <table id="fit-table">
+      <tr><th>#</th><th>标题（可点）</th><th>对标</th><th>轨</th><th>综合</th><th>经历</th><th>数据</th><th>好拍</th><th>提量</th><th>依据</th></tr>
+      <tr class="click-row" data-open="mv-mv_colin_layoff_scene" data-track="IP" tabindex="0">
+<td><span class="rank-btn">1</span></td>
+<td><strong>走廊收笛，家长问「还要走这条路吗」</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">一条一场景 · 竖屏 story · layoff/networking</span></td>
+<td>colin</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>89</strong></td>
+<td><div class="bar"><span style="width:88%"></span></div><span class="num">88</span></td>
+<td><div class="bar"><span style="width:92%"></span></div><span class="num">92</span></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td><div class="bar"><span style="width:90%"></span></div><span class="num">90</span></td>
+<td class="note">泰斗/考场类涨粉 210–282</td>
+</tr><tr class="click-row" data-open="mv-mv_owner_taidou" data-track="IP" tabindex="0">
+<td><span class="rank-btn">2</span></td>
+<td><strong>再拍一条「泰斗型」新 moment（不洗稿）</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">moment + 判断（你已有 S 级结构）</span></td>
+<td>colin</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>87</strong></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td><div class="bar"><span style="width:98%"></span></div><span class="num">98</span></td>
+<td><div class="bar"><span style="width:70%"></span></div><span class="num">70</span></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td class="note">收藏212 涨粉282 完播12.4%</td>
+</tr><tr class="click-row" data-open="mv-mv_owner_kaochang" data-track="IP" tabindex="0">
+<td><span class="rank-btn">3</span></td>
+<td><strong>再拍一条「考场/行业剧本」新题</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">场景 micro-drama + 反常识</span></td>
+<td>jiang_dora</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>84</strong></td>
+<td><div class="bar"><span style="width:82%"></span></div><span class="num">82</span></td>
+<td><div class="bar"><span style="width:90%"></span></div><span class="num">90</span></td>
+<td><div class="bar"><span style="width:75%"></span></div><span class="num">75</span></td>
+<td><div class="bar"><span style="width:82%"></span></div><span class="num">82</span></td>
+<td class="note">考场剧本 涨粉210</td>
+</tr><tr class="click-row" data-open="mv-mv_owner_mockery_fix" data-track="IP" tabindex="0">
+<td><span class="rank-btn">4</span></td>
+<td><strong>嘲讽/争议类 · 改完播版</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">争议 hook · 第4秒接价值</span></td>
+<td>colin</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>81</strong></td>
+<td><div class="bar"><span style="width:78%"></span></div><span class="num">78</span></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td><div class="bar"><span style="width:80%"></span></div><span class="num">80</span></td>
+<td><div class="bar"><span style="width:78%"></span></div><span class="num">78</span></td>
+<td class="note">CTR14.6% 完播1.8% 需修结构</td>
+</tr><tr class="click-row" data-open="mv-mv_ip_insurance" data-track="IP" tabindex="0">
+<td><span class="rank-btn">5</span></td>
+<td><strong>FluteBuddy 没走下去，我还会发这些</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">改行坦诚 · vulnerable</span></td>
+<td>colin</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>81</strong></td>
+<td><div class="bar"><span style="width:90%"></span></div><span class="num">90</span></td>
+<td><div class="bar"><span style="width:75%"></span></div><span class="num">75</span></td>
+<td><div class="bar"><span style="width:82%"></span></div><span class="num">82</span></td>
+<td><div class="bar"><span style="width:70%"></span></div><span class="num">70</span></td>
+<td class="note">IP 保险绳 · 目标对齐</td>
+</tr><tr class="click-row" data-open="mv-mv_nik_one_fact" data-track="IP" tabindex="0">
+<td><span class="rank-btn">6</span></td>
+<td><strong>听见 60 秒：慢乐章为什么不能「拖」</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">卧室 · 一条一知识点 · 字幕 hook</span></td>
+<td>nik</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>80</strong></td>
+<td><div class="bar"><span style="width:95%"></span></div><span class="num">95</span></td>
+<td><div class="bar"><span style="width:55%"></span></div><span class="num">55</span></td>
+<td><div class="bar"><span style="width:90%"></span></div><span class="num">90</span></td>
+<td><div class="bar"><span style="width:95%"></span></div><span class="num">95</span></td>
+<td class="note">技巧帖偏低 · 需包在听见栏目</td>
+</tr><tr class="click-row" data-open="mv-mv_yan_self_talk" data-track="IP" tabindex="0">
+<td><span class="rank-btn">7</span></td>
+<td><strong>练完问你：今天最想逃哪一小节</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">闺蜜/自问自答 · 半天拍完 · 系列名</span></td>
+<td>yan_buxian</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>80</strong></td>
+<td><div class="bar"><span style="width:80%"></span></div><span class="num">80</span></td>
+<td><div class="bar"><span style="width:70%"></span></div><span class="num">70</span></td>
+<td><div class="bar"><span style="width:92%"></span></div><span class="num">92</span></td>
+<td><div class="bar"><span style="width:88%"></span></div><span class="num">88</span></td>
+<td class="note">需固定栏目名提识别</td>
+</tr><tr class="click-row" data-open="mv-mv_nik_story_technique" data-track="IP" tabindex="0">
+<td><span class="rank-btn">8</span></td>
+<td><strong>双吐不是炫技，是气先到位</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">故事里带一点技巧</span></td>
+<td>nik</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>79</strong></td>
+<td><div class="bar"><span style="width:88%"></span></div><span class="num">88</span></td>
+<td><div class="bar"><span style="width:72%"></span></div><span class="num">72</span></td>
+<td><div class="bar"><span style="width:80%"></span></div><span class="num">80</span></td>
+<td><div class="bar"><span style="width:75%"></span></div><span class="num">75</span></td>
+<td class="note">技巧 C 梯队升级写法</td>
+</tr><tr class="click-row" data-open="mv-mv_data_recap" data-track="IP" tabindex="0">
+<td><span class="rank-btn">9</span></td>
+<td><strong>23 条里只有 3 类在帮我涨粉</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">复盘一条 · 对着数据</span></td>
+<td>ali</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>77</strong></td>
+<td><div class="bar"><span style="width:65%"></span></div><span class="num">65</span></td>
+<td><div class="bar"><span style="width:95%"></span></div><span class="num">95</span></td>
+<td><div class="bar"><span style="width:78%"></span></div><span class="num">78</span></td>
+<td><div class="bar"><span style="width:65%"></span></div><span class="num">65</span></td>
+<td class="note">Drive 表 · 信任状</td>
+</tr><tr class="click-row" data-open="mv-mv_yan_first_rose" data-track="IP" tabindex="0">
+<td><span class="rank-btn">10</span></td>
+<td><strong>栏目首发：听见 60 秒 #001</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">系列第一条 · 轻制作</span></td>
+<td>yan_buxian</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>75</strong></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td><div class="bar"><span style="width:50%"></span></div><span class="num">50</span></td>
+<td><div class="bar"><span style="width:88%"></span></div><span class="num">88</span></td>
+<td><div class="bar"><span style="width:94%"></span></div><span class="num">94</span></td>
+<td class="note">定栏目名后第一条</td>
+</tr><tr class="click-row" data-open="mv-mv_artists_short" data-track="IP" tabindex="0">
+<td><span class="rank-btn">11</span></td>
+<td><strong>不需要那么多艺术家（口播短版）</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">现象+判断 · 文化口播</span></td>
+<td>jiang_dora</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>74</strong></td>
+<td><div class="bar"><span style="width:75%"></span></div><span class="num">75</span></td>
+<td><div class="bar"><span style="width:65%"></span></div><span class="num">65</span></td>
+<td><div class="bar"><span style="width:88%"></span></div><span class="num">88</span></td>
+<td><div class="bar"><span style="width:80%"></span></div><span class="num">80</span></td>
+<td class="note">11-03 三平台稿已有 · 剪短即发</td>
+</tr><tr class="click-row" data-open="mv-mv_ali_desk" data-track="IP" tabindex="0">
+<td><span class="rank-btn">12</span></td>
+<td><strong>改作业到11点：先节奏后音准</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">书桌幕后 · 专业背景一句</span></td>
+<td>ali</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>74</strong></td>
+<td><div class="bar"><span style="width:80%"></span></div><span class="num">80</span></td>
+<td><div class="bar"><span style="width:58%"></span></div><span class="num">58</span></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td><div class="bar"><span style="width:86%"></span></div><span class="num">86</span></td>
+<td class="note">提量友好 · 建信任</td>
+</tr><tr class="click-row" data-open="mv-mv_jade_forgot" data-track="IP" tabindex="0">
+<td><span class="rank-btn">13</span></td>
+<td><strong>忘带___，用 X 顶替上台前</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">幕后翻车 15–20s（房卡拨片梗）</span></td>
+<td>jade_classical</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>73</strong></td>
+<td><div class="bar"><span style="width:78%"></span></div><span class="num">78</span></td>
+<td><div class="bar"><span style="width:50%"></span></div><span class="num">50</span></td>
+<td><div class="bar"><span style="width:95%"></span></div><span class="num">95</span></td>
+<td><div class="bar"><span style="width:92%"></span></div><span class="num">92</span></td>
+<td class="note">极低门槛提量</td>
+</tr><tr class="click-row" data-open="mv-mv_genius_g_live" data-track="IP" tabindex="0">
+<td><span class="rank-btn">14</span></td>
+<td><strong>live 写进揭幕 vs 放 BGM 差在哪</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">现象+你的判断</span></td>
+<td>jiang_dora</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>68</strong></td>
+<td><div class="bar"><span style="width:72%"></span></div><span class="num">72</span></td>
+<td><div class="bar"><span style="width:60%"></span></div><span class="num">60</span></td>
+<td><div class="bar"><span style="width:75%"></span></div><span class="num">75</span></td>
+<td><div class="bar"><span style="width:72%"></span></div><span class="num">72</span></td>
+<td class="note">discovery 队列可改短</td>
+</tr><tr class="click-row" data-open="mv-mv_life_suitcase" data-track="IP" tabindex="0">
+<td><span class="rank-btn">15</span></td>
+<td><strong>出差回来琴盒味道怎么处理</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">生活微痛点 · 第一视角</span></td>
+<td>yan_buxian</td>
+<td><span class="badge track-ip">IP</span></td>
+<td class="fit-cell"><strong>67</strong></td>
+<td><div class="bar"><span style="width:70%"></span></div><span class="num">70</span></td>
+<td><div class="bar"><span style="width:45%"></span></div><span class="num">45</span></td>
+<td><div class="bar"><span style="width:90%"></span></div><span class="num">90</span></td>
+<td><div class="bar"><span style="width:88%"></span></div><span class="num">88</span></td>
+<td class="note">多维 IP · 非技巧</td>
+</tr><tr class="click-row" data-open="mv-mv_fb_parent" data-track="FB" tabindex="0">
+<td><span class="rank-btn">16</span></td>
+<td><strong>长笛家长：你不需要当裁判</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">窄痛点干货 · 精准筛人</span></td>
+<td>piano_teacher_case</td>
+<td><span class="badge track-fb">FB</span></td>
+<td class="fit-cell"><strong>61</strong></td>
+<td><div class="bar"><span style="width:60%"></span></div><span class="num">60</span></td>
+<td><div class="bar"><span style="width:40%"></span></div><span class="num">40</span></td>
+<td><div class="bar"><span style="width:90%"></span></div><span class="num">90</span></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td class="note">已拍 · 待发 · FB#2</td>
+</tr><tr class="click-row" data-open="mv-mv_fb_machine" data-track="FB" tabindex="0">
+<td><span class="rank-btn">17</span></td>
+<td><strong>机器能判错音节奏，判不了音乐性</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">边界对照表</span></td>
+<td>piano_teacher_case</td>
+<td><span class="badge track-fb">FB</span></td>
+<td class="fit-cell"><strong>60</strong></td>
+<td><div class="bar"><span style="width:62%"></span></div><span class="num">62</span></td>
+<td><div class="bar"><span style="width:38%"></span></div><span class="num">38</span></td>
+<td><div class="bar"><span style="width:85%"></span></div><span class="num">85</span></td>
+<td><div class="bar"><span style="width:80%"></span></div><span class="num">80</span></td>
+<td class="note">已拍 · FB#3</td>
+</tr><tr class="click-row" data-open="mv-mv_fb_waitlist" data-track="FB" tabindex="0">
+<td><span class="rank-btn">18</span></td>
+<td><strong>FluteBuddy 内测 40 组 PDF+录音</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">转化 · 三问 CTA</span></td>
+<td>piano_teacher_case</td>
+<td><span class="badge track-fb">FB</span></td>
+<td class="fit-cell"><strong>55</strong></td>
+<td><div class="bar"><span style="width:55%"></span></div><span class="num">55</span></td>
+<td><div class="bar"><span style="width:30%"></span></div><span class="num">30</span></td>
+<td><div class="bar"><span style="width:88%"></span></div><span class="num">88</span></td>
+<td><div class="bar"><span style="width:82%"></span></div><span class="num">82</span></td>
+<td class="note">FB#5 · 本周建议发</td>
+</tr><tr class="click-row" data-open="mv-mv_fb_evidence" data-track="FB" tabindex="0">
+<td><span class="rank-btn">19</span></td>
+<td><strong>练完不敢问老师？先看这三处扣分</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">录屏证据片</span></td>
+<td>piano_teacher_case</td>
+<td><span class="badge track-fb">FB</span></td>
+<td class="fit-cell"><strong>54</strong></td>
+<td><div class="bar"><span style="width:58%"></span></div><span class="num">58</span></td>
+<td><div class="bar"><span style="width:35%"></span></div><span class="num">35</span></td>
+<td><div class="bar"><span style="width:70%"></span></div><span class="num">70</span></td>
+<td><div class="bar"><span style="width:75%"></span></div><span class="num">75</span></td>
+<td class="note">已拍 · 置顶候选 FB#1</td>
+</tr><tr class="click-row" data-open="mv-mv_fb_teacher" data-track="FB" tabindex="0">
+<td><span class="rank-btn">20</span></td>
+<td><strong>长笛老师：带「第几小节」来上课</strong>
+  <span class="open-hint">点击看：怎么拍 · 口播 · 分镜</span><br/>
+  <span class="muted">老师向 B2B2C</span></td>
+<td>piano_teacher_case</td>
+<td><span class="badge track-fb">FB</span></td>
+<td class="fit-cell"><strong>48</strong></td>
+<td><div class="bar"><span style="width:50%"></span></div><span class="num">50</span></td>
+<td><div class="bar"><span style="width:28%"></span></div><span class="num">28</span></td>
+<td><div class="bar"><span style="width:80%"></span></div><span class="num">80</span></td>
+<td><div class="bar"><span style="width:60%"></span></div><span class="num">60</span></td>
+<td class="note">待拍 FB#4</td>
+</tr>
+    </table>
+    </div>
+  </section>
+
+  <section id="tab-steps" class="panel">
+    <div class="tab-intro">
+<p><strong>这一页在干什么：</strong>把「个人 IP」拆成 18 个<strong>今天就能做</strong>的小动作，降低畏难。</p>
+<p><strong>怎么读：</strong>左侧勾选 = 做完打勾（会保存在浏览器）。点<strong>标题</strong> → 弹窗里有：为什么要做、具体怎么做、怎样算完成、大概花多久。</p>
+</div>
+    
+<div class="step" data-block="1">
+  <input type="checkbox" data-step-id="s01" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s01">
+    <strong>定栏目名（听见60秒 / 练完问你一句）</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">写进简介一行 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="1">
+  <input type="checkbox" data-step-id="s02" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s02">
+    <strong>拍满 7 条库存（已有3 + 再拍4）</strong>
+    <span class="badge track-双轨">双轨</span>
+    <p class="teaser">见平移表高 fit 优先 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="1">
+  <input type="checkbox" data-step-id="s03" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s03">
+    <strong>封面模板固定</strong>
+    <span class="badge track-双轨">双轨</span>
+    <p class="teaser">脸或琴键 + 6字 hook — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="1">
+  <input type="checkbox" data-step-id="s04" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s04">
+    <strong>发第 1 条不纠结</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">选最容易开口 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="1">
+  <input type="checkbox" data-step-id="s05" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s05">
+    <strong>连发 3 条/3 天</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">提量过心理关 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="1">
+  <input type="checkbox" data-step-id="s06" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s06">
+    <strong>补拍 FluteBuddy #4 老师向</strong>
+    <span class="badge track-fb">FB</span>
+    <p class="teaser">flutebuddy-xhs-videos.json — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="1">
+  <input type="checkbox" data-step-id="s07" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s07">
+    <strong>发完更新 Drive + 同步</strong>
+    <span class="badge track-数据">数据</span>
+    <p class="teaser">sync-owner-xhs-data-from-drive.sh — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="2">
+  <input type="checkbox" data-step-id="s08" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s08">
+    <strong>每周 5 IP : ≤2 FB</strong>
+    <span class="badge track-双轨">双轨</span>
+    <p class="teaser">写进日历 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="2">
+  <input type="checkbox" data-step-id="s09" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s09">
+    <strong>IP 轨不硬口播产品</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">最多结尾一句实验 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="2">
+  <input type="checkbox" data-step-id="s10" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s10">
+    <strong>FB 轨三问 CTA</strong>
+    <span class="badge track-fb">FB</span>
+    <p class="teaser">水平/谱/录音 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="2">
+  <input type="checkbox" data-step-id="s11" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s11">
+    <strong>置顶只留 FB 证据片</strong>
+    <span class="badge track-fb">FB</span>
+    <p class="teaser">IP 放合集 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="2">
+  <input type="checkbox" data-step-id="s12" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s12">
+    <strong>简介两行分工</strong>
+    <span class="badge track-双轨">双轨</span>
+    <p class="teaser">张丹瀛+听见 / FluteBuddy — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="3">
+  <input type="checkbox" data-step-id="s13" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s13">
+    <strong>再拍泰斗型</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">新 moment — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="3">
+  <input type="checkbox" data-step-id="s14" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s14">
+    <strong>再拍考场型</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">新场景 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="3">
+  <input type="checkbox" data-step-id="s15" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s15">
+    <strong>改发嘲讽型（第4秒价值）</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">修完播 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="3">
+  <input type="checkbox" data-step-id="s16" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s16">
+    <strong>发艺术家口播短版</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">11-03 稿剪短 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="3">
+  <input type="checkbox" data-step-id="s17" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s17">
+    <strong>发判断权短版</strong>
+    <span class="badge track-ip">IP</span>
+    <p class="teaser">对齐收藏62结构 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+<div class="step" data-block="3">
+  <input type="checkbox" data-step-id="s18" aria-label="完成"/>
+  <button type="button" class="step-open" data-open="step-s18">
+    <strong>复盘 3 个数字</strong>
+    <span class="badge track-数据">数据</span>
+    <p class="teaser">发布数/最高涨粉/平均完播 — <span class="open-hint">点击看完整说明</span></p>
+  </button>
+</div>
+  </section>
+
+  <section id="tab-queue" class="panel">
+    <div class="tab-intro">
+<p><strong>这一页在干什么：</strong>本周先发什么、后补什么——<strong>量先上去</strong>，IP 和 FluteBuddy 不打架。</p>
+<p><strong>怎么读：</strong>点下面 4 张卡片 → 每张里有：包含哪些题、每天建议、和双轨比例、发完要做什么。</p>
+</div>
+    <button type="button" class="qcard" data-open="queue-q1">
+<span class="qnum">1</span>
+<strong>第 1 步 · 先把已拍库存发出去（FluteBuddy 为主）</strong>
+<p class="open-hint">点击展开本周怎么做</p>
+</button><button type="button" class="qcard" data-open="queue-q2">
+<span class="qnum">2</span>
+<strong>第 2 步 · IP 提量 TOP3（平移综合最高、好拍）</strong>
+<p class="open-hint">点击展开本周怎么做</p>
+</button><button type="button" class="qcard" data-open="queue-q3">
+<span class="qnum">3</span>
+<strong>第 3 步 · 复制你自己的 S 级数据结构</strong>
+<p class="open-hint">点击展开本周怎么做</p>
+</button><button type="button" class="qcard" data-open="queue-q4">
+<span class="qnum">4</span>
+<strong>第 4 步 · 闭环与下周菜单</strong>
+<p class="open-hint">点击展开本周怎么做</p>
+</button>
+  </section>
+  <footer>build: build-owner-micro-ladder-html.py · expand: owner_micro_ladder_expand.py</footer>
+</div>
+
+<div id="modal-bench-nik" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="bench-nik">×</button>
+    <h2>@nik.classical</h2>
+    <p class="sub">国际 · 音乐专业·非巡演明星·2023 饱和期起号</p>
+    <h3>和你哪里像</h3><p>伦敦学生钢琴，2023 年在饱和期起号，靠卧室练琴而不是巡演 clip。专业训练有，但不是「国际独奏明星发演出片段」那条路。</p><h3>他具体怎么发</h3><p>竖屏 Reels/TikTok 同步；一条一个古典小知识或 myth；字幕大 hook；琴键特写+第一人称；更新频率高、制作轻。</p><h3>你该抄什么</h3><p>「听见 60 秒」栏目：60s 内一个听觉点+一句人话；真实琴房；一条一事；先量后精。</p><h3>不要抄什么</h3><p>不要堆「年轻古典使命」空口号；不要只做冷知识不露出你是谁。</p><h3>平移到你</h3><p>封面：琴键或侧脸+6字；开头：「今天听见一句——」；结尾：「你最近一次把一首曲子听完是什么时候？」</p>
+  </div>
+</div>
+<div id="modal-bench-ali" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="bench-ali">×</button>
+    <h2>@aliabdaal</h2>
+    <p class="sub">国际 · 长周期专业·副业堆量再 pivot</p>
+    <h3>和你哪里像</h3><p>住院医长周期专业，2017 起侧翼视频，副业堆量多年后 pivot；专业是背景不是每句都在职称。</p><h3>他具体怎么发</h3><p>同一书桌/脸；短于 10 分钟；一段一 actionable tip；幕后「熬夜剪片/改作业」类极多。</p><h3>你该抄什么</h3><p>「改作业到11点」式幕后；每周 2 条练/教真实场景 + 1 条非音乐生活。</p><h3>不要抄什么</h3><p>不要抄 doctor 身份当主钩子；不要一上来就课程转化。</p><h3>平移到你</h3><p>镜头对准谱+桌面；口播：「我先听节奏再听音准——因为……」；专业只一句「法派长笛教学」。</p>
+  </div>
+</div>
+<div id="modal-bench-colin" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="bench-colin">×</button>
+    <h2>@careercolin</h2>
+    <p class="sub">国际 · 改行·无 elite title 主钩子</p>
+    <h3>和你哪里像</h3><p>咨询/职场出身改行做 IP，不用投行 title 当钩子；layoff、first-gen 故事。</p><h3>他具体怎么发</h3><p>一条=一个具体场景（被裁、活动 networking）；竖屏 talking head；caption 先故事后 lesson。</p><h3>你该抄什么</h3><p>你后台 S 级「泰斗/考场/嘲讽」同一结构：3 秒 moment → 判断句 → 收藏/聊聊。</p><h3>不要抄什么</h3><p>不要抄 elite career 叙事；不要每条都「教做人」无场景。</p><h3>平移到你</h3><p>例：走廊收笛+家长一问；45s；最后：「专业这条路，我会用内容继续说话，不靠头衔。」</p>
+  </div>
+</div>
+<div id="modal-bench-jiang_dora" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="bench-jiang_dora">×</button>
+    <h2>姜 Dora</h2>
+    <p class="sub">国内 · 普通人改行·访谈栏目</p>
+    <h3>和你哪里像</h3><p>二本/普通背景改行；大厂内容岗→全职；访谈栏目资产。</p><h3>他具体怎么发</h3><p>单口+访谈双框；一条一职场/人生判断；真实 wounds；失败副业再收窄。</p><h3>你该抄什么</h3><p>现象+判断（演出/live/文化现场）；可把听见写成「文化现场」不是考级。</p><h3>不要抄什么</h3><p>不要抄大厂离职神话；不要访谈没有观点。</p><h3>平移到你</h3><p>「live 写进揭幕 vs BGM」类；或听见+问学生/观众一句真话。</p>
+  </div>
+</div>
+<div id="modal-bench-yan_buxian" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="bench-yan_buxian">×</button>
+    <h2>闫不闲</h2>
+    <p class="sub">国内 · 失败 pivot·系列名·轻制作</p>
+    <h3>和你哪里像</h3><p>先失败再 pivot；2024 重定位；系列人设；轻制作半天可拍完。</p><h3>他具体怎么发</h3><p>固定系列名；闺蜜/对话体；变废为宝低门槛；第一条决定栏目调性。</p><h3>你该抄什么</h3><p>栏目首发 #001；自问自答「练完问你一句」；生活微痛点 15–30s。</p><h3>不要抄什么</h3><p>不要抄手工赛道；不要第一条就高难度制作。</p><h3>平移到你</h3><p>简介写死栏目名；每条标题带 #听见60秒 或系列编号。</p>
+  </div>
+</div>
+<div id="modal-bench-jade_classical" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="bench-jade_classical">×</button>
+    <h2>西大调米小调 / Jade</h2>
+    <p class="sub">国内 · 古典圈内·稳定更新·活人感</p>
+    <h3>和你哪里像</h3><p>古典圈内人做营销/社群，不是顶流演奏家本人；强调活人感、稳定更新。</p><h3>他具体怎么发</h3><p>小场笔记、业余钢琴社群；严肃≠古板；幕后翻车也发（行业报道：房卡当拨片）。</p><h3>你该抄什么</h3><p>15–20s 幕后；稳定更新量；跨行业视角讲「圈内习以为常的事」。</p><h3>不要抄什么</h3><p>不要只发正式演出海报；不要官方腔。</p><h3>平移到你</h3><p>忘带谱/拨片/配件 substitution 小故事；一条一囧 moment。</p>
+  </div>
+</div>
+<div id="modal-bench-piano_teacher_case" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="bench-piano_teacher_case">×</button>
+    <h2>钢琴老师素人案例</h2>
+    <p class="sub">国内 · 粉丝规模接近·窄选题破千</p>
+    <h3>和你哪里像</h3><p>粉丝规模接近起步期；窄选题；逐条改脚本和封面。</p><h3>他具体怎么发</h3><p>聚焦零基础/碎片化痛点；3 篇破千赞藏；封面改多版到顺眼。</p><h3>你该抄什么</h3><p>FluteBuddy 轨：一条一痛点+三问 CTA；证据录屏；不要泛长笛教学。</p><h3>不要抄什么</h3><p>不要抄「百粉变现」焦虑叙事当主内容。</p><h3>平移到你</h3><p>家长/老师/内测筛人；与 IP 轨分开计数。</p>
+  </div>
+</div>
+<div id="modal-mv-mv_colin_layoff_scene" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_colin_layoff_scene">×</button>
+    <h2>走廊收笛，家长问「还要走这条路吗」</h2>
+    <p class="sub">平移综合 <strong>89</strong> · IP 轨 · 45s · 学 colin</p>
+    <p class="evidence"><strong>你的数据：</strong>泰斗/考场类涨粉 210–282</p>
+    <h3>为什么平移给你</h3><p>Colin 一条一场景；你泰斗/考场已是同类数据赢家。</p><h3>对标原来怎么拍</h3><p>竖屏 talking head；先讲发生在身上的一件事；再一句 lesson；纽约/真实背景。</p><h3>你怎么拍这条</h3><p>琴房走廊或排练结束；手持；45s。</p><h3>口播开头（可照念）</h3><p>「排练刚结束，我在走廊收笛——有位家长拦住我，问：还要走这条路吗？」</p><h3>分镜 3–4 镜</h3><p>1 收笛特写 2 口播问句 3 你的回答 2 句 4 判断金句定帧</p><h3>常见踩坑</h3><p>不要上来就讲道理；不要无具体人物。</p><h3>建议什么时候发</h3><p>IP 周中；连发阶段第 2 或第 3 条</p>
+  </div>
+</div>
+<div id="modal-mv-mv_owner_taidou" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_owner_taidou">×</button>
+    <h2>再拍一条「泰斗型」新 moment（不洗稿）</h2>
+    <p class="sub">平移综合 <strong>87</strong> · IP 轨 · 60–90s · 学 colin</p>
+    <p class="evidence"><strong>你的数据：</strong>收藏212 涨粉282 完播12.4%</p>
+    <h3>为什么平移给你</h3><p>你后台 S 级：涨粉 282；结构已验证。</p><h3>对标原来怎么拍</h3><p>moment + 冲突 + 专业判断。</p><h3>你怎么拍这条</h3><p>新故事，不洗稿泰斗；60–90s。</p><h3>口播开头（可照念）</h3><p>「那天在课上演示时，对方当场变了脸色——我后来才想明白……」</p><h3>分镜 3–4 镜</h3><p>1 冲突画面 2 经过 3 判断 4 收口</p><h3>常见踩坑</h3><p>不要虚构；不要无判断。</p><h3>建议什么时候发</h3><p>IP 主力条；每周最多 1 条</p>
+  </div>
+</div>
+<div id="modal-mv-mv_owner_kaochang" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_owner_kaochang">×</button>
+    <h2>再拍一条「考场/行业剧本」新题</h2>
+    <p class="sub">平移综合 <strong>84</strong> · IP 轨 · 60s · 学 jiang_dora</p>
+    <p class="evidence"><strong>你的数据：</strong>考场剧本 涨粉210</p>
+    <h3>为什么平移给你</h3><p>考场剧本涨粉 210；姜 Dora 式 micro-drama。</p><h3>对标原来怎么拍</h3><p>具体场景+反常识。</p><h3>你怎么拍这条</h3><p>考场上或模拟一次真实细节；60s。</p><h3>口播开头（可照念）</h3><p>「原来考场也有剧本——那天我听见后台一句话，整个队列都变了。」</p><h3>分镜 3–4 镜</h3><p>1 场景 2 反常信息 3 你的立场</p><h3>常见踩坑</h3><p>不要人身攻击；要行业观察。</p><h3>建议什么时候发</h3><p>IP 第 2 周</p>
+  </div>
+</div>
+<div id="modal-mv-mv_owner_mockery_fix" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_owner_mockery_fix">×</button>
+    <h2>嘲讽/争议类 · 改完播版</h2>
+    <p class="sub">平移综合 <strong>81</strong> · IP 轨 · 45s · 学 colin</p>
+    <p class="evidence"><strong>你的数据：</strong>CTR14.6% 完播1.8% 需修结构</p>
+    <h3>为什么平移给你</h3><p>嘲讽帖 CTR14.6% 但完播1.8%；要修结构不是放弃 hook。</p><h3>对标原来怎么拍</h3><p>争议开头；Colin 也会 vulnerable。</p><h3>你怎么拍这条</h3><p>第 4 秒必须：「这和长笛/做 IP 的关系是——」</p><h3>口播开头（可照念）</h3><p>「有人嘲讽我做自媒体——我先生气，后来想通了一件事。」</p><h3>分镜 3–4 镜</h3><p>1 hook 2 情绪 3 第4秒价值 4 lesson</p><h3>常见踩坑</h3><p>不要只有骂战；不要无收口。</p><h3>建议什么时候发</h3><p>修完再发；勿连发争议</p>
+  </div>
+</div>
+<div id="modal-mv-mv_ip_insurance" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_ip_insurance">×</button>
+    <h2>FluteBuddy 没走下去，我还会发这些</h2>
+    <p class="sub">平移综合 <strong>81</strong> · IP 轨 · 40s · 学 colin</p>
+    <p class="evidence"><strong>你的数据：</strong>IP 保险绳 · 目标对齐</p>
+    <h3>为什么平移给你</h3><p>Colin 改行坦诚；你的「产品失败 IP 不停」目标对齐。</p><h3>对标原来怎么拍</h3><p>vulnerable 40s。</p><h3>你怎么拍这条</h3><p>对镜头；不卖惨。</p><h3>口播开头（可照念）</h3><p>「如果 FluteBuddy 没走下去——这些内容我还是会发，因为……」</p><h3>分镜 3–4 镜</h3><p>1 承认不确定 2 仍会做 3 邀请同行者</p><h3>常见踩坑</h3><p>不要负能量；不要贬低产品团队。</p><h3>建议什么时候发</h3><p>IP 信任条；每月 1 次</p>
+  </div>
+</div>
+<div id="modal-mv-mv_nik_one_fact" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_nik_one_fact">×</button>
+    <h2>听见 60 秒：慢乐章为什么不能「拖」</h2>
+    <p class="sub">平移综合 <strong>80</strong> · IP 轨 · 60s · 学 nik</p>
+    <p class="evidence"><strong>你的数据：</strong>技巧帖偏低 · 需包在听见栏目</p>
+    <h3>为什么平移给你</h3><p>Nik 是最像的「专业但未 famous」音乐对标；听见栏目=他的 one fact。</p><h3>对标原来怎么拍</h3><p>卧室；一条一知识点；字幕 hook；无乐团。</p><h3>你怎么拍这条</h3><p>对镜头；哼 10 秒慢乐章片段；切字幕。</p><h3>口播开头（可照念）</h3><p>「听见 60 秒 #001：慢乐章不能拖——拖的是呼吸，不是感情。」</p><h3>分镜 3–4 镜</h3><p>1 字幕 hook 2 哼唱对比（拖/不拖）3 一句总结 4 提问 CTA</p><h3>常见踩坑</h3><p>不要变成纯乐理课；不要超过 60s。</p><h3>建议什么时候发</h3><p>定栏目后第一条优先发</p>
+  </div>
+</div>
+<div id="modal-mv-mv_yan_self_talk" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_yan_self_talk">×</button>
+    <h2>练完问你：今天最想逃哪一小节</h2>
+    <p class="sub">平移综合 <strong>80</strong> · IP 轨 · 45s · 学 yan_buxian</p>
+    <p class="evidence"><strong>你的数据：</strong>需固定栏目名提识别</p>
+    <h3>为什么平移给你</h3><p>闫不闲系列化自问自答；好拍、提量。</p><h3>对标原来怎么拍</h3><p>轻对话；固定系列名；半天拍完。</p><h3>你怎么拍这条</h3><p>对镜头自问自答；45s。</p><h3>口播开头（可照念）</h3><p>「练完问你一句：今天你最想逃的是哪一小节？我的是——」</p><h3>分镜 3–4 镜</h3><p>1 问 2 答 3 示范 5 秒 4 邀请评论</p><h3>常见踩坑</h3><p>不要无系列名；不要一次讲整首。</p><h3>建议什么时候发</h3><p>库存填充条</p>
+  </div>
+</div>
+<div id="modal-mv-mv_nik_story_technique" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_nik_story_technique">×</button>
+    <h2>双吐不是炫技，是气先到位</h2>
+    <p class="sub">平移综合 <strong>79</strong> · IP 轨 · 45s · 学 nik</p>
+    <p class="evidence"><strong>你的数据：</strong>技巧 C 梯队升级写法</p>
+    <h3>为什么平移给你</h3><p>Nik 一条知识点；你技巧 C 梯队升级写法。</p><h3>对标原来怎么拍</h3><p>故事里带一点技巧。</p><h3>你怎么拍这条</h3><p>45s。</p><h3>口播开头（可照念）</h3><p>「双吐不是炫技——是气先到位。」</p><h3>分镜 3–4 镜</h3><p>1 误区 2 5秒示范 3 一句练法</p><h3>常见踩坑</h3><p>不要 ✅ 连载序号；要故事壳。</p><h3>建议什么时候发</h3><p>IP 偶尔 1 条</p>
+  </div>
+</div>
+<div id="modal-mv-mv_data_recap" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_data_recap">×</button>
+    <h2>23 条里只有 3 类在帮我涨粉</h2>
+    <p class="sub">平移综合 <strong>77</strong> · IP 轨 · 60s · 学 ali</p>
+    <p class="evidence"><strong>你的数据：</strong>Drive 表 · 信任状</p>
+    <h3>为什么平移给你</h3><p>Ali 复盘；你的数据 23 篇是信任状。</p><h3>对标原来怎么拍</h3><p>对着表/屏；60s。</p><h3>你怎么拍这条</h3><p>屏幕录或举表。</p><h3>口播开头（可照念）</h3><p>「我发了 23 条才明白：涨粉主要靠 3 类——」</p><h3>分镜 3–4 镜</h3><p>1 亮数据 2 三类 3 下周只发哪类</p><h3>常见踩坑</h3><p>不要泄露隐私；讲类别不讲私信。</p><h3>建议什么时候发</h3><p>周末；发完一周后</p>
+  </div>
+</div>
+<div id="modal-mv-mv_yan_first_rose" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_yan_first_rose">×</button>
+    <h2>栏目首发：听见 60 秒 #001</h2>
+    <p class="sub">平移综合 <strong>75</strong> · IP 轨 · 60s · 学 yan_buxian</p>
+    <p class="evidence"><strong>你的数据：</strong>定栏目名后第一条</p>
+    <h3>为什么平移给你</h3><p>闫不闲第一条定调；平移综合常居 TOP。</p><h3>对标原来怎么拍</h3><p>系列 #001；轻制作。</p><h3>你怎么拍这条</h3><p>60s；栏目名口播强调。</p><h3>口播开头（可照念）</h3><p>「这是听见 60 秒 #001——今天只讲一个耳朵里的细节。」</p><h3>分镜 3–4 镜</h3><p>1 报栏目 2 内容 3 下集预告</p><h3>常见踩坑</h3><p>不要同时开两个栏目。</p><h3>建议什么时候发</h3><p>IP 连发第 1 条</p>
+  </div>
+</div>
+<div id="modal-mv-mv_artists_short" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_artists_short">×</button>
+    <h2>不需要那么多艺术家（口播短版）</h2>
+    <p class="sub">平移综合 <strong>74</strong> · IP 轨 · 60–90s · 学 jiang_dora</p>
+    <p class="evidence"><strong>你的数据：</strong>11-03 三平台稿已有 · 剪短即发</p>
+    <h3>为什么平移给你</h3><p>11-03 三平台已写；文化判断型 IP。</p><h3>对标原来怎么拍</h3><p>现象+判断口播。</p><h3>你怎么拍这条</h3><p>剪短 60–90s；排练/学生真实背景。</p><h3>口播开头（可照念）</h3><p>「不需要那么多艺术家——需要的是肯把一首曲子听完的人。」</p><h3>分镜 3–4 镜</h3><p>1 大观点 2 琴房场景 3 一个具体例子 4 CTA</p><h3>常见踩坑</h3><p>不要空喊；不要论文腔。</p><h3>建议什么时候发</h3><p>IP；可与听见交替</p>
+  </div>
+</div>
+<div id="modal-mv-mv_ali_desk" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_ali_desk">×</button>
+    <h2>改作业到11点：先节奏后音准</h2>
+    <p class="sub">平移综合 <strong>74</strong> · IP 轨 · 45s · 学 ali</p>
+    <p class="evidence"><strong>你的数据：</strong>提量友好 · 建信任</p>
+    <h3>为什么平移给你</h3><p>Ali 书桌幕后；提量友好。</p><h3>对标原来怎么拍</h3><p>谱+桌面；专业一句。</p><h3>你怎么拍这条</h3><p>45s 口播。</p><h3>口播开头（可照念）</h3><p>「昨晚改作业到 11 点——我先听节奏，再听音准。」</p><h3>分镜 3–4 镜</h3><p>1 桌面 2 指谱 3 两句方法</p><h3>常见踩坑</h3><p>不要长教课；不要无画面。</p><h3>建议什么时候发</h3><p>库存条；任意工作日</p>
+  </div>
+</div>
+<div id="modal-mv-mv_jade_forgot" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_jade_forgot">×</button>
+    <h2>忘带___，用 X 顶替上台前</h2>
+    <p class="sub">平移综合 <strong>73</strong> · IP 轨 · 20s · 学 jade_classical</p>
+    <p class="evidence"><strong>你的数据：</strong>极低门槛提量</p>
+    <h3>为什么平移给你</h3><p>秦立巍房卡梗类；20s 提量神器。</p><h3>对标原来怎么拍</h3><p>幕后翻车短片。</p><h3>你怎么拍这条</h3><p>20s；真实物品入镜。</p><h3>口播开头（可照念）</h3><p>「上台前发现忘带___——我用 X 顶了一下。」</p><h3>分镜 3–4 镜</h3><p>1 发现问题 2 替代 3 一句自嘲</p><h3>常见踩坑</h3><p>不要假；不要长。</p><h3>建议什么时候发</h3><p>连发日填充</p>
+  </div>
+</div>
+<div id="modal-mv-mv_genius_g_live" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_genius_g_live">×</button>
+    <h2>live 写进揭幕 vs 放 BGM 差在哪</h2>
+    <p class="sub">平移综合 <strong>68</strong> · IP 轨 · 60s · 学 jiang_dora</p>
+    <p class="evidence"><strong>你的数据：</strong>discovery 队列可改短</p>
+    <h3>为什么平移给你</h3><p>天才女友G 现象+判断；discovery 队列可改短。</p><h3>对标原来怎么拍</h3><p>一条一文化现象。</p><h3>你怎么拍这条</h3><p>60s；可贴一张现场图。</p><h3>口播开头（可照念）</h3><p>「把 live 写进揭幕，和宴会 BGM 差在哪——我的判断是……」</p><h3>分镜 3–4 镜</h3><p>1 现象 2 对比 3 判断</p><h3>常见踩坑</h3><p>不要变成通稿；要有「我」。</p><h3>建议什么时候发</h3><p>IP 中期</p>
+  </div>
+</div>
+<div id="modal-mv-mv_life_suitcase" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_life_suitcase">×</button>
+    <h2>出差回来琴盒味道怎么处理</h2>
+    <p class="sub">平移综合 <strong>67</strong> · IP 轨 · 30s · 学 yan_buxian</p>
+    <p class="evidence"><strong>你的数据：</strong>多维 IP · 非技巧</p>
+    <h3>为什么平移给你</h3><p>闫不闲生活微痛点；多维 IP。</p><h3>对标原来怎么拍</h3><p>第一视角生活。</p><h3>你怎么拍这条</h3><p>30s；家或旅途。</p><h3>口播开头（可照念）</h3><p>「出差回来打开琴盒——这个味道，我是这么处理的。」</p><h3>分镜 3–4 镜</h3><p>1 开盒 2 方法 3 一句生活感</p><h3>常见踩坑</h3><p>不要变家居博主；一点即可。</p><h3>建议什么时候发</h3><p>IP 调剂</p>
+  </div>
+</div>
+<div id="modal-mv-mv_fb_parent" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_fb_parent">×</button>
+    <h2>长笛家长：你不需要当裁判</h2>
+    <p class="sub">平移综合 <strong>61</strong> · FB 轨 · 30–60s · 学 piano_teacher_case</p>
+    <p class="evidence"><strong>你的数据：</strong>已拍 · 待发 · FB#2</p>
+    <h3>为什么平移给你</h3><p>窄痛点；已拍待发 FB#2。</p><h3>对标原来怎么拍</h3><p>钢琴老师案例：一条一痛点。</p><h3>你怎么拍这条</h3><p>30–60s 口播；已规划。</p><h3>口播开头（可照念）</h3><p>「长笛家长：你不需要当裁判。」</p><h3>分镜 3–4 镜</h3><p>1 痛点 2 支持≠评判 3 可选提反馈实验</p><h3>常见踩坑</h3><p>IP 轨不要硬转产品。</p><h3>建议什么时候发</h3><p>FB 周；≤2 条/周</p>
+  </div>
+</div>
+<div id="modal-mv-mv_fb_machine" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_fb_machine">×</button>
+    <h2>机器能判错音节奏，判不了音乐性</h2>
+    <p class="sub">平移综合 <strong>60</strong> · FB 轨 · 45–90s · 学 piano_teacher_case</p>
+    <p class="evidence"><strong>你的数据：</strong>已拍 · FB#3</p>
+    <h3>为什么平移给你</h3><p>边界对照；已拍 FB#3。</p><h3>对标原来怎么拍</h3><p>表格式口播。</p><h3>你怎么拍这条</h3><p>45–90s；可举手机屏。</p><h3>口播开头（可照念）</h3><p>「机器能判错音节奏，判不了音乐性。」</p><h3>分镜 3–4 镜</h3><p>1 能 2 不能 3 老师仍重要</p><h3>常见踩坑</h3><p>不要贬低 AI；讲分工。</p><h3>建议什么时候发</h3><p>FB 第二条</p>
+  </div>
+</div>
+<div id="modal-mv-mv_fb_waitlist" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_fb_waitlist">×</button>
+    <h2>FluteBuddy 内测 40 组 PDF+录音</h2>
+    <p class="sub">平移综合 <strong>55</strong> · FB 轨 · 30–45s · 学 piano_teacher_case</p>
+    <p class="evidence"><strong>你的数据：</strong>FB#5 · 本周建议发</p>
+    <h3>为什么平移给你</h3><p>转化三问；FB#5。</p><h3>对标原来怎么拍</h3><p>筛人口播。</p><h3>你怎么拍这条</h3><p>30–45s。</p><h3>口播开头（可照念）</h3><p>「FluteBuddy 内测 40 组：有 PDF、肯录音、要反馈。」</p><h3>分镜 3–4 镜</h3><p>1 三问 2 私信关键词</p><h3>常见踩坑</h3><p>不要泛招；不要夸大功能。</p><h3>建议什么时候发</h3><p>FB 本周必发 1 条</p>
+  </div>
+</div>
+<div id="modal-mv-mv_fb_evidence" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_fb_evidence">×</button>
+    <h2>练完不敢问老师？先看这三处扣分</h2>
+    <p class="sub">平移综合 <strong>54</strong> · FB 轨 · 30–90s · 学 piano_teacher_case</p>
+    <p class="evidence"><strong>你的数据：</strong>已拍 · 置顶候选 FB#1</p>
+    <h3>为什么平移给你</h3><p>证据录屏；置顶候选 FB#1。</p><h3>对标原来怎么拍</h3><p>录屏+口播。</p><h3>你怎么拍这条</h3><p>30–90s。</p><h3>口播开头（可照念）</h3><p>「练完不敢问老师？先看这三处扣分。」</p><h3>分镜 3–4 镜</h3><p>1 上传 2 列表 3 点小节</p><h3>常见踩坑</h3><p>不要承诺医疗/考级。</p><h3>建议什么时候发</h3><p>可置顶</p>
+  </div>
+</div>
+<div id="modal-mv-mv_fb_teacher" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="mv-mv_fb_teacher">×</button>
+    <h2>长笛老师：带「第几小节」来上课</h2>
+    <p class="sub">平移综合 <strong>48</strong> · FB 轨 · 30–60s · 学 piano_teacher_case</p>
+    <p class="evidence"><strong>你的数据：</strong>待拍 FB#4</p>
+    <h3>为什么平移给你</h3><p>老师向；待拍 #4。</p><h3>对标原来怎么拍</h3><p>对镜头专业建议。</p><h3>你怎么拍这条</h3><p>30–60s。</p><h3>口播开头（可照念）</h3><p>「我希望学生带着第几小节来上课。」</p><h3>分镜 3–4 镜</h3><p>1 痛点 2 做法 3 合作私信</p><h3>常见踩坑</h3><p>不要硬广机构。</p><h3>建议什么时候发</h3><p>FB 预埋</p>
+  </div>
+</div>
+<div id="modal-step-s01" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s01">×</button>
+    <h2>定栏目名</h2>
+    <p class="sub">微步 · 块 1 · IP</p>
+    <h3>为什么要做</h3><p>没有栏目名，观众不知道你下一条是什么；闫不闲/ Nik 都是靠系列识别。</p><h3>怎么做</h3><p>二选一写进简介：「听见 60 秒」或「练完问你一句」。发第一条时在标题带 #001。</p><h3>怎样算完成</h3><p>简介已改 + 第一条标题含系列名。</p><h3>时间</h3><p>15 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s02" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s02">×</button>
+    <h2>拍满 7 条库存</h2>
+    <p class="sub">微步 · 块 1 · 双轨</p>
+    <h3>为什么要做</h3><p>提量靠库存，不是靠灵感；Ali 侧翼期就是堆可发片。</p><h3>怎么做</h3><p>已有 3 条 FB OK；再拍 4 条：优先平移表 TOP（听见#001、走廊、忘带XX、改作业幕后）。</p><h3>怎样算完成</h3><p>手机相册里 7 条竖屏可发。</p><h3>时间</h3><p>1–2 天可分批</p>
+  </div>
+</div>
+<div id="modal-step-s03" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s03">×</button>
+    <h2>封面模板固定</h2>
+    <p class="sub">微步 · 块 1 · 双轨</p>
+    <h3>为什么要做</h3><p>识别率；钢琴老师案例封面改到「就是这个感觉」才起量。</p><h3>怎么做</h3><p>Canva 或剪映封面：同一字体；主标题 ≤6 字；副标题可选。</p><h3>怎样算完成</h3><p>模板保存，后 5 条都用同一版式。</p><h3>时间</h3><p>30–60 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s04" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s04">×</button>
+    <h2>发第 1 条不纠结</h2>
+    <p class="sub">微步 · 块 1 · IP</p>
+    <h3>为什么要做</h3><p>完美主义=0 发布；边发边改比空想有用。</p><h3>怎么做</h3><p>从库存选最容易开口的一条（建议听见#001 或已拍 FB）。</p><h3>怎样算完成</h3><p>小红书已发布。</p><h3>时间</h3><p>20 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s05" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s05">×</button>
+    <h2>连发 3 条/3 天</h2>
+    <p class="sub">微步 · 块 1 · IP</p>
+    <h3>为什么要做</h3><p>平台与你自己都需要「密度」习惯。</p><h3>怎么做</h3><p>隔日或连发 3 条 IP；不等到「全完美」。</p><h3>怎样算完成</h3><p>72 小时内 3 条 IP 上线。</p><h3>时间</h3><p>分散 3 天</p>
+  </div>
+</div>
+<div id="modal-step-s06" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s06">×</button>
+    <h2>补拍 FluteBuddy #4</h2>
+    <p class="sub">微步 · 块 1 · FB</p>
+    <h3>为什么要做</h3><p>老师向是后续 B2B2C 预埋；json 已写好脚本方向。</p><h3>怎么做</h3><p>对镜头：带「第几小节」来上课；30–60s；见 flutebuddy-xhs-videos.json id 4。</p><h3>怎样算完成</h3><p>成片入库。</p><h3>时间</h3><p>30 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s07" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s07">×</button>
+    <h2>更新 Drive + 同步</h2>
+    <p class="sub">微步 · 块 1 · 数据</p>
+    <h3>为什么要做</h3><p>Agent 和你的策略都靠真数据，不是猜。</p><h3>怎么做</h3><p>导出后台 xlsx → My Drive 文件夹 → chat「同步小红书数据」。</p><h3>怎样算完成</h3><p>manifest/策略日期更新。</p><h3>时间</h3><p>10 分钟/次</p>
+  </div>
+</div>
+<div id="modal-step-s08" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s08">×</button>
+    <h2>每周 5 IP : ≤2 FB</h2>
+    <p class="sub">微步 · 块 2 · 双轨</p>
+    <h3>为什么要做</h3><p>产品可失败，IP 不能停；比例防止账号变纯产品号。</p><h3>怎么做</h3><p>周日标下周 7 格：5 格 IP 题、2 格 FB。</p><h3>怎样算完成</h3><p>日历可见。</p><h3>时间</h3><p>10 分钟/周</p>
+  </div>
+</div>
+<div id="modal-step-s09" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s09">×</button>
+    <h2>IP 轨不硬口播产品</h2>
+    <p class="sub">微步 · 块 2 · IP</p>
+    <h3>为什么要做</h3><p>IP 信任是 FluteBuddy 转化前提。</p><h3>怎么做</h3><p>IP 片全文不提 App 名；最多结尾一句实验。</p><h3>怎样算完成</h3><p>发前通读一遍。</p><h3>时间</h3><p>每条 2 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s10" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s10">×</button>
+    <h2>FB 三问 CTA</h2>
+    <p class="sub">微步 · 块 2 · FB</p>
+    <h3>为什么要做</h3><p>收窄人群，不是泛涨粉。</p><h3>怎么做</h3><p>口播+字幕：水平？本周谱？愿否录音？</p><h3>怎样算完成</h3><p>每条 FB 都有三问。</p><h3>时间</h3><p>写入脚本</p>
+  </div>
+</div>
+<div id="modal-step-s11" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s11">×</button>
+    <h2>置顶只留证据片</h2>
+    <p class="sub">微步 · 块 2 · FB</p>
+    <h3>为什么要做</h3><p>新访客 3 秒知道 FluteBuddy 是什么；IP 故事进合集。</p><h3>怎么做</h3><p>置顶 FB#1 录屏；IP 建合集「听见/故事」。</p><h3>怎样算完成</h3><p>主页结构 OK。</p><h3>时间</h3><p>15 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s12" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s12">×</button>
+    <h2>简介两行</h2>
+    <p class="sub">微步 · 块 2 · 双轨</p>
+    <h3>为什么要做</h3><p>搜索与关注决策看简介。</p><h3>怎么做</h3><p>行1 张丹瀛+法派+听见；行2 FluteBuddy 一句（可选）。</p><h3>怎样算完成</h3><p>已发布。</p><h3>时间</h3><p>10 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s13" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s13">×</button>
+    <h2>再拍泰斗型</h2>
+    <p class="sub">微步 · 块 3 · IP</p>
+    <h3>为什么要做</h3><p>你数据最强结构；再复制一次验证不是偶然。</p><h3>怎么做</h3><p>新 moment+新判断；60–90s；前 3 秒必须是具体画面。</p><h3>怎样算完成</h3><p>成片+已排期。</p><h3>时间</h3><p>1 小时</p>
+  </div>
+</div>
+<div id="modal-step-s14" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s14">×</button>
+    <h2>再拍考场型</h2>
+    <p class="sub">微步 · 块 3 · IP</p>
+    <h3>为什么要做</h3><p>考场剧本涨粉 210 已验证。</p><h3>怎么做</h3><p>micro-drama 60s；反常识一句收。</p><h3>怎样算完成</h3><p>成片。</p><h3>时间</h3><p>1 小时</p>
+  </div>
+</div>
+<div id="modal-step-s15" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s15">×</button>
+    <h2>改发嘲讽型</h2>
+    <p class="sub">微步 · 块 3 · IP</p>
+    <h3>为什么要做</h3><p>高 CTR 低完播=钩子浪费。</p><h3>怎么做</h3><p>第 4 秒接价值句；参考弹窗里 Colin 结构。</p><h3>怎样算完成</h3><p>发后完播&gt;5% 或主观「不再空猎奇」。</p><h3>时间</h3><p>改脚本 20 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s16" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s16">×</button>
+    <h2>艺术家口播短版</h2>
+    <p class="sub">微步 · 块 3 · IP</p>
+    <h3>为什么要做</h3><p>11-03 稿已对抗进化；剪短就能发。</p><h3>怎么做</h3><p>从 xiaohongshu.html 取 3 段：走廊/家长/肯学的人；90s 内。</p><h3>怎样算完成</h3><p>已发布。</p><h3>时间</h3><p>剪辑 40 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s17" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s17">×</button>
+    <h2>判断权短版</h2>
+    <p class="sub">微步 · 块 3 · IP</p>
+    <h3>为什么要做</h3><p>对齐收藏 62 的「专业+判断」型。</p><h3>怎么做</h3><p>尊重大师结构压缩 45s。</p><h3>怎样算完成</h3><p>已发布。</p><h3>时间</h3><p>30 分钟</p>
+  </div>
+</div>
+<div id="modal-step-s18" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="step-s18">×</button>
+    <h2>复盘 3 数字</h2>
+    <p class="sub">微步 · 块 3 · 数据</p>
+    <h3>为什么要做</h3><p>小步迭代靠数字，不靠感觉。</p><h3>怎么做</h3><p>记录：本周发布数、最高涨粉条、平均完播；可拍成 1 条视频。</p><h3>怎样算完成</h3><p>写在备忘录或发复盘片。</p><h3>时间</h3><p>15 分钟</p>
+  </div>
+</div>
+<div id="modal-queue-q1" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="queue-q1">×</button>
+    <h2>第 1 步 · 先把已拍库存发出去（FluteBuddy 为主）</h2>
+    <div class="rich">
+<p><strong>目标：</strong>不浪费已拍 3 条，让账号先有「在更新」的信号。</p>
+<ul>
+<li>发：家长不必当裁判（FB#2）、机器判什么（FB#3）、证据录屏（FB#1 或后置顶）</li>
+<li>再发：内测 40 组（FB#5）—— 带齐<strong>三问 CTA</strong>：水平 / 本周谱 / 愿否录音</li>
+<li><strong>比例：</strong>这一步可以 FB 偏多，但本周总量仍要控制 FB ≤2 条「带产品」；若 3 条都算 FB，则 IP 条紧接在后面 3 天补上</li>
+</ul>
+<p><strong>发完：</strong>后台导出 xlsx → Drive「我的小红书数据」→ chat「同步小红书数据」。</p>
+</div>
+  </div>
+</div>
+<div id="modal-queue-q2" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="queue-q2">×</button>
+    <h2>第 2 步 · IP 提量 TOP3（平移综合最高、好拍）</h2>
+    <div class="rich">
+<p><strong>目标：</strong>用最低脑力连发 3 条个人 IP，建立栏目感。</p>
+<ol>
+<li><strong>听见 60 秒 #001</strong> — 定栏目名后第一条，口播+字幕即可</li>
+<li><strong>走廊收笛</strong> — Colin 式一场景一判断，45s</li>
+<li><strong>忘带 XX 的 20s 幕后</strong> — 仿古典圈「房卡拨片」梗，极低门槛</li>
+</ol>
+<p>三条都<strong>不要</strong>硬提 FluteBuddy；最多最后一句「我在做一个练完反馈的小实验」。</p>
+</div>
+  </div>
+</div>
+<div id="modal-queue-q3" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="queue-q3">×</button>
+    <h2>第 3 步 · 复制你自己的 S 级数据结构</h2>
+    <div class="rich">
+<p><strong>目标：</strong>用后台已验证的「故事+判断」再冲涨粉，而不是新开技巧连载。</p>
+<ul>
+<li>再拍 1 条<strong>泰斗型</strong>新 moment（不洗稿同一故事）</li>
+<li>或发<strong>艺术家/热爱</strong>口播短版（11-03 稿已写，剪 60–90s）</li>
+<li>若有争议 hook，<strong>第 4 秒</strong>必须接到「和长笛/人生选择的关系」（修完播）</li>
+</ul>
+<p>对照数据：泰斗涨粉 282；嘲讽帖 CTR 高但完播 1.8% — 结构要改不能裸猎奇。</p>
+</div>
+  </div>
+</div>
+<div id="modal-queue-q4" class="modal" role="dialog" hidden>
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-close="queue-q4">×</button>
+    <h2>第 4 步 · 闭环与下周菜单</h2>
+    <div class="rich">
+<p><strong>目标：</strong>本周 ≥5 条、IP≥3、FB≤2 算过关；用数据选下周菜单。</p>
+<ul>
+<li>复盘 3 个数：发布数 / 最高涨粉单条 / 平均完播（对着 Drive 表讲一条也行）</li>
+<li>下周从平移表按分数继续往下发；补拍 FB#4 老师向</li>
+<li>固定节奏：<strong>5 IP : ≤2 FB</strong> 写进日历</li>
+</ul>
+<p>FluteBuddy 没走下去也没关系 — IP 线不停，名头先出去。</p>
+</div>
+  </div>
+</div>
+<script>
+function openModal(key) {
+  const m = document.getElementById('modal-' + key);
+  if (m) { m.hidden = false; document.body.style.overflow = 'hidden'; }
+}
+function closeModal(key) {
+  const m = document.getElementById('modal-' + key);
+  if (m) { m.hidden = true; document.body.style.overflow = ''; }
+}
+document.querySelectorAll('[data-open]').forEach(el => {
+  el.addEventListener('click', e => {
+    if (e.target.closest('input[type=checkbox]')) return;
+    openModal(el.getAttribute('data-open'));
+  });
+  if (el.classList.contains('click-row') || el.classList.contains('bench-node')) {
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(el.getAttribute('data-open')); } });
+  }
+});
+document.querySelectorAll('.modal-close').forEach(b => {
+  b.addEventListener('click', () => closeModal(b.getAttribute('data-close')));
+});
+document.querySelectorAll('.modal').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) { m.hidden = true; document.body.style.overflow = ''; } });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.modal:not([hidden])').forEach(m => { m.hidden = true; document.body.style.overflow = ''; });
+});
+document.querySelectorAll('nav.tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('section.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+document.querySelectorAll('.filter button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    document.querySelectorAll('#fit-table tr[data-track]').forEach(tr => {
+      tr.style.display = (f === 'all' || tr.dataset.track === f) ? '' : 'none';
+    });
+  });
+});
+const KEY = 'owner-micro-ladder-steps-v2';
+document.querySelectorAll('.step input').forEach(inp => {
+  inp.addEventListener('click', e => e.stopPropagation());
+  const id = inp.dataset.stepId;
+  if (localStorage.getItem(KEY + id) === '1') inp.checked = true;
+  inp.addEventListener('change', () => localStorage.setItem(KEY + id, inp.checked ? '1' : '0'));
+});
+</script>
+</body>
+</html>

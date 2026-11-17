@@ -1,0 +1,15 @@
+{
+  "as_of": "2026-11-17T06:13:37.136974+00:00",
+  "eval_latest": "integration/handoff/owner-pending-videos-eval-latest.json",
+  "baseline_updated_from": "eval-latest",
+  "fingerprint_before": "0ecadba539f94fcef8b8d22ce64ee771128d2903da77cce0eca86b41fa662d44",
+  "fingerprint_after": "0ecadba539f94fcef8b8d22ce64ee771128d2903da77cce0eca86b41fa662d44",
+  "distance": {
+    "items_changed": 0,
+    "promote_winner_changed": false,
+    "items_added": [],
+    "items_removed": []
+  },
+  "status": "PASS",
+  "note": "每次 gate 将 latest 滚动为 baseline；distance 描述相对上一轮"
+}

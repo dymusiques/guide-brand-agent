@@ -1,0 +1,33 @@
+{
+  "slug": "grace-xhs-visual-ip",
+  "name": "画画的小福象（小红书 · 品牌/IP 视觉）",
+  "domain": "绘画 × AIGC 审美 × 文创 IP（福福家族）",
+  "search_queries": [
+    "画画的小福象 小红书 IP 设计师",
+    "福福家族 文创"
+  ],
+  "urls": [
+    "https://www.xiaohongshu.com/user/profile/5657b233b8ce1a4fa16e6d0f"
+  ],
+  "notes": "可借鉴：小红书人设标签、AI+国风商业插画、自有文创 IP 线；粉丝量级更接近 Owner 阶段",
+  "priority_tier": "P2",
+  "last_screened_composite": 66,
+  "last_screened_metrics": {
+    "directional_benchmarking": {
+      "score": 68.0,
+      "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 72.0,
+      "rationale": "小红书可观测，利于像素级拆封面/标签/栏目。"
+    },
+    "audience_persona_overlap": {
+      "score": 70.0,
+      "rationale": "受众阶段接近 Owner 小红书认知期。"
+    },
+    "core_topic_density": {
+      "score": 50.0,
+      "rationale": "题密度待复核。"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "brief": "content/xiaohongshu/2026-11-05-flutebuddy-practice-waitlist-brief.md",
+  "track": "flutebuddy_product",
+  "scored_at": "2026-11-05",
+  "attestation": "content/xiaohongshu/v-tier-attestations/2026-11-05-flutebuddy-practice-waitlist-brief.md.json",
+  "owner_review_still_required": true,
+  "scores": {
+    "cultural_judgment": {
+      "score": 78,
+      "evidence": "对照 xhs-tiancainvyou-gg-sociology + xhs-xieshengzi-attitude attestation；成稿须现象+家庭审美非 KPI"
+    },
+    "private_narrative": {
+      "score": 82,
+      "evidence": "Brief _classifier 家庭练完不敢问；longform 第一人称家长/孩子场景"
+    },
+    "v_tier_rhythm": {
+      "score": 80,
+      "evidence": "对照 li-jw-unreachable 短段对照；LI lara-rejected 故事→lesson"
+    },
+    "track_fit": {
+      "score": 80,
+      "evidence": "Essence 家长不当裁判；非功能列表主导"
+    },
+    "product_exposure": {
+      "score": 85,
+      "evidence": "产品信息嵌场景，目标 ≤30% 体感"
+    },
+    "platform_voice": {
+      "score": 80,
+      "evidence": "PLATFORM-HIT 口吻维 + xhs-copy PASS 后对齐"
+    }
+  },
+  "weighted_note": "Agent 填分；Owner 未审前不得称可发布"
+}

@@ -1,0 +1,33 @@
+{
+  "slug": "hauser-cellist",
+  "name": "HAUSER（Stjepan Hauser）",
+  "domain": "音乐表演 × 短视频/国际社媒放大",
+  "search_queries": [
+    "HAUSER cellist Instagram TikTok strategy",
+    "HAUSER Shorts channel growth"
+  ],
+  "urls": [
+    "https://groovemedia.org/work/hauser"
+  ],
+  "notes": "可借鉴：平台分轨、Shorts、巡演/专辑节点；慎学 pure vanity 涨粉无 B2B",
+  "priority_tier": "P3",
+  "last_screened_composite": 54,
+  "last_screened_metrics": {
+    "directional_benchmarking": {
+      "score": 65.0,
+      "rationale": "艺术专业表演向，与法派专业锚点同向。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 58.0,
+      "rationale": "短视频分轨可拆节点模板。"
+    },
+    "audience_persona_overlap": {
+      "score": 38.0,
+      "rationale": "偏 C 端 fame，与强链接 B 端重叠有限，需筛 vanity。"
+    },
+    "core_topic_density": {
+      "score": 50.0,
+      "rationale": "题密度待复核。"
+    }
+  }
+}

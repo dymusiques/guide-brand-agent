@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FluteBuddy · Owner 交付 · 2026-11-05</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --card: #1a2332;
+    --accent: #3d9ee5;
+    --mint: #5eead4;
+    --text: #e7ecf3;
+    --muted: #94a3b8;
+    --pass: #4ade80;
+    --line: #334155;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "SF Pro Display", "PingFang SC", sans-serif;
+    background: radial-gradient(1200px 600px at 10% -10%, #1e3a5f 0%, var(--bg) 55%);
+    color: var(--text); line-height: 1.55; padding: 24px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.75rem; margin: 0 0 8px; }
+  .sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 28px; }
+  .kpi {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px; position: relative; overflow: hidden;
+  }
+  .kpi::after {
+    content: ""; position: absolute; inset: auto -20% -40% auto; width: 120px; height: 120px;
+    background: linear-gradient(135deg, var(--accent), transparent); opacity: 0.25; border-radius: 50%;
+  }
+  .kpi .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .val { font-size: 2rem; font-weight: 700; color: var(--mint); }
+  section {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px 22px; margin-bottom: 20px;
+  }
+  h2 { font-size: 1.15rem; margin: 0 0 14px; border-left: 4px solid var(--accent); padding-left: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .bar-wrap { background: #0b1220; border-radius: 999px; height: 10px; min-width: 80px; }
+  .bar { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--mint)); }
+  a { color: #7dd3fc; }
+  .steal { color: var(--muted); font-size: 0.82rem; }
+  .pill {
+    display: inline-block; background: #243044; color: var(--mint); padding: 4px 10px;
+    border-radius: 999px; font-size: 0.78rem; margin-right: 6px;
+  }
+  .cta { margin-top: 12px; }
+  .cta a {
+    display: inline-block; background: var(--accent); color: #041018; font-weight: 600;
+    padding: 10px 16px; border-radius: 8px; text-decoration: none;
+  }
+  footer { color: var(--muted); font-size: 0.8rem; margin-top: 28px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>FluteBuddy · 一小撮练琴家庭</h1>
+  <p class="sub">Owner 专用交付 · 重建 2026-11-05 12:50:20 · 非 Discovery FILTER 页 ·
+  对标 CSV：<code>integration/handoff/owner-copy-benchmarks-tier2.csv</code></p>
+
+  <div class="grid">
+    <div class="kpi"><div class="label">过关范文（≥2k 互动）</div><div class="val">12/14</div></div>
+    <div class="kpi"><div class="label">P0 内测目标家庭</div><div class="val">40</div></div>
+    <div class="kpi"><div class="label">首发视频</div><div class="val">5</div></div>
+    <div class="kpi"><div class="label">FluteBuddy 内容占比</div><div class="val">~30%</div></div>
+  </div>
+
+  <section>
+    <h2>产品一句话</h2>
+    <p><span class="pill">FluteBuddy</span> 乐谱 PDF + 录音 → 节奏 / 音准 / 音质 → 扣分明细 + 谱面定位 + 短句教练反馈。</p>
+    <p>Essence：让老师重新当教授，让孩子敢自己练，让家长<strong>不必当裁判</strong>。</p>
+    <p class="cta"><a href="#videos">↓ 五支视频脚本</a>
+    <a href="#benchmarks" style="margin-left:8px;background:#243044;color:#e7ecf3">文案对标表</a></p>
+  </section>
+
+  <section>
+    <h2>P0 是谁</h2>
+    <table>
+      <tr><th>层级</th><th>人群</th><th>为什么 match</th></tr>
+      <tr><td><strong>P0</strong></td><td>有 PDF 谱、练完问「对吗」的学生 + 陪伴型家长</td><td>路径 1:1 对齐产品</td></tr>
+      <tr><td>P1</td><td>10–50 学生的长笛老师 / 工作室</td><td>基础问题在家解决，课上演音乐性</td></tr>
+      <tr><td>P2</td><td>听见 Daily / 古典粉</td><td>认专业后再进 waitlist，不硬推</td></tr>
+    </table>
+  </section>
+
+  <section id="videos">
+    <h2>视频 · 5 条发布标题（定稿 · 筛一小撮 P0）</h2>
+    <p class="steal">P0 一句话：有 PDF 谱、肯录音、练完要客观反馈的长笛家庭</p>
+    <table>
+      <tr><th># / 用途</th><th><strong>小红书标题 + 封面 + 搜词 + 首句</strong></th><th>拍什么 · 怎么筛人</th></tr>
+      <tr>
+  <td><strong>1</strong><br><span class="steal">置顶 · 证据片</span></td>
+  <td><strong>练长笛练完不敢问老师？我让孩子先看这三处扣分</strong>
+    <br><span class="steal">封面：练完不知道错在哪 · PDF+录音→扣分明细</span>
+    <br><span class="steal">搜词：长笛练习, 居家练琴, 错音, FluteBuddy</span>
+    <br><span class="steal">首句：昨晚孩子练完长笛，问我「对吗」——我其实也听不准。</span></td>
+  <td>FluteBuddy 录屏：上传 PDF+录音 → 扣分列表 → 点谱面小节（30–90s）<br><span class="steal">筛 P0：评论里承认「不敢问老师」+ 愿意录屏内测</span></td>
+</tr><tr>
+  <td><strong>2</strong><br><span class="steal">家长向</span></td>
+  <td><strong>长笛家长：你不需要当裁判</strong>
+    <br><span class="steal">封面：别当 KPI 警察 · 支持练习就够了</span>
+    <br><span class="steal">搜词：长笛家长, 陪孩子练琴, 居家练琴</span>
+    <br><span class="steal">首句：我最怕的不是孩子练不好，是我不得不当「裁判」。</span></td>
+  <td>口播：支持练习 ≠ 逐句判错；FluteBuddy 只判基础层（30–60s）<br><span class="steal">筛 P0：私信三问里能说出本周谱名</span></td>
+</tr><tr>
+  <td><strong>3</strong><br><span class="steal">信任 · 边界</span></td>
+  <td><strong>长笛练习：机器能判错音节奏，判不了音乐性</strong>
+    <br><span class="steal">封面：机器判什么 · 什么仍跟老师</span>
+    <br><span class="steal">搜词：长笛错音, 长笛节奏, 练琴反馈</span>
+    <br><span class="steal">首句：AI 可以帮你看错音和节奏，但没法替老师教你怎么呼吸乐句。</span></td>
+  <td>对照表：错音/节奏/音质 vs 句读/风格；结尾「音乐性跟老师」（45–90s）<br><span class="steal">筛 P0：评论选「错音/节奏」而非只想要买笛种草</span></td>
+</tr><tr>
+  <td><strong>4</strong><br><span class="steal">老师 · P1 预埋</span></td>
+  <td><strong>长笛老师：我希望学生带着「第几小节」来上课</strong>
+    <br><span class="steal">封面：别空问「对吗」 · 带问题来上课</span>
+    <br><span class="steal">搜词：长笛老师, 长笛工作室, 练琴方法</span>
+    <br><span class="steal">首句：一节课如果都在纠错音，音乐性根本没有时间。</span></td>
+  <td>对镜头：课表时间宝贵；基础问题在家解决；结尾私信合作（30–60s）<br><span class="steal">筛 P0：老师身份私信 · 工作室合作</span></td>
+</tr><tr>
+  <td><strong>5</strong><br><span class="steal">转化 · 内测</span></td>
+  <td><strong>FluteBuddy 内测｜只收 40 组「有 PDF 谱 + 肯录音」的家庭</strong>
+    <br><span class="steal">封面：内测 40 组 · 私信 FluteBuddy</span>
+    <br><span class="steal">搜词：FluteBuddy, 长笛 App, 练琴反馈</span>
+    <br><span class="steal">首句：我们在找一小撮人：不是来围观，是肯练、有谱、要反馈。</span></td>
+  <td>口播三问：水平/本周谱/愿否上传一次练习；CTA 私信（30–45s）<br><span class="steal">筛 P0：私信关键词 FluteBuddy + 三问答全</span></td>
+</tr>
+    </table>
+    <p style="margin-top:12px;color:var(--muted)">拍摄顺序：3 → 2 → 1 → 5 → 4 · 置顶 #1</p>
+  </section>
+
+  <section id="notes">
+    <h2>笔记标题（3 篇 · 配合视频找对人）</h2>
+    <table>
+      <tr><th>类型</th><th>发布标题</th><th>钩子 · CTA</th></tr>
+      <tr>
+  <td>搜词场景短文</td>
+  <td><strong>居家练长笛，怎么知道今天练对了没有？</strong></td>
+  <td>三句话自检：有没有 PDF 谱、敢不敢录音、练完有没有人告诉你错在哪一节。<br><span class="steal">CTA：评论：你卡在哪一步？</span></td>
+</tr><tr>
+  <td>筛人帖</td>
+  <td><strong>有电子版谱的长笛家庭，FluteBuddy 内测还缺名额</strong></td>
+  <td>不是卖课，不是买笛种草——只要练完想要扣分明细的人。<br><span class="steal">CTA：私信 FluteBuddy</span></td>
+</tr><tr>
+  <td>法派长笛人设 · 30% 露出</td>
+  <td><strong>法派长笛学生练完发我一段录音，我会先看节奏再听音准</strong></td>
+  <td>用老师视角讲「练完先发什么给我」——自然引出 App 录屏一条。<br><span class="steal">CTA：收藏 · 内测私信</span></td>
+</tr>
+    </table>
+  </section>
+
+  <section id="benchmarks">
+    <h2>文案对标 · 2000+ 互动（Agent 自搜 · 页面核对）</h2>
+    <table>
+      <tr>
+        <th>平台</th><th>作者</th><th>作品</th><th>互动</th><th></th><th>≥2k</th><th>学一句</th>
+      </tr>
+      <tr>
+  <td>MEDIUM</td>
+  <td>elle luna</td>
+  <td><a href="https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0">The Crossroads of Should and Must</a></td>
+  <td class="num">37,000</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:74.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">Should/Must 对照</td>
+</tr><tr>
+  <td>MEDIUM</td>
+  <td>Lenny Rachitsky</td>
+  <td><a href="https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56">What Seven Years at Airbnb Taught Me About Building a Business</a></td>
+  <td class="num">30,000</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:60.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">具体决策故事</td>
+</tr><tr>
+  <td>MEDIUM</td>
+  <td>Brian Rowe</td>
+  <td><a href="https://medium.com/the-partnered-pen/wow-i-had-a-medium-story-reach-15-000-claps-cb98f7761936">Wow, I Had a Medium Story Reach 15,000 Claps!</a></td>
+  <td class="num">15,700</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:31.4%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">第一人称熬出来的路径</td>
+</tr><tr>
+  <td>MEDIUM</td>
+  <td>Lucian Ioan Chirilă</td>
+  <td><a href="https://long.sweet.pub/more-earnings-the-reason-why-i-got-over-5000-claps-on-an-article-59b01843472a">More Earnings? The Reason Why I Got Over 5000 Claps On An Article</a></td>
+  <td class="num">5,000</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:10.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">里程碑写法</td>
+</tr><tr>
+  <td>MEDIUM</td>
+  <td>Martha Eason</td>
+  <td><a href="https://medium.com/@marthaeason/12-things-i-learned-from-posting-on-social-media-as-a-performer-for-12-months-9dd7eea0b337">12 Things I learned from Posting on Social Media as a Performer for 12 M</a></td>
+  <td class="num">2,024</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:4.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">先写羞怯再转折</td>
+</tr><tr>
+  <td>MEDIUM</td>
+  <td>Flavie Halais</td>
+  <td><a href="https://medium.com/the-riff/the-platform-trap-why-industry-best-practices-are-designed-to-exhaust-musicians-de05a4f573f6">The Platform Trap: Why Industry Best Practices Are Designed to Exhaust M</a></td>
+  <td class="num">2,025</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:4.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">系统性论证仍用人话</td>
+</tr><tr>
+  <td>LINKEDIN</td>
+  <td>Justin Welsh</td>
+  <td><a href="https://www.linkedin.com/posts/justinwelsh_the-most-valuable-skill-in-2024-isnt-learning-activity-7228004073839472640-XW_-">The most valuable skill in 2024 isn&#x27;t learning.</a></td>
+  <td class="num">4,543</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:9.1%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">编号短段</td>
+</tr><tr>
+  <td>LINKEDIN</td>
+  <td>Justin Welsh</td>
+  <td><a href="https://www.linkedin.com/posts/justinwelsh_1712-days-to-a-75m-business-on-linkedin-activity-7205897709214445570-cPn3">1,712 days to a $7.5M business on LinkedIn</a></td>
+  <td class="num">3,000</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:6.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">时间线数字</td>
+</tr><tr>
+  <td>LINKEDIN</td>
+  <td>Balamurali krishna N</td>
+  <td><a href="https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT">If VFX Is Too Expensive… Why Are Artists Struggling?</a></td>
+  <td class="num">1,301</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:4.0%"></div></div></td>
+  <td>—</td>
+  <td class="steal">行业帖第一人称</td>
+</tr><tr>
+  <td>XIAOHONGSHU</td>
+  <td>邓雨柔</td>
+  <td><a href="https://news.qq.com/rain/a/20250711A03GYA00">《织忆经纬》创作阐述</a></td>
+  <td class="num">40,000</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:80.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">一件作品讲清</td>
+</tr><tr>
+  <td>XIAOHONGSHU</td>
+  <td>社区聚合（什么值得买引述小红书）</td>
+  <td><a href="https://post.smzdm.com/p/aqrx568k/">乐器入门难度排行 · 6.1万赞笔记</a></td>
+  <td class="num">61,000</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:100.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">评论区经验当证据</td>
+</tr><tr>
+  <td>XIAOHONGSHU</td>
+  <td>社区聚合（什么值得买引述）</td>
+  <td><a href="https://post.smzdm.com/p/aqrx568k/">乐器难度「从夯到拉」排名 · 3.1万赞</a></td>
+  <td class="num">31,000</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:62.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">争议话题+重排口径</td>
+</tr><tr>
+  <td>MEDIUM</td>
+  <td>SauceFromVeli</td>
+  <td><a href="https://saucefromveli.medium.com/going-from-small-money-to-big-money-as-an-artist-in-2025-how-to-scale-optimize-the-way-killer-b342b2db95e1">Going from small money to big money as an artist in 2025</a></td>
+  <td class="num">2,024</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:4.0%"></div></div></td>
+  <td>✅</td>
+  <td class="steal">先声明写给谁</td>
+</tr><tr>
+  <td>LINKEDIN</td>
+  <td>Dalia Ganz</td>
+  <td><a href="https://www.linkedin.com/posts/daliaganz_things-ive-learned-since-switching-careers-activity-7228429235122487296-1l3J">Things I&#x27;ve learned since switching careers from TV to music (Part 2)</a></td>
+  <td class="num">621</td>
+  <td><div class="bar-wrap"><div class="bar" style="width:4.0%"></div></div></td>
+  <td>—</td>
+  <td class="steal">职业切换 numbered lessons · 结构参考</td>
+</tr>
+    </table>
+    <p class="cta"><a href="file:///Users/danying/Desktop/danying-brand-agent/integration/handoff/owner-copy-benchmarks-tier2.csv">下载 CSV</a></p>
+  </section>
+
+  <section>
+    <h2>小红书怎么找对人</h2>
+    <ul>
+      <li>搜词：长笛练习、居家练琴、错音、节奏、长笛家长</li>
+      <li>简介：FluteBuddy：上传谱面+录音，练完就知道错在哪。</li>
+      <li>评论筛问：错音 / 节奏 / 不敢问老师？</li>
+      <li>私信三问 → 只邀 P0 内测 · 关键词 <strong>FluteBuddy</strong></li>
+    </ul>
+  </section>
+
+  <footer>
+    danying-brand-agent · <code>scripts/build-owner-flutebuddy-deliverable-html.py</code> ·
+    策略全文：<code>content/evolution/00-manager/ceo-inbox/2026-11-05-flutebuddy-xhs-strategy.md</code> ·
+    Brief：<code>content/xiaohongshu/2026-11-05-flutebuddy-practice-waitlist-brief.md</code>
+  </footer>
+</div>
+</body>
+</html>

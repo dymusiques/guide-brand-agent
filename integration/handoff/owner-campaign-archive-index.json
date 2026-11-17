@@ -1,0 +1,54 @@
+{
+  "schema": "owner_campaign_archive_index_v1",
+  "as_of": "2026-11-17",
+  "campaign_window": "2026-11-01..2026-11-14",
+  "note_zh": "浓缩索引 · 详细 HTML 见 ceo-inbox 带日期文件 · rolling latest 见 .gitignore",
+  "deliverables": [
+    {
+      "date": "2026-11-03",
+      "kind": "multichannel",
+      "path": "content/evolution/00-manager/ceo-inbox/OWNER-MULTICHANNEL-DELIVERABLE-2026-11-03.html"
+    },
+    {
+      "date": "2026-11-03",
+      "kind": "xhs-filter",
+      "paths": [
+        "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-2026-11-03.html",
+        "content/evolution/00-manager/ceo-inbox/OWNER-XHS-FILTER-DELIVERABLE-2026-11-03.md"
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "kind": "ip-ecosystem",
+      "path": "content/evolution/00-manager/ceo-inbox/OWNER-IP-ECOSYSTEM-DELIVERABLE-2026-11-05.html"
+    },
+    {
+      "date": "2026-11-05",
+      "kind": "flutebuddy",
+      "path": "content/evolution/00-manager/ceo-inbox/OWNER-FLUTEBUDDY-DELIVERABLE-2026-11-05.html"
+    },
+    {
+      "date": "2026-11-06",
+      "kind": "benchmark-paths",
+      "path": "content/evolution/00-manager/ceo-inbox/OWNER-BENCHMARK-PATHS-DELIVERABLE-2026-11-06.html"
+    },
+    {
+      "date": "2026-11-06",
+      "kind": "era-benchmark",
+      "path": "content/evolution/00-manager/ceo-inbox/OWNER-ERA-BENCHMARK-2024-2026-DELIVERABLE-2026-11-06.html"
+    },
+    {
+      "date": "2026-11-06",
+      "kind": "micro-ladder",
+      "path": "content/evolution/00-manager/ceo-inbox/OWNER-MICRO-LADDER-DELIVERABLE-2026-11-06.html"
+    },
+    {
+      "slug": "2026-11-03-artists-three",
+      "kind": "supervision-evidence",
+      "paths": [
+        "content/evolution/00-manager/ceo-inbox/2026-11-03-artists-three/hit-evolution.json",
+        "content/evolution/00-manager/ceo-inbox/2026-11-03-artists-three/four-dimensions.json"
+      ]
+    }
+  ]
+}

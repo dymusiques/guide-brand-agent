@@ -1,0 +1,960 @@
+{
+  "ran_at": "2026-11-17T06:14:30Z",
+  "goal": "已发世界不需要这么多艺术家监督补全",
+  "standards": "docs/PLATFORM-HIT-STANDARDS.md",
+  "order": [
+    "01-voice",
+    "04-cut",
+    "00-senior",
+    "evolution-distance",
+    "hit-line"
+  ],
+  "angle_bar": 80,
+  "platforms": {
+    "linkedin": {
+      "pass": false,
+      "angle_ready": true,
+      "distance_before": 0,
+      "distance_after": 115,
+      "four": {
+        "angle": 100,
+        "hit": 0,
+        "voice": 45,
+        "cite": 80
+      },
+      "voice": {
+        "score": 45,
+        "reason": "充满了学术文献罗列与结构化论述，典型的论文与公关腔调，缺乏张丹瀛本人的生活场景、个人情绪与真实的口语化判断。"
+      },
+      "cite": {
+        "score": 80,
+        "reason": "两篇引用均成功匹配了主题中的具体判断：NEA统计支撑了‘领工资的座位有限’，艺评人采访支撑了‘学校应注重艺术普及与识读而非培养更多艺术家’。"
+      },
+      "stress": {},
+      "angles": [
+        {
+          "round": 1,
+          "distance": 0,
+          "rows": [
+            {
+              "id": "li-same-supply",
+              "cell": "linkedin/same",
+              "angle": "same",
+              "name": "同类型职业帖：座位少，但不能写成热爱该少",
+              "pass": true,
+              "evidence": "没有资格说爱艺术的人应该变少",
+              "inherited": false,
+              "benchmark_url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+              "benchmark_engagement": {
+                "reactions": 1301,
+                "comments": 257
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "听完、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "听完、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "听完、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "听完、退出",
+              "inherited": false,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "听完、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "medium/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "听完、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "medium-different-must",
+              "cell": "medium/different",
+              "angle": "different",
+              "name": "同类型长文：Should 走太久，就给 Must 一次",
+              "pass": true,
+              "evidence": "不会拿",
+              "inherited": false,
+              "benchmark_url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+              "benchmark_engagement": {
+                "claps_label": "37K",
+                "claps": 37000,
+                "responses": 265
+              }
+            },
+            {
+              "id": "medium-sharp-airbnb",
+              "cell": "medium/sharp",
+              "angle": "sharp",
+              "name": "同类型长文：高 clap 在讲公司和目标，不讲观众的气口",
+              "pass": true,
+              "evidence": "节目单、人没错",
+              "inherited": false,
+              "benchmark_url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+              "benchmark_engagement": {
+                "claps_label": "30K",
+                "claps": 30000,
+                "responses": 80
+              }
+            }
+          ],
+          "score": 100
+        },
+        {
+          "round": "final",
+          "distance": 0,
+          "rows": [
+            {
+              "id": "li-same-supply",
+              "cell": "linkedin/same",
+              "angle": "same",
+              "name": "同类型职业帖：座位少，但不能写成热爱该少",
+              "pass": true,
+              "evidence": "没有资格说爱艺术的人应该变少",
+              "inherited": false,
+              "benchmark_url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+              "benchmark_engagement": {
+                "reactions": 1301,
+                "comments": 257
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": false,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "medium/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "medium-different-must",
+              "cell": "medium/different",
+              "angle": "different",
+              "name": "同类型长文：Should 走太久，就给 Must 一次",
+              "pass": true,
+              "evidence": "不会拿",
+              "inherited": false,
+              "benchmark_url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+              "benchmark_engagement": {
+                "claps_label": "37K",
+                "claps": 37000,
+                "responses": 265
+              }
+            },
+            {
+              "id": "medium-sharp-airbnb",
+              "cell": "medium/sharp",
+              "angle": "sharp",
+              "name": "同类型长文：高 clap 在讲公司和目标，不讲观众的气口",
+              "pass": true,
+              "evidence": "节目单、人没错",
+              "inherited": false,
+              "benchmark_url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+              "benchmark_engagement": {
+                "claps_label": "30K",
+                "claps": 30000,
+                "responses": 80
+              }
+            }
+          ],
+          "score": 100
+        }
+      ],
+      "hit_pass": false,
+      "hit_score": {
+        "score": 85,
+        "reason": "包含第一人称长笛经历与权威数据（290万/1.6%），开头无链接无问句，但整体偏长且互动问句略显生硬。"
+      },
+      "fails": [
+        "结尾要请对方留下具体曲名，不要泛问你觉得呢"
+      ],
+      "hit_history": [
+        {
+          "round": 1,
+          "fails": [
+            "结尾要请对方留下具体曲名，不要泛问你觉得呢"
+          ],
+          "score": {
+            "score": 85,
+            "reason": "文中有明确的第一人称经历与具体数据支撑，且开头未放链接或使用问句，逻辑清晰，极具 LinkedIn 爆款潜力。"
+          }
+        },
+        {
+          "round": 2,
+          "fails": [
+            "结尾要请对方留下具体曲名，不要泛问你觉得呢"
+          ],
+          "score": {
+            "score": 85,
+            "reason": "文章具备第一人称经历、具体数据及良好的个人故事性，开头符合规则，但互动结尾略显说教，稍稍削弱了自发扩散力。"
+          }
+        },
+        {
+          "round": 3,
+          "fails": [
+            "结尾要请对方留下具体曲名，不要泛问你觉得呢"
+          ],
+          "score": {
+            "score": 82,
+            "reason": "文章具备第一人称真实经历与具体权威数据，结构清晰且观点深刻，但文末包含外部链接及提问式互动略微影响了爆款潜力。"
+          }
+        },
+        {
+          "round": 4,
+          "fails": [
+            "结尾要请对方留下具体曲名，不要泛问你觉得呢"
+          ],
+          "score": {
+            "score": 45,
+            "reason": "文风过于学院派且充满学术引用和论证，缺乏 LinkedIn 爆款所需的强烈个人情绪落差、职场故事张力与清晰的对白场景。"
+          }
+        },
+        {
+          "round": 5,
+          "fails": [
+            "结尾要请对方留下具体曲名，不要泛问你觉得呢"
+          ],
+          "score": {
+            "score": 85,
+            "reason": "文中有明确的第一人称长笛演奏经历与具体的行业数据支持，开头无问句和链接，但整体篇幅偏长、学术引用略多，更偏向深度长文而非快节奏的爆款贴。"
+          }
+        },
+        {
+          "round": 6,
+          "fails": [
+            "结尾要请对方留下具体曲名，不要泛问你觉得呢"
+          ],
+          "score": {
+            "score": 85,
+            "reason": "包含第一人称长笛经历与权威数据（290万/1.6%），开头无链接无问句，但整体偏长且互动问句略显生硬。"
+          }
+        }
+      ]
+    },
+    "xiaohongshu": {
+      "pass": false,
+      "angle_ready": false,
+      "distance_before": 80,
+      "distance_after": 115,
+      "four": {
+        "angle": 0,
+        "hit": 88,
+        "voice": 45,
+        "cite": 90
+      },
+      "voice": {
+        "score": 45,
+        "reason": "充满了引用 NEA 数据和语词考据的论文腔与说教感，缺乏张丹瀛学派长笛演奏者的具体痛感、下巴/气流等专业细节与真实教学场景。"
+      },
+      "cite": {
+        "score": 90,
+        "reason": "两篇资料分别从从业人口比例（领工资座位窄）与识读教学视角（普及而非发入场券）有效支撑了主题。"
+      },
+      "stress": {},
+      "angles": [
+        {
+          "round": 1,
+          "distance": 80,
+          "rows": [
+            {
+              "id": "li-same-supply",
+              "cell": "linkedin/same",
+              "angle": "same",
+              "name": "同类型职业帖：座位少，但不能写成热爱该少",
+              "pass": false,
+              "evidence": "",
+              "inherited": false,
+              "benchmark_url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+              "benchmark_engagement": {
+                "reactions": 1301,
+                "comments": 257
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": false,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "medium/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "medium-different-must",
+              "cell": "medium/different",
+              "angle": "different",
+              "name": "同类型长文：Should 走太久，就给 Must 一次",
+              "pass": false,
+              "evidence": "",
+              "inherited": false,
+              "benchmark_url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+              "benchmark_engagement": {
+                "claps_label": "37K",
+                "claps": 37000,
+                "responses": 265
+              }
+            },
+            {
+              "id": "medium-sharp-airbnb",
+              "cell": "medium/sharp",
+              "angle": "sharp",
+              "name": "同类型长文：高 clap 在讲公司和目标，不讲观众的气口",
+              "pass": false,
+              "evidence": "",
+              "inherited": false,
+              "benchmark_url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+              "benchmark_engagement": {
+                "claps_label": "30K",
+                "claps": 30000,
+                "responses": 80
+              }
+            }
+          ],
+          "score": 0
+        },
+        {
+          "round": "final",
+          "distance": 80,
+          "rows": [
+            {
+              "id": "li-same-supply",
+              "cell": "linkedin/same",
+              "angle": "same",
+              "name": "同类型职业帖：座位少，但不能写成热爱该少",
+              "pass": false,
+              "evidence": "",
+              "inherited": false,
+              "benchmark_url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+              "benchmark_engagement": {
+                "reactions": 1301,
+                "comments": 257
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": false,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "medium/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": false,
+              "evidence": "曲名",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "medium-different-must",
+              "cell": "medium/different",
+              "angle": "different",
+              "name": "同类型长文：Should 走太久，就给 Must 一次",
+              "pass": false,
+              "evidence": "",
+              "inherited": false,
+              "benchmark_url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+              "benchmark_engagement": {
+                "claps_label": "37K",
+                "claps": 37000,
+                "responses": 265
+              }
+            },
+            {
+              "id": "medium-sharp-airbnb",
+              "cell": "medium/sharp",
+              "angle": "sharp",
+              "name": "同类型长文：高 clap 在讲公司和目标，不讲观众的气口",
+              "pass": false,
+              "evidence": "",
+              "inherited": false,
+              "benchmark_url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+              "benchmark_engagement": {
+                "claps_label": "30K",
+                "claps": 30000,
+                "responses": 80
+              }
+            }
+          ],
+          "score": 0
+        }
+      ],
+      "hit_pass": true,
+      "hit_score": {
+        "score": 88,
+        "reason": "前三秒反常识金句吸睛，结合AI热点与真实数据，符合3分钟口播且无承诺结果或导流违规。"
+      },
+      "fails": [],
+      "hit_history": [
+        {
+          "round": 1,
+          "fails": [],
+          "score": {
+            "score": 88,
+            "reason": "前三秒反常识金句吸睛，结合AI热点与真实数据，符合3分钟口播且无承诺结果或导流违规。"
+          }
+        }
+      ]
+    },
+    "medium": {
+      "pass": false,
+      "angle_ready": true,
+      "distance_before": 0,
+      "distance_after": 35,
+      "four": {
+        "angle": 100,
+        "hit": 85,
+        "voice": 45,
+        "cite": 90
+      },
+      "voice": {
+        "score": 45,
+        "reason": "充满了学术文献引用、统计数据和宏大议题分析（品牌与论文腔），缺乏张丹瀛真实的法派长笛教学现场感、吐音换气与音色把控的细节以及个性化的叙事口吻。"
+      },
+      "cite": {
+        "score": 90,
+        "reason": "两篇引用均成功匹配主题，分别用劳动力统计证明从业座位有限，以及用艺评人观点证明社会更需要具备艺术识读能力的受众而非更多职业艺术家。"
+      },
+      "stress": {},
+      "angles": [
+        {
+          "round": 1,
+          "distance": 0,
+          "rows": [
+            {
+              "id": "li-same-supply",
+              "cell": "linkedin/same",
+              "angle": "same",
+              "name": "同类型职业帖：座位少，但不能写成热爱该少",
+              "pass": true,
+              "evidence": "它没有说爱艺术的人应该变少",
+              "inherited": false,
+              "benchmark_url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+              "benchmark_engagement": {
+                "reactions": 1301,
+                "comments": 257
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": false,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "medium/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "medium-different-must",
+              "cell": "medium/different",
+              "angle": "different",
+              "name": "同类型长文：Should 走太久，就给 Must 一次",
+              "pass": true,
+              "evidence": "不会拿",
+              "inherited": false,
+              "benchmark_url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+              "benchmark_engagement": {
+                "claps_label": "37K",
+                "claps": 37000,
+                "responses": 265
+              }
+            },
+            {
+              "id": "medium-sharp-airbnb",
+              "cell": "medium/sharp",
+              "angle": "sharp",
+              "name": "同类型长文：高 clap 在讲公司和目标，不讲观众的气口",
+              "pass": true,
+              "evidence": "节目单、人没错",
+              "inherited": false,
+              "benchmark_url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+              "benchmark_engagement": {
+                "claps_label": "30K",
+                "claps": 30000,
+                "responses": 80
+              }
+            }
+          ],
+          "score": 100
+        },
+        {
+          "round": "final",
+          "distance": 0,
+          "rows": [
+            {
+              "id": "li-same-supply",
+              "cell": "linkedin/same",
+              "angle": "same",
+              "name": "同类型职业帖：座位少，但不能写成热爱该少",
+              "pass": true,
+              "evidence": "它没有说爱艺术的人应该变少",
+              "inherited": false,
+              "benchmark_url": "https://www.linkedin.com/posts/balafx_if-vfx-is-too-expensive-why-did-technicolor-activity-7369696248922058755-w3YT",
+              "benchmark_engagement": {
+                "reactions": 1301,
+                "comments": 257
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "linkedin/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/different",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": false,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "xiaohongshu/sharp",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "xhs-different-claim",
+              "cell": "medium/same",
+              "angle": "different",
+              "name": "同类型笔记：大众认下一件具体的作品",
+              "pass": true,
+              "evidence": "曲名、退出",
+              "inherited": true,
+              "benchmark_url": "https://news.qq.com/rain/a/20250711A03GYA00",
+              "benchmark_engagement": {
+                "likes": 40000
+              }
+            },
+            {
+              "id": "medium-different-must",
+              "cell": "medium/different",
+              "angle": "different",
+              "name": "同类型长文：Should 走太久，就给 Must 一次",
+              "pass": true,
+              "evidence": "不会拿",
+              "inherited": false,
+              "benchmark_url": "https://medium.com/@elleluna/the-crossroads-of-should-and-must-90c75eb7c5b0",
+              "benchmark_engagement": {
+                "claps_label": "37K",
+                "claps": 37000,
+                "responses": 265
+              }
+            },
+            {
+              "id": "medium-sharp-airbnb",
+              "cell": "medium/sharp",
+              "angle": "sharp",
+              "name": "同类型长文：高 clap 在讲公司和目标，不讲观众的气口",
+              "pass": true,
+              "evidence": "节目单、人没错",
+              "inherited": false,
+              "benchmark_url": "https://marker.medium.com/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56",
+              "benchmark_engagement": {
+                "claps_label": "30K",
+                "claps": 30000,
+                "responses": 80
+              }
+            }
+          ],
+          "score": 100
+        }
+      ],
+      "hit_pass": true,
+      "hit_score": {
+        "score": 85,
+        "reason": "文章有极强的个人场景与独到观点，论述层层递进易于留存读者，但开头引入了过多概念铺垫略显慢热。"
+      },
+      "fails": [],
+      "hit_history": [
+        {
+          "round": 1,
+          "fails": [],
+          "score": {
+            "score": 85,
+            "reason": "文章有极强的个人场景与独到观点，论述层层递进易于留存读者，但开头引入了过多概念铺垫略显慢热。"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "version": "2026-11-07",
+  "owner_label": "张丹瀛 · 法派长笛 / 听见 / 个人 IP",
+  "owner_goal_short": "先提视频量 → IP 名头持续 → FluteBuddy 收窄人群（产品可失败，IP 不停）",
+  "data_anchor": "23 篇 · 故事+判断涨粉 · 纯技巧连载不主涨粉 · 2026-10-20",
+  "pillars": [
+    {"id": "story_judgment", "label": "故事+判断", "x": 0.5, "y": 0.12},
+    {"id": "hear_daily", "label": "听见 60 秒", "x": 0.82, "y": 0.28},
+    {"id": "pivot_courage", "label": "改行/IP 勇气", "x": 0.18, "y": 0.28},
+    {"id": "volume_habit", "label": "提量习惯", "x": 0.5, "y": 0.88},
+    {"id": "backstage", "label": "幕后活人感", "x": 0.88, "y": 0.62},
+    {"id": "flutebuddy", "label": "FluteBuddy 收窄", "x": 0.12, "y": 0.62}
+  ],
+  "benchmarks": [
+    {
+      "id": "nik",
+      "handle": "@nik.classical",
+      "region": "国际",
+      "overlap": "音乐专业·非巡演明星·2023 饱和期起号",
+      "matrix_links": [
+        {"pillar": "hear_daily", "strength": 0.95},
+        {"pillar": "volume_habit", "strength": 0.85},
+        {"pillar": "backstage", "strength": 0.8}
+      ]
+    },
+    {
+      "id": "ali",
+      "handle": "@aliabdaal",
+      "region": "国际",
+      "overlap": "长周期专业·副业堆量再 pivot",
+      "matrix_links": [
+        {"pillar": "volume_habit", "strength": 0.9},
+        {"pillar": "backstage", "strength": 0.75},
+        {"pillar": "pivot_courage", "strength": 0.7}
+      ]
+    },
+    {
+      "id": "colin",
+      "handle": "@careercolin",
+      "region": "国际",
+      "overlap": "改行·无 elite title 主钩子",
+      "matrix_links": [
+        {"pillar": "story_judgment", "strength": 0.95},
+        {"pillar": "pivot_courage", "strength": 0.9},
+        {"pillar": "volume_habit", "strength": 0.7}
+      ]
+    },
+    {
+      "id": "jiang_dora",
+      "handle": "姜 Dora",
+      "region": "国内",
+      "overlap": "普通人改行·访谈栏目",
+      "matrix_links": [
+        {"pillar": "pivot_courage", "strength": 0.85},
+        {"pillar": "story_judgment", "strength": 0.8},
+        {"pillar": "hear_daily", "strength": 0.55}
+      ]
+    },
+    {
+      "id": "yan_buxian",
+      "handle": "闫不闲",
+      "region": "国内",
+      "overlap": "失败 pivot·系列名·轻制作",
+      "matrix_links": [
+        {"pillar": "volume_habit", "strength": 0.88},
+        {"pillar": "backstage", "strength": 0.85},
+        {"pillar": "hear_daily", "strength": 0.5}
+      ]
+    },
+    {
+      "id": "jade_classical",
+      "handle": "西大调米小调 / Jade",
+      "region": "国内",
+      "overlap": "古典圈内·稳定更新·活人感",
+      "matrix_links": [
+        {"pillar": "backstage", "strength": 0.9},
+        {"pillar": "volume_habit", "strength": 0.8},
+        {"pillar": "story_judgment", "strength": 0.6}
+      ]
+    },
+    {
+      "id": "piano_teacher_case",
+      "handle": "钢琴老师素人案例",
+      "region": "国内",
+      "overlap": "粉丝规模接近·窄选题破千",
+      "matrix_links": [
+        {"pillar": "volume_habit", "strength": 0.75},
+        {"pillar": "flutebuddy", "strength": 0.65},
+        {"pillar": "story_judgment", "strength": 0.4}
+      ]
+    }
+  ],
+  "micro_videos": [
+    {
+      "id": "mv_colin_layoff_scene",
+      "source_creator": "colin",
+      "their_format": "一条一场景 · 竖屏 story · layoff/networking",
+      "your_title": "走廊收笛，家长问「还要走这条路吗」",
+      "track": "IP",
+      "duration": "45s",
+      "fit_experience": 88,
+      "fit_your_data": 92,
+      "ease_shoot": 85,
+      "volume_priority": 90,
+      "owner_evidence": "泰斗/考场类涨粉 210–282"
+    },
+    {
+      "id": "mv_nik_one_fact",
+      "source_creator": "nik",
+      "their_format": "卧室 · 一条一知识点 · 字幕 hook",
+      "your_title": "听见 60 秒：慢乐章为什么不能「拖」",
+      "track": "IP",
+      "duration": "60s",
+      "fit_experience": 95,
+      "fit_your_data": 55,
+      "ease_shoot": 90,
+      "volume_priority": 95,
+      "owner_evidence": "技巧帖偏低 · 需包在听见栏目"
+    },
+    {
+      "id": "mv_yan_self_talk",
+      "source_creator": "yan_buxian",
+      "their_format": "闺蜜/自问自答 · 半天拍完 · 系列名",
+      "your_title": "练完问你：今天最想逃哪一小节",
+      "track": "IP",
+      "duration": "45s",
+      "fit_experience": 80,
+      "fit_your_data": 70,
+      "ease_shoot": 92,
+      "volume_priority": 88,
+      "owner_evidence": "需固定栏目名提识别"
+    },
+    {
+      "id": "mv_owner_taidou",
+      "source_creator": "colin",
+      "their_format": "moment + 判断（你已有 S 级结构）",
+      "your_title": "再拍一条「泰斗型」新 moment（不洗稿）",
+      "track": "IP",
+      "duration": "60–90s",
+      "fit_experience": 85,
+      "fit_your_data": 98,
+      "ease_shoot": 70,
+      "volume_priority": 85,
+      "owner_evidence": "收藏212 涨粉282 完播12.4%"
+    },
+    {
+      "id": "mv_owner_kaochang",
+      "source_creator": "jiang_dora",
+      "their_format": "场景 micro-drama + 反常识",
+      "your_title": "再拍一条「考场/行业剧本」新题",
+      "track": "IP",
+      "duration": "60s",
+      "fit_experience": 82,
+      "fit_your_data": 90,
+      "ease_shoot": 75,
+      "volume_priority": 82,
+      "owner_evidence": "考场剧本 涨粉210"
+    },
+    {
+      "id": "mv_owner_mockery_fix",
+      "source_creator": "colin",
+      "their_format": "争议 hook · 第4秒接价值",
+      "your_title": "嘲讽/争议类 · 改完播版",
+      "track": "IP",
+      "duration": "45s",
+      "fit_experience": 78,
+      "fit_your_data": 85,
+      "ease_shoot": 80,
+      "volume_priority": 78,
+      "owner_evidence": "CTR14.6% 完播1.8% 需修结构"
+    },
+    {
+      "id": "mv_artists_short",
+      "source_creator": "jiang_dora",
+      "their_format": "现象+判断 · 文化口播",
+      "your_title": "不需要那么多艺术家（口播短版）",
+      "track": "IP",
+      "duration": "60–90s",
+      "fit_experience": 75,
+      "fit_your_data": 65,
+      "ease_shoot": 88,
+      "volume_priority": 80,
+      "owner_evidence": "11-03 三平台稿已有 · 剪短即发"
+    },
+    {
+      "id": "mv_genius_g_live",
+      "source_creator": "jiang_dora",
+      "their_format": "现象+你的判断",
+      "your_title": "live 写进揭幕 vs 放 BGM 差在哪",
+      "track": "IP",
+      "duration": "60s",
+      "fit_experience": 72,
+      "fit_your_data": 60,
+      "ease_shoot": 75,
+      "volume_priority": 72,
+      "owner_evidence": "discovery 队列可改短"
+    },
+    {
+      "id": "mv_ali_desk",
+      "source_creator": "ali",
+      "their_format": "书桌幕后 · 专业背景一句",
+      "your_title": "改作业到11点：先节奏后音准",
+      "track": "IP",
+      "duration": "45s",
+      "fit_experience": 80,
+      "fit_your_data": 58,
+      "ease_shoot": 85,
+      "volume_priority": 86,
+      "owner_evidence": "提量友好 · 建信任"
+    },
+    {
+      "id": "mv_jade_forgot",
+      "source_creator": "jade_classical",
+      "their_format": "幕后翻车 15–20s（房卡拨片梗）",
+      "your_title": "忘带___，用 X 顶替上台前",
+      "track": "IP",
+      "duration": "20s",
+      "fit_experience": 78,
+      "fit_your_data": 50,
+      "ease_shoot": 95,
+      "volume_priority": 92,
+      "owner_evidence": "极低门槛提量"
+    },
+    {
+      "id": "mv_life_suitcase",
+      "source_creator": "yan_buxian",
+      "their_format": "生活微痛点 · 第一视角",
+      "your_title": "出差回来琴盒味道怎么处理",
+      "track": "IP",
+      "duration": "30s",
+      "fit_experience": 70,
+      "fit_your_data": 45,
+      "ease_shoot": 90,
+      "volume_priority": 88,
+      "owner_evidence": "多维 IP · 非技巧"
+    },
+    {
+      "id": "mv_ip_insurance",
+      "source_creator": "colin",
+      "their_format": "改行坦诚 · vulnerable",
+      "your_title": "FluteBuddy 没走下去，我还会发这些",
+      "track": "IP",
+      "duration": "40s",
+      "fit_experience": 90,
+      "fit_your_data": 75,
+      "ease_shoot": 82,
+      "volume_priority": 70,
+      "owner_evidence": "IP 保险绳 · 目标对齐"
+    },
+    {
+      "id": "mv_data_recap",
+      "source_creator": "ali",
+      "their_format": "复盘一条 · 对着数据",
+      "your_title": "23 条里只有 3 类在帮我涨粉",
+      "track": "IP",
+      "duration": "60s",
+      "fit_experience": 65,
+      "fit_your_data": 95,
+      "ease_shoot": 78,
+      "volume_priority": 65,
+      "owner_evidence": "Drive 表 · 信任状"
+    },
+    {
+      "id": "mv_fb_parent",
+      "source_creator": "piano_teacher_case",
+      "their_format": "窄痛点干货 · 精准筛人",
+      "your_title": "长笛家长：你不需要当裁判",
+      "track": "FB",
+      "duration": "30–60s",
+      "fit_experience": 60,
+      "fit_your_data": 40,
+      "ease_shoot": 90,
+      "volume_priority": 85,
+      "owner_evidence": "已拍 · 待发 · FB#2"
+    },
+    {
+      "id": "mv_fb_machine",
+      "source_creator": "piano_teacher_case",
+      "their_format": "边界对照表",
+      "your_title": "机器能判错音节奏，判不了音乐性",
+      "track": "FB",
+      "duration": "45–90s",
+      "fit_experience": 62,
+      "fit_your_data": 38,
+      "ease_shoot": 85,
+      "volume_priority": 80,
+      "owner_evidence": "已拍 · FB#3"
+    },
+    {
+      "id": "mv_fb_evidence",
+      "source_creator": "piano_teacher_case",
+      "their_format": "录屏证据片",
+      "your_title": "练完不敢问老师？先看这三处扣分",
+      "track": "FB",
+      "duration": "30–90s",
+      "fit_experience": 58,
+      "fit_your_data": 35,
+      "ease_shoot": 70,
+      "volume_priority": 75,
+      "owner_evidence": "已拍 · 置顶候选 FB#1"
+    },
+    {
+      "id": "mv_fb_waitlist",
+      "source_creator": "piano_teacher_case",
+      "their_format": "转化 · 三问 CTA",
+      "your_title": "FluteBuddy 内测 40 组 PDF+录音",
+      "track": "FB",
+      "duration": "30–45s",
+      "fit_experience": 55,
+      "fit_your_data": 30,
+      "ease_shoot": 88,
+      "volume_priority": 82,
+      "owner_evidence": "FB#5 · 本周建议发"
+    },
+    {
+      "id": "mv_fb_teacher",
+      "source_creator": "piano_teacher_case",
+      "their_format": "老师向 B2B2C",
+      "your_title": "长笛老师：带「第几小节」来上课",
+      "track": "FB",
+      "duration": "30–60s",
+      "fit_experience": 50,
+      "fit_your_data": 28,
+      "ease_shoot": 80,
+      "volume_priority": 60,
+      "owner_evidence": "待拍 FB#4"
+    },
+    {
+      "id": "mv_nik_story_technique",
+      "source_creator": "nik",
+      "their_format": "故事里带一点技巧",
+      "your_title": "双吐不是炫技，是气先到位",
+      "track": "IP",
+      "duration": "45s",
+      "fit_experience": 88,
+      "fit_your_data": 72,
+      "ease_shoot": 80,
+      "volume_priority": 75,
+      "owner_evidence": "技巧 C 梯队升级写法"
+    },
+    {
+      "id": "mv_yan_first_rose",
+      "source_creator": "yan_buxian",
+      "their_format": "系列第一条 · 轻制作",
+      "your_title": "栏目首发：听见 60 秒 #001",
+      "track": "IP",
+      "duration": "60s",
+      "fit_experience": 85,
+      "fit_your_data": 50,
+      "ease_shoot": 88,
+      "volume_priority": 94,
+      "owner_evidence": "定栏目名后第一条"
+    }
+  ],
+  "steps": [
+    {"id": "s01", "block": 1, "title": "定栏目名（听见60秒 / 练完问你一句）", "track": "IP", "detail": "写进简介一行"},
+    {"id": "s02", "block": 1, "title": "拍满 7 条库存（已有3 + 再拍4）", "track": "双轨", "detail": "见平移表高 fit 优先"},
+    {"id": "s03", "block": 1, "title": "封面模板固定", "track": "双轨", "detail": "脸或琴键 + 6字 hook"},
+    {"id": "s04", "block": 1, "title": "发第 1 条不纠结", "track": "IP", "detail": "选最容易开口"},
+    {"id": "s05", "block": 1, "title": "连发 3 条/3 天", "track": "IP", "detail": "提量过心理关"},
+    {"id": "s06", "block": 1, "title": "补拍 FluteBuddy #4 老师向", "track": "FB", "detail": "flutebuddy-xhs-videos.json"},
+    {"id": "s07", "block": 1, "title": "发完更新 Drive + 同步", "track": "数据", "detail": "sync-owner-xhs-data-from-drive.sh"},
+    {"id": "s08", "block": 2, "title": "每周 5 IP : ≤2 FB", "track": "双轨", "detail": "写进日历"},
+    {"id": "s09", "block": 2, "title": "IP 轨不硬口播产品", "track": "IP", "detail": "最多结尾一句实验"},
+    {"id": "s10", "block": 2, "title": "FB 轨三问 CTA", "track": "FB", "detail": "水平/谱/录音"},
+    {"id": "s11", "block": 2, "title": "置顶只留 FB 证据片", "track": "FB", "detail": "IP 放合集"},
+    {"id": "s12", "block": 2, "title": "简介两行分工", "track": "双轨", "detail": "张丹瀛+听见 / FluteBuddy"},
+    {"id": "s13", "block": 3, "title": "再拍泰斗型", "track": "IP", "detail": "新 moment"},
+    {"id": "s14", "block": 3, "title": "再拍考场型", "track": "IP", "detail": "新场景"},
+    {"id": "s15", "block": 3, "title": "改发嘲讽型（第4秒价值）", "track": "IP", "detail": "修完播"},
+    {"id": "s16", "block": 3, "title": "发艺术家口播短版", "track": "IP", "detail": "11-03 稿剪短"},
+    {"id": "s17", "block": 3, "title": "发判断权短版", "track": "IP", "detail": "对齐收藏62结构"},
+    {"id": "s18", "block": 3, "title": "复盘 3 个数字", "track": "数据", "detail": "发布数/最高涨粉/平均完播"}
+  ],
+  "week_min_success": {"publish_min": 5, "ip_min": 3, "fb_max": 2}
+}

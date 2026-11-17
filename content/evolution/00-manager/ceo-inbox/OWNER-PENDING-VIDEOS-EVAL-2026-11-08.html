@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>待发口播评估 · 2026-11-08</title>
+<style>
+:root { --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --green:#3fb950; }
+body { margin:0; font-family:"PingFang SC",system-ui,sans-serif; background:var(--bg); color:var(--text); padding:20px; }
+.wrap { max-width:1100px; margin:0 auto; }
+h1 { font-size:1.25rem; }
+.lead { color:var(--muted); font-size:0.88rem; }
+.bar { display:inline-block; width:50px; height:6px; background:#21262d; border-radius:3px; vertical-align:middle; margin-right:4px; }
+.bar span { display:block; height:100%; background:linear-gradient(90deg,#238636,#58a6ff); border-radius:3px; }
+table { width:100%; border-collapse:collapse; font-size:0.82rem; margin-top:16px; }
+th,td { border-bottom:1px solid var(--border); padding:8px; text-align:left; vertical-align:top; }
+th { color:var(--muted); }
+.muted { color:var(--muted); font-size:0.75rem; }
+.note { max-width:220px; color:var(--muted); }
+.tier { padding:2px 8px; border-radius:4px; font-weight:700; }
+.t-a { background:#1f3d2f; color:#3fb950; }
+.t-b { background:#3d3520; color:#d29922; }
+.t-c { background:#3d2020; color:#f85149; }
+.win { border:1px solid var(--green); padding:12px; border-radius:8px; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 id="owner-latest">待发口播评估 · 匹配度 & 薯条建议</h1>
+<p class="lead">重建 2026-11-08 22:48:07 · inbox 条目数 0 · 真源 integration/handoff/owner-pending-videos-eval-latest.json</p>
+<div class="win"><strong>薯条优先试探（规则层）：</strong> — · 详见 promote_note 列 · Drive 参考：如何投放好小红书薯条.md</div>
+<table>
+<tr><th>#</th><th>标题</th><th>轨</th><th>综合匹配</th><th>故事</th><th>数据像</th><th>钩子</th><th>完播风险</th><th>投流</th><th>说明</th></tr>
+<tr><td colspan="10">No .md in pending-videos — add scripts then rerun</td></tr>
+</table>
+<p class="lead">新增/修改口播 MD 后重跑：<code>bash scripts/run-owner-pending-videos-eval.sh</code> ·
+SOP：<code>docs/OWNER-PENDING-VIDEOS-EVAL-SOP.md</code> · Inbox：<code>content/xiaohongshu/inbox/pending-videos/</code></p>
+</div>
+</body>
+</html>

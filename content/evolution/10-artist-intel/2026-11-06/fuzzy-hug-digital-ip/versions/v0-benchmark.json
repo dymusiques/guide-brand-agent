@@ -1,0 +1,56 @@
+{
+  "artist_slug": "fuzzy-hug-digital-ip",
+  "borrow_score": 50.4,
+  "why_evaluate": "评估 Fuzzy hug 旨在探究数字艺术 IP 如何通过快消跨界联名撬动品牌声量。在 DB 与 APO 维度上，其虚拟角色属性与大众 FMCG 受众与 Owner 的法派长笛及个人 IP 存在差异，但在 PLD 与 CTD 维度上其 CG+实景视觉呈现与跨界 Campaign 策划逻辑具有案例层借鉴价值。",
+  "alignment_points": [
+    "探索数字艺术 IP（Digital IP）与实体品牌的高质感跨界联动模式",
+    "通过高辨识度的视觉符号与叙事场景实现品牌升维与情绪共鸣",
+    "保持跨行业合作的开放性，将艺术概念翻译为商业语言但不绑定单一品类"
+  ],
+  "timeline": [
+    {
+      "phase": "IP 孵化与形象确立",
+      "year_or_era": "2020-2021",
+      "what_happened": "推出 Fuzzy hug 独立数字角色 IP，建立以毛绒温暖感为核心的视觉符号与情绪定位。"
+    },
+    {
+      "phase": "快消大牌跨界突破",
+      "year_or_era": "2021-2022",
+      "what_happened": "与潘婷（Pantene）合作‘3分钟奇迹’跨界 Campaign，完成 3D/CG 与实景落地的商业闭环。"
+    },
+    {
+      "phase": "商业授权与体验延伸",
+      "year_or_era": "2023 至今",
+      "what_happened": "持续开展品牌授权、衍生品开发与线下沉浸式体验策划，深化艺术 IP 商业化路径。"
+    }
+  ],
+  "worth_borrowing": [
+    "轻量级 IP 撬动知名快消品牌合作的视觉情绪表达与 Pitch 切入点",
+    "CG 形象与真实场景/产品相融合的视觉制作与分镜脚本拆解",
+    "将抽象艺术概念转化为具体营销 Hook（如‘3分钟修复’）的商业翻译能力"
+  ],
+  "avoid": [
+    "过度依赖单次 Campaign 营销而缺乏长线人设与专业内容的持续沉淀",
+    "沦为纯粹的商业代言符号，缺失艺术传承背景与深层思想内核",
+    "偏离‘人即品牌’（G-PERSON-IS-BRAND）主线，被乙方角色或甲方品牌主导心智"
+  ],
+  "sources_note": "依据广告门 Adquan 等公开案例报道分析；未虚构或推断未公开的商业合同细节或财务收入。",
+  "benchmark_metrics": {
+    "directional_benchmarking": {
+      "score": 56.0,
+      "rationale": "作为虚拟角色 IP，其商业战略偏向快消代言 Campaign，与 Owner 的真人法派长笛个人 IP 及专业叙事在战略方向上重合度较低。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 52.0,
+      "rationale": "其 CG 视觉与实景融合作秀、跨界合作分镜具备像素级拆解价值，但缺乏个人博主的日常/周更互动范式。"
+    },
+    "audience_persona_overlap": {
+      "score": 48.0,
+      "rationale": "受众主要集中于大众泛娱乐与 FMCG 美妆消费者，与 Owner 的高质感艺术品牌、教育链及 AI 创新从业者受众交集较小。"
+    },
+    "core_topic_density": {
+      "score": 42.0,
+      "rationale": "内容高度集中于单次营销节点与产品推广，缺乏艺术专业深度与长线价值观表达，核心话题密度较低。"
+    }
+  }
+}

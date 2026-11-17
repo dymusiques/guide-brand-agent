@@ -73,7 +73,13 @@ content/evolution/**/*.log
 # Layer C · runtime handoffs & CEO rolling outputs (regenerated locally)
 integration/handoff/owner-*-latest.json
 content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.*
+content/evolution/00-manager/ceo-inbox/OWNER-*-DELIVERABLE-latest.html
 content/evolution/00-manager/ceo-inbox/daily-gm-summary-*.md
+content/evolution/00-manager/ceo-inbox/agent-work-queue.md
+content/evolution/00-manager/ceo-inbox/ceo-action-needed.md
+content/evolution/00-manager/ceo-inbox/ceo-auto-recover-latest.md
+content/evolution/00-manager/ceo-inbox/background-cycle-latest.md
+content/evolution/00-manager/ceo-inbox/gmail-notify-body.txt
 content/evolution/00-manager/ceo-inbox/corpus-screen-latest.json
 content/evolution/00-manager/ceo-inbox/corpus-screens/
 content/personal-ip/intake/_raw/ceo-drive-catalog-live.json

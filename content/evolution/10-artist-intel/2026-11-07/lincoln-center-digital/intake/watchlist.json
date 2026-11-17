@@ -1,0 +1,33 @@
+{
+  "slug": "lincoln-center-digital",
+  "name": "Lincoln Center / 机构级艺术传播（非个人，学内容结构）",
+  "domain": "表演艺术机构 × 数字内容矩阵",
+  "search_queries": [
+    "Lincoln Center social media strategy classical",
+    "performing arts institution digital audience"
+  ],
+  "urls": [
+    "https://www.lincolncenter.org/"
+  ],
+  "notes": "机构非人 IP；仅借鉴：节目单+幕后+教育分层，勿让 Owner 账号像场馆号",
+  "priority_tier": "P3",
+  "last_screened_composite": 37,
+  "last_screened_metrics": {
+    "directional_benchmarking": {
+      "score": 25.0,
+      "rationale": "机构传播非个人 IP 方向，与「人即品牌」错位。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 35.0,
+      "rationale": "名人/机构尺度，像素模板难直接迁移到 Owner 阶段。"
+    },
+    "audience_persona_overlap": {
+      "score": 58.0,
+      "rationale": "教育链叙事有重叠。"
+    },
+    "core_topic_density": {
+      "score": 30.0,
+      "rationale": "机构多栏目并行，非个人核心题密度模型。"
+    }
+  }
+}

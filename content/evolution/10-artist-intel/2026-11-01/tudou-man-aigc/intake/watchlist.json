@@ -1,0 +1,34 @@
+{
+  "slug": "tudou-man-aigc",
+  "name": "土豆人 · tudou_man（林晨）",
+  "domain": "视觉/AIGC × 小红书 IP × 奢侈/潮流品牌共创",
+  "search_queries": [
+    "土豆人 AIGC 艺术家 小红书 品牌",
+    "tudou_man UGG 雅诗兰黛 合作"
+  ],
+  "urls": [
+    "https://www.digitaling.com/articles/942108.html",
+    "https://www.digitaling.com/articles/1320234.html"
+  ],
+  "notes": "可借鉴：概念假设式品牌结合、东方元素×全球品牌、线下装置/展览延展；对齐 Owner AI×艺术叙事",
+  "priority_tier": "P2",
+  "last_screened_composite": 70,
+  "last_screened_metrics": {
+    "directional_benchmarking": {
+      "score": 68.0,
+      "rationale": "领域含品牌/IP/跨界或AIGC，与 Owner 策划向同向。"
+    },
+    "pixel_level_deconstruction": {
+      "score": 77.0,
+      "rationale": "小红书可观测，利于像素级拆封面/标签/栏目。"
+    },
+    "audience_persona_overlap": {
+      "score": 80.0,
+      "rationale": "受众阶段接近 Owner 小红书认知期。品牌/商业受众与 Owner B 端重叠。"
+    },
+    "core_topic_density": {
+      "score": 50.0,
+      "rationale": "题密度待复核。"
+    }
+  }
+}
