@@ -36,6 +36,7 @@ content_sha256: "f2810b6eb6e952f0"
 # Owner · 小红书成稿交付规范
 
 > Agent（04 / 00 Manager）产出 **待 Owner 确认** 的笔记包时 **Must** 遵守。  
+> **Owner 口径「Brief」= 交付包**（简报 + **完整可发帖文稿** + 为什么这样写）· 真源 [docs/OWNER-DELIVERABLE-PACK-MANDATE.md](../../docs/OWNER-DELIVERABLE-PACK-MANDATE.md)  
 > 数据与平台栈：[docs/XHS-CONTENT-INTAKE-STACK.md](../../docs/XHS-CONTENT-INTAKE-STACK.md)
 
 ---

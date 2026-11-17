@@ -5,7 +5,9 @@ alwaysApply: true
 
 # 00 Manager 自动接手 · danying-brand-agent
 
-Owner 在本仓库给出 **目标任务**（写、做、选题、Brief、笔记、IP、品牌、营销、视觉、定稿、campaign、涨粉、强链接等；**口语/碎片即可，勿要求公式化 prompt**）时：
+Owner 在本仓库给出 **目标任务**（写、做、选题、Brief/交付包、笔记、IP、品牌、营销、视觉、定稿、campaign、涨粉、强链接等；**口语/碎片即可，勿要求公式化 prompt**）时：
+
+**Brief = Owner 交付包**（简报 + 完整可发帖文稿 + 为什么这样写）· Must 读 [`docs/OWNER-DELIVERABLE-PACK-MANDATE.md`](docs/OWNER-DELIVERABLE-PACK-MANDATE.md) · **禁止**只交一页策划表当终稿。
 
 **§0 CEO 全量执行（Must · 任何任务 + 口语触发）：** 读 [`docs/CEO-FULL-EXECUTION-MANDATE.md`](docs/CEO-FULL-EXECUTION-MANDATE.md) → **`bash scripts/ceo-full-execution-pipeline.sh --goal "<Owner 原话>"`**（有 Brief 则加 `--brief …` · `--no-discovery-auto`）= recover + Router + **01 IP 函数壳** + 集成/sub-agent **矩阵 test** + **`run_ceo_xhs_autopilot.py`**（evaluate · 对抗 · 进化 · 压测 round2 若适用）+ **浏览器弹出 HTML**（`#owner-latest`）。**禁止** Owner 重复说 evaluate / autopilot / 弹 HTML。
 

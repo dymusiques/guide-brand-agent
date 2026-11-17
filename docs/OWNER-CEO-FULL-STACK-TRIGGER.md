@@ -10,7 +10,7 @@
 1. **编排**：强制 `copy_ceo_full`（C 档），禁止默认 `replay_only`。
 2. **门禁**：`python3 scripts/agent-owner-research-gate.py --goal "<Owner 当句原话>"`（含 QC；交付不重 `--skip-qc-task`）。
 3. **Gemini**：`SKIP_GEMINI=0`（`OWNER_CEO_FULL_STACK=1`）；deep 持锁时先 **等待至 900s**（`CEO_CAMPAIGN_WAIT_DEEP_SEC`），**仍不**因并行 campaign 规则静默 SKIP Gemini。
-4. **CEO**：`run_ceo_full_execution.py --skip-research-gate`（gate 已 PASS）+ 有 Brief 则 `--brief` + `manager-ceo-auto-gate-loop`。
+4. **CEO**：`run_ceo_full_execution.py --skip-research-gate`（gate 已 PASS）+ 有交付包路径则 `--brief …` + `manager-ceo-auto-gate-loop`。**交付包** = 简报 + 完整文稿 + 说明（见 [OWNER-DELIVERABLE-PACK-MANDATE.md](./OWNER-DELIVERABLE-PACK-MANDATE.md)）；禁止只交结构无长稿。
 5. **Open WebUI**：仅当 goal 含长稿/RAG 词（长纲、Pipe、OpenRouter）时跑 router；监督短 task 仍可 SKIP router（不等于 skip verify）。
 6. **仍人工**：各平台点发送。
 
