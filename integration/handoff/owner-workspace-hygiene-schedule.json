@@ -1,0 +1,55 @@
+{
+  "schema": "owner_workspace_hygiene_schedule_v1",
+  "note_zh": "Agent / Automation 读取 · 不替代 Owner 定稿口令",
+  "steady_state": {
+    "manifest_latest": "本机 ignore · 真源是 dated DELIVERABLE + owner-campaign-archive-index.json",
+    "good_for_future_tasks": true
+  },
+  "triggers": [
+    {
+      "id": "archive_after_campaign",
+      "when": "每次 CEO full / gate PASS + 有新版 OWNER-*-<date>.html 未 commit",
+      "action": "bash scripts/archive-ceo-campaign-deliverables.sh · 更新 owner-campaign-archive-index.json · 单独 commit「Archive …」",
+      "priority": 1
+    },
+    {
+      "id": "hygiene_weekly",
+      "when": "距上次 archive commit ≥ 7 天，或 git status 未跟踪 ≥ 20 行",
+      "action": "python3 scripts/owner-workspace-hygiene-alert.py · 表 B restore 候选 · 清 owner-*-latest / verify-logs",
+      "priority": 2
+    },
+    {
+      "id": "layer_c_batch_monthly",
+      "when": "每月 1 日或 deep-delivery md ≥ 8 个未跟踪",
+      "action": "删或 ignore ceo-deep-delivery-*.md · platform-hits 仅留当前 goal 目录",
+      "priority": 3
+    },
+    {
+      "id": "xlsx_after_xhs_sync",
+      "when": "出现 content/analytics/xiaohongshu/*.xlsx 未跟踪",
+      "action": "不进 Git · 同步 Drive「我的小红书数据」· 跑 xhs-owner-data-auto-sync",
+      "priority": 4
+    },
+    {
+      "id": "openwebui_job_archive",
+      "when": "openwebui-jobs 下单次任务 JSON 且 Owner 说定稿或 E2E PASS",
+      "action": "可选 commit integration/handoff/openwebui-jobs/<slug>.json + outbox 路径记入 archive-index",
+      "priority": 5
+    }
+  ],
+  "archive_gate": {
+    "required_owner_phrase_any": ["定稿", "归档", "可以 commit 交付"],
+    "manifest_fields_recommended": {
+      "delivery_status": "draft | owner_review | aligned",
+      "goal": "string",
+      "as_of": "ISO8601"
+    },
+    "never_commit_glob": [
+      "integration/handoff/owner-*-latest.json",
+      "content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.*",
+      "content/evolution/00-manager/ceo-inbox/OWNER-*-DELIVERABLE-latest.html"
+    ]
+  },
+  "last_archive_commit_hint": "e0e6234",
+  "last_archive_date": "2026-11-17"
+}
