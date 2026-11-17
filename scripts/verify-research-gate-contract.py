@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import py_compile
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -132,6 +133,12 @@ def main() -> int:
     if '"--deep"' not in sess:
         print("FAIL: content-session must pass --deep on deep goals", file=sys.stderr)
         fail += 1
+    for extra_verify in ("verify-orchestration-overrides.py", "verify-orchestration-modes.py"):
+        vp = ROOT / "scripts" / extra_verify
+        if vp.is_file():
+            r = subprocess.run([sys.executable, str(vp)], cwd=ROOT)
+            if r.returncode != 0:
+                fail += 1
     if fail:
         return 1
     print("PASS verify-research-gate-contract")

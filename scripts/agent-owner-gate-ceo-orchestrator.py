@@ -76,10 +76,29 @@ def main() -> int:
 
     if mode == "replay_only":
         payload["status"] = "SKIP"
-        payload["note"] = "复盘/监督类 · gate PASS 即停 · 不自动 CEO full"
+        payload["note"] = "A 档 · gate PASS 即停 · 不 evaluate 切片"
         OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(json.dumps({"status": "SKIP", "mode": mode, "handoff": str(OUT.relative_to(ROOT))}))
         return 0
+
+    if mode == "evaluate_post_gate":
+        if args.require_gate_pass:
+            ok, msg = gate_passes_for_goal(goal)
+            if not ok:
+                payload["status"] = "FAIL"
+                payload["error"] = msg
+                OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                return 1
+        bcmd = [sys.executable, "scripts/ceo-evaluate-post-gate-bundle.py", "--goal", goal]
+        if brief:
+            bcmd.extend(["--brief", brief])
+        ec, tail = run(bcmd, timeout=1800)
+        payload["steps"].append({"name": "ceo_evaluate_post_gate_bundle", "exit_code": ec, "tail": tail[-800:]})
+        payload["handoff_evaluate"] = "integration/handoff/owner-evaluate-post-gate-latest.json"
+        payload["status"] = "PASS" if ec == 0 else "FAIL"
+        OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps({"status": payload["status"], "mode": mode, "handoff": str(OUT.relative_to(ROOT))}))
+        return 0 if ec == 0 else 1
 
     if args.require_gate_pass:
         ok, msg = gate_passes_for_goal(goal)

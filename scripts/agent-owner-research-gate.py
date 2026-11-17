@@ -280,7 +280,7 @@ def main() -> int:
             layers.append({"name": "qc_verify", "status": "SKIP", "note": "--skip-qc-task"})
 
     if not args.no_orchestrate and fail == 0 and payload["status"] == "PASS":
-        if orch_mode == "copy_ceo_full":
+        if orch_mode in ("copy_ceo_full", "evaluate_post_gate"):
             orch_cmd = [
                 sys.executable,
                 "scripts/agent-owner-gate-ceo-orchestrator.py",
@@ -317,7 +317,7 @@ def main() -> int:
                     "name": "ceo_orchestrator_post_gate",
                     "status": "SKIP",
                     "mode": orch_mode,
-                    "note": "复盘/监督类 · gate PASS 即停",
+                    "note": "A 档 replay_only · gate PASS 即停",
                 }
             )
         payload["layers"] = layers
