@@ -147,6 +147,9 @@ def main() -> int:
     )
     track("platform_voice_benchmark", ec, tail)
 
+    ec, tail = run([py, "scripts/agent-multichannel-post-gate.py", "--goal", goal], timeout=300)
+    track("multichannel_post_gate", ec, tail, ok_ec={0, 1})
+
     ec, tail = run(
         [
             py,

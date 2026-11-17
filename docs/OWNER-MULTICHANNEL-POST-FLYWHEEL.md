@@ -45,3 +45,17 @@ LinkedIn/Medium 建议 **发帖后 48–72h** 或 **跟小红书同日晚上** �
 ## Drive 变更检测
 
 见 `docs/OWNER-XHS-DRIVE-WATCH-ARCHITECTURE.md` · `compare-owner-xhs-drive-listing.py`
+
+## Gate · evaluate · baseline（与小红书同合同）
+
+`agent-owner-research-gate.py` 层 **`multichannel_post_gate`**：
+
+| 状态 | 行为 |
+|------|------|
+| inbox 空 | **PASS**（架构就绪，不阻塞） |
+| 有 `inbox/*` 文件 | ingest → `agent-multichannel-eval-baseline-loop.py` |
+| goal 含 LinkedIn/Medium/领英/复盘/多平台 | 强制跑（见 contract `triggers_any`） |
+
+满链写稿仍：`派活给 CEO` → six-case · triple-eval（有 Brief 时）。本层管 **发帖数据** 的 evaluate + baseline 滚动。
+
+Handoff：`integration/handoff/owner-multichannel-post-gate-latest.json` · `owner-multichannel-post-eval-*.json`

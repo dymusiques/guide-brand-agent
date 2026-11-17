@@ -80,6 +80,9 @@ integration/handoff/owner-xhs-drive-watch-fingerprint.json
 integration/handoff/owner-xhs-export-reminder-latest.json
 integration/handoff/owner-linkedin-metrics-latest.json
 integration/handoff/owner-medium-metrics-latest.json
+integration/handoff/owner-multichannel-post-gate-latest.json
+integration/handoff/owner-multichannel-post-eval-baseline.json
+integration/handoff/owner-multichannel-post-eval-distance.json
 content/analytics/linkedin/posts.jsonl
 content/analytics/medium/posts.jsonl
 content/evolution/00-manager/ceo-inbox/CEO-RUN-MANIFEST-latest.*

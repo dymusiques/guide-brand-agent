@@ -82,6 +82,8 @@ for s in \
   scripts/owner-xhs-export-reminder.py \
   scripts/ingest-owner-linkedin-metrics.py \
   scripts/ingest-owner-medium-metrics.py \
+  scripts/agent-multichannel-post-gate.py \
+  scripts/agent-multichannel-eval-baseline-loop.py \
   scripts/ceo-auto-recover-blocked.sh \
   scripts/refresh-owner-notify-html.sh \
   scripts/ceo-workflow-test-round2-finish.sh \
