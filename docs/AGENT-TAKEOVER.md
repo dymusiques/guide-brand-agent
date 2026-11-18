@@ -31,7 +31,8 @@ content_sha256: "75467ade311103d1"
 
 > **更新：** 2026-11-18（三轨接手 · IP 架构图 · Refining 蒸馏 · 与 verify-agent-takeover 对齐）  
 > **仓库路径：** 本仓即 **`danying-brand-agent`**（`~/Desktop/danying-brand-agent`）  
-> **IP 全链路图：** [OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md](OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md)  
+> **IP 全链路图：** [OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md](OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md)（真源 vs 可视化分层见该文「可视化 vs 真源」）  
+> **Cursor Automations（粘贴真源 · 非 CEO 满链）：** [OWNER-CURSOR-AUTOMATIONS-INDEX.md](OWNER-CURSOR-AUTOMATIONS-INDEX.md) — 含每日 AI 资讯 #5、每周轻验 #2b  
 > **验证：** `bash scripts/verify-handoff.sh`（含本文件检查）· `bash scripts/verify-agent-takeover.sh`  
 > **CEO/GM 接手包（Must）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)  
 > **接手 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · **CEO 派活全链路导图（Must 点圆看弹窗）：** [CEO-EXECUTION-MINDMAP.html](CEO-EXECUTION-MINDMAP.html) · `bash scripts/open-owner-ceo-execution-mindmap-html.sh` · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html) · Open WebUI 总图 [owner-stack-openwebui-mindmap.html](owner-stack-openwebui-mindmap.html) · 边界 [OWNER-BRAND-AGENT-SCOPE.md](OWNER-BRAND-AGENT-SCOPE.md) · 成功指标 [OWNER-SUCCESS-METRICS-MAP.md](OWNER-SUCCESS-METRICS-MAP.md)  

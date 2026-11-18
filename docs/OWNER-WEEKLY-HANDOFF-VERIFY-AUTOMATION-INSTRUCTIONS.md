@@ -1,8 +1,13 @@
 # 复制到 Cursor Automation · 每周接手轻验（防遗忘）
 
 **名称（建议）：** `品牌仓 · 每周接手轻验`  
-**Cron（GMT+8）：** 每周一 **09:00** → `0 9 * * 1`  
-**若 UI 只认 UTC：** 北京时间周一 09:00 = UTC 周一 **01:00** → `0 1 * * 1`  
+**Cursor UI（你截图这种 · Cron expression UTC）：** 每周一北京 09:00 → 只填一行（5 字段）：
+
+`0 1 * * 1`
+
+- 第 3 段必须是 `*`（任意日），**不能**写 `1` —— `0 1 1 * *` = **每月 1 号** 09:00（错）。
+- 保存后预览应出现 **连续多个周一**，不是每月 1 日。
+- 字段敲不进去时：点进框 → **全选** → 粘贴上式 → 点别处触发预览。  
 **分工：** 与周四保洁（`OWNER-WORKSPACE-HYGIENE.md`）不同；本任务只跑 **轻量 verify**，不跑 `verify-handoff-program.sh`（太重，留给换机/月末）。
 
 **打开 Automation：** Cursor 左侧 **Automations** → **New**，或浏览器 [cursor.com/automations](https://cursor.com/automations)（仓库选 `guide-brand-agent` / `main`）。
@@ -42,9 +47,9 @@ cd ~/Desktop/danying-brand-agent
 
 ## Trigger 怎么设（一步步）
 
-1. **Schedule** 选 **Cron**（或 Weekly）。
-2. **时区：** 选 **GMT+8** 或 **Asia/Shanghai**（有就选）；没有就用 UTC 行 `0 1 * * 1`。
-3. **星期：** Monday / 周一；**时间：** 09:00。
+1. **Triggers** → **Custom schedule** → **Cron expression (UTC)**。
+2. 粘贴：`0 1 * * 1`（核对预览为 **每周一** GMT+8 09:00）。
+3. 勿用 `0 1 1 * *`（那是每月 1 号）。
 4. **Repository：** `dymusiques/guide-brand-agent` 或 `danying/guide-brand-agent`（与现有 Automation 一致即可）· 分支 **main**。
 5. **Tools：** 去掉未配置的 MCP；需要读仓库即可，一般不必开 Web Search。
 

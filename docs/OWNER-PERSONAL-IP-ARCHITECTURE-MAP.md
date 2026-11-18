@@ -9,6 +9,17 @@
 **个人 IP 的「执行链」在品牌仓 `danying-brand-agent` 里已经闭合**（规则 + 文档 + handoff JSON + 脚本）。  
 **Refining 对话里的「进站安检链」（①–⑤、slug、C1/C3）在 Agent 工作区**（仓库 `danying-agent-workspace`；本机路径常为 `~/Desktop/未命名`）—— 品牌任务仍可用，但若 **本机没有该工作区**，`research-gate` / `agent-workflow.py` 会断档（见下文缺口）。
 
+## 可视化 vs 真源（新 Agent · 勿混）
+
+| 层 | 是什么 | 何时信它 |
+|----|--------|----------|
+| **执行真源** | [OWNER-DELIVERABLE-PACK-MANDATE.md](OWNER-DELIVERABLE-PACK-MANDATE.md)（你说 Brief = **交付包四块**）· [WORKFLOW-AUTOMATION-MATRIX.md](WORKFLOW-AUTOMATION-MATRIX.md) · `integration/handoff/workflow-automation-manifest.json` | 写稿、gate、进化、能不能交 Owner |
+| **Cursor Automation 粘贴真源** | [OWNER-CURSOR-AUTOMATIONS-INDEX.md](OWNER-CURSOR-AUTOMATIONS-INDEX.md) → 各 `OWNER-*-AUTOMATION-INSTRUCTIONS.md` | 配 Cron / 复制 Instructions |
+| **人在环导图（Git）** | [CEO-EXECUTION-MINDMAP.html](CEO-EXECUTION-MINDMAP.html) · [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html) | 接 CEO 战役时导航 |
+| **可选全链 HTML（可未进 Git）** | `docs/OWNER-IP-WORKFLOW-FULL-MAP.html` + `scripts/open-owner-ip-workflow-full-map-html.sh` | **仅导航**；与 mandate/矩阵矛盾时 **以 mandate/矩阵为准** |
+
+架构演进时：**先改 MD + rules + JSON**，大图可隔几轮再跟；**不必每改一行就 commit 图**。
+
 ---
 
 ## 从定位到交付（一张表）
@@ -34,7 +45,7 @@
 
 | 工作区 | 放什么 |
 |--------|--------|
-| **`danying-brand-agent`** | CEO 派活、Brief、pipeline、品牌 Rules、本图与 chain JSON |
+| **`danying-brand-agent`** | CEO 派活、交付包（`*-brief.md`）、pipeline、品牌 Rules、本图与 chain JSON |
 | **Agent 工作区**（`danying-agent-workspace` · 本机常为 `~/Desktop/未命名`） | ①–⑤ 统一进站、`AGENT-CURSOR-CEO-UNION.json`、`AGENT-STEP-01-WORKSPACE-REGISTRY.json`、检查单 HTML |
 
 品牌仓 **不写** CEO 脚本真源到 Agent 工作区根目录；Agent 工作区 **不写** Brief 定稿到错误根目录。机械门禁：`docs/AGENT-WORKSPACE-GATE.md`。

@@ -71,10 +71,12 @@
       "stage": "S4_content_xhs",
       "label_zh": "小红书 Brief · 进化 · 交付",
       "paths": [
+        "docs/OWNER-DELIVERABLE-PACK-MANDATE.md",
         "content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md",
         "content/xiaohongshu/VOICE-ANCHOR.md",
         "docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md",
-        "docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md"
+        "docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md",
+        "docs/WORKFLOW-AUTOMATION-MATRIX.md"
       ],
       "scripts": [
         "bash scripts/manager-brief-evolution-until-gap.sh",
@@ -87,7 +89,9 @@
       "paths": [
         "docs/OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md",
         "integration/handoff/owner-multichannel-flywheel-phase.json",
-        "docs/OWNER-CURSOR-AUTOMATIONS-INDEX.md"
+        "docs/OWNER-CURSOR-AUTOMATIONS-INDEX.md",
+        "docs/OWNER-DAILY-AI-INTEL-AUTOMATION-INSTRUCTIONS.md",
+        "docs/OWNER-WEEKLY-HANDOFF-VERIFY-AUTOMATION-INSTRUCTIONS.md"
       ]
     },
     {
