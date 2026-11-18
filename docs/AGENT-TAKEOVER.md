@@ -29,7 +29,9 @@ content_sha256: "75467ade311103d1"
 
 # 新 Agent 接手 · 当前程序状态与指挥手册
 
-> **更新：** 2026-10-28（CEO/GM 三支柱 · 双图 · 双轮迭代 · 一句话触发 · 接手 JSON）  
+> **更新：** 2026-11-18（三轨接手 · IP 架构图 · Refining 蒸馏 · 与 verify-agent-takeover 对齐）  
+> **仓库路径：** 本仓即 **`danying-brand-agent`**（`~/Desktop/danying-brand-agent`）  
+> **IP 全链路图：** [OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md](OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md)  
 > **验证：** `bash scripts/verify-handoff.sh`（含本文件检查）· `bash scripts/verify-agent-takeover.sh`  
 > **CEO/GM 接手包（Must）：** [HANDOFF-CEO-GM-SOP-PACK.md](HANDOFF-CEO-GM-SOP-PACK.md) · JSON [integration/handoff/ceo-gm-operating-manifest.json](../integration/handoff/ceo-gm-operating-manifest.json)  
 > **接手 SOP：** [NEW-AGENT-WORKFLOW-SOP.md](NEW-AGENT-WORKFLOW-SOP.md) · **CEO 派活全链路导图（Must 点圆看弹窗）：** [CEO-EXECUTION-MINDMAP.html](CEO-EXECUTION-MINDMAP.html) · `bash scripts/open-owner-ceo-execution-mindmap-html.sh` · 思维导图 [workflow-handoff-mindmap.html](workflow-handoff-mindmap.html) · Open WebUI 总图 [owner-stack-openwebui-mindmap.html](owner-stack-openwebui-mindmap.html) · 边界 [OWNER-BRAND-AGENT-SCOPE.md](OWNER-BRAND-AGENT-SCOPE.md) · 成功指标 [OWNER-SUCCESS-METRICS-MAP.md](OWNER-SUCCESS-METRICS-MAP.md)  
@@ -71,6 +73,18 @@ IP 一句话：[content/personal-ip/ip-positioning-brief-2026-10-05.md](../conte
 **反馈回 CEO 的三条总线：** ① 终端 `RESULT: PASS/FAIL` ② `content/analytics/derived/manager-dashboard-*.md` ③ `ceo-dispatch-latest.md`（09→04 半自动派活）。监督环：[DANYING-BRAND-AGENT-INTEGRATION.md](DANYING-BRAND-AGENT-INTEGRATION.md) · Manager's Loop。
 
 **刻意不做：** 多进程后台 CEO、自动发帖、自动爬小红书数据（Owner → inbox CSV）。
+
+### 1.2 三轨（接手 Must · 勿混）
+
+| 轨 | 做什么 | 入口 |
+|----|--------|------|
+| **A · 品牌内容 / CEO** | Brief · evolution · HTML · 派活 | 本仓 · `danying-manager-auto.mdc` · `ceo-full-execution-pipeline.sh` |
+| **B · 作业仓课标 / 工具层** | project4 · Module3 · ①–⑤ 进站 | `~/Desktop/未命名` · `AGENT-UNIFIED-WORKFLOW.md` |
+| **C · 听见 Daily 等独立 app** | 栏目日更 | 独立仓 / skill · 不占用 CEO 12 岗全量 |
+
+当前小红书队列含 **discovery-01-irreplaceability**（`content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md`）等 Brief；autopilot 会扫全 Brief，不单篇特例。
+
+**验收分层：** 日常 `verify-handoff.sh` · 交班 `VERIFY-TIER=release` 见 [VERIFY-TIERS.md](VERIFY-TIERS.md)（M4 goals 与 kernel 6-case 分工）。
 
 
 ## 3. 运营快照（新 Agent 接手后第一眼）

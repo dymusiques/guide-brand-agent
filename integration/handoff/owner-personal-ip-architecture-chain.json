@@ -1,0 +1,114 @@
+{
+  "version": "2026-11-18",
+  "purpose_zh": "个人 IP 全链路 · 机器可读索引（品牌仓真源；作业仓进站链见 monorepo）",
+  "human_doc": "docs/OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md",
+  "verify": [
+    "bash scripts/verify-workflow-automation.sh",
+    "bash scripts/verify-handoff.sh",
+    "bash scripts/verify-agent-takeover.sh"
+  ],
+  "workspace": {
+    "brand_root": "~/Desktop/danying-brand-agent",
+    "monorepo_root": "~/Desktop/未命名",
+    "monorepo_required_for": [
+      "agent-workflow.py brand content-session",
+      "agent-workflow.py brand research-gate",
+      "AGENT-CURSOR-CEO-UNION.json",
+      "AGENT-STEP-01-WORKSPACE-REGISTRY.json"
+    ]
+  },
+  "chain": [
+    {
+      "stage": "S0_identity",
+      "label_zh": "人即品牌 · 定位",
+      "paths": [
+        "rules/USER.md",
+        "rules/SOUL.md",
+        "content/personal-ip/ip-positioning-brief-2026-10-05.md",
+        "content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md"
+      ]
+    },
+    {
+      "stage": "S1_goals",
+      "label_zh": "成功目标 G-*",
+      "paths": [
+        "integration/GOALS-REGISTRY.md",
+        "integration/goals/registry.json",
+        "docs/OWNER-SUCCESS-METRICS-MAP.md"
+      ]
+    },
+    {
+      "stage": "S2_ceo_dispatch",
+      "label_zh": "CEO 接活 · 派活 01–12",
+      "paths": [
+        ".cursor/rules/danying-manager-auto.mdc",
+        "agents/00-manager/AUTO-WORKFLOW.md",
+        "docs/CEO-FULL-EXECUTION-MANDATE.md",
+        "agents/00-manager/CEO-DISPATCH-SOP.md",
+        "integration/handoff/workflow-automation-manifest.json",
+        "integration/handoff/ceo-gm-operating-manifest.json"
+      ],
+      "scripts": [
+        "bash scripts/ceo-full-execution-pipeline.sh",
+        "bash scripts/ceo-auto-recover-blocked.sh"
+      ]
+    },
+    {
+      "stage": "S3_cursor_union",
+      "label_zh": "聊天进站 × CEO 厨房并集",
+      "paths": [
+        "docs/AGENT-CURSOR-CEO-UNION.md",
+        "integration/handoff/agent-owner-research-gate-contract.json",
+        "integration/handoff/agent-owner-content-session-contract.json"
+      ],
+      "monorepo_paths": [
+        "docs/agent/AGENT-CURSOR-CEO-UNION.json",
+        "docs/agent/AGENT-OWNER-CONTENT-SESSION.json"
+      ]
+    },
+    {
+      "stage": "S4_content_xhs",
+      "label_zh": "小红书 Brief · 进化 · 交付",
+      "paths": [
+        "content/xiaohongshu/OWNER-LONGFORM-XHS-SPEC.md",
+        "content/xiaohongshu/VOICE-ANCHOR.md",
+        "docs/OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md",
+        "docs/CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md"
+      ],
+      "scripts": [
+        "bash scripts/manager-brief-evolution-until-gap.sh",
+        "bash scripts/manager-ceo-xhs-owner-delivery.sh"
+      ]
+    },
+    {
+      "stage": "S5_multichannel",
+      "label_zh": "三平台飞轮 · 自动化",
+      "paths": [
+        "docs/OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md",
+        "integration/handoff/owner-multichannel-flywheel-phase.json",
+        "docs/OWNER-CURSOR-AUTOMATIONS-INDEX.md"
+      ]
+    },
+    {
+      "stage": "S6_data_feedback",
+      "label_zh": "数据 · dispatch · 涨粉证据",
+      "paths": [
+        "agents/09-data-analytics/DATA-NEEDS.md",
+        "content/analytics/derived/ceo-dispatch-latest.md"
+      ],
+      "owner_only": [
+        "content/analytics/inbox/*.csv"
+      ]
+    },
+    {
+      "stage": "S7_qc",
+      "label_zh": "机器 gate + 13-QC",
+      "paths": [
+        "agents/00-manager/DOUBLE-CHECK-SUBAGENT.md",
+        "rules/skills/workflow_double_check_subagent.md"
+      ]
+    }
+  ],
+  "refining_archive": "docs/ARCHIVE-REFINING-CURSOR-FLOW-2026-11.md",
+  "chat_entry": "docs/OWNER-CURSOR-CHAT-ENTRY.md"
+}

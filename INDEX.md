@@ -33,6 +33,7 @@ content_sha256: "dabcacc4a6d50ed3"
 ## 新 Agent 开工顺序
 
 0. **[docs/AGENT-TAKEOVER.md](docs/AGENT-TAKEOVER.md)** — 当前程序状态 · 三轨 · CEO 链 · verify（换机 Must）
+0b. **[docs/OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md](docs/OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md)** — 个人 IP 全链路 · JSON 索引
 1. [AGENTS.md](AGENTS.md)
 2. [integrations/index.md](integrations/index.md) — **按任务查表，禁止全盘搜索**
 3. 命中领域 → 读 `.cursor/skills/<domain>/SKILL.md`

@@ -1,0 +1,65 @@
+# 个人 IP 架构全链路 · Owner / Agent 一览
+
+> **机器索引：** [`integration/handoff/owner-personal-ip-architecture-chain.json`](../integration/handoff/owner-personal-ip-architecture-chain.json)  
+> **接手：** [`AGENT-TAKEOVER.md`](AGENT-TAKEOVER.md) · **CEO 战役：** [`CEO-FULL-EXECUTION-MANDATE.md`](CEO-FULL-EXECUTION-MANDATE.md)  
+> **最后更新：** 2026-11-18（蒸馏自 Refining Cursor Flow 对话）
+
+## 这条链是不是都写进 Rule / MD / JSON 了？
+
+**个人 IP 的「执行链」在品牌仓 `danying-brand-agent` 里已经闭合**（规则 + 文档 + handoff JSON + 脚本）。  
+**Refining 对话里的「进站安检链」（①–⑤、slug、C1/C3）在作业仓 `~/Desktop/未命名`** —— 品牌任务仍可用，但若 **本机没有作业仓**，`research-gate` / `agent-workflow.py` 会断档（见下文缺口）。
+
+---
+
+## 从定位到交付（一张表）
+
+| 阶段 | 干什么 | 真源（优先 JSON / rule） |
+|------|--------|---------------------------|
+| **定位** | 张丹瀛 / Danying 即品牌 | `rules/USER.md` · `content/personal-ip/ip-positioning-brief-*.md` · CAPSTONE playbook |
+| **目标** | G-* 不丢 | `integration/goals/registry.json` · `GOALS-REGISTRY.md` |
+| **接活** | Owner 说话 → **00 CEO** 默认接手 | `.cursor/rules/danying-manager-auto.mdc` · `AUTO-WORKFLOW.md` |
+| **进站** | 防漏读、handoff 审计 | 作业仓：`agent-workflow.py brand content-session` · 品牌：`agent-owner-research-gate-contract.json` |
+| **战役** | pipeline · 6-case · autopilot · HTML | `workflow-automation-manifest.json` · `ceo-full-execution-pipeline.sh` |
+| **小红书** | 长稿 · 对抗 · evolution · Owner HTML | `OWNER-LONGFORM-XHS-SPEC.md` · `OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md` |
+| **口吻** | yage-voice · 锚点 | `.cursor/skills/yage-voice/` · `VOICE-ANCHOR.md` |
+| **三平台飞轮** | 阶段 0/1/2 · 周选题 | `owner-multichannel-flywheel-phase.json` · Automations 索引 MD |
+| **数据闭环** | 09 → dispatch → 04 | `ceo-dispatch-latest.md` · Owner **CSV**（不进 kernel 硬断言） |
+| **复核** | gate + **13-QC** | `DOUBLE-CHECK-SUBAGENT.md` · `workflow_double_check_subagent.md` |
+
+**Open WebUI / Ollama：** 可选步 −1，**不**替代 Cursor CEO 主链（见 `OPENWEBUI-CEO-ROUTER.md`）。
+
+---
+
+## 双工作区（Must 别混）
+
+| 工作区 | 放什么 |
+|--------|--------|
+| **`danying-brand-agent`** | CEO 派活、Brief、pipeline、品牌 Rules、本图与 chain JSON |
+| **`~/Desktop/未命名`（作业仓）** | ①–⑤ 统一进站、`AGENT-CURSOR-CEO-UNION.json`、`AGENT-STEP-01-WORKSPACE-REGISTRY.json`、检查单 HTML |
+
+品牌仓 **不写** CEO 脚本真源到作业仓根目录；作业仓 **不写** Brief 定稿到错误根目录。机械门禁：`docs/AGENT-WORKSPACE-GATE.md`。
+
+---
+
+## 仍有的「遗忘风险」（进了 Git 也会）
+
+1. **两套根目录**：只开品牌仓时，Agent 可能 **不跑** research-gate（除非读 UNION 并 delegate 作业仓脚本）。  
+2. **规则不读全仓**：`.mdc` 会进会话，但 **不会** 自动读 400 个 MD；要靠 `HANDOFF-MD-MANIFEST` 与 manifest。  
+3. **接手文档漂移**：`verify-agent-takeover.sh` 与 `AGENT-TAKEOVER.md` 必须同步（已在本轮修补关键词）。  
+4. **Layer C handoff**：`owner-weekly-*-latest.json` 等 **本机生成、不一定 commit** —— 新 Agent 要会 **重跑脚本** 再生。  
+5. **后台灶**：`process-launcher` 未启动 → 09:00 cycle 不跑，dispatch 会旧。  
+6. **Owner 仅动作**：发帖、CSV、OAuth 首次 —— 文档有，机器不能代做。
+
+---
+
+## Refining 对话里值得留的「档案」（非路由）
+
+见 [`ARCHIVE-REFINING-CURSOR-FLOW-2026-11.md`](ARCHIVE-REFINING-CURSOR-FLOW-2026-11.md)（决策摘要 + chat id）。**不要**把整段 transcript JSONL 当 Agent 入口。
+
+---
+
+## 新 Agent 60 秒
+
+1. 读本页 + `owner-personal-ip-architecture-chain.json`  
+2. `AGENT-TAKEOVER.md` → `bash scripts/verify-handoff-program.sh`（或分项 verify）  
+3. Owner 给 IP/内容目标 → **CEO 派活链**，勿只聊架构不跑 pipeline
