@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>个人 IP · 全工作流导图 · CEO 派活 + 自动化</title>
+<style>
+  :root {
+    --bg:#0d1117; --panel:#161b22; --text:#e6edf3; --muted:#8b949e; --line:#30363d;
+    --ceo:#1f6feb; --auto:#8957e5; --owner:#3fb950; --warn:#d29922; --gap:#f85149;
+    --thick:#39c5cf; --brief:#bc8cff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"PingFang SC",system-ui,sans-serif;background:var(--bg);color:var(--text)}
+  .top{position:sticky;top:0;z-index:50;background:#21262d;border-bottom:1px solid var(--line);padding:12px 16px}
+  .top h1{font-size:1.05rem;margin:0 0 8px}
+  .audit{font-size:13px;line-height:1.5;color:var(--muted)}
+  .canon{font-size:12px;color:var(--warn);margin:8px 0 0;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+  .audit b{color:var(--text)}
+  .ok{color:var(--owner)} .warn{color:var(--warn)} .gap{color:var(--gap)}
+  .layout{display:grid;grid-template-columns:minmax(280px,360px) 1fr;min-height:calc(100vh - 120px)}
+  @media(max-width:900px){.layout{grid-template-columns:1fr}}
+  .side{border-right:1px solid var(--line);padding:12px;font-size:12px;overflow-y:auto;max-height:calc(100vh - 120px)}
+  .side h2{font-size:13px;margin:16px 0 8px;color:var(--ceo)}
+  .side ul{margin:0;padding-left:18px;line-height:1.45}
+  .side li{margin:4px 0}
+  #canvas-wrap{position:relative;height:calc(100vh - 120px);overflow:auto;background:radial-gradient(ellipse 70% 50% at 50% 30%,#1a2332 0%,var(--bg) 70%)}
+  svg.edges{position:absolute;top:0;left:0;pointer-events:none}
+  .node{position:absolute;transform:translate(-50%,-50%);width:100px;height:100px;border-radius:50%;
+    border:2px solid var(--line);background:var(--panel);display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:6px;cursor:pointer;font-size:10px;line-height:1.2;font-weight:600;z-index:2}
+  .node:hover,.node.on{border-color:#58a6ff;box-shadow:0 0 0 3px rgba(88,166,255,.3)}
+  .node.owner{border-color:var(--owner)} .node.ceo{border-color:var(--ceo)}
+  .node.auto{border-color:var(--auto)} .node.thick{border-color:var(--thick)}
+  .node.brief{border-color:var(--brief)} .node.gapn{border-color:var(--gap);background:#2d1517}
+  .node.hub{width:115px;height:115px;font-size:11px}
+  #modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px}
+  #modal.show{display:flex}
+  #modal-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:540px;width:100%;
+    max-height:88vh;overflow-y:auto;padding:18px 20px}
+  #modal-box h2{margin:0 0 8px;color:#58a6ff;font-size:1.1rem}
+  #modal-box p,#modal-box li{font-size:13px;line-height:1.55}
+  #modal-box h3{font-size:11px;text-transform:uppercase;color:var(--muted);margin:12px 0 6px}
+  .close{float:right;background:0;border:0;color:var(--muted);font-size:22px;cursor:pointer}
+  code{font-size:11px;background:#0d1117;padding:2px 5px;border-radius:4px}
+</style>
+</head>
+<body id="owner-latest">
+<div class="top">
+  <h1>张丹瀛个人 IP · 工作流全图（点圆点看作用 · 含分支与缺口）</h1>
+  <p class="audit">
+    <b>问：说「派活给 CEO」架构会全出来吗？</b>
+    <span class="warn">不完全是「任何一句话」。</span>
+    写稿/Brief/campaign/口语「CEO 开始工作」→ <span class="ok">规则 Must 走 00 CEO + pipeline</span>；
+    纯解释不问交付 → 可不跑脚本。
+    <b>自动化完整度：</b> 主链+调度 <span class="ok">已搭建</span> · 内容改稿/发帖/CSV/process-launcher <span class="gap">仍须人/本机</span>。
+    真源：<code>owner-personal-ip-architecture-chain.json</code> · <code>WORKFLOW-AUTOMATION-MATRIX.md</code>
+  </p>
+  <p class="canon"><b>导航页 only：</b>执行真源见 <code>OWNER-DELIVERABLE-PACK-MANDATE.md</code>（Brief=交付包四块）与本图矛盾时以 mandate/矩阵为准。本 HTML 可未进 Git。</p>
+</div>
+<div class="layout">
+  <aside class="side">
+    <h2>A. Owner 触发 → CEO</h2>
+    <ul>
+      <li>任意目标任务 → <code>danying-manager-auto.mdc</code> 默认 00 Manager</li>
+      <li>「CEO 开始执行/干活」→ <code>ceo-full-execution-pipeline.sh</code></li>
+      <li>加厚：Agent 工作区 <code>research-gate</code>（可选满血）</li>
+    </ul>
+    <h2>B. CEO 主链（品牌仓）</h2>
+    <ul>
+      <li>recover → router(可选) → IP壳 → 6-case → adversarial → autopilot → HTML</li>
+      <li>Brief：pitfalls → evolution READY → owner delivery verify</li>
+      <li>13-QC Task（有交付前）</li>
+    </ul>
+    <h2>C. Cursor Automations</h2>
+    <ul>
+      <li>日 08:00 AI 资讯（新建说明）</li>
+      <li>日 10:30 小红书 Drive 日检（可选）</li>
+      <li>周一 09:00 接手轻验（#2b）</li>
+      <li>周四 11:00 保洁</li>
+      <li>周日 11:00 小红书选题 · 12:00 LI/Medium</li>
+    </ul>
+    <h2>D. 本机日循环（非 Cursor）</h2>
+    <ul>
+      <li>09:00 <code>background-goal-evolution-cycle</code>（需 process-launcher :7997）</li>
+    </ul>
+    <h2>E. 已知缺口（诚实）</h2>
+    <ul class="gap">
+      <li>Gate FAIL → Agent 须改「交付包」四块（非无人值守）</li>
+      <li>Owner 发帖 · CSV 涨粉</li>
+      <li>launcher 未起 → 日循环停</li>
+      <li>无 Agent 工作区 → 加厚进站弱</li>
+    </ul>
+    <h2>F. 新 chat 能否规避 Refining 遗漏？</h2>
+    <ul>
+      <li>能减轻 <b>上下文过长</b> 导致的漏读/手误</li>
+      <li>不能 100%：仍靠 Git 真源 + verify + Automation</li>
+    </ul>
+  </aside>
+  <div id="canvas-wrap">
+    <svg class="edges" id="svg" width="1400" height="1100"></svg>
+  </div>
+</div>
+<div id="modal" role="dialog"><div id="modal-box">
+  <button class="close" type="button" id="modal-close">×</button>
+  <h2 id="m-title"></h2>
+  <p id="m-what"></p>
+  <h3>干什么 / 作用</h3>
+  <p id="m-body"></p>
+  <h3>分支 / 子步骤</h3>
+  <ul id="m-branches"></ul>
+  <h3>文件 · 脚本</h3>
+  <ul id="m-files"></ul>
+  <h3>自动化？</h3>
+  <p id="m-auto"></p>
+</div></div>
+<script>
+const NODES = [
+  {id:"owner",label:"Owner\n派活/目标",x:700,y:70,cls:"owner hub",
+   what:"入口",body:"口语目标、写稿、战役；或「CEO 开始工作」。",
+   branches:["≠纯问答时触发 CEO 链","双轨：IP vs FluteBuddy 叙事"],
+   files:["CEO-OWNER-ONE-LINE-TRIGGERS.md","OWNER-BRAND-AGENT-SCOPE.md"],auto:"否（人开口）"},
+  {id:"rule",label:"Rule\n00默认",x:520,y:150,cls:"ceo",
+   what:"Cursor 规则",body:"danying-manager-auto：给目标任务即 00 Manager，勿等口令。",
+   branches:["纯问答可跳过 pipeline"],files:[".cursor/rules/danying-manager-auto.mdc","AUTO-WORKFLOW.md"],auto:"会话内 Must"},
+  {id:"ceophrase",label:"CEO\n口令",x:880,y:150,cls:"ceo",
+   what:"全量触发",body:"CEO 开始执行/干活 → 必须跑 full execution。",
+   branches:[],files:["CEO-FULL-EXECUTION-MANDATE.md"],auto:"会话 Must"},
+  {id:"ws-gate",label:"工作区\n门禁",x:700,y:200,cls:"ceo",
+   what:"防写错盘",body:"brand-ceo 须在 danying-brand-agent 根执行。",
+   branches:["Agent工作区 assert-task-workspace"],files:["AGENT-WORKSPACE-GATE.md"],auto:"脚本"},
+  {id:"rgate",label:"加厚\nresearch-gate",x:420,y:280,cls:"thick",
+   what:"进站安检",body:"防漏读 Drive/handoff；6-case 子集。",
+   branches:["content-session 统一入口","可 --no-orchestrate"],files:["agent-owner-research-gate-contract.json","AGENT-CURSOR-CEO-UNION.md"],auto:"goal 命中时 Must"},
+  {id:"awork",label:"Agent\n工作区",x:240,y:280,cls:"thick",
+   what:"外挂仓库",body:"agent-workflow.py · UNION JSON · ①–⑤。本机常为 ~/Desktop/未命名。",
+   branches:["可选：无则主链仍大多可跑"],files:["danying-agent-workspace/docs/agent/AGENT-CURSOR-CEO-UNION.json"],auto:"delegate"},
+  {id:"recover",label:"自愈\nrecover",x:580,y:320,cls:"ceo",
+   what:"清阻塞",body:"deep-delivery/campaign/锁协调。",
+   branches:[],files:["ceo-auto-recover-blocked.sh"],auto:"pipeline 首步"},
+  {id:"router",label:"OpenWebUI\n−1可选",x:820,y:320,cls:"ceo",
+   what:"长文外包",body:"SKIP 整条跳过；不替代 CEO HTML。",
+   branches:[],files:["OPENWEBUI-CEO-ROUTER.md"],auto:"可选"},
+  {id:"fullpipe",label:"CEO\n全量pipeline",x:700,y:380,cls:"ceo hub",
+   what:"机器总线",body:"run_ceo_full_execution / .sh --goal。",
+   branches:["有 --brief 时挂 Brief 进化"],files:["ceo-full-execution-pipeline.sh","workflow-automation-manifest.json"],auto:"会话 Must"},
+  {id:"roster",label:"派活\n01–12",x:500,y:460,cls:"ceo",
+   what:"同会话扮演",body:"manifest 标 invoked/skipped；非常见 12 全员真并行。",
+   branches:["常见 00+01+04+05+08"],files:["CEO-DISPATCH-SOP.md","IP-SUBAGENT-ROSTER.md"],auto:"CEO 步序"},
+  {id:"ip01",label:"01\nIP边界",x:360,y:540,cls:"ceo",
+   what:"定位",body:"G-PERSON-IS-BRAND · CAPSTONE · Five Ps。",
+   branches:[],files:["ip-positioning-brief","evaluate_personal_ip.py"],auto:"eval"},
+  {id:"xhs04",label:"04\n小红书",x:620,y:540,cls:"brief",
+   what:"写稿 GM",body:"三镜头 · 长稿 spec · yage-voice · pitfalls。",
+   branches:["并行 explore 仅调研"],files:["OWNER-LONGFORM-XHS-SPEC.md","yage-voice SKILL"],auto:"Agent 写稿"},
+  {id:"evo05",label:"05\n进化",x:780,y:540,cls:"brief",
+   what:"对抗+gate",body:"evolution until READY · exit 42 改稿。",
+   branches:["triple-eval stress"],files:["manager-brief-evolution-until-gap.sh"],auto:"机器+Agent改稿"},
+  {id:"six",label:"6-case\n电池",x:900,y:460,cls:"ceo",
+   what:"集成抽检",body:"verify 子集 + clever advocate。",
+   branches:[],files:["ceo-six-case-battery.sh"],auto:"脚本"},
+  {id:"autoip",label:"XHS\nautopilot",x:700,y:620,cls:"ceo",
+   what:"闭环",body:"run_ceo_xhs_autopilot · HTML rebuild verify。",
+   branches:["round2 工作流测试稿"],files:["CEO-XHS-OWNER-DELIVERY-AUTOPILOT.md"],auto:"Python"},
+  {id:"html",label:"Owner\nHTML",x:700,y:700,cls:"owner",
+   what:"必见交付",body:"open-owner-xhs-deliverable-html #owner-latest。",
+   branches:["三平台 open-owner-platform-three-html"],files:["refresh-owner-notify-html.sh"],auto:"脚本+浏览器"},
+  {id:"qc",label:"13-QC",x:540,y:700,cls:"ceo",
+   what:"第二双眼",body:"Task 复核；不替代 gate。",
+   branches:["纯聊天无改文件可跳过"],files:["DOUBLE-CHECK-SUBAGENT.md"],auto:"可选 Task"},
+  {id:"fly",label:"三平台\n飞轮",x:860,y:620,cls:"brief",
+   what:"阶段0/1/2",body:"周日选题包 · LI/Medium · 互链阶段。",
+   branches:[],files:["OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md"],auto:"Automation"},
+  {id:"data09",label:"09\n数据",x:480,y:780,cls:"ceo",
+   what:"反馈",body:"CSV/xlsx → analytics → dispatch 派 04。",
+   branches:["Drive 我的小红书数据"],files:["XHS-DATA-LAYER.md","ceo-dispatch-latest.md"],auto:"部分脚本"},
+  {id:"bg",label:"日循环\n09:00",x:200,y:700,cls:"auto",
+   what:"后台灶",body:"批量 brief evaluate · dispatch 刷新。",
+   branches:["非 Cursor Automation"],files:["background-goal-evolution-cycle.sh"],auto:"本机 cron · 需 :7997"},
+  {id:"a_mon",label:"Automation\n周一轻验",x:200,y:820,cls:"auto",
+   what:"防遗忘",body:"verify-handoff + takeover + workflow-automation。",
+   branches:[],files:["OWNER-WEEKLY-HANDOFF-VERIFY-AUTOMATION-INSTRUCTIONS.md"],auto:"Cursor"},
+  {id:"a_ai",label:"Automation\n日AI资讯",x:200,y:940,cls:"auto",
+   what:"情报雷达",body:"Web+X · IP/艺术/文化优先 · 写 MD+JSON。",
+   branches:[],files:["OWNER-DAILY-AI-INTEL-AUTOMATION-INSTRUCTIONS.md"],auto:"Cursor · 08:00"},
+  {id:"a_sunx",label:"Automation\n日选题XHS",x:1000,y:820,cls:"auto",
+   what:"周日11",body:"owner-weekly-topic-pack + pending eval。",
+   branches:[],files:["OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md"],auto:"Cursor"},
+  {id:"a_sunli",label:"Automation\n日选题LI",x:1000,y:900,cls:"auto",
+   what:"周日12",body:"LinkedIn+Medium 选题。",
+   branches:[],files:["OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md"],auto:"Cursor"},
+  {id:"a_thu",label:"Automation\n周四保洁",x:1000,y:740,cls:"auto",
+   what:"卫生",body:"owner-workspace-hygiene-alert。",
+   branches:[],files:["OWNER-WORKSPACE-HYGIENE.md"],auto:"Cursor"},
+  {id:"a_xhsd",label:"Automation\n日Drive检",x:1000,y:980,cls:"auto",
+   what:"可选10:30",body:"compare-owner-xhs-drive-listing。",
+   branches:[],files:["OWNER-XHS-DRIVE-WATCH-AUTOMATION-INSTRUCTIONS.md"],auto:"Cursor"},
+  {id:"gap1",label:"缺口\n改交付包",x:360,y:700,cls:"gapn",
+   what:"非100%自动",body:"exit 42 / FAIL → Agent 必须改 *-brief.md 交付包（四块：简报+架构+完整文稿+为什么这样写）。",
+   branches:["不是英语one-pager"],files:["OWNER-DELIVERABLE-PACK-MANDATE.md","CEO-REROUTE.md"],auto:"否"},
+  {id:"gap2",label:"缺口\n发帖CSV",x:860,y:780,cls:"gapn",
+   what:"Owner仅",body:"平台发帖 · 涨粉 CSV 导入。",
+   branches:[],files:["DATA-NEEDS.md"],auto:"否"},
+  {id:"gap3",label:"缺口\nlauncher",x:200,y:620,cls:"gapn",
+   what:"本机状态",body:":7997 down 则日循环不跑。",
+   branches:[],files:["ensure-process-launcher.sh","BACKGROUND-GOAL-EVOLUTION.md"],auto:"待拉起"},
+  {id:"manifest",label:"交付\nManifest",x:700,y:860,cls:"ceo hub",
+   what:"闭合",body:"CEO-RUN-MANIFEST + OWNER-CHAT-DELIVERY-FORMAT。",
+   branches:[],files:["CEO-RUN-MANIFEST-latest.json"],auto:"脚本写"},
+  {id:"tingjian",label:"听见Daily\n独立",x:1100,y:280,cls:"thick",
+   what:"别混CEO",body:"栏目日更 · 独立 skill/仓。",
+   branches:[],files:["danying-tingjian-daily skill"],auto:"别的话题"},
+];
+const EDGES = [
+  ["owner","rule"],["owner","ceophrase"],["rule","ws-gate"],["ceophrase","fullpipe"],
+  ["ws-gate","rgate"],["rgate","awork"],["rgate","fullpipe"],["fullpipe","recover"],
+  ["fullpipe","router"],["fullpipe","roster"],["roster","ip01"],["roster","xhs04"],
+  ["xhs04","evo05"],["fullpipe","six"],["evo05","autoip"],["autoip","html"],
+  ["html","qc"],["html","manifest"],["fly","a_sunx"],["fly","a_sunli"],
+  ["fullpipe","fly"],["data09","fullpipe"],["bg","data09"],["a_mon","manifest"],
+  ["a_ai","data09"],["gap1","evo05"],["gap2","data09"],["gap3","bg"],
+  ["tingjian","owner"]
+];
+const byId = Object.fromEntries(NODES.map(n=>[n.id,n]));
+const wrap = document.getElementById("canvas-wrap");
+const svg = document.getElementById("svg");
+function drawEdges(){
+  svg.innerHTML="";
+  EDGES.forEach(([a,b])=>{
+    const A=byId[a],B=byId[b]; if(!A||!B) return;
+    const ln=document.createElementNS("http://www.w3.org/2000/svg","line");
+    ln.setAttribute("x1",A.x);ln.setAttribute("y1",A.y);
+    ln.setAttribute("x2",B.x);ln.setAttribute("y2",B.y);
+    ln.setAttribute("stroke","#30363d");ln.setAttribute("stroke-width","2");
+    svg.appendChild(ln);
+  });
+}
+NODES.forEach(n=>{
+  const el=document.createElement("div");
+  el.className="node "+(n.cls||"");
+  el.style.left=n.x+"px";el.style.top=n.y+"px";
+  el.textContent=n.label.replace(/\n/g,"\n");
+  el.title=n.id;
+  el.onclick=()=>openModal(n);
+  wrap.appendChild(el);
+});
+function openModal(n){
+  document.getElementById("m-title").textContent=n.label.replace(/\n/g," · ");
+  document.getElementById("m-what").textContent=n.what||"";
+  document.getElementById("m-body").textContent=n.body||"";
+  const br=document.getElementById("m-branches"); br.innerHTML="";
+  (n.branches||[]).forEach(t=>{const li=document.createElement("li");li.textContent=t;br.appendChild(li);});
+  const fl=document.getElementById("m-files"); fl.innerHTML="";
+  (n.files||[]).forEach(t=>{const li=document.createElement("li");li.innerHTML="<code>"+t+"</code>";fl.appendChild(li);});
+  document.getElementById("m-auto").textContent=n.auto||"—";
+  document.getElementById("modal").classList.add("show");
+}
+document.getElementById("modal-close").onclick=()=>document.getElementById("modal").classList.remove("show");
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")e.currentTarget.classList.remove("show");};
+drawEdges();
+</script>
+</body>
+</html>
