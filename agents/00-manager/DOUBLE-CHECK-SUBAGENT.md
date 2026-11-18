@@ -1,7 +1,7 @@
 # Double-Check Subagent · CEO 轨（13-QC）
 
 > **岗位：** 派活完成后、交付 Owner 前的 **专职复核**（Cursor Task，非 01–12 编制内干活 GM）。  
-> **作业仓通用：** 见宿主仓 `docs/agent/DOUBLE-CHECK-AGENT.md`（若存在）。
+> **Agent 工作区通用：** 见 `danying-agent-workspace` 内 `docs/agent/DOUBLE-CHECK-AGENT.md`（若存在）。
 
 ---
 

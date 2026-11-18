@@ -2,7 +2,7 @@
 
 > **性质：** `archive-not-routing` —— 给人与审计用，**不是** Agent 每日必读路由。  
 > **Cursor chat：** [Refining Cursor Flow](ba0b2a97-f887-417c-aac7-1870fd34234c) · **agent_id：** `ba0b2a97-f887-417c-aac7-1870fd34234c`  
-> **路由真源：** [`OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md`](OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md) · 作业仓检查单 `~/Desktop/未命名/docs/agent/workflow-checklist-tables.html`
+> **路由真源：** [`OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md`](OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md) · Agent 工作区检查单 `danying-agent-workspace/docs/agent/workflow-checklist-tables.html`
 
 ## 为什么留这篇、不存整包 transcript
 
@@ -11,16 +11,16 @@
 
 ---
 
-## 已蒸馏进 Git（品牌仓 + 作业仓）
+## 已蒸馏进 Git（品牌仓 + Agent 工作区）
 
 | 主题 | 落在哪 |
 |------|--------|
-| CEO 派活没丢、双轨图 | 作业仓 `workflow-checklist-tables.html` · 品牌 `CEO-FULL-EXECUTION-MANDATE` |
-| MCP vs 脚本边界 | 作业仓 `CAPABILITY-MATRIX.md` |
-| 13-QC Double-Check | 品牌 `agents/00-manager/DOUBLE-CHECK-SUBAGENT.md` · 作业仓 `DOUBLE-CHECK-AGENT.md` |
-| Cursor × CEO 并集 | 作业仓 `AGENT-CURSOR-CEO-UNION.json` · 品牌 `AGENT-CURSOR-CEO-UNION.md` |
-| brand-ceo slug · 工作区门禁 | 作业仓 `AGENT-STEP-01-WORKSPACE-REGISTRY.json` |
-| 附录 A CEO 战役 | 作业仓 `AGENT-STEP-APPENDIX-A-BRAND-CEO.md` |
+| CEO 派活没丢、双轨图 | Agent 工作区 `workflow-checklist-tables.html` · 品牌 `CEO-FULL-EXECUTION-MANDATE` |
+| MCP vs 脚本边界 | Agent 工作区 `CAPABILITY-MATRIX.md` |
+| 13-QC Double-Check | 品牌 `agents/00-manager/DOUBLE-CHECK-SUBAGENT.md` · Agent 工作区 `DOUBLE-CHECK-AGENT.md` |
+| Cursor × CEO 并集 | Agent 工作区 `AGENT-CURSOR-CEO-UNION.json` · 品牌 `AGENT-CURSOR-CEO-UNION.md` |
+| brand-ceo slug · 工作区门禁 | Agent 工作区 `AGENT-STEP-01-WORKSPACE-REGISTRY.json` |
+| 附录 A CEO 战役 | Agent 工作区 `AGENT-STEP-APPENDIX-A-BRAND-CEO.md` |
 | 周日 Automations | 品牌 `OWNER-CURSOR-AUTOMATIONS-INDEX.md` · 各 `OWNER-WEEKLY-*-INSTRUCTIONS.md` |
 | 飞轮阶段 | `OWNER-MULTICHANNEL-FLYWHEEL-PHASES.md` |
 | 防偷懒脊梁 | Python gate + handoff JSON（`research-gate-contract` 等） |
@@ -40,7 +40,7 @@
 ## 刻意未做
 
 - 整段 `.jsonl` transcript 进 `main`  
-- 作业仓与品牌仓 **硬合并** 为一个 git tree（仍是双根 + delegate）
+- Agent 工作区与品牌仓 **硬合并** 为一个 git tree（仍是双根 + delegate）
 
 ---
 

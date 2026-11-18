@@ -1,6 +1,6 @@
 # Cursor × CEO 联合执行（并集）
 
-机械真源（monorepo）：`~/Desktop/未命名/docs/agent/AGENT-CURSOR-CEO-UNION.json`  
+机械真源（Agent 工作区 · `danying-agent-workspace`）：本机常为 `~/Desktop/未命名/docs/agent/AGENT-CURSOR-CEO-UNION.json`  
 **层序真源（品牌仓，与 gate 脚本一致）**：`integration/handoff/agent-owner-research-gate-contract.json` · `pipeline_order`（`agent-gate-layer-union.json` 须逐字相同）
 
 ## 一条人话

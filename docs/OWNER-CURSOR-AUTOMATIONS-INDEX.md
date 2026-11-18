@@ -11,6 +11,7 @@
 | 1 | **品牌仓小红书每周选题包** | 周日 11:00 | `OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md` |
 | 1b | **品牌仓 · LinkedIn+Medium 每周选题** | 周日 12:00 | `OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md` |
 | 2 | 品牌仓 · 每周保洁提醒 | 周四 11:00（你已配） | `OWNER-WORKSPACE-HYGIENE.md` 内 Automation 段 |
+| 2b | **品牌仓 · 每周接手轻验** | **周一 09:00** | `OWNER-WEEKLY-HANDOFF-VERIFY-AUTOMATION-INSTRUCTIONS.md` |
 | 3 | **（可选）小红书 · 导表提醒** | **周三+周日 20:30** | `OWNER-XHS-EXPORT-REMINDER-AUTOMATION-INSTRUCTIONS.md` |
 | 4 | **（可选）Drive 日检 · 小红书数据** | **每天 10:30** | `OWNER-XHS-DRIVE-WATCH-AUTOMATION-INSTRUCTIONS.md` |
 

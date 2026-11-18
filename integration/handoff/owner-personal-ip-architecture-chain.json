@@ -1,6 +1,6 @@
 {
   "version": "2026-11-18",
-  "purpose_zh": "个人 IP 全链路 · 机器可读索引（品牌仓真源；作业仓进站链见 monorepo）",
+  "purpose_zh": "个人 IP 全链路 · 机器可读索引（品牌仓真源；进站链见 danying-agent-workspace）",
   "human_doc": "docs/OWNER-PERSONAL-IP-ARCHITECTURE-MAP.md",
   "verify": [
     "bash scripts/verify-workflow-automation.sh",
@@ -9,7 +9,8 @@
   ],
   "workspace": {
     "brand_root": "~/Desktop/danying-brand-agent",
-    "monorepo_root": "~/Desktop/未命名",
+    "agent_workspace_repo": "danying-agent-workspace",
+    "agent_workspace_root_local": "~/Desktop/未命名",
     "monorepo_required_for": [
       "agent-workflow.py brand content-session",
       "agent-workflow.py brand research-gate",

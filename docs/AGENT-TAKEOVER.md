@@ -79,7 +79,7 @@ IP 一句话：[content/personal-ip/ip-positioning-brief-2026-10-05.md](../conte
 | 轨 | 做什么 | 入口 |
 |----|--------|------|
 | **A · 品牌内容 / CEO** | Brief · evolution · HTML · 派活 | 本仓 · `danying-manager-auto.mdc` · `ceo-full-execution-pipeline.sh` |
-| **B · 作业仓课标 / 工具层** | project4 · Module3 · ①–⑤ 进站 | `~/Desktop/未命名` · `AGENT-UNIFIED-WORKFLOW.md` |
+| **B · Agent 工作区 · 课标/工具层** | project4 · Module3 · ①–⑤ 进站 | `danying-agent-workspace`（本机常为 `~/Desktop/未命名`）· `AGENT-UNIFIED-WORKFLOW.md` |
 | **C · 听见 Daily 等独立 app** | 栏目日更 | 独立仓 / skill · 不占用 CEO 12 岗全量 |
 
 当前小红书队列含 **discovery-01-irreplaceability**（`content/xiaohongshu/2026-10-17-discovery-01-irreplaceability-brief.md`）等 Brief；autopilot 会扫全 Brief，不单篇特例。

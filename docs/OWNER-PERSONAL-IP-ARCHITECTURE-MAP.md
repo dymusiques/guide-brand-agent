@@ -7,7 +7,7 @@
 ## 这条链是不是都写进 Rule / MD / JSON 了？
 
 **个人 IP 的「执行链」在品牌仓 `danying-brand-agent` 里已经闭合**（规则 + 文档 + handoff JSON + 脚本）。  
-**Refining 对话里的「进站安检链」（①–⑤、slug、C1/C3）在作业仓 `~/Desktop/未命名`** —— 品牌任务仍可用，但若 **本机没有作业仓**，`research-gate` / `agent-workflow.py` 会断档（见下文缺口）。
+**Refining 对话里的「进站安检链」（①–⑤、slug、C1/C3）在 Agent 工作区**（仓库 `danying-agent-workspace`；本机路径常为 `~/Desktop/未命名`）—— 品牌任务仍可用，但若 **本机没有该工作区**，`research-gate` / `agent-workflow.py` 会断档（见下文缺口）。
 
 ---
 
@@ -18,7 +18,7 @@
 | **定位** | 张丹瀛 / Danying 即品牌 | `rules/USER.md` · `content/personal-ip/ip-positioning-brief-*.md` · CAPSTONE playbook |
 | **目标** | G-* 不丢 | `integration/goals/registry.json` · `GOALS-REGISTRY.md` |
 | **接活** | Owner 说话 → **00 CEO** 默认接手 | `.cursor/rules/danying-manager-auto.mdc` · `AUTO-WORKFLOW.md` |
-| **进站** | 防漏读、handoff 审计 | 作业仓：`agent-workflow.py brand content-session` · 品牌：`agent-owner-research-gate-contract.json` |
+| **进站** | 防漏读、handoff 审计 | Agent 工作区：`agent-workflow.py brand content-session` · 品牌：`agent-owner-research-gate-contract.json` |
 | **战役** | pipeline · 6-case · autopilot · HTML | `workflow-automation-manifest.json` · `ceo-full-execution-pipeline.sh` |
 | **小红书** | 长稿 · 对抗 · evolution · Owner HTML | `OWNER-LONGFORM-XHS-SPEC.md` · `OWNER-XHS-ADVERSARIAL-AND-EVOLUTION-MANDATE.md` |
 | **口吻** | yage-voice · 锚点 | `.cursor/skills/yage-voice/` · `VOICE-ANCHOR.md` |
@@ -35,15 +35,15 @@
 | 工作区 | 放什么 |
 |--------|--------|
 | **`danying-brand-agent`** | CEO 派活、Brief、pipeline、品牌 Rules、本图与 chain JSON |
-| **`~/Desktop/未命名`（作业仓）** | ①–⑤ 统一进站、`AGENT-CURSOR-CEO-UNION.json`、`AGENT-STEP-01-WORKSPACE-REGISTRY.json`、检查单 HTML |
+| **Agent 工作区**（`danying-agent-workspace` · 本机常为 `~/Desktop/未命名`） | ①–⑤ 统一进站、`AGENT-CURSOR-CEO-UNION.json`、`AGENT-STEP-01-WORKSPACE-REGISTRY.json`、检查单 HTML |
 
-品牌仓 **不写** CEO 脚本真源到作业仓根目录；作业仓 **不写** Brief 定稿到错误根目录。机械门禁：`docs/AGENT-WORKSPACE-GATE.md`。
+品牌仓 **不写** CEO 脚本真源到 Agent 工作区根目录；Agent 工作区 **不写** Brief 定稿到错误根目录。机械门禁：`docs/AGENT-WORKSPACE-GATE.md`。
 
 ---
 
 ## 仍有的「遗忘风险」（进了 Git 也会）
 
-1. **两套根目录**：只开品牌仓时，Agent 可能 **不跑** research-gate（除非读 UNION 并 delegate 作业仓脚本）。  
+1. **两套根目录**：只开品牌仓时，Agent 可能 **不跑** research-gate（除非读 UNION 并 delegate Agent 工作区脚本）。  
 2. **规则不读全仓**：`.mdc` 会进会话，但 **不会** 自动读 400 个 MD；要靠 `HANDOFF-MD-MANIFEST` 与 manifest。  
 3. **接手文档漂移**：`verify-agent-takeover.sh` 与 `AGENT-TAKEOVER.md` 必须同步（已在本轮修补关键词）。  
 4. **Layer C handoff**：`owner-weekly-*-latest.json` 等 **本机生成、不一定 commit** —— 新 Agent 要会 **重跑脚本** 再生。  

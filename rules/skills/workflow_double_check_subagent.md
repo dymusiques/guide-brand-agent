@@ -1,6 +1,6 @@
 # Skill · workflow_double_check_subagent（13-QC）
 
-> **何时：** CEO 派活完成、或作业仓主任务完成，**对用户/Owner 交付前 Must**。  
+> **何时：** CEO 派活完成、或 Agent 工作区主任务完成，**对用户/Owner 交付前 Must**。  
 > **类型：** `Task` · `generalPurpose` · `run_in_background: false`
 
 ---
@@ -19,7 +19,7 @@
 {paste_terminal_output}
 
 ## 必读
-- 作业仓：DELIVERY-MESSAGE-RULES §3.1 黑名单、AGENT-TOOL-LAYER §2
+- Agent 工作区：DELIVERY-MESSAGE-RULES §3.1 黑名单、AGENT-TOOL-LAYER §2
 - 品牌仓：CEO-RUN-MANIFEST、AUTO-WORKFLOW、派活 dispatch 表
 
 ## 你必须做

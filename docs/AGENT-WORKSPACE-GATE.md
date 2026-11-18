@@ -8,6 +8,6 @@ python3 "/Users/danying/Desktop/未命名/scripts/assert-task-workspace.py" -t b
 ```
 
 - **PASS** → 继续 CEO MANDATE / pipeline / 3d QC  
-- **FAIL** → Cursor **Open Folder** 本仓，勿在作业仓改 CEO 真源  
+- **FAIL** → Cursor **Open Folder** 本仓，勿在 Agent 工作区改 CEO 真源  
 
-真源文档：作业仓 `docs/agent/WORKSPACE-GATE.md` · 表 `AGENT-STEP-01-WORKSPACE-REGISTRY.json`（旧名 `TASK-WORKSPACE-REGISTRY.json` 已废弃）
+真源文档：Agent 工作区（`danying-agent-workspace`）内 `docs/agent/WORKSPACE-GATE.md` · 表 `AGENT-STEP-01-WORKSPACE-REGISTRY.json`（旧名 `TASK-WORKSPACE-REGISTRY.json` 已废弃）
