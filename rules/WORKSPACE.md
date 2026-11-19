@@ -46,6 +46,7 @@ content_sha256: "c46aa538a28bbb8b"
 - 小红书 Topic Manager（Gemini 6 case）：`kernels/xiaohongshu/`（README + `docs/`；kernel `scripts/verify-xhs-topic.sh`）
 - 小红书 Brief 管线：`content/xiaohongshu/PIPELINE.md` · 批量 `scripts/verify-xhs-content-dir.sh`
 - 小红书视频迭代 / 声音：`content/xiaohongshu/XHS-VIDEO-ITERATION.md` · `VOICE-ANCHOR.md` · `scripts/verify-xhs-voice-qa.sh`
+- **名曲记（已迁出 · 指针）：** `content/名曲记/POINTER.md` · 真源 `~/Desktop/名曲记` · 登记 `integration/handoff/名曲记-指针.json`
 - CV Git 源：`content/personal-ip/cv-source-2026-09-15.md`
 
 ### 知识与品牌资产
@@ -55,7 +56,7 @@ content_sha256: "c46aa538a28bbb8b"
 - 深度调研 scratch（gitignored）：`tmp/survey/<session_slug>/` · 定稿报告 [content/marketing/research/](../content/marketing/research/) · [workflow_deep_research_survey.md](./skills/workflow_deep_research_survey.md)
 - 小红书平台 PDF（gitignore）：`content/marketing/research/raw/*.pdf` · Agent 读 [xhs-platform-research-index.md](../content/marketing/research/xhs-platform-research-index.md)
 - Headless CLI scratch（gitignored）：`tmp/ai-agent-cli/<job_id>/` · skill [skill_ai_agent_cli.md](./skills/skill_ai_agent_cli.md)
-- **FluteBuddy 产品（Sibling repo · CEO Must）：** `../flute-practice-buddy/` · 本仓摘要 `content/product/flutebuddy-ceo-snapshot.md` · 注册表 `integration/handoff/owner-product-registry.json`
+- **FluteBuddy 产品（Sibling repo · CEO Must）：** `../FluteBuddy Practice/`（兼容 `../flute-practice-buddy`）· 本仓摘要 `content/product/flutebuddy-ceo-snapshot.md` · 注册表 `integration/handoff/owner-product-registry.json`
 - **个人 IP / KPI playbook：** `content/personal-ip/2026-10-18-key-person-of-influence-capstone-playbook.md`（CAPSTONE · Five Ps · 新机 Agent 写 Pitch 用）
 - **个人 IP · Owner 参考原件（PDF/截图 · 索引）：** `content/personal-ip/reference/INDEX.md` · `reference/capstone-ai-builders/` · `reference/kpi-source/`（**非** Brief 正文；见 INDEX「何时 Must 读」）
 

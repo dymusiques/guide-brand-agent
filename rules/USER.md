@@ -37,11 +37,12 @@ content_sha256: "51c074cc4c262b5c"
 - **Western / 英文呼名：** **Danying**（拼音；多数西方人日常这样叫）  
 - **Formal EN：** Danying Zhang（需全名时：LinkedIn、合同、bio）  
 - **Primary brand:** Danying 听见 Daily（长笛资讯栏目）；Instagram: Danying HEAR Daily
-- **Channels:** 小红书、Instagram；未来：视频号
+- **名曲记：** 独立仓 `~/Desktop/名曲记`（Cursor Project）· brand-agent 仅 `content/名曲记/POINTER.md`
+- **Channels:** 小红书、Instagram；未来：视频号；（名曲记主发小红书）
 
 ## 产品（CEO Must）
 
-- **FluteBuddy / Flute Buddy / FluteBuddy practice：** 长笛练习分析 App（对外宣传名 **FluteBuddy** · 摘要 `content/product/flutebuddy-ceo-snapshot.md` · 代码 `../flute-practice-buddy`）
+- **FluteBuddy / Flute Buddy / FluteBuddy practice：** 长笛练习分析 App（对外宣传名 **FluteBuddy** · 摘要 `content/product/flutebuddy-ceo-snapshot.md` · 本机代码 `~/Desktop/FluteBuddy Practice`（兼容 `../flute-practice-buddy` 符号链接）· GitHub 仓名 `flute-practice-buddy`）
 
 ## 个人 IP
 
@@ -59,6 +60,7 @@ content_sha256: "51c074cc4c262b5c"
 ## 相关 Skill（个人级，Cursor 全局）
 
 - `danying-tingjian-daily` — 每日长笛栏目生产
+- 名曲记见 `~/Desktop/名曲记`（独立 Project，非本仓 Skill）
 - `playwright-anti-bot-images` — 反爬图片抓取参考实现
 
 ## 待补充

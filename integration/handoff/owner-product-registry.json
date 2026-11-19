@@ -20,7 +20,9 @@
         "integration/handoff/owner-copy-v-tier-cultural-art-creators.json"
       ],
       "copy_v_tier_json": "integration/handoff/owner-copy-v-tier-400k.json",
-      "related_repo_path": "../flute-practice-buddy"
+      "related_repo_path": "../FluteBuddy Practice",
+      "related_repo_symlink_compat": "../flute-practice-buddy",
+      "github_repo": "dymusiques/flute-practice-buddy"
     }
   ],
   "preflight_script": "scripts/ceo-preflight-product-context.py",

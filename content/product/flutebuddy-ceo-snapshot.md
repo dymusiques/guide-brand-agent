@@ -7,7 +7,7 @@ cursor_route: "read"
 
 # FluteBuddy · CEO Must 读（产品真源）
 
-> **代码仓（Sibling · 不在本 repo 内）：** `~/Desktop/flute-practice-buddy` · [GitHub dymusiques/flute-practice-buddy](https://github.com/dymusiques/flute-practice-buddy)  
+> **代码仓（Sibling · 不在本 repo 内）：** `~/Desktop/FluteBuddy Practice`（`~/Desktop/flute-practice-buddy` 为符号链接）· [GitHub dymusiques/flute-practice-buddy](https://github.com/dymusiques/flute-practice-buddy)  
 > **品牌/营销长文：** 只在 **danying-brand-agent** + Open WebUI；**禁止**塞进 app 内 Gemini prompt。
 
 ## 产品是什么

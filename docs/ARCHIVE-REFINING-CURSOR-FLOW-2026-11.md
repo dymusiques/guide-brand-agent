@@ -32,7 +32,7 @@
 1. **新 chat 入口（Owner 约定）：** 策划 / Automations / Refining 类对话 → 从 **`dymusiques/guide-brand-agent`** 开 `+`；**`danying/guide-brand-agent`** 保留旧 thread，不强制删。磁盘真源始终 `~/Desktop/danying-brand-agent` @ `main` 双推。见 [`OWNER-CURSOR-CHAT-ENTRY.md`](OWNER-CURSOR-CHAT-ENTRY.md)。  
 2. **Instructions 粘贴：** Automation 正文 **只从仓库 MD「粘贴块」复制**，禁止从 chat 手打长文。  
 3. **两仓库不合并：** GitHub remote + Origin remote = 同一 `main`，不是两套代码。  
-4. **人格/产品边界：** 本仓 = 张丹瀛 IP 与叙事；FluteBuddy **代码** 在 `flute-practice-buddy`（见 `OWNER-BRAND-AGENT-SCOPE.md`）。  
+4. **人格/产品边界：** 本仓 = 张丹瀛 IP 与叙事；FluteBuddy **代码** 在 `~/Desktop/FluteBuddy Practice`（见 `OWNER-BRAND-AGENT-SCOPE.md`）。  
 5. **Open WebUI：** 未来可选；接口保留，默认当 **关闭** 不阻塞 CEO 主链。
 
 ---

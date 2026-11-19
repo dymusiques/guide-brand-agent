@@ -114,7 +114,7 @@
 |------|------------|
 | `agents/01–12` 分文件夹 | **仍无** 独立 FluteBuddy 章（设计如此：产品不在 brand-agent 仓） |
 | **CEO 必读** | `content/product/flutebuddy-ceo-snapshot.md` · `owner-product-registry.json` · `WORKSPACE.md` |
-| **代码真源** | `~/Desktop/flute-practice-buddy` |
+| **代码真源** | `~/Desktop/FluteBuddy Practice` |
 
 **「读 sibling 才算知道产品」—— 已通过 snapshot + preflight + 本次重写解决；** 不是把 01–12 每格都复制一份产品文档。
 

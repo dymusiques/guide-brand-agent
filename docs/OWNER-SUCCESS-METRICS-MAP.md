@@ -78,4 +78,4 @@ bash scripts/verify-owner-copy-v-tier-mandate.sh
 ## 与本仓定位
 
 - **本仓成功** = 宣传/IP/产品 **叙事** 过关（L1+L2+L3-01）。  
-- **FluteBuddy 产品成功**（准不准、稳不稳）= **flute-practice-buddy** 仓，不在此表 L3 自动验。
+- **FluteBuddy 产品成功**（准不准、稳不稳）= **FluteBuddy Practice** 仓（GitHub `flute-practice-buddy`），不在此表 L3 自动验。

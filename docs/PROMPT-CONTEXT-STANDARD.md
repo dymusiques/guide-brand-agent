@@ -20,7 +20,7 @@ content_sha256: "fcac933726efa12f"
 - **2. 输出长度 → 路由（防输出窗口偷懒）**: | 输出类型 | 路由 | Prompt 写法 |
 - **4. CEO / Manager Prompt（Cursor 专用）**: - **步 −1：** `run-openwebui-router-pipeline.sh --goal "原话"`（长文才跑）
 - **6. 交叉验证（Must 写进交付要求）**: - RAG：**Sources** 或 mirror 路径
-- **8. Flute Practice Buddy（独立 app）**: 见 `flute-practice-buddy/docs/PROMPT-AND-AGENT-ROUTING.md` — **应用内 Gemini** 短输出；长文档不进 app prompt。
+- **8. Flute Practice Buddy（独立 app）**: 见 `FluteBuddy Practice/docs/PROMPT-AND-AGENT-ROUTING.md`（仓名 GitHub：`flute-practice-buddy`）— **应用内 Gemini** 短输出；长文档不进 app prompt。
 
 
 ---
@@ -73,4 +73,4 @@ content_sha256: "fcac933726efa12f"
 
 ## 8. Flute Practice Buddy（独立 app）
 
-见 `flute-practice-buddy/docs/PROMPT-AND-AGENT-ROUTING.md` — **应用内 Gemini** 短输出；长文档不进 app prompt。
+见 `FluteBuddy Practice/docs/PROMPT-AND-AGENT-ROUTING.md` — **应用内 Gemini** 短输出；长文档不进 app prompt。

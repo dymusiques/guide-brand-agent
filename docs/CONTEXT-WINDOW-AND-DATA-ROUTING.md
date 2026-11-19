@@ -80,7 +80,7 @@ flowchart TD
 | 项目 | 脚本 | 做什么 |
 |------|------|--------|
 | Brand / CEO | `scripts/automation/brand_ip_weekly_pipeline.py` | 同步 Valves → 可选 Drive sync → 调 CEO router（dry-run 或实跑） |
-| Flute Buddy | `../flute-practice-buddy/scripts/automation/practice_weekly_summary.py` | 读本机练习数据占位 + 输出周报 Markdown 模板 |
+| Flute Buddy | `../FluteBuddy Practice/scripts/automation/practice_weekly_summary.py` | 读本机练习数据占位 + 输出周报 Markdown 模板 |
 
 完整无人值守仍依赖现有 **shell 管道**；Python 是 **编排层**，不替换 `ceo-full-execution-pipeline.sh`。
 
