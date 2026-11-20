@@ -1,23 +1,28 @@
 # Cursor Automation 索引（品牌仓）
 
-各自 **独立** Cron · 互不可替代。
+各自 **独立** Cron · 互不可替代。  
+**HTML + Chrome 统一标准：** [OWNER-AUTOMATION-HTML-CHROME-STANDARD.md](./OWNER-AUTOMATION-HTML-CHROME-STANDARD.md)
 
-**分支：** 全部 `guide-brand-agent @ main` · 见 [OWNER-CURSOR-AUTOMATION-BRANCH-PIN.md](./OWNER-CURSOR-AUTOMATION-BRANCH-PIN.md)
+**Must：** Automation **Runtime = This Computer**（本机），否则无法 `open -a "Google Chrome"`。
 
-**Cron 时区：** 手填 `30 10 * * *` 若变成 18:30，说明按 UTC 算了 → 用 UI 选 10:30 GMT+8 或 UTC `30 2 * * *`。
+**分支：** `guide-brand-agent` / `main` · [OWNER-CURSOR-AUTOMATION-BRANCH-PIN.md](./OWNER-CURSOR-AUTOMATION-BRANCH-PIN.md)
 
-| # | 名称（建议） | Cron (GMT+8) | Instructions 文档 |
-|---|--------------|--------------|-------------------|
-| 1 | **品牌仓小红书每周选题包** | 周日 11:00 | `OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md` |
-| 1b | **品牌仓 · LinkedIn+Medium 每周选题** | 周日 12:00 | `OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md` |
-| 2 | 品牌仓 · 每周保洁提醒 | 周四 11:00（你已配） | `OWNER-WORKSPACE-HYGIENE.md` 内 Automation 段 |
-| 2b | **品牌仓 · 每周接手轻验** | **周一 09:00** | `OWNER-WEEKLY-HANDOFF-VERIFY-AUTOMATION-INSTRUCTIONS.md` |
-| 3 | **（可选）小红书 · 导表提醒** | **周三+周日 20:30** | `OWNER-XHS-EXPORT-REMINDER-AUTOMATION-INSTRUCTIONS.md` |
-| 4 | **（可选）Drive 日检 · 小红书数据** | **每天 10:30** | `OWNER-XHS-DRIVE-WATCH-AUTOMATION-INSTRUCTIONS.md` |
-| 5 | **品牌仓 · 每日 AI 资讯简报** | **每天 08:00** | `OWNER-DAILY-AI-INTEL-AUTOMATION-INSTRUCTIONS.md` |
+**Cron 时区：** UI 若按 UTC 填写，见各文档；或用界面选 GMT+8。
 
-**说明：** 你目前常见只有 **#1 + #2**。#3、#4 是飞轮补强，**不**替代选题/保洁。
+| # | 名称 | Cron (GMT+8) | slug | Instructions |
+|---|------|--------------|------|--------------|
+| 1 | 品牌仓小红书每周选题包 | 周日 11:00 | `weekly-topic-xhs` | [OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md](./OWNER-WEEKLY-TOPIC-AUTOMATION-INSTRUCTIONS.md) |
+| 1b | LinkedIn+Medium 每周选题 | 周日 12:00 | `weekly-topic-li-medium` | [OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md](./OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md) |
+| 2 | 品牌仓 · 每周保洁提醒 | 周四 11:00 | `workspace-hygiene` | [OWNER-WORKSPACE-HYGIENE-AUTOMATION-INSTRUCTIONS.md](./OWNER-WORKSPACE-HYGIENE-AUTOMATION-INSTRUCTIONS.md) |
+| 2b | 每周接手轻验 | 周一 09:00 | `weekly-handoff-verify` | [OWNER-WEEKLY-HANDOFF-VERIFY-AUTOMATION-INSTRUCTIONS.md](./OWNER-WEEKLY-HANDOFF-VERIFY-AUTOMATION-INSTRUCTIONS.md) |
+| 3 | 小红书导表提醒 | 周三+周日 20:30 | `xhs-export-reminder` | [OWNER-XHS-EXPORT-REMINDER-AUTOMATION-INSTRUCTIONS.md](./OWNER-XHS-EXPORT-REMINDER-AUTOMATION-INSTRUCTIONS.md) |
+| 4 | Drive 日检 · 小红书数据 | 每天 10:30 | `xhs-drive-watch` | [OWNER-XHS-DRIVE-WATCH-AUTOMATION-INSTRUCTIONS.md](./OWNER-XHS-DRIVE-WATCH-AUTOMATION-INSTRUCTIONS.md) |
+| 5 | 每日 AI 资讯简报 | 每天 08:00 | `daily-ai-intel` | [OWNER-DAILY-AI-INTEL-AUTOMATION-INSTRUCTIONS.md](./OWNER-DAILY-AI-INTEL-AUTOMATION-INSTRUCTIONS.md) |
 
-**#1b 尚未进 Cursor UI 时：** 只存在仓库文档 `OWNER-WEEKLY-LI-MEDIUM-TOPIC-AUTOMATION-INSTRUCTIONS.md`；须在 Cursor **Automations → New** 粘贴指令并保存。Agent 可用 `open_automation` 预填草稿（周日 12:00 GMT+8 · `guide-brand-agent @ main`）。
+HTML 输出目录：`content/evolution/00-manager/ceo-inbox/automation-runs/OWNER-AUTOMATION-<slug>-<date>.html`
 
-另：**本机** `process-launcher` 09:00 跑 `background-goal-evolution-cycle` —— 那是 **第 5 类**（非 Cursor Automation）。
+---
+
+**另：** 本机 `process-launcher` 09:00 → `background-goal-evolution-cycle`（**非** Cursor Automation；若也要 HTML，需单独加脚本调用，未纳入上表）。
+
+**更新 Cursor UI：** 每条 Automation 的 Instructions → **整段替换**为对应 md 文件内「粘贴块」；保存后试跑 **Run once** 看 Chrome 是否弹出。
