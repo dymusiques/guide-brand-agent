@@ -1,0 +1,19 @@
+{
+  "version": "2026-11-19",
+  "automation_slug": "xhs-drive-watch",
+  "automation_title_zh": "品牌仓 · Drive 小红书日检",
+  "run_date": "2026-11-20",
+  "md_path": "docs/OWNER-XHS-DRIVE-WATCH-ARCHITECTURE.md",
+  "items": [
+    {
+      "zone": "data",
+      "title_zh": "Drive Listing 对比",
+      "excerpt_zh": "refresh 退出码 1 · FAIL · FileNotFoundError: Missing OAuth credentials file: vendor/gdocs-skill/secrets/credentials.json",
+      "source_name": "compare-owner-xhs-drive-listing.py",
+      "url": "file:///Users/danying/Desktop/danying-brand-agent/integration/handoff/owner-xhs-data-drive.json",
+      "info_date": "2026-11-20"
+    }
+  ],
+  "summary_zh": "同步未完成：Drive listing 刷新失败（缺少 Google OAuth credentials.json），日志无 file_count。",
+  "status": "NEEDS_WORK"
+}
